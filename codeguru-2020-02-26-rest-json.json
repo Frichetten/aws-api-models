@@ -1,0 +1,100 @@
+{
+    "version": "2.0",
+    "metadata": {
+        "apiVersion": "2020-02-26",
+        "endpointPrefix": "codeguru",
+        "jsonVersion": "1.1",
+        "protocol": "rest-json",
+        "serviceFullName": "Amazon CodeGuru Free Trial Tracking",
+        "serviceId": "CodeGuru",
+        "signatureVersion": "v4",
+        "signingName": "codeguru",
+        "uid": "codeguru-2020-02-26",
+        "download_location": [
+            "https://a.b.cdn.console.awsstatic.com/a/v1/MJT3HAQUUUSJBSQ4GLGSZOTPYYCQD2MMLGR6KCOVQTNCJQEPHKAQ/vendors.js"
+        ]
+    },
+    "operations": {
+        "GetCodeGuruFreeTrialSummary": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/internal/codeGuruFreeTrial",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {}
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "codeGuruFreeTrialExpirationDate",
+                    "codeGuruFreeTrialSummary"
+                ],
+                "members": {
+                    "codeGuruFreeTrialExpirationDate": {
+                        "shape": "S3"
+                    },
+                    "codeGuruFreeTrialSummary": {
+                        "type": "map",
+                        "key": {},
+                        "value": {
+                            "type": "structure",
+                            "required": [
+                                "account",
+                                "expirationDate"
+                            ],
+                            "members": {
+                                "account": {
+                                    "type": "structure",
+                                    "required": [
+                                        "accountId",
+                                        "expirationDate",
+                                        "startDate"
+                                    ],
+                                    "members": {
+                                        "accountId": {},
+                                        "expirationDate": {
+                                            "shape": "S3"
+                                        },
+                                        "startDate": {
+                                            "shape": "S3"
+                                        }
+                                    }
+                                },
+                                "expirationDate": {
+                                    "shape": "S3"
+                                },
+                                "payerAccount": {
+                                    "type": "structure",
+                                    "required": [
+                                        "expirationDate",
+                                        "startDate"
+                                    ],
+                                    "members": {
+                                        "expirationDate": {
+                                            "shape": "S3"
+                                        },
+                                        "startDate": {
+                                            "shape": "S3"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/MJT3HAQUUUSJBSQ4GLGSZOTPYYCQD2MMLGR6KCOVQTNCJQEPHKAQ/vendors.js"
+            ]
+        }
+    },
+    "shapes": {
+        "S3": {
+            "type": "timestamp",
+            "timestampFormat": "iso8601"
+        }
+    }
+}

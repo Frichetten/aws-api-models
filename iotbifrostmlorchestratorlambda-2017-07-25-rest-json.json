@@ -1,0 +1,177 @@
+{
+    "version": "2.0",
+    "metadata": {
+        "apiVersion": "2017-07-25",
+        "endpointPrefix": "iotbifrostmlorchestratorlambda",
+        "jsonVersion": "1.1",
+        "protocol": "rest-json",
+        "serviceFullName": "Iot Bifrost ML Orchestrator Lambda",
+        "serviceId": "IoTBifrostML",
+        "signatureVersion": "v4",
+        "signingName": "iotsitewise",
+        "uid": "iotbifrostmlorchestratorlambda-2017-07-25",
+        "download_location": [
+            "https://d2bcfamu8x8ofd.cloudfront.net/db471110-4225-4564-9123-70ce245daceb/app-en.js"
+        ]
+    },
+    "operations": {
+        "CreateAndStartAnomalyDetector": {
+            "http": {
+                "requestUri": "/createAndStartAnomalyDetector"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "detectorId",
+                    "anomalyDetectorName",
+                    "sitewiseSourceConfig",
+                    "mlServiceConfig"
+                ],
+                "members": {
+                    "detectorId": {},
+                    "anomalyDetectorName": {},
+                    "sitewiseSourceConfig": {
+                        "type": "structure",
+                        "required": [
+                            "modelId",
+                            "modelName",
+                            "assetProperty"
+                        ],
+                        "members": {
+                            "modelId": {},
+                            "modelName": {},
+                            "assetProperty": {
+                                "type": "structure",
+                                "required": [
+                                    "propertyId",
+                                    "propertyName"
+                                ],
+                                "members": {
+                                    "assetId": {},
+                                    "propertyId": {},
+                                    "propertyName": {}
+                                }
+                            }
+                        }
+                    },
+                    "mlServiceConfig": {
+                        "type": "structure",
+                        "members": {
+                            "l4MServiceConfig": {
+                                "type": "structure",
+                                "required": [
+                                    "dataUploadFrequency",
+                                    "dataIngestionLocation",
+                                    "roleConfiguration"
+                                ],
+                                "members": {
+                                    "timeZone": {},
+                                    "dataIngestionDelay": {
+                                        "type": "long"
+                                    },
+                                    "dataUploadFrequency": {},
+                                    "dataIngestionLocation": {
+                                        "type": "structure",
+                                        "required": [
+                                            "s3DataSource"
+                                        ],
+                                        "members": {
+                                            "s3DataSource": {
+                                                "shape": "Sd"
+                                            }
+                                        }
+                                    },
+                                    "roleConfiguration": {
+                                        "type": "structure",
+                                        "required": [
+                                            "roleArn",
+                                            "s3RoleArn"
+                                        ],
+                                        "members": {
+                                            "roleArn": {},
+                                            "s3RoleArn": {}
+                                        }
+                                    },
+                                    "description": {}
+                                }
+                            }
+                        },
+                        "union": true
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "detectorId": {},
+                    "detectorStatus": {},
+                    "anomalyDetectorName": {},
+                    "anomalyDetectorARN": {},
+                    "failureReason": {}
+                }
+            },
+            "download_location": [
+                "https://d2bcfamu8x8ofd.cloudfront.net/db471110-4225-4564-9123-70ce245daceb/app-en.js"
+            ]
+        },
+        "DescribeAnomalyDetector": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/anomalyDetector/{detectorId}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "detectorId"
+                ],
+                "members": {
+                    "detectorId": {
+                        "location": "uri",
+                        "locationName": "detectorId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "anomalyDetectorName": {},
+                    "detectorId": {},
+                    "detectorStatus": {},
+                    "description": {},
+                    "dataUploadFrequency": {},
+                    "failureReason": {},
+                    "s3RoleArn": {},
+                    "mlServiceRoleArn": {},
+                    "creationTime": {
+                        "type": "long"
+                    },
+                    "lastModificationTime": {
+                        "type": "long"
+                    },
+                    "anomalyDetectorARN": {},
+                    "propertyId": {},
+                    "propertyName": {},
+                    "s3DataSource": {
+                        "shape": "Sd"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d2bcfamu8x8ofd.cloudfront.net/db471110-4225-4564-9123-70ce245daceb/app-en.js"
+            ]
+        }
+    },
+    "shapes": {
+        "Sd": {
+            "type": "structure",
+            "required": [
+                "bucket",
+                "keyPrefix"
+            ],
+            "members": {
+                "bucket": {},
+                "keyPrefix": {}
+            }
+        }
+    }
+}

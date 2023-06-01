@@ -1,0 +1,4916 @@
+{
+    "version": "2.0",
+    "metadata": {
+        "apiVersion": "2019-09-27",
+        "endpointPrefix": "email",
+        "jsonVersion": "1.1",
+        "protocol": "rest-json",
+        "serviceAbbreviation": "Pinpoint Email",
+        "serviceFullName": "Amazon Pinpoint Email Service",
+        "serviceId": "Pinpoint Email",
+        "signatureVersion": "v4",
+        "signingName": "ses",
+        "uid": "email-2019-09-27",
+        "download_location": [
+            "https://a.b.cdn.console.awsstatic.com/a/v1/36UGVXIVVQVWW3MTH3VNXMIS5OZWK763V2EPZ6K4LU5VXTRTDYLA/vendors.js"
+        ]
+    },
+    "operations": {
+        "BatchGetMetricData": {
+            "http": {
+                "requestUri": "/v2/email/metrics/batch"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "Queries"
+                ],
+                "members": {
+                    "Queries": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "Id",
+                                "Namespace",
+                                "Metric",
+                                "StartDate",
+                                "EndDate"
+                            ],
+                            "members": {
+                                "Id": {},
+                                "Namespace": {},
+                                "Metric": {},
+                                "Dimensions": {
+                                    "type": "map",
+                                    "key": {},
+                                    "value": {}
+                                },
+                                "StartDate": {
+                                    "type": "timestamp"
+                                },
+                                "EndDate": {
+                                    "type": "timestamp"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Results": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "Id": {},
+                                "Timestamps": {
+                                    "type": "list",
+                                    "member": {
+                                        "type": "timestamp"
+                                    }
+                                },
+                                "Values": {
+                                    "type": "list",
+                                    "member": {
+                                        "type": "long"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "Errors": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "Id": {},
+                                "Code": {},
+                                "Message": {}
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/36UGVXIVVQVWW3MTH3VNXMIS5OZWK763V2EPZ6K4LU5VXTRTDYLA/vendors.js"
+            ]
+        },
+        "CreateConfigurationSet": {
+            "http": {
+                "requestUri": "/v2/email/configuration-sets"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ConfigurationSetName"
+                ],
+                "members": {
+                    "ConfigurationSetName": {},
+                    "TrackingOptions": {
+                        "shape": "Sn"
+                    },
+                    "DeliveryOptions": {
+                        "shape": "Sp"
+                    },
+                    "ReputationOptions": {
+                        "shape": "S15"
+                    },
+                    "SendingOptions": {
+                        "shape": "S17"
+                    },
+                    "Tags": {
+                        "shape": "S18"
+                    },
+                    "SuppressionOptions": {
+                        "shape": "S1c"
+                    },
+                    "VdmOptions": {
+                        "shape": "S1f"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/36UGVXIVVQVWW3MTH3VNXMIS5OZWK763V2EPZ6K4LU5VXTRTDYLA/vendors.js"
+            ]
+        },
+        "CreateConfigurationSetEventDestination": {
+            "http": {
+                "requestUri": "/v2/email/configuration-sets/{ConfigurationSetName}/event-destinations"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ConfigurationSetName",
+                    "EventDestinationName",
+                    "EventDestination"
+                ],
+                "members": {
+                    "ConfigurationSetName": {
+                        "location": "uri",
+                        "locationName": "ConfigurationSetName"
+                    },
+                    "EventDestinationName": {},
+                    "EventDestination": {
+                        "shape": "S1m"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/36UGVXIVVQVWW3MTH3VNXMIS5OZWK763V2EPZ6K4LU5VXTRTDYLA/vendors.js"
+            ]
+        },
+        "CreateContact": {
+            "http": {
+                "requestUri": "/v2/email/contact-lists/{ContactListName}/contacts"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ContactListName",
+                    "EmailAddress"
+                ],
+                "members": {
+                    "ContactListName": {
+                        "location": "uri",
+                        "locationName": "ContactListName"
+                    },
+                    "EmailAddress": {},
+                    "TopicPreferences": {
+                        "shape": "S22"
+                    },
+                    "UnsubscribeAll": {
+                        "type": "boolean"
+                    },
+                    "AttributesData": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/36UGVXIVVQVWW3MTH3VNXMIS5OZWK763V2EPZ6K4LU5VXTRTDYLA/vendors.js"
+            ]
+        },
+        "CreateContactList": {
+            "http": {
+                "requestUri": "/v2/email/contact-lists"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ContactListName"
+                ],
+                "members": {
+                    "ContactListName": {},
+                    "Topics": {
+                        "shape": "S2a"
+                    },
+                    "Description": {},
+                    "Tags": {
+                        "shape": "S18"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/36UGVXIVVQVWW3MTH3VNXMIS5OZWK763V2EPZ6K4LU5VXTRTDYLA/vendors.js"
+            ]
+        },
+        "CreateCustomVerificationEmailTemplate": {
+            "http": {
+                "requestUri": "/v2/email/custom-verification-email-templates"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "TemplateName",
+                    "FromEmailAddress",
+                    "TemplateSubject",
+                    "TemplateContent",
+                    "SuccessRedirectionURL",
+                    "FailureRedirectionURL"
+                ],
+                "members": {
+                    "TemplateName": {},
+                    "FromEmailAddress": {},
+                    "TemplateSubject": {},
+                    "TemplateContent": {},
+                    "SuccessRedirectionURL": {},
+                    "FailureRedirectionURL": {},
+                    "CancelSuccessRedirectionURL": {},
+                    "CancelFailureRedirectionURL": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/36UGVXIVVQVWW3MTH3VNXMIS5OZWK763V2EPZ6K4LU5VXTRTDYLA/vendors.js"
+            ]
+        },
+        "CreateDedicatedIpPool": {
+            "http": {
+                "requestUri": "/v2/email/dedicated-ip-pools"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "PoolName"
+                ],
+                "members": {
+                    "PoolName": {},
+                    "Tags": {
+                        "shape": "S18"
+                    },
+                    "ScalingMode": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/36UGVXIVVQVWW3MTH3VNXMIS5OZWK763V2EPZ6K4LU5VXTRTDYLA/vendors.js"
+            ]
+        },
+        "CreateDeliverabilityTestReport": {
+            "http": {
+                "requestUri": "/v2/email/deliverability-dashboard/test"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "FromEmailAddress",
+                    "Content"
+                ],
+                "members": {
+                    "ReportName": {},
+                    "FromEmailAddress": {},
+                    "Content": {
+                        "shape": "S2t"
+                    },
+                    "Tags": {
+                        "shape": "S18"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "ReportId",
+                    "DeliverabilityTestStatus"
+                ],
+                "members": {
+                    "ReportId": {},
+                    "DeliverabilityTestStatus": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/36UGVXIVVQVWW3MTH3VNXMIS5OZWK763V2EPZ6K4LU5VXTRTDYLA/vendors.js"
+            ]
+        },
+        "CreateEmailIdentity": {
+            "http": {
+                "requestUri": "/v2/email/identities"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "EmailIdentity"
+                ],
+                "members": {
+                    "EmailIdentity": {},
+                    "Tags": {
+                        "shape": "S18"
+                    },
+                    "DkimSigningAttributes": {
+                        "shape": "S38"
+                    },
+                    "ConfigurationSetName": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "IdentityType": {},
+                    "VerifiedForSendingStatus": {
+                        "type": "boolean"
+                    },
+                    "DkimAttributes": {
+                        "shape": "S3e"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/36UGVXIVVQVWW3MTH3VNXMIS5OZWK763V2EPZ6K4LU5VXTRTDYLA/vendors.js"
+            ]
+        },
+        "CreateEmailIdentityPolicy": {
+            "http": {
+                "requestUri": "/v2/email/identities/{EmailIdentity}/policies/{PolicyName}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "EmailIdentity",
+                    "PolicyName",
+                    "Policy"
+                ],
+                "members": {
+                    "EmailIdentity": {
+                        "location": "uri",
+                        "locationName": "EmailIdentity"
+                    },
+                    "PolicyName": {
+                        "location": "uri",
+                        "locationName": "PolicyName"
+                    },
+                    "Policy": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/36UGVXIVVQVWW3MTH3VNXMIS5OZWK763V2EPZ6K4LU5VXTRTDYLA/vendors.js"
+            ]
+        },
+        "CreateEmailTemplate": {
+            "http": {
+                "requestUri": "/v2/email/templates"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "TemplateName",
+                    "TemplateContent"
+                ],
+                "members": {
+                    "TemplateName": {},
+                    "TemplateContent": {
+                        "shape": "S3o"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/36UGVXIVVQVWW3MTH3VNXMIS5OZWK763V2EPZ6K4LU5VXTRTDYLA/vendors.js"
+            ]
+        },
+        "CreateImportJob": {
+            "http": {
+                "requestUri": "/v2/email/import-jobs"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ImportDestination",
+                    "ImportDataSource"
+                ],
+                "members": {
+                    "ImportDestination": {
+                        "shape": "S3t"
+                    },
+                    "ImportDataSource": {
+                        "shape": "S3y"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "JobId": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/36UGVXIVVQVWW3MTH3VNXMIS5OZWK763V2EPZ6K4LU5VXTRTDYLA/vendors.js"
+            ]
+        },
+        "DeleteConfigurationSet": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/v2/email/configuration-sets/{ConfigurationSetName}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ConfigurationSetName"
+                ],
+                "members": {
+                    "ConfigurationSetName": {
+                        "location": "uri",
+                        "locationName": "ConfigurationSetName"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/36UGVXIVVQVWW3MTH3VNXMIS5OZWK763V2EPZ6K4LU5VXTRTDYLA/vendors.js"
+            ]
+        },
+        "DeleteConfigurationSetEventDestination": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/v2/email/configuration-sets/{ConfigurationSetName}/event-destinations/{EventDestinationName}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ConfigurationSetName",
+                    "EventDestinationName"
+                ],
+                "members": {
+                    "ConfigurationSetName": {
+                        "location": "uri",
+                        "locationName": "ConfigurationSetName"
+                    },
+                    "EventDestinationName": {
+                        "location": "uri",
+                        "locationName": "EventDestinationName"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/36UGVXIVVQVWW3MTH3VNXMIS5OZWK763V2EPZ6K4LU5VXTRTDYLA/vendors.js"
+            ]
+        },
+        "DeleteContact": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/v2/email/contact-lists/{ContactListName}/contacts/{EmailAddress}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ContactListName",
+                    "EmailAddress"
+                ],
+                "members": {
+                    "ContactListName": {
+                        "location": "uri",
+                        "locationName": "ContactListName"
+                    },
+                    "EmailAddress": {
+                        "location": "uri",
+                        "locationName": "EmailAddress"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/36UGVXIVVQVWW3MTH3VNXMIS5OZWK763V2EPZ6K4LU5VXTRTDYLA/vendors.js"
+            ]
+        },
+        "DeleteContactList": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/v2/email/contact-lists/{ContactListName}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ContactListName"
+                ],
+                "members": {
+                    "ContactListName": {
+                        "location": "uri",
+                        "locationName": "ContactListName"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/36UGVXIVVQVWW3MTH3VNXMIS5OZWK763V2EPZ6K4LU5VXTRTDYLA/vendors.js"
+            ]
+        },
+        "DeleteCustomVerificationEmailTemplate": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/v2/email/custom-verification-email-templates/{TemplateName}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "TemplateName"
+                ],
+                "members": {
+                    "TemplateName": {
+                        "location": "uri",
+                        "locationName": "TemplateName"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/36UGVXIVVQVWW3MTH3VNXMIS5OZWK763V2EPZ6K4LU5VXTRTDYLA/vendors.js"
+            ]
+        },
+        "DeleteDedicatedIpPool": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/v2/email/dedicated-ip-pools/{PoolName}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "PoolName"
+                ],
+                "members": {
+                    "PoolName": {
+                        "location": "uri",
+                        "locationName": "PoolName"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/36UGVXIVVQVWW3MTH3VNXMIS5OZWK763V2EPZ6K4LU5VXTRTDYLA/vendors.js"
+            ]
+        },
+        "DeleteEmailAddressSuppression": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/v2/email/internal/suppressions/{EmailAddress}/"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "EmailAddress"
+                ],
+                "members": {
+                    "RequestMetadata": {
+                        "shape": "S4g"
+                    },
+                    "EmailAddress": {
+                        "location": "uri",
+                        "locationName": "EmailAddress"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/36UGVXIVVQVWW3MTH3VNXMIS5OZWK763V2EPZ6K4LU5VXTRTDYLA/vendors.js"
+            ]
+        },
+        "DeleteEmailIdentity": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/v2/email/identities/{EmailIdentity}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "EmailIdentity"
+                ],
+                "members": {
+                    "EmailIdentity": {
+                        "location": "uri",
+                        "locationName": "EmailIdentity"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/36UGVXIVVQVWW3MTH3VNXMIS5OZWK763V2EPZ6K4LU5VXTRTDYLA/vendors.js"
+            ]
+        },
+        "DeleteEmailIdentityPolicy": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/v2/email/identities/{EmailIdentity}/policies/{PolicyName}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "EmailIdentity",
+                    "PolicyName"
+                ],
+                "members": {
+                    "EmailIdentity": {
+                        "location": "uri",
+                        "locationName": "EmailIdentity"
+                    },
+                    "PolicyName": {
+                        "location": "uri",
+                        "locationName": "PolicyName"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/36UGVXIVVQVWW3MTH3VNXMIS5OZWK763V2EPZ6K4LU5VXTRTDYLA/vendors.js"
+            ]
+        },
+        "DeleteEmailTemplate": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/v2/email/templates/{TemplateName}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "TemplateName"
+                ],
+                "members": {
+                    "TemplateName": {
+                        "location": "uri",
+                        "locationName": "TemplateName"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/36UGVXIVVQVWW3MTH3VNXMIS5OZWK763V2EPZ6K4LU5VXTRTDYLA/vendors.js"
+            ]
+        },
+        "DeleteSuppressedDestination": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/v2/email/suppression/addresses/{EmailAddress}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "EmailAddress"
+                ],
+                "members": {
+                    "EmailAddress": {
+                        "location": "uri",
+                        "locationName": "EmailAddress"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/36UGVXIVVQVWW3MTH3VNXMIS5OZWK763V2EPZ6K4LU5VXTRTDYLA/vendors.js"
+            ]
+        },
+        "GetAccount": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/v2/email/account"
+            },
+            "input": {
+                "type": "structure",
+                "members": {}
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "DedicatedIpAutoWarmupEnabled": {
+                        "type": "boolean"
+                    },
+                    "EnforcementStatus": {},
+                    "ProductionAccessEnabled": {
+                        "type": "boolean"
+                    },
+                    "SendQuota": {
+                        "shape": "S4v"
+                    },
+                    "SendingEnabled": {
+                        "type": "boolean"
+                    },
+                    "SuppressionAttributes": {
+                        "type": "structure",
+                        "members": {
+                            "SuppressedReasons": {
+                                "shape": "S1d"
+                            }
+                        }
+                    },
+                    "Details": {
+                        "type": "structure",
+                        "members": {
+                            "MailType": {},
+                            "WebsiteURL": {
+                                "shape": "S52"
+                            },
+                            "ContactLanguage": {},
+                            "UseCaseDescription": {
+                                "shape": "S54"
+                            },
+                            "AdditionalContactEmailAddresses": {
+                                "shape": "S55"
+                            },
+                            "ReviewDetails": {
+                                "type": "structure",
+                                "members": {
+                                    "Status": {},
+                                    "CaseId": {}
+                                }
+                            }
+                        }
+                    },
+                    "VdmAttributes": {
+                        "shape": "S5a"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/36UGVXIVVQVWW3MTH3VNXMIS5OZWK763V2EPZ6K4LU5VXTRTDYLA/vendors.js"
+            ]
+        },
+        "GetAccountInternal": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/v2/email/internal/account"
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "RequestMetadata": {
+                        "shape": "S4g"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "SendQuota": {
+                        "shape": "S4v"
+                    },
+                    "SendingEnabled": {
+                        "type": "boolean"
+                    },
+                    "DedicatedIpAutoWarmupEnabled": {
+                        "type": "boolean"
+                    },
+                    "EnforcementStatus": {},
+                    "ProductionAccessEnabled": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/36UGVXIVVQVWW3MTH3VNXMIS5OZWK763V2EPZ6K4LU5VXTRTDYLA/vendors.js"
+            ]
+        },
+        "GetBlacklistReports": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/v2/email/deliverability-dashboard/blacklist-report"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "BlacklistItemNames"
+                ],
+                "members": {
+                    "BlacklistItemNames": {
+                        "location": "querystring",
+                        "locationName": "BlacklistItemNames",
+                        "type": "list",
+                        "member": {}
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "BlacklistReport"
+                ],
+                "members": {
+                    "BlacklistReport": {
+                        "type": "map",
+                        "key": {},
+                        "value": {
+                            "type": "list",
+                            "member": {
+                                "type": "structure",
+                                "members": {
+                                    "RblName": {},
+                                    "ListingTime": {
+                                        "type": "timestamp"
+                                    },
+                                    "Description": {}
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/36UGVXIVVQVWW3MTH3VNXMIS5OZWK763V2EPZ6K4LU5VXTRTDYLA/vendors.js"
+            ]
+        },
+        "GetConfigurationSet": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/v2/email/configuration-sets/{ConfigurationSetName}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ConfigurationSetName"
+                ],
+                "members": {
+                    "ConfigurationSetName": {
+                        "location": "uri",
+                        "locationName": "ConfigurationSetName"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ConfigurationSetName": {},
+                    "TrackingOptions": {
+                        "shape": "Sn"
+                    },
+                    "DeliveryOptions": {
+                        "shape": "Sp"
+                    },
+                    "ReputationOptions": {
+                        "shape": "S15"
+                    },
+                    "SendingOptions": {
+                        "shape": "S17"
+                    },
+                    "Tags": {
+                        "shape": "S18"
+                    },
+                    "SuppressionOptions": {
+                        "shape": "S1c"
+                    },
+                    "VdmOptions": {
+                        "shape": "S1f"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/36UGVXIVVQVWW3MTH3VNXMIS5OZWK763V2EPZ6K4LU5VXTRTDYLA/vendors.js"
+            ]
+        },
+        "GetConfigurationSetEventDestinations": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/v2/email/configuration-sets/{ConfigurationSetName}/event-destinations"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ConfigurationSetName"
+                ],
+                "members": {
+                    "ConfigurationSetName": {
+                        "location": "uri",
+                        "locationName": "ConfigurationSetName"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "EventDestinations": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "Name",
+                                "MatchingEventTypes"
+                            ],
+                            "members": {
+                                "Name": {},
+                                "Enabled": {
+                                    "type": "boolean"
+                                },
+                                "MatchingEventTypes": {
+                                    "shape": "S1n"
+                                },
+                                "KinesisFirehoseDestination": {
+                                    "shape": "S1p"
+                                },
+                                "CloudWatchDestination": {
+                                    "shape": "S1q"
+                                },
+                                "SnsDestination": {
+                                    "shape": "S1w"
+                                },
+                                "PinpointDestination": {
+                                    "shape": "S1x"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/36UGVXIVVQVWW3MTH3VNXMIS5OZWK763V2EPZ6K4LU5VXTRTDYLA/vendors.js"
+            ]
+        },
+        "GetContact": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/v2/email/contact-lists/{ContactListName}/contacts/{EmailAddress}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ContactListName",
+                    "EmailAddress"
+                ],
+                "members": {
+                    "ContactListName": {
+                        "location": "uri",
+                        "locationName": "ContactListName"
+                    },
+                    "EmailAddress": {
+                        "location": "uri",
+                        "locationName": "EmailAddress"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ContactListName": {},
+                    "EmailAddress": {},
+                    "TopicPreferences": {
+                        "shape": "S22"
+                    },
+                    "TopicDefaultPreferences": {
+                        "shape": "S22"
+                    },
+                    "UnsubscribeAll": {
+                        "type": "boolean"
+                    },
+                    "AttributesData": {},
+                    "CreatedTimestamp": {
+                        "type": "timestamp"
+                    },
+                    "LastUpdatedTimestamp": {
+                        "type": "timestamp"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/36UGVXIVVQVWW3MTH3VNXMIS5OZWK763V2EPZ6K4LU5VXTRTDYLA/vendors.js"
+            ]
+        },
+        "GetContactList": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/v2/email/contact-lists/{ContactListName}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ContactListName"
+                ],
+                "members": {
+                    "ContactListName": {
+                        "location": "uri",
+                        "locationName": "ContactListName"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ContactListName": {},
+                    "Topics": {
+                        "shape": "S2a"
+                    },
+                    "Description": {},
+                    "CreatedTimestamp": {
+                        "type": "timestamp"
+                    },
+                    "LastUpdatedTimestamp": {
+                        "type": "timestamp"
+                    },
+                    "Tags": {
+                        "shape": "S18"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/36UGVXIVVQVWW3MTH3VNXMIS5OZWK763V2EPZ6K4LU5VXTRTDYLA/vendors.js"
+            ]
+        },
+        "GetCustomVerificationEmailTemplate": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/v2/email/custom-verification-email-templates/{TemplateName}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "TemplateName"
+                ],
+                "members": {
+                    "TemplateName": {
+                        "location": "uri",
+                        "locationName": "TemplateName"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "TemplateName": {},
+                    "FromEmailAddress": {},
+                    "TemplateSubject": {},
+                    "TemplateContent": {},
+                    "SuccessRedirectionURL": {},
+                    "FailureRedirectionURL": {},
+                    "CancelSuccessRedirectionURL": {},
+                    "CancelFailureRedirectionURL": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/36UGVXIVVQVWW3MTH3VNXMIS5OZWK763V2EPZ6K4LU5VXTRTDYLA/vendors.js"
+            ]
+        },
+        "GetDedicatedIp": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/v2/email/dedicated-ips/{IP}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "Ip"
+                ],
+                "members": {
+                    "Ip": {
+                        "location": "uri",
+                        "locationName": "IP"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "DedicatedIp": {
+                        "shape": "S62"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/36UGVXIVVQVWW3MTH3VNXMIS5OZWK763V2EPZ6K4LU5VXTRTDYLA/vendors.js"
+            ]
+        },
+        "GetDedicatedIpPool": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/v2/email/dedicated-ip-pools/{PoolName}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "PoolName"
+                ],
+                "members": {
+                    "PoolName": {
+                        "location": "uri",
+                        "locationName": "PoolName"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "DedicatedIpPool": {
+                        "type": "structure",
+                        "required": [
+                            "PoolName",
+                            "ScalingMode"
+                        ],
+                        "members": {
+                            "PoolName": {},
+                            "ScalingMode": {}
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/36UGVXIVVQVWW3MTH3VNXMIS5OZWK763V2EPZ6K4LU5VXTRTDYLA/vendors.js"
+            ]
+        },
+        "GetDedicatedIps": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/v2/email/dedicated-ips"
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "PoolName": {
+                        "location": "querystring",
+                        "locationName": "PoolName"
+                    },
+                    "NextToken": {
+                        "location": "querystring",
+                        "locationName": "NextToken"
+                    },
+                    "PageSize": {
+                        "location": "querystring",
+                        "locationName": "PageSize",
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "DedicatedIps": {
+                        "type": "list",
+                        "member": {
+                            "shape": "S62"
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/36UGVXIVVQVWW3MTH3VNXMIS5OZWK763V2EPZ6K4LU5VXTRTDYLA/vendors.js"
+            ]
+        },
+        "GetDeliverabilityDashboardOptions": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/v2/email/deliverability-dashboard"
+            },
+            "input": {
+                "type": "structure",
+                "members": {}
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "DashboardEnabled"
+                ],
+                "members": {
+                    "DashboardEnabled": {
+                        "type": "boolean"
+                    },
+                    "SubscriptionExpiryDate": {
+                        "type": "timestamp"
+                    },
+                    "AccountStatus": {},
+                    "ActiveSubscribedDomains": {
+                        "shape": "S6g"
+                    },
+                    "PendingExpirationSubscribedDomains": {
+                        "shape": "S6g"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/36UGVXIVVQVWW3MTH3VNXMIS5OZWK763V2EPZ6K4LU5VXTRTDYLA/vendors.js"
+            ]
+        },
+        "GetDeliverabilityTestReport": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/v2/email/deliverability-dashboard/test-reports/{ReportId}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ReportId"
+                ],
+                "members": {
+                    "ReportId": {
+                        "location": "uri",
+                        "locationName": "ReportId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "DeliverabilityTestReport",
+                    "OverallPlacement",
+                    "IspPlacements"
+                ],
+                "members": {
+                    "DeliverabilityTestReport": {
+                        "shape": "S6o"
+                    },
+                    "OverallPlacement": {
+                        "shape": "S6q"
+                    },
+                    "IspPlacements": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "IspName": {},
+                                "PlacementStatistics": {
+                                    "shape": "S6q"
+                                }
+                            }
+                        }
+                    },
+                    "Message": {},
+                    "Tags": {
+                        "shape": "S18"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/36UGVXIVVQVWW3MTH3VNXMIS5OZWK763V2EPZ6K4LU5VXTRTDYLA/vendors.js"
+            ]
+        },
+        "GetDomainDeliverabilityCampaign": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/v2/email/deliverability-dashboard/campaigns/{CampaignId}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "CampaignId"
+                ],
+                "members": {
+                    "CampaignId": {
+                        "location": "uri",
+                        "locationName": "CampaignId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "DomainDeliverabilityCampaign"
+                ],
+                "members": {
+                    "DomainDeliverabilityCampaign": {
+                        "shape": "S6y"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/36UGVXIVVQVWW3MTH3VNXMIS5OZWK763V2EPZ6K4LU5VXTRTDYLA/vendors.js"
+            ]
+        },
+        "GetDomainStatisticsReport": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/v2/email/deliverability-dashboard/statistics-report/{Domain}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "Domain",
+                    "StartDate",
+                    "EndDate"
+                ],
+                "members": {
+                    "Domain": {
+                        "location": "uri",
+                        "locationName": "Domain"
+                    },
+                    "StartDate": {
+                        "location": "querystring",
+                        "locationName": "StartDate",
+                        "type": "timestamp"
+                    },
+                    "EndDate": {
+                        "location": "querystring",
+                        "locationName": "EndDate",
+                        "type": "timestamp"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "OverallVolume",
+                    "DailyVolumes"
+                ],
+                "members": {
+                    "OverallVolume": {
+                        "type": "structure",
+                        "members": {
+                            "VolumeStatistics": {
+                                "shape": "S78"
+                            },
+                            "ReadRatePercent": {
+                                "type": "double"
+                            },
+                            "DomainIspPlacements": {
+                                "shape": "S79"
+                            }
+                        }
+                    },
+                    "DailyVolumes": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "StartDate": {
+                                    "type": "timestamp"
+                                },
+                                "VolumeStatistics": {
+                                    "shape": "S78"
+                                },
+                                "DomainIspPlacements": {
+                                    "shape": "S79"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/36UGVXIVVQVWW3MTH3VNXMIS5OZWK763V2EPZ6K4LU5VXTRTDYLA/vendors.js"
+            ]
+        },
+        "GetEmailIdentity": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/v2/email/identities/{EmailIdentity}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "EmailIdentity"
+                ],
+                "members": {
+                    "EmailIdentity": {
+                        "location": "uri",
+                        "locationName": "EmailIdentity"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "IdentityType": {},
+                    "FeedbackForwardingStatus": {
+                        "type": "boolean"
+                    },
+                    "VerifiedForSendingStatus": {
+                        "type": "boolean"
+                    },
+                    "DkimAttributes": {
+                        "shape": "S3e"
+                    },
+                    "MailFromAttributes": {
+                        "type": "structure",
+                        "required": [
+                            "MailFromDomain",
+                            "MailFromDomainStatus",
+                            "BehaviorOnMxFailure"
+                        ],
+                        "members": {
+                            "MailFromDomain": {},
+                            "MailFromDomainStatus": {},
+                            "BehaviorOnMxFailure": {}
+                        }
+                    },
+                    "Policies": {
+                        "shape": "S7j"
+                    },
+                    "Tags": {
+                        "shape": "S18"
+                    },
+                    "ConfigurationSetName": {},
+                    "VerificationStatus": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/36UGVXIVVQVWW3MTH3VNXMIS5OZWK763V2EPZ6K4LU5VXTRTDYLA/vendors.js"
+            ]
+        },
+        "GetEmailIdentityPolicies": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/v2/email/identities/{EmailIdentity}/policies"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "EmailIdentity"
+                ],
+                "members": {
+                    "EmailIdentity": {
+                        "location": "uri",
+                        "locationName": "EmailIdentity"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Policies": {
+                        "shape": "S7j"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/36UGVXIVVQVWW3MTH3VNXMIS5OZWK763V2EPZ6K4LU5VXTRTDYLA/vendors.js"
+            ]
+        },
+        "GetEmailTemplate": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/v2/email/templates/{TemplateName}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "TemplateName"
+                ],
+                "members": {
+                    "TemplateName": {
+                        "location": "uri",
+                        "locationName": "TemplateName"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "TemplateName",
+                    "TemplateContent"
+                ],
+                "members": {
+                    "TemplateName": {},
+                    "TemplateContent": {
+                        "shape": "S3o"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/36UGVXIVVQVWW3MTH3VNXMIS5OZWK763V2EPZ6K4LU5VXTRTDYLA/vendors.js"
+            ]
+        },
+        "GetImportJob": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/v2/email/import-jobs/{JobId}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "JobId"
+                ],
+                "members": {
+                    "JobId": {
+                        "location": "uri",
+                        "locationName": "JobId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "JobId": {},
+                    "ImportDestination": {
+                        "shape": "S3t"
+                    },
+                    "ImportDataSource": {
+                        "shape": "S3y"
+                    },
+                    "FailureInfo": {
+                        "type": "structure",
+                        "members": {
+                            "FailedRecordsS3Url": {},
+                            "ErrorMessage": {}
+                        }
+                    },
+                    "JobStatus": {},
+                    "CreatedTimestamp": {
+                        "type": "timestamp"
+                    },
+                    "CompletedTimestamp": {
+                        "type": "timestamp"
+                    },
+                    "ProcessedRecordsCount": {
+                        "type": "integer"
+                    },
+                    "FailedRecordsCount": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/36UGVXIVVQVWW3MTH3VNXMIS5OZWK763V2EPZ6K4LU5VXTRTDYLA/vendors.js"
+            ]
+        },
+        "GetSuppressedDestination": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/v2/email/suppression/addresses/{EmailAddress}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "EmailAddress"
+                ],
+                "members": {
+                    "EmailAddress": {
+                        "location": "uri",
+                        "locationName": "EmailAddress"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "SuppressedDestination"
+                ],
+                "members": {
+                    "SuppressedDestination": {
+                        "type": "structure",
+                        "required": [
+                            "EmailAddress",
+                            "Reason",
+                            "LastUpdateTime"
+                        ],
+                        "members": {
+                            "EmailAddress": {},
+                            "Reason": {},
+                            "LastUpdateTime": {
+                                "type": "timestamp"
+                            },
+                            "Attributes": {
+                                "type": "structure",
+                                "members": {
+                                    "MessageId": {},
+                                    "FeedbackId": {}
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/36UGVXIVVQVWW3MTH3VNXMIS5OZWK763V2EPZ6K4LU5VXTRTDYLA/vendors.js"
+            ]
+        },
+        "ListConfigurationSets": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/v2/email/configuration-sets"
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "NextToken": {
+                        "location": "querystring",
+                        "locationName": "NextToken"
+                    },
+                    "PageSize": {
+                        "location": "querystring",
+                        "locationName": "PageSize",
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ConfigurationSets": {
+                        "type": "list",
+                        "member": {}
+                    },
+                    "NextToken": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/36UGVXIVVQVWW3MTH3VNXMIS5OZWK763V2EPZ6K4LU5VXTRTDYLA/vendors.js"
+            ]
+        },
+        "ListContactLists": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/v2/email/contact-lists"
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "PageSize": {
+                        "location": "querystring",
+                        "locationName": "PageSize",
+                        "type": "integer"
+                    },
+                    "NextToken": {
+                        "location": "querystring",
+                        "locationName": "NextToken"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ContactLists": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "ContactListName": {},
+                                "LastUpdatedTimestamp": {
+                                    "type": "timestamp"
+                                }
+                            }
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/36UGVXIVVQVWW3MTH3VNXMIS5OZWK763V2EPZ6K4LU5VXTRTDYLA/vendors.js"
+            ]
+        },
+        "ListContacts": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/v2/email/contact-lists/{ContactListName}/contacts"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ContactListName"
+                ],
+                "members": {
+                    "ContactListName": {
+                        "location": "uri",
+                        "locationName": "ContactListName"
+                    },
+                    "Filter": {
+                        "type": "structure",
+                        "members": {
+                            "FilteredStatus": {},
+                            "TopicFilter": {
+                                "type": "structure",
+                                "members": {
+                                    "TopicName": {},
+                                    "UseDefaultIfPreferenceUnavailable": {
+                                        "type": "boolean"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "PageSize": {
+                        "location": "querystring",
+                        "locationName": "PageSize",
+                        "type": "integer"
+                    },
+                    "NextToken": {
+                        "location": "querystring",
+                        "locationName": "NextToken"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Contacts": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "EmailAddress": {},
+                                "TopicPreferences": {
+                                    "shape": "S22"
+                                },
+                                "TopicDefaultPreferences": {
+                                    "shape": "S22"
+                                },
+                                "UnsubscribeAll": {
+                                    "type": "boolean"
+                                },
+                                "LastUpdatedTimestamp": {
+                                    "type": "timestamp"
+                                }
+                            }
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/36UGVXIVVQVWW3MTH3VNXMIS5OZWK763V2EPZ6K4LU5VXTRTDYLA/vendors.js"
+            ]
+        },
+        "ListCustomVerificationEmailTemplates": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/v2/email/custom-verification-email-templates"
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "NextToken": {
+                        "location": "querystring",
+                        "locationName": "NextToken"
+                    },
+                    "PageSize": {
+                        "location": "querystring",
+                        "locationName": "PageSize",
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "CustomVerificationEmailTemplates": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "TemplateName": {},
+                                "FromEmailAddress": {},
+                                "TemplateSubject": {},
+                                "SuccessRedirectionURL": {},
+                                "FailureRedirectionURL": {},
+                                "CancelSuccessRedirectionURL": {},
+                                "CancelFailureRedirectionURL": {}
+                            }
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/36UGVXIVVQVWW3MTH3VNXMIS5OZWK763V2EPZ6K4LU5VXTRTDYLA/vendors.js"
+            ]
+        },
+        "ListDedicatedIpPools": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/v2/email/dedicated-ip-pools"
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "NextToken": {
+                        "location": "querystring",
+                        "locationName": "NextToken"
+                    },
+                    "PageSize": {
+                        "location": "querystring",
+                        "locationName": "PageSize",
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "DedicatedIpPools": {
+                        "type": "list",
+                        "member": {}
+                    },
+                    "NextToken": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/36UGVXIVVQVWW3MTH3VNXMIS5OZWK763V2EPZ6K4LU5VXTRTDYLA/vendors.js"
+            ]
+        },
+        "ListDeliverabilityTestReports": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/v2/email/deliverability-dashboard/test-reports"
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "NextToken": {
+                        "location": "querystring",
+                        "locationName": "NextToken"
+                    },
+                    "PageSize": {
+                        "location": "querystring",
+                        "locationName": "PageSize",
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "DeliverabilityTestReports"
+                ],
+                "members": {
+                    "DeliverabilityTestReports": {
+                        "type": "list",
+                        "member": {
+                            "shape": "S6o"
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/36UGVXIVVQVWW3MTH3VNXMIS5OZWK763V2EPZ6K4LU5VXTRTDYLA/vendors.js"
+            ]
+        },
+        "ListDomainDeliverabilityCampaigns": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/v2/email/deliverability-dashboard/domains/{SubscribedDomain}/campaigns"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "StartDate",
+                    "EndDate",
+                    "SubscribedDomain"
+                ],
+                "members": {
+                    "StartDate": {
+                        "location": "querystring",
+                        "locationName": "StartDate",
+                        "type": "timestamp"
+                    },
+                    "EndDate": {
+                        "location": "querystring",
+                        "locationName": "EndDate",
+                        "type": "timestamp"
+                    },
+                    "SubscribedDomain": {
+                        "location": "uri",
+                        "locationName": "SubscribedDomain"
+                    },
+                    "NextToken": {
+                        "location": "querystring",
+                        "locationName": "NextToken"
+                    },
+                    "PageSize": {
+                        "location": "querystring",
+                        "locationName": "PageSize",
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "DomainDeliverabilityCampaigns"
+                ],
+                "members": {
+                    "DomainDeliverabilityCampaigns": {
+                        "type": "list",
+                        "member": {
+                            "shape": "S6y"
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/36UGVXIVVQVWW3MTH3VNXMIS5OZWK763V2EPZ6K4LU5VXTRTDYLA/vendors.js"
+            ]
+        },
+        "ListEmailIdentities": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/v2/email/identities"
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "NextToken": {
+                        "location": "querystring",
+                        "locationName": "NextToken"
+                    },
+                    "PageSize": {
+                        "location": "querystring",
+                        "locationName": "PageSize",
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "EmailIdentities": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "IdentityType": {},
+                                "IdentityName": {},
+                                "SendingEnabled": {
+                                    "type": "boolean"
+                                },
+                                "VerificationStatus": {}
+                            }
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/36UGVXIVVQVWW3MTH3VNXMIS5OZWK763V2EPZ6K4LU5VXTRTDYLA/vendors.js"
+            ]
+        },
+        "ListEmailTemplates": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/v2/email/templates"
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "NextToken": {
+                        "location": "querystring",
+                        "locationName": "NextToken"
+                    },
+                    "PageSize": {
+                        "location": "querystring",
+                        "locationName": "PageSize",
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "TemplatesMetadata": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "TemplateName": {},
+                                "CreatedTimestamp": {
+                                    "type": "timestamp"
+                                }
+                            }
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/36UGVXIVVQVWW3MTH3VNXMIS5OZWK763V2EPZ6K4LU5VXTRTDYLA/vendors.js"
+            ]
+        },
+        "ListImportJobs": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/v2/email/import-jobs"
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "ImportDestinationType": {},
+                    "NextToken": {
+                        "location": "querystring",
+                        "locationName": "NextToken"
+                    },
+                    "PageSize": {
+                        "location": "querystring",
+                        "locationName": "PageSize",
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ImportJobs": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "JobId": {},
+                                "ImportDestination": {
+                                    "shape": "S3t"
+                                },
+                                "JobStatus": {},
+                                "CreatedTimestamp": {
+                                    "type": "timestamp"
+                                },
+                                "ProcessedRecordsCount": {
+                                    "type": "integer"
+                                },
+                                "FailedRecordsCount": {
+                                    "type": "integer"
+                                }
+                            }
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/36UGVXIVVQVWW3MTH3VNXMIS5OZWK763V2EPZ6K4LU5VXTRTDYLA/vendors.js"
+            ]
+        },
+        "ListRecommendations": {
+            "http": {
+                "requestUri": "/v2/email/vdm/recommendations"
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "Filter": {
+                        "type": "map",
+                        "key": {},
+                        "value": {}
+                    },
+                    "NextToken": {},
+                    "PageSize": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Recommendations": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "ResourceArn": {},
+                                "Type": {},
+                                "Description": {},
+                                "Status": {},
+                                "CreatedTimestamp": {
+                                    "type": "timestamp"
+                                },
+                                "LastUpdatedTimestamp": {
+                                    "type": "timestamp"
+                                },
+                                "Impact": {}
+                            }
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/36UGVXIVVQVWW3MTH3VNXMIS5OZWK763V2EPZ6K4LU5VXTRTDYLA/vendors.js"
+            ]
+        },
+        "ListSuppressedDestinations": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/v2/email/suppression/addresses"
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "Reasons": {
+                        "shape": "S1d",
+                        "location": "querystring",
+                        "locationName": "Reason"
+                    },
+                    "StartDate": {
+                        "location": "querystring",
+                        "locationName": "StartDate",
+                        "type": "timestamp"
+                    },
+                    "EndDate": {
+                        "location": "querystring",
+                        "locationName": "EndDate",
+                        "type": "timestamp"
+                    },
+                    "NextToken": {
+                        "location": "querystring",
+                        "locationName": "NextToken"
+                    },
+                    "PageSize": {
+                        "location": "querystring",
+                        "locationName": "PageSize",
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "SuppressedDestinationSummaries": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "EmailAddress",
+                                "Reason",
+                                "LastUpdateTime"
+                            ],
+                            "members": {
+                                "EmailAddress": {},
+                                "Reason": {},
+                                "LastUpdateTime": {
+                                    "type": "timestamp"
+                                }
+                            }
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/36UGVXIVVQVWW3MTH3VNXMIS5OZWK763V2EPZ6K4LU5VXTRTDYLA/vendors.js"
+            ]
+        },
+        "ListTagsForResource": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/v2/email/tags"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ResourceArn"
+                ],
+                "members": {
+                    "ResourceArn": {
+                        "location": "querystring",
+                        "locationName": "ResourceArn"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "Tags"
+                ],
+                "members": {
+                    "Tags": {
+                        "shape": "S18"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/36UGVXIVVQVWW3MTH3VNXMIS5OZWK763V2EPZ6K4LU5VXTRTDYLA/vendors.js"
+            ]
+        },
+        "PutAccountDedicatedIpWarmupAttributes": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/v2/email/account/dedicated-ips/warmup"
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "AutoWarmupEnabled": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/36UGVXIVVQVWW3MTH3VNXMIS5OZWK763V2EPZ6K4LU5VXTRTDYLA/vendors.js"
+            ]
+        },
+        "PutAccountDetails": {
+            "http": {
+                "requestUri": "/v2/email/account/details"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "MailType",
+                    "WebsiteURL",
+                    "UseCaseDescription"
+                ],
+                "members": {
+                    "MailType": {},
+                    "WebsiteURL": {
+                        "shape": "S52"
+                    },
+                    "ContactLanguage": {},
+                    "UseCaseDescription": {
+                        "shape": "S54"
+                    },
+                    "AdditionalContactEmailAddresses": {
+                        "shape": "S55"
+                    },
+                    "ProductionAccessEnabled": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/36UGVXIVVQVWW3MTH3VNXMIS5OZWK763V2EPZ6K4LU5VXTRTDYLA/vendors.js"
+            ]
+        },
+        "PutAccountSendingAttributes": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/v2/email/account/sending"
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "SendingEnabled": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/36UGVXIVVQVWW3MTH3VNXMIS5OZWK763V2EPZ6K4LU5VXTRTDYLA/vendors.js"
+            ]
+        },
+        "PutAccountSuppressionAttributes": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/v2/email/account/suppression"
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "SuppressedReasons": {
+                        "shape": "S1d"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/36UGVXIVVQVWW3MTH3VNXMIS5OZWK763V2EPZ6K4LU5VXTRTDYLA/vendors.js"
+            ]
+        },
+        "PutAccountVdmAttributes": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/v2/email/account/vdm"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "VdmAttributes"
+                ],
+                "members": {
+                    "VdmAttributes": {
+                        "shape": "S5a"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/36UGVXIVVQVWW3MTH3VNXMIS5OZWK763V2EPZ6K4LU5VXTRTDYLA/vendors.js"
+            ]
+        },
+        "PutConfigurationSetDeliveryOptions": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/v2/email/configuration-sets/{ConfigurationSetName}/delivery-options"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ConfigurationSetName"
+                ],
+                "members": {
+                    "ConfigurationSetName": {
+                        "location": "uri",
+                        "locationName": "ConfigurationSetName"
+                    },
+                    "MaxRetryMinutes": {
+                        "type": "integer"
+                    },
+                    "TlsPolicy": {},
+                    "RoutingServer": {
+                        "shape": "Ss"
+                    },
+                    "SendingPoolName": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/36UGVXIVVQVWW3MTH3VNXMIS5OZWK763V2EPZ6K4LU5VXTRTDYLA/vendors.js"
+            ]
+        },
+        "PutConfigurationSetReputationOptions": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/v2/email/configuration-sets/{ConfigurationSetName}/reputation-options"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ConfigurationSetName"
+                ],
+                "members": {
+                    "ConfigurationSetName": {
+                        "location": "uri",
+                        "locationName": "ConfigurationSetName"
+                    },
+                    "ReputationMetricsEnabled": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/36UGVXIVVQVWW3MTH3VNXMIS5OZWK763V2EPZ6K4LU5VXTRTDYLA/vendors.js"
+            ]
+        },
+        "PutConfigurationSetSendingOptions": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/v2/email/configuration-sets/{ConfigurationSetName}/sending"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ConfigurationSetName"
+                ],
+                "members": {
+                    "ConfigurationSetName": {
+                        "location": "uri",
+                        "locationName": "ConfigurationSetName"
+                    },
+                    "SendingEnabled": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/36UGVXIVVQVWW3MTH3VNXMIS5OZWK763V2EPZ6K4LU5VXTRTDYLA/vendors.js"
+            ]
+        },
+        "PutConfigurationSetSuppressionOptions": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/v2/email/configuration-sets/{ConfigurationSetName}/suppression-options"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ConfigurationSetName"
+                ],
+                "members": {
+                    "ConfigurationSetName": {
+                        "location": "uri",
+                        "locationName": "ConfigurationSetName"
+                    },
+                    "SuppressedReasons": {
+                        "shape": "S1d"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/36UGVXIVVQVWW3MTH3VNXMIS5OZWK763V2EPZ6K4LU5VXTRTDYLA/vendors.js"
+            ]
+        },
+        "PutConfigurationSetTrackingOptions": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/v2/email/configuration-sets/{ConfigurationSetName}/tracking-options"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ConfigurationSetName"
+                ],
+                "members": {
+                    "ConfigurationSetName": {
+                        "location": "uri",
+                        "locationName": "ConfigurationSetName"
+                    },
+                    "CustomRedirectDomain": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/36UGVXIVVQVWW3MTH3VNXMIS5OZWK763V2EPZ6K4LU5VXTRTDYLA/vendors.js"
+            ]
+        },
+        "PutConfigurationSetVdmOptions": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/v2/email/configuration-sets/{ConfigurationSetName}/vdm-options"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ConfigurationSetName"
+                ],
+                "members": {
+                    "ConfigurationSetName": {
+                        "location": "uri",
+                        "locationName": "ConfigurationSetName"
+                    },
+                    "VdmOptions": {
+                        "shape": "S1f"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/36UGVXIVVQVWW3MTH3VNXMIS5OZWK763V2EPZ6K4LU5VXTRTDYLA/vendors.js"
+            ]
+        },
+        "PutDedicatedIpInPool": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/v2/email/dedicated-ips/{IP}/pool"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "Ip",
+                    "DestinationPoolName"
+                ],
+                "members": {
+                    "Ip": {
+                        "location": "uri",
+                        "locationName": "IP"
+                    },
+                    "DestinationPoolName": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/36UGVXIVVQVWW3MTH3VNXMIS5OZWK763V2EPZ6K4LU5VXTRTDYLA/vendors.js"
+            ]
+        },
+        "PutDedicatedIpPoolScalingAttributes": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/v2/email/dedicated-ip-pools/{PoolName}/scaling"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "PoolName",
+                    "ScalingMode"
+                ],
+                "members": {
+                    "PoolName": {
+                        "location": "uri",
+                        "locationName": "PoolName"
+                    },
+                    "ScalingMode": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/36UGVXIVVQVWW3MTH3VNXMIS5OZWK763V2EPZ6K4LU5VXTRTDYLA/vendors.js"
+            ]
+        },
+        "PutDedicatedIpWarmupAttributes": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/v2/email/dedicated-ips/{IP}/warmup"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "Ip",
+                    "WarmupPercentage"
+                ],
+                "members": {
+                    "Ip": {
+                        "location": "uri",
+                        "locationName": "IP"
+                    },
+                    "WarmupPercentage": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/36UGVXIVVQVWW3MTH3VNXMIS5OZWK763V2EPZ6K4LU5VXTRTDYLA/vendors.js"
+            ]
+        },
+        "PutDeliverabilityDashboardOption": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/v2/email/deliverability-dashboard"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "DashboardEnabled"
+                ],
+                "members": {
+                    "DashboardEnabled": {
+                        "type": "boolean"
+                    },
+                    "SubscribedDomains": {
+                        "shape": "S6g"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/36UGVXIVVQVWW3MTH3VNXMIS5OZWK763V2EPZ6K4LU5VXTRTDYLA/vendors.js"
+            ]
+        },
+        "PutEmailIdentityConfigurationSetAttributes": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/v2/email/identities/{EmailIdentity}/configuration-set"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "EmailIdentity"
+                ],
+                "members": {
+                    "EmailIdentity": {
+                        "location": "uri",
+                        "locationName": "EmailIdentity"
+                    },
+                    "ConfigurationSetName": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/36UGVXIVVQVWW3MTH3VNXMIS5OZWK763V2EPZ6K4LU5VXTRTDYLA/vendors.js"
+            ]
+        },
+        "PutEmailIdentityDkimAttributes": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/v2/email/identities/{EmailIdentity}/dkim"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "EmailIdentity"
+                ],
+                "members": {
+                    "EmailIdentity": {
+                        "location": "uri",
+                        "locationName": "EmailIdentity"
+                    },
+                    "SigningEnabled": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/36UGVXIVVQVWW3MTH3VNXMIS5OZWK763V2EPZ6K4LU5VXTRTDYLA/vendors.js"
+            ]
+        },
+        "PutEmailIdentityDkimSigningAttributes": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/v2/email/identities/{EmailIdentity}/dkim/signing"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "EmailIdentity",
+                    "SigningAttributesOrigin"
+                ],
+                "members": {
+                    "EmailIdentity": {
+                        "location": "uri",
+                        "locationName": "EmailIdentity"
+                    },
+                    "SigningAttributesOrigin": {},
+                    "SigningAttributes": {
+                        "shape": "S38"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "DkimStatus": {},
+                    "DkimTokens": {
+                        "shape": "S3g"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/36UGVXIVVQVWW3MTH3VNXMIS5OZWK763V2EPZ6K4LU5VXTRTDYLA/vendors.js"
+            ]
+        },
+        "PutEmailIdentityFeedbackAttributes": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/v2/email/identities/{EmailIdentity}/feedback"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "EmailIdentity"
+                ],
+                "members": {
+                    "EmailIdentity": {
+                        "location": "uri",
+                        "locationName": "EmailIdentity"
+                    },
+                    "EmailForwardingEnabled": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/36UGVXIVVQVWW3MTH3VNXMIS5OZWK763V2EPZ6K4LU5VXTRTDYLA/vendors.js"
+            ]
+        },
+        "PutEmailIdentityMailFromAttributes": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/v2/email/identities/{EmailIdentity}/mail-from"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "EmailIdentity"
+                ],
+                "members": {
+                    "EmailIdentity": {
+                        "location": "uri",
+                        "locationName": "EmailIdentity"
+                    },
+                    "MailFromDomain": {},
+                    "BehaviorOnMxFailure": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/36UGVXIVVQVWW3MTH3VNXMIS5OZWK763V2EPZ6K4LU5VXTRTDYLA/vendors.js"
+            ]
+        },
+        "PutSuppressedDestination": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/v2/email/suppression/addresses"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "EmailAddress",
+                    "Reason"
+                ],
+                "members": {
+                    "EmailAddress": {},
+                    "Reason": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/36UGVXIVVQVWW3MTH3VNXMIS5OZWK763V2EPZ6K4LU5VXTRTDYLA/vendors.js"
+            ]
+        },
+        "SendBulkEmail": {
+            "http": {
+                "requestUri": "/v2/email/outbound-bulk-emails"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "DefaultContent",
+                    "BulkEmailEntries"
+                ],
+                "members": {
+                    "FromEmailAddress": {},
+                    "FromEmailAddressIdentityArn": {},
+                    "ReplyToAddresses": {
+                        "shape": "Sax"
+                    },
+                    "FeedbackForwardingEmailAddress": {},
+                    "FeedbackForwardingEmailAddressIdentityArn": {},
+                    "DefaultEmailTags": {
+                        "shape": "Say"
+                    },
+                    "DefaultContent": {
+                        "type": "structure",
+                        "members": {
+                            "Template": {
+                                "shape": "S31"
+                            }
+                        }
+                    },
+                    "BulkEmailEntries": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "Destination"
+                            ],
+                            "members": {
+                                "Destination": {
+                                    "shape": "Sb5"
+                                },
+                                "ReplacementTags": {
+                                    "shape": "Say"
+                                },
+                                "ReplacementEmailContent": {
+                                    "type": "structure",
+                                    "members": {
+                                        "ReplacementTemplate": {
+                                            "type": "structure",
+                                            "members": {
+                                                "ReplacementTemplateData": {}
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "ConfigurationSetName": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "BulkEmailEntryResults"
+                ],
+                "members": {
+                    "BulkEmailEntryResults": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "Status": {},
+                                "Error": {},
+                                "MessageId": {}
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/36UGVXIVVQVWW3MTH3VNXMIS5OZWK763V2EPZ6K4LU5VXTRTDYLA/vendors.js"
+            ]
+        },
+        "SendCustomVerificationEmail": {
+            "http": {
+                "requestUri": "/v2/email/outbound-custom-verification-emails"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "EmailAddress",
+                    "TemplateName"
+                ],
+                "members": {
+                    "EmailAddress": {},
+                    "TemplateName": {},
+                    "ConfigurationSetName": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "MessageId": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/36UGVXIVVQVWW3MTH3VNXMIS5OZWK763V2EPZ6K4LU5VXTRTDYLA/vendors.js"
+            ]
+        },
+        "SendEmail": {
+            "http": {
+                "requestUri": "/v2/email/outbound-emails"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "Content"
+                ],
+                "members": {
+                    "FromEmailAddress": {},
+                    "FromEmailAddressIdentityArn": {},
+                    "Destination": {
+                        "shape": "Sb5"
+                    },
+                    "ReplyToAddresses": {
+                        "shape": "Sax"
+                    },
+                    "FeedbackForwardingEmailAddress": {},
+                    "FeedbackForwardingEmailAddressIdentityArn": {},
+                    "Content": {
+                        "shape": "S2t"
+                    },
+                    "EmailTags": {
+                        "shape": "Say"
+                    },
+                    "ConfigurationSetName": {},
+                    "ListManagementOptions": {
+                        "type": "structure",
+                        "required": [
+                            "ContactListName"
+                        ],
+                        "members": {
+                            "ContactListName": {},
+                            "TopicName": {}
+                        }
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "MessageId": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/36UGVXIVVQVWW3MTH3VNXMIS5OZWK763V2EPZ6K4LU5VXTRTDYLA/vendors.js"
+            ]
+        },
+        "SendPinpointEmail": {
+            "http": {
+                "requestUri": "/v2/email/internal/outbound-messages"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "Content"
+                ],
+                "members": {
+                    "FromAddress": {},
+                    "Destination": {
+                        "shape": "Sb5"
+                    },
+                    "ReplyToAddresses": {
+                        "shape": "Sax"
+                    },
+                    "FeedbackForwardingAddress": {},
+                    "Context": {
+                        "shape": "Say"
+                    },
+                    "SystemContext": {
+                        "shape": "Say"
+                    },
+                    "Application": {},
+                    "ConfigurationSetName": {},
+                    "RequestMetadata": {
+                        "shape": "S4g"
+                    },
+                    "Content": {
+                        "shape": "S2t"
+                    },
+                    "MessageId": {},
+                    "ShouldBill": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "MessageId": {},
+                    "AuthorizationError": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/36UGVXIVVQVWW3MTH3VNXMIS5OZWK763V2EPZ6K4LU5VXTRTDYLA/vendors.js"
+            ]
+        },
+        "TagResource": {
+            "http": {
+                "requestUri": "/v2/email/tags"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ResourceArn",
+                    "Tags"
+                ],
+                "members": {
+                    "ResourceArn": {},
+                    "Tags": {
+                        "shape": "S18"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/36UGVXIVVQVWW3MTH3VNXMIS5OZWK763V2EPZ6K4LU5VXTRTDYLA/vendors.js"
+            ]
+        },
+        "TestRenderEmailTemplate": {
+            "http": {
+                "requestUri": "/v2/email/templates/{TemplateName}/render"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "TemplateName",
+                    "TemplateData"
+                ],
+                "members": {
+                    "TemplateName": {
+                        "location": "uri",
+                        "locationName": "TemplateName"
+                    },
+                    "TemplateData": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "RenderedTemplate"
+                ],
+                "members": {
+                    "RenderedTemplate": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/36UGVXIVVQVWW3MTH3VNXMIS5OZWK763V2EPZ6K4LU5VXTRTDYLA/vendors.js"
+            ]
+        },
+        "UntagResource": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/v2/email/tags"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ResourceArn",
+                    "TagKeys"
+                ],
+                "members": {
+                    "ResourceArn": {
+                        "location": "querystring",
+                        "locationName": "ResourceArn"
+                    },
+                    "TagKeys": {
+                        "location": "querystring",
+                        "locationName": "TagKeys",
+                        "type": "list",
+                        "member": {}
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/36UGVXIVVQVWW3MTH3VNXMIS5OZWK763V2EPZ6K4LU5VXTRTDYLA/vendors.js"
+            ]
+        },
+        "UpdateConfigurationSetEventDestination": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/v2/email/configuration-sets/{ConfigurationSetName}/event-destinations/{EventDestinationName}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ConfigurationSetName",
+                    "EventDestinationName",
+                    "EventDestination"
+                ],
+                "members": {
+                    "ConfigurationSetName": {
+                        "location": "uri",
+                        "locationName": "ConfigurationSetName"
+                    },
+                    "EventDestinationName": {
+                        "location": "uri",
+                        "locationName": "EventDestinationName"
+                    },
+                    "EventDestination": {
+                        "shape": "S1m"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/36UGVXIVVQVWW3MTH3VNXMIS5OZWK763V2EPZ6K4LU5VXTRTDYLA/vendors.js"
+            ]
+        },
+        "UpdateContact": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/v2/email/contact-lists/{ContactListName}/contacts/{EmailAddress}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ContactListName",
+                    "EmailAddress"
+                ],
+                "members": {
+                    "ContactListName": {
+                        "location": "uri",
+                        "locationName": "ContactListName"
+                    },
+                    "EmailAddress": {
+                        "location": "uri",
+                        "locationName": "EmailAddress"
+                    },
+                    "TopicPreferences": {
+                        "shape": "S22"
+                    },
+                    "UnsubscribeAll": {
+                        "type": "boolean"
+                    },
+                    "AttributesData": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/36UGVXIVVQVWW3MTH3VNXMIS5OZWK763V2EPZ6K4LU5VXTRTDYLA/vendors.js"
+            ]
+        },
+        "UpdateContactList": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/v2/email/contact-lists/{ContactListName}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ContactListName"
+                ],
+                "members": {
+                    "ContactListName": {
+                        "location": "uri",
+                        "locationName": "ContactListName"
+                    },
+                    "Topics": {
+                        "shape": "S2a"
+                    },
+                    "Description": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/36UGVXIVVQVWW3MTH3VNXMIS5OZWK763V2EPZ6K4LU5VXTRTDYLA/vendors.js"
+            ]
+        },
+        "UpdateCustomVerificationEmailTemplate": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/v2/email/custom-verification-email-templates/{TemplateName}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "TemplateName",
+                    "FromEmailAddress",
+                    "TemplateSubject",
+                    "TemplateContent",
+                    "SuccessRedirectionURL",
+                    "FailureRedirectionURL"
+                ],
+                "members": {
+                    "TemplateName": {
+                        "location": "uri",
+                        "locationName": "TemplateName"
+                    },
+                    "FromEmailAddress": {},
+                    "TemplateSubject": {},
+                    "TemplateContent": {},
+                    "SuccessRedirectionURL": {},
+                    "FailureRedirectionURL": {},
+                    "CancelSuccessRedirectionURL": {},
+                    "CancelFailureRedirectionURL": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/36UGVXIVVQVWW3MTH3VNXMIS5OZWK763V2EPZ6K4LU5VXTRTDYLA/vendors.js"
+            ]
+        },
+        "UpdateEmailIdentityPolicy": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/v2/email/identities/{EmailIdentity}/policies/{PolicyName}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "EmailIdentity",
+                    "PolicyName",
+                    "Policy"
+                ],
+                "members": {
+                    "EmailIdentity": {
+                        "location": "uri",
+                        "locationName": "EmailIdentity"
+                    },
+                    "PolicyName": {
+                        "location": "uri",
+                        "locationName": "PolicyName"
+                    },
+                    "Policy": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/36UGVXIVVQVWW3MTH3VNXMIS5OZWK763V2EPZ6K4LU5VXTRTDYLA/vendors.js"
+            ]
+        },
+        "UpdateEmailTemplate": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/v2/email/templates/{TemplateName}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "TemplateName",
+                    "TemplateContent"
+                ],
+                "members": {
+                    "TemplateName": {
+                        "location": "uri",
+                        "locationName": "TemplateName"
+                    },
+                    "TemplateContent": {
+                        "shape": "S3o"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/36UGVXIVVQVWW3MTH3VNXMIS5OZWK763V2EPZ6K4LU5VXTRTDYLA/vendors.js"
+            ]
+        },
+        "VerifyResourcesExistForTagris": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/v2/email/internal/tagris/resources"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "TagrisSweepList"
+                ],
+                "members": {
+                    "TagrisSweepList": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "TagrisAccountId": {},
+                                "TagrisAmazonResourceName": {},
+                                "TagrisInternalId": {},
+                                "TagrisVersion": {
+                                    "type": "long"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "TagrisSweepListResult"
+                ],
+                "members": {
+                    "TagrisSweepListResult": {
+                        "type": "map",
+                        "key": {},
+                        "value": {}
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/36UGVXIVVQVWW3MTH3VNXMIS5OZWK763V2EPZ6K4LU5VXTRTDYLA/vendors.js"
+            ]
+        },
+        "CreateExportJob": {
+            "http": {
+                "requestUri": "/v2/email/export-jobs"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ExportDataSource",
+                    "ExportDestination"
+                ],
+                "members": {
+                    "ExportDataSource": {
+                        "shape": "S3t"
+                    },
+                    "ExportDestination": {
+                        "shape": "S40"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "JobId": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/PON6KW2IZPUTLP7AVRKVJK4MV5MCRJEJJ23LVPFZKXSUYEPITPGA/vendors.js"
+            ]
+        },
+        "GetExportJob": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/v2/email/export-jobs/{JobId}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "JobId"
+                ],
+                "members": {
+                    "JobId": {
+                        "location": "uri",
+                        "locationName": "JobId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "JobId": {},
+                    "ExportSourceType": {},
+                    "JobStatus": {},
+                    "ExportDestination": {
+                        "shape": "S40"
+                    },
+                    "ExportDataSource": {
+                        "shape": "S3t"
+                    },
+                    "CreatedTimestamp": {
+                        "type": "timestamp"
+                    },
+                    "CompletedTimestamp": {
+                        "type": "timestamp"
+                    },
+                    "FailureInfo": {
+                        "shape": "S83"
+                    },
+                    "Statistics": {
+                        "type": "structure",
+                        "members": {
+                            "ProcessedRecordsCount": {
+                                "type": "integer"
+                            },
+                            "ExportedRecordsCount": {
+                                "type": "integer"
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/PON6KW2IZPUTLP7AVRKVJK4MV5MCRJEJJ23LVPFZKXSUYEPITPGA/vendors.js"
+            ]
+        },
+        "ListExportJobs": {
+            "http": {
+                "requestUri": "/v2/email/list-export-jobs"
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "NextToken": {},
+                    "PageSize": {
+                        "type": "integer"
+                    },
+                    "ExportSourceType": {},
+                    "JobStatus": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ExportJobs": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "JobId": {},
+                                "ExportSourceType": {},
+                                "JobStatus": {},
+                                "CreatedTimestamp": {
+                                    "type": "timestamp"
+                                },
+                                "CompletedTimestamp": {
+                                    "type": "timestamp"
+                                }
+                            }
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/PON6KW2IZPUTLP7AVRKVJK4MV5MCRJEJJ23LVPFZKXSUYEPITPGA/vendors.js"
+            ]
+        },
+        "CancelExportJob": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/v2/email/export-jobs/{JobId}/cancel"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "JobId"
+                ],
+                "members": {
+                    "JobId": {
+                        "location": "uri",
+                        "locationName": "JobId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/YP33FEF22L42JDTIMOSGWEDA5ORAMHKZXSVKYXHT5ZKZ2ANMTOMQ/vendors.js"
+            ]
+        }
+    },
+    "shapes": {
+        "Sn": {
+            "type": "structure",
+            "required": [
+                "CustomRedirectDomain"
+            ],
+            "members": {
+                "CustomRedirectDomain": {}
+            }
+        },
+        "Sp": {
+            "type": "structure",
+            "members": {
+                "MaxRetryMinutes": {
+                    "type": "integer"
+                },
+                "TlsPolicy": {},
+                "RoutingServer": {
+                    "shape": "Ss"
+                },
+                "SendingPoolName": {}
+            }
+        },
+        "Ss": {
+            "type": "structure",
+            "required": [
+                "ServerName",
+                "Port",
+                "Enabled",
+                "RoutingServerAuthentication",
+                "FailureMode"
+            ],
+            "members": {
+                "ServerName": {},
+                "Port": {
+                    "type": "integer"
+                },
+                "Enabled": {
+                    "type": "boolean"
+                },
+                "Status": {},
+                "RoutingServerAuthentication": {
+                    "type": "structure",
+                    "members": {
+                        "Credentials": {
+                            "type": "structure",
+                            "required": [
+                                "Username",
+                                "Password"
+                            ],
+                            "members": {
+                                "Username": {},
+                                "Password": {}
+                            }
+                        },
+                        "Certificate": {
+                            "type": "structure",
+                            "required": [
+                                "CertificateArn"
+                            ],
+                            "members": {
+                                "CertificateArn": {}
+                            }
+                        }
+                    }
+                },
+                "FailureMode": {}
+            }
+        },
+        "S15": {
+            "type": "structure",
+            "members": {
+                "ReputationMetricsEnabled": {
+                    "type": "boolean"
+                },
+                "LastFreshStart": {
+                    "type": "timestamp"
+                }
+            }
+        },
+        "S17": {
+            "type": "structure",
+            "members": {
+                "SendingEnabled": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "S18": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "Key",
+                    "Value"
+                ],
+                "members": {
+                    "Key": {},
+                    "Value": {}
+                }
+            }
+        },
+        "S1c": {
+            "type": "structure",
+            "members": {
+                "SuppressedReasons": {
+                    "shape": "S1d"
+                }
+            }
+        },
+        "S1d": {
+            "type": "list",
+            "member": {}
+        },
+        "S1f": {
+            "type": "structure",
+            "members": {
+                "DashboardOptions": {
+                    "type": "structure",
+                    "members": {
+                        "EngagementMetrics": {}
+                    }
+                },
+                "GuardianOptions": {
+                    "type": "structure",
+                    "members": {
+                        "OptimizedSharedDelivery": {}
+                    }
+                }
+            }
+        },
+        "S1m": {
+            "type": "structure",
+            "members": {
+                "Enabled": {
+                    "type": "boolean"
+                },
+                "MatchingEventTypes": {
+                    "shape": "S1n"
+                },
+                "KinesisFirehoseDestination": {
+                    "shape": "S1p"
+                },
+                "CloudWatchDestination": {
+                    "shape": "S1q"
+                },
+                "SnsDestination": {
+                    "shape": "S1w"
+                },
+                "PinpointDestination": {
+                    "shape": "S1x"
+                }
+            }
+        },
+        "S1n": {
+            "type": "list",
+            "member": {}
+        },
+        "S1p": {
+            "type": "structure",
+            "required": [
+                "IamRoleArn",
+                "DeliveryStreamArn"
+            ],
+            "members": {
+                "IamRoleArn": {},
+                "DeliveryStreamArn": {}
+            }
+        },
+        "S1q": {
+            "type": "structure",
+            "required": [
+                "DimensionConfigurations"
+            ],
+            "members": {
+                "DimensionConfigurations": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "required": [
+                            "DimensionName",
+                            "DimensionValueSource",
+                            "DefaultDimensionValue"
+                        ],
+                        "members": {
+                            "DimensionName": {},
+                            "DimensionValueSource": {},
+                            "DefaultDimensionValue": {}
+                        }
+                    }
+                }
+            }
+        },
+        "S1w": {
+            "type": "structure",
+            "required": [
+                "TopicArn"
+            ],
+            "members": {
+                "TopicArn": {}
+            }
+        },
+        "S1x": {
+            "type": "structure",
+            "members": {
+                "ApplicationArn": {}
+            }
+        },
+        "S22": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "TopicName",
+                    "SubscriptionStatus"
+                ],
+                "members": {
+                    "TopicName": {},
+                    "SubscriptionStatus": {}
+                }
+            }
+        },
+        "S2a": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "TopicName",
+                    "DisplayName",
+                    "DefaultSubscriptionStatus"
+                ],
+                "members": {
+                    "TopicName": {},
+                    "DisplayName": {},
+                    "Description": {},
+                    "DefaultSubscriptionStatus": {}
+                }
+            }
+        },
+        "S2t": {
+            "type": "structure",
+            "members": {
+                "Simple": {
+                    "type": "structure",
+                    "required": [
+                        "Subject",
+                        "Body"
+                    ],
+                    "members": {
+                        "Subject": {
+                            "shape": "S2v"
+                        },
+                        "Body": {
+                            "type": "structure",
+                            "members": {
+                                "Text": {
+                                    "shape": "S2v"
+                                },
+                                "Html": {
+                                    "shape": "S2v"
+                                }
+                            }
+                        }
+                    }
+                },
+                "Raw": {
+                    "type": "structure",
+                    "required": [
+                        "Data"
+                    ],
+                    "members": {
+                        "Data": {
+                            "type": "blob"
+                        }
+                    }
+                },
+                "Template": {
+                    "shape": "S31"
+                }
+            }
+        },
+        "S2v": {
+            "type": "structure",
+            "required": [
+                "Data"
+            ],
+            "members": {
+                "Data": {},
+                "Charset": {}
+            }
+        },
+        "S31": {
+            "type": "structure",
+            "members": {
+                "TemplateName": {},
+                "TemplateArn": {},
+                "TemplateData": {}
+            }
+        },
+        "S38": {
+            "type": "structure",
+            "members": {
+                "DomainSigningSelector": {},
+                "DomainSigningPrivateKey": {
+                    "type": "string",
+                    "sensitive": true
+                },
+                "NextSigningKeyLength": {}
+            }
+        },
+        "S3e": {
+            "type": "structure",
+            "members": {
+                "SigningEnabled": {
+                    "type": "boolean"
+                },
+                "Status": {},
+                "Tokens": {
+                    "shape": "S3g"
+                },
+                "SigningAttributesOrigin": {},
+                "NextSigningKeyLength": {},
+                "CurrentSigningKeyLength": {},
+                "LastKeyGenerationTimestamp": {
+                    "type": "timestamp"
+                }
+            }
+        },
+        "S3g": {
+            "type": "list",
+            "member": {}
+        },
+        "S3o": {
+            "type": "structure",
+            "members": {
+                "Subject": {},
+                "Text": {},
+                "Html": {}
+            }
+        },
+        "S3t": {
+            "type": "structure",
+            "members": {
+                "SuppressionListDestination": {
+                    "type": "structure",
+                    "required": [
+                        "SuppressionListImportAction"
+                    ],
+                    "members": {
+                        "SuppressionListImportAction": {}
+                    }
+                },
+                "ContactListDestination": {
+                    "type": "structure",
+                    "required": [
+                        "ContactListName",
+                        "ContactListImportAction"
+                    ],
+                    "members": {
+                        "ContactListName": {},
+                        "ContactListImportAction": {}
+                    }
+                }
+            }
+        },
+        "S3y": {
+            "type": "structure",
+            "required": [
+                "S3Url",
+                "DataFormat"
+            ],
+            "members": {
+                "S3Url": {},
+                "DataFormat": {}
+            }
+        },
+        "S4g": {
+            "type": "structure",
+            "required": [
+                "SendingAccount"
+            ],
+            "members": {
+                "SourceIp": {},
+                "SendingAccount": {},
+                "CallerIdentityArn": {}
+            }
+        },
+        "S4v": {
+            "type": "structure",
+            "members": {
+                "Max24HourSend": {
+                    "type": "double"
+                },
+                "MaxSendRate": {
+                    "type": "double"
+                },
+                "SentLast24Hours": {
+                    "type": "double"
+                }
+            }
+        },
+        "S52": {
+            "type": "string",
+            "sensitive": true
+        },
+        "S54": {
+            "type": "string",
+            "sensitive": true
+        },
+        "S55": {
+            "type": "list",
+            "member": {
+                "type": "string",
+                "sensitive": true
+            },
+            "sensitive": true
+        },
+        "S5a": {
+            "type": "structure",
+            "required": [
+                "VdmEnabled"
+            ],
+            "members": {
+                "VdmEnabled": {},
+                "DashboardAttributes": {
+                    "type": "structure",
+                    "members": {
+                        "EngagementMetrics": {}
+                    }
+                },
+                "GuardianAttributes": {
+                    "type": "structure",
+                    "members": {
+                        "OptimizedSharedDelivery": {}
+                    }
+                }
+            }
+        },
+        "S62": {
+            "type": "structure",
+            "required": [
+                "Ip",
+                "WarmupStatus",
+                "WarmupPercentage"
+            ],
+            "members": {
+                "Ip": {},
+                "WarmupStatus": {},
+                "WarmupPercentage": {
+                    "type": "integer"
+                },
+                "PoolName": {}
+            }
+        },
+        "S6g": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "Domain": {},
+                    "SubscriptionStartDate": {
+                        "type": "timestamp"
+                    },
+                    "InboxPlacementTrackingOption": {
+                        "type": "structure",
+                        "members": {
+                            "Global": {
+                                "type": "boolean"
+                            },
+                            "TrackedIsps": {
+                                "type": "list",
+                                "member": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "S6o": {
+            "type": "structure",
+            "members": {
+                "ReportId": {},
+                "ReportName": {},
+                "Subject": {},
+                "FromEmailAddress": {},
+                "CreateDate": {
+                    "type": "timestamp"
+                },
+                "DeliverabilityTestStatus": {}
+            }
+        },
+        "S6q": {
+            "type": "structure",
+            "members": {
+                "InboxPercentage": {
+                    "type": "double"
+                },
+                "SpamPercentage": {
+                    "type": "double"
+                },
+                "MissingPercentage": {
+                    "type": "double"
+                },
+                "SpfPercentage": {
+                    "type": "double"
+                },
+                "DkimPercentage": {
+                    "type": "double"
+                }
+            }
+        },
+        "S6y": {
+            "type": "structure",
+            "members": {
+                "CampaignId": {},
+                "ImageUrl": {},
+                "Subject": {},
+                "FromAddress": {},
+                "SendingIps": {
+                    "type": "list",
+                    "member": {}
+                },
+                "FirstSeenDateTime": {
+                    "type": "timestamp"
+                },
+                "LastSeenDateTime": {
+                    "type": "timestamp"
+                },
+                "InboxCount": {
+                    "type": "long"
+                },
+                "SpamCount": {
+                    "type": "long"
+                },
+                "ReadRate": {
+                    "type": "double"
+                },
+                "DeleteRate": {
+                    "type": "double"
+                },
+                "ReadDeleteRate": {
+                    "type": "double"
+                },
+                "ProjectedVolume": {
+                    "type": "long"
+                },
+                "Esps": {
+                    "type": "list",
+                    "member": {}
+                }
+            }
+        },
+        "S78": {
+            "type": "structure",
+            "members": {
+                "InboxRawCount": {
+                    "type": "long"
+                },
+                "SpamRawCount": {
+                    "type": "long"
+                },
+                "ProjectedInbox": {
+                    "type": "long"
+                },
+                "ProjectedSpam": {
+                    "type": "long"
+                }
+            }
+        },
+        "S79": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "IspName": {},
+                    "InboxRawCount": {
+                        "type": "long"
+                    },
+                    "SpamRawCount": {
+                        "type": "long"
+                    },
+                    "InboxPercentage": {
+                        "type": "double"
+                    },
+                    "SpamPercentage": {
+                        "type": "double"
+                    }
+                }
+            }
+        },
+        "S7j": {
+            "type": "map",
+            "key": {},
+            "value": {}
+        },
+        "Sax": {
+            "type": "list",
+            "member": {}
+        },
+        "Say": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "Name",
+                    "Value"
+                ],
+                "members": {
+                    "Name": {},
+                    "Value": {}
+                }
+            }
+        },
+        "Sb5": {
+            "type": "structure",
+            "members": {
+                "ToAddresses": {
+                    "shape": "Sax"
+                },
+                "CcAddresses": {
+                    "shape": "Sax"
+                },
+                "BccAddresses": {
+                    "shape": "Sax"
+                }
+            }
+        },
+        "S40": {
+            "type": "structure",
+            "members": {
+                "DataFormat": {},
+                "S3Url": {}
+            }
+        },
+        "S46": {
+            "type": "structure",
+            "members": {
+                "SuppressionListDestination": {
+                    "type": "structure",
+                    "required": [
+                        "SuppressionListImportAction"
+                    ],
+                    "members": {
+                        "SuppressionListImportAction": {}
+                    }
+                },
+                "ContactListDestination": {
+                    "type": "structure",
+                    "required": [
+                        "ContactListName",
+                        "ContactListImportAction"
+                    ],
+                    "members": {
+                        "ContactListName": {},
+                        "ContactListImportAction": {}
+                    }
+                }
+            }
+        },
+        "S4b": {
+            "type": "structure",
+            "required": [
+                "S3Url",
+                "DataFormat"
+            ],
+            "members": {
+                "S3Url": {},
+                "DataFormat": {}
+            }
+        },
+        "S4q": {
+            "type": "structure",
+            "required": [
+                "SendingAccount"
+            ],
+            "members": {
+                "SourceIp": {},
+                "SendingAccount": {},
+                "CallerIdentityArn": {}
+            }
+        },
+        "S5c": {
+            "type": "string",
+            "sensitive": true
+        },
+        "S5e": {
+            "type": "string",
+            "sensitive": true
+        },
+        "S5f": {
+            "type": "list",
+            "member": {
+                "type": "string",
+                "sensitive": true
+            },
+            "sensitive": true
+        },
+        "S5k": {
+            "type": "structure",
+            "required": [
+                "VdmEnabled"
+            ],
+            "members": {
+                "VdmEnabled": {},
+                "DashboardAttributes": {
+                    "type": "structure",
+                    "members": {
+                        "EngagementMetrics": {}
+                    }
+                },
+                "GuardianAttributes": {
+                    "type": "structure",
+                    "members": {
+                        "OptimizedSharedDelivery": {}
+                    }
+                }
+            }
+        },
+        "S6c": {
+            "type": "structure",
+            "required": [
+                "Ip",
+                "WarmupStatus",
+                "WarmupPercentage"
+            ],
+            "members": {
+                "Ip": {},
+                "WarmupStatus": {},
+                "WarmupPercentage": {
+                    "type": "integer"
+                },
+                "PoolName": {}
+            }
+        },
+        "S70": {
+            "type": "structure",
+            "members": {
+                "InboxPercentage": {
+                    "type": "double"
+                },
+                "SpamPercentage": {
+                    "type": "double"
+                },
+                "MissingPercentage": {
+                    "type": "double"
+                },
+                "SpfPercentage": {
+                    "type": "double"
+                },
+                "DkimPercentage": {
+                    "type": "double"
+                }
+            }
+        },
+        "S7i": {
+            "type": "structure",
+            "members": {
+                "InboxRawCount": {
+                    "type": "long"
+                },
+                "SpamRawCount": {
+                    "type": "long"
+                },
+                "ProjectedInbox": {
+                    "type": "long"
+                },
+                "ProjectedSpam": {
+                    "type": "long"
+                }
+            }
+        },
+        "S7t": {
+            "type": "map",
+            "key": {},
+            "value": {}
+        },
+        "S83": {
+            "type": "structure",
+            "members": {
+                "FailedRecordsS3Url": {},
+                "ErrorMessage": {}
+            }
+        },
+        "Sbg": {
+            "type": "list",
+            "member": {}
+        },
+        "Sbh": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "Name",
+                    "Value"
+                ],
+                "members": {
+                    "Name": {},
+                    "Value": {}
+                }
+            }
+        },
+        "Sbo": {
+            "type": "structure",
+            "members": {
+                "ToAddresses": {
+                    "shape": "Sbg"
+                },
+                "CcAddresses": {
+                    "shape": "Sbg"
+                },
+                "BccAddresses": {
+                    "shape": "Sbg"
+                }
+            }
+        },
+        "Sq": {
+            "type": "structure",
+            "required": [
+                "CustomRedirectDomain"
+            ],
+            "members": {
+                "CustomRedirectDomain": {}
+            }
+        },
+        "Sv": {
+            "type": "structure",
+            "required": [
+                "ServerName",
+                "Port",
+                "Enabled",
+                "RoutingServerAuthentication",
+                "FailureMode"
+            ],
+            "members": {
+                "ServerName": {},
+                "Port": {
+                    "type": "integer"
+                },
+                "Enabled": {
+                    "type": "boolean"
+                },
+                "Status": {},
+                "RoutingServerAuthentication": {
+                    "type": "structure",
+                    "members": {
+                        "Credentials": {
+                            "type": "structure",
+                            "required": [
+                                "Username",
+                                "Password"
+                            ],
+                            "members": {
+                                "Username": {},
+                                "Password": {}
+                            }
+                        },
+                        "Certificate": {
+                            "type": "structure",
+                            "required": [
+                                "CertificateArn"
+                            ],
+                            "members": {
+                                "CertificateArn": {}
+                            }
+                        }
+                    }
+                },
+                "FailureMode": {}
+            }
+        },
+        "S1a": {
+            "type": "structure",
+            "members": {
+                "SendingEnabled": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "S1b": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "Key",
+                    "Value"
+                ],
+                "members": {
+                    "Key": {},
+                    "Value": {}
+                }
+            }
+        },
+        "S1g": {
+            "type": "list",
+            "member": {}
+        },
+        "S1i": {
+            "type": "structure",
+            "members": {
+                "DashboardOptions": {
+                    "type": "structure",
+                    "members": {
+                        "EngagementMetrics": {}
+                    }
+                },
+                "GuardianOptions": {
+                    "type": "structure",
+                    "members": {
+                        "OptimizedSharedDelivery": {}
+                    }
+                }
+            }
+        },
+        "S1s": {
+            "type": "structure",
+            "required": [
+                "IamRoleArn",
+                "DeliveryStreamArn"
+            ],
+            "members": {
+                "IamRoleArn": {},
+                "DeliveryStreamArn": {}
+            }
+        },
+        "S1t": {
+            "type": "structure",
+            "required": [
+                "DimensionConfigurations"
+            ],
+            "members": {
+                "DimensionConfigurations": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "required": [
+                            "DimensionName",
+                            "DimensionValueSource",
+                            "DefaultDimensionValue"
+                        ],
+                        "members": {
+                            "DimensionName": {},
+                            "DimensionValueSource": {},
+                            "DefaultDimensionValue": {}
+                        }
+                    }
+                }
+            }
+        },
+        "S1z": {
+            "type": "structure",
+            "required": [
+                "TopicArn"
+            ],
+            "members": {
+                "TopicArn": {}
+            }
+        },
+        "S20": {
+            "type": "structure",
+            "members": {
+                "ApplicationArn": {}
+            }
+        },
+        "S25": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "TopicName",
+                    "SubscriptionStatus"
+                ],
+                "members": {
+                    "TopicName": {},
+                    "SubscriptionStatus": {}
+                }
+            }
+        },
+        "S2d": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "TopicName",
+                    "DisplayName",
+                    "DefaultSubscriptionStatus"
+                ],
+                "members": {
+                    "TopicName": {},
+                    "DisplayName": {},
+                    "Description": {},
+                    "DefaultSubscriptionStatus": {}
+                }
+            }
+        },
+        "S2w": {
+            "type": "structure",
+            "members": {
+                "Simple": {
+                    "type": "structure",
+                    "required": [
+                        "Subject",
+                        "Body"
+                    ],
+                    "members": {
+                        "Subject": {
+                            "shape": "S2y"
+                        },
+                        "Body": {
+                            "type": "structure",
+                            "members": {
+                                "Text": {
+                                    "shape": "S2y"
+                                },
+                                "Html": {
+                                    "shape": "S2y"
+                                }
+                            }
+                        }
+                    }
+                },
+                "Raw": {
+                    "type": "structure",
+                    "required": [
+                        "Data"
+                    ],
+                    "members": {
+                        "Data": {
+                            "type": "blob"
+                        }
+                    }
+                },
+                "Template": {
+                    "shape": "S34"
+                }
+            }
+        },
+        "S2y": {
+            "type": "structure",
+            "required": [
+                "Data"
+            ],
+            "members": {
+                "Data": {},
+                "Charset": {}
+            }
+        },
+        "S34": {
+            "type": "structure",
+            "members": {
+                "TemplateName": {},
+                "TemplateArn": {},
+                "TemplateData": {}
+            }
+        },
+        "S3b": {
+            "type": "structure",
+            "members": {
+                "DomainSigningSelector": {},
+                "DomainSigningPrivateKey": {
+                    "type": "string",
+                    "sensitive": true
+                },
+                "NextSigningKeyLength": {}
+            }
+        },
+        "S3h": {
+            "type": "structure",
+            "members": {
+                "SigningEnabled": {
+                    "type": "boolean"
+                },
+                "Status": {},
+                "Tokens": {
+                    "shape": "S3j"
+                },
+                "SigningAttributesOrigin": {},
+                "NextSigningKeyLength": {},
+                "CurrentSigningKeyLength": {},
+                "LastKeyGenerationTimestamp": {
+                    "type": "timestamp"
+                }
+            }
+        },
+        "S3j": {
+            "type": "list",
+            "member": {}
+        },
+        "S3r": {
+            "type": "structure",
+            "members": {
+                "Subject": {},
+                "Text": {},
+                "Html": {}
+            }
+        },
+        "S3w": {
+            "type": "structure",
+            "members": {
+                "MetricsDataSource": {
+                    "type": "structure",
+                    "required": [
+                        "Namespace",
+                        "Metrics",
+                        "StartDate",
+                        "EndDate"
+                    ],
+                    "members": {
+                        "Dimensions": {
+                            "type": "map",
+                            "key": {},
+                            "value": {
+                                "type": "list",
+                                "member": {}
+                            }
+                        },
+                        "Namespace": {},
+                        "Metrics": {
+                            "type": "list",
+                            "member": {
+                                "type": "structure",
+                                "members": {
+                                    "Name": {},
+                                    "Aggregation": {}
+                                }
+                            }
+                        },
+                        "StartDate": {
+                            "type": "timestamp"
+                        },
+                        "EndDate": {
+                            "type": "timestamp"
+                        }
+                    }
+                }
+            }
+        },
+        "S43": {
+            "type": "structure",
+            "members": {
+                "DataFormat": {},
+                "S3Url": {}
+            }
+        },
+        "S48": {
+            "type": "structure",
+            "members": {
+                "SuppressionListDestination": {
+                    "type": "structure",
+                    "required": [
+                        "SuppressionListImportAction"
+                    ],
+                    "members": {
+                        "SuppressionListImportAction": {}
+                    }
+                },
+                "ContactListDestination": {
+                    "type": "structure",
+                    "required": [
+                        "ContactListName",
+                        "ContactListImportAction"
+                    ],
+                    "members": {
+                        "ContactListName": {},
+                        "ContactListImportAction": {}
+                    }
+                }
+            }
+        },
+        "S4d": {
+            "type": "structure",
+            "required": [
+                "S3Url",
+                "DataFormat"
+            ],
+            "members": {
+                "S3Url": {},
+                "DataFormat": {}
+            }
+        },
+        "S4s": {
+            "type": "structure",
+            "required": [
+                "SendingAccount"
+            ],
+            "members": {
+                "SourceIp": {},
+                "SendingAccount": {},
+                "CallerIdentityArn": {}
+            }
+        },
+        "S57": {
+            "type": "structure",
+            "members": {
+                "Max24HourSend": {
+                    "type": "double"
+                },
+                "MaxSendRate": {
+                    "type": "double"
+                },
+                "SentLast24Hours": {
+                    "type": "double"
+                }
+            }
+        },
+        "S5g": {
+            "type": "string",
+            "sensitive": true
+        },
+        "S5h": {
+            "type": "list",
+            "member": {
+                "type": "string",
+                "sensitive": true
+            },
+            "sensitive": true
+        },
+        "S5m": {
+            "type": "structure",
+            "required": [
+                "VdmEnabled"
+            ],
+            "members": {
+                "VdmEnabled": {},
+                "DashboardAttributes": {
+                    "type": "structure",
+                    "members": {
+                        "EngagementMetrics": {}
+                    }
+                },
+                "GuardianAttributes": {
+                    "type": "structure",
+                    "members": {
+                        "OptimizedSharedDelivery": {}
+                    }
+                }
+            }
+        },
+        "S6e": {
+            "type": "structure",
+            "required": [
+                "Ip",
+                "WarmupStatus",
+                "WarmupPercentage"
+            ],
+            "members": {
+                "Ip": {},
+                "WarmupStatus": {},
+                "WarmupPercentage": {
+                    "type": "integer"
+                },
+                "PoolName": {}
+            }
+        },
+        "S6s": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "Domain": {},
+                    "SubscriptionStartDate": {
+                        "type": "timestamp"
+                    },
+                    "InboxPlacementTrackingOption": {
+                        "type": "structure",
+                        "members": {
+                            "Global": {
+                                "type": "boolean"
+                            },
+                            "TrackedIsps": {
+                                "type": "list",
+                                "member": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "S72": {
+            "type": "structure",
+            "members": {
+                "InboxPercentage": {
+                    "type": "double"
+                },
+                "SpamPercentage": {
+                    "type": "double"
+                },
+                "MissingPercentage": {
+                    "type": "double"
+                },
+                "SpfPercentage": {
+                    "type": "double"
+                },
+                "DkimPercentage": {
+                    "type": "double"
+                }
+            }
+        },
+        "S7a": {
+            "type": "structure",
+            "members": {
+                "CampaignId": {},
+                "ImageUrl": {},
+                "Subject": {},
+                "FromAddress": {},
+                "SendingIps": {
+                    "type": "list",
+                    "member": {}
+                },
+                "FirstSeenDateTime": {
+                    "type": "timestamp"
+                },
+                "LastSeenDateTime": {
+                    "type": "timestamp"
+                },
+                "InboxCount": {
+                    "type": "long"
+                },
+                "SpamCount": {
+                    "type": "long"
+                },
+                "ReadRate": {
+                    "type": "double"
+                },
+                "DeleteRate": {
+                    "type": "double"
+                },
+                "ReadDeleteRate": {
+                    "type": "double"
+                },
+                "ProjectedVolume": {
+                    "type": "long"
+                },
+                "Esps": {
+                    "type": "list",
+                    "member": {}
+                }
+            }
+        },
+        "S7k": {
+            "type": "structure",
+            "members": {
+                "InboxRawCount": {
+                    "type": "long"
+                },
+                "SpamRawCount": {
+                    "type": "long"
+                },
+                "ProjectedInbox": {
+                    "type": "long"
+                },
+                "ProjectedSpam": {
+                    "type": "long"
+                }
+            }
+        },
+        "S7l": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "IspName": {},
+                    "InboxRawCount": {
+                        "type": "long"
+                    },
+                    "SpamRawCount": {
+                        "type": "long"
+                    },
+                    "InboxPercentage": {
+                        "type": "double"
+                    },
+                    "SpamPercentage": {
+                        "type": "double"
+                    }
+                }
+            }
+        },
+        "S7v": {
+            "type": "map",
+            "key": {},
+            "value": {}
+        },
+        "S85": {
+            "type": "structure",
+            "members": {
+                "FailedRecordsS3Url": {},
+                "ErrorMessage": {}
+            }
+        },
+        "Sbi": {
+            "type": "list",
+            "member": {}
+        },
+        "Sbj": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "Name",
+                    "Value"
+                ],
+                "members": {
+                    "Name": {},
+                    "Value": {}
+                }
+            }
+        },
+        "Sbq": {
+            "type": "structure",
+            "members": {
+                "ToAddresses": {
+                    "shape": "Sbi"
+                },
+                "CcAddresses": {
+                    "shape": "Sbi"
+                },
+                "BccAddresses": {
+                    "shape": "Sbi"
+                }
+            }
+        }
+    }
+}

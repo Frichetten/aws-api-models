@@ -1,0 +1,3104 @@
+{
+    "version": "2.0",
+    "metadata": {
+        "apiVersion": "2021-03-12",
+        "endpointPrefix": "finspace",
+        "jsonVersion": "1.1",
+        "protocol": "rest-json",
+        "serviceAbbreviation": "finspace",
+        "serviceFullName": "FinSpace User Environment Management service",
+        "serviceId": "finspace",
+        "signatureVersion": "v4",
+        "signingName": "finspace",
+        "uid": "finspace-2021-03-12",
+        "download_location": [
+            "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+        ]
+    },
+    "operations": {
+        "CreateEnvironment": {
+            "http": {
+                "requestUri": "/environment"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "name"
+                ],
+                "members": {
+                    "name": {},
+                    "description": {},
+                    "kmsKeyId": {},
+                    "tags": {
+                        "shape": "S5"
+                    },
+                    "federationMode": {},
+                    "federationParameters": {
+                        "shape": "S9"
+                    },
+                    "superuserParameters": {
+                        "type": "structure",
+                        "required": [
+                            "emailAddress",
+                            "firstName",
+                            "lastName"
+                        ],
+                        "members": {
+                            "emailAddress": {
+                                "type": "string",
+                                "sensitive": true
+                            },
+                            "firstName": {},
+                            "lastName": {}
+                        }
+                    },
+                    "dataBundles": {
+                        "type": "list",
+                        "member": {}
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "environmentId": {},
+                    "environmentArn": {},
+                    "environmentUrl": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "DeleteEnvironment": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/environment/{environmentId}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "environmentId"
+                ],
+                "members": {
+                    "environmentId": {
+                        "location": "uri",
+                        "locationName": "environmentId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "GetEnvironment": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/environment/{environmentId}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "environmentId"
+                ],
+                "members": {
+                    "environmentId": {
+                        "location": "uri",
+                        "locationName": "environmentId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "environment": {
+                        "shape": "Ss"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "ListEnvironments": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/environment"
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "nextToken": {
+                        "location": "querystring",
+                        "locationName": "nextToken"
+                    },
+                    "maxResults": {
+                        "location": "querystring",
+                        "locationName": "maxResults",
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "environments": {
+                        "type": "list",
+                        "member": {
+                            "shape": "Ss"
+                        }
+                    },
+                    "nextToken": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "ListTagsForResource": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/tags/{resourceArn}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "resourceArn"
+                ],
+                "members": {
+                    "resourceArn": {
+                        "location": "uri",
+                        "locationName": "resourceArn"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "tags": {
+                        "shape": "S5"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "TagResource": {
+            "http": {
+                "requestUri": "/tags/{resourceArn}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "resourceArn",
+                    "tags"
+                ],
+                "members": {
+                    "resourceArn": {
+                        "location": "uri",
+                        "locationName": "resourceArn"
+                    },
+                    "tags": {
+                        "shape": "S5"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "UntagResource": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/tags/{resourceArn}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "resourceArn",
+                    "tagKeys"
+                ],
+                "members": {
+                    "resourceArn": {
+                        "location": "uri",
+                        "locationName": "resourceArn"
+                    },
+                    "tagKeys": {
+                        "location": "querystring",
+                        "locationName": "tagKeys",
+                        "type": "list",
+                        "member": {}
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "UpdateEnvironment": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/environment/{environmentId}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "environmentId"
+                ],
+                "members": {
+                    "environmentId": {
+                        "location": "uri",
+                        "locationName": "environmentId"
+                    },
+                    "name": {},
+                    "description": {},
+                    "federationMode": {},
+                    "federationParameters": {
+                        "shape": "S9"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "environment": {
+                        "shape": "Ss"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "CreateDataConnector": {
+            "http": {
+                "requestUri": "/environment/{environmentId}/dataconnector"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "dataConnectorName",
+                    "dataProviderId",
+                    "environmentId"
+                ],
+                "members": {
+                    "clientToken": {},
+                    "dataConnectorCredentialProfile": {
+                        "shape": "S3"
+                    },
+                    "dataConnectorName": {},
+                    "dataProviderId": {},
+                    "environmentId": {
+                        "location": "uri",
+                        "locationName": "environmentId"
+                    },
+                    "dataConnectorUserId": {},
+                    "dataConnectorRunFrequency": {},
+                    "connectorAttributes": {
+                        "shape": "Sg"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "dataConnector": {
+                        "shape": "Sk"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/OXVHLTVGLISXX7S6C5S6NWYG3AGKEVXYWIKENINXS6JOO2UJRNQA/main.js"
+            ]
+        },
+        "CreateKxChangeset": {
+            "http": {
+                "requestUri": "/kx/environments/{environmentId}/databases/{databaseName}/changesets"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "environmentId",
+                    "databaseName",
+                    "changeRequests",
+                    "clientToken"
+                ],
+                "members": {
+                    "environmentId": {
+                        "location": "uri",
+                        "locationName": "environmentId"
+                    },
+                    "databaseName": {
+                        "location": "uri",
+                        "locationName": "databaseName"
+                    },
+                    "changeRequests": {
+                        "shape": "S1c"
+                    },
+                    "clientToken": {
+                        "idempotencyToken": true
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "changesetId": {},
+                    "databaseName": {},
+                    "environmentId": {},
+                    "changeRequests": {
+                        "shape": "S1c"
+                    },
+                    "createdTimestamp": {
+                        "type": "timestamp"
+                    },
+                    "lastModifiedTimestamp": {
+                        "type": "timestamp"
+                    },
+                    "status": {},
+                    "errorInfo": {
+                        "shape": "S1l"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/OXVHLTVGLISXX7S6C5S6NWYG3AGKEVXYWIKENINXS6JOO2UJRNQA/main.js"
+            ]
+        },
+        "CreateKxCluster": {
+            "http": {
+                "requestUri": "/kx/environments/{environmentId}/clusters"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "clientToken",
+                    "environmentId",
+                    "clusterName",
+                    "clusterType",
+                    "capacityConfiguration",
+                    "kxVersion"
+                ],
+                "members": {
+                    "clientToken": {
+                        "idempotencyToken": true
+                    },
+                    "environmentId": {
+                        "location": "uri",
+                        "locationName": "environmentId"
+                    },
+                    "clusterName": {},
+                    "clusterType": {},
+                    "port": {
+                        "type": "integer"
+                    },
+                    "databases": {
+                        "shape": "S1t"
+                    },
+                    "cacheStorageConfigurations": {
+                        "shape": "S1z"
+                    },
+                    "clusterDescription": {},
+                    "capacityConfiguration": {
+                        "shape": "S23"
+                    },
+                    "kxVersion": {},
+                    "vpcConfiguration": {
+                        "shape": "S27"
+                    },
+                    "initializationScript": {},
+                    "commandLineArguments": {
+                        "shape": "S2f"
+                    },
+                    "code": {
+                        "shape": "S2j"
+                    },
+                    "executionRole": {},
+                    "savedownStorageConfiguration": {
+                        "shape": "S2o"
+                    },
+                    "azMode": {},
+                    "availableZone": {},
+                    "tags": {
+                        "shape": "Sr"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "environmentId": {},
+                    "status": {},
+                    "statusReason": {},
+                    "clusterName": {},
+                    "clusterType": {},
+                    "port": {
+                        "type": "integer"
+                    },
+                    "databases": {
+                        "shape": "S1t"
+                    },
+                    "cacheStorageConfigurations": {
+                        "shape": "S1z"
+                    },
+                    "clusterDescription": {},
+                    "capacityConfiguration": {
+                        "shape": "S23"
+                    },
+                    "kxVersion": {},
+                    "vpcConfiguration": {
+                        "shape": "S27"
+                    },
+                    "initializationScript": {},
+                    "commandLineArguments": {
+                        "shape": "S2f"
+                    },
+                    "code": {
+                        "shape": "S2j"
+                    },
+                    "executionRole": {},
+                    "lastModifiedTimestamp": {
+                        "type": "timestamp"
+                    },
+                    "savedownStorageConfiguration": {
+                        "shape": "S2o"
+                    },
+                    "createdTimestamp": {
+                        "type": "timestamp"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/OXVHLTVGLISXX7S6C5S6NWYG3AGKEVXYWIKENINXS6JOO2UJRNQA/main.js"
+            ]
+        },
+        "CreateKxDatabase": {
+            "http": {
+                "requestUri": "/kx/environments/{environmentId}/databases"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "environmentId",
+                    "databaseName",
+                    "clientToken"
+                ],
+                "members": {
+                    "environmentId": {
+                        "location": "uri",
+                        "locationName": "environmentId"
+                    },
+                    "databaseName": {},
+                    "description": {},
+                    "tags": {
+                        "shape": "Sr"
+                    },
+                    "clientToken": {
+                        "idempotencyToken": true
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "databaseName": {},
+                    "databaseArn": {},
+                    "environmentId": {},
+                    "description": {},
+                    "createdTimestamp": {
+                        "type": "timestamp"
+                    },
+                    "lastModifiedTimestamp": {
+                        "type": "timestamp"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/OXVHLTVGLISXX7S6C5S6NWYG3AGKEVXYWIKENINXS6JOO2UJRNQA/main.js"
+            ]
+        },
+        "CreateKxEnvironment": {
+            "http": {
+                "requestUri": "/kx/environments"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "name",
+                    "kmsKeyId"
+                ],
+                "members": {
+                    "name": {},
+                    "description": {},
+                    "kmsKeyId": {},
+                    "tags": {
+                        "shape": "Sr"
+                    },
+                    "clientToken": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "name": {},
+                    "status": {},
+                    "environmentId": {},
+                    "description": {},
+                    "environmentArn": {},
+                    "kmsKeyId": {},
+                    "creationTimestamp": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/OXVHLTVGLISXX7S6C5S6NWYG3AGKEVXYWIKENINXS6JOO2UJRNQA/main.js"
+            ]
+        },
+        "CreateKxUser": {
+            "http": {
+                "requestUri": "/kx/environments/{environmentId}/users"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "environmentId",
+                    "userName",
+                    "iamRole"
+                ],
+                "members": {
+                    "environmentId": {
+                        "location": "uri",
+                        "locationName": "environmentId"
+                    },
+                    "userName": {},
+                    "iamRole": {},
+                    "tags": {
+                        "shape": "Sr"
+                    },
+                    "clientToken": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "userName": {},
+                    "userArn": {},
+                    "environmentId": {},
+                    "iamRole": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/OXVHLTVGLISXX7S6C5S6NWYG3AGKEVXYWIKENINXS6JOO2UJRNQA/main.js"
+            ]
+        },
+        "CreateUser": {
+            "http": {
+                "requestUri": "/user"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "environmentId",
+                    "emailAddress",
+                    "firstName",
+                    "lastName",
+                    "roleType"
+                ],
+                "members": {
+                    "environmentId": {
+                        "location": "querystring",
+                        "locationName": "environmentId"
+                    },
+                    "emailAddress": {
+                        "shape": "S14"
+                    },
+                    "firstName": {},
+                    "lastName": {},
+                    "roleType": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "userId": {},
+                    "userArn": {},
+                    "temporaryPassword": {
+                        "shape": "S3d"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/OXVHLTVGLISXX7S6C5S6NWYG3AGKEVXYWIKENINXS6JOO2UJRNQA/main.js"
+            ]
+        },
+        "DeleteDataConnector": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/environment/{environmentId}/dataconnector/{dataConnectorId}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "dataConnectorId",
+                    "environmentId"
+                ],
+                "members": {
+                    "dataConnectorId": {
+                        "location": "uri",
+                        "locationName": "dataConnectorId"
+                    },
+                    "environmentId": {
+                        "location": "uri",
+                        "locationName": "environmentId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "dataConnector": {
+                        "shape": "Sk"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/OXVHLTVGLISXX7S6C5S6NWYG3AGKEVXYWIKENINXS6JOO2UJRNQA/main.js"
+            ]
+        },
+        "DeleteKxCluster": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/kx/environments/{environmentId}/clusters/{clusterName}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "environmentId",
+                    "clusterName"
+                ],
+                "members": {
+                    "environmentId": {
+                        "location": "uri",
+                        "locationName": "environmentId"
+                    },
+                    "clusterName": {
+                        "location": "uri",
+                        "locationName": "clusterName"
+                    },
+                    "clientToken": {
+                        "location": "querystring",
+                        "locationName": "clientToken"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/OXVHLTVGLISXX7S6C5S6NWYG3AGKEVXYWIKENINXS6JOO2UJRNQA/main.js"
+            ]
+        },
+        "DeleteKxDatabase": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/kx/environments/{environmentId}/databases/{databaseName}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "environmentId",
+                    "databaseName",
+                    "clientToken"
+                ],
+                "members": {
+                    "environmentId": {
+                        "location": "uri",
+                        "locationName": "environmentId"
+                    },
+                    "databaseName": {
+                        "location": "uri",
+                        "locationName": "databaseName"
+                    },
+                    "clientToken": {
+                        "idempotencyToken": true,
+                        "location": "querystring",
+                        "locationName": "clientToken"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/OXVHLTVGLISXX7S6C5S6NWYG3AGKEVXYWIKENINXS6JOO2UJRNQA/main.js"
+            ]
+        },
+        "DeleteKxEnvironment": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/kx/environments/{environmentId}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "environmentId"
+                ],
+                "members": {
+                    "environmentId": {
+                        "location": "uri",
+                        "locationName": "environmentId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/OXVHLTVGLISXX7S6C5S6NWYG3AGKEVXYWIKENINXS6JOO2UJRNQA/main.js"
+            ]
+        },
+        "DeleteKxUser": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/kx/environments/{environmentId}/users/{userName}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "userName",
+                    "environmentId"
+                ],
+                "members": {
+                    "userName": {
+                        "location": "uri",
+                        "locationName": "userName"
+                    },
+                    "environmentId": {
+                        "location": "uri",
+                        "locationName": "environmentId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/OXVHLTVGLISXX7S6C5S6NWYG3AGKEVXYWIKENINXS6JOO2UJRNQA/main.js"
+            ]
+        },
+        "GetDataConnector": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/environment/{environmentId}/dataconnector/{dataConnectorId}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "dataConnectorId",
+                    "environmentId"
+                ],
+                "members": {
+                    "dataConnectorId": {
+                        "location": "uri",
+                        "locationName": "dataConnectorId"
+                    },
+                    "environmentId": {
+                        "location": "uri",
+                        "locationName": "environmentId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "dataConnector": {
+                        "shape": "Sk"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/OXVHLTVGLISXX7S6C5S6NWYG3AGKEVXYWIKENINXS6JOO2UJRNQA/main.js"
+            ]
+        },
+        "GetDataProvider": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/dataprovider/{dataProviderId}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "dataProviderId"
+                ],
+                "members": {
+                    "dataProviderId": {
+                        "location": "uri",
+                        "locationName": "dataProviderId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "dataProvider": {
+                        "shape": "S3u"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/OXVHLTVGLISXX7S6C5S6NWYG3AGKEVXYWIKENINXS6JOO2UJRNQA/main.js"
+            ]
+        },
+        "GetKxChangeset": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/kx/environments/{environmentId}/databases/{databaseName}/changesets/{changesetId}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "environmentId",
+                    "databaseName",
+                    "changesetId"
+                ],
+                "members": {
+                    "environmentId": {
+                        "location": "uri",
+                        "locationName": "environmentId"
+                    },
+                    "databaseName": {
+                        "location": "uri",
+                        "locationName": "databaseName"
+                    },
+                    "changesetId": {
+                        "location": "uri",
+                        "locationName": "changesetId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "changesetId": {},
+                    "databaseName": {},
+                    "environmentId": {},
+                    "changeRequests": {
+                        "shape": "S1c"
+                    },
+                    "createdTimestamp": {
+                        "type": "timestamp"
+                    },
+                    "activeFromTimestamp": {
+                        "type": "timestamp"
+                    },
+                    "lastModifiedTimestamp": {
+                        "type": "timestamp"
+                    },
+                    "status": {},
+                    "errorInfo": {
+                        "shape": "S1l"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/OXVHLTVGLISXX7S6C5S6NWYG3AGKEVXYWIKENINXS6JOO2UJRNQA/main.js"
+            ]
+        },
+        "GetKxCluster": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/kx/environments/{environmentId}/clusters/{clusterName}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "environmentId",
+                    "clusterName"
+                ],
+                "members": {
+                    "environmentId": {
+                        "location": "uri",
+                        "locationName": "environmentId"
+                    },
+                    "clusterName": {
+                        "location": "uri",
+                        "locationName": "clusterName"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "status": {},
+                    "statusReason": {},
+                    "clusterName": {},
+                    "clusterType": {},
+                    "port": {
+                        "type": "integer"
+                    },
+                    "databases": {
+                        "shape": "S1t"
+                    },
+                    "cacheStorageConfigurations": {
+                        "shape": "S1z"
+                    },
+                    "connectionString": {},
+                    "clusterDescription": {},
+                    "capacityConfiguration": {
+                        "shape": "S23"
+                    },
+                    "kxVersion": {},
+                    "vpcConfiguration": {
+                        "shape": "S27"
+                    },
+                    "initializationScript": {},
+                    "commandLineArguments": {
+                        "shape": "S2f"
+                    },
+                    "code": {
+                        "shape": "S2j"
+                    },
+                    "executionRole": {},
+                    "lastModifiedTimestamp": {
+                        "type": "timestamp"
+                    },
+                    "savedownStorageConfiguration": {
+                        "shape": "S2o"
+                    },
+                    "createdTimestamp": {
+                        "type": "timestamp"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/OXVHLTVGLISXX7S6C5S6NWYG3AGKEVXYWIKENINXS6JOO2UJRNQA/main.js"
+            ]
+        },
+        "GetKxConnectionString": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/kx/environments/{environmentId}/connectionString"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "principalArn",
+                    "environmentId",
+                    "clusterId"
+                ],
+                "members": {
+                    "principalArn": {
+                        "location": "querystring",
+                        "locationName": "principalArn"
+                    },
+                    "environmentId": {
+                        "location": "uri",
+                        "locationName": "environmentId"
+                    },
+                    "clusterId": {
+                        "location": "querystring",
+                        "locationName": "clusterId"
+                    },
+                    "nodeId": {
+                        "location": "querystring",
+                        "locationName": "nodeId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "signedConnectionString": {
+                        "type": "string",
+                        "sensitive": true
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/OXVHLTVGLISXX7S6C5S6NWYG3AGKEVXYWIKENINXS6JOO2UJRNQA/main.js"
+            ]
+        },
+        "GetKxDatabase": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/kx/environments/{environmentId}/databases/{databaseName}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "environmentId",
+                    "databaseName"
+                ],
+                "members": {
+                    "environmentId": {
+                        "location": "uri",
+                        "locationName": "environmentId"
+                    },
+                    "databaseName": {
+                        "location": "uri",
+                        "locationName": "databaseName"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "databaseName": {},
+                    "databaseArn": {},
+                    "environmentId": {},
+                    "description": {},
+                    "createdTimestamp": {
+                        "type": "timestamp"
+                    },
+                    "lastModifiedTimestamp": {
+                        "type": "timestamp"
+                    },
+                    "lastCompletedChangesetId": {},
+                    "numBytes": {
+                        "type": "long"
+                    },
+                    "numChangesets": {
+                        "type": "integer"
+                    },
+                    "numFiles": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/OXVHLTVGLISXX7S6C5S6NWYG3AGKEVXYWIKENINXS6JOO2UJRNQA/main.js"
+            ]
+        },
+        "GetKxEnvironment": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/kx/environments/{environmentId}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "environmentId"
+                ],
+                "members": {
+                    "environmentId": {
+                        "location": "uri",
+                        "locationName": "environmentId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "name": {},
+                    "environmentId": {},
+                    "awsAccountId": {},
+                    "status": {},
+                    "tgwStatus": {},
+                    "dnsStatus": {},
+                    "errorMessage": {},
+                    "description": {},
+                    "environmentArn": {},
+                    "kmsKeyId": {},
+                    "dedicatedServiceAccountId": {},
+                    "transitGatewayConfiguration": {
+                        "shape": "S4q"
+                    },
+                    "customDNSConfiguration": {
+                        "shape": "S4t"
+                    },
+                    "creationTimestamp": {},
+                    "updateTimestamp": {},
+                    "availabilityZoneIds": {
+                        "shape": "S4x"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/OXVHLTVGLISXX7S6C5S6NWYG3AGKEVXYWIKENINXS6JOO2UJRNQA/main.js"
+            ]
+        },
+        "GetKxUser": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/kx/environments/{environmentId}/users/{userName}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "userName",
+                    "environmentId"
+                ],
+                "members": {
+                    "userName": {
+                        "location": "uri",
+                        "locationName": "userName"
+                    },
+                    "environmentId": {
+                        "location": "uri",
+                        "locationName": "environmentId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "userName": {},
+                    "userArn": {},
+                    "environmentId": {},
+                    "iamRole": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/OXVHLTVGLISXX7S6C5S6NWYG3AGKEVXYWIKENINXS6JOO2UJRNQA/main.js"
+            ]
+        },
+        "GetLatestDataConnectorRun": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/environment/{environmentId}/dataconnector/{dataConnectorId}/run"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "dataConnectorId",
+                    "environmentId"
+                ],
+                "members": {
+                    "dataConnectorId": {
+                        "location": "uri",
+                        "locationName": "dataConnectorId"
+                    },
+                    "environmentId": {
+                        "location": "uri",
+                        "locationName": "environmentId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "dataConnectorRun": {
+                        "shape": "S52"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/OXVHLTVGLISXX7S6C5S6NWYG3AGKEVXYWIKENINXS6JOO2UJRNQA/main.js"
+            ]
+        },
+        "GetLoadSampleDataSetGroupIntoEnvironmentStatus": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/loaddatastatus"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "envId"
+                ],
+                "members": {
+                    "envId": {
+                        "location": "querystring",
+                        "locationName": "envId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "status": {},
+                    "dataBundles": {
+                        "shape": "S16"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/OXVHLTVGLISXX7S6C5S6NWYG3AGKEVXYWIKENINXS6JOO2UJRNQA/main.js"
+            ]
+        },
+        "GetUser": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/user/{userId}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "userId",
+                    "environmentId"
+                ],
+                "members": {
+                    "userId": {
+                        "location": "uri",
+                        "locationName": "userId"
+                    },
+                    "environmentId": {
+                        "location": "querystring",
+                        "locationName": "environmentId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "user": {
+                        "shape": "S5e"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/OXVHLTVGLISXX7S6C5S6NWYG3AGKEVXYWIKENINXS6JOO2UJRNQA/main.js"
+            ]
+        },
+        "ListDataConnectorRuns": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/environment/{environmentId}/dataconnector/{dataConnectorId}/run/list"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "dataConnectorId",
+                    "environmentId"
+                ],
+                "members": {
+                    "dataConnectorId": {
+                        "location": "uri",
+                        "locationName": "dataConnectorId"
+                    },
+                    "environmentId": {
+                        "location": "uri",
+                        "locationName": "environmentId"
+                    },
+                    "startTime": {
+                        "location": "querystring",
+                        "locationName": "startTime",
+                        "type": "long"
+                    },
+                    "endTime": {
+                        "location": "querystring",
+                        "locationName": "endTime",
+                        "type": "long"
+                    },
+                    "maxResults": {
+                        "location": "querystring",
+                        "locationName": "maxResults",
+                        "type": "integer"
+                    },
+                    "nextToken": {
+                        "location": "querystring",
+                        "locationName": "nextToken"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "dataConnectorRuns": {
+                        "type": "list",
+                        "member": {
+                            "shape": "S52"
+                        }
+                    },
+                    "nextToken": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/OXVHLTVGLISXX7S6C5S6NWYG3AGKEVXYWIKENINXS6JOO2UJRNQA/main.js"
+            ]
+        },
+        "ListDataConnectors": {
+            "http": {
+                "requestUri": "/dataconnector/list"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "environmentId",
+                    "listDataConnectorSortByOptions"
+                ],
+                "members": {
+                    "dataProviderId": {},
+                    "environmentId": {},
+                    "listDataConnectorSortByOptions": {},
+                    "maxResults": {
+                        "type": "integer"
+                    },
+                    "nextToken": {
+                        "shape": "S5p"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "dataConnectors": {
+                        "type": "list",
+                        "member": {
+                            "shape": "Sk"
+                        }
+                    },
+                    "nextToken": {
+                        "shape": "S5p"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/OXVHLTVGLISXX7S6C5S6NWYG3AGKEVXYWIKENINXS6JOO2UJRNQA/main.js"
+            ]
+        },
+        "ListDataProviders": {
+            "http": {
+                "requestUri": "/dataprovider/list"
+            },
+            "input": {
+                "type": "structure",
+                "members": {}
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "dataProviders": {
+                        "type": "list",
+                        "member": {
+                            "shape": "S3u"
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/OXVHLTVGLISXX7S6C5S6NWYG3AGKEVXYWIKENINXS6JOO2UJRNQA/main.js"
+            ]
+        },
+        "ListFeatures": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/features"
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "nextToken": {
+                        "location": "querystring",
+                        "locationName": "nextToken"
+                    },
+                    "maxResults": {
+                        "location": "querystring",
+                        "locationName": "maxResults",
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "featuresList": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "name": {},
+                                "value": {
+                                    "type": "list",
+                                    "member": {}
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/OXVHLTVGLISXX7S6C5S6NWYG3AGKEVXYWIKENINXS6JOO2UJRNQA/main.js"
+            ]
+        },
+        "ListKxChangesets": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/kx/environments/{environmentId}/databases/{databaseName}/changesets"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "environmentId",
+                    "databaseName"
+                ],
+                "members": {
+                    "environmentId": {
+                        "location": "uri",
+                        "locationName": "environmentId"
+                    },
+                    "databaseName": {
+                        "location": "uri",
+                        "locationName": "databaseName"
+                    },
+                    "nextToken": {
+                        "location": "querystring",
+                        "locationName": "nextToken"
+                    },
+                    "maxResults": {
+                        "location": "querystring",
+                        "locationName": "maxResults",
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "kxChangesets": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "changesetId": {},
+                                "createdTimestamp": {
+                                    "type": "timestamp"
+                                },
+                                "activeFromTimestamp": {
+                                    "type": "timestamp"
+                                },
+                                "lastModifiedTimestamp": {
+                                    "type": "timestamp"
+                                },
+                                "status": {}
+                            }
+                        }
+                    },
+                    "nextToken": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/OXVHLTVGLISXX7S6C5S6NWYG3AGKEVXYWIKENINXS6JOO2UJRNQA/main.js"
+            ]
+        },
+        "ListKxClusterNodes": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/kx/environments/{environmentId}/clusters/{clusterName}/nodes"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "clusterName",
+                    "environmentId"
+                ],
+                "members": {
+                    "environmentId": {
+                        "location": "uri",
+                        "locationName": "environmentId"
+                    },
+                    "clusterName": {
+                        "location": "uri",
+                        "locationName": "clusterName"
+                    },
+                    "nextToken": {
+                        "location": "querystring",
+                        "locationName": "nextToken"
+                    },
+                    "maxResults": {
+                        "location": "querystring",
+                        "locationName": "maxResults",
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "nodes": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "nodeId": {},
+                                "availabilityZoneId": {},
+                                "launchTime": {
+                                    "type": "long"
+                                }
+                            }
+                        }
+                    },
+                    "nextToken": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/OXVHLTVGLISXX7S6C5S6NWYG3AGKEVXYWIKENINXS6JOO2UJRNQA/main.js"
+            ]
+        },
+        "ListKxClusters": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/kx/environments/{environmentId}/clusters"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "environmentId"
+                ],
+                "members": {
+                    "environmentId": {
+                        "location": "uri",
+                        "locationName": "environmentId"
+                    },
+                    "clusterType": {
+                        "location": "querystring",
+                        "locationName": "clusterType"
+                    },
+                    "maxResults": {
+                        "location": "querystring",
+                        "locationName": "maxResults",
+                        "type": "integer"
+                    },
+                    "nextToken": {
+                        "location": "querystring",
+                        "locationName": "nextToken"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "kxClusterSummaries": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "status": {},
+                                "statusReason": {},
+                                "clusterName": {},
+                                "clusterType": {},
+                                "connectionString": {},
+                                "clusterDescription": {},
+                                "kxVersion": {},
+                                "initializationScript": {},
+                                "executionRole": {},
+                                "lastModifiedTimestamp": {
+                                    "type": "timestamp"
+                                },
+                                "createdTimestamp": {
+                                    "type": "timestamp"
+                                }
+                            }
+                        }
+                    },
+                    "nextToken": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/OXVHLTVGLISXX7S6C5S6NWYG3AGKEVXYWIKENINXS6JOO2UJRNQA/main.js"
+            ]
+        },
+        "ListKxDatabases": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/kx/environments/{environmentId}/databases"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "environmentId"
+                ],
+                "members": {
+                    "environmentId": {
+                        "location": "uri",
+                        "locationName": "environmentId"
+                    },
+                    "nextToken": {
+                        "location": "querystring",
+                        "locationName": "nextToken"
+                    },
+                    "maxResults": {
+                        "location": "querystring",
+                        "locationName": "maxResults",
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "kxDatabases": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "databaseName": {},
+                                "createdTimestamp": {
+                                    "type": "timestamp"
+                                },
+                                "lastModifiedTimestamp": {
+                                    "type": "timestamp"
+                                }
+                            }
+                        }
+                    },
+                    "nextToken": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/OXVHLTVGLISXX7S6C5S6NWYG3AGKEVXYWIKENINXS6JOO2UJRNQA/main.js"
+            ]
+        },
+        "ListKxEnvironments": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/kx/environments"
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "nextToken": {
+                        "location": "querystring",
+                        "locationName": "nextToken"
+                    },
+                    "maxResults": {
+                        "location": "querystring",
+                        "locationName": "maxResults",
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "environments": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "name": {},
+                                "environmentId": {},
+                                "awsAccountId": {},
+                                "status": {},
+                                "tgwStatus": {},
+                                "dnsStatus": {},
+                                "errorMessage": {},
+                                "description": {},
+                                "environmentArn": {},
+                                "kmsKeyId": {},
+                                "dedicatedServiceAccountId": {},
+                                "transitGatewayConfiguration": {
+                                    "shape": "S4q"
+                                },
+                                "customDNSConfiguration": {
+                                    "shape": "S4t"
+                                },
+                                "creationTimestamp": {},
+                                "updateTimestamp": {},
+                                "availabilityZoneIds": {
+                                    "shape": "S4x"
+                                }
+                            }
+                        }
+                    },
+                    "nextToken": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/OXVHLTVGLISXX7S6C5S6NWYG3AGKEVXYWIKENINXS6JOO2UJRNQA/main.js"
+            ]
+        },
+        "ListKxUsers": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/kx/environments/{environmentId}/users"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "environmentId"
+                ],
+                "members": {
+                    "environmentId": {
+                        "location": "uri",
+                        "locationName": "environmentId"
+                    },
+                    "nextToken": {
+                        "location": "querystring",
+                        "locationName": "nextToken"
+                    },
+                    "maxResults": {
+                        "location": "querystring",
+                        "locationName": "maxResults",
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "users": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "userArn": {},
+                                "userName": {},
+                                "iamRole": {},
+                                "createTimestamp": {
+                                    "type": "timestamp"
+                                },
+                                "updateTimestamp": {
+                                    "type": "timestamp"
+                                }
+                            }
+                        }
+                    },
+                    "nextToken": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/OXVHLTVGLISXX7S6C5S6NWYG3AGKEVXYWIKENINXS6JOO2UJRNQA/main.js"
+            ]
+        },
+        "ListUsers": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/user"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "environmentId",
+                    "maxResults"
+                ],
+                "members": {
+                    "environmentId": {
+                        "location": "querystring",
+                        "locationName": "environmentId"
+                    },
+                    "listUsersSortKey": {
+                        "location": "querystring",
+                        "locationName": "sortBy"
+                    },
+                    "listUsersSortOrder": {
+                        "location": "querystring",
+                        "locationName": "sortOrder"
+                    },
+                    "nextToken": {
+                        "location": "querystring",
+                        "locationName": "next"
+                    },
+                    "maxResults": {
+                        "location": "querystring",
+                        "locationName": "maxResults",
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "users": {
+                        "type": "list",
+                        "member": {
+                            "shape": "S5e"
+                        }
+                    },
+                    "nextToken": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/OXVHLTVGLISXX7S6C5S6NWYG3AGKEVXYWIKENINXS6JOO2UJRNQA/main.js"
+            ]
+        },
+        "LoadSampleDataSetGroupIntoEnvironment": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/loaddata/{envId}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "envId"
+                ],
+                "members": {
+                    "envId": {
+                        "location": "uri",
+                        "locationName": "envId"
+                    },
+                    "sampleDataSetGroupName": {},
+                    "superUserId": {},
+                    "loadCatalogOnly": {
+                        "type": "boolean"
+                    },
+                    "overwriteData": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "envId": {},
+                    "status": {},
+                    "dataBundles": {
+                        "shape": "S16"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/OXVHLTVGLISXX7S6C5S6NWYG3AGKEVXYWIKENINXS6JOO2UJRNQA/main.js"
+            ]
+        },
+        "ResetUserPassword": {
+            "http": {
+                "requestUri": "/user/{userId}/password"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "environmentId",
+                    "userId"
+                ],
+                "members": {
+                    "environmentId": {
+                        "location": "querystring",
+                        "locationName": "environmentId"
+                    },
+                    "userId": {
+                        "location": "uri",
+                        "locationName": "userId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "userId": {},
+                    "userArn": {},
+                    "temporaryPassword": {
+                        "shape": "S3d"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/OXVHLTVGLISXX7S6C5S6NWYG3AGKEVXYWIKENINXS6JOO2UJRNQA/main.js"
+            ]
+        },
+        "RunDataConnector": {
+            "http": {
+                "requestUri": "/environment/{environmentId}/dataconnector/{dataConnectorId}/run"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "dataConnectorId",
+                    "environmentId"
+                ],
+                "members": {
+                    "dataConnectorId": {
+                        "location": "uri",
+                        "locationName": "dataConnectorId"
+                    },
+                    "environmentId": {
+                        "location": "uri",
+                        "locationName": "environmentId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "dataConnectorRun": {
+                        "shape": "S52"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/OXVHLTVGLISXX7S6C5S6NWYG3AGKEVXYWIKENINXS6JOO2UJRNQA/main.js"
+            ]
+        },
+        "UpdateDataConnector": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/environment/{environmentId}/dataconnector/{dataConnectorId}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "dataConnectorId",
+                    "dataConnectorName",
+                    "environmentId"
+                ],
+                "members": {
+                    "clientToken": {},
+                    "dataConnectorId": {
+                        "location": "uri",
+                        "locationName": "dataConnectorId"
+                    },
+                    "dataConnectorCredentialProfile": {
+                        "shape": "S3"
+                    },
+                    "dataConnectorName": {},
+                    "environmentId": {
+                        "location": "uri",
+                        "locationName": "environmentId"
+                    },
+                    "dataConnectorRunFrequency": {},
+                    "dataConnectorUserId": {},
+                    "connectorAttributes": {
+                        "shape": "Sg"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "dataConnector": {
+                        "shape": "Sk"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/OXVHLTVGLISXX7S6C5S6NWYG3AGKEVXYWIKENINXS6JOO2UJRNQA/main.js"
+            ]
+        },
+        "UpdateKxClusterDatabases": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/kx/environments/{environmentId}/clusters/{clusterName}/configuration/databases"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "environmentId",
+                    "clusterName",
+                    "databases"
+                ],
+                "members": {
+                    "environmentId": {
+                        "location": "uri",
+                        "locationName": "environmentId"
+                    },
+                    "clusterName": {
+                        "location": "uri",
+                        "locationName": "clusterName"
+                    },
+                    "clientToken": {},
+                    "databases": {
+                        "shape": "S1t"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/OXVHLTVGLISXX7S6C5S6NWYG3AGKEVXYWIKENINXS6JOO2UJRNQA/main.js"
+            ]
+        },
+        "UpdateKxDatabase": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/kx/environments/{environmentId}/databases/{databaseName}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "environmentId",
+                    "databaseName",
+                    "clientToken"
+                ],
+                "members": {
+                    "environmentId": {
+                        "location": "uri",
+                        "locationName": "environmentId"
+                    },
+                    "databaseName": {
+                        "location": "uri",
+                        "locationName": "databaseName"
+                    },
+                    "description": {},
+                    "clientToken": {
+                        "idempotencyToken": true
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "databaseName": {},
+                    "environmentId": {},
+                    "description": {},
+                    "lastModifiedTimestamp": {
+                        "type": "timestamp"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/OXVHLTVGLISXX7S6C5S6NWYG3AGKEVXYWIKENINXS6JOO2UJRNQA/main.js"
+            ]
+        },
+        "UpdateKxEnvironment": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/kx/environments/{environmentId}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "environmentId"
+                ],
+                "members": {
+                    "environmentId": {
+                        "location": "uri",
+                        "locationName": "environmentId"
+                    },
+                    "name": {},
+                    "description": {},
+                    "clientToken": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "name": {},
+                    "environmentId": {},
+                    "awsAccountId": {},
+                    "status": {},
+                    "tgwStatus": {},
+                    "dnsStatus": {},
+                    "errorMessage": {},
+                    "description": {},
+                    "environmentArn": {},
+                    "kmsKeyId": {},
+                    "dedicatedServiceAccountId": {},
+                    "transitGatewayConfiguration": {
+                        "shape": "S4q"
+                    },
+                    "customDNSConfiguration": {
+                        "shape": "S4t"
+                    },
+                    "creationTimestamp": {},
+                    "updateTimestamp": {},
+                    "availabilityZoneIds": {
+                        "shape": "S4x"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/OXVHLTVGLISXX7S6C5S6NWYG3AGKEVXYWIKENINXS6JOO2UJRNQA/main.js"
+            ]
+        },
+        "UpdateKxEnvironmentNetwork": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/kx/environments/{environmentId}/network"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "environmentId"
+                ],
+                "members": {
+                    "environmentId": {
+                        "location": "uri",
+                        "locationName": "environmentId"
+                    },
+                    "transitGatewayConfiguration": {
+                        "shape": "S4q"
+                    },
+                    "customDNSConfiguration": {
+                        "shape": "S4t"
+                    },
+                    "clientToken": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "name": {},
+                    "environmentId": {},
+                    "awsAccountId": {},
+                    "status": {},
+                    "tgwStatus": {},
+                    "dnsStatus": {},
+                    "errorMessage": {},
+                    "description": {},
+                    "environmentArn": {},
+                    "kmsKeyId": {},
+                    "dedicatedServiceAccountId": {},
+                    "transitGatewayConfiguration": {
+                        "shape": "S4q"
+                    },
+                    "customDNSConfiguration": {
+                        "shape": "S4t"
+                    },
+                    "creationTimestamp": {},
+                    "updateTimestamp": {},
+                    "availabilityZoneIds": {
+                        "shape": "S4x"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/OXVHLTVGLISXX7S6C5S6NWYG3AGKEVXYWIKENINXS6JOO2UJRNQA/main.js"
+            ]
+        },
+        "UpdateKxUser": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/kx/environments/{environmentId}/users/{userName}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "environmentId",
+                    "userName",
+                    "iamRole"
+                ],
+                "members": {
+                    "environmentId": {
+                        "location": "uri",
+                        "locationName": "environmentId"
+                    },
+                    "userName": {
+                        "location": "uri",
+                        "locationName": "userName"
+                    },
+                    "iamRole": {},
+                    "clientToken": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "userName": {},
+                    "userArn": {},
+                    "environmentId": {},
+                    "iamRole": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/OXVHLTVGLISXX7S6C5S6NWYG3AGKEVXYWIKENINXS6JOO2UJRNQA/main.js"
+            ]
+        },
+        "UpdateUser": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/user/{userId}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "environmentId",
+                    "userId",
+                    "roleType"
+                ],
+                "members": {
+                    "environmentId": {
+                        "location": "querystring",
+                        "locationName": "environmentId"
+                    },
+                    "userId": {
+                        "location": "uri",
+                        "locationName": "userId"
+                    },
+                    "roleType": {},
+                    "firstName": {},
+                    "lastName": {},
+                    "isActive": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "userId": {},
+                    "userArn": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/OXVHLTVGLISXX7S6C5S6NWYG3AGKEVXYWIKENINXS6JOO2UJRNQA/main.js"
+            ]
+        }
+    },
+    "shapes": {
+        "S5": {
+            "type": "map",
+            "key": {},
+            "value": {}
+        },
+        "S9": {
+            "type": "structure",
+            "members": {
+                "samlMetadataDocument": {},
+                "samlMetadataURL": {},
+                "applicationCallBackURL": {},
+                "federationURN": {},
+                "federationProviderName": {},
+                "attributeMap": {
+                    "type": "map",
+                    "key": {},
+                    "value": {}
+                }
+            }
+        },
+        "Ss": {
+            "type": "structure",
+            "members": {
+                "name": {},
+                "environmentId": {},
+                "awsAccountId": {},
+                "status": {},
+                "environmentUrl": {},
+                "description": {},
+                "environmentArn": {},
+                "sageMakerStudioDomainUrl": {},
+                "kmsKeyId": {},
+                "dedicatedServiceAccountId": {},
+                "federationMode": {},
+                "federationParameters": {
+                    "shape": "S9"
+                }
+            }
+        },
+        "S3": {
+            "type": "structure",
+            "members": {
+                "authenticationMode": {},
+                "serviceName": {},
+                "smCredentialProfile": {
+                    "type": "structure",
+                    "members": {
+                        "secretsManagerId": {
+                            "type": "string",
+                            "sensitive": true
+                        },
+                        "customerRoleArn": {}
+                    }
+                },
+                "iamCredentialProfile": {
+                    "type": "structure",
+                    "members": {
+                        "iamRole": {}
+                    }
+                },
+                "creationTimestamp": {
+                    "type": "timestamp"
+                },
+                "lastModifiedTimestamp": {
+                    "type": "timestamp"
+                }
+            }
+        },
+        "Sg": {
+            "type": "map",
+            "key": {},
+            "value": {}
+        },
+        "Sk": {
+            "type": "structure",
+            "members": {
+                "dataConnectorCredentialProfile": {
+                    "shape": "S3"
+                },
+                "dataConnectorId": {},
+                "dataConnectorName": {},
+                "dataConnectorStatus": {},
+                "dataProviderId": {},
+                "environmentId": {},
+                "dataConnectorRunFrequency": {},
+                "dataConnectorUserId": {},
+                "creationTimestamp": {
+                    "type": "timestamp"
+                },
+                "lastModifiedTimestamp": {
+                    "type": "timestamp"
+                },
+                "connectorAttributes": {
+                    "shape": "Sg"
+                }
+            }
+        },
+        "Sr": {
+            "type": "map",
+            "key": {},
+            "value": {}
+        },
+        "Sv": {
+            "type": "structure",
+            "members": {
+                "samlMetadataDocument": {},
+                "samlMetadataURL": {},
+                "applicationCallBackURL": {},
+                "federationURN": {},
+                "federationProviderName": {},
+                "attributeMap": {
+                    "type": "map",
+                    "key": {},
+                    "value": {}
+                }
+            }
+        },
+        "S14": {
+            "type": "string",
+            "sensitive": true
+        },
+        "S16": {
+            "type": "list",
+            "member": {}
+        },
+        "S1c": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "changeType",
+                    "dbPath"
+                ],
+                "members": {
+                    "changeType": {},
+                    "s3Path": {},
+                    "dbPath": {}
+                }
+            }
+        },
+        "S1l": {
+            "type": "structure",
+            "members": {
+                "errorMessage": {},
+                "errorType": {}
+            }
+        },
+        "S1t": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "databaseName"
+                ],
+                "members": {
+                    "databaseName": {},
+                    "cacheConfigurations": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "cacheType",
+                                "dbPaths"
+                            ],
+                            "members": {
+                                "cacheType": {},
+                                "dbPaths": {
+                                    "type": "list",
+                                    "member": {}
+                                }
+                            }
+                        }
+                    },
+                    "changesetId": {}
+                }
+            }
+        },
+        "S1z": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "type",
+                    "size"
+                ],
+                "members": {
+                    "type": {},
+                    "size": {
+                        "type": "integer"
+                    }
+                }
+            }
+        },
+        "S23": {
+            "type": "structure",
+            "members": {
+                "nodeType": {},
+                "nodeCount": {
+                    "type": "integer"
+                }
+            }
+        },
+        "S27": {
+            "type": "structure",
+            "members": {
+                "vpcId": {},
+                "securityGroupIds": {
+                    "type": "list",
+                    "member": {}
+                },
+                "subnetIds": {
+                    "type": "list",
+                    "member": {}
+                },
+                "ipAddressType": {}
+            }
+        },
+        "S2f": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "key": {},
+                    "value": {}
+                }
+            }
+        },
+        "S2j": {
+            "type": "structure",
+            "members": {
+                "s3Bucket": {},
+                "s3Key": {},
+                "s3ObjectVersion": {}
+            }
+        },
+        "S2o": {
+            "type": "structure",
+            "required": [
+                "type",
+                "size"
+            ],
+            "members": {
+                "type": {},
+                "size": {
+                    "type": "integer"
+                }
+            }
+        },
+        "S3d": {
+            "type": "string",
+            "sensitive": true
+        },
+        "S3u": {
+            "type": "structure",
+            "members": {
+                "dataProviderId": {},
+                "dataProviderName": {},
+                "dataProviderDescription": {},
+                "dataProviderDocumentation": {},
+                "dataProviderImageLink": {},
+                "dataProviderAuthenticationMode": {},
+                "connectorAttributesDefinition": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "members": {
+                            "name": {},
+                            "required": {
+                                "type": "boolean"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "S44": {
+            "type": "structure",
+            "members": {
+                "name": {},
+                "environmentId": {},
+                "awsAccountId": {},
+                "status": {},
+                "environmentUrl": {},
+                "description": {},
+                "environmentArn": {},
+                "sageMakerStudioDomainUrl": {},
+                "kmsKeyId": {},
+                "dedicatedServiceAccountId": {},
+                "federationMode": {},
+                "federationParameters": {
+                    "shape": "Sv"
+                },
+                "kxThreePLicenseEnabled": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "S4q": {
+            "type": "structure",
+            "required": [
+                "transitGatewayID",
+                "routableCIDRSpace"
+            ],
+            "members": {
+                "transitGatewayID": {},
+                "routableCIDRSpace": {}
+            }
+        },
+        "S4t": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "customDNSServerName",
+                    "customDNSServerIP"
+                ],
+                "members": {
+                    "customDNSServerName": {},
+                    "customDNSServerIP": {}
+                }
+            }
+        },
+        "S4x": {
+            "type": "list",
+            "member": {}
+        },
+        "S52": {
+            "type": "structure",
+            "members": {
+                "dataConnectorId": {},
+                "dataConnectorRunId": {},
+                "errorInfo": {
+                    "type": "structure",
+                    "members": {
+                        "errorType": {},
+                        "errorMessage": {}
+                    }
+                },
+                "runStatus": {},
+                "creationTimestamp": {
+                    "type": "timestamp"
+                },
+                "lastModifiedTimestamp": {
+                    "type": "timestamp"
+                },
+                "completedTimestamp": {
+                    "type": "timestamp"
+                },
+                "datasetsAdded": {
+                    "type": "long"
+                },
+                "datasetsRemoved": {
+                    "type": "long"
+                }
+            }
+        },
+        "S5e": {
+            "type": "structure",
+            "members": {
+                "userId": {},
+                "userName": {
+                    "shape": "S14"
+                },
+                "firstName": {},
+                "lastName": {},
+                "userEmail": {
+                    "shape": "S14"
+                },
+                "isActive": {
+                    "type": "boolean"
+                },
+                "roleType": {},
+                "hasAPIAccess": {
+                    "type": "boolean"
+                },
+                "apiAccessPrincipalArn": {},
+                "createTimestamp": {
+                    "type": "timestamp"
+                },
+                "updateTimestamp": {
+                    "type": "timestamp"
+                },
+                "lastLoginTimestamp": {
+                    "type": "timestamp"
+                }
+            }
+        },
+        "S5p": {
+            "type": "structure",
+            "members": {
+                "dataConnectorId": {},
+                "sortByValue": {}
+            }
+        },
+        "Sn": {
+            "type": "structure",
+            "members": {
+                "name": {},
+                "environmentId": {},
+                "awsAccountId": {},
+                "status": {},
+                "environmentUrl": {},
+                "description": {},
+                "environmentArn": {},
+                "sageMakerStudioDomainUrl": {},
+                "kmsKeyId": {},
+                "dedicatedServiceAccountId": {},
+                "federationMode": {},
+                "federationParameters": {
+                    "shape": "S9"
+                }
+            }
+        },
+        "S4o": {
+            "type": "structure",
+            "required": [
+                "transitGatewayID",
+                "routableCIDRSpace"
+            ],
+            "members": {
+                "transitGatewayID": {},
+                "routableCIDRSpace": {}
+            }
+        },
+        "S4r": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "customDNSServerName",
+                    "customDNSServerIP"
+                ],
+                "members": {
+                    "customDNSServerName": {},
+                    "customDNSServerIP": {}
+                }
+            }
+        },
+        "S4v": {
+            "type": "list",
+            "member": {}
+        },
+        "S50": {
+            "type": "structure",
+            "members": {
+                "dataConnectorId": {},
+                "dataConnectorRunId": {},
+                "errorInfo": {
+                    "type": "structure",
+                    "members": {
+                        "errorType": {},
+                        "errorMessage": {}
+                    }
+                },
+                "runStatus": {},
+                "creationTimestamp": {
+                    "type": "timestamp"
+                },
+                "lastModifiedTimestamp": {
+                    "type": "timestamp"
+                },
+                "completedTimestamp": {
+                    "type": "timestamp"
+                },
+                "datasetsAdded": {
+                    "type": "long"
+                },
+                "datasetsRemoved": {
+                    "type": "long"
+                }
+            }
+        },
+        "S5c": {
+            "type": "structure",
+            "members": {
+                "userId": {},
+                "userName": {
+                    "shape": "S14"
+                },
+                "firstName": {},
+                "lastName": {},
+                "userEmail": {
+                    "shape": "S14"
+                },
+                "isActive": {
+                    "type": "boolean"
+                },
+                "roleType": {},
+                "hasAPIAccess": {
+                    "type": "boolean"
+                },
+                "apiAccessPrincipalArn": {},
+                "createTimestamp": {
+                    "type": "timestamp"
+                },
+                "updateTimestamp": {
+                    "type": "timestamp"
+                },
+                "lastLoginTimestamp": {
+                    "type": "timestamp"
+                }
+            }
+        },
+        "S5n": {
+            "type": "structure",
+            "members": {
+                "dataConnectorId": {},
+                "sortByValue": {}
+            }
+        },
+        "S22": {
+            "type": "structure",
+            "members": {
+                "minNodeCount": {
+                    "type": "integer"
+                },
+                "maxNodeCount": {
+                    "type": "integer"
+                },
+                "autoScalingMetric": {},
+                "metricTarget": {
+                    "type": "double"
+                },
+                "scaleInCooldownSeconds": {
+                    "type": "double"
+                },
+                "scaleOutCooldownSeconds": {
+                    "type": "double"
+                }
+            }
+        },
+        "S28": {
+            "type": "structure",
+            "members": {
+                "nodeType": {},
+                "nodeCount": {
+                    "type": "integer"
+                }
+            }
+        },
+        "S2b": {
+            "type": "structure",
+            "members": {
+                "vpcId": {},
+                "securityGroupIds": {
+                    "type": "list",
+                    "member": {}
+                },
+                "subnetIds": {
+                    "type": "list",
+                    "member": {}
+                },
+                "ipAddressType": {}
+            }
+        },
+        "S2n": {
+            "type": "structure",
+            "members": {
+                "s3Bucket": {},
+                "s3Key": {},
+                "s3ObjectVersion": {}
+            }
+        },
+        "S2s": {
+            "type": "structure",
+            "required": [
+                "type",
+                "size"
+            ],
+            "members": {
+                "type": {},
+                "size": {
+                    "type": "integer"
+                }
+            }
+        },
+        "S3h": {
+            "type": "string",
+            "sensitive": true
+        },
+        "S3y": {
+            "type": "structure",
+            "members": {
+                "dataProviderId": {},
+                "dataProviderName": {},
+                "dataProviderDescription": {},
+                "dataProviderDocumentation": {},
+                "dataProviderImageLink": {},
+                "dataProviderAuthenticationMode": {},
+                "connectorAttributesDefinition": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "members": {
+                            "name": {},
+                            "required": {
+                                "type": "boolean"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "S48": {
+            "type": "structure",
+            "members": {
+                "name": {},
+                "environmentId": {},
+                "awsAccountId": {},
+                "status": {},
+                "environmentUrl": {},
+                "description": {},
+                "environmentArn": {},
+                "sageMakerStudioDomainUrl": {},
+                "kmsKeyId": {},
+                "dedicatedServiceAccountId": {},
+                "federationMode": {},
+                "federationParameters": {
+                    "shape": "Sv"
+                }
+            }
+        },
+        "S4u": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "customDNSServerName",
+                    "customDNSServerIP"
+                ],
+                "members": {
+                    "customDNSServerName": {},
+                    "customDNSServerIP": {}
+                }
+            }
+        },
+        "S4y": {
+            "type": "list",
+            "member": {}
+        },
+        "S53": {
+            "type": "structure",
+            "members": {
+                "dataConnectorId": {},
+                "dataConnectorRunId": {},
+                "errorInfo": {
+                    "type": "structure",
+                    "members": {
+                        "errorType": {},
+                        "errorMessage": {}
+                    }
+                },
+                "runStatus": {},
+                "creationTimestamp": {
+                    "type": "timestamp"
+                },
+                "lastModifiedTimestamp": {
+                    "type": "timestamp"
+                },
+                "completedTimestamp": {
+                    "type": "timestamp"
+                },
+                "datasetsAdded": {
+                    "type": "long"
+                },
+                "datasetsRemoved": {
+                    "type": "long"
+                }
+            }
+        },
+        "S5f": {
+            "type": "structure",
+            "members": {
+                "userId": {},
+                "userName": {
+                    "shape": "S14"
+                },
+                "firstName": {},
+                "lastName": {},
+                "userEmail": {
+                    "shape": "S14"
+                },
+                "isActive": {
+                    "type": "boolean"
+                },
+                "roleType": {},
+                "hasAPIAccess": {
+                    "type": "boolean"
+                },
+                "apiAccessPrincipalArn": {},
+                "createTimestamp": {
+                    "type": "timestamp"
+                },
+                "updateTimestamp": {
+                    "type": "timestamp"
+                },
+                "lastLoginTimestamp": {
+                    "type": "timestamp"
+                }
+            }
+        },
+        "S5q": {
+            "type": "structure",
+            "members": {
+                "dataConnectorId": {},
+                "sortByValue": {}
+            }
+        },
+        "S1s": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "databaseName"
+                ],
+                "members": {
+                    "databaseName": {},
+                    "cacheConfigurations": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "cacheType",
+                                "dbPaths"
+                            ],
+                            "members": {
+                                "cacheType": {},
+                                "dbPaths": {
+                                    "type": "list",
+                                    "member": {}
+                                }
+                            }
+                        }
+                    },
+                    "changesetId": {}
+                }
+            }
+        },
+        "S1y": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "type",
+                    "size"
+                ],
+                "members": {
+                    "type": {},
+                    "size": {
+                        "type": "integer"
+                    }
+                }
+            }
+        },
+        "S21": {
+            "type": "structure",
+            "members": {
+                "minNodeCount": {
+                    "type": "integer"
+                },
+                "maxNodeCount": {
+                    "type": "integer"
+                },
+                "autoScalingMetric": {},
+                "metricTarget": {
+                    "type": "double"
+                },
+                "scaleInCooldownSeconds": {
+                    "type": "double"
+                },
+                "scaleOutCooldownSeconds": {
+                    "type": "double"
+                }
+            }
+        },
+        "S2a": {
+            "type": "structure",
+            "members": {
+                "vpcId": {},
+                "securityGroupIds": {
+                    "type": "list",
+                    "member": {}
+                },
+                "subnetIds": {
+                    "type": "list",
+                    "member": {}
+                },
+                "ipAddressType": {}
+            }
+        },
+        "S2i": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "key": {},
+                    "value": {}
+                }
+            }
+        },
+        "S2m": {
+            "type": "structure",
+            "members": {
+                "s3Bucket": {},
+                "s3Key": {},
+                "s3ObjectVersion": {}
+            }
+        },
+        "S2r": {
+            "type": "structure",
+            "required": [
+                "type",
+                "size"
+            ],
+            "members": {
+                "type": {},
+                "size": {
+                    "type": "integer"
+                }
+            }
+        },
+        "S3g": {
+            "type": "string",
+            "sensitive": true
+        },
+        "S3x": {
+            "type": "structure",
+            "members": {
+                "dataProviderId": {},
+                "dataProviderName": {},
+                "dataProviderDescription": {},
+                "dataProviderDocumentation": {},
+                "dataProviderImageLink": {},
+                "dataProviderAuthenticationMode": {},
+                "connectorAttributesDefinition": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "members": {
+                            "name": {},
+                            "required": {
+                                "type": "boolean"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "S47": {
+            "type": "structure",
+            "members": {
+                "name": {},
+                "environmentId": {},
+                "awsAccountId": {},
+                "status": {},
+                "environmentUrl": {},
+                "description": {},
+                "environmentArn": {},
+                "sageMakerStudioDomainUrl": {},
+                "kmsKeyId": {},
+                "dedicatedServiceAccountId": {},
+                "federationMode": {},
+                "federationParameters": {
+                    "shape": "Sv"
+                }
+            }
+        }
+    }
+}

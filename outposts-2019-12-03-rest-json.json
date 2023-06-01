@@ -1,0 +1,2001 @@
+{
+    "version": "2.0",
+    "metadata": {
+        "apiVersion": "2019-12-03",
+        "endpointPrefix": "outposts",
+        "jsonVersion": "1.1",
+        "protocol": "rest-json",
+        "serviceAbbreviation": "Outposts",
+        "serviceFullName": "AWS Outposts",
+        "serviceId": "Outposts",
+        "signatureVersion": "v4",
+        "signingName": "outposts",
+        "uid": "outposts-2019-12-03",
+        "download_location": [
+            "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+        ]
+    },
+    "operations": {
+        "CancelOrder": {
+            "http": {
+                "requestUri": "/orders/{OrderId}/cancel"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "OrderId"
+                ],
+                "members": {
+                    "OrderId": {
+                        "location": "uri",
+                        "locationName": "OrderId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "CreateOrder": {
+            "http": {
+                "requestUri": "/orders"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "OutpostIdentifier",
+                    "LineItems",
+                    "PaymentOption"
+                ],
+                "members": {
+                    "OutpostIdentifier": {},
+                    "LineItems": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "CatalogItemId": {},
+                                "Quantity": {
+                                    "type": "integer"
+                                }
+                            }
+                        }
+                    },
+                    "PaymentOption": {},
+                    "PaymentTerm": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Order": {
+                        "shape": "Sd"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "CreateOutpost": {
+            "http": {
+                "requestUri": "/outposts"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "Name",
+                    "SiteId"
+                ],
+                "members": {
+                    "Name": {},
+                    "Description": {},
+                    "SiteId": {},
+                    "AvailabilityZone": {},
+                    "AvailabilityZoneId": {},
+                    "Tags": {
+                        "shape": "Sz"
+                    },
+                    "SupportedHardwareType": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Outpost": {
+                        "shape": "S14"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "CreateSite": {
+            "http": {
+                "requestUri": "/sites"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "Name"
+                ],
+                "members": {
+                    "Name": {},
+                    "Description": {},
+                    "Notes": {},
+                    "Tags": {
+                        "shape": "Sz"
+                    },
+                    "OperatingAddress": {
+                        "shape": "S1e"
+                    },
+                    "ShippingAddress": {
+                        "shape": "S1e"
+                    },
+                    "RackPhysicalProperties": {
+                        "shape": "S1q"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Site": {
+                        "shape": "S21"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "DeleteOutpost": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/outposts/{OutpostId}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "OutpostId"
+                ],
+                "members": {
+                    "OutpostId": {
+                        "location": "uri",
+                        "locationName": "OutpostId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "DeleteSite": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/sites/{SiteId}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "SiteId"
+                ],
+                "members": {
+                    "SiteId": {
+                        "location": "uri",
+                        "locationName": "SiteId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "GetCatalogItem": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/catalog/item/{CatalogItemId}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "CatalogItemId"
+                ],
+                "members": {
+                    "CatalogItemId": {
+                        "location": "uri",
+                        "locationName": "CatalogItemId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "CatalogItem": {
+                        "shape": "S29"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "GetConnection": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/connections/{ConnectionId}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ConnectionId"
+                ],
+                "members": {
+                    "ConnectionId": {
+                        "location": "uri",
+                        "locationName": "ConnectionId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ConnectionId": {},
+                    "ConnectionDetails": {
+                        "type": "structure",
+                        "members": {
+                            "ClientPublicKey": {},
+                            "ServerPublicKey": {},
+                            "ServerEndpoint": {},
+                            "ClientTunnelAddress": {},
+                            "ServerTunnelAddress": {},
+                            "AllowedIps": {
+                                "type": "list",
+                                "member": {}
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "GetOrder": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/orders/{OrderId}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "OrderId"
+                ],
+                "members": {
+                    "OrderId": {
+                        "location": "uri",
+                        "locationName": "OrderId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Order": {
+                        "shape": "Sd"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "GetOutpost": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/outposts/{OutpostId}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "OutpostId"
+                ],
+                "members": {
+                    "OutpostId": {
+                        "location": "uri",
+                        "locationName": "OutpostId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Outpost": {
+                        "shape": "S14"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "GetOutpostInstanceTypes": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/outposts/{OutpostId}/instanceTypes"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "OutpostId"
+                ],
+                "members": {
+                    "OutpostId": {
+                        "location": "uri",
+                        "locationName": "OutpostId"
+                    },
+                    "NextToken": {
+                        "location": "querystring",
+                        "locationName": "NextToken"
+                    },
+                    "MaxResults": {
+                        "location": "querystring",
+                        "locationName": "MaxResults",
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "InstanceTypes": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "InstanceType": {}
+                            }
+                        }
+                    },
+                    "NextToken": {},
+                    "OutpostId": {},
+                    "OutpostArn": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "GetSite": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/sites/{SiteId}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "SiteId"
+                ],
+                "members": {
+                    "SiteId": {
+                        "location": "uri",
+                        "locationName": "SiteId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Site": {
+                        "shape": "S21"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "GetSiteAddress": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/sites/{SiteId}/address"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "SiteId",
+                    "AddressType"
+                ],
+                "members": {
+                    "SiteId": {
+                        "location": "uri",
+                        "locationName": "SiteId"
+                    },
+                    "AddressType": {
+                        "location": "querystring",
+                        "locationName": "AddressType"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "SiteId": {},
+                    "AddressType": {},
+                    "Address": {
+                        "shape": "S1e"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "ListAssets": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/outposts/{OutpostId}/assets"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "OutpostIdentifier"
+                ],
+                "members": {
+                    "OutpostIdentifier": {
+                        "location": "uri",
+                        "locationName": "OutpostId"
+                    },
+                    "HostIdFilter": {
+                        "location": "querystring",
+                        "locationName": "HostIdFilter",
+                        "type": "list",
+                        "member": {}
+                    },
+                    "MaxResults": {
+                        "location": "querystring",
+                        "locationName": "MaxResults",
+                        "type": "integer"
+                    },
+                    "NextToken": {
+                        "location": "querystring",
+                        "locationName": "NextToken"
+                    },
+                    "StatusFilter": {
+                        "location": "querystring",
+                        "locationName": "StatusFilter",
+                        "type": "list",
+                        "member": {}
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Assets": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "AssetId": {},
+                                "RackId": {},
+                                "AssetType": {},
+                                "ComputeAttributes": {
+                                    "type": "structure",
+                                    "members": {
+                                        "HostId": {},
+                                        "State": {}
+                                    }
+                                },
+                                "AssetLocation": {
+                                    "type": "structure",
+                                    "members": {
+                                        "RackElevation": {
+                                            "type": "float"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "ListCatalogItems": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/catalog/items"
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "NextToken": {
+                        "location": "querystring",
+                        "locationName": "NextToken"
+                    },
+                    "MaxResults": {
+                        "location": "querystring",
+                        "locationName": "MaxResults",
+                        "type": "integer"
+                    },
+                    "ItemClassFilter": {
+                        "location": "querystring",
+                        "locationName": "ItemClassFilter",
+                        "type": "list",
+                        "member": {}
+                    },
+                    "SupportedStorageFilter": {
+                        "shape": "S2k",
+                        "location": "querystring",
+                        "locationName": "SupportedStorageFilter"
+                    },
+                    "EC2FamilyFilter": {
+                        "location": "querystring",
+                        "locationName": "EC2FamilyFilter",
+                        "type": "list",
+                        "member": {}
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "CatalogItems": {
+                        "type": "list",
+                        "member": {
+                            "shape": "S29"
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "ListOrders": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/list-orders"
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "OutpostIdentifierFilter": {
+                        "location": "querystring",
+                        "locationName": "OutpostIdentifierFilter"
+                    },
+                    "NextToken": {
+                        "location": "querystring",
+                        "locationName": "NextToken"
+                    },
+                    "MaxResults": {
+                        "location": "querystring",
+                        "locationName": "MaxResults",
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Orders": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "OutpostId": {},
+                                "OrderId": {},
+                                "OrderType": {},
+                                "Status": {},
+                                "LineItemCountsByStatus": {
+                                    "type": "map",
+                                    "key": {},
+                                    "value": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "OrderSubmissionDate": {
+                                    "type": "timestamp"
+                                },
+                                "OrderFulfilledDate": {
+                                    "type": "timestamp"
+                                }
+                            }
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "ListOutposts": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/outposts"
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "NextToken": {
+                        "location": "querystring",
+                        "locationName": "NextToken"
+                    },
+                    "MaxResults": {
+                        "location": "querystring",
+                        "locationName": "MaxResults",
+                        "type": "integer"
+                    },
+                    "LifeCycleStatusFilter": {
+                        "location": "querystring",
+                        "locationName": "LifeCycleStatusFilter",
+                        "type": "list",
+                        "member": {}
+                    },
+                    "AvailabilityZoneFilter": {
+                        "location": "querystring",
+                        "locationName": "AvailabilityZoneFilter",
+                        "type": "list",
+                        "member": {}
+                    },
+                    "AvailabilityZoneIdFilter": {
+                        "location": "querystring",
+                        "locationName": "AvailabilityZoneIdFilter",
+                        "type": "list",
+                        "member": {}
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Outposts": {
+                        "type": "list",
+                        "member": {
+                            "shape": "S14"
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "ListSites": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/sites"
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "NextToken": {
+                        "location": "querystring",
+                        "locationName": "NextToken"
+                    },
+                    "MaxResults": {
+                        "location": "querystring",
+                        "locationName": "MaxResults",
+                        "type": "integer"
+                    },
+                    "OperatingAddressCountryCodeFilter": {
+                        "location": "querystring",
+                        "locationName": "OperatingAddressCountryCodeFilter",
+                        "type": "list",
+                        "member": {}
+                    },
+                    "OperatingAddressStateOrRegionFilter": {
+                        "location": "querystring",
+                        "locationName": "OperatingAddressStateOrRegionFilter",
+                        "type": "list",
+                        "member": {}
+                    },
+                    "OperatingAddressCityFilter": {
+                        "location": "querystring",
+                        "locationName": "OperatingAddressCityFilter",
+                        "type": "list",
+                        "member": {}
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Sites": {
+                        "type": "list",
+                        "member": {
+                            "shape": "S21"
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "ListTagsForResource": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/tags/{ResourceArn}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ResourceArn"
+                ],
+                "members": {
+                    "ResourceArn": {
+                        "location": "uri",
+                        "locationName": "ResourceArn"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Tags": {
+                        "shape": "Sz"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "StartConnection": {
+            "http": {
+                "requestUri": "/connections"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "DeviceSerialNumber",
+                    "AssetId",
+                    "ClientPublicKey",
+                    "NetworkInterfaceDeviceIndex"
+                ],
+                "members": {
+                    "DeviceSerialNumber": {},
+                    "AssetId": {},
+                    "ClientPublicKey": {},
+                    "NetworkInterfaceDeviceIndex": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ConnectionId": {},
+                    "UnderlayIpAddress": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "TagResource": {
+            "http": {
+                "requestUri": "/tags/{ResourceArn}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ResourceArn",
+                    "Tags"
+                ],
+                "members": {
+                    "ResourceArn": {
+                        "location": "uri",
+                        "locationName": "ResourceArn"
+                    },
+                    "Tags": {
+                        "shape": "Sz"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "UntagResource": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/tags/{ResourceArn}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ResourceArn",
+                    "TagKeys"
+                ],
+                "members": {
+                    "ResourceArn": {
+                        "location": "uri",
+                        "locationName": "ResourceArn"
+                    },
+                    "TagKeys": {
+                        "location": "querystring",
+                        "locationName": "tagKeys",
+                        "type": "list",
+                        "member": {}
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "UpdateOutpost": {
+            "http": {
+                "method": "PATCH",
+                "requestUri": "/outposts/{OutpostId}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "OutpostId"
+                ],
+                "members": {
+                    "OutpostId": {
+                        "location": "uri",
+                        "locationName": "OutpostId"
+                    },
+                    "Name": {},
+                    "Description": {},
+                    "SupportedHardwareType": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Outpost": {
+                        "shape": "S14"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "UpdateSite": {
+            "http": {
+                "method": "PATCH",
+                "requestUri": "/sites/{SiteId}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "SiteId"
+                ],
+                "members": {
+                    "SiteId": {
+                        "location": "uri",
+                        "locationName": "SiteId"
+                    },
+                    "Name": {},
+                    "Description": {},
+                    "Notes": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Site": {
+                        "shape": "S21"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "UpdateSiteAddress": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/sites/{SiteId}/address"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "SiteId",
+                    "AddressType",
+                    "Address"
+                ],
+                "members": {
+                    "SiteId": {
+                        "location": "uri",
+                        "locationName": "SiteId"
+                    },
+                    "AddressType": {},
+                    "Address": {
+                        "shape": "S1e"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "AddressType": {},
+                    "Address": {
+                        "shape": "S1e"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "UpdateSiteRackPhysicalProperties": {
+            "http": {
+                "method": "PATCH",
+                "requestUri": "/sites/{SiteId}/rackPhysicalProperties"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "SiteId"
+                ],
+                "members": {
+                    "SiteId": {
+                        "location": "uri",
+                        "locationName": "SiteId"
+                    },
+                    "PowerDrawKva": {},
+                    "PowerPhase": {},
+                    "PowerConnector": {},
+                    "PowerFeedDrop": {},
+                    "UplinkGbps": {},
+                    "UplinkCount": {},
+                    "FiberOpticCableType": {},
+                    "OpticalStandard": {},
+                    "MaximumSupportedWeightLbs": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Site": {
+                        "shape": "S21"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "AssociatePrivateConnectivitySubnets": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/outposts/{OutpostId}/privateConnectivity/subnets"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "OutpostId",
+                    "SubnetIds"
+                ],
+                "members": {
+                    "OutpostId": {
+                        "location": "uri",
+                        "locationName": "OutpostId"
+                    },
+                    "SubnetIds": {
+                        "shape": "S3"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "PrivateConnectivityConfig": {
+                        "shape": "S6"
+                    }
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/N2HYA3ZDQGI22MMQO2IGDGQYA64P24LAGYATT7GISY6ZH73RPNFA/main.js"
+            ]
+        },
+        "CreatePrivateConnectivityConfig": {
+            "http": {
+                "requestUri": "/outposts/{OutpostId}/privateConnectivity"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "OutpostId",
+                    "VpcId",
+                    "SubnetIds"
+                ],
+                "members": {
+                    "OutpostId": {
+                        "location": "uri",
+                        "locationName": "OutpostId"
+                    },
+                    "VpcId": {},
+                    "SubnetIds": {
+                        "shape": "S3"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "PrivateConnectivityConfig": {
+                        "shape": "S6"
+                    },
+                    "OutpostId": {}
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/N2HYA3ZDQGI22MMQO2IGDGQYA64P24LAGYATT7GISY6ZH73RPNFA/main.js"
+            ]
+        },
+        "GetPrivateConnectivityConfig": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/outposts/{OutpostId}/privateConnectivity"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "OutpostId"
+                ],
+                "members": {
+                    "OutpostId": {
+                        "location": "uri",
+                        "locationName": "OutpostId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "PrivateConnectivityConfig": {
+                        "shape": "S6"
+                    }
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/N2HYA3ZDQGI22MMQO2IGDGQYA64P24LAGYATT7GISY6ZH73RPNFA/main.js"
+            ]
+        },
+        "GetReturnShipmentInformation": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/return-shipment"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "AssetId"
+                ],
+                "members": {
+                    "AssetId": {
+                        "location": "querystring",
+                        "locationName": "assetId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ReturnShippingLabelURI": {}
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/N2HYA3ZDQGI22MMQO2IGDGQYA64P24LAGYATT7GISY6ZH73RPNFA/main.js"
+            ]
+        },
+        "GetSiteDetails": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/sites/{SiteId}/details"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "SiteId"
+                ],
+                "members": {
+                    "SiteId": {
+                        "location": "uri",
+                        "locationName": "SiteId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "SiteDetails": {
+                        "type": "structure",
+                        "members": {
+                            "AccountId": {},
+                            "Id": {},
+                            "Name": {},
+                            "Description": {},
+                            "PowerDrawKva": {},
+                            "PowerPhase": {},
+                            "PowerConnector": {},
+                            "RedundantPower": {},
+                            "UpstreamBreaker": {},
+                            "Conditions": {},
+                            "PathToPosition": {},
+                            "SeismicBolting": {},
+                            "MaxWeightLbs": {},
+                            "NetworkingAllowed": {},
+                            "Notes": {},
+                            "UplinkGbps": {},
+                            "UplinkCount": {},
+                            "Fiber": {},
+                            "OpticalStandard": {},
+                            "RedundantNetworking": {},
+                            "PowerFeedDrop": {}
+                        }
+                    }
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/N2HYA3ZDQGI22MMQO2IGDGQYA64P24LAGYATT7GISY6ZH73RPNFA/main.js"
+            ]
+        },
+        "IncreaseEbsCapacity": {
+            "http": {
+                "method": "PATCH",
+                "requestUri": "/outposts/{OutpostId}/increaseebscapacity"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "OutpostId"
+                ],
+                "members": {
+                    "OutpostId": {
+                        "location": "uri",
+                        "locationName": "OutpostId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Order": {
+                        "shape": "Sn"
+                    }
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/N2HYA3ZDQGI22MMQO2IGDGQYA64P24LAGYATT7GISY6ZH73RPNFA/main.js"
+            ]
+        },
+        "LockServiceLinkedRole": {
+            "http": {
+                "requestUri": "/slr-deletion/lock"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "RoleArn",
+                    "Timeout"
+                ],
+                "members": {
+                    "RoleArn": {},
+                    "Timeout": {
+                        "type": "long"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "CanBeDeleted"
+                ],
+                "members": {
+                    "CanBeDeleted": {
+                        "type": "boolean"
+                    },
+                    "ReasonOfFailure": {},
+                    "RelatedResources": {
+                        "type": "list",
+                        "member": {}
+                    }
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/N2HYA3ZDQGI22MMQO2IGDGQYA64P24LAGYATT7GISY6ZH73RPNFA/main.js"
+            ]
+        },
+        "NotifyConnectionProgress": {
+            "http": {
+                "method": "PATCH",
+                "requestUri": "/connections/{ConnectionId}/notify-progress"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ConnectionId",
+                    "ClientHandshakeAgeInSecs",
+                    "ClientHandshakeRequestsSent",
+                    "ClientHandshakeRequestsRepliedTo",
+                    "ClientLargestPacketLengthInBytes"
+                ],
+                "members": {
+                    "ConnectionId": {
+                        "location": "uri",
+                        "locationName": "ConnectionId"
+                    },
+                    "ClientCurrentTime": {
+                        "type": "timestamp"
+                    },
+                    "ClientHandshakeAgeInSecs": {
+                        "type": "integer"
+                    },
+                    "ClientHandshakeRequestsSent": {
+                        "type": "integer"
+                    },
+                    "ClientHandshakeRequestsRepliedTo": {
+                        "type": "integer"
+                    },
+                    "ClientLargestPacketLengthInBytes": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ConnectionId": {},
+                    "ServerCurrentTime": {
+                        "type": "timestamp"
+                    },
+                    "ServerHandshakeAgeInSecs": {
+                        "type": "integer"
+                    },
+                    "ServerHandshakeRequestsSent": {
+                        "type": "integer"
+                    },
+                    "ServerHandshakeRequestsRepliedTo": {
+                        "type": "integer"
+                    },
+                    "ServerLargestPacketLengthInBytes": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/N2HYA3ZDQGI22MMQO2IGDGQYA64P24LAGYATT7GISY6ZH73RPNFA/main.js"
+            ]
+        },
+        "Ping": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/ping"
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Message": {}
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/N2HYA3ZDQGI22MMQO2IGDGQYA64P24LAGYATT7GISY6ZH73RPNFA/main.js"
+            ]
+        },
+        "SetSiteAddress": {
+            "http": {
+                "method": "PATCH",
+                "requestUri": "/sites/{SiteId}/address"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "SiteId",
+                    "Address"
+                ],
+                "members": {
+                    "SiteId": {
+                        "location": "uri",
+                        "locationName": "SiteId"
+                    },
+                    "Address": {
+                        "shape": "S29"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "SiteId": {},
+                    "Address": {
+                        "shape": "S29"
+                    }
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/N2HYA3ZDQGI22MMQO2IGDGQYA64P24LAGYATT7GISY6ZH73RPNFA/main.js"
+            ]
+        },
+        "UnlockServiceLinkedRole": {
+            "http": {
+                "requestUri": "/slr-deletion/unlock"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "RoleArn"
+                ],
+                "members": {
+                    "RoleArn": {},
+                    "DeletionStatus": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/N2HYA3ZDQGI22MMQO2IGDGQYA64P24LAGYATT7GISY6ZH73RPNFA/main.js"
+            ]
+        }
+    },
+    "shapes": {
+        "Sd": {
+            "type": "structure",
+            "members": {
+                "OutpostId": {},
+                "OrderId": {},
+                "Status": {},
+                "LineItems": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "members": {
+                            "CatalogItemId": {},
+                            "LineItemId": {},
+                            "Quantity": {
+                                "type": "integer"
+                            },
+                            "Status": {},
+                            "ShipmentInformation": {
+                                "type": "structure",
+                                "members": {
+                                    "ShipmentTrackingNumber": {},
+                                    "ShipmentCarrier": {}
+                                }
+                            },
+                            "AssetInformationList": {
+                                "type": "list",
+                                "member": {
+                                    "type": "structure",
+                                    "members": {
+                                        "AssetId": {},
+                                        "MacAddressList": {
+                                            "type": "list",
+                                            "member": {}
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "PaymentOption": {},
+                "OrderSubmissionDate": {
+                    "type": "timestamp"
+                },
+                "OrderFulfilledDate": {
+                    "type": "timestamp"
+                }
+            }
+        },
+        "Sz": {
+            "type": "map",
+            "key": {},
+            "value": {}
+        },
+        "S14": {
+            "type": "structure",
+            "members": {
+                "OutpostId": {},
+                "OwnerId": {},
+                "OutpostArn": {},
+                "SiteId": {},
+                "Name": {},
+                "Description": {},
+                "LifeCycleStatus": {},
+                "AvailabilityZone": {},
+                "AvailabilityZoneId": {},
+                "Tags": {
+                    "shape": "Sz"
+                },
+                "SiteArn": {},
+                "SupportedHardwareType": {}
+            }
+        },
+        "S1e": {
+            "type": "structure",
+            "required": [
+                "AddressLine1",
+                "City",
+                "StateOrRegion",
+                "PostalCode",
+                "CountryCode"
+            ],
+            "members": {
+                "ContactName": {},
+                "ContactPhoneNumber": {},
+                "AddressLine1": {},
+                "AddressLine2": {},
+                "AddressLine3": {},
+                "City": {},
+                "StateOrRegion": {},
+                "DistrictOrCounty": {},
+                "PostalCode": {},
+                "CountryCode": {},
+                "Municipality": {}
+            }
+        },
+        "S1q": {
+            "type": "structure",
+            "members": {
+                "PowerDrawKva": {},
+                "PowerPhase": {},
+                "PowerConnector": {},
+                "PowerFeedDrop": {},
+                "UplinkGbps": {},
+                "UplinkCount": {},
+                "FiberOpticCableType": {},
+                "OpticalStandard": {},
+                "MaximumSupportedWeightLbs": {}
+            }
+        },
+        "S21": {
+            "type": "structure",
+            "members": {
+                "SiteId": {},
+                "AccountId": {},
+                "Name": {},
+                "Description": {},
+                "Tags": {
+                    "shape": "Sz"
+                },
+                "SiteArn": {},
+                "Notes": {},
+                "OperatingAddressCountryCode": {},
+                "OperatingAddressStateOrRegion": {},
+                "OperatingAddressCity": {},
+                "RackPhysicalProperties": {
+                    "shape": "S1q"
+                }
+            }
+        },
+        "S29": {
+            "type": "structure",
+            "members": {
+                "CatalogItemId": {},
+                "ItemStatus": {},
+                "EC2Capacities": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "members": {
+                            "Family": {},
+                            "MaxSize": {},
+                            "Quantity": {}
+                        }
+                    }
+                },
+                "PowerKva": {
+                    "type": "float"
+                },
+                "WeightLbs": {
+                    "type": "integer"
+                },
+                "SupportedUplinkGbps": {
+                    "type": "list",
+                    "member": {
+                        "type": "integer"
+                    }
+                },
+                "SupportedStorage": {
+                    "shape": "S2k"
+                }
+            }
+        },
+        "S2k": {
+            "type": "list",
+            "member": {}
+        },
+        "S8": {
+            "type": "structure",
+            "members": {
+                "OutpostId": {},
+                "OwnerId": {},
+                "OutpostArn": {},
+                "SiteId": {},
+                "Name": {},
+                "Description": {},
+                "LifeCycleStatus": {},
+                "AvailabilityZone": {},
+                "AvailabilityZoneId": {}
+            }
+        },
+        "Sr": {
+            "type": "map",
+            "key": {},
+            "value": {}
+        },
+        "Sw": {
+            "type": "structure",
+            "members": {
+                "OutpostId": {},
+                "OwnerId": {},
+                "OutpostArn": {},
+                "SiteId": {},
+                "Name": {},
+                "Description": {},
+                "LifeCycleStatus": {},
+                "AvailabilityZone": {},
+                "AvailabilityZoneId": {},
+                "Tags": {
+                    "shape": "Sr"
+                },
+                "SiteArn": {},
+                "SupportedHardwareType": {}
+            }
+        },
+        "S16": {
+            "type": "structure",
+            "required": [
+                "AddressLine1",
+                "City",
+                "StateOrRegion",
+                "PostalCode",
+                "CountryCode"
+            ],
+            "members": {
+                "ContactName": {},
+                "ContactPhoneNumber": {},
+                "AddressLine1": {},
+                "AddressLine2": {},
+                "AddressLine3": {},
+                "City": {},
+                "StateOrRegion": {},
+                "DistrictOrCounty": {},
+                "PostalCode": {},
+                "CountryCode": {},
+                "Municipality": {}
+            }
+        },
+        "S1i": {
+            "type": "structure",
+            "members": {
+                "PowerDrawKva": {},
+                "PowerPhase": {},
+                "PowerConnector": {},
+                "PowerFeedDrop": {},
+                "UplinkGbps": {},
+                "UplinkCount": {},
+                "FiberOpticCableType": {},
+                "OpticalStandard": {},
+                "MaximumSupportedWeightLbs": {}
+            }
+        },
+        "S1t": {
+            "type": "structure",
+            "members": {
+                "SiteId": {},
+                "AccountId": {},
+                "Name": {},
+                "Description": {},
+                "Tags": {
+                    "shape": "Sr"
+                },
+                "SiteArn": {},
+                "Notes": {},
+                "OperatingAddressCountryCode": {},
+                "OperatingAddressStateOrRegion": {},
+                "OperatingAddressCity": {},
+                "RackPhysicalProperties": {
+                    "shape": "S1i"
+                }
+            }
+        },
+        "S2c": {
+            "type": "list",
+            "member": {}
+        },
+        "S7": {
+            "type": "map",
+            "key": {},
+            "value": {}
+        },
+        "Sb": {
+            "type": "structure",
+            "members": {
+                "OutpostId": {},
+                "OwnerId": {},
+                "OutpostArn": {},
+                "SiteId": {},
+                "Name": {},
+                "Description": {},
+                "LifeCycleStatus": {},
+                "AvailabilityZone": {},
+                "AvailabilityZoneId": {},
+                "Tags": {
+                    "shape": "S7"
+                }
+            }
+        },
+        "S10": {
+            "type": "map",
+            "key": {},
+            "value": {}
+        },
+        "S15": {
+            "type": "structure",
+            "members": {
+                "OutpostId": {},
+                "OwnerId": {},
+                "OutpostArn": {},
+                "SiteId": {},
+                "Name": {},
+                "Description": {},
+                "LifeCycleStatus": {},
+                "AvailabilityZone": {},
+                "AvailabilityZoneId": {},
+                "Tags": {
+                    "shape": "S10"
+                },
+                "SiteArn": {},
+                "SupportedHardwareType": {}
+            }
+        },
+        "S1f": {
+            "type": "structure",
+            "required": [
+                "AddressLine1",
+                "City",
+                "StateOrRegion",
+                "PostalCode",
+                "CountryCode"
+            ],
+            "members": {
+                "ContactName": {},
+                "ContactPhoneNumber": {},
+                "AddressLine1": {},
+                "AddressLine2": {},
+                "AddressLine3": {},
+                "City": {},
+                "StateOrRegion": {},
+                "DistrictOrCounty": {},
+                "PostalCode": {},
+                "CountryCode": {},
+                "Municipality": {}
+            }
+        },
+        "S1r": {
+            "type": "structure",
+            "members": {
+                "PowerDrawKva": {},
+                "PowerPhase": {},
+                "PowerConnector": {},
+                "PowerFeedDrop": {},
+                "UplinkGbps": {},
+                "UplinkCount": {},
+                "FiberOpticCableType": {},
+                "OpticalStandard": {},
+                "MaximumSupportedWeightLbs": {}
+            }
+        },
+        "S22": {
+            "type": "structure",
+            "members": {
+                "SiteId": {},
+                "AccountId": {},
+                "Name": {},
+                "Description": {},
+                "Tags": {
+                    "shape": "S10"
+                },
+                "SiteArn": {},
+                "Notes": {},
+                "OperatingAddressCountryCode": {},
+                "OperatingAddressStateOrRegion": {},
+                "OperatingAddressCity": {},
+                "RackPhysicalProperties": {
+                    "shape": "S1r"
+                }
+            }
+        },
+        "S2a": {
+            "type": "structure",
+            "members": {
+                "CatalogItemId": {},
+                "ItemStatus": {},
+                "EC2Capacities": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "members": {
+                            "Family": {},
+                            "MaxSize": {},
+                            "Quantity": {}
+                        }
+                    }
+                },
+                "PowerKva": {
+                    "type": "float"
+                },
+                "WeightLbs": {
+                    "type": "integer"
+                },
+                "SupportedUplinkGbps": {
+                    "type": "list",
+                    "member": {
+                        "type": "integer"
+                    }
+                },
+                "SupportedStorage": {
+                    "shape": "S2l"
+                }
+            }
+        },
+        "S2l": {
+            "type": "list",
+            "member": {}
+        },
+        "S3": {
+            "type": "list",
+            "member": {}
+        },
+        "S6": {
+            "type": "structure",
+            "members": {
+                "VpcId": {},
+                "SubnetIds": {
+                    "shape": "S3"
+                },
+                "RoleArn": {},
+                "PrivateConnectivityStatus": {}
+            }
+        },
+        "Sn": {
+            "type": "structure",
+            "members": {
+                "OutpostId": {},
+                "OrderId": {},
+                "Status": {},
+                "LineItems": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "members": {
+                            "SkuCode": {
+                                "internalonly": true
+                            },
+                            "CatalogItemId": {},
+                            "LineItemId": {},
+                            "Quantity": {
+                                "type": "integer"
+                            },
+                            "Status": {},
+                            "ShipmentInformation": {
+                                "type": "structure",
+                                "members": {
+                                    "ShipmentTrackingNumber": {},
+                                    "ShipmentCarrier": {}
+                                }
+                            },
+                            "AssetInformationList": {
+                                "type": "list",
+                                "member": {
+                                    "type": "structure",
+                                    "members": {
+                                        "AssetId": {},
+                                        "MacAddressList": {
+                                            "type": "list",
+                                            "member": {}
+                                        }
+                                    }
+                                }
+                            },
+                            "PreviousLineItemId": {},
+                            "PreviousOrderId": {}
+                        }
+                    }
+                },
+                "PaymentOption": {},
+                "OrderSubmissionDate": {
+                    "type": "timestamp"
+                },
+                "OrderFulfilledDate": {
+                    "type": "timestamp"
+                },
+                "PaymentTerm": {},
+                "OrderType": {}
+            }
+        },
+        "S1a": {
+            "type": "map",
+            "key": {},
+            "value": {}
+        },
+        "S1h": {
+            "type": "structure",
+            "members": {
+                "OutpostId": {},
+                "OwnerId": {},
+                "OutpostArn": {},
+                "SiteId": {},
+                "Name": {},
+                "Description": {},
+                "LifeCycleStatus": {},
+                "AvailabilityZone": {},
+                "AvailabilityZoneId": {},
+                "Tags": {
+                    "shape": "S1a"
+                },
+                "SiteArn": {},
+                "SupportedHardwareType": {},
+                "FrontierType": {
+                    "internalonly": true
+                },
+                "FrontierId": {
+                    "internalonly": true
+                }
+            }
+        },
+        "S33": {
+            "type": "structure",
+            "members": {
+                "SiteId": {},
+                "AccountId": {},
+                "Name": {},
+                "Description": {},
+                "Tags": {
+                    "shape": "S1a"
+                },
+                "SiteArn": {},
+                "Notes": {},
+                "OperatingAddressCountryCode": {},
+                "OperatingAddressStateOrRegion": {},
+                "OperatingAddressCity": {},
+                "RackPhysicalProperties": {
+                    "shape": "S2l"
+                }
+            }
+        },
+        "S3b": {
+            "type": "structure",
+            "members": {
+                "CatalogItemId": {},
+                "ItemClass": {
+                    "internalonly": true
+                },
+                "ItemStatus": {},
+                "EC2Capacities": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "members": {
+                            "Family": {},
+                            "MaxSize": {},
+                            "Quantity": {}
+                        }
+                    }
+                },
+                "PowerKva": {
+                    "type": "float"
+                },
+                "WeightLbs": {
+                    "type": "integer"
+                },
+                "SupportedUplinkGiB": {
+                    "shape": "S3l",
+                    "internalonly": true
+                },
+                "SupportedUplinkGbps": {
+                    "shape": "S3n"
+                },
+                "SupportedStorage": {
+                    "shape": "S3p"
+                },
+                "Dimensions": {
+                    "internalonly": true
+                },
+                "RackUnitHeight": {
+                    "internalonly": true
+                },
+                "CurrentType": {
+                    "shape": "S3t",
+                    "internalonly": true
+                }
+            }
+        },
+        "S3l": {
+            "type": "list",
+            "member": {
+                "type": "integer"
+            }
+        },
+        "S3n": {
+            "type": "list",
+            "member": {
+                "type": "integer"
+            }
+        },
+        "S3p": {
+            "type": "list",
+            "member": {}
+        },
+        "S3t": {
+            "type": "string",
+            "internalonly": true
+        },
+        "Sp": {
+            "type": "map",
+            "key": {},
+            "value": {}
+        },
+        "St": {
+            "type": "structure",
+            "members": {
+                "OutpostId": {},
+                "OwnerId": {},
+                "OutpostArn": {},
+                "SiteId": {},
+                "Name": {},
+                "Description": {},
+                "LifeCycleStatus": {},
+                "AvailabilityZone": {},
+                "AvailabilityZoneId": {},
+                "Tags": {
+                    "shape": "Sp"
+                },
+                "SiteArn": {}
+            }
+        }
+    }
+}

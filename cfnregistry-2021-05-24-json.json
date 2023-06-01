@@ -1,0 +1,1746 @@
+{
+    "version": "2.0",
+    "metadata": {
+        "apiVersion": "2021-05-24",
+        "endpointPrefix": "cfnregistry",
+        "jsonVersion": "1.0",
+        "protocol": "json",
+        "serviceFullName": "CloudFormation Registry",
+        "serviceId": "CFNRegistryService",
+        "signatureVersion": "v4",
+        "signingName": "cloudformation",
+        "targetPrefix": "CFNRegistryService",
+        "uid": "cfnregistry-2021-05-24",
+        "download_location": [
+            "https://d3l7tabrwpoxyr.cloudfront.net/js/cf9cf0a53eaebcc4e4713ee1c24d330dce7047d4/gzip/vendor.js"
+        ]
+    },
+    "operations": {
+        "BatchDescribeResourceTypesInternal": {
+            "input": {
+                "type": "structure",
+                "members": {
+                    "AccountId": {},
+                    "TypeNameList": {
+                        "shape": "S3"
+                    }
+                },
+                "deprecated": true
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "TypeDetailsList": {
+                        "shape": "S6"
+                    },
+                    "UnprocessedTypeList": {
+                        "type": "list",
+                        "member": {}
+                    }
+                },
+                "deprecated": true
+            },
+            "deprecated": true,
+            "idempotent": true,
+            "download_location": [
+                "https://d3l7tabrwpoxyr.cloudfront.net/js/cf9cf0a53eaebcc4e4713ee1c24d330dce7047d4/gzip/vendor.js"
+            ]
+        },
+        "BatchDescribeTypeConfigurations": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "AccountId",
+                    "TypeConfigurationIdentifiers"
+                ],
+                "members": {
+                    "AccountId": {},
+                    "TypeConfigurationIdentifiers": {
+                        "type": "list",
+                        "member": {
+                            "shape": "S10"
+                        }
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Errors": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "ErrorCode": {},
+                                "ErrorMessage": {},
+                                "TypeConfigurationIdentifier": {
+                                    "shape": "S10"
+                                }
+                            }
+                        }
+                    },
+                    "UnprocessedTypeConfigurations": {
+                        "type": "list",
+                        "member": {
+                            "shape": "S10"
+                        }
+                    },
+                    "TypeConfigurations": {
+                        "shape": "S17"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d3l7tabrwpoxyr.cloudfront.net/js/cf9cf0a53eaebcc4e4713ee1c24d330dce7047d4/gzip/vendor.js"
+            ]
+        },
+        "BatchDescribeTypesInternal": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "AccountId"
+                ],
+                "members": {
+                    "AccountId": {},
+                    "TypeNameList": {
+                        "shape": "S3"
+                    },
+                    "IncludeTypeConfiguration": {
+                        "type": "boolean"
+                    },
+                    "TypeConfigurationIdentifiersInternal": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "TypeName": {},
+                                "TypeConfigurationAlias": {},
+                                "TypeConfigurationVersionId": {},
+                                "Type": {},
+                                "TypeConfigurationArn": {},
+                                "TypeArn": {},
+                                "ConfigurationVersionId": {}
+                            }
+                        }
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "TypeDetailsList": {
+                        "shape": "S6"
+                    }
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://d3l7tabrwpoxyr.cloudfront.net/js/cf9cf0a53eaebcc4e4713ee1c24d330dce7047d4/gzip/vendor.js"
+            ]
+        },
+        "DeprecateTypeConfiguration": {
+            "input": {
+                "type": "structure",
+                "members": {
+                    "AccountId": {},
+                    "TypeArn": {},
+                    "Type": {},
+                    "TypeName": {},
+                    "TypeConfigurationAlias": {},
+                    "TypeConfigurationArn": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://d3l7tabrwpoxyr.cloudfront.net/js/cf9cf0a53eaebcc4e4713ee1c24d330dce7047d4/gzip/vendor.js"
+            ]
+        },
+        "DeregisterPublisher": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "AccountId"
+                ],
+                "members": {
+                    "AccountId": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://d3l7tabrwpoxyr.cloudfront.net/js/cf9cf0a53eaebcc4e4713ee1c24d330dce7047d4/gzip/vendor.js"
+            ]
+        },
+        "DeregisterType": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "AccountId"
+                ],
+                "members": {
+                    "AccountId": {},
+                    "Arn": {},
+                    "Type": {},
+                    "TypeName": {},
+                    "VersionId": {},
+                    "MultipleTypeConfigurationEnabled": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://d3l7tabrwpoxyr.cloudfront.net/js/cf9cf0a53eaebcc4e4713ee1c24d330dce7047d4/gzip/vendor.js"
+            ]
+        },
+        "DescribeExpireTypeProgress": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ExpirationToken"
+                ],
+                "members": {
+                    "ExpirationToken": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Items": {
+                        "shape": "S1p"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d3l7tabrwpoxyr.cloudfront.net/js/cf9cf0a53eaebcc4e4713ee1c24d330dce7047d4/gzip/vendor.js"
+            ]
+        },
+        "DescribePublisher": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "AccountId"
+                ],
+                "members": {
+                    "AccountId": {},
+                    "PublisherId": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "PublisherId": {},
+                    "PublisherStatus": {},
+                    "IdentityProvider": {},
+                    "PublisherProfile": {}
+                }
+            },
+            "download_location": [
+                "https://d3l7tabrwpoxyr.cloudfront.net/js/cf9cf0a53eaebcc4e4713ee1c24d330dce7047d4/gzip/vendor.js"
+            ]
+        },
+        "DescribeType": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "AccountId"
+                ],
+                "members": {
+                    "AccountId": {},
+                    "Arn": {},
+                    "Type": {},
+                    "TypeName": {},
+                    "VersionId": {},
+                    "PublisherId": {},
+                    "PublicVersionNumber": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Arn": {},
+                    "Type": {},
+                    "TypeName": {},
+                    "DefaultVersionId": {},
+                    "DeprecatedStatus": {},
+                    "Description": {},
+                    "Schema": {},
+                    "ProvisioningType": {},
+                    "Visibility": {},
+                    "SourceUrl": {},
+                    "DocumentationUrl": {},
+                    "LoggingConfig": {
+                        "shape": "Si"
+                    },
+                    "ExecutionRoleArn": {},
+                    "LastUpdated": {
+                        "type": "timestamp"
+                    },
+                    "TimeCreated": {
+                        "type": "timestamp"
+                    },
+                    "DefaultVersion": {
+                        "type": "boolean"
+                    },
+                    "TypeTestsStatus": {},
+                    "TypeTestsStatusDescription": {},
+                    "ConfigurationSchema": {},
+                    "DefaultTypeConfiguration": {
+                        "shape": "S18"
+                    },
+                    "PublisherId": {},
+                    "OriginalTypeName": {},
+                    "OriginalTypeArn": {},
+                    "PublicVersionNumber": {},
+                    "LatestPublicVersion": {},
+                    "IsEnabled": {
+                        "type": "boolean"
+                    },
+                    "AutoUpdateEnabled": {
+                        "type": "boolean"
+                    },
+                    "RequiredEnabledTypes": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "TypeNameAlias": {},
+                                "OriginalTypeName": {},
+                                "PublisherId": {},
+                                "SupportedMajorVersions": {
+                                    "type": "list",
+                                    "member": {
+                                        "type": "integer"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://d3l7tabrwpoxyr.cloudfront.net/js/cf9cf0a53eaebcc4e4713ee1c24d330dce7047d4/gzip/vendor.js"
+            ]
+        },
+        "DescribeTypeInternal": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "AccountId"
+                ],
+                "members": {
+                    "AccountId": {},
+                    "Arn": {},
+                    "Type": {},
+                    "TypeName": {},
+                    "VersionId": {},
+                    "TypeConfigurationAlias": {},
+                    "TypeConfigurationVersionId": {},
+                    "ConfigurationVersionId": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Arn": {},
+                    "OwnerAccountId": {},
+                    "DeprecatedStatus": {},
+                    "Type": {},
+                    "TypeName": {},
+                    "VersionId": {},
+                    "PermissionType": {},
+                    "Schema": {},
+                    "Handlers": {
+                        "shape": "Sd"
+                    },
+                    "ModuleTemplateFragmentUrl": {},
+                    "LoggingConfig": {
+                        "shape": "Si"
+                    },
+                    "ExecutionRoleArn": {},
+                    "InternallyOwned": {
+                        "type": "boolean"
+                    },
+                    "FasPolicyPath": {},
+                    "ProtocolVersion": {},
+                    "DefaultVersion": {
+                        "type": "boolean"
+                    },
+                    "ConfigurationSchema": {},
+                    "TypeConfiguration": {
+                        "shape": "Sr"
+                    },
+                    "Configuration": {},
+                    "ConfigurationVersionId": {},
+                    "ContractTestStatus": {},
+                    "PublicVersionNumber": {},
+                    "LatestPublicVersionNumber": {}
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://d3l7tabrwpoxyr.cloudfront.net/js/cf9cf0a53eaebcc4e4713ee1c24d330dce7047d4/gzip/vendor.js"
+            ]
+        },
+        "DescribeTypeRegistration": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "AccountId",
+                    "RegistrationToken"
+                ],
+                "members": {
+                    "AccountId": {},
+                    "RegistrationToken": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ProgressStatus": {},
+                    "Description": {},
+                    "TypeArn": {},
+                    "TypeVersionArn": {}
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://d3l7tabrwpoxyr.cloudfront.net/js/cf9cf0a53eaebcc4e4713ee1c24d330dce7047d4/gzip/vendor.js"
+            ]
+        },
+        "DescribeTypeRoutingConfig": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "AccountId"
+                ],
+                "members": {
+                    "AccountId": {},
+                    "Arn": {},
+                    "TypeName": {},
+                    "Type": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "TypeName": {},
+                    "Type": {},
+                    "RoutingConfig": {
+                        "shape": "S2o"
+                    }
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://d3l7tabrwpoxyr.cloudfront.net/js/cf9cf0a53eaebcc4e4713ee1c24d330dce7047d4/gzip/vendor.js"
+            ]
+        },
+        "DisableType": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "AccountId"
+                ],
+                "members": {
+                    "AccountId": {},
+                    "TypeName": {},
+                    "Type": {},
+                    "Arn": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://d3l7tabrwpoxyr.cloudfront.net/js/cf9cf0a53eaebcc4e4713ee1c24d330dce7047d4/gzip/vendor.js"
+            ]
+        },
+        "EnableType": {
+            "input": {
+                "type": "structure",
+                "members": {
+                    "AccountId": {},
+                    "Arn": {},
+                    "TypeName": {},
+                    "Type": {},
+                    "PublisherId": {},
+                    "TypeNameAlias": {},
+                    "AutoUpdateEnabled": {
+                        "type": "boolean"
+                    },
+                    "LoggingConfig": {
+                        "shape": "Si"
+                    },
+                    "ExecutionRoleArn": {},
+                    "VersionBump": {},
+                    "MajorVersion": {
+                        "type": "long"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Arn": {}
+                }
+            },
+            "download_location": [
+                "https://d3l7tabrwpoxyr.cloudfront.net/js/cf9cf0a53eaebcc4e4713ee1c24d330dce7047d4/gzip/vendor.js"
+            ]
+        },
+        "ExpireNamespace": {
+            "input": {
+                "type": "structure",
+                "members": {
+                    "AccountId": {},
+                    "AccountEventMessage": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ExpirationTokenList": {
+                        "type": "list",
+                        "member": {}
+                    }
+                }
+            },
+            "download_location": [
+                "https://d3l7tabrwpoxyr.cloudfront.net/js/cf9cf0a53eaebcc4e4713ee1c24d330dce7047d4/gzip/vendor.js"
+            ]
+        },
+        "ExpireType": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "AccountId",
+                    "TypeName"
+                ],
+                "members": {
+                    "AccountId": {},
+                    "TypeName": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ExpirationToken": {}
+                }
+            },
+            "download_location": [
+                "https://d3l7tabrwpoxyr.cloudfront.net/js/cf9cf0a53eaebcc4e4713ee1c24d330dce7047d4/gzip/vendor.js"
+            ]
+        },
+        "GetTypeSupportContactInfo": {
+            "input": {
+                "type": "structure",
+                "members": {
+                    "AccountId": {},
+                    "Arn": {},
+                    "Type": {},
+                    "TypeName": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "SupportContactInfo": {
+                        "shape": "S36"
+                    },
+                    "TypeName": {}
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://d3l7tabrwpoxyr.cloudfront.net/js/cf9cf0a53eaebcc4e4713ee1c24d330dce7047d4/gzip/vendor.js"
+            ]
+        },
+        "InitializeRegistrationProgress": {
+            "input": {
+                "type": "structure",
+                "members": {
+                    "RegistrationToken": {},
+                    "AccountId": {},
+                    "Description": {},
+                    "Type": {},
+                    "TypeName": {},
+                    "VersionId": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://d3l7tabrwpoxyr.cloudfront.net/js/cf9cf0a53eaebcc4e4713ee1c24d330dce7047d4/gzip/vendor.js"
+            ]
+        },
+        "ListExpireTypeProgress": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "DateCreated",
+                    "ExpirationStatus"
+                ],
+                "members": {
+                    "DateCreated": {
+                        "type": "timestamp"
+                    },
+                    "ExpirationStatus": {},
+                    "MaxResults": {
+                        "type": "integer"
+                    },
+                    "NextToken": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Items": {
+                        "shape": "S1p"
+                    },
+                    "NextToken": {}
+                }
+            },
+            "download_location": [
+                "https://d3l7tabrwpoxyr.cloudfront.net/js/cf9cf0a53eaebcc4e4713ee1c24d330dce7047d4/gzip/vendor.js"
+            ]
+        },
+        "ListTypeConfigurations": {
+            "input": {
+                "type": "structure",
+                "members": {
+                    "AccountId": {},
+                    "TypeArn": {},
+                    "TypeName": {},
+                    "Type": {},
+                    "MaxResults": {
+                        "type": "integer"
+                    },
+                    "NextToken": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "TypeConfigurations": {
+                        "shape": "S17"
+                    },
+                    "NextToken": {}
+                }
+            },
+            "download_location": [
+                "https://d3l7tabrwpoxyr.cloudfront.net/js/cf9cf0a53eaebcc4e4713ee1c24d330dce7047d4/gzip/vendor.js"
+            ]
+        },
+        "ListTypeRegistrations": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "AccountId"
+                ],
+                "members": {
+                    "AccountId": {},
+                    "Type": {},
+                    "TypeName": {},
+                    "TypeArn": {},
+                    "RegistrationStatusFilter": {},
+                    "MaxResults": {
+                        "type": "integer"
+                    },
+                    "NextToken": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "RegistrationTokenList": {
+                        "type": "list",
+                        "member": {}
+                    },
+                    "NextToken": {}
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://d3l7tabrwpoxyr.cloudfront.net/js/cf9cf0a53eaebcc4e4713ee1c24d330dce7047d4/gzip/vendor.js"
+            ]
+        },
+        "ListTypeVersions": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "AccountId"
+                ],
+                "members": {
+                    "AccountId": {},
+                    "Type": {},
+                    "TypeName": {},
+                    "Arn": {},
+                    "DeprecatedStatus": {},
+                    "MaxResults": {
+                        "type": "integer"
+                    },
+                    "NextToken": {},
+                    "PublisherId": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "TypeVersionSummaries": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "Arn": {},
+                                "Type": {},
+                                "TypeName": {},
+                                "VersionId": {},
+                                "TimeCreated": {
+                                    "type": "timestamp"
+                                },
+                                "Description": {},
+                                "DefaultVersion": {
+                                    "type": "boolean"
+                                },
+                                "PublicVersion": {}
+                            }
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://d3l7tabrwpoxyr.cloudfront.net/js/cf9cf0a53eaebcc4e4713ee1c24d330dce7047d4/gzip/vendor.js"
+            ]
+        },
+        "ListTypes": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "AccountId"
+                ],
+                "members": {
+                    "AccountId": {},
+                    "Visibility": {},
+                    "ProvisioningType": {},
+                    "DeprecatedStatus": {},
+                    "MaxResults": {
+                        "type": "integer"
+                    },
+                    "NextToken": {},
+                    "Type": {},
+                    "Filters": {
+                        "type": "structure",
+                        "members": {
+                            "Category": {},
+                            "PublisherId": {},
+                            "PublisherNamePrefix": {},
+                            "TypeNamePrefix": {}
+                        }
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "TypeSummaries": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "Type": {},
+                                "TypeName": {},
+                                "TypeArn": {},
+                                "DefaultVersionId": {},
+                                "ProvisioningType": {},
+                                "LastUpdated": {
+                                    "type": "timestamp"
+                                },
+                                "Description": {},
+                                "PublisherId": {},
+                                "OriginalTypeName": {},
+                                "PublicVersionNumber": {},
+                                "LatestPublicVersion": {},
+                                "PublisherIdentity": {},
+                                "PublisherName": {},
+                                "IsEnabled": {
+                                    "type": "boolean"
+                                }
+                            }
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://d3l7tabrwpoxyr.cloudfront.net/js/cf9cf0a53eaebcc4e4713ee1c24d330dce7047d4/gzip/vendor.js"
+            ]
+        },
+        "MigratePublicVersion": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "PermissionType",
+                    "Live"
+                ],
+                "members": {
+                    "TypeName": {},
+                    "PermissionType": {},
+                    "Live": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "OutputString": {}
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://d3l7tabrwpoxyr.cloudfront.net/js/cf9cf0a53eaebcc4e4713ee1c24d330dce7047d4/gzip/vendor.js"
+            ]
+        },
+        "PrepareGdprTestData": {
+            "input": {
+                "type": "structure",
+                "members": {
+                    "Type": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "AccountId": {},
+                    "ExpirationToken": {},
+                    "TypeName": {}
+                }
+            },
+            "download_location": [
+                "https://d3l7tabrwpoxyr.cloudfront.net/js/cf9cf0a53eaebcc4e4713ee1c24d330dce7047d4/gzip/vendor.js"
+            ]
+        },
+        "PublishAWSType": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "AccountId",
+                    "PublicVersionNumber"
+                ],
+                "members": {
+                    "AccountId": {},
+                    "Type": {},
+                    "Arn": {},
+                    "TypeName": {},
+                    "PublicVersionNumber": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "PublicTypeArn": {}
+                }
+            },
+            "download_location": [
+                "https://d3l7tabrwpoxyr.cloudfront.net/js/cf9cf0a53eaebcc4e4713ee1c24d330dce7047d4/gzip/vendor.js"
+            ]
+        },
+        "PublishType": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "AccountId"
+                ],
+                "members": {
+                    "AccountId": {},
+                    "Type": {},
+                    "Arn": {},
+                    "TypeName": {},
+                    "PublicVersionNumber": {},
+                    "EncryptedFas": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "PublicTypeArn": {}
+                }
+            },
+            "download_location": [
+                "https://d3l7tabrwpoxyr.cloudfront.net/js/cf9cf0a53eaebcc4e4713ee1c24d330dce7047d4/gzip/vendor.js"
+            ]
+        },
+        "PutType": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "AccountId",
+                    "TypeName"
+                ],
+                "members": {
+                    "AccountId": {},
+                    "Type": {},
+                    "TypeName": {},
+                    "Schema": {},
+                    "Handlers": {
+                        "shape": "Sd"
+                    },
+                    "Description": {},
+                    "SourceUrl": {},
+                    "ModuleTemplateFragmentUrl": {},
+                    "DocumentationUrl": {},
+                    "LoggingConfig": {
+                        "shape": "Si"
+                    },
+                    "ExecutionRoleArn": {},
+                    "ContractTestsStatus": {},
+                    "RequestToken": {},
+                    "TypeCanaryPresent": {
+                        "type": "boolean"
+                    },
+                    "FasPolicyPath": {},
+                    "InternallyOwned": {
+                        "type": "boolean"
+                    },
+                    "ProtocolVersion": {},
+                    "VersionId": {},
+                    "TypeTestsStatus": {},
+                    "TypeTestsStatusDescription": {},
+                    "ConfigurationSchema": {},
+                    "RegistrationToken": {},
+                    "MprArtifactBucketName": {},
+                    "MprArtifactPackageKey": {},
+                    "MprPackageVersionId": {},
+                    "MprZippedTypeArtifactKey": {},
+                    "MprRpdkConfigKey": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Type": {},
+                    "TypeName": {},
+                    "VersionId": {},
+                    "TypeArn": {},
+                    "TypeVersionArn": {}
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://d3l7tabrwpoxyr.cloudfront.net/js/cf9cf0a53eaebcc4e4713ee1c24d330dce7047d4/gzip/vendor.js"
+            ]
+        },
+        "RegisterPublisher": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "AccountId"
+                ],
+                "members": {
+                    "AccountId": {},
+                    "AcceptTermsAndConditions": {
+                        "type": "boolean"
+                    },
+                    "ConnectionArn": {},
+                    "EncryptedFas": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "PublisherId": {}
+                }
+            },
+            "download_location": [
+                "https://d3l7tabrwpoxyr.cloudfront.net/js/cf9cf0a53eaebcc4e4713ee1c24d330dce7047d4/gzip/vendor.js"
+            ]
+        },
+        "RegisterType": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "TypeName",
+                    "AccountId",
+                    "SchemaHandlerPackage"
+                ],
+                "members": {
+                    "Type": {},
+                    "TypeName": {},
+                    "AccountId": {},
+                    "SchemaHandlerPackage": {},
+                    "Description": {},
+                    "SourceUrl": {},
+                    "DocumentationUrl": {},
+                    "ClientRequestToken": {
+                        "idempotencyToken": true
+                    },
+                    "LoggingConfig": {
+                        "shape": "Si"
+                    },
+                    "ExecutionRoleArn": {},
+                    "EncryptedFas": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "RegistrationToken": {}
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://d3l7tabrwpoxyr.cloudfront.net/js/cf9cf0a53eaebcc4e4713ee1c24d330dce7047d4/gzip/vendor.js"
+            ]
+        },
+        "RegisterTypeCanary": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "AccountId",
+                    "TypeName"
+                ],
+                "members": {
+                    "AccountId": {},
+                    "TypeName": {},
+                    "Type": {},
+                    "ClientRequestToken": {
+                        "idempotencyToken": true
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "RegistrationToken": {}
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://d3l7tabrwpoxyr.cloudfront.net/js/cf9cf0a53eaebcc4e4713ee1c24d330dce7047d4/gzip/vendor.js"
+            ]
+        },
+        "RollbackMigratePublicVersion": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "PermissionType",
+                    "Live"
+                ],
+                "members": {
+                    "TypeName": {},
+                    "PermissionType": {},
+                    "Live": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "OutputString": {}
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://d3l7tabrwpoxyr.cloudfront.net/js/cf9cf0a53eaebcc4e4713ee1c24d330dce7047d4/gzip/vendor.js"
+            ]
+        },
+        "SetDefaultTypeConfiguration": {
+            "input": {
+                "type": "structure",
+                "members": {
+                    "AccountId": {},
+                    "TypeConfigurationArn": {},
+                    "TypeName": {},
+                    "TypeConfigurationAlias": {},
+                    "TypeArn": {},
+                    "Type": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://d3l7tabrwpoxyr.cloudfront.net/js/cf9cf0a53eaebcc4e4713ee1c24d330dce7047d4/gzip/vendor.js"
+            ]
+        },
+        "SetTypeConfiguration": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "AccountId",
+                    "Configuration"
+                ],
+                "members": {
+                    "AccountId": {},
+                    "TypeArn": {},
+                    "Configuration": {},
+                    "ConfigurationAlias": {},
+                    "TypeName": {},
+                    "Type": {},
+                    "MultipleTypeConfigurationEnabled": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ConfigurationArn": {}
+                }
+            },
+            "download_location": [
+                "https://d3l7tabrwpoxyr.cloudfront.net/js/cf9cf0a53eaebcc4e4713ee1c24d330dce7047d4/gzip/vendor.js"
+            ]
+        },
+        "SetTypeDefaultVersion": {
+            "input": {
+                "type": "structure",
+                "members": {
+                    "AccountId": {},
+                    "Arn": {},
+                    "Type": {},
+                    "TypeName": {},
+                    "VersionId": {},
+                    "PublicVersionNumber": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://d3l7tabrwpoxyr.cloudfront.net/js/cf9cf0a53eaebcc4e4713ee1c24d330dce7047d4/gzip/vendor.js"
+            ]
+        },
+        "SetTypePermissions": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "AccountId",
+                    "PermissionType"
+                ],
+                "members": {
+                    "AccountId": {},
+                    "Type": {},
+                    "TypeName": {},
+                    "PermissionType": {},
+                    "PublicVersionNumber": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://d3l7tabrwpoxyr.cloudfront.net/js/cf9cf0a53eaebcc4e4713ee1c24d330dce7047d4/gzip/vendor.js"
+            ]
+        },
+        "SetTypePublicDefaultVersion": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "AccountId"
+                ],
+                "members": {
+                    "AccountId": {},
+                    "Type": {},
+                    "TypeName": {},
+                    "DefaultPublicVersionNumber": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://d3l7tabrwpoxyr.cloudfront.net/js/cf9cf0a53eaebcc4e4713ee1c24d330dce7047d4/gzip/vendor.js"
+            ]
+        },
+        "SetTypeRoutingConfig": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "AccountId",
+                    "RoutingConfig"
+                ],
+                "members": {
+                    "AccountId": {},
+                    "Arn": {},
+                    "TypeName": {},
+                    "Type": {},
+                    "RoutingConfig": {
+                        "shape": "S2o"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://d3l7tabrwpoxyr.cloudfront.net/js/cf9cf0a53eaebcc4e4713ee1c24d330dce7047d4/gzip/vendor.js"
+            ]
+        },
+        "SetTypeSupportContactInfo": {
+            "input": {
+                "type": "structure",
+                "members": {
+                    "AccountId": {},
+                    "Arn": {},
+                    "Type": {},
+                    "TypeName": {},
+                    "SupportContactInfo": {
+                        "shape": "S36"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://d3l7tabrwpoxyr.cloudfront.net/js/cf9cf0a53eaebcc4e4713ee1c24d330dce7047d4/gzip/vendor.js"
+            ]
+        },
+        "TestType": {
+            "input": {
+                "type": "structure",
+                "members": {
+                    "AccountId": {},
+                    "Arn": {},
+                    "Type": {},
+                    "TypeName": {},
+                    "VersionId": {},
+                    "LogDeliveryBucket": {},
+                    "EncryptedFas": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "TypeVersionArn": {}
+                }
+            },
+            "download_location": [
+                "https://d3l7tabrwpoxyr.cloudfront.net/js/cf9cf0a53eaebcc4e4713ee1c24d330dce7047d4/gzip/vendor.js"
+            ]
+        },
+        "UnpublishType": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "AccountId",
+                    "TypeName"
+                ],
+                "members": {
+                    "AccountId": {},
+                    "TypeName": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://d3l7tabrwpoxyr.cloudfront.net/js/cf9cf0a53eaebcc4e4713ee1c24d330dce7047d4/gzip/vendor.js"
+            ]
+        },
+        "UpdateExpireTypeProgress": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ExpirationToken",
+                    "Status"
+                ],
+                "members": {
+                    "ExpirationToken": {},
+                    "Status": {},
+                    "Description": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://d3l7tabrwpoxyr.cloudfront.net/js/cf9cf0a53eaebcc4e4713ee1c24d330dce7047d4/gzip/vendor.js"
+            ]
+        },
+        "UpdateRegisterTypeProgress": {
+            "input": {
+                "type": "structure",
+                "members": {
+                    "AccountId": {},
+                    "RegistrationToken": {},
+                    "ProgressStatus": {},
+                    "Description": {},
+                    "Type": {},
+                    "TypeName": {},
+                    "VersionId": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://d3l7tabrwpoxyr.cloudfront.net/js/cf9cf0a53eaebcc4e4713ee1c24d330dce7047d4/gzip/vendor.js"
+            ]
+        },
+        "ValidatePublishedTypesVersionsInternal": {
+            "input": {
+                "type": "structure",
+                "members": {
+                    "AWSTypesList": {
+                        "type": "list",
+                        "member": {}
+                    },
+                    "ThirdPartyTypesVersionsList": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "PublisherId",
+                                "TypeName",
+                                "MajorVersionsList"
+                            ],
+                            "members": {
+                                "PublisherId": {},
+                                "TypeName": {},
+                                "MajorVersionsList": {
+                                    "type": "list",
+                                    "member": {
+                                        "type": "long"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://d3l7tabrwpoxyr.cloudfront.net/js/cf9cf0a53eaebcc4e4713ee1c24d330dce7047d4/gzip/vendor.js"
+            ]
+        },
+        "CreateExecutionRole": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "AccountId"
+                ],
+                "members": {
+                    "AccountId": {},
+                    "Type": {},
+                    "TypeName": {},
+                    "EncryptedFas": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ExecutionRoleArn": {}
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://d3l7tabrwpoxyr.cloudfront.net/js/d31cebe4e9b926e15782b043eec5397a94f3f351/gzip/vendor.js"
+            ]
+        },
+        "ExpireTypesInternal": {
+            "input": {
+                "type": "structure",
+                "members": {}
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ExpiredTypesList": {
+                        "type": "list",
+                        "member": {}
+                    }
+                }
+            },
+            "download_location": [
+                "https://d3l7tabrwpoxyr.cloudfront.net/js/d31cebe4e9b926e15782b043eec5397a94f3f351/gzip/vendor.js"
+            ]
+        },
+        "UpdatePublisher": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "AccountId"
+                ],
+                "members": {
+                    "AccountId": {},
+                    "PublisherCategory": {},
+                    "SkipTestType": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "PublisherId": {}
+                }
+            },
+            "download_location": [
+                "https://d3l7tabrwpoxyr.cloudfront.net/js/d31cebe4e9b926e15782b043eec5397a94f3f351/gzip/vendor.js"
+            ]
+        }
+    },
+    "shapes": {
+        "S3": {
+            "type": "list",
+            "member": {}
+        },
+        "S6": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "OwnerAccountId": {},
+                    "Type": {},
+                    "TypeName": {},
+                    "VersionId": {},
+                    "Arn": {},
+                    "CreationTimestamp": {
+                        "type": "timestamp"
+                    },
+                    "Schema": {},
+                    "Handlers": {
+                        "shape": "Sd"
+                    },
+                    "SourceUrl": {},
+                    "DocumentationUrl": {},
+                    "Description": {},
+                    "LoggingConfig": {
+                        "shape": "Si"
+                    },
+                    "ExecutionRoleArn": {},
+                    "InternallyOwned": {
+                        "type": "boolean"
+                    },
+                    "PermissionType": {},
+                    "FasPolicyPath": {},
+                    "ProtocolVersion": {},
+                    "ConfigurationSchema": {},
+                    "TypeConfigurations": {
+                        "type": "list",
+                        "member": {
+                            "shape": "Sr"
+                        }
+                    },
+                    "Configuration": {},
+                    "ConfigurationVersionId": {}
+                }
+            }
+        },
+        "Sd": {
+            "type": "map",
+            "key": {},
+            "value": {}
+        },
+        "Si": {
+            "type": "structure",
+            "required": [
+                "LogRoleArn",
+                "LogGroupName"
+            ],
+            "members": {
+                "LogRoleArn": {},
+                "LogGroupName": {}
+            }
+        },
+        "Sr": {
+            "type": "structure",
+            "members": {
+                "Arn": {},
+                "Alias": {},
+                "Configuration": {},
+                "IsDefaultConfiguration": {
+                    "type": "boolean"
+                },
+                "LastUpdated": {
+                    "type": "timestamp"
+                },
+                "VersionId": {},
+                "TypeArn": {}
+            }
+        },
+        "S10": {
+            "type": "structure",
+            "members": {
+                "TypeArn": {},
+                "TypeConfigurationAlias": {},
+                "TypeConfigurationArn": {},
+                "Type": {},
+                "TypeName": {}
+            }
+        },
+        "S17": {
+            "type": "list",
+            "member": {
+                "shape": "S18"
+            }
+        },
+        "S18": {
+            "type": "structure",
+            "members": {
+                "Arn": {},
+                "Alias": {},
+                "Configuration": {},
+                "IsDefaultConfiguration": {
+                    "type": "boolean"
+                },
+                "LastUpdated": {
+                    "type": "timestamp"
+                },
+                "TypeArn": {},
+                "TypeName": {}
+            }
+        },
+        "S1p": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "ExpirationToken": {},
+                    "AccountId": {},
+                    "TypeName": {},
+                    "ExpirationStatus": {},
+                    "CreatedAt": {
+                        "type": "timestamp"
+                    },
+                    "UpdatedAt": {
+                        "type": "timestamp"
+                    }
+                }
+            }
+        },
+        "S2o": {
+            "type": "structure",
+            "members": {
+                "AdditionalVersionWeights": {
+                    "type": "map",
+                    "key": {},
+                    "value": {
+                        "type": "double"
+                    }
+                }
+            }
+        },
+        "S36": {
+            "type": "map",
+            "key": {},
+            "value": {}
+        },
+        "S7": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "OwnerAccountId": {},
+                    "Type": {},
+                    "TypeName": {},
+                    "VersionId": {},
+                    "Arn": {},
+                    "CreationTimestamp": {
+                        "type": "timestamp"
+                    },
+                    "Schema": {},
+                    "Handlers": {
+                        "shape": "Se"
+                    },
+                    "SourceUrl": {},
+                    "DocumentationUrl": {},
+                    "Description": {},
+                    "LoggingConfig": {
+                        "shape": "Sj"
+                    },
+                    "ExecutionRoleArn": {},
+                    "InternallyOwned": {
+                        "type": "boolean"
+                    },
+                    "PermissionType": {},
+                    "FasPolicyPath": {},
+                    "ProtocolVersion": {},
+                    "ConfigurationSchema": {},
+                    "TypeConfigurations": {
+                        "type": "list",
+                        "member": {
+                            "shape": "Ss"
+                        }
+                    },
+                    "AutoUpdateEnabled": {
+                        "type": "boolean"
+                    },
+                    "PublisherId": {},
+                    "ProvisioningType": {},
+                    "Configuration": {},
+                    "ConfigurationVersionId": {}
+                }
+            }
+        },
+        "Se": {
+            "type": "map",
+            "key": {},
+            "value": {}
+        },
+        "Sj": {
+            "type": "structure",
+            "required": [
+                "LogRoleArn",
+                "LogGroupName"
+            ],
+            "members": {
+                "LogRoleArn": {},
+                "LogGroupName": {}
+            }
+        },
+        "Ss": {
+            "type": "structure",
+            "members": {
+                "Arn": {},
+                "Alias": {},
+                "Configuration": {},
+                "IsDefaultConfiguration": {
+                    "type": "boolean"
+                },
+                "LastUpdated": {
+                    "type": "timestamp"
+                },
+                "VersionId": {},
+                "TypeArn": {}
+            }
+        },
+        "S14": {
+            "type": "structure",
+            "members": {
+                "TypeArn": {},
+                "TypeConfigurationAlias": {},
+                "TypeConfigurationArn": {},
+                "Type": {},
+                "TypeName": {}
+            }
+        },
+        "S1b": {
+            "type": "list",
+            "member": {
+                "shape": "S1c"
+            }
+        },
+        "S1c": {
+            "type": "structure",
+            "members": {
+                "Arn": {},
+                "Alias": {},
+                "Configuration": {},
+                "IsDefaultConfiguration": {
+                    "type": "boolean"
+                },
+                "LastUpdated": {
+                    "type": "timestamp"
+                },
+                "TypeArn": {},
+                "TypeName": {}
+            }
+        },
+        "S1w": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "ExpirationToken": {},
+                    "AccountId": {},
+                    "TypeName": {},
+                    "ExpirationStatus": {},
+                    "CreatedAt": {
+                        "type": "timestamp"
+                    },
+                    "UpdatedAt": {
+                        "type": "timestamp"
+                    }
+                }
+            }
+        },
+        "S2q": {
+            "type": "structure",
+            "members": {
+                "HandlersCheck": {
+                    "shape": "S2r"
+                },
+                "FasPolicyCheck": {
+                    "shape": "S2r"
+                },
+                "ProtocolVersionCheck": {
+                    "shape": "S2r"
+                },
+                "ContractTestsCheck": {
+                    "shape": "S2r"
+                },
+                "TaggingMetadataCheck": {
+                    "shape": "S2r"
+                },
+                "CanaryAlarmsCheck": {
+                    "shape": "S2r"
+                }
+            }
+        },
+        "S2r": {
+            "type": "structure",
+            "members": {
+                "Status": {},
+                "Cause": {}
+            }
+        },
+        "S31": {
+            "type": "structure",
+            "members": {
+                "AdditionalVersionWeights": {
+                    "type": "map",
+                    "key": {},
+                    "value": {
+                        "type": "double"
+                    }
+                }
+            }
+        },
+        "S3n": {
+            "type": "map",
+            "key": {},
+            "value": {}
+        }
+    }
+}

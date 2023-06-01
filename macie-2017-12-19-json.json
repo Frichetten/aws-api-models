@@ -1,0 +1,2028 @@
+{
+    "version": "2.0",
+    "metadata": {
+        "apiVersion": "2017-12-19",
+        "endpointPrefix": "macie",
+        "jsonVersion": "1.1",
+        "protocol": "json",
+        "serviceFullName": "Amazon Macie",
+        "serviceId": "Macie",
+        "signatureVersion": "v4",
+        "targetPrefix": "MacieService",
+        "uid": "macie-2017-12-19",
+        "download_location": [
+            "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+        ]
+    },
+    "operations": {
+        "AssociateMemberAccount": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "memberAccountId"
+                ],
+                "members": {
+                    "memberAccountId": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "AssociateS3Resources": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "s3Resources"
+                ],
+                "members": {
+                    "memberAccountId": {},
+                    "s3Resources": {
+                        "shape": "S4"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "failedS3Resources": {
+                        "shape": "Sc"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "DisassociateMemberAccount": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "memberAccountId"
+                ],
+                "members": {
+                    "memberAccountId": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "DisassociateS3Resources": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "associatedS3Resources"
+                ],
+                "members": {
+                    "memberAccountId": {},
+                    "associatedS3Resources": {
+                        "type": "list",
+                        "member": {
+                            "shape": "Se"
+                        }
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "failedS3Resources": {
+                        "shape": "Sc"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "ListMemberAccounts": {
+            "input": {
+                "type": "structure",
+                "members": {
+                    "nextToken": {},
+                    "maxResults": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "memberAccounts": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "accountId": {}
+                            }
+                        }
+                    },
+                    "nextToken": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "ListS3Resources": {
+            "input": {
+                "type": "structure",
+                "members": {
+                    "memberAccountId": {},
+                    "nextToken": {},
+                    "maxResults": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "s3Resources": {
+                        "shape": "S4"
+                    },
+                    "nextToken": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "UpdateS3Resources": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "s3ResourcesUpdate"
+                ],
+                "members": {
+                    "memberAccountId": {},
+                    "s3ResourcesUpdate": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "bucketName",
+                                "classificationTypeUpdate"
+                            ],
+                            "members": {
+                                "bucketName": {},
+                                "prefix": {},
+                                "classificationTypeUpdate": {
+                                    "type": "structure",
+                                    "members": {
+                                        "oneTime": {},
+                                        "continuous": {}
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "failedS3Resources": {
+                        "shape": "Sc"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "CreateAlert": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "macieAccountId"
+                ],
+                "members": {
+                    "macieAccountId": {},
+                    "alert": {
+                        "shape": "Sj"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "arn": {},
+                    "alert": {
+                        "shape": "Sj"
+                    }
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/A5UVMSCHBDF724YVRTH2IKIS2IHDPDFOPUYXMOQTGDGWFXBT7GCQ/vendors.js"
+            ]
+        },
+        "CreateDLPSetting": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "category"
+                ],
+                "members": {
+                    "category": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "dlpSetting": {
+                        "shape": "S1k"
+                    }
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/A5UVMSCHBDF724YVRTH2IKIS2IHDPDFOPUYXMOQTGDGWFXBT7GCQ/vendors.js"
+            ]
+        },
+        "CreateFavoriteESQuery": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "name",
+                    "query",
+                    "index"
+                ],
+                "members": {
+                    "name": {},
+                    "description": {},
+                    "query": {},
+                    "index": {}
+                }
+            },
+            "output": {
+                "shape": "S1n"
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/A5UVMSCHBDF724YVRTH2IKIS2IHDPDFOPUYXMOQTGDGWFXBT7GCQ/vendors.js"
+            ]
+        },
+        "CreateFavoriteESQueryByAccountId": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "macieAccountId",
+                    "favoriteESQuery"
+                ],
+                "members": {
+                    "macieAccountId": {},
+                    "favoriteESQuery": {
+                        "shape": "S1o"
+                    }
+                }
+            },
+            "output": {
+                "shape": "S1n"
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/A5UVMSCHBDF724YVRTH2IKIS2IHDPDFOPUYXMOQTGDGWFXBT7GCQ/vendors.js"
+            ]
+        },
+        "CreateMacieAccount": {
+            "input": {
+                "type": "structure",
+                "members": {
+                    "macieAccountId": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "macieAccountId": {}
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/A5UVMSCHBDF724YVRTH2IKIS2IHDPDFOPUYXMOQTGDGWFXBT7GCQ/vendors.js"
+            ]
+        },
+        "CreateS3Integration": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "awsAccountId"
+                ],
+                "members": {
+                    "awsAccountId": {},
+                    "s3IntegrationConfig": {
+                        "shape": "S1u"
+                    }
+                }
+            },
+            "output": {
+                "shape": "S1w"
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/A5UVMSCHBDF724YVRTH2IKIS2IHDPDFOPUYXMOQTGDGWFXBT7GCQ/vendors.js"
+            ]
+        },
+        "DeleteAccountByAwsAccountId": {
+            "input": {
+                "type": "structure",
+                "members": {
+                    "awsAccountIdList": {
+                        "type": "list",
+                        "member": {}
+                    }
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/A5UVMSCHBDF724YVRTH2IKIS2IHDPDFOPUYXMOQTGDGWFXBT7GCQ/vendors.js"
+            ]
+        },
+        "DeleteAlert": {
+            "input": {
+                "type": "structure",
+                "members": {
+                    "arn": {}
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/A5UVMSCHBDF724YVRTH2IKIS2IHDPDFOPUYXMOQTGDGWFXBT7GCQ/vendors.js"
+            ]
+        },
+        "DeleteDLPSetting": {
+            "input": {
+                "type": "structure",
+                "members": {}
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "deletedDLPSetting": {
+                        "shape": "S1k"
+                    }
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/A5UVMSCHBDF724YVRTH2IKIS2IHDPDFOPUYXMOQTGDGWFXBT7GCQ/vendors.js"
+            ]
+        },
+        "DeleteFavoriteESQuery": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "id"
+                ],
+                "members": {
+                    "id": {}
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/A5UVMSCHBDF724YVRTH2IKIS2IHDPDFOPUYXMOQTGDGWFXBT7GCQ/vendors.js"
+            ]
+        },
+        "DeleteMacieAccount": {
+            "input": {
+                "type": "structure",
+                "members": {}
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/A5UVMSCHBDF724YVRTH2IKIS2IHDPDFOPUYXMOQTGDGWFXBT7GCQ/vendors.js"
+            ]
+        },
+        "DeleteS3Integration": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "awsAccountId"
+                ],
+                "members": {
+                    "awsAccountId": {}
+                }
+            },
+            "output": {
+                "shape": "S1w"
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/A5UVMSCHBDF724YVRTH2IKIS2IHDPDFOPUYXMOQTGDGWFXBT7GCQ/vendors.js"
+            ]
+        },
+        "DescribeActors": {
+            "output": {
+                "type": "structure",
+                "members": {
+                    "totalActors": {
+                        "type": "integer"
+                    },
+                    "totalBronze": {
+                        "type": "integer"
+                    },
+                    "totalSilver": {
+                        "type": "integer"
+                    },
+                    "totalGold": {
+                        "type": "integer"
+                    },
+                    "totalPlatinum": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/A5UVMSCHBDF724YVRTH2IKIS2IHDPDFOPUYXMOQTGDGWFXBT7GCQ/vendors.js"
+            ]
+        },
+        "DescribeAlert": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "arn"
+                ],
+                "members": {
+                    "arn": {}
+                }
+            },
+            "output": {
+                "shape": "S27"
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/A5UVMSCHBDF724YVRTH2IKIS2IHDPDFOPUYXMOQTGDGWFXBT7GCQ/vendors.js"
+            ]
+        },
+        "DescribeAlertByAccountId": {
+            "input": {
+                "type": "structure",
+                "members": {
+                    "arn": {},
+                    "macieAccountId": {}
+                }
+            },
+            "output": {
+                "shape": "S27"
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/A5UVMSCHBDF724YVRTH2IKIS2IHDPDFOPUYXMOQTGDGWFXBT7GCQ/vendors.js"
+            ]
+        },
+        "DescribeAlertCategories": {
+            "output": {
+                "type": "structure",
+                "members": {
+                    "alertCategories": {
+                        "type": "list",
+                        "member": {}
+                    }
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/A5UVMSCHBDF724YVRTH2IKIS2IHDPDFOPUYXMOQTGDGWFXBT7GCQ/vendors.js"
+            ]
+        },
+        "DescribeAlerts": {
+            "input": {
+                "type": "structure",
+                "members": {
+                    "category": {},
+                    "archived": {
+                        "type": "boolean"
+                    },
+                    "dateBegin": {
+                        "type": "timestamp"
+                    },
+                    "dateEnd": {
+                        "type": "timestamp"
+                    },
+                    "whitelisted": {
+                        "type": "boolean"
+                    },
+                    "sort": {
+                        "type": "structure",
+                        "members": {
+                            "sortKey": {},
+                            "direction": {}
+                        }
+                    },
+                    "nextToken": {},
+                    "maxResults": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "alertList": {
+                        "type": "list",
+                        "member": {
+                            "shape": "Sj"
+                        }
+                    },
+                    "nextToken": {}
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/A5UVMSCHBDF724YVRTH2IKIS2IHDPDFOPUYXMOQTGDGWFXBT7GCQ/vendors.js"
+            ]
+        },
+        "DescribeDLPSetting": {
+            "input": {
+                "type": "structure",
+                "members": {}
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "dlpSetting": {
+                        "shape": "S1k"
+                    }
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/A5UVMSCHBDF724YVRTH2IKIS2IHDPDFOPUYXMOQTGDGWFXBT7GCQ/vendors.js"
+            ]
+        },
+        "DescribeESAutocompleteItems": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "index"
+                ],
+                "members": {
+                    "index": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "autocompleteItemsList": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "index": {},
+                                "name": {},
+                                "value": {},
+                                "description": {}
+                            }
+                        }
+                    }
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/A5UVMSCHBDF724YVRTH2IKIS2IHDPDFOPUYXMOQTGDGWFXBT7GCQ/vendors.js"
+            ]
+        },
+        "DescribeFavoriteESQueries": {
+            "input": {
+                "type": "structure",
+                "members": {
+                    "searchContains": {},
+                    "nextToken": {},
+                    "maxResults": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "shape": "S2r"
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/A5UVMSCHBDF724YVRTH2IKIS2IHDPDFOPUYXMOQTGDGWFXBT7GCQ/vendors.js"
+            ]
+        },
+        "DescribeFavoriteESQueriesByAccountId": {
+            "input": {
+                "type": "structure",
+                "members": {
+                    "macieAccountId": {},
+                    "nextToken": {},
+                    "maxResults": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "shape": "S2r"
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/A5UVMSCHBDF724YVRTH2IKIS2IHDPDFOPUYXMOQTGDGWFXBT7GCQ/vendors.js"
+            ]
+        },
+        "DescribeFavoriteESQuery": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "id"
+                ],
+                "members": {
+                    "id": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "favoriteESQuery": {
+                        "shape": "S1o"
+                    }
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/A5UVMSCHBDF724YVRTH2IKIS2IHDPDFOPUYXMOQTGDGWFXBT7GCQ/vendors.js"
+            ]
+        },
+        "DescribeIntegration": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "serviceId",
+                    "accountId"
+                ],
+                "members": {
+                    "serviceId": {},
+                    "accountId": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "integration": {
+                        "shape": "S2z"
+                    }
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/A5UVMSCHBDF724YVRTH2IKIS2IHDPDFOPUYXMOQTGDGWFXBT7GCQ/vendors.js"
+            ]
+        },
+        "DescribeMacieAccountDetails": {
+            "output": {
+                "type": "structure",
+                "members": {
+                    "accountType": {},
+                    "primaryAccountId": {},
+                    "status": {},
+                    "consoleURL": {},
+                    "limits": {
+                        "type": "structure",
+                        "members": {
+                            "maximumAccountCount": {
+                                "type": "integer"
+                            },
+                            "maximumCustomBasicAlertRules": {
+                                "type": "integer"
+                            },
+                            "s3ContentPersistence": {
+                                "type": "integer"
+                            }
+                        }
+                    }
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/A5UVMSCHBDF724YVRTH2IKIS2IHDPDFOPUYXMOQTGDGWFXBT7GCQ/vendors.js"
+            ]
+        },
+        "DescribeS3Integration": {
+            "input": {
+                "shape": "S3a"
+            },
+            "output": {
+                "shape": "S3b"
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/A5UVMSCHBDF724YVRTH2IKIS2IHDPDFOPUYXMOQTGDGWFXBT7GCQ/vendors.js"
+            ]
+        },
+        "DescribeS3IntegrationByAwsAccountId": {
+            "input": {
+                "shape": "S3a"
+            },
+            "output": {
+                "shape": "S3b"
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/A5UVMSCHBDF724YVRTH2IKIS2IHDPDFOPUYXMOQTGDGWFXBT7GCQ/vendors.js"
+            ]
+        },
+        "DisassociateS3ResourcesByAccountId": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "memberAccountId",
+                    "s3Resources"
+                ],
+                "members": {
+                    "memberAccountId": {},
+                    "s3Resources": {
+                        "shape": "S3e"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "failedS3Resources": {
+                        "shape": "Sc"
+                    }
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/A5UVMSCHBDF724YVRTH2IKIS2IHDPDFOPUYXMOQTGDGWFXBT7GCQ/vendors.js"
+            ]
+        },
+        "GetAlertCategoryStats": {
+            "output": {
+                "type": "structure",
+                "members": {
+                    "categoryStats": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "name": {},
+                                "route": {},
+                                "active": {
+                                    "type": "integer"
+                                },
+                                "archived": {
+                                    "type": "integer"
+                                },
+                                "count": {
+                                    "type": "integer"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/A5UVMSCHBDF724YVRTH2IKIS2IHDPDFOPUYXMOQTGDGWFXBT7GCQ/vendors.js"
+            ]
+        },
+        "GetAmazonMapURL": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "mapType"
+                ],
+                "members": {
+                    "mapType": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "mapURL": {}
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/A5UVMSCHBDF724YVRTH2IKIS2IHDPDFOPUYXMOQTGDGWFXBT7GCQ/vendors.js"
+            ]
+        },
+        "GetConsoleURL": {
+            "output": {
+                "type": "structure",
+                "members": {
+                    "consoleURL": {}
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/A5UVMSCHBDF724YVRTH2IKIS2IHDPDFOPUYXMOQTGDGWFXBT7GCQ/vendors.js"
+            ]
+        },
+        "GetESQueryResult": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "index",
+                    "queries",
+                    "ignoreUnavailable"
+                ],
+                "members": {
+                    "index": {},
+                    "type": {},
+                    "queries": {},
+                    "ignoreUnavailable": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "elasticSearchResult": {}
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/A5UVMSCHBDF724YVRTH2IKIS2IHDPDFOPUYXMOQTGDGWFXBT7GCQ/vendors.js"
+            ]
+        },
+        "GetIdentityDetails": {
+            "output": {
+                "type": "structure",
+                "members": {
+                    "arn": {},
+                    "awsAccountId": {},
+                    "macieAccountId": {}
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/A5UVMSCHBDF724YVRTH2IKIS2IHDPDFOPUYXMOQTGDGWFXBT7GCQ/vendors.js"
+            ]
+        },
+        "GetUIAlertPage": {
+            "output": {
+                "type": "structure",
+                "members": {
+                    "isValid": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/A5UVMSCHBDF724YVRTH2IKIS2IHDPDFOPUYXMOQTGDGWFXBT7GCQ/vendors.js"
+            ]
+        },
+        "GetUIDashboardPage": {
+            "output": {
+                "type": "structure",
+                "members": {
+                    "isValid": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/A5UVMSCHBDF724YVRTH2IKIS2IHDPDFOPUYXMOQTGDGWFXBT7GCQ/vendors.js"
+            ]
+        },
+        "GetUIIsMacieAdmin": {
+            "output": {
+                "type": "structure",
+                "members": {
+                    "isValid": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/A5UVMSCHBDF724YVRTH2IKIS2IHDPDFOPUYXMOQTGDGWFXBT7GCQ/vendors.js"
+            ]
+        },
+        "GetUIReportPage": {
+            "output": {
+                "type": "structure",
+                "members": {
+                    "isValid": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/A5UVMSCHBDF724YVRTH2IKIS2IHDPDFOPUYXMOQTGDGWFXBT7GCQ/vendors.js"
+            ]
+        },
+        "GetUIResearchPage": {
+            "output": {
+                "type": "structure",
+                "members": {
+                    "isValid": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/A5UVMSCHBDF724YVRTH2IKIS2IHDPDFOPUYXMOQTGDGWFXBT7GCQ/vendors.js"
+            ]
+        },
+        "GetUISettingsPage": {
+            "output": {
+                "type": "structure",
+                "members": {
+                    "isValid": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/A5UVMSCHBDF724YVRTH2IKIS2IHDPDFOPUYXMOQTGDGWFXBT7GCQ/vendors.js"
+            ]
+        },
+        "ListActors": {
+            "input": {
+                "type": "structure",
+                "members": {
+                    "id": {},
+                    "dataValue": {
+                        "type": "integer"
+                    },
+                    "nextToken": {},
+                    "maxResults": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "actors": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "id": {},
+                                "themes": {
+                                    "type": "list",
+                                    "member": {}
+                                },
+                                "lastUpdated": {
+                                    "type": "timestamp"
+                                },
+                                "dataValue": {
+                                    "type": "integer"
+                                },
+                                "dataValueDescription": {}
+                            }
+                        }
+                    },
+                    "nextToken": {}
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/A5UVMSCHBDF724YVRTH2IKIS2IHDPDFOPUYXMOQTGDGWFXBT7GCQ/vendors.js"
+            ]
+        },
+        "ListClassifierServiceLimits": {
+            "input": {
+                "type": "structure",
+                "members": {
+                    "awsAccountId": {},
+                    "nextToken": {},
+                    "maxResults": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "limits": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "awsAccountId": {},
+                                "fullLimitBytes": {
+                                    "type": "long"
+                                },
+                                "fullProcessedBytes": {
+                                    "type": "long"
+                                },
+                                "selectiveLimitBytes": {
+                                    "type": "long"
+                                },
+                                "selectiveProcessedBytes": {
+                                    "type": "long"
+                                },
+                                "objectInspectionsLimit": {
+                                    "type": "long"
+                                },
+                                "objectInspectionsProcessed": {
+                                    "type": "long"
+                                },
+                                "limitBytes": {
+                                    "type": "long"
+                                },
+                                "processedBytes": {
+                                    "type": "long"
+                                }
+                            }
+                        }
+                    },
+                    "nextToken": {}
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/A5UVMSCHBDF724YVRTH2IKIS2IHDPDFOPUYXMOQTGDGWFXBT7GCQ/vendors.js"
+            ]
+        },
+        "ListDLPSettingByAccountId": {
+            "input": {
+                "type": "structure",
+                "members": {
+                    "nextToken": {},
+                    "maxResults": {
+                        "type": "integer"
+                    },
+                    "enabled": {
+                        "type": "boolean"
+                    },
+                    "isDefault": {
+                        "type": "boolean"
+                    },
+                    "macieAccountId": {}
+                }
+            },
+            "output": {
+                "shape": "S4a"
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/A5UVMSCHBDF724YVRTH2IKIS2IHDPDFOPUYXMOQTGDGWFXBT7GCQ/vendors.js"
+            ]
+        },
+        "ListDLPSettings": {
+            "input": {
+                "type": "structure",
+                "members": {
+                    "nextToken": {},
+                    "maxResults": {
+                        "type": "integer"
+                    },
+                    "enabled": {
+                        "type": "boolean"
+                    },
+                    "isDefault": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "output": {
+                "shape": "S4a"
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/A5UVMSCHBDF724YVRTH2IKIS2IHDPDFOPUYXMOQTGDGWFXBT7GCQ/vendors.js"
+            ]
+        },
+        "ListIntegrations": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "providerId",
+                    "accountId"
+                ],
+                "members": {
+                    "providerId": {},
+                    "accountId": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "integrations": {
+                        "type": "list",
+                        "member": {
+                            "shape": "S2z"
+                        }
+                    }
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/A5UVMSCHBDF724YVRTH2IKIS2IHDPDFOPUYXMOQTGDGWFXBT7GCQ/vendors.js"
+            ]
+        },
+        "ListOffboardingMetadataByAccountId": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "macieAccountId"
+                ],
+                "members": {
+                    "macieAccountId": {},
+                    "nextToken": {},
+                    "maxResults": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "metadataList": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "macieAccountId": {},
+                                "awsAccountId": {},
+                                "connectedAccountId": {},
+                                "dlpAssetPath": {},
+                                "type": {},
+                                "status": {},
+                                "createdAt": {
+                                    "type": "timestamp"
+                                }
+                            }
+                        }
+                    },
+                    "nextToken": {}
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/A5UVMSCHBDF724YVRTH2IKIS2IHDPDFOPUYXMOQTGDGWFXBT7GCQ/vendors.js"
+            ]
+        },
+        "ListProviders": {
+            "output": {
+                "type": "structure",
+                "members": {
+                    "providers": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "providerId"
+                            ],
+                            "members": {
+                                "providerId": {},
+                                "name": {}
+                            }
+                        }
+                    }
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/A5UVMSCHBDF724YVRTH2IKIS2IHDPDFOPUYXMOQTGDGWFXBT7GCQ/vendors.js"
+            ]
+        },
+        "ListS3Buckets": {
+            "input": {
+                "shape": "S4r"
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "buckets": {
+                        "type": "list",
+                        "member": {}
+                    },
+                    "unselectableBuckets": {
+                        "shape": "S4u"
+                    }
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/A5UVMSCHBDF724YVRTH2IKIS2IHDPDFOPUYXMOQTGDGWFXBT7GCQ/vendors.js"
+            ]
+        },
+        "ListS3BucketsWithEstimates": {
+            "input": {
+                "shape": "S4r"
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "buckets": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "bucketName": {},
+                                "estimate": {
+                                    "type": "structure",
+                                    "members": {
+                                        "bytesProcessed": {
+                                            "type": "long"
+                                        },
+                                        "totalBytes": {
+                                            "type": "long"
+                                        },
+                                        "numberOfObjects": {
+                                            "type": "long"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "unselectableBuckets": {
+                        "shape": "S4u"
+                    }
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/A5UVMSCHBDF724YVRTH2IKIS2IHDPDFOPUYXMOQTGDGWFXBT7GCQ/vendors.js"
+            ]
+        },
+        "ListS3Prefixes": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "awsAccountId",
+                    "bucketName"
+                ],
+                "members": {
+                    "awsAccountId": {},
+                    "bucketName": {},
+                    "prefix": {},
+                    "continuationToken": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "prefixes": {
+                        "type": "list",
+                        "member": {}
+                    },
+                    "nextContinuationToken": {},
+                    "isTruncated": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/A5UVMSCHBDF724YVRTH2IKIS2IHDPDFOPUYXMOQTGDGWFXBT7GCQ/vendors.js"
+            ]
+        },
+        "LockServiceLinkedRole": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "RoleArn",
+                    "Timeout"
+                ],
+                "members": {
+                    "RoleArn": {},
+                    "Timeout": {
+                        "type": "long"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "CanBeDeleted"
+                ],
+                "members": {
+                    "CanBeDeleted": {
+                        "type": "boolean"
+                    },
+                    "ReasonOfFailure": {},
+                    "RelatedResources": {
+                        "type": "list",
+                        "member": {}
+                    }
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/A5UVMSCHBDF724YVRTH2IKIS2IHDPDFOPUYXMOQTGDGWFXBT7GCQ/vendors.js"
+            ]
+        },
+        "ModifyMacieAccountDetails": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "s3ContentPersistence"
+                ],
+                "members": {
+                    "s3ContentPersistence": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/A5UVMSCHBDF724YVRTH2IKIS2IHDPDFOPUYXMOQTGDGWFXBT7GCQ/vendors.js"
+            ]
+        },
+        "RefreshActors": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "macieAccountId"
+                ],
+                "members": {
+                    "macieAccountId": {}
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/A5UVMSCHBDF724YVRTH2IKIS2IHDPDFOPUYXMOQTGDGWFXBT7GCQ/vendors.js"
+            ]
+        },
+        "UnlockServiceLinkedRole": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "RoleArn"
+                ],
+                "members": {
+                    "RoleArn": {},
+                    "DeletionStatus": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/A5UVMSCHBDF724YVRTH2IKIS2IHDPDFOPUYXMOQTGDGWFXBT7GCQ/vendors.js"
+            ]
+        },
+        "UpdateAlertByAccountId": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "alert"
+                ],
+                "members": {
+                    "macieAccountId": {},
+                    "alert": {
+                        "shape": "Sj"
+                    }
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/A5UVMSCHBDF724YVRTH2IKIS2IHDPDFOPUYXMOQTGDGWFXBT7GCQ/vendors.js"
+            ]
+        },
+        "UpdateAlerts": {
+            "input": {
+                "type": "structure",
+                "members": {
+                    "arns": {
+                        "shape": "Sl"
+                    },
+                    "archived": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/A5UVMSCHBDF724YVRTH2IKIS2IHDPDFOPUYXMOQTGDGWFXBT7GCQ/vendors.js"
+            ]
+        },
+        "UpdateAlertsArchived": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "archived"
+                ],
+                "members": {
+                    "category": {},
+                    "archived": {
+                        "type": "boolean"
+                    },
+                    "dateBegin": {
+                        "type": "timestamp"
+                    },
+                    "dateEnd": {
+                        "type": "timestamp"
+                    }
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/A5UVMSCHBDF724YVRTH2IKIS2IHDPDFOPUYXMOQTGDGWFXBT7GCQ/vendors.js"
+            ]
+        },
+        "UpdateDLPSetting": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "category"
+                ],
+                "members": {
+                    "category": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "dlpSetting": {
+                        "shape": "S1k"
+                    }
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/A5UVMSCHBDF724YVRTH2IKIS2IHDPDFOPUYXMOQTGDGWFXBT7GCQ/vendors.js"
+            ]
+        },
+        "UpdateFavoriteESQuery": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "id"
+                ],
+                "members": {
+                    "id": {},
+                    "name": {},
+                    "description": {},
+                    "query": {},
+                    "index": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "favoriteESQuery": {
+                        "shape": "S1o"
+                    }
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/A5UVMSCHBDF724YVRTH2IKIS2IHDPDFOPUYXMOQTGDGWFXBT7GCQ/vendors.js"
+            ]
+        },
+        "UpdateS3Integration": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "awsAccountId",
+                    "s3IntegrationConfig"
+                ],
+                "members": {
+                    "awsAccountId": {},
+                    "s3IntegrationConfig": {
+                        "shape": "S1u"
+                    }
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/A5UVMSCHBDF724YVRTH2IKIS2IHDPDFOPUYXMOQTGDGWFXBT7GCQ/vendors.js"
+            ]
+        },
+        "VerifyCloudTrail": {
+            "output": {
+                "type": "structure",
+                "members": {
+                    "cloudTrailEnabled": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/A5UVMSCHBDF724YVRTH2IKIS2IHDPDFOPUYXMOQTGDGWFXBT7GCQ/vendors.js"
+            ]
+        },
+        "VerifyMacieRoles": {
+            "output": {
+                "type": "structure",
+                "members": {
+                    "hasMacieRoles": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/A5UVMSCHBDF724YVRTH2IKIS2IHDPDFOPUYXMOQTGDGWFXBT7GCQ/vendors.js"
+            ]
+        }
+    },
+    "shapes": {
+        "S4": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "bucketName",
+                    "classificationType"
+                ],
+                "members": {
+                    "bucketName": {},
+                    "prefix": {},
+                    "classificationType": {
+                        "type": "structure",
+                        "required": [
+                            "oneTime",
+                            "continuous"
+                        ],
+                        "members": {
+                            "oneTime": {},
+                            "continuous": {}
+                        }
+                    }
+                }
+            }
+        },
+        "Sc": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "failedItem": {
+                        "shape": "Se"
+                    },
+                    "errorCode": {},
+                    "errorMessage": {}
+                }
+            }
+        },
+        "Se": {
+            "type": "structure",
+            "required": [
+                "bucketName"
+            ],
+            "members": {
+                "bucketName": {},
+                "prefix": {}
+            }
+        },
+        "Sj": {
+            "type": "structure",
+            "required": [
+                "alertObjId",
+                "trigger"
+            ],
+            "members": {
+                "arn": {},
+                "actor": {},
+                "archived": {
+                    "type": "boolean"
+                },
+                "whitelisted": {
+                    "type": "boolean"
+                },
+                "alertObjId": {},
+                "alertSettings": {
+                    "shape": "Sl"
+                },
+                "alertType": {
+                    "type": "structure",
+                    "members": {
+                        "index": {},
+                        "id": {},
+                        "name": {},
+                        "collection": {}
+                    }
+                },
+                "categories": {
+                    "type": "list",
+                    "member": {}
+                },
+                "classification": {
+                    "shape": "Sl"
+                },
+                "createdAt": {
+                    "type": "timestamp"
+                },
+                "query": {
+                    "type": "structure",
+                    "members": {
+                        "index": {},
+                        "idArray": {
+                            "shape": "Sl"
+                        },
+                        "totalResult": {
+                            "type": "integer"
+                        }
+                    }
+                },
+                "riskScore": {
+                    "type": "integer"
+                },
+                "viewCount": {
+                    "type": "integer"
+                },
+                "severity": {},
+                "title": {},
+                "titleDict": {
+                    "type": "structure",
+                    "members": {
+                        "description": {
+                            "type": "list",
+                            "member": {
+                                "type": "structure",
+                                "members": {
+                                    "key": {}
+                                }
+                            }
+                        },
+                        "errorCode": {
+                            "shape": "Sx"
+                        },
+                        "event": {
+                            "shape": "Sx"
+                        },
+                        "ip": {
+                            "shape": "Sx"
+                        },
+                        "isp": {
+                            "shape": "Sx"
+                        },
+                        "location": {
+                            "shape": "Sx"
+                        },
+                        "recipientAccountId": {
+                            "shape": "Sx"
+                        },
+                        "recordCount": {
+                            "type": "integer"
+                        },
+                        "sourceArn": {
+                            "shape": "Sx"
+                        },
+                        "timeRange": {
+                            "type": "list",
+                            "member": {
+                                "type": "structure",
+                                "members": {
+                                    "count": {
+                                        "type": "integer"
+                                    },
+                                    "start": {
+                                        "type": "timestamp"
+                                    },
+                                    "end": {
+                                        "type": "timestamp"
+                                    }
+                                }
+                            }
+                        },
+                        "totalResult": {
+                            "type": "integer"
+                        },
+                        "acls": {
+                            "type": "list",
+                            "member": {
+                                "type": "structure",
+                                "members": {
+                                    "bucketName": {},
+                                    "aclProperties": {
+                                        "type": "list",
+                                        "member": {
+                                            "type": "structure",
+                                            "members": {
+                                                "owner": {
+                                                    "type": "structure",
+                                                    "members": {
+                                                        "displayName": {},
+                                                        "id": {}
+                                                    }
+                                                },
+                                                "grants": {
+                                                    "type": "list",
+                                                    "member": {
+                                                        "type": "structure",
+                                                        "members": {
+                                                            "grantee": {
+                                                                "type": "structure",
+                                                                "members": {
+                                                                    "displayName": {},
+                                                                    "type": {},
+                                                                    "id": {},
+                                                                    "uri": {},
+                                                                    "emailAddress": {}
+                                                                }
+                                                            },
+                                                            "permission": {}
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "bucket": {
+                            "shape": "Sx"
+                        },
+                        "dlpRisk": {
+                            "shape": "Sx"
+                        },
+                        "object": {
+                            "shape": "Sx"
+                        },
+                        "owner": {
+                            "shape": "Sx"
+                        },
+                        "themes": {
+                            "shape": "Sx"
+                        },
+                        "timestamps": {
+                            "shape": "Sx"
+                        }
+                    }
+                },
+                "trigger": {},
+                "type": {},
+                "updatedAt": {
+                    "type": "timestamp"
+                },
+                "index": {},
+                "aggregateWindowSize": {
+                    "type": "structure",
+                    "members": {
+                        "count": {
+                            "type": "integer"
+                        },
+                        "windowSizeInMilliseconds": {
+                            "type": "double"
+                        },
+                        "unit": {}
+                    }
+                },
+                "timeSeriesArrObj": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "members": {
+                            "measurementKey": {},
+                            "measurementSplunkQuery": {},
+                            "chartData": {
+                                "type": "structure",
+                                "members": {
+                                    "startTime": {
+                                        "type": "timestamp"
+                                    },
+                                    "predictiveFloor": {
+                                        "shape": "S1e"
+                                    },
+                                    "predictiveExcessions": {
+                                        "shape": "S1e"
+                                    },
+                                    "groupAverageArray": {
+                                        "shape": "S1e"
+                                    },
+                                    "predictiveRecessions": {
+                                        "shape": "S1e"
+                                    },
+                                    "measurementArray": {
+                                        "shape": "S1e"
+                                    },
+                                    "predictiveCeiling": {
+                                        "shape": "S1e"
+                                    },
+                                    "kalmanOnline": {
+                                        "shape": "S1e"
+                                    },
+                                    "measurementRisk": {
+                                        "type": "integer"
+                                    },
+                                    "endTime": {
+                                        "type": "timestamp"
+                                    },
+                                    "userDateArray": {
+                                        "shape": "S1f"
+                                    }
+                                }
+                            },
+                            "measurementNarrative": {},
+                            "userVsGroup": {
+                                "shape": "S1e"
+                            },
+                            "excessionCount": {
+                                "type": "integer"
+                            },
+                            "actorMeasurementError": {
+                                "type": "double"
+                            },
+                            "measurementEsQuery": {},
+                            "anomalous": {
+                                "type": "boolean"
+                            },
+                            "measurementDescription": {},
+                            "measurementRisk": {
+                                "type": "integer"
+                            },
+                            "userExcessionDays": {
+                                "shape": "S1f"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "Sl": {
+            "type": "list",
+            "member": {}
+        },
+        "Sx": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "count": {
+                        "type": "integer"
+                    },
+                    "key": {}
+                }
+            }
+        },
+        "S1e": {
+            "type": "list",
+            "member": {
+                "type": "double"
+            }
+        },
+        "S1f": {
+            "type": "list",
+            "member": {
+                "type": "timestamp"
+            }
+        },
+        "S1k": {
+            "type": "structure",
+            "members": {
+                "arn": {}
+            }
+        },
+        "S1n": {
+            "type": "structure",
+            "members": {
+                "favoriteESQuery": {
+                    "shape": "S1o"
+                }
+            }
+        },
+        "S1o": {
+            "type": "structure",
+            "members": {
+                "id": {},
+                "name": {},
+                "description": {},
+                "query": {},
+                "index": {},
+                "createdAt": {
+                    "type": "timestamp"
+                },
+                "createdBy": {},
+                "modifiedAt": {
+                    "type": "timestamp"
+                },
+                "modifiedBy": {}
+            }
+        },
+        "S1u": {
+            "type": "structure",
+            "members": {
+                "cloudTrailName": {},
+                "scanS3BucketMetadata": {}
+            }
+        },
+        "S1w": {
+            "type": "structure",
+            "members": {}
+        },
+        "S27": {
+            "type": "structure",
+            "members": {
+                "alert": {
+                    "shape": "Sj"
+                }
+            }
+        },
+        "S2r": {
+            "type": "structure",
+            "members": {
+                "favoriteESQueries": {
+                    "type": "list",
+                    "member": {
+                        "shape": "S1o"
+                    }
+                },
+                "nextToken": {}
+            }
+        },
+        "S2z": {
+            "type": "structure",
+            "members": {
+                "service": {
+                    "type": "structure",
+                    "required": [
+                        "serviceId",
+                        "providerId"
+                    ],
+                    "members": {
+                        "serviceId": {},
+                        "name": {},
+                        "providerId": {},
+                        "description": {},
+                        "prerequisites": {
+                            "type": "list",
+                            "member": {
+                                "type": "structure",
+                                "members": {
+                                    "serviceId": {},
+                                    "name": {}
+                                }
+                            }
+                        },
+                        "attributes": {
+                            "type": "map",
+                            "key": {},
+                            "value": {}
+                        }
+                    }
+                },
+                "integrationStatus": {
+                    "type": "structure",
+                    "members": {
+                        "status": {}
+                    }
+                }
+            }
+        },
+        "S3a": {
+            "type": "structure",
+            "required": [
+                "awsAccountId"
+            ],
+            "members": {
+                "awsAccountId": {}
+            }
+        },
+        "S3b": {
+            "type": "structure",
+            "members": {
+                "integration": {
+                    "shape": "S2z"
+                },
+                "s3IntegrationConfig": {
+                    "shape": "S1u"
+                }
+            }
+        },
+        "S3e": {
+            "type": "list",
+            "member": {
+                "shape": "Se"
+            }
+        },
+        "S4a": {
+            "type": "structure",
+            "members": {
+                "dlpSetting": {
+                    "type": "list",
+                    "member": {
+                        "shape": "S1k"
+                    }
+                },
+                "nextToken": {}
+            }
+        },
+        "S4r": {
+            "type": "structure",
+            "required": [
+                "awsAccountId"
+            ],
+            "members": {
+                "awsAccountId": {}
+            }
+        },
+        "S4u": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "bucketName": {},
+                    "message": {},
+                    "errorCode": {}
+                }
+            }
+        }
+    }
+}

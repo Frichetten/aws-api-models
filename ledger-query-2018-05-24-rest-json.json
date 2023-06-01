@@ -1,0 +1,186 @@
+{
+    "version": "2.0",
+    "metadata": {
+        "apiVersion": "2018-05-24",
+        "endpointPrefix": "qldbquery",
+        "jsonVersion": "1.0",
+        "protocol": "rest-json",
+        "serviceAbbreviation": "QLDB Query",
+        "serviceFullName": "Amazon QLDB Query",
+        "serviceId": "QLDBQuery",
+        "signatureVersion": "v4",
+        "signingName": "qldb",
+        "uid": "ledger-query-2018-05-24",
+        "download_location": [
+            "https://a.b.cdn.console.awsstatic.com/a/v1/A4YYKO2QMQZLI25X62OSEC5KRHISP4TU4OA3DHJY7ZW4QYK7GBNQ/vendors.js"
+        ]
+    },
+    "operations": {
+        "ExecuteStatement": {
+            "http": {
+                "requestUri": "/ledgers/{name}/execute"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "Name",
+                    "Statement"
+                ],
+                "members": {
+                    "Name": {
+                        "location": "uri",
+                        "locationName": "name"
+                    },
+                    "Statement": {
+                        "type": "string",
+                        "sensitive": true
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "Type"
+                ],
+                "members": {
+                    "Type": {},
+                    "Results": {
+                        "type": "list",
+                        "member": {
+                            "type": "string",
+                            "sensitive": true
+                        },
+                        "sensitive": true
+                    },
+                    "RowsAffected": {
+                        "type": "integer"
+                    },
+                    "IOUsage": {
+                        "type": "structure",
+                        "members": {
+                            "ReadIOs": {
+                                "type": "long"
+                            }
+                        }
+                    },
+                    "ProcessingTimeMilliseconds": {
+                        "type": "long"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/A4YYKO2QMQZLI25X62OSEC5KRHISP4TU4OA3DHJY7ZW4QYK7GBNQ/vendors.js"
+            ]
+        },
+        "InsertSampleData": {
+            "http": {
+                "requestUri": "/ledgers/{name}/insert-sample-data"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "Name"
+                ],
+                "members": {
+                    "Name": {
+                        "location": "uri",
+                        "locationName": "name"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/A4YYKO2QMQZLI25X62OSEC5KRHISP4TU4OA3DHJY7ZW4QYK7GBNQ/vendors.js"
+            ]
+        },
+        "ShowCatalog": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/ledgers/{name}/catalog"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "Name"
+                ],
+                "members": {
+                    "Name": {
+                        "location": "uri",
+                        "locationName": "name"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Current": {
+                        "type": "structure",
+                        "members": {
+                            "Tables": {
+                                "type": "list",
+                                "member": {
+                                    "type": "structure",
+                                    "members": {
+                                        "TableName": {
+                                            "type": "string",
+                                            "sensitive": true
+                                        },
+                                        "TableId": {},
+                                        "Indexes": {
+                                            "type": "list",
+                                            "member": {
+                                                "type": "structure",
+                                                "members": {
+                                                    "Expression": {
+                                                        "type": "string",
+                                                        "sensitive": true
+                                                    },
+                                                    "Identifier": {
+                                                        "type": "string",
+                                                        "sensitive": true
+                                                    },
+                                                    "Status": {
+                                                        "shape": "Sp"
+                                                    },
+                                                    "Message": {
+                                                        "type": "string",
+                                                        "sensitive": true
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "Status": {
+                                            "shape": "Sp"
+                                        },
+                                        "TableArn": {
+                                            "shape": "Sr"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "CatalogArn": {
+                        "shape": "Sr"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/A4YYKO2QMQZLI25X62OSEC5KRHISP4TU4OA3DHJY7ZW4QYK7GBNQ/vendors.js"
+            ]
+        }
+    },
+    "shapes": {
+        "Sp": {
+            "type": "string",
+            "sensitive": true
+        },
+        "Sr": {
+            "type": "string",
+            "sensitive": true
+        }
+    }
+}

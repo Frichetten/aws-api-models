@@ -1,0 +1,2137 @@
+{
+    "version": "2.0",
+    "metadata": {
+        "apiVersion": "2019-11-01",
+        "endpointPrefix": "access-analyzer",
+        "jsonVersion": "1.1",
+        "protocol": "rest-json",
+        "serviceAbbreviation": "Access Analyzer",
+        "serviceFullName": "Access Analyzer",
+        "signatureVersion": "v4",
+        "signingName": "access-analyzer",
+        "uid": "access-analyzer-2019-11-01",
+        "download_location": [
+            "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+        ]
+    },
+    "operations": {
+        "ApplyArchiveRule": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/archive-rule",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "analyzerArn",
+                    "ruleName"
+                ],
+                "members": {
+                    "analyzerArn": {},
+                    "ruleName": {},
+                    "clientToken": {
+                        "idempotencyToken": true
+                    }
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "CancelPolicyGeneration": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/policy/generation/{jobId}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "jobId"
+                ],
+                "members": {
+                    "jobId": {
+                        "location": "uri",
+                        "locationName": "jobId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "CreateAccessPreview": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/access-preview",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "analyzerArn",
+                    "configurations"
+                ],
+                "members": {
+                    "analyzerArn": {},
+                    "configurations": {
+                        "shape": "S9"
+                    },
+                    "clientToken": {
+                        "idempotencyToken": true
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "id"
+                ],
+                "members": {
+                    "id": {}
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "CreateAnalyzer": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/analyzer",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "analyzerName",
+                    "type"
+                ],
+                "members": {
+                    "analyzerName": {},
+                    "type": {},
+                    "archiveRules": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "ruleName",
+                                "filter"
+                            ],
+                            "members": {
+                                "ruleName": {},
+                                "filter": {
+                                    "shape": "S2k"
+                                }
+                            }
+                        }
+                    },
+                    "tags": {
+                        "shape": "S2n"
+                    },
+                    "clientToken": {
+                        "idempotencyToken": true
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "arn": {}
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "CreateArchiveRule": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/analyzer/{analyzerName}/archive-rule",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "analyzerName",
+                    "ruleName",
+                    "filter"
+                ],
+                "members": {
+                    "analyzerName": {
+                        "location": "uri",
+                        "locationName": "analyzerName"
+                    },
+                    "ruleName": {},
+                    "filter": {
+                        "shape": "S2k"
+                    },
+                    "clientToken": {
+                        "idempotencyToken": true
+                    }
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "DeleteAnalyzer": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/analyzer/{analyzerName}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "analyzerName"
+                ],
+                "members": {
+                    "analyzerName": {
+                        "location": "uri",
+                        "locationName": "analyzerName"
+                    },
+                    "clientToken": {
+                        "idempotencyToken": true,
+                        "location": "querystring",
+                        "locationName": "clientToken"
+                    }
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "DeleteArchiveRule": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/analyzer/{analyzerName}/archive-rule/{ruleName}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "analyzerName",
+                    "ruleName"
+                ],
+                "members": {
+                    "analyzerName": {
+                        "location": "uri",
+                        "locationName": "analyzerName"
+                    },
+                    "ruleName": {
+                        "location": "uri",
+                        "locationName": "ruleName"
+                    },
+                    "clientToken": {
+                        "idempotencyToken": true,
+                        "location": "querystring",
+                        "locationName": "clientToken"
+                    }
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "GetAccessPreview": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/access-preview/{accessPreviewId}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "accessPreviewId",
+                    "analyzerArn"
+                ],
+                "members": {
+                    "accessPreviewId": {
+                        "location": "uri",
+                        "locationName": "accessPreviewId"
+                    },
+                    "analyzerArn": {
+                        "location": "querystring",
+                        "locationName": "analyzerArn"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "accessPreview"
+                ],
+                "members": {
+                    "accessPreview": {
+                        "type": "structure",
+                        "required": [
+                            "id",
+                            "analyzerArn",
+                            "configurations",
+                            "createdAt",
+                            "status"
+                        ],
+                        "members": {
+                            "id": {},
+                            "analyzerArn": {},
+                            "configurations": {
+                                "shape": "S9"
+                            },
+                            "createdAt": {
+                                "shape": "S2v"
+                            },
+                            "status": {},
+                            "statusReason": {
+                                "shape": "S2x"
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "GetAnalyzedResource": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/analyzed-resource",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "analyzerArn",
+                    "resourceArn"
+                ],
+                "members": {
+                    "analyzerArn": {
+                        "location": "querystring",
+                        "locationName": "analyzerArn"
+                    },
+                    "resourceArn": {
+                        "location": "querystring",
+                        "locationName": "resourceArn"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "resource": {
+                        "type": "structure",
+                        "required": [
+                            "resourceArn",
+                            "resourceType",
+                            "createdAt",
+                            "analyzedAt",
+                            "updatedAt",
+                            "isPublic",
+                            "resourceOwnerAccount"
+                        ],
+                        "members": {
+                            "resourceArn": {},
+                            "resourceType": {},
+                            "createdAt": {
+                                "shape": "S2v"
+                            },
+                            "analyzedAt": {
+                                "shape": "S2v"
+                            },
+                            "updatedAt": {
+                                "shape": "S2v"
+                            },
+                            "isPublic": {
+                                "type": "boolean"
+                            },
+                            "actions": {
+                                "shape": "S34"
+                            },
+                            "sharedVia": {
+                                "type": "list",
+                                "member": {}
+                            },
+                            "status": {},
+                            "resourceOwnerAccount": {},
+                            "error": {}
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "GetAnalyzer": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/analyzer/{analyzerName}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "analyzerName"
+                ],
+                "members": {
+                    "analyzerName": {
+                        "location": "uri",
+                        "locationName": "analyzerName"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "analyzer"
+                ],
+                "members": {
+                    "analyzer": {
+                        "shape": "S39"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "GetArchiveRule": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/analyzer/{analyzerName}/archive-rule/{ruleName}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "analyzerName",
+                    "ruleName"
+                ],
+                "members": {
+                    "analyzerName": {
+                        "location": "uri",
+                        "locationName": "analyzerName"
+                    },
+                    "ruleName": {
+                        "location": "uri",
+                        "locationName": "ruleName"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "archiveRule"
+                ],
+                "members": {
+                    "archiveRule": {
+                        "shape": "S3f"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "GetFinding": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/finding/{id}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "analyzerArn",
+                    "id"
+                ],
+                "members": {
+                    "analyzerArn": {
+                        "location": "querystring",
+                        "locationName": "analyzerArn"
+                    },
+                    "id": {
+                        "location": "uri",
+                        "locationName": "id"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "finding": {
+                        "type": "structure",
+                        "required": [
+                            "id",
+                            "resourceType",
+                            "condition",
+                            "createdAt",
+                            "analyzedAt",
+                            "updatedAt",
+                            "status",
+                            "resourceOwnerAccount"
+                        ],
+                        "members": {
+                            "id": {},
+                            "principal": {
+                                "shape": "S3k"
+                            },
+                            "action": {
+                                "shape": "S34"
+                            },
+                            "resource": {},
+                            "isPublic": {
+                                "type": "boolean"
+                            },
+                            "resourceType": {},
+                            "condition": {
+                                "shape": "S3l"
+                            },
+                            "createdAt": {
+                                "shape": "S2v"
+                            },
+                            "analyzedAt": {
+                                "shape": "S2v"
+                            },
+                            "updatedAt": {
+                                "shape": "S2v"
+                            },
+                            "status": {},
+                            "resourceOwnerAccount": {},
+                            "error": {},
+                            "sources": {
+                                "shape": "S3m"
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "GetGeneratedPolicy": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/policy/generation/{jobId}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "jobId"
+                ],
+                "members": {
+                    "jobId": {
+                        "location": "uri",
+                        "locationName": "jobId"
+                    },
+                    "includeResourcePlaceholders": {
+                        "location": "querystring",
+                        "locationName": "includeResourcePlaceholders",
+                        "type": "boolean"
+                    },
+                    "includeServiceLevelTemplate": {
+                        "location": "querystring",
+                        "locationName": "includeServiceLevelTemplate",
+                        "type": "boolean"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "jobDetails",
+                    "generatedPolicyResult"
+                ],
+                "members": {
+                    "jobDetails": {
+                        "type": "structure",
+                        "required": [
+                            "jobId",
+                            "status",
+                            "startedOn"
+                        ],
+                        "members": {
+                            "jobId": {},
+                            "status": {},
+                            "startedOn": {
+                                "shape": "S2v"
+                            },
+                            "completedOn": {
+                                "shape": "S2v"
+                            },
+                            "jobError": {
+                                "type": "structure",
+                                "required": [
+                                    "code",
+                                    "message"
+                                ],
+                                "members": {
+                                    "code": {},
+                                    "message": {}
+                                }
+                            }
+                        }
+                    },
+                    "generatedPolicyResult": {
+                        "type": "structure",
+                        "required": [
+                            "properties"
+                        ],
+                        "members": {
+                            "properties": {
+                                "type": "structure",
+                                "required": [
+                                    "principalArn"
+                                ],
+                                "members": {
+                                    "isComplete": {
+                                        "type": "boolean"
+                                    },
+                                    "principalArn": {},
+                                    "cloudTrailProperties": {
+                                        "type": "structure",
+                                        "required": [
+                                            "trailProperties",
+                                            "startTime",
+                                            "endTime"
+                                        ],
+                                        "members": {
+                                            "trailProperties": {
+                                                "type": "list",
+                                                "member": {
+                                                    "type": "structure",
+                                                    "required": [
+                                                        "cloudTrailArn"
+                                                    ],
+                                                    "members": {
+                                                        "cloudTrailArn": {},
+                                                        "regions": {
+                                                            "shape": "S43"
+                                                        },
+                                                        "allRegions": {
+                                                            "type": "boolean"
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "startTime": {
+                                                "shape": "S2v"
+                                            },
+                                            "endTime": {
+                                                "shape": "S2v"
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            "generatedPolicies": {
+                                "type": "list",
+                                "member": {
+                                    "type": "structure",
+                                    "required": [
+                                        "policy"
+                                    ],
+                                    "members": {
+                                        "policy": {}
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "ListAccessPreviewFindings": {
+            "http": {
+                "requestUri": "/access-preview/{accessPreviewId}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "accessPreviewId",
+                    "analyzerArn"
+                ],
+                "members": {
+                    "accessPreviewId": {
+                        "location": "uri",
+                        "locationName": "accessPreviewId"
+                    },
+                    "analyzerArn": {},
+                    "filter": {
+                        "shape": "S2k"
+                    },
+                    "nextToken": {},
+                    "maxResults": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "findings"
+                ],
+                "members": {
+                    "findings": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "id",
+                                "resourceType",
+                                "createdAt",
+                                "changeType",
+                                "status",
+                                "resourceOwnerAccount"
+                            ],
+                            "members": {
+                                "id": {},
+                                "existingFindingId": {},
+                                "existingFindingStatus": {},
+                                "principal": {
+                                    "shape": "S3k"
+                                },
+                                "action": {
+                                    "shape": "S34"
+                                },
+                                "condition": {
+                                    "shape": "S3l"
+                                },
+                                "resource": {},
+                                "isPublic": {
+                                    "type": "boolean"
+                                },
+                                "resourceType": {},
+                                "createdAt": {
+                                    "shape": "S2v"
+                                },
+                                "changeType": {},
+                                "status": {},
+                                "resourceOwnerAccount": {},
+                                "error": {},
+                                "sources": {
+                                    "shape": "S3m"
+                                }
+                            }
+                        }
+                    },
+                    "nextToken": {}
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "ListAccessPreviews": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/access-preview",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "analyzerArn"
+                ],
+                "members": {
+                    "analyzerArn": {
+                        "location": "querystring",
+                        "locationName": "analyzerArn"
+                    },
+                    "nextToken": {
+                        "location": "querystring",
+                        "locationName": "nextToken"
+                    },
+                    "maxResults": {
+                        "location": "querystring",
+                        "locationName": "maxResults",
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "accessPreviews"
+                ],
+                "members": {
+                    "accessPreviews": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "id",
+                                "analyzerArn",
+                                "createdAt",
+                                "status"
+                            ],
+                            "members": {
+                                "id": {},
+                                "analyzerArn": {},
+                                "createdAt": {
+                                    "shape": "S2v"
+                                },
+                                "status": {},
+                                "statusReason": {
+                                    "shape": "S2x"
+                                }
+                            }
+                        }
+                    },
+                    "nextToken": {}
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "ListAnalyzedResources": {
+            "http": {
+                "requestUri": "/analyzed-resource",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "analyzerArn"
+                ],
+                "members": {
+                    "analyzerArn": {},
+                    "resourceType": {},
+                    "nextToken": {},
+                    "maxResults": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "analyzedResources"
+                ],
+                "members": {
+                    "analyzedResources": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "resourceArn",
+                                "resourceOwnerAccount",
+                                "resourceType"
+                            ],
+                            "members": {
+                                "resourceArn": {},
+                                "resourceOwnerAccount": {},
+                                "resourceType": {}
+                            }
+                        }
+                    },
+                    "nextToken": {}
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "ListAnalyzers": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/analyzer",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "nextToken": {
+                        "location": "querystring",
+                        "locationName": "nextToken"
+                    },
+                    "maxResults": {
+                        "location": "querystring",
+                        "locationName": "maxResults",
+                        "type": "integer"
+                    },
+                    "type": {
+                        "location": "querystring",
+                        "locationName": "type"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "analyzers"
+                ],
+                "members": {
+                    "analyzers": {
+                        "type": "list",
+                        "member": {
+                            "shape": "S39"
+                        }
+                    },
+                    "nextToken": {}
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "ListArchiveRules": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/analyzer/{analyzerName}/archive-rule",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "analyzerName"
+                ],
+                "members": {
+                    "analyzerName": {
+                        "location": "uri",
+                        "locationName": "analyzerName"
+                    },
+                    "nextToken": {
+                        "location": "querystring",
+                        "locationName": "nextToken"
+                    },
+                    "maxResults": {
+                        "location": "querystring",
+                        "locationName": "maxResults",
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "archiveRules"
+                ],
+                "members": {
+                    "archiveRules": {
+                        "type": "list",
+                        "member": {
+                            "shape": "S3f"
+                        }
+                    },
+                    "nextToken": {}
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "ListFindings": {
+            "http": {
+                "requestUri": "/finding",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "analyzerArn"
+                ],
+                "members": {
+                    "analyzerArn": {},
+                    "filter": {
+                        "shape": "S2k"
+                    },
+                    "sort": {
+                        "type": "structure",
+                        "members": {
+                            "attributeName": {},
+                            "orderBy": {}
+                        }
+                    },
+                    "nextToken": {},
+                    "maxResults": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "findings"
+                ],
+                "members": {
+                    "findings": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "id",
+                                "resourceType",
+                                "condition",
+                                "createdAt",
+                                "analyzedAt",
+                                "updatedAt",
+                                "status",
+                                "resourceOwnerAccount"
+                            ],
+                            "members": {
+                                "id": {},
+                                "principal": {
+                                    "shape": "S3k"
+                                },
+                                "action": {
+                                    "shape": "S34"
+                                },
+                                "resource": {},
+                                "isPublic": {
+                                    "type": "boolean"
+                                },
+                                "resourceType": {},
+                                "condition": {
+                                    "shape": "S3l"
+                                },
+                                "createdAt": {
+                                    "shape": "S2v"
+                                },
+                                "analyzedAt": {
+                                    "shape": "S2v"
+                                },
+                                "updatedAt": {
+                                    "shape": "S2v"
+                                },
+                                "status": {},
+                                "resourceOwnerAccount": {},
+                                "error": {},
+                                "sources": {
+                                    "shape": "S3m"
+                                }
+                            }
+                        }
+                    },
+                    "nextToken": {}
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "ListPolicyGenerations": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/policy/generation",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "principalArn": {
+                        "location": "querystring",
+                        "locationName": "principalArn"
+                    },
+                    "maxResults": {
+                        "location": "querystring",
+                        "locationName": "maxResults",
+                        "type": "integer"
+                    },
+                    "nextToken": {
+                        "location": "querystring",
+                        "locationName": "nextToken"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "policyGenerations"
+                ],
+                "members": {
+                    "policyGenerations": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "jobId",
+                                "principalArn",
+                                "status",
+                                "startedOn"
+                            ],
+                            "members": {
+                                "jobId": {},
+                                "principalArn": {},
+                                "status": {},
+                                "startedOn": {
+                                    "shape": "S2v"
+                                },
+                                "completedOn": {
+                                    "shape": "S2v"
+                                }
+                            }
+                        }
+                    },
+                    "nextToken": {}
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "ListTagsForResource": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/tags/{resourceArn}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "resourceArn"
+                ],
+                "members": {
+                    "resourceArn": {
+                        "location": "uri",
+                        "locationName": "resourceArn"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "tags": {
+                        "shape": "S2n"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "StartPolicyGeneration": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/policy/generation",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "policyGenerationDetails"
+                ],
+                "members": {
+                    "policyGenerationDetails": {
+                        "type": "structure",
+                        "required": [
+                            "principalArn"
+                        ],
+                        "members": {
+                            "principalArn": {}
+                        }
+                    },
+                    "cloudTrailDetails": {
+                        "type": "structure",
+                        "required": [
+                            "trails",
+                            "accessRole",
+                            "startTime"
+                        ],
+                        "members": {
+                            "trails": {
+                                "type": "list",
+                                "member": {
+                                    "type": "structure",
+                                    "required": [
+                                        "cloudTrailArn"
+                                    ],
+                                    "members": {
+                                        "cloudTrailArn": {},
+                                        "regions": {
+                                            "shape": "S43"
+                                        },
+                                        "allRegions": {
+                                            "type": "boolean"
+                                        }
+                                    }
+                                }
+                            },
+                            "accessRole": {},
+                            "startTime": {
+                                "shape": "S2v"
+                            },
+                            "endTime": {
+                                "shape": "S2v"
+                            }
+                        }
+                    },
+                    "clientToken": {
+                        "idempotencyToken": true
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "jobId"
+                ],
+                "members": {
+                    "jobId": {}
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "StartResourceScan": {
+            "http": {
+                "requestUri": "/resource/scan",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "analyzerArn",
+                    "resourceArn"
+                ],
+                "members": {
+                    "analyzerArn": {},
+                    "resourceArn": {},
+                    "resourceOwnerAccount": {}
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "TagResource": {
+            "http": {
+                "requestUri": "/tags/{resourceArn}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "resourceArn",
+                    "tags"
+                ],
+                "members": {
+                    "resourceArn": {
+                        "location": "uri",
+                        "locationName": "resourceArn"
+                    },
+                    "tags": {
+                        "shape": "S2n"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "UntagResource": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/tags/{resourceArn}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "resourceArn",
+                    "tagKeys"
+                ],
+                "members": {
+                    "resourceArn": {
+                        "location": "uri",
+                        "locationName": "resourceArn"
+                    },
+                    "tagKeys": {
+                        "location": "querystring",
+                        "locationName": "tagKeys",
+                        "type": "list",
+                        "member": {}
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "UpdateArchiveRule": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/analyzer/{analyzerName}/archive-rule/{ruleName}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "analyzerName",
+                    "ruleName",
+                    "filter"
+                ],
+                "members": {
+                    "analyzerName": {
+                        "location": "uri",
+                        "locationName": "analyzerName"
+                    },
+                    "ruleName": {
+                        "location": "uri",
+                        "locationName": "ruleName"
+                    },
+                    "filter": {
+                        "shape": "S2k"
+                    },
+                    "clientToken": {
+                        "idempotencyToken": true
+                    }
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "UpdateFindings": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/finding",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "analyzerArn",
+                    "status"
+                ],
+                "members": {
+                    "analyzerArn": {},
+                    "status": {},
+                    "ids": {
+                        "type": "list",
+                        "member": {}
+                    },
+                    "resourceArn": {},
+                    "clientToken": {
+                        "idempotencyToken": true
+                    }
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "ValidatePolicy": {
+            "http": {
+                "requestUri": "/policy/validation",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "policyDocument",
+                    "policyType"
+                ],
+                "members": {
+                    "locale": {},
+                    "maxResults": {
+                        "location": "querystring",
+                        "locationName": "maxResults",
+                        "type": "integer"
+                    },
+                    "nextToken": {
+                        "location": "querystring",
+                        "locationName": "nextToken"
+                    },
+                    "policyDocument": {},
+                    "policyType": {},
+                    "validatePolicyResourceType": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "findings"
+                ],
+                "members": {
+                    "findings": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "findingDetails",
+                                "findingType",
+                                "issueCode",
+                                "learnMoreLink",
+                                "locations"
+                            ],
+                            "members": {
+                                "findingDetails": {},
+                                "findingType": {},
+                                "issueCode": {},
+                                "learnMoreLink": {},
+                                "locations": {
+                                    "type": "list",
+                                    "member": {
+                                        "type": "structure",
+                                        "required": [
+                                            "path",
+                                            "span"
+                                        ],
+                                        "members": {
+                                            "path": {
+                                                "type": "list",
+                                                "member": {
+                                                    "type": "structure",
+                                                    "members": {
+                                                        "index": {
+                                                            "type": "integer"
+                                                        },
+                                                        "key": {},
+                                                        "substring": {
+                                                            "type": "structure",
+                                                            "required": [
+                                                                "start",
+                                                                "length"
+                                                            ],
+                                                            "members": {
+                                                                "start": {
+                                                                    "type": "integer"
+                                                                },
+                                                                "length": {
+                                                                    "type": "integer"
+                                                                }
+                                                            }
+                                                        },
+                                                        "value": {}
+                                                    },
+                                                    "union": true
+                                                }
+                                            },
+                                            "span": {
+                                                "type": "structure",
+                                                "required": [
+                                                    "start",
+                                                    "end"
+                                                ],
+                                                "members": {
+                                                    "start": {
+                                                        "shape": "S63"
+                                                    },
+                                                    "end": {
+                                                        "shape": "S63"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "nextToken": {}
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        }
+    },
+    "shapes": {
+        "S9": {
+            "type": "map",
+            "key": {},
+            "value": {
+                "type": "structure",
+                "members": {
+                    "ebsSnapshot": {
+                        "type": "structure",
+                        "members": {
+                            "userIds": {
+                                "type": "list",
+                                "member": {}
+                            },
+                            "groups": {
+                                "type": "list",
+                                "member": {}
+                            }
+                        }
+                    },
+                    "ec2Ami": {
+                        "type": "structure",
+                        "members": {
+                            "userIds": {
+                                "type": "list",
+                                "member": {}
+                            },
+                            "groups": {
+                                "type": "list",
+                                "member": {}
+                            }
+                        }
+                    },
+                    "ecrRepository": {
+                        "type": "structure",
+                        "members": {
+                            "repositoryPolicy": {}
+                        }
+                    },
+                    "iamRole": {
+                        "type": "structure",
+                        "members": {
+                            "trustPolicy": {}
+                        }
+                    },
+                    "efsFileSystem": {
+                        "type": "structure",
+                        "members": {
+                            "fileSystemPolicy": {}
+                        }
+                    },
+                    "kmsKey": {
+                        "type": "structure",
+                        "members": {
+                            "keyPolicies": {
+                                "type": "map",
+                                "key": {},
+                                "value": {}
+                            },
+                            "grants": {
+                                "type": "list",
+                                "member": {
+                                    "type": "structure",
+                                    "required": [
+                                        "operations",
+                                        "granteePrincipal",
+                                        "issuingAccount"
+                                    ],
+                                    "members": {
+                                        "operations": {
+                                            "type": "list",
+                                            "member": {}
+                                        },
+                                        "granteePrincipal": {},
+                                        "retiringPrincipal": {},
+                                        "constraints": {
+                                            "type": "structure",
+                                            "members": {
+                                                "encryptionContextEquals": {
+                                                    "shape": "S13"
+                                                },
+                                                "encryptionContextSubset": {
+                                                    "shape": "S13"
+                                                }
+                                            }
+                                        },
+                                        "issuingAccount": {}
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "rdsDbClusterSnapshot": {
+                        "type": "structure",
+                        "members": {
+                            "attributes": {
+                                "type": "map",
+                                "key": {},
+                                "value": {
+                                    "type": "structure",
+                                    "members": {
+                                        "accountIds": {
+                                            "type": "list",
+                                            "member": {}
+                                        }
+                                    },
+                                    "union": true
+                                }
+                            }
+                        }
+                    },
+                    "rdsDbSnapshot": {
+                        "type": "structure",
+                        "members": {
+                            "attributes": {
+                                "type": "map",
+                                "key": {},
+                                "value": {
+                                    "type": "structure",
+                                    "members": {
+                                        "accountIds": {
+                                            "type": "list",
+                                            "member": {}
+                                        }
+                                    },
+                                    "union": true
+                                }
+                            }
+                        }
+                    },
+                    "secretsManagerSecret": {
+                        "type": "structure",
+                        "members": {
+                            "kmsKeyId": {},
+                            "secretPolicy": {}
+                        }
+                    },
+                    "s3Bucket": {
+                        "type": "structure",
+                        "members": {
+                            "bucketPolicy": {},
+                            "bucketAclGrants": {
+                                "type": "list",
+                                "member": {
+                                    "type": "structure",
+                                    "required": [
+                                        "permission",
+                                        "grantee"
+                                    ],
+                                    "members": {
+                                        "permission": {},
+                                        "grantee": {
+                                            "type": "structure",
+                                            "members": {
+                                                "id": {},
+                                                "uri": {}
+                                            },
+                                            "union": true
+                                        }
+                                    }
+                                }
+                            },
+                            "bucketPublicAccessBlock": {
+                                "shape": "S1u"
+                            },
+                            "accessPoints": {
+                                "type": "map",
+                                "key": {},
+                                "value": {
+                                    "type": "structure",
+                                    "members": {
+                                        "accessPointPolicy": {},
+                                        "publicAccessBlock": {
+                                            "shape": "S1u"
+                                        },
+                                        "networkOrigin": {
+                                            "type": "structure",
+                                            "members": {
+                                                "vpcConfiguration": {
+                                                    "type": "structure",
+                                                    "required": [
+                                                        "vpcId"
+                                                    ],
+                                                    "members": {
+                                                        "vpcId": {}
+                                                    }
+                                                },
+                                                "internetConfiguration": {
+                                                    "type": "structure",
+                                                    "members": {}
+                                                }
+                                            },
+                                            "union": true
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "sqsQueue": {
+                        "type": "structure",
+                        "members": {
+                            "queuePolicy": {}
+                        }
+                    },
+                    "ssmDocument": {
+                        "type": "structure",
+                        "members": {
+                            "permissionType": {
+                                "type": "map",
+                                "key": {},
+                                "value": {
+                                    "type": "map",
+                                    "key": {},
+                                    "value": {
+                                        "type": "structure",
+                                        "members": {
+                                            "accountIds": {
+                                                "type": "list",
+                                                "member": {}
+                                            }
+                                        },
+                                        "union": true
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "union": true
+            }
+        },
+        "S13": {
+            "type": "map",
+            "key": {},
+            "value": {}
+        },
+        "S1u": {
+            "type": "structure",
+            "required": [
+                "ignorePublicAcls",
+                "restrictPublicBuckets"
+            ],
+            "members": {
+                "ignorePublicAcls": {
+                    "type": "boolean"
+                },
+                "restrictPublicBuckets": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "S2k": {
+            "type": "map",
+            "key": {},
+            "value": {
+                "type": "structure",
+                "members": {
+                    "eq": {
+                        "shape": "S2m"
+                    },
+                    "neq": {
+                        "shape": "S2m"
+                    },
+                    "contains": {
+                        "shape": "S2m"
+                    },
+                    "exists": {
+                        "type": "boolean"
+                    }
+                }
+            }
+        },
+        "S2m": {
+            "type": "list",
+            "member": {}
+        },
+        "S2n": {
+            "type": "map",
+            "key": {},
+            "value": {}
+        },
+        "S2v": {
+            "type": "timestamp",
+            "timestampFormat": "iso8601"
+        },
+        "S2x": {
+            "type": "structure",
+            "required": [
+                "code"
+            ],
+            "members": {
+                "code": {}
+            }
+        },
+        "S34": {
+            "type": "list",
+            "member": {}
+        },
+        "S39": {
+            "type": "structure",
+            "required": [
+                "arn",
+                "name",
+                "type",
+                "createdAt",
+                "status"
+            ],
+            "members": {
+                "arn": {},
+                "name": {},
+                "type": {},
+                "createdAt": {
+                    "shape": "S2v"
+                },
+                "lastResourceAnalyzed": {},
+                "lastResourceAnalyzedAt": {
+                    "shape": "S2v"
+                },
+                "tags": {
+                    "shape": "S2n"
+                },
+                "status": {},
+                "statusReason": {
+                    "type": "structure",
+                    "required": [
+                        "code"
+                    ],
+                    "members": {
+                        "code": {}
+                    }
+                }
+            }
+        },
+        "S3f": {
+            "type": "structure",
+            "required": [
+                "ruleName",
+                "filter",
+                "createdAt",
+                "updatedAt"
+            ],
+            "members": {
+                "ruleName": {},
+                "filter": {
+                    "shape": "S2k"
+                },
+                "createdAt": {
+                    "shape": "S2v"
+                },
+                "updatedAt": {
+                    "shape": "S2v"
+                }
+            }
+        },
+        "S3k": {
+            "type": "map",
+            "key": {},
+            "value": {}
+        },
+        "S3l": {
+            "type": "map",
+            "key": {},
+            "value": {}
+        },
+        "S3m": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "type"
+                ],
+                "members": {
+                    "type": {},
+                    "detail": {
+                        "type": "structure",
+                        "members": {
+                            "accessPointArn": {}
+                        }
+                    }
+                }
+            }
+        },
+        "S43": {
+            "type": "list",
+            "member": {}
+        },
+        "S63": {
+            "type": "structure",
+            "required": [
+                "line",
+                "column",
+                "offset"
+            ],
+            "members": {
+                "line": {
+                    "type": "integer"
+                },
+                "column": {
+                    "type": "integer"
+                },
+                "offset": {
+                    "type": "integer"
+                }
+            }
+        },
+        "S14": {
+            "type": "map",
+            "key": {},
+            "value": {}
+        },
+        "S1x": {
+            "type": "structure",
+            "required": [
+                "ignorePublicAcls",
+                "restrictPublicBuckets"
+            ],
+            "members": {
+                "ignorePublicAcls": {
+                    "type": "boolean"
+                },
+                "restrictPublicBuckets": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "S2p": {
+            "type": "map",
+            "key": {},
+            "value": {
+                "type": "structure",
+                "members": {
+                    "eq": {
+                        "shape": "S2r"
+                    },
+                    "neq": {
+                        "shape": "S2r"
+                    },
+                    "contains": {
+                        "shape": "S2r"
+                    },
+                    "exists": {
+                        "type": "boolean"
+                    }
+                }
+            }
+        },
+        "S2r": {
+            "type": "list",
+            "member": {}
+        },
+        "S2s": {
+            "type": "map",
+            "key": {},
+            "value": {}
+        },
+        "S30": {
+            "type": "timestamp",
+            "timestampFormat": "iso8601"
+        },
+        "S32": {
+            "type": "structure",
+            "required": [
+                "code"
+            ],
+            "members": {
+                "code": {}
+            }
+        },
+        "S3e": {
+            "type": "structure",
+            "required": [
+                "arn",
+                "name",
+                "type",
+                "createdAt",
+                "status"
+            ],
+            "members": {
+                "arn": {},
+                "name": {},
+                "type": {},
+                "createdAt": {
+                    "shape": "S30"
+                },
+                "lastResourceAnalyzed": {},
+                "lastResourceAnalyzedAt": {
+                    "shape": "S30"
+                },
+                "tags": {
+                    "shape": "S2s"
+                },
+                "status": {},
+                "statusReason": {
+                    "type": "structure",
+                    "required": [
+                        "code"
+                    ],
+                    "members": {
+                        "code": {}
+                    }
+                }
+            }
+        },
+        "S3p": {
+            "type": "map",
+            "key": {},
+            "value": {}
+        },
+        "S3q": {
+            "type": "map",
+            "key": {},
+            "value": {}
+        },
+        "S3r": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "type"
+                ],
+                "members": {
+                    "type": {},
+                    "detail": {
+                        "type": "structure",
+                        "members": {
+                            "accessPointArn": {}
+                        }
+                    }
+                }
+            }
+        },
+        "S48": {
+            "type": "list",
+            "member": {}
+        },
+        "S68": {
+            "type": "structure",
+            "required": [
+                "line",
+                "column",
+                "offset"
+            ],
+            "members": {
+                "line": {
+                    "type": "integer"
+                },
+                "column": {
+                    "type": "integer"
+                },
+                "offset": {
+                    "type": "integer"
+                }
+            }
+        },
+        "S1v": {
+            "type": "structure",
+            "required": [
+                "ignorePublicAcls",
+                "restrictPublicBuckets"
+            ],
+            "members": {
+                "ignorePublicAcls": {
+                    "type": "boolean"
+                },
+                "restrictPublicBuckets": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "S2q": {
+            "type": "map",
+            "key": {},
+            "value": {}
+        },
+        "S2y": {
+            "type": "timestamp",
+            "timestampFormat": "iso8601"
+        },
+        "S37": {
+            "type": "list",
+            "member": {}
+        },
+        "S3c": {
+            "type": "structure",
+            "required": [
+                "arn",
+                "name",
+                "type",
+                "createdAt",
+                "status"
+            ],
+            "members": {
+                "arn": {},
+                "name": {},
+                "type": {},
+                "createdAt": {
+                    "shape": "S2y"
+                },
+                "lastResourceAnalyzed": {},
+                "lastResourceAnalyzedAt": {
+                    "shape": "S2y"
+                },
+                "tags": {
+                    "shape": "S2q"
+                },
+                "status": {},
+                "statusReason": {
+                    "type": "structure",
+                    "required": [
+                        "code"
+                    ],
+                    "members": {
+                        "code": {}
+                    }
+                }
+            }
+        },
+        "S3i": {
+            "type": "structure",
+            "required": [
+                "ruleName",
+                "filter",
+                "createdAt",
+                "updatedAt"
+            ],
+            "members": {
+                "ruleName": {},
+                "filter": {
+                    "shape": "S2n"
+                },
+                "createdAt": {
+                    "shape": "S2y"
+                },
+                "updatedAt": {
+                    "shape": "S2y"
+                }
+            }
+        },
+        "S3n": {
+            "type": "map",
+            "key": {},
+            "value": {}
+        },
+        "S3o": {
+            "type": "map",
+            "key": {},
+            "value": {}
+        },
+        "S46": {
+            "type": "list",
+            "member": {}
+        },
+        "S66": {
+            "type": "structure",
+            "required": [
+                "line",
+                "column",
+                "offset"
+            ],
+            "members": {
+                "line": {
+                    "type": "integer"
+                },
+                "column": {
+                    "type": "integer"
+                },
+                "offset": {
+                    "type": "integer"
+                }
+            }
+        }
+    }
+}

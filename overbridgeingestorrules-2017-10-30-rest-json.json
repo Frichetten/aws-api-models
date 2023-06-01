@@ -1,0 +1,248 @@
+{
+    "version": "2.0",
+    "metadata": {
+        "apiVersion": "2017-10-30",
+        "endpointPrefix": "xxx.execute-api",
+        "jsonVersion": "1.1",
+        "protocol": "rest-json",
+        "serviceFullName": "Amazon Overbridge",
+        "serviceId": "Overbridge",
+        "signatureVersion": "v4",
+        "signingName": "overbridgebeta",
+        "uid": "overbridgeingestorrules-2017-10-30",
+        "download_location": [
+            "https://a.b.cdn.console.awsstatic.com/a/v1/P6NW5VBMXGKZRXTIQR2256IDXY5EEXRCYQ3EDSDBCRDUN5FURIYQ/vendor.js"
+        ]
+    },
+    "operations": {
+        "CreateRuleConfiguration": {
+            "http": {
+                "requestUri": "/rule/create"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "name",
+                    "status",
+                    "actions",
+                    "conditions"
+                ],
+                "members": {
+                    "name": {},
+                    "status": {},
+                    "actions": {
+                        "shape": "S4"
+                    },
+                    "conditions": {
+                        "shape": "S9"
+                    },
+                    "startTimestamp": {},
+                    "endTimestamp": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ruleId": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/P6NW5VBMXGKZRXTIQR2256IDXY5EEXRCYQ3EDSDBCRDUN5FURIYQ/vendor.js"
+            ]
+        },
+        "DeleteRuleConfiguration": {
+            "http": {
+                "requestUri": "/rule/delete"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ruleId"
+                ],
+                "members": {
+                    "ruleId": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ruleId": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/P6NW5VBMXGKZRXTIQR2256IDXY5EEXRCYQ3EDSDBCRDUN5FURIYQ/vendor.js"
+            ]
+        },
+        "GetRulesConfiguration": {
+            "http": {
+                "requestUri": "/rules/get"
+            },
+            "input": {
+                "type": "structure",
+                "members": {}
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "rules": {
+                        "type": "list",
+                        "member": {
+                            "shape": "Sm"
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/P6NW5VBMXGKZRXTIQR2256IDXY5EEXRCYQ3EDSDBCRDUN5FURIYQ/vendor.js"
+            ]
+        },
+        "UpdateRuleConfiguration": {
+            "http": {
+                "requestUri": "/rule/update"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ruleId"
+                ],
+                "members": {
+                    "ruleId": {},
+                    "name": {},
+                    "status": {},
+                    "actions": {
+                        "shape": "S4"
+                    },
+                    "conditions": {
+                        "shape": "S9"
+                    },
+                    "startTimestamp": {},
+                    "endTimestamp": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "rule": {
+                        "shape": "Sm"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/P6NW5VBMXGKZRXTIQR2256IDXY5EEXRCYQ3EDSDBCRDUN5FURIYQ/vendor.js"
+            ]
+        },
+        "UpdateRulesPriority": {
+            "http": {
+                "requestUri": "/priority/update"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ruleIds"
+                ],
+                "members": {
+                    "ruleIds": {
+                        "shape": "Sq"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ruleIds": {
+                        "shape": "Sq"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/P6NW5VBMXGKZRXTIQR2256IDXY5EEXRCYQ3EDSDBCRDUN5FURIYQ/vendor.js"
+            ]
+        }
+    },
+    "shapes": {
+        "S4": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "actionType",
+                    "field",
+                    "valueType"
+                ],
+                "members": {
+                    "actionType": {},
+                    "field": {},
+                    "stringValue": {},
+                    "numericValue": {
+                        "type": "double"
+                    },
+                    "valueType": {}
+                }
+            }
+        },
+        "S9": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "field",
+                    "valueType",
+                    "test"
+                ],
+                "members": {
+                    "field": {},
+                    "valueType": {},
+                    "stringValue": {},
+                    "numericValue": {
+                        "type": "double"
+                    },
+                    "stringValues": {
+                        "type": "list",
+                        "member": {}
+                    },
+                    "numericValues": {
+                        "type": "list",
+                        "member": {
+                            "type": "double"
+                        }
+                    },
+                    "test": {},
+                    "negation": {
+                        "type": "boolean"
+                    }
+                }
+            }
+        },
+        "Sm": {
+            "type": "structure",
+            "required": [
+                "ruleId",
+                "version",
+                "name",
+                "status",
+                "actions",
+                "conditions",
+                "startTimestamp",
+                "endTimestamp"
+            ],
+            "members": {
+                "ruleId": {},
+                "version": {},
+                "name": {},
+                "status": {},
+                "actions": {
+                    "shape": "S4"
+                },
+                "conditions": {
+                    "shape": "S9"
+                },
+                "startTimestamp": {},
+                "endTimestamp": {}
+            }
+        },
+        "Sq": {
+            "type": "list",
+            "member": {}
+        }
+    }
+}

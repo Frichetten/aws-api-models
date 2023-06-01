@@ -1,0 +1,204 @@
+{
+    "version": "2.0",
+    "metadata": {
+        "apiVersion": "2019-06-01",
+        "endpointPrefix": "marketplace-agreement",
+        "jsonVersion": "1.0",
+        "protocol": "json",
+        "serviceFullName": "AWS Marketplace Agreement Service",
+        "serviceId": "Marketplace Agreement",
+        "signatureVersion": "v4",
+        "signingName": "aws-marketplace",
+        "targetPrefix": "AWSMPCommerceService_v20190601",
+        "uid": "marketplace-agreement-2019-06-01",
+        "download_location": [
+            "https://a.b.cdn.console.awsstatic.com/a/v1/RIGBCGNT2QJGFC7N3567LOQMOZNH6RB4OFRZOSASV54CE2NCPOKA/vendors.js"
+        ]
+    },
+    "operations": {
+        "AcceptAgreementRequest": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "domain",
+                    "agreementRequestId"
+                ],
+                "members": {
+                    "domain": {},
+                    "agreementRequestId": {},
+                    "purchaseOrder": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "status": {},
+                    "agreementId": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/RIGBCGNT2QJGFC7N3567LOQMOZNH6RB4OFRZOSASV54CE2NCPOKA/vendors.js"
+            ]
+        },
+        "CreateAgreementRequest": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "clientRequestToken",
+                    "domain",
+                    "agreementToken",
+                    "terms"
+                ],
+                "members": {
+                    "clientRequestToken": {
+                        "idempotencyToken": true
+                    },
+                    "domain": {},
+                    "agreementToken": {},
+                    "terms": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "termId"
+                            ],
+                            "members": {
+                                "termId": {},
+                                "termParameters": {}
+                            }
+                        }
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "domain": {},
+                    "agreementRequestId": {},
+                    "estimatedOutcomes": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "type": {},
+                                "details": {}
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/RIGBCGNT2QJGFC7N3567LOQMOZNH6RB4OFRZOSASV54CE2NCPOKA/vendors.js"
+            ]
+        },
+        "DescribeAgreementOutcomes": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "domain",
+                    "agreementId"
+                ],
+                "members": {
+                    "domain": {},
+                    "agreementId": {},
+                    "nextToken": {},
+                    "maxResults": {
+                        "type": "integer"
+                    },
+                    "filters": {
+                        "shape": "Sl"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "outcomes": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "type": {},
+                                "details": {},
+                                "status": {}
+                            }
+                        }
+                    },
+                    "nextToken": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/RIGBCGNT2QJGFC7N3567LOQMOZNH6RB4OFRZOSASV54CE2NCPOKA/vendors.js"
+            ]
+        },
+        "ListAgreements": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "domain"
+                ],
+                "members": {
+                    "domain": {},
+                    "nextToken": {},
+                    "maxResults": {
+                        "type": "integer"
+                    },
+                    "filters": {
+                        "shape": "Sl"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "agreementSummaries": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "agreementId": {},
+                                "agreementType": {},
+                                "productIds": {
+                                    "type": "list",
+                                    "member": {}
+                                },
+                                "status": {},
+                                "acceptorId": {},
+                                "proposerId": {},
+                                "agreementStartDate": {
+                                    "type": "timestamp"
+                                },
+                                "agreementEndDate": {
+                                    "type": "timestamp"
+                                },
+                                "acceptanceDate": {
+                                    "type": "timestamp"
+                                },
+                                "offerId": {}
+                            }
+                        }
+                    },
+                    "nextToken": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/RIGBCGNT2QJGFC7N3567LOQMOZNH6RB4OFRZOSASV54CE2NCPOKA/vendors.js"
+            ]
+        }
+    },
+    "shapes": {
+        "Sl": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "name": {},
+                    "values": {
+                        "type": "list",
+                        "member": {}
+                    }
+                }
+            }
+        }
+    }
+}

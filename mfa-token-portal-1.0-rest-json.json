@@ -1,0 +1,353 @@
+{
+    "metadata": {
+        "apiVersion": "2021-11-08",
+        "endpointPrefix": "mfa-token-portal",
+        "signingName": "mfa-token-portal",
+        "serviceFullName": "TS Service Gateway",
+        "serviceId": "TS Service Gateway",
+        "protocol": "rest-json",
+        "jsonVersion": "1.1",
+        "uid": "mfa-token-portal-1.0",
+        "signatureVersion": "v4",
+        "download_location": [
+            "https://a.b.cdn.console.awsstatic.com/a/v1/P6NW5VBMXGKZRXTIQR2256IDXY5EEXRCYQ3EDSDBCRDUN5FURIYQ/vendor.js"
+        ]
+    },
+    "operations": {
+        "CheckEligibility": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/eligible",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {}
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "EligibilityCheckResponse": {
+                        "type": "structure",
+                        "members": {
+                            "EligibleTokenCount": {
+                                "locationName": "eligibleTokenCount",
+                                "type": "double"
+                            },
+                            "Error": {
+                                "locationName": "error"
+                            },
+                            "IsEligible": {
+                                "locationName": "isEligible",
+                                "type": "boolean"
+                            },
+                            "OrderedTokenCount": {
+                                "locationName": "orderedTokenCount",
+                                "type": "double"
+                            }
+                        },
+                        "required": [
+                            "IsEligible"
+                        ]
+                    }
+                },
+                "required": [
+                    "EligibilityCheckResponse"
+                ],
+                "payload": "EligibilityCheckResponse"
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/P6NW5VBMXGKZRXTIQR2256IDXY5EEXRCYQ3EDSDBCRDUN5FURIYQ/vendor.js"
+            ]
+        },
+        "CheckOrderStatus": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/order",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "Order": {
+                        "shape": "S8"
+                    }
+                },
+                "required": [
+                    "Order"
+                ],
+                "payload": "Order"
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "OrderStatusResponse": {
+                        "type": "structure",
+                        "members": {
+                            "Error": {
+                                "locationName": "error"
+                            },
+                            "Status": {
+                                "locationName": "status"
+                            }
+                        },
+                        "required": [
+                            "Status"
+                        ]
+                    }
+                },
+                "required": [
+                    "OrderStatusResponse"
+                ],
+                "payload": "OrderStatusResponse"
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/P6NW5VBMXGKZRXTIQR2256IDXY5EEXRCYQ3EDSDBCRDUN5FURIYQ/vendor.js"
+            ]
+        },
+        "CreateOrder": {
+            "http": {
+                "requestUri": "/order",
+                "responseCode": 201
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "Order": {
+                        "shape": "S8"
+                    }
+                },
+                "required": [
+                    "Order"
+                ],
+                "payload": "Order"
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "OrderSubmitResponse": {
+                        "type": "structure",
+                        "members": {
+                            "Error": {
+                                "locationName": "error"
+                            },
+                            "Successful": {
+                                "locationName": "successful",
+                                "type": "boolean"
+                            }
+                        },
+                        "required": [
+                            "Successful"
+                        ]
+                    }
+                },
+                "required": [
+                    "OrderSubmitResponse"
+                ],
+                "payload": "OrderSubmitResponse"
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/P6NW5VBMXGKZRXTIQR2256IDXY5EEXRCYQ3EDSDBCRDUN5FURIYQ/vendor.js"
+            ]
+        },
+        "GetMfaDevices": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/devices",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {}
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "DevicesResponse": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "Image": {
+                                    "locationName": "image",
+                                    "type": "structure",
+                                    "members": {
+                                        "Height": {
+                                            "locationName": "height",
+                                            "type": "double"
+                                        },
+                                        "Link": {
+                                            "locationName": "link"
+                                        },
+                                        "Width": {
+                                            "locationName": "width",
+                                            "type": "double"
+                                        }
+                                    }
+                                },
+                                "ProductName": {
+                                    "locationName": "productName"
+                                },
+                                "RemainingTokens": {
+                                    "locationName": "remainingTokens",
+                                    "type": "double"
+                                },
+                                "SellerSku": {
+                                    "locationName": "sellerSku"
+                                }
+                            },
+                            "required": [
+                                "ProductName",
+                                "SellerSku"
+                            ]
+                        }
+                    }
+                },
+                "required": [
+                    "DevicesResponse"
+                ],
+                "payload": "DevicesResponse"
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/P6NW5VBMXGKZRXTIQR2256IDXY5EEXRCYQ3EDSDBCRDUN5FURIYQ/vendor.js"
+            ]
+        },
+        "PrepareOrder": {
+            "http": {
+                "requestUri": "/prepare-order",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "Order": {
+                        "shape": "S8"
+                    }
+                },
+                "required": [
+                    "Order"
+                ],
+                "payload": "Order"
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "OrderPreviewResponse": {
+                        "type": "structure",
+                        "members": {
+                            "CanProceed": {
+                                "locationName": "canProceed",
+                                "type": "boolean"
+                            },
+                            "Error": {
+                                "locationName": "error"
+                            }
+                        },
+                        "required": [
+                            "CanProceed"
+                        ]
+                    }
+                },
+                "required": [
+                    "OrderPreviewResponse"
+                ],
+                "payload": "OrderPreviewResponse"
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/P6NW5VBMXGKZRXTIQR2256IDXY5EEXRCYQ3EDSDBCRDUN5FURIYQ/vendor.js"
+            ]
+        },
+        "UnlinkAccounts": {
+            "http": {
+                "requestUri": "/unlink-accounts",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {}
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "UnlinkResponse": {
+                        "type": "structure",
+                        "members": {
+                            "Error": {
+                                "locationName": "error"
+                            },
+                            "Successful": {
+                                "locationName": "successful",
+                                "type": "boolean"
+                            }
+                        },
+                        "required": [
+                            "Successful"
+                        ]
+                    }
+                },
+                "required": [
+                    "UnlinkResponse"
+                ],
+                "payload": "UnlinkResponse"
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/P6NW5VBMXGKZRXTIQR2256IDXY5EEXRCYQ3EDSDBCRDUN5FURIYQ/vendor.js"
+            ]
+        }
+    },
+    "shapes": {
+        "S8": {
+            "type": "structure",
+            "members": {
+                "AddressLine1": {
+                    "locationName": "addressLine1"
+                },
+                "AddressLine2": {
+                    "locationName": "addressLine2"
+                },
+                "CountryCode": {
+                    "locationName": "countryCode"
+                },
+                "Email": {
+                    "locationName": "email"
+                },
+                "FirstName": {
+                    "locationName": "firstName"
+                },
+                "LastName": {
+                    "locationName": "lastName"
+                },
+                "Mobile": {
+                    "locationName": "mobile"
+                },
+                "Quantity": {
+                    "locationName": "quantity",
+                    "type": "double"
+                },
+                "SellerSku": {
+                    "locationName": "sellerSku"
+                },
+                "StateOrRegion": {
+                    "locationName": "stateOrRegion"
+                },
+                "TownCity": {
+                    "locationName": "townCity"
+                },
+                "Zipcode": {
+                    "locationName": "zipcode"
+                }
+            },
+            "required": [
+                "StateOrRegion",
+                "AddressLine1",
+                "Email",
+                "FirstName",
+                "TownCity",
+                "Zipcode",
+                "SellerSku",
+                "LastName",
+                "CountryCode"
+            ]
+        }
+    }
+}

@@ -1,0 +1,1050 @@
+{
+    "version": "2.0",
+    "metadata": {
+        "apiVersion": "2021-10-07",
+        "endpointPrefix": "support-console",
+        "jsonVersion": "1.1",
+        "protocol": "rest-json",
+        "serviceFullName": "SupportConsole",
+        "serviceId": "SupportConsole",
+        "signatureVersion": "v4",
+        "signingName": "support-console",
+        "uid": "supportconsole-2021-10-07",
+        "download_location": [
+            "https://a.b.cdn.console.awsstatic.com/a/v1/2NQ7UKVXEJEC54POCCWRCD6VY5QGMCPY5MMW2YANZ4XUDG5FQY7A/errorHandler.js"
+        ]
+    },
+    "operations": {
+        "CancelLiveContact": {
+            "http": {
+                "requestUri": "/case/{caseId}/cancel",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "caseId",
+                    "displayId",
+                    "contactType"
+                ],
+                "members": {
+                    "caseId": {
+                        "location": "uri",
+                        "locationName": "caseId"
+                    },
+                    "displayId": {},
+                    "contactType": {},
+                    "reason": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/2NQ7UKVXEJEC54POCCWRCD6VY5QGMCPY5MMW2YANZ4XUDG5FQY7A/errorHandler.js"
+            ]
+        },
+        "CheckSubscription": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/checkSubscription",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "productCode"
+                ],
+                "members": {
+                    "productCode": {
+                        "location": "querystring",
+                        "locationName": "productCode"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "productCode",
+                    "hasSubscription"
+                ],
+                "members": {
+                    "productCode": {},
+                    "hasSubscription": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/2NQ7UKVXEJEC54POCCWRCD6VY5QGMCPY5MMW2YANZ4XUDG5FQY7A/errorHandler.js"
+            ]
+        },
+        "CreateCaseDraft": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/caseDraft/{caseType}",
+                "responseCode": 204
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "caseType",
+                    "data"
+                ],
+                "members": {
+                    "caseType": {
+                        "location": "uri",
+                        "locationName": "caseType"
+                    },
+                    "data": {
+                        "jsonvalue": true
+                    }
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/2NQ7UKVXEJEC54POCCWRCD6VY5QGMCPY5MMW2YANZ4XUDG5FQY7A/errorHandler.js"
+            ]
+        },
+        "CreateContact": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/contact/{contactType}",
+                "responseCode": 204
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "contactType",
+                    "data"
+                ],
+                "members": {
+                    "contactType": {
+                        "location": "uri",
+                        "locationName": "contactType"
+                    },
+                    "data": {
+                        "jsonvalue": true
+                    }
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/2NQ7UKVXEJEC54POCCWRCD6VY5QGMCPY5MMW2YANZ4XUDG5FQY7A/errorHandler.js"
+            ]
+        },
+        "DeleteCaseDraft": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/caseDraft/{caseType}",
+                "responseCode": 204
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "caseType",
+                    "reason"
+                ],
+                "members": {
+                    "caseType": {
+                        "location": "uri",
+                        "locationName": "caseType"
+                    },
+                    "reason": {
+                        "location": "querystring",
+                        "locationName": "Reason for deleting the case draft"
+                    }
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/2NQ7UKVXEJEC54POCCWRCD6VY5QGMCPY5MMW2YANZ4XUDG5FQY7A/errorHandler.js"
+            ]
+        },
+        "DescribeDynamicHelp": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/dynamicHelp",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "service",
+                    "locale"
+                ],
+                "members": {
+                    "service": {
+                        "location": "querystring",
+                        "locationName": "service"
+                    },
+                    "category": {
+                        "location": "querystring",
+                        "locationName": "category"
+                    },
+                    "locale": {
+                        "location": "querystring",
+                        "locationName": "locale"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "serviceHelpLinks",
+                    "categoryHelpLinks",
+                    "additionalFields"
+                ],
+                "members": {
+                    "serviceHelpLinks": {
+                        "shape": "Sn"
+                    },
+                    "categoryHelpLinks": {
+                        "shape": "Sn"
+                    },
+                    "descriptionGuidance": {},
+                    "additionalFields": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "name",
+                                "values"
+                            ],
+                            "members": {
+                                "name": {},
+                                "description": {},
+                                "values": {
+                                    "type": "list",
+                                    "member": {}
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/2NQ7UKVXEJEC54POCCWRCD6VY5QGMCPY5MMW2YANZ4XUDG5FQY7A/errorHandler.js"
+            ]
+        },
+        "EvaluateFeature": {
+            "http": {
+                "requestUri": "/evaluateFeature",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "featureName",
+                    "entityId"
+                ],
+                "members": {
+                    "featureName": {},
+                    "entityId": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "variation",
+                    "value"
+                ],
+                "members": {
+                    "variation": {},
+                    "value": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/2NQ7UKVXEJEC54POCCWRCD6VY5QGMCPY5MMW2YANZ4XUDG5FQY7A/errorHandler.js"
+            ]
+        },
+        "GetAccountGovCloudEnabled": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/account/gc",
+                "responseCode": 200
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "govCloudEnabled"
+                ],
+                "members": {
+                    "govCloudEnabled": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/2NQ7UKVXEJEC54POCCWRCD6VY5QGMCPY5MMW2YANZ4XUDG5FQY7A/errorHandler.js"
+            ]
+        },
+        "GetAccountState": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/account/state",
+                "responseCode": 200
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "state",
+                    "reasonCode"
+                ],
+                "members": {
+                    "state": {},
+                    "reasonCode": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/2NQ7UKVXEJEC54POCCWRCD6VY5QGMCPY5MMW2YANZ4XUDG5FQY7A/errorHandler.js"
+            ]
+        },
+        "GetBanner": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/banner",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "locale"
+                ],
+                "members": {
+                    "locale": {
+                        "location": "querystring",
+                        "locationName": "locale"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "banner": {
+                        "type": "structure",
+                        "required": [
+                            "bannerId",
+                            "subject",
+                            "message",
+                            "supportLevels",
+                            "language",
+                            "includeContactButton"
+                        ],
+                        "members": {
+                            "metadata": {
+                                "type": "map",
+                                "key": {},
+                                "value": {}
+                            },
+                            "bannerId": {},
+                            "subject": {},
+                            "message": {},
+                            "supportLevels": {
+                                "type": "list",
+                                "member": {}
+                            },
+                            "language": {},
+                            "includeContactButton": {
+                                "type": "boolean"
+                            },
+                            "caseSubject": {},
+                            "queue": {},
+                            "eventId": {
+                                "type": "long"
+                            },
+                            "serviceId": {
+                                "type": "long"
+                            },
+                            "categoryId": {
+                                "type": "long"
+                            },
+                            "severity": {
+                                "type": "long"
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/2NQ7UKVXEJEC54POCCWRCD6VY5QGMCPY5MMW2YANZ4XUDG5FQY7A/errorHandler.js"
+            ]
+        },
+        "GetBusinessHours": {
+            "http": {
+                "requestUri": "/businessHours",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "language",
+                    "year"
+                ],
+                "members": {
+                    "language": {
+                        "location": "querystring",
+                        "locationName": "language"
+                    },
+                    "year": {
+                        "location": "querystring",
+                        "locationName": "year",
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "startTime": {},
+                    "endTime": {},
+                    "timezone": {},
+                    "publicHolidays": {
+                        "type": "list",
+                        "member": {}
+                    },
+                    "businessDays": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/2NQ7UKVXEJEC54POCCWRCD6VY5QGMCPY5MMW2YANZ4XUDG5FQY7A/errorHandler.js"
+            ]
+        },
+        "GetCaseDraft": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/caseDraft/{caseType}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "caseType"
+                ],
+                "members": {
+                    "caseType": {
+                        "location": "uri",
+                        "locationName": "caseType"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "caseType",
+                    "data",
+                    "createTimestamp"
+                ],
+                "members": {
+                    "caseType": {},
+                    "data": {
+                        "jsonvalue": true
+                    },
+                    "createTimestamp": {
+                        "type": "timestamp"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/2NQ7UKVXEJEC54POCCWRCD6VY5QGMCPY5MMW2YANZ4XUDG5FQY7A/errorHandler.js"
+            ]
+        },
+        "GetLiveContactStatus": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/case/{caseId}/status",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "caseId",
+                    "type"
+                ],
+                "members": {
+                    "caseId": {
+                        "location": "uri",
+                        "locationName": "caseId"
+                    },
+                    "type": {
+                        "location": "querystring",
+                        "locationName": "type"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "status"
+                ],
+                "members": {
+                    "status": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/2NQ7UKVXEJEC54POCCWRCD6VY5QGMCPY5MMW2YANZ4XUDG5FQY7A/errorHandler.js"
+            ]
+        },
+        "GetQuestionnaire": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/questionnaires/{questionnaireId}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "questionnaireId",
+                    "language"
+                ],
+                "members": {
+                    "questionnaireId": {
+                        "location": "uri",
+                        "locationName": "questionnaireId"
+                    },
+                    "language": {
+                        "location": "querystring",
+                        "locationName": "language"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "questionnaireId": {},
+                    "questions": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "questionId": {},
+                                "text": {},
+                                "type": {},
+                                "required": {
+                                    "type": "boolean"
+                                },
+                                "maxLength": {
+                                    "type": "integer"
+                                },
+                                "options": {
+                                    "type": "list",
+                                    "member": {
+                                        "type": "structure",
+                                        "members": {
+                                            "optionId": {},
+                                            "text": {}
+                                        }
+                                    }
+                                },
+                                "defaultOptionId": {},
+                                "enableFiltering": {
+                                    "type": "boolean"
+                                }
+                            }
+                        }
+                    },
+                    "texts": {
+                        "type": "structure",
+                        "members": {
+                            "pageHeading": {},
+                            "pageDescription": {},
+                            "questionnairePrefix": {},
+                            "submitButton": {},
+                            "errorHeader": {},
+                            "errorMessage": {},
+                            "successHeader": {},
+                            "successMessage": {}
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/2NQ7UKVXEJEC54POCCWRCD6VY5QGMCPY5MMW2YANZ4XUDG5FQY7A/errorHandler.js"
+            ]
+        },
+        "InitiateCall": {
+            "http": {
+                "requestUri": "/case/{caseId}/call",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "caseId",
+                    "phoneCountry",
+                    "phoneNumber",
+                    "sessionId"
+                ],
+                "members": {
+                    "caseId": {
+                        "location": "uri",
+                        "locationName": "caseId"
+                    },
+                    "phoneCountry": {},
+                    "phoneNumber": {},
+                    "phoneExt": {},
+                    "sessionId": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "callRoutingIdentifier",
+                    "callRoutingStack",
+                    "callToken",
+                    "connectIdentifier"
+                ],
+                "members": {
+                    "callRoutingIdentifier": {},
+                    "callRoutingStack": {},
+                    "callToken": {},
+                    "connectIdentifier": {
+                        "type": "structure",
+                        "required": [
+                            "routingStatus"
+                        ],
+                        "members": {
+                            "routingStatus": {}
+                        }
+                    },
+                    "pollDelayMillis": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/2NQ7UKVXEJEC54POCCWRCD6VY5QGMCPY5MMW2YANZ4XUDG5FQY7A/errorHandler.js"
+            ]
+        },
+        "InitiateChat": {
+            "http": {
+                "requestUri": "/case/{caseId}/chat",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "caseId",
+                    "sessionId"
+                ],
+                "members": {
+                    "caseId": {
+                        "location": "uri",
+                        "locationName": "caseId"
+                    },
+                    "sessionId": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "chatLegId",
+                    "chatRoutingIdentifier",
+                    "chatRoutingStack",
+                    "chatToken",
+                    "connectIdentifier"
+                ],
+                "members": {
+                    "chatLegId": {},
+                    "chatRoutingIdentifier": {},
+                    "chatRoutingStack": {},
+                    "chatToken": {},
+                    "connectIdentifier": {
+                        "type": "structure",
+                        "required": [
+                            "initialContactId",
+                            "participantId",
+                            "participantToken"
+                        ],
+                        "members": {
+                            "initialContactId": {},
+                            "participantId": {},
+                            "participantToken": {}
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/2NQ7UKVXEJEC54POCCWRCD6VY5QGMCPY5MMW2YANZ4XUDG5FQY7A/errorHandler.js"
+            ]
+        },
+        "ListRecommendationsForCase": {
+            "http": {
+                "requestUri": "/recommendations/case",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "caseType",
+                    "service"
+                ],
+                "members": {
+                    "caseType": {},
+                    "service": {},
+                    "category": {},
+                    "sessionId": {},
+                    "issueId": {},
+                    "subject": {
+                        "shape": "S1w"
+                    },
+                    "description": {
+                        "shape": "S1w"
+                    },
+                    "language": {},
+                    "supportPlan": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "recommendations"
+                ],
+                "members": {
+                    "requestId": {},
+                    "recommendations": {
+                        "shape": "S1y"
+                    },
+                    "solutions": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "name": {},
+                                "ids": {
+                                    "type": "list",
+                                    "member": {}
+                                },
+                                "indexes": {
+                                    "type": "list",
+                                    "member": {
+                                        "type": "integer"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/2NQ7UKVXEJEC54POCCWRCD6VY5QGMCPY5MMW2YANZ4XUDG5FQY7A/errorHandler.js"
+            ]
+        },
+        "ListRecommendationsForSearch": {
+            "http": {
+                "requestUri": "/recommendations/search",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "sessionId",
+                    "text"
+                ],
+                "members": {
+                    "sessionId": {},
+                    "text": {
+                        "shape": "S1w"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "recommendations"
+                ],
+                "members": {
+                    "recommendations": {
+                        "shape": "S1y"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/2NQ7UKVXEJEC54POCCWRCD6VY5QGMCPY5MMW2YANZ4XUDG5FQY7A/errorHandler.js"
+            ]
+        },
+        "ListRelatedCases": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/case/{caseId}/relation",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "caseId",
+                    "maxResults"
+                ],
+                "members": {
+                    "caseId": {
+                        "location": "uri",
+                        "locationName": "caseId"
+                    },
+                    "maxResults": {
+                        "location": "querystring",
+                        "locationName": "maxResults",
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "caseId",
+                    "relatedCaseIds",
+                    "reopenable"
+                ],
+                "members": {
+                    "caseId": {},
+                    "relatedCaseIds": {
+                        "type": "list",
+                        "member": {}
+                    },
+                    "reopenable": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/2NQ7UKVXEJEC54POCCWRCD6VY5QGMCPY5MMW2YANZ4XUDG5FQY7A/errorHandler.js"
+            ]
+        },
+        "RelateCase": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/case/{caseId}/relation",
+                "responseCode": 204
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "caseId",
+                    "otherCaseId"
+                ],
+                "members": {
+                    "caseId": {
+                        "location": "uri",
+                        "locationName": "caseId"
+                    },
+                    "otherCaseId": {}
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/2NQ7UKVXEJEC54POCCWRCD6VY5QGMCPY5MMW2YANZ4XUDG5FQY7A/errorHandler.js"
+            ]
+        },
+        "SaveFeedback": {
+            "http": {
+                "requestUri": "/questionnaire/feedback",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "questionnaireId",
+                    "eventId",
+                    "language",
+                    "responses"
+                ],
+                "members": {
+                    "questionnaireId": {},
+                    "eventId": {},
+                    "language": {},
+                    "createTimestamp": {
+                        "type": "timestamp"
+                    },
+                    "responses": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "questionId"
+                            ],
+                            "members": {
+                                "questionId": {},
+                                "answer": {}
+                            }
+                        }
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "eventId",
+                    "createTimestamp"
+                ],
+                "members": {
+                    "eventId": {},
+                    "createTimestamp": {
+                        "type": "timestamp"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/2NQ7UKVXEJEC54POCCWRCD6VY5QGMCPY5MMW2YANZ4XUDG5FQY7A/errorHandler.js"
+            ]
+        },
+        "TranslateCommunication": {
+            "http": {
+                "requestUri": "/case/{caseId}/communication/translate",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "caseId",
+                    "communicationId",
+                    "targetLanguageCode",
+                    "communicationTimestamp"
+                ],
+                "members": {
+                    "caseId": {
+                        "location": "uri",
+                        "locationName": "caseId"
+                    },
+                    "communicationId": {},
+                    "targetLanguageCode": {},
+                    "communicationTimestamp": {
+                        "type": "timestamp"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "caseId",
+                    "communicationId",
+                    "communication"
+                ],
+                "members": {
+                    "caseId": {},
+                    "communicationId": {},
+                    "communication": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/2NQ7UKVXEJEC54POCCWRCD6VY5QGMCPY5MMW2YANZ4XUDG5FQY7A/errorHandler.js"
+            ]
+        },
+        "ListCuratedRecommendations": {
+            "http": {
+                "requestUri": "/recommendations/curated",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "caseType",
+                    "issueId"
+                ],
+                "members": {
+                    "caseType": {},
+                    "service": {},
+                    "category": {},
+                    "issueId": {},
+                    "language": {},
+                    "supportPlan": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "requestId",
+                    "recommendations"
+                ],
+                "members": {
+                    "requestId": {},
+                    "recommendations": {
+                        "shape": "S1x"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/64GG2OM4PFRFS7SXNJLO2JP2XJ7IMTF5M4DDDV5QGFYVBCVIKCOQ/errorHandler.js"
+            ]
+        }
+    },
+    "shapes": {
+        "Sn": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "text",
+                    "url"
+                ],
+                "members": {
+                    "text": {},
+                    "url": {}
+                }
+            }
+        },
+        "S1w": {
+            "type": "string",
+            "sensitive": true
+        },
+        "S1y": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "id": {},
+                    "url": {},
+                    "title": {},
+                    "type": {},
+                    "text": {},
+                    "tags": {
+                        "type": "list",
+                        "member": {}
+                    },
+                    "services": {},
+                    "source": {},
+                    "fragments": {
+                        "type": "list",
+                        "member": {}
+                    },
+                    "docType": {},
+                    "score": {
+                        "type": "float"
+                    },
+                    "summary": {}
+                }
+            }
+        },
+        "S1x": {
+            "type": "string",
+            "sensitive": true
+        },
+        "S1z": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "id": {},
+                    "url": {},
+                    "title": {},
+                    "type": {},
+                    "text": {},
+                    "tags": {
+                        "type": "list",
+                        "member": {}
+                    },
+                    "services": {},
+                    "source": {},
+                    "fragments": {
+                        "type": "list",
+                        "member": {}
+                    },
+                    "docType": {},
+                    "score": {
+                        "type": "float"
+                    },
+                    "summary": {}
+                }
+            }
+        },
+        "S24": {
+            "type": "string",
+            "sensitive": true
+        }
+    }
+}

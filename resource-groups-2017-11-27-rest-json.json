@@ -1,0 +1,2050 @@
+{
+    "version": "2.0",
+    "metadata": {
+        "apiVersion": "2017-11-27",
+        "endpointPrefix": "resource-groups",
+        "protocol": "rest-json",
+        "serviceAbbreviation": "Resource Groups",
+        "serviceFullName": "AWS Resource Groups",
+        "serviceId": "Resource Groups",
+        "signatureVersion": "v4",
+        "signingName": "resource-groups",
+        "uid": "resource-groups-2017-11-27",
+        "download_location": [
+            "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+        ]
+    },
+    "operations": {
+        "CreateGroup": {
+            "http": {
+                "requestUri": "/groups"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "Name"
+                ],
+                "members": {
+                    "Name": {},
+                    "Description": {},
+                    "ResourceQuery": {
+                        "shape": "S4"
+                    },
+                    "Tags": {
+                        "shape": "S7"
+                    },
+                    "Configuration": {
+                        "shape": "Sa"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Group": {
+                        "shape": "Sj"
+                    },
+                    "ResourceQuery": {
+                        "shape": "S4"
+                    },
+                    "Tags": {
+                        "shape": "S7"
+                    },
+                    "GroupConfiguration": {
+                        "shape": "Sl"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "DeleteGroup": {
+            "http": {
+                "requestUri": "/delete-group"
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "GroupName": {
+                        "deprecated": true,
+                        "deprecatedMessage": "This field is deprecated, use Group instead."
+                    },
+                    "Group": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Group": {
+                        "shape": "Sj"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "GetGroup": {
+            "http": {
+                "requestUri": "/get-group"
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "GroupName": {
+                        "deprecated": true,
+                        "deprecatedMessage": "This field is deprecated, use Group instead."
+                    },
+                    "Group": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Group": {
+                        "shape": "Sj"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "GetGroupConfiguration": {
+            "http": {
+                "requestUri": "/get-group-configuration"
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "Group": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "GroupConfiguration": {
+                        "shape": "Sl"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "GetGroupQuery": {
+            "http": {
+                "requestUri": "/get-group-query"
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "GroupName": {
+                        "deprecated": true,
+                        "deprecatedMessage": "This field is deprecated, use Group instead."
+                    },
+                    "Group": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "GroupQuery": {
+                        "shape": "Sx"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "GetTags": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/resources/{Arn}/tags"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "Arn"
+                ],
+                "members": {
+                    "Arn": {
+                        "location": "uri",
+                        "locationName": "Arn"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Arn": {},
+                    "Tags": {
+                        "shape": "S7"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "GroupResources": {
+            "http": {
+                "requestUri": "/group-resources"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "Group",
+                    "ResourceArns"
+                ],
+                "members": {
+                    "Group": {},
+                    "ResourceArns": {
+                        "shape": "S11"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Succeeded": {
+                        "shape": "S11"
+                    },
+                    "Failed": {
+                        "shape": "S14"
+                    },
+                    "Pending": {
+                        "shape": "S18"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "ListGroupResources": {
+            "http": {
+                "requestUri": "/list-group-resources"
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "GroupName": {
+                        "deprecated": true,
+                        "deprecatedMessage": "This field is deprecated, use Group instead."
+                    },
+                    "Group": {},
+                    "Filters": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "Name",
+                                "Values"
+                            ],
+                            "members": {
+                                "Name": {},
+                                "Values": {
+                                    "type": "list",
+                                    "member": {}
+                                }
+                            }
+                        }
+                    },
+                    "MaxResults": {
+                        "type": "integer"
+                    },
+                    "NextToken": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Resources": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "Identifier": {
+                                    "shape": "S1l"
+                                },
+                                "Status": {
+                                    "type": "structure",
+                                    "members": {
+                                        "Name": {}
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "ResourceIdentifiers": {
+                        "shape": "S1p",
+                        "deprecated": true,
+                        "deprecatedMessage": "This field is deprecated, use Resources instead."
+                    },
+                    "NextToken": {},
+                    "QueryErrors": {
+                        "shape": "S1q"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "ListGroups": {
+            "http": {
+                "requestUri": "/groups-list"
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "Filters": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "Name",
+                                "Values"
+                            ],
+                            "members": {
+                                "Name": {},
+                                "Values": {
+                                    "type": "list",
+                                    "member": {}
+                                }
+                            }
+                        }
+                    },
+                    "MaxResults": {
+                        "location": "querystring",
+                        "locationName": "maxResults",
+                        "type": "integer"
+                    },
+                    "NextToken": {
+                        "location": "querystring",
+                        "locationName": "nextToken"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "GroupIdentifiers": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "GroupName": {},
+                                "GroupArn": {}
+                            }
+                        }
+                    },
+                    "Groups": {
+                        "deprecated": true,
+                        "deprecatedMessage": "This field is deprecated, use GroupIdentifiers instead.",
+                        "type": "list",
+                        "member": {
+                            "shape": "Sj"
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "PutGroupConfiguration": {
+            "http": {
+                "requestUri": "/put-group-configuration",
+                "responseCode": 202
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "Group": {},
+                    "Configuration": {
+                        "shape": "Sa"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "SearchResources": {
+            "http": {
+                "requestUri": "/resources/search"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ResourceQuery"
+                ],
+                "members": {
+                    "ResourceQuery": {
+                        "shape": "S4"
+                    },
+                    "MaxResults": {
+                        "type": "integer"
+                    },
+                    "NextToken": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ResourceIdentifiers": {
+                        "shape": "S1p"
+                    },
+                    "NextToken": {},
+                    "QueryErrors": {
+                        "shape": "S1q"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "Tag": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/resources/{Arn}/tags"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "Arn",
+                    "Tags"
+                ],
+                "members": {
+                    "Arn": {
+                        "location": "uri",
+                        "locationName": "Arn"
+                    },
+                    "Tags": {
+                        "shape": "S7"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Arn": {},
+                    "Tags": {
+                        "shape": "S7"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "UngroupResources": {
+            "http": {
+                "requestUri": "/ungroup-resources"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "Group",
+                    "ResourceArns"
+                ],
+                "members": {
+                    "Group": {},
+                    "ResourceArns": {
+                        "shape": "S11"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Succeeded": {
+                        "shape": "S11"
+                    },
+                    "Failed": {
+                        "shape": "S14"
+                    },
+                    "Pending": {
+                        "shape": "S18"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "Untag": {
+            "http": {
+                "method": "PATCH",
+                "requestUri": "/resources/{Arn}/tags"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "Arn",
+                    "Keys"
+                ],
+                "members": {
+                    "Arn": {
+                        "location": "uri",
+                        "locationName": "Arn"
+                    },
+                    "Keys": {
+                        "shape": "S2d"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Arn": {},
+                    "Keys": {
+                        "shape": "S2d"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "UpdateGroup": {
+            "http": {
+                "requestUri": "/update-group"
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "GroupName": {
+                        "deprecated": true,
+                        "deprecatedMessage": "This field is deprecated, use Group instead."
+                    },
+                    "Group": {},
+                    "Description": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Group": {
+                        "shape": "Sj"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "UpdateGroupQuery": {
+            "http": {
+                "requestUri": "/update-group-query"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ResourceQuery"
+                ],
+                "members": {
+                    "GroupName": {
+                        "deprecated": true,
+                        "deprecatedMessage": "This field is deprecated, use Group instead."
+                    },
+                    "Group": {},
+                    "ResourceQuery": {
+                        "shape": "S4"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "GroupQuery": {
+                        "shape": "Sx"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "GetAccountSettings": {
+            "http": {
+                "requestUri": "/get-account-settings"
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "AccountSettings": {
+                        "shape": "Ss"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/CGJXZR6KWK4HWILROC6UQIRVDGVSAMSF7CRFEQR2WUZWSF2VPKDQ/vendors.js"
+            ]
+        },
+        "UpdateAccountSettings": {
+            "http": {
+                "requestUri": "/update-account-settings"
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "GroupLifecycleEventsDesiredStatus": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "AccountSettings": {
+                        "shape": "Ss"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/CGJXZR6KWK4HWILROC6UQIRVDGVSAMSF7CRFEQR2WUZWSF2VPKDQ/vendors.js"
+            ]
+        },
+        "BatchVerifyGroupMembershipInternal": {
+            "http": {
+                "requestUri": "/batch-verify-group-membership-internal"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "GroupArn",
+                    "ResourceArns"
+                ],
+                "members": {
+                    "GroupArn": {},
+                    "ResourceArns": {
+                        "shape": "S3"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "GroupedResources": {
+                        "shape": "S3"
+                    },
+                    "UngroupedResources": {
+                        "shape": "S3"
+                    },
+                    "FailedResources": {
+                        "shape": "S6"
+                    }
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/YN4IGP6YMDXEPIRMO7XKCARJ3JUA4WBTVEE3CWXY3ZLV5CFWGTCQ/vendors.js"
+            ]
+        },
+        "CreateInternalServiceLinkedRole": {
+            "http": {
+                "requestUri": "/create-internal-service-linked-role"
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/YN4IGP6YMDXEPIRMO7XKCARJ3JUA4WBTVEE3CWXY3ZLV5CFWGTCQ/vendors.js"
+            ]
+        },
+        "DeleteGroupPolicy": {
+            "http": {
+                "requestUri": "/delete-group-policy"
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "GroupArn": {
+                        "deprecated": true,
+                        "deprecatedMessage": "This field is deprecated, use Group instead."
+                    },
+                    "GroupName": {
+                        "deprecated": true,
+                        "deprecatedMessage": "This field is deprecated, use Group instead."
+                    },
+                    "Group": {}
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/YN4IGP6YMDXEPIRMO7XKCARJ3JUA4WBTVEE3CWXY3ZLV5CFWGTCQ/vendors.js"
+            ]
+        },
+        "DeleteGroupV20171127": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/groups/{GroupName}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "GroupName"
+                ],
+                "members": {
+                    "GroupName": {
+                        "location": "uri",
+                        "locationName": "GroupName"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Group": {
+                        "shape": "S1d"
+                    }
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/YN4IGP6YMDXEPIRMO7XKCARJ3JUA4WBTVEE3CWXY3ZLV5CFWGTCQ/vendors.js"
+            ]
+        },
+        "DescribeGroupsInternal": {
+            "http": {
+                "requestUri": "/describe-groups-internal"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "CustomerAccountId"
+                ],
+                "members": {
+                    "CustomerAccountId": {},
+                    "Filters": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "Name",
+                                "Values"
+                            ],
+                            "members": {
+                                "Name": {},
+                                "Values": {
+                                    "type": "list",
+                                    "member": {}
+                                }
+                            }
+                        }
+                    },
+                    "MaxResults": {
+                        "type": "integer"
+                    },
+                    "NextToken": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "GroupDescriptions": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "GroupArn": {},
+                                "GroupUniqueId": {},
+                                "GroupName": {},
+                                "Description": {},
+                                "ServiceLinkType": {},
+                                "OwnerId": {},
+                                "ShareStatus": {},
+                                "GroupConfiguration": {
+                                    "shape": "Sk"
+                                }
+                            }
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/YN4IGP6YMDXEPIRMO7XKCARJ3JUA4WBTVEE3CWXY3ZLV5CFWGTCQ/vendors.js"
+            ]
+        },
+        "GetGroupConfigurationInternal": {
+            "http": {
+                "requestUri": "/get-group-configuration-internal"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "GroupArn",
+                    "CustomerAccountId"
+                ],
+                "members": {
+                    "GroupArn": {},
+                    "GroupUniqueId": {},
+                    "CustomerAccountId": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "GroupArn": {},
+                    "GroupUniqueId": {},
+                    "GroupConfiguration": {
+                        "shape": "Sk"
+                    }
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/YN4IGP6YMDXEPIRMO7XKCARJ3JUA4WBTVEE3CWXY3ZLV5CFWGTCQ/vendors.js"
+            ]
+        },
+        "GetGroupInternal": {
+            "http": {
+                "requestUri": "/get-group-internal"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "GroupArn",
+                    "CustomerAccountId"
+                ],
+                "members": {
+                    "GroupArn": {},
+                    "GroupUniqueId": {},
+                    "CustomerAccountId": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Group": {
+                        "type": "structure",
+                        "members": {
+                            "GroupArn": {},
+                            "Name": {},
+                            "Description": {},
+                            "GroupType": {},
+                            "ServiceLinkType": {},
+                            "ShareStatus": {},
+                            "OwnerId": {}
+                        }
+                    }
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/YN4IGP6YMDXEPIRMO7XKCARJ3JUA4WBTVEE3CWXY3ZLV5CFWGTCQ/vendors.js"
+            ]
+        },
+        "GetGroupPolicy": {
+            "http": {
+                "requestUri": "/get-group-policy"
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "GroupArn": {
+                        "deprecated": true,
+                        "deprecatedMessage": "This field is deprecated, use Group instead."
+                    },
+                    "GroupName": {
+                        "deprecated": true,
+                        "deprecatedMessage": "This field is deprecated, use Group instead."
+                    },
+                    "Group": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "GroupArn": {},
+                    "GroupName": {},
+                    "GroupPolicy": {}
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/YN4IGP6YMDXEPIRMO7XKCARJ3JUA4WBTVEE3CWXY3ZLV5CFWGTCQ/vendors.js"
+            ]
+        },
+        "GetGroupQueryV20171127": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/groups/{GroupName}/query"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "GroupName"
+                ],
+                "members": {
+                    "GroupName": {
+                        "location": "uri",
+                        "locationName": "GroupName"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "GroupQuery": {
+                        "shape": "S2k"
+                    }
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/YN4IGP6YMDXEPIRMO7XKCARJ3JUA4WBTVEE3CWXY3ZLV5CFWGTCQ/vendors.js"
+            ]
+        },
+        "GetGroupV20171127": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/groups/{GroupName}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "GroupName"
+                ],
+                "members": {
+                    "GroupName": {
+                        "location": "uri",
+                        "locationName": "GroupName"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Group": {
+                        "shape": "S1d"
+                    }
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/YN4IGP6YMDXEPIRMO7XKCARJ3JUA4WBTVEE3CWXY3ZLV5CFWGTCQ/vendors.js"
+            ]
+        },
+        "GetResourcePolicyInternal": {
+            "http": {
+                "requestUri": "/get-resource-policy-internal"
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "ResourceArn": {},
+                    "InternalId": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Policy": {}
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/YN4IGP6YMDXEPIRMO7XKCARJ3JUA4WBTVEE3CWXY3ZLV5CFWGTCQ/vendors.js"
+            ]
+        },
+        "ListConsumerAccounts": {
+            "http": {
+                "requestUri": "/list-consumer-accounts"
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "NextToken": {},
+                    "MaxResults": {
+                        "type": "integer"
+                    },
+                    "ResourceType": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "AccountIds"
+                ],
+                "members": {
+                    "NextToken": {},
+                    "AccountIds": {
+                        "type": "list",
+                        "member": {}
+                    }
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/YN4IGP6YMDXEPIRMO7XKCARJ3JUA4WBTVEE3CWXY3ZLV5CFWGTCQ/vendors.js"
+            ]
+        },
+        "ListGroupResourcesInternal": {
+            "http": {
+                "requestUri": "/list-group-resources-internal"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "GroupUniqueId",
+                    "GroupArn"
+                ],
+                "members": {
+                    "CustomerAccountId": {},
+                    "GroupUniqueId": {},
+                    "GroupArn": {},
+                    "MaxResults": {
+                        "type": "integer"
+                    },
+                    "NextToken": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "InternalResourceIdentifiers": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "ResourceArn": {},
+                                "ResourceType": {},
+                                "ResourceAttributes": {
+                                    "type": "map",
+                                    "key": {},
+                                    "value": {}
+                                }
+                            }
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/YN4IGP6YMDXEPIRMO7XKCARJ3JUA4WBTVEE3CWXY3ZLV5CFWGTCQ/vendors.js"
+            ]
+        },
+        "ListGroupResourcesV20171127": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/groups/{GroupName}/resource-identifiers"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "GroupName"
+                ],
+                "members": {
+                    "GroupName": {
+                        "location": "uri",
+                        "locationName": "GroupName"
+                    },
+                    "MaxResults": {
+                        "location": "querystring",
+                        "locationName": "maxResults",
+                        "type": "integer"
+                    },
+                    "NextToken": {
+                        "location": "querystring",
+                        "locationName": "nextToken"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ResourceIdentifiers": {
+                        "shape": "S3p"
+                    },
+                    "NextToken": {}
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/YN4IGP6YMDXEPIRMO7XKCARJ3JUA4WBTVEE3CWXY3ZLV5CFWGTCQ/vendors.js"
+            ]
+        },
+        "ListGroupResourcesV20190920": {
+            "http": {
+                "requestUri": "/groups/{GroupName}/resource-identifiers-list"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "GroupName"
+                ],
+                "members": {
+                    "GroupName": {
+                        "location": "uri",
+                        "locationName": "GroupName"
+                    },
+                    "Filters": {
+                        "shape": "S39"
+                    },
+                    "MaxResults": {
+                        "location": "querystring",
+                        "locationName": "maxResults",
+                        "type": "integer"
+                    },
+                    "NextToken": {
+                        "location": "querystring",
+                        "locationName": "nextToken"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ResourceIdentifiers": {
+                        "shape": "S3p"
+                    },
+                    "NextToken": {},
+                    "QueryErrors": {
+                        "shape": "S3q"
+                    }
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/YN4IGP6YMDXEPIRMO7XKCARJ3JUA4WBTVEE3CWXY3ZLV5CFWGTCQ/vendors.js"
+            ]
+        },
+        "ListGroupsInternal": {
+            "http": {
+                "requestUri": "/list-groups-internal"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "CustomerAccountId"
+                ],
+                "members": {
+                    "CustomerAccountId": {},
+                    "Filters": {
+                        "shape": "S46"
+                    },
+                    "MaxResults": {
+                        "type": "integer"
+                    },
+                    "NextToken": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "GroupIdentifiers": {
+                        "shape": "S4g"
+                    },
+                    "NextToken": {}
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/YN4IGP6YMDXEPIRMO7XKCARJ3JUA4WBTVEE3CWXY3ZLV5CFWGTCQ/vendors.js"
+            ]
+        },
+        "ListGroupsV20171127": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/groups"
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "MaxResults": {
+                        "location": "querystring",
+                        "locationName": "maxResults",
+                        "type": "integer"
+                    },
+                    "NextToken": {
+                        "location": "querystring",
+                        "locationName": "nextToken"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Groups": {
+                        "shape": "S4d"
+                    },
+                    "NextToken": {}
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/YN4IGP6YMDXEPIRMO7XKCARJ3JUA4WBTVEE3CWXY3ZLV5CFWGTCQ/vendors.js"
+            ]
+        },
+        "ListResourceTypes": {
+            "http": {
+                "requestUri": "/resource-types-list"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "QueryType"
+                ],
+                "members": {
+                    "QueryType": {},
+                    "MaxResults": {
+                        "type": "integer"
+                    },
+                    "NextToken": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ResourceTypes": {
+                        "type": "list",
+                        "member": {}
+                    },
+                    "NextToken": {}
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/YN4IGP6YMDXEPIRMO7XKCARJ3JUA4WBTVEE3CWXY3ZLV5CFWGTCQ/vendors.js"
+            ]
+        },
+        "ListResourcesSupportPolicy": {
+            "http": {
+                "requestUri": "/list-resources-support-policy"
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "NextToken": {},
+                    "MaxResults": {
+                        "type": "integer"
+                    },
+                    "ResourceType": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "Resources"
+                ],
+                "members": {
+                    "Resources": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "ResourceArn": {},
+                                "InternalId": {}
+                            }
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/YN4IGP6YMDXEPIRMO7XKCARJ3JUA4WBTVEE3CWXY3ZLV5CFWGTCQ/vendors.js"
+            ]
+        },
+        "ListSharedResources": {
+            "http": {
+                "requestUri": "/list-shared-resources"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ConsumerAccountId"
+                ],
+                "members": {
+                    "ConsumerAccountId": {},
+                    "NextToken": {},
+                    "MaxResults": {
+                        "type": "integer"
+                    },
+                    "ResourceType": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "VersionedResources"
+                ],
+                "members": {
+                    "VersionedResources": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "SequenceNumber",
+                                "Resource"
+                            ],
+                            "members": {
+                                "SequenceNumber": {
+                                    "type": "integer"
+                                },
+                                "Resource": {},
+                                "InternalId": {}
+                            }
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/YN4IGP6YMDXEPIRMO7XKCARJ3JUA4WBTVEE3CWXY3ZLV5CFWGTCQ/vendors.js"
+            ]
+        },
+        "LockServiceLinkedRole": {
+            "http": {
+                "requestUri": "/slr-deletion/lock"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "RoleArn",
+                    "Timeout"
+                ],
+                "members": {
+                    "RoleArn": {},
+                    "Timeout": {
+                        "type": "long"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "CanBeDeleted"
+                ],
+                "members": {
+                    "CanBeDeleted": {
+                        "type": "boolean"
+                    },
+                    "ReasonOfFailure": {},
+                    "RelatedResources": {
+                        "type": "list",
+                        "member": {}
+                    }
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/YN4IGP6YMDXEPIRMO7XKCARJ3JUA4WBTVEE3CWXY3ZLV5CFWGTCQ/vendors.js"
+            ]
+        },
+        "PutGroupPolicy": {
+            "http": {
+                "requestUri": "/put-group-policy"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "Policy"
+                ],
+                "members": {
+                    "GroupArn": {
+                        "deprecated": true,
+                        "deprecatedMessage": "This field is deprecated, use Group instead."
+                    },
+                    "GroupName": {
+                        "deprecated": true,
+                        "deprecatedMessage": "This field is deprecated, use Group instead."
+                    },
+                    "Group": {},
+                    "Policy": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "GroupArn": {},
+                    "GroupName": {}
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/YN4IGP6YMDXEPIRMO7XKCARJ3JUA4WBTVEE3CWXY3ZLV5CFWGTCQ/vendors.js"
+            ]
+        },
+        "ScanGroupsInternal": {
+            "http": {
+                "requestUri": "/scan-groups-internal"
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "Filters": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "Name",
+                                "Values"
+                            ],
+                            "members": {
+                                "Name": {},
+                                "Values": {
+                                    "type": "list",
+                                    "member": {}
+                                }
+                            }
+                        }
+                    },
+                    "MaxResults": {
+                        "type": "integer"
+                    },
+                    "NextToken": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "GroupIdentifiers": {
+                        "shape": "S4g"
+                    },
+                    "NextToken": {}
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/YN4IGP6YMDXEPIRMO7XKCARJ3JUA4WBTVEE3CWXY3ZLV5CFWGTCQ/vendors.js"
+            ]
+        },
+        "UnlockServiceLinkedRole": {
+            "http": {
+                "requestUri": "/slr-deletion/unlock"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "RoleArn"
+                ],
+                "members": {
+                    "RoleArn": {},
+                    "DeletionStatus": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/YN4IGP6YMDXEPIRMO7XKCARJ3JUA4WBTVEE3CWXY3ZLV5CFWGTCQ/vendors.js"
+            ]
+        },
+        "UpdateGroupQueryV20171127": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/groups/{GroupName}/query"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "GroupName",
+                    "ResourceQuery"
+                ],
+                "members": {
+                    "GroupName": {
+                        "location": "uri",
+                        "locationName": "GroupName"
+                    },
+                    "ResourceQuery": {
+                        "shape": "Sd"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "GroupQuery": {
+                        "shape": "S2k"
+                    }
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/YN4IGP6YMDXEPIRMO7XKCARJ3JUA4WBTVEE3CWXY3ZLV5CFWGTCQ/vendors.js"
+            ]
+        },
+        "UpdateGroupV20171127": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/groups/{GroupName}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "GroupName"
+                ],
+                "members": {
+                    "GroupName": {
+                        "location": "uri",
+                        "locationName": "GroupName"
+                    },
+                    "Description": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Group": {
+                        "shape": "S1d"
+                    }
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/YN4IGP6YMDXEPIRMO7XKCARJ3JUA4WBTVEE3CWXY3ZLV5CFWGTCQ/vendors.js"
+            ]
+        },
+        "UpdateResourceSharingState": {
+            "http": {
+                "requestUri": "/update-resource-sharing-state"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "Action",
+                    "OwnerAccountId",
+                    "Resource",
+                    "ConsumerAccountId",
+                    "SequenceNumber"
+                ],
+                "members": {
+                    "Action": {},
+                    "OwnerAccountId": {},
+                    "Resource": {},
+                    "ConsumerAccountId": {},
+                    "SequenceNumber": {
+                        "type": "integer"
+                    },
+                    "InternalId": {}
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/YN4IGP6YMDXEPIRMO7XKCARJ3JUA4WBTVEE3CWXY3ZLV5CFWGTCQ/vendors.js"
+            ]
+        },
+        "ValidateResourceSharing": {
+            "http": {
+                "requestUri": "/validate-resource-sharing"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "OwnerAccountId",
+                    "Resource"
+                ],
+                "members": {
+                    "OwnerAccountId": {},
+                    "Resource": {},
+                    "InternalId": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "ValidationResult"
+                ],
+                "members": {
+                    "ValidationResult": {},
+                    "ValidationMessage": {},
+                    "InternalId": {}
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/YN4IGP6YMDXEPIRMO7XKCARJ3JUA4WBTVEE3CWXY3ZLV5CFWGTCQ/vendors.js"
+            ]
+        }
+    },
+    "shapes": {
+        "S4": {
+            "type": "structure",
+            "required": [
+                "Type",
+                "Query"
+            ],
+            "members": {
+                "Type": {},
+                "Query": {}
+            }
+        },
+        "S7": {
+            "type": "map",
+            "key": {},
+            "value": {}
+        },
+        "Sa": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "Type"
+                ],
+                "members": {
+                    "Type": {},
+                    "Parameters": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "Name"
+                            ],
+                            "members": {
+                                "Name": {},
+                                "Values": {
+                                    "type": "list",
+                                    "member": {}
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "Sj": {
+            "type": "structure",
+            "required": [
+                "GroupArn",
+                "Name"
+            ],
+            "members": {
+                "GroupArn": {},
+                "Name": {},
+                "Description": {}
+            }
+        },
+        "Sl": {
+            "type": "structure",
+            "members": {
+                "Configuration": {
+                    "shape": "Sa"
+                },
+                "ProposedConfiguration": {
+                    "shape": "Sa"
+                },
+                "Status": {},
+                "FailureReason": {}
+            }
+        },
+        "Sx": {
+            "type": "structure",
+            "required": [
+                "GroupName",
+                "ResourceQuery"
+            ],
+            "members": {
+                "GroupName": {},
+                "ResourceQuery": {
+                    "shape": "S4"
+                }
+            }
+        },
+        "S11": {
+            "type": "list",
+            "member": {}
+        },
+        "S14": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "ResourceArn": {},
+                    "ErrorMessage": {},
+                    "ErrorCode": {}
+                }
+            }
+        },
+        "S18": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "ResourceArn": {}
+                }
+            }
+        },
+        "S1l": {
+            "type": "structure",
+            "members": {
+                "ResourceArn": {},
+                "ResourceType": {}
+            }
+        },
+        "S1p": {
+            "type": "list",
+            "member": {
+                "shape": "S1l"
+            }
+        },
+        "S1q": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "ErrorCode": {},
+                    "Message": {}
+                }
+            }
+        },
+        "S2d": {
+            "type": "list",
+            "member": {}
+        },
+        "Sb": {
+            "type": "structure",
+            "required": [
+                "GroupArn",
+                "Name"
+            ],
+            "members": {
+                "GroupArn": {},
+                "Name": {},
+                "Description": {}
+            }
+        },
+        "Sv": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "ResourceArn": {},
+                    "ResourceType": {}
+                }
+            }
+        },
+        "Sz": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "ErrorCode": {},
+                    "Message": {}
+                }
+            }
+        },
+        "S1i": {
+            "type": "list",
+            "member": {}
+        },
+        "Ss": {
+            "type": "structure",
+            "members": {
+                "GroupLifecycleEventsDesiredStatus": {},
+                "GroupLifecycleEventsStatus": {},
+                "GroupLifecycleEventsStatusMessage": {}
+            }
+        },
+        "S12": {
+            "type": "structure",
+            "required": [
+                "GroupName",
+                "ResourceQuery"
+            ],
+            "members": {
+                "GroupName": {},
+                "ResourceQuery": {
+                    "shape": "S4"
+                }
+            }
+        },
+        "S16": {
+            "type": "list",
+            "member": {}
+        },
+        "S19": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "ResourceArn": {},
+                    "ErrorMessage": {},
+                    "ErrorCode": {}
+                }
+            }
+        },
+        "S1d": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "ResourceArn": {}
+                }
+            }
+        },
+        "S1u": {
+            "type": "list",
+            "member": {
+                "shape": "S1q"
+            }
+        },
+        "S1v": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "ErrorCode": {},
+                    "Message": {}
+                }
+            }
+        },
+        "S2i": {
+            "type": "list",
+            "member": {}
+        },
+        "S3": {
+            "type": "list",
+            "member": {}
+        },
+        "S6": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "ResourceArn": {},
+                    "ErrorMessage": {},
+                    "ErrorCode": {}
+                }
+            }
+        },
+        "Sd": {
+            "type": "structure",
+            "required": [
+                "Type",
+                "Query"
+            ],
+            "members": {
+                "Type": {},
+                "Query": {}
+            }
+        },
+        "Sg": {
+            "type": "map",
+            "key": {},
+            "value": {}
+        },
+        "Sk": {
+            "type": "structure",
+            "members": {
+                "GroupParameters": {
+                    "deprecated": true,
+                    "deprecatedMessage": "This field is deprecated, use Configuration instead.",
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "members": {
+                            "Name": {},
+                            "Values": {
+                                "type": "list",
+                                "member": {}
+                            }
+                        }
+                    }
+                },
+                "ResourceTypeParameters": {
+                    "deprecated": true,
+                    "deprecatedMessage": "This field is deprecated, use Configuration instead.",
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "members": {
+                            "ResourceType": {},
+                            "Name": {},
+                            "Values": {
+                                "type": "list",
+                                "member": {}
+                            }
+                        }
+                    }
+                },
+                "ServiceLinkParameters": {
+                    "deprecated": true,
+                    "deprecatedMessage": "This field is deprecated, use Configuration instead.",
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "members": {
+                            "Name": {},
+                            "Values": {
+                                "type": "list",
+                                "member": {}
+                            }
+                        }
+                    }
+                },
+                "Configuration": {
+                    "shape": "S11"
+                },
+                "ProposedConfiguration": {
+                    "shape": "S11"
+                },
+                "Status": {},
+                "FailureReason": {}
+            }
+        },
+        "S20": {
+            "type": "structure",
+            "members": {
+                "GroupLifecycleEventsDesiredStatus": {},
+                "GroupLifecycleEventsStatus": {},
+                "GroupLifecycleEventsStatusMessage": {}
+            }
+        },
+        "S28": {
+            "type": "structure",
+            "members": {
+                "GroupName": {},
+                "GroupArn": {},
+                "ServiceLinkType": {},
+                "OwnerId": {},
+                "ShareStatus": {}
+            }
+        },
+        "S2k": {
+            "type": "structure",
+            "required": [
+                "GroupName",
+                "ResourceQuery"
+            ],
+            "members": {
+                "GroupName": {},
+                "ResourceQuery": {
+                    "shape": "Sd"
+                }
+            }
+        },
+        "S2x": {
+            "type": "list",
+            "member": {}
+        },
+        "S2z": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "ResourceArn": {}
+                }
+            }
+        },
+        "S39": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "Name",
+                    "Values"
+                ],
+                "members": {
+                    "Name": {},
+                    "Values": {
+                        "type": "list",
+                        "member": {}
+                    }
+                }
+            }
+        },
+        "S3m": {
+            "type": "structure",
+            "members": {
+                "ResourceArn": {},
+                "ResourceType": {}
+            }
+        },
+        "S3p": {
+            "type": "list",
+            "member": {
+                "shape": "S3m"
+            }
+        },
+        "S3q": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "ErrorCode": {},
+                    "Message": {}
+                }
+            }
+        },
+        "S46": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "Name",
+                    "Values"
+                ],
+                "members": {
+                    "Name": {},
+                    "Values": {
+                        "type": "list",
+                        "member": {}
+                    }
+                }
+            }
+        },
+        "S4d": {
+            "type": "list",
+            "member": {
+                "shape": "S1d"
+            }
+        },
+        "S4g": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "GroupName": {},
+                    "GroupArn": {},
+                    "GroupUniqueId": {},
+                    "ServiceLinkType": {},
+                    "OwnerId": {},
+                    "ShareStatus": {}
+                }
+            }
+        },
+        "S5o": {
+            "type": "list",
+            "member": {}
+        },
+        "S1h": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "ResourceArn": {},
+                    "ResourceType": {}
+                }
+            }
+        },
+        "S1k": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "ErrorCode": {},
+                    "Message": {}
+                }
+            }
+        },
+        "S25": {
+            "type": "list",
+            "member": {}
+        }
+    }
+}

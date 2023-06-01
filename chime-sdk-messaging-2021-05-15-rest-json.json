@@ -1,0 +1,2901 @@
+{
+    "version": "2.0",
+    "metadata": {
+        "apiVersion": "2021-05-15",
+        "endpointPrefix": "messaging-chime",
+        "protocol": "rest-json",
+        "serviceFullName": "Amazon Chime SDK Messaging",
+        "serviceId": "Chime SDK Messaging",
+        "signatureVersion": "v4",
+        "signingName": "chime",
+        "uid": "chime-sdk-messaging-2021-05-15",
+        "download_location": [
+            "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+        ]
+    },
+    "operations": {
+        "AssociateChannelFlow": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/channels/{channelArn}/channel-flow",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ChannelArn",
+                    "ChannelFlowArn",
+                    "ChimeBearer"
+                ],
+                "members": {
+                    "ChannelArn": {
+                        "location": "uri",
+                        "locationName": "channelArn"
+                    },
+                    "ChannelFlowArn": {},
+                    "ChimeBearer": {
+                        "location": "header",
+                        "locationName": "x-amz-chime-bearer"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "BatchCreateChannelMembership": {
+            "http": {
+                "requestUri": "/channels/{channelArn}/memberships?operation=batch-create",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ChannelArn",
+                    "MemberArns",
+                    "ChimeBearer"
+                ],
+                "members": {
+                    "ChannelArn": {
+                        "location": "uri",
+                        "locationName": "channelArn"
+                    },
+                    "Type": {},
+                    "MemberArns": {
+                        "type": "list",
+                        "member": {}
+                    },
+                    "ChimeBearer": {
+                        "location": "header",
+                        "locationName": "x-amz-chime-bearer"
+                    },
+                    "SubChannelId": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "BatchChannelMemberships": {
+                        "type": "structure",
+                        "members": {
+                            "InvitedBy": {
+                                "shape": "S9"
+                            },
+                            "Type": {},
+                            "Members": {
+                                "type": "list",
+                                "member": {
+                                    "shape": "S9"
+                                }
+                            },
+                            "ChannelArn": {},
+                            "SubChannelId": {}
+                        }
+                    },
+                    "Errors": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "MemberArn": {},
+                                "ErrorCode": {},
+                                "ErrorMessage": {}
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "ChannelFlowCallback": {
+            "http": {
+                "requestUri": "/channels/{channelArn}?operation=channel-flow-callback",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "CallbackId",
+                    "ChannelArn",
+                    "ChannelMessage"
+                ],
+                "members": {
+                    "CallbackId": {
+                        "idempotencyToken": true
+                    },
+                    "ChannelArn": {
+                        "location": "uri",
+                        "locationName": "channelArn"
+                    },
+                    "DeleteResource": {
+                        "type": "boolean"
+                    },
+                    "ChannelMessage": {
+                        "type": "structure",
+                        "required": [
+                            "MessageId"
+                        ],
+                        "members": {
+                            "MessageId": {},
+                            "Content": {
+                                "shape": "Sl"
+                            },
+                            "Metadata": {
+                                "shape": "Sm"
+                            },
+                            "PushNotification": {
+                                "shape": "Sn"
+                            },
+                            "MessageAttributes": {
+                                "shape": "Sr"
+                            },
+                            "SubChannelId": {}
+                        }
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ChannelArn": {},
+                    "CallbackId": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "CreateChannel": {
+            "http": {
+                "requestUri": "/channels",
+                "responseCode": 201
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "AppInstanceArn",
+                    "Name",
+                    "ClientRequestToken",
+                    "ChimeBearer"
+                ],
+                "members": {
+                    "AppInstanceArn": {},
+                    "Name": {
+                        "shape": "Sy"
+                    },
+                    "Mode": {},
+                    "Privacy": {},
+                    "Metadata": {
+                        "shape": "Sm"
+                    },
+                    "ClientRequestToken": {
+                        "shape": "S11",
+                        "idempotencyToken": true
+                    },
+                    "Tags": {
+                        "shape": "S12"
+                    },
+                    "ChimeBearer": {
+                        "location": "header",
+                        "locationName": "x-amz-chime-bearer"
+                    },
+                    "ChannelId": {
+                        "type": "string",
+                        "sensitive": true
+                    },
+                    "MemberArns": {
+                        "type": "list",
+                        "member": {}
+                    },
+                    "ModeratorArns": {
+                        "type": "list",
+                        "member": {}
+                    },
+                    "ElasticChannelConfiguration": {
+                        "shape": "S19"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ChannelArn": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "CreateChannelBan": {
+            "http": {
+                "requestUri": "/channels/{channelArn}/bans",
+                "responseCode": 201
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ChannelArn",
+                    "MemberArn",
+                    "ChimeBearer"
+                ],
+                "members": {
+                    "ChannelArn": {
+                        "location": "uri",
+                        "locationName": "channelArn"
+                    },
+                    "MemberArn": {},
+                    "ChimeBearer": {
+                        "location": "header",
+                        "locationName": "x-amz-chime-bearer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ChannelArn": {},
+                    "Member": {
+                        "shape": "S9"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "CreateChannelFlow": {
+            "http": {
+                "requestUri": "/channel-flows",
+                "responseCode": 201
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "AppInstanceArn",
+                    "Processors",
+                    "Name",
+                    "ClientRequestToken"
+                ],
+                "members": {
+                    "AppInstanceArn": {},
+                    "Processors": {
+                        "shape": "S1h"
+                    },
+                    "Name": {
+                        "shape": "Sy"
+                    },
+                    "Tags": {
+                        "shape": "S12"
+                    },
+                    "ClientRequestToken": {
+                        "shape": "S11"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ChannelFlowArn": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "CreateChannelMembership": {
+            "http": {
+                "requestUri": "/channels/{channelArn}/memberships",
+                "responseCode": 201
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ChannelArn",
+                    "MemberArn",
+                    "Type",
+                    "ChimeBearer"
+                ],
+                "members": {
+                    "ChannelArn": {
+                        "location": "uri",
+                        "locationName": "channelArn"
+                    },
+                    "MemberArn": {},
+                    "Type": {},
+                    "ChimeBearer": {
+                        "location": "header",
+                        "locationName": "x-amz-chime-bearer"
+                    },
+                    "SubChannelId": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ChannelArn": {},
+                    "Member": {
+                        "shape": "S9"
+                    },
+                    "SubChannelId": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "CreateChannelModerator": {
+            "http": {
+                "requestUri": "/channels/{channelArn}/moderators",
+                "responseCode": 201
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ChannelArn",
+                    "ChannelModeratorArn",
+                    "ChimeBearer"
+                ],
+                "members": {
+                    "ChannelArn": {
+                        "location": "uri",
+                        "locationName": "channelArn"
+                    },
+                    "ChannelModeratorArn": {},
+                    "ChimeBearer": {
+                        "location": "header",
+                        "locationName": "x-amz-chime-bearer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ChannelArn": {},
+                    "ChannelModerator": {
+                        "shape": "S9"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "DeleteChannel": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/channels/{channelArn}",
+                "responseCode": 204
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ChannelArn",
+                    "ChimeBearer"
+                ],
+                "members": {
+                    "ChannelArn": {
+                        "location": "uri",
+                        "locationName": "channelArn"
+                    },
+                    "ChimeBearer": {
+                        "location": "header",
+                        "locationName": "x-amz-chime-bearer"
+                    },
+                    "SubChannelId": {
+                        "location": "querystring",
+                        "locationName": "sub-channel-id"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "DeleteChannelBan": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/channels/{channelArn}/bans/{memberArn}",
+                "responseCode": 204
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ChannelArn",
+                    "MemberArn",
+                    "ChimeBearer"
+                ],
+                "members": {
+                    "ChannelArn": {
+                        "location": "uri",
+                        "locationName": "channelArn"
+                    },
+                    "MemberArn": {
+                        "location": "uri",
+                        "locationName": "memberArn"
+                    },
+                    "ChimeBearer": {
+                        "location": "header",
+                        "locationName": "x-amz-chime-bearer"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "DeleteChannelFlow": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/channel-flows/{channelFlowArn}",
+                "responseCode": 204
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ChannelFlowArn"
+                ],
+                "members": {
+                    "ChannelFlowArn": {
+                        "location": "uri",
+                        "locationName": "channelFlowArn"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "DeleteChannelMembership": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/channels/{channelArn}/memberships/{memberArn}",
+                "responseCode": 204
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ChannelArn",
+                    "MemberArn",
+                    "ChimeBearer"
+                ],
+                "members": {
+                    "ChannelArn": {
+                        "location": "uri",
+                        "locationName": "channelArn"
+                    },
+                    "MemberArn": {
+                        "location": "uri",
+                        "locationName": "memberArn"
+                    },
+                    "ChimeBearer": {
+                        "location": "header",
+                        "locationName": "x-amz-chime-bearer"
+                    },
+                    "SubChannelId": {
+                        "location": "querystring",
+                        "locationName": "sub-channel-id"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "DeleteChannelMessage": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/channels/{channelArn}/messages/{messageId}",
+                "responseCode": 204
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ChannelArn",
+                    "MessageId",
+                    "ChimeBearer"
+                ],
+                "members": {
+                    "ChannelArn": {
+                        "location": "uri",
+                        "locationName": "channelArn"
+                    },
+                    "MessageId": {
+                        "location": "uri",
+                        "locationName": "messageId"
+                    },
+                    "ChimeBearer": {
+                        "location": "header",
+                        "locationName": "x-amz-chime-bearer"
+                    },
+                    "SubChannelId": {
+                        "location": "querystring",
+                        "locationName": "sub-channel-id"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "DeleteChannelModerator": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/channels/{channelArn}/moderators/{channelModeratorArn}",
+                "responseCode": 204
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ChannelArn",
+                    "ChannelModeratorArn",
+                    "ChimeBearer"
+                ],
+                "members": {
+                    "ChannelArn": {
+                        "location": "uri",
+                        "locationName": "channelArn"
+                    },
+                    "ChannelModeratorArn": {
+                        "location": "uri",
+                        "locationName": "channelModeratorArn"
+                    },
+                    "ChimeBearer": {
+                        "location": "header",
+                        "locationName": "x-amz-chime-bearer"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "DescribeChannel": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/channels/{channelArn}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ChannelArn",
+                    "ChimeBearer"
+                ],
+                "members": {
+                    "ChannelArn": {
+                        "location": "uri",
+                        "locationName": "channelArn"
+                    },
+                    "ChimeBearer": {
+                        "location": "header",
+                        "locationName": "x-amz-chime-bearer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Channel": {
+                        "type": "structure",
+                        "members": {
+                            "Name": {
+                                "shape": "Sy"
+                            },
+                            "ChannelArn": {},
+                            "Mode": {},
+                            "Privacy": {},
+                            "Metadata": {
+                                "shape": "Sm"
+                            },
+                            "CreatedBy": {
+                                "shape": "S9"
+                            },
+                            "CreatedTimestamp": {
+                                "type": "timestamp"
+                            },
+                            "LastMessageTimestamp": {
+                                "type": "timestamp"
+                            },
+                            "LastUpdatedTimestamp": {
+                                "type": "timestamp"
+                            },
+                            "ChannelFlowArn": {},
+                            "ElasticChannelConfiguration": {
+                                "shape": "S19"
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "DescribeChannelBan": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/channels/{channelArn}/bans/{memberArn}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ChannelArn",
+                    "MemberArn",
+                    "ChimeBearer"
+                ],
+                "members": {
+                    "ChannelArn": {
+                        "location": "uri",
+                        "locationName": "channelArn"
+                    },
+                    "MemberArn": {
+                        "location": "uri",
+                        "locationName": "memberArn"
+                    },
+                    "ChimeBearer": {
+                        "location": "header",
+                        "locationName": "x-amz-chime-bearer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ChannelBan": {
+                        "type": "structure",
+                        "members": {
+                            "Member": {
+                                "shape": "S9"
+                            },
+                            "ChannelArn": {},
+                            "CreatedTimestamp": {
+                                "type": "timestamp"
+                            },
+                            "CreatedBy": {
+                                "shape": "S9"
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "DescribeChannelFlow": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/channel-flows/{channelFlowArn}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ChannelFlowArn"
+                ],
+                "members": {
+                    "ChannelFlowArn": {
+                        "location": "uri",
+                        "locationName": "channelFlowArn"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ChannelFlow": {
+                        "type": "structure",
+                        "members": {
+                            "ChannelFlowArn": {},
+                            "Processors": {
+                                "shape": "S1h"
+                            },
+                            "Name": {
+                                "shape": "Sy"
+                            },
+                            "CreatedTimestamp": {
+                                "type": "timestamp"
+                            },
+                            "LastUpdatedTimestamp": {
+                                "type": "timestamp"
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "DescribeChannelMembership": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/channels/{channelArn}/memberships/{memberArn}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ChannelArn",
+                    "MemberArn",
+                    "ChimeBearer"
+                ],
+                "members": {
+                    "ChannelArn": {
+                        "location": "uri",
+                        "locationName": "channelArn"
+                    },
+                    "MemberArn": {
+                        "location": "uri",
+                        "locationName": "memberArn"
+                    },
+                    "ChimeBearer": {
+                        "location": "header",
+                        "locationName": "x-amz-chime-bearer"
+                    },
+                    "SubChannelId": {
+                        "location": "querystring",
+                        "locationName": "sub-channel-id"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ChannelMembership": {
+                        "type": "structure",
+                        "members": {
+                            "InvitedBy": {
+                                "shape": "S9"
+                            },
+                            "Type": {},
+                            "Member": {
+                                "shape": "S9"
+                            },
+                            "ChannelArn": {},
+                            "CreatedTimestamp": {
+                                "type": "timestamp"
+                            },
+                            "LastUpdatedTimestamp": {
+                                "type": "timestamp"
+                            },
+                            "SubChannelId": {}
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "DescribeChannelMembershipForAppInstanceUser": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/channels/{channelArn}?scope=app-instance-user-membership",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ChannelArn",
+                    "AppInstanceUserArn",
+                    "ChimeBearer"
+                ],
+                "members": {
+                    "ChannelArn": {
+                        "location": "uri",
+                        "locationName": "channelArn"
+                    },
+                    "AppInstanceUserArn": {
+                        "location": "querystring",
+                        "locationName": "app-instance-user-arn"
+                    },
+                    "ChimeBearer": {
+                        "location": "header",
+                        "locationName": "x-amz-chime-bearer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ChannelMembership": {
+                        "shape": "S2f"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "DescribeChannelModeratedByAppInstanceUser": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/channels/{channelArn}?scope=app-instance-user-moderated-channel",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ChannelArn",
+                    "AppInstanceUserArn",
+                    "ChimeBearer"
+                ],
+                "members": {
+                    "ChannelArn": {
+                        "location": "uri",
+                        "locationName": "channelArn"
+                    },
+                    "AppInstanceUserArn": {
+                        "location": "querystring",
+                        "locationName": "app-instance-user-arn"
+                    },
+                    "ChimeBearer": {
+                        "location": "header",
+                        "locationName": "x-amz-chime-bearer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Channel": {
+                        "shape": "S2k"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "DescribeChannelModerator": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/channels/{channelArn}/moderators/{channelModeratorArn}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ChannelArn",
+                    "ChannelModeratorArn",
+                    "ChimeBearer"
+                ],
+                "members": {
+                    "ChannelArn": {
+                        "location": "uri",
+                        "locationName": "channelArn"
+                    },
+                    "ChannelModeratorArn": {
+                        "location": "uri",
+                        "locationName": "channelModeratorArn"
+                    },
+                    "ChimeBearer": {
+                        "location": "header",
+                        "locationName": "x-amz-chime-bearer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ChannelModerator": {
+                        "type": "structure",
+                        "members": {
+                            "Moderator": {
+                                "shape": "S9"
+                            },
+                            "ChannelArn": {},
+                            "CreatedTimestamp": {
+                                "type": "timestamp"
+                            },
+                            "CreatedBy": {
+                                "shape": "S9"
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "DisassociateChannelFlow": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/channels/{channelArn}/channel-flow/{channelFlowArn}",
+                "responseCode": 204
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ChannelArn",
+                    "ChannelFlowArn",
+                    "ChimeBearer"
+                ],
+                "members": {
+                    "ChannelArn": {
+                        "location": "uri",
+                        "locationName": "channelArn"
+                    },
+                    "ChannelFlowArn": {
+                        "location": "uri",
+                        "locationName": "channelFlowArn"
+                    },
+                    "ChimeBearer": {
+                        "location": "header",
+                        "locationName": "x-amz-chime-bearer"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "GetChannelMembershipPreferences": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/channels/{channelArn}/memberships/{memberArn}/preferences",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ChannelArn",
+                    "MemberArn",
+                    "ChimeBearer"
+                ],
+                "members": {
+                    "ChannelArn": {
+                        "location": "uri",
+                        "locationName": "channelArn"
+                    },
+                    "MemberArn": {
+                        "location": "uri",
+                        "locationName": "memberArn"
+                    },
+                    "ChimeBearer": {
+                        "location": "header",
+                        "locationName": "x-amz-chime-bearer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ChannelArn": {},
+                    "Member": {
+                        "shape": "S9"
+                    },
+                    "Preferences": {
+                        "shape": "S2r"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "GetChannelMessage": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/channels/{channelArn}/messages/{messageId}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ChannelArn",
+                    "MessageId",
+                    "ChimeBearer"
+                ],
+                "members": {
+                    "ChannelArn": {
+                        "location": "uri",
+                        "locationName": "channelArn"
+                    },
+                    "MessageId": {
+                        "location": "uri",
+                        "locationName": "messageId"
+                    },
+                    "ChimeBearer": {
+                        "location": "header",
+                        "locationName": "x-amz-chime-bearer"
+                    },
+                    "SubChannelId": {
+                        "location": "querystring",
+                        "locationName": "sub-channel-id"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ChannelMessage": {
+                        "type": "structure",
+                        "members": {
+                            "ChannelArn": {},
+                            "MessageId": {},
+                            "Content": {
+                                "shape": "S2y"
+                            },
+                            "Metadata": {
+                                "shape": "Sm"
+                            },
+                            "Type": {},
+                            "CreatedTimestamp": {
+                                "type": "timestamp"
+                            },
+                            "LastEditedTimestamp": {
+                                "type": "timestamp"
+                            },
+                            "LastUpdatedTimestamp": {
+                                "type": "timestamp"
+                            },
+                            "Sender": {
+                                "shape": "S9"
+                            },
+                            "Redacted": {
+                                "type": "boolean"
+                            },
+                            "Persistence": {},
+                            "Status": {
+                                "shape": "S31"
+                            },
+                            "MessageAttributes": {
+                                "shape": "Sr"
+                            },
+                            "SubChannelId": {}
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "GetChannelMessageStatus": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/channels/{channelArn}/messages/{messageId}?scope=message-status",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ChannelArn",
+                    "MessageId",
+                    "ChimeBearer"
+                ],
+                "members": {
+                    "ChannelArn": {
+                        "location": "uri",
+                        "locationName": "channelArn"
+                    },
+                    "MessageId": {
+                        "location": "uri",
+                        "locationName": "messageId"
+                    },
+                    "ChimeBearer": {
+                        "location": "header",
+                        "locationName": "x-amz-chime-bearer"
+                    },
+                    "SubChannelId": {
+                        "location": "querystring",
+                        "locationName": "sub-channel-id"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Status": {
+                        "shape": "S31"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "GetMessagingSessionEndpoint": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/endpoints/messaging-session",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {}
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Endpoint": {
+                        "type": "structure",
+                        "members": {
+                            "Url": {}
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "ListChannelBans": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/channels/{channelArn}/bans",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ChannelArn",
+                    "ChimeBearer"
+                ],
+                "members": {
+                    "ChannelArn": {
+                        "location": "uri",
+                        "locationName": "channelArn"
+                    },
+                    "MaxResults": {
+                        "location": "querystring",
+                        "locationName": "max-results",
+                        "type": "integer"
+                    },
+                    "NextToken": {
+                        "shape": "S3c",
+                        "location": "querystring",
+                        "locationName": "next-token"
+                    },
+                    "ChimeBearer": {
+                        "location": "header",
+                        "locationName": "x-amz-chime-bearer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ChannelArn": {},
+                    "NextToken": {
+                        "shape": "S3c"
+                    },
+                    "ChannelBans": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "Member": {
+                                    "shape": "S9"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "ListChannelFlows": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/channel-flows",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "AppInstanceArn"
+                ],
+                "members": {
+                    "AppInstanceArn": {
+                        "location": "querystring",
+                        "locationName": "app-instance-arn"
+                    },
+                    "MaxResults": {
+                        "location": "querystring",
+                        "locationName": "max-results",
+                        "type": "integer"
+                    },
+                    "NextToken": {
+                        "shape": "S3c",
+                        "location": "querystring",
+                        "locationName": "next-token"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ChannelFlows": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "ChannelFlowArn": {},
+                                "Name": {
+                                    "shape": "Sy"
+                                },
+                                "Processors": {
+                                    "shape": "S1h"
+                                }
+                            }
+                        }
+                    },
+                    "NextToken": {
+                        "shape": "S3c"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "ListChannelMemberships": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/channels/{channelArn}/memberships",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ChannelArn",
+                    "ChimeBearer"
+                ],
+                "members": {
+                    "ChannelArn": {
+                        "location": "uri",
+                        "locationName": "channelArn"
+                    },
+                    "Type": {
+                        "location": "querystring",
+                        "locationName": "type"
+                    },
+                    "MaxResults": {
+                        "location": "querystring",
+                        "locationName": "max-results",
+                        "type": "integer"
+                    },
+                    "NextToken": {
+                        "shape": "S3c",
+                        "location": "querystring",
+                        "locationName": "next-token"
+                    },
+                    "ChimeBearer": {
+                        "location": "header",
+                        "locationName": "x-amz-chime-bearer"
+                    },
+                    "SubChannelId": {
+                        "location": "querystring",
+                        "locationName": "sub-channel-id"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ChannelArn": {},
+                    "ChannelMemberships": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "Member": {
+                                    "shape": "S9"
+                                }
+                            }
+                        }
+                    },
+                    "NextToken": {
+                        "shape": "S3c"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "ListChannelMembershipsForAppInstanceUser": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/channels?scope=app-instance-user-memberships",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ChimeBearer"
+                ],
+                "members": {
+                    "AppInstanceUserArn": {
+                        "location": "querystring",
+                        "locationName": "app-instance-user-arn"
+                    },
+                    "MaxResults": {
+                        "location": "querystring",
+                        "locationName": "max-results",
+                        "type": "integer"
+                    },
+                    "NextToken": {
+                        "shape": "S3c",
+                        "location": "querystring",
+                        "locationName": "next-token"
+                    },
+                    "ChimeBearer": {
+                        "location": "header",
+                        "locationName": "x-amz-chime-bearer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ChannelMemberships": {
+                        "type": "list",
+                        "member": {
+                            "shape": "S2f"
+                        }
+                    },
+                    "NextToken": {
+                        "shape": "S3c"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "ListChannelMessages": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/channels/{channelArn}/messages",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ChannelArn",
+                    "ChimeBearer"
+                ],
+                "members": {
+                    "ChannelArn": {
+                        "location": "uri",
+                        "locationName": "channelArn"
+                    },
+                    "SortOrder": {
+                        "location": "querystring",
+                        "locationName": "sort-order"
+                    },
+                    "NotBefore": {
+                        "location": "querystring",
+                        "locationName": "not-before",
+                        "type": "timestamp"
+                    },
+                    "NotAfter": {
+                        "location": "querystring",
+                        "locationName": "not-after",
+                        "type": "timestamp"
+                    },
+                    "MaxResults": {
+                        "location": "querystring",
+                        "locationName": "max-results",
+                        "type": "integer"
+                    },
+                    "NextToken": {
+                        "shape": "S3c",
+                        "location": "querystring",
+                        "locationName": "next-token"
+                    },
+                    "ChimeBearer": {
+                        "location": "header",
+                        "locationName": "x-amz-chime-bearer"
+                    },
+                    "SubChannelId": {
+                        "location": "querystring",
+                        "locationName": "sub-channel-id"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ChannelArn": {},
+                    "NextToken": {
+                        "shape": "S3c"
+                    },
+                    "ChannelMessages": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "MessageId": {},
+                                "Content": {
+                                    "shape": "S2y"
+                                },
+                                "Metadata": {
+                                    "shape": "Sm"
+                                },
+                                "Type": {},
+                                "CreatedTimestamp": {
+                                    "type": "timestamp"
+                                },
+                                "LastUpdatedTimestamp": {
+                                    "type": "timestamp"
+                                },
+                                "LastEditedTimestamp": {
+                                    "type": "timestamp"
+                                },
+                                "Sender": {
+                                    "shape": "S9"
+                                },
+                                "Redacted": {
+                                    "type": "boolean"
+                                },
+                                "Status": {
+                                    "shape": "S31"
+                                },
+                                "MessageAttributes": {
+                                    "shape": "Sr"
+                                }
+                            }
+                        }
+                    },
+                    "SubChannelId": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "ListChannelModerators": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/channels/{channelArn}/moderators",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ChannelArn",
+                    "ChimeBearer"
+                ],
+                "members": {
+                    "ChannelArn": {
+                        "location": "uri",
+                        "locationName": "channelArn"
+                    },
+                    "MaxResults": {
+                        "location": "querystring",
+                        "locationName": "max-results",
+                        "type": "integer"
+                    },
+                    "NextToken": {
+                        "shape": "S3c",
+                        "location": "querystring",
+                        "locationName": "next-token"
+                    },
+                    "ChimeBearer": {
+                        "location": "header",
+                        "locationName": "x-amz-chime-bearer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ChannelArn": {},
+                    "NextToken": {
+                        "shape": "S3c"
+                    },
+                    "ChannelModerators": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "Moderator": {
+                                    "shape": "S9"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "ListChannels": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/channels",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "AppInstanceArn",
+                    "ChimeBearer"
+                ],
+                "members": {
+                    "AppInstanceArn": {
+                        "location": "querystring",
+                        "locationName": "app-instance-arn"
+                    },
+                    "Privacy": {
+                        "location": "querystring",
+                        "locationName": "privacy"
+                    },
+                    "MaxResults": {
+                        "location": "querystring",
+                        "locationName": "max-results",
+                        "type": "integer"
+                    },
+                    "NextToken": {
+                        "shape": "S3c",
+                        "location": "querystring",
+                        "locationName": "next-token"
+                    },
+                    "ChimeBearer": {
+                        "location": "header",
+                        "locationName": "x-amz-chime-bearer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Channels": {
+                        "shape": "S42"
+                    },
+                    "NextToken": {
+                        "shape": "S3c"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "ListChannelsAssociatedWithChannelFlow": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/channels?scope=channel-flow-associations",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ChannelFlowArn"
+                ],
+                "members": {
+                    "ChannelFlowArn": {
+                        "location": "querystring",
+                        "locationName": "channel-flow-arn"
+                    },
+                    "MaxResults": {
+                        "location": "querystring",
+                        "locationName": "max-results",
+                        "type": "integer"
+                    },
+                    "NextToken": {
+                        "shape": "S3c",
+                        "location": "querystring",
+                        "locationName": "next-token"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Channels": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "Name": {
+                                    "shape": "Sy"
+                                },
+                                "ChannelArn": {},
+                                "Mode": {},
+                                "Privacy": {},
+                                "Metadata": {
+                                    "shape": "Sm"
+                                }
+                            }
+                        }
+                    },
+                    "NextToken": {
+                        "shape": "S3c"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "ListChannelsModeratedByAppInstanceUser": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/channels?scope=app-instance-user-moderated-channels",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ChimeBearer"
+                ],
+                "members": {
+                    "AppInstanceUserArn": {
+                        "location": "querystring",
+                        "locationName": "app-instance-user-arn"
+                    },
+                    "MaxResults": {
+                        "location": "querystring",
+                        "locationName": "max-results",
+                        "type": "integer"
+                    },
+                    "NextToken": {
+                        "shape": "S3c",
+                        "location": "querystring",
+                        "locationName": "next-token"
+                    },
+                    "ChimeBearer": {
+                        "location": "header",
+                        "locationName": "x-amz-chime-bearer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Channels": {
+                        "type": "list",
+                        "member": {
+                            "shape": "S2k"
+                        }
+                    },
+                    "NextToken": {
+                        "shape": "S3c"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "ListSubChannels": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/channels/{channelArn}/subchannels",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ChannelArn",
+                    "ChimeBearer"
+                ],
+                "members": {
+                    "ChannelArn": {
+                        "location": "uri",
+                        "locationName": "channelArn"
+                    },
+                    "ChimeBearer": {
+                        "location": "header",
+                        "locationName": "x-amz-chime-bearer"
+                    },
+                    "MaxResults": {
+                        "location": "querystring",
+                        "locationName": "max-results",
+                        "type": "integer"
+                    },
+                    "NextToken": {
+                        "shape": "S3c",
+                        "location": "querystring",
+                        "locationName": "next-token"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ChannelArn": {},
+                    "SubChannels": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "SubChannelId": {},
+                                "MembershipCount": {
+                                    "type": "integer"
+                                }
+                            }
+                        }
+                    },
+                    "NextToken": {
+                        "shape": "S3c"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "ListTagsForResource": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/tags",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ResourceARN"
+                ],
+                "members": {
+                    "ResourceARN": {
+                        "location": "querystring",
+                        "locationName": "arn"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Tags": {
+                        "shape": "S12"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "PutChannelMembershipPreferences": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/channels/{channelArn}/memberships/{memberArn}/preferences",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ChannelArn",
+                    "MemberArn",
+                    "ChimeBearer",
+                    "Preferences"
+                ],
+                "members": {
+                    "ChannelArn": {
+                        "location": "uri",
+                        "locationName": "channelArn"
+                    },
+                    "MemberArn": {
+                        "location": "uri",
+                        "locationName": "memberArn"
+                    },
+                    "ChimeBearer": {
+                        "location": "header",
+                        "locationName": "x-amz-chime-bearer"
+                    },
+                    "Preferences": {
+                        "shape": "S2r"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ChannelArn": {},
+                    "Member": {
+                        "shape": "S9"
+                    },
+                    "Preferences": {
+                        "shape": "S2r"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "RedactChannelMessage": {
+            "http": {
+                "requestUri": "/channels/{channelArn}/messages/{messageId}?operation=redact",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ChannelArn",
+                    "MessageId",
+                    "ChimeBearer"
+                ],
+                "members": {
+                    "ChannelArn": {
+                        "location": "uri",
+                        "locationName": "channelArn"
+                    },
+                    "MessageId": {
+                        "location": "uri",
+                        "locationName": "messageId"
+                    },
+                    "ChimeBearer": {
+                        "location": "header",
+                        "locationName": "x-amz-chime-bearer"
+                    },
+                    "SubChannelId": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ChannelArn": {},
+                    "MessageId": {},
+                    "SubChannelId": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "SearchChannels": {
+            "http": {
+                "requestUri": "/channels?operation=search",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "Fields"
+                ],
+                "members": {
+                    "ChimeBearer": {
+                        "location": "header",
+                        "locationName": "x-amz-chime-bearer"
+                    },
+                    "Fields": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "Key",
+                                "Values",
+                                "Operator"
+                            ],
+                            "members": {
+                                "Key": {},
+                                "Values": {
+                                    "type": "list",
+                                    "member": {}
+                                },
+                                "Operator": {}
+                            }
+                        }
+                    },
+                    "MaxResults": {
+                        "location": "querystring",
+                        "locationName": "max-results",
+                        "type": "integer"
+                    },
+                    "NextToken": {
+                        "shape": "S3c",
+                        "location": "querystring",
+                        "locationName": "next-token"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Channels": {
+                        "shape": "S42"
+                    },
+                    "NextToken": {
+                        "shape": "S3c"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "SendChannelMessage": {
+            "http": {
+                "requestUri": "/channels/{channelArn}/messages",
+                "responseCode": 201
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ChannelArn",
+                    "Content",
+                    "Type",
+                    "Persistence",
+                    "ClientRequestToken",
+                    "ChimeBearer"
+                ],
+                "members": {
+                    "ChannelArn": {
+                        "location": "uri",
+                        "locationName": "channelArn"
+                    },
+                    "Content": {
+                        "shape": "Sl"
+                    },
+                    "Type": {},
+                    "Persistence": {},
+                    "Metadata": {
+                        "shape": "Sm"
+                    },
+                    "ClientRequestToken": {
+                        "shape": "S11",
+                        "idempotencyToken": true
+                    },
+                    "ChimeBearer": {
+                        "location": "header",
+                        "locationName": "x-amz-chime-bearer"
+                    },
+                    "PushNotification": {
+                        "shape": "Sn"
+                    },
+                    "MessageAttributes": {
+                        "shape": "Sr"
+                    },
+                    "SubChannelId": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ChannelArn": {},
+                    "MessageId": {},
+                    "Status": {
+                        "shape": "S31"
+                    },
+                    "SubChannelId": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "TagResource": {
+            "http": {
+                "requestUri": "/tags?operation=tag-resource",
+                "responseCode": 204
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ResourceARN",
+                    "Tags"
+                ],
+                "members": {
+                    "ResourceARN": {},
+                    "Tags": {
+                        "shape": "S12"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "UntagResource": {
+            "http": {
+                "requestUri": "/tags?operation=untag-resource",
+                "responseCode": 204
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ResourceARN",
+                    "TagKeys"
+                ],
+                "members": {
+                    "ResourceARN": {},
+                    "TagKeys": {
+                        "type": "list",
+                        "member": {
+                            "shape": "S14"
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "UpdateChannel": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/channels/{channelArn}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ChannelArn",
+                    "ChimeBearer"
+                ],
+                "members": {
+                    "ChannelArn": {
+                        "location": "uri",
+                        "locationName": "channelArn"
+                    },
+                    "Name": {
+                        "shape": "Sy"
+                    },
+                    "Mode": {},
+                    "Metadata": {
+                        "shape": "Sm"
+                    },
+                    "ChimeBearer": {
+                        "location": "header",
+                        "locationName": "x-amz-chime-bearer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ChannelArn": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "UpdateChannelFlow": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/channel-flows/{channelFlowArn}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ChannelFlowArn",
+                    "Processors",
+                    "Name"
+                ],
+                "members": {
+                    "ChannelFlowArn": {
+                        "location": "uri",
+                        "locationName": "channelFlowArn"
+                    },
+                    "Processors": {
+                        "shape": "S1h"
+                    },
+                    "Name": {
+                        "shape": "Sy"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ChannelFlowArn": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "UpdateChannelMessage": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/channels/{channelArn}/messages/{messageId}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ChannelArn",
+                    "MessageId",
+                    "ChimeBearer"
+                ],
+                "members": {
+                    "ChannelArn": {
+                        "location": "uri",
+                        "locationName": "channelArn"
+                    },
+                    "MessageId": {
+                        "location": "uri",
+                        "locationName": "messageId"
+                    },
+                    "Content": {
+                        "shape": "S2y"
+                    },
+                    "Metadata": {
+                        "shape": "Sm"
+                    },
+                    "ChimeBearer": {
+                        "location": "header",
+                        "locationName": "x-amz-chime-bearer"
+                    },
+                    "SubChannelId": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ChannelArn": {},
+                    "MessageId": {},
+                    "Status": {
+                        "shape": "S31"
+                    },
+                    "SubChannelId": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "UpdateChannelReadMarker": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/channels/{channelArn}/readMarker",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ChannelArn",
+                    "ChimeBearer"
+                ],
+                "members": {
+                    "ChannelArn": {
+                        "location": "uri",
+                        "locationName": "channelArn"
+                    },
+                    "ChimeBearer": {
+                        "location": "header",
+                        "locationName": "x-amz-chime-bearer"
+                    },
+                    "SubChannelId": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ChannelArn": {},
+                    "SubChannelId": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "DeleteMessagingStreamingConfigurations": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/app-instances/{appInstanceArn}/streaming-configurations",
+                "responseCode": 204
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "AppInstanceArn"
+                ],
+                "members": {
+                    "AppInstanceArn": {
+                        "location": "uri",
+                        "locationName": "appInstanceArn"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/LNBIP3SSBJJEGTSEE5VZUJHYSBHMHROVHKM6HOKQMPW54VG5DQUQ/vendors.js"
+            ]
+        },
+        "GetMessagingStreamingConfigurations": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/app-instances/{appInstanceArn}/streaming-configurations",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "AppInstanceArn"
+                ],
+                "members": {
+                    "AppInstanceArn": {
+                        "location": "uri",
+                        "locationName": "appInstanceArn"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "StreamingConfigurations": {
+                        "shape": "S3h"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/LNBIP3SSBJJEGTSEE5VZUJHYSBHMHROVHKM6HOKQMPW54VG5DQUQ/vendors.js"
+            ]
+        },
+        "PutChannelExpirationSettings": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/channels/{channelArn}/expiration-settings",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ChannelArn"
+                ],
+                "members": {
+                    "ChannelArn": {
+                        "location": "uri",
+                        "locationName": "channelArn"
+                    },
+                    "ChimeBearer": {
+                        "location": "header",
+                        "locationName": "x-amz-chime-bearer"
+                    },
+                    "ExpirationSettings": {
+                        "shape": "S1e"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ChannelArn": {},
+                    "ExpirationSettings": {
+                        "shape": "S1e"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/LNBIP3SSBJJEGTSEE5VZUJHYSBHMHROVHKM6HOKQMPW54VG5DQUQ/vendors.js"
+            ]
+        },
+        "PutMessagingStreamingConfigurations": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/app-instances/{appInstanceArn}/streaming-configurations",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "AppInstanceArn",
+                    "StreamingConfigurations"
+                ],
+                "members": {
+                    "AppInstanceArn": {
+                        "location": "uri",
+                        "locationName": "appInstanceArn"
+                    },
+                    "StreamingConfigurations": {
+                        "shape": "S3h"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "StreamingConfigurations": {
+                        "shape": "S3h"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/LNBIP3SSBJJEGTSEE5VZUJHYSBHMHROVHKM6HOKQMPW54VG5DQUQ/vendors.js"
+            ]
+        }
+    },
+    "shapes": {
+        "S9": {
+            "type": "structure",
+            "members": {
+                "Arn": {},
+                "Name": {
+                    "type": "string",
+                    "sensitive": true
+                }
+            }
+        },
+        "Sl": {
+            "type": "string",
+            "sensitive": true
+        },
+        "Sm": {
+            "type": "string",
+            "sensitive": true
+        },
+        "Sn": {
+            "type": "structure",
+            "members": {
+                "Title": {
+                    "type": "string",
+                    "sensitive": true
+                },
+                "Body": {
+                    "type": "string",
+                    "sensitive": true
+                },
+                "Type": {}
+            }
+        },
+        "Sr": {
+            "type": "map",
+            "key": {
+                "type": "string",
+                "sensitive": true
+            },
+            "value": {
+                "type": "structure",
+                "members": {
+                    "StringValues": {
+                        "type": "list",
+                        "member": {
+                            "type": "string",
+                            "sensitive": true
+                        }
+                    }
+                }
+            }
+        },
+        "Sy": {
+            "type": "string",
+            "sensitive": true
+        },
+        "S11": {
+            "type": "string",
+            "sensitive": true
+        },
+        "S12": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "Key",
+                    "Value"
+                ],
+                "members": {
+                    "Key": {
+                        "shape": "S14"
+                    },
+                    "Value": {
+                        "type": "string",
+                        "sensitive": true
+                    }
+                }
+            }
+        },
+        "S14": {
+            "type": "string",
+            "sensitive": true
+        },
+        "S19": {
+            "type": "structure",
+            "required": [
+                "MaximumSubChannels",
+                "TargetMembershipsPerSubChannel",
+                "MinimumMembershipPercentage"
+            ],
+            "members": {
+                "MaximumSubChannels": {
+                    "type": "integer"
+                },
+                "TargetMembershipsPerSubChannel": {
+                    "type": "integer"
+                },
+                "MinimumMembershipPercentage": {
+                    "type": "integer"
+                }
+            }
+        },
+        "S1h": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "Name",
+                    "Configuration",
+                    "ExecutionOrder",
+                    "FallbackAction"
+                ],
+                "members": {
+                    "Name": {
+                        "shape": "Sy"
+                    },
+                    "Configuration": {
+                        "type": "structure",
+                        "required": [
+                            "Lambda"
+                        ],
+                        "members": {
+                            "Lambda": {
+                                "type": "structure",
+                                "required": [
+                                    "ResourceArn",
+                                    "InvocationType"
+                                ],
+                                "members": {
+                                    "ResourceArn": {},
+                                    "InvocationType": {}
+                                }
+                            }
+                        }
+                    },
+                    "ExecutionOrder": {
+                        "type": "integer"
+                    },
+                    "FallbackAction": {}
+                }
+            }
+        },
+        "S2f": {
+            "type": "structure",
+            "members": {
+                "ChannelSummary": {
+                    "shape": "S2g"
+                },
+                "AppInstanceUserMembershipSummary": {
+                    "type": "structure",
+                    "members": {
+                        "Type": {},
+                        "ReadMarkerTimestamp": {
+                            "type": "timestamp"
+                        },
+                        "SubChannelId": {}
+                    }
+                }
+            }
+        },
+        "S2g": {
+            "type": "structure",
+            "members": {
+                "Name": {
+                    "shape": "Sy"
+                },
+                "ChannelArn": {},
+                "Mode": {},
+                "Privacy": {},
+                "Metadata": {
+                    "shape": "Sm"
+                },
+                "LastMessageTimestamp": {
+                    "type": "timestamp"
+                }
+            }
+        },
+        "S2k": {
+            "type": "structure",
+            "members": {
+                "ChannelSummary": {
+                    "shape": "S2g"
+                }
+            }
+        },
+        "S2r": {
+            "type": "structure",
+            "members": {
+                "PushNotifications": {
+                    "type": "structure",
+                    "required": [
+                        "AllowNotifications"
+                    ],
+                    "members": {
+                        "AllowNotifications": {},
+                        "FilterRule": {
+                            "type": "string",
+                            "sensitive": true
+                        }
+                    }
+                }
+            }
+        },
+        "S2y": {
+            "type": "string",
+            "sensitive": true
+        },
+        "S31": {
+            "type": "structure",
+            "members": {
+                "Value": {},
+                "Detail": {}
+            }
+        },
+        "S3c": {
+            "type": "string",
+            "sensitive": true
+        },
+        "S42": {
+            "type": "list",
+            "member": {
+                "shape": "S2g"
+            }
+        },
+        "Sw": {
+            "type": "string",
+            "sensitive": true
+        },
+        "Sz": {
+            "type": "string",
+            "sensitive": true
+        },
+        "S13": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "Key",
+                    "Value"
+                ],
+                "members": {
+                    "Key": {
+                        "shape": "S15"
+                    },
+                    "Value": {
+                        "type": "string",
+                        "sensitive": true
+                    }
+                }
+            }
+        },
+        "S15": {
+            "type": "string",
+            "sensitive": true
+        },
+        "S1a": {
+            "type": "structure",
+            "required": [
+                "MaximumSubChannels",
+                "TargetMembershipsPerSubChannel",
+                "MinimumMembershipPercentage"
+            ],
+            "members": {
+                "MaximumSubChannels": {
+                    "type": "integer"
+                },
+                "TargetMembershipsPerSubChannel": {
+                    "type": "integer"
+                },
+                "MinimumMembershipPercentage": {
+                    "type": "integer"
+                }
+            }
+        },
+        "S1e": {
+            "type": "structure",
+            "required": [
+                "ExpirationDays",
+                "ExpirationCriterion"
+            ],
+            "members": {
+                "ExpirationDays": {
+                    "type": "integer"
+                },
+                "ExpirationCriterion": {}
+            }
+        },
+        "S1l": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "Name",
+                    "Configuration",
+                    "ExecutionOrder",
+                    "FallbackAction"
+                ],
+                "members": {
+                    "Name": {
+                        "shape": "Sz"
+                    },
+                    "Configuration": {
+                        "type": "structure",
+                        "required": [
+                            "Lambda"
+                        ],
+                        "members": {
+                            "Lambda": {
+                                "type": "structure",
+                                "required": [
+                                    "ResourceArn",
+                                    "InvocationType"
+                                ],
+                                "members": {
+                                    "ResourceArn": {},
+                                    "InvocationType": {}
+                                }
+                            }
+                        }
+                    },
+                    "ExecutionOrder": {
+                        "type": "integer"
+                    },
+                    "FallbackAction": {}
+                }
+            }
+        },
+        "S2l": {
+            "type": "structure",
+            "members": {
+                "Name": {
+                    "shape": "Sz"
+                },
+                "ChannelArn": {},
+                "Mode": {},
+                "Privacy": {},
+                "Metadata": {
+                    "shape": "Sm"
+                },
+                "LastMessageTimestamp": {
+                    "type": "timestamp"
+                }
+            }
+        },
+        "S2p": {
+            "type": "structure",
+            "members": {
+                "ChannelSummary": {
+                    "shape": "S2l"
+                }
+            }
+        },
+        "S2w": {
+            "type": "structure",
+            "members": {
+                "PushNotifications": {
+                    "type": "structure",
+                    "required": [
+                        "AllowNotifications"
+                    ],
+                    "members": {
+                        "AllowNotifications": {},
+                        "FilterRule": {
+                            "type": "string",
+                            "sensitive": true
+                        }
+                    }
+                }
+            }
+        },
+        "S33": {
+            "type": "string",
+            "sensitive": true
+        },
+        "S36": {
+            "type": "structure",
+            "members": {
+                "Value": {},
+                "Detail": {}
+            }
+        },
+        "S3h": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "DataType",
+                    "ResourceArn"
+                ],
+                "members": {
+                    "DataType": {},
+                    "ResourceArn": {}
+                }
+            }
+        },
+        "S3m": {
+            "type": "string",
+            "sensitive": true
+        },
+        "S4c": {
+            "type": "list",
+            "member": {
+                "shape": "S2l"
+            }
+        },
+        "S8": {
+            "type": "structure",
+            "members": {
+                "Arn": {},
+                "Name": {
+                    "type": "string",
+                    "sensitive": true
+                }
+            }
+        },
+        "Sk": {
+            "type": "string",
+            "sensitive": true
+        },
+        "Sq": {
+            "type": "map",
+            "key": {
+                "type": "string",
+                "sensitive": true
+            },
+            "value": {
+                "type": "structure",
+                "members": {
+                    "StringValues": {
+                        "type": "list",
+                        "member": {
+                            "type": "string",
+                            "sensitive": true
+                        }
+                    }
+                }
+            }
+        },
+        "Sx": {
+            "type": "string",
+            "sensitive": true
+        },
+        "S10": {
+            "type": "string",
+            "sensitive": true
+        },
+        "S27": {
+            "type": "structure",
+            "members": {
+                "ChannelSummary": {
+                    "shape": "S28"
+                },
+                "AppInstanceUserMembershipSummary": {
+                    "type": "structure",
+                    "members": {
+                        "Type": {},
+                        "ReadMarkerTimestamp": {
+                            "type": "timestamp"
+                        }
+                    }
+                }
+            }
+        },
+        "S28": {
+            "type": "structure",
+            "members": {
+                "Name": {
+                    "shape": "Sx"
+                },
+                "ChannelArn": {},
+                "Mode": {},
+                "Privacy": {},
+                "Metadata": {
+                    "shape": "Sl"
+                },
+                "LastMessageTimestamp": {
+                    "type": "timestamp"
+                }
+            }
+        },
+        "S2c": {
+            "type": "structure",
+            "members": {
+                "ChannelSummary": {
+                    "shape": "S28"
+                }
+            }
+        },
+        "S2j": {
+            "type": "structure",
+            "members": {
+                "PushNotifications": {
+                    "type": "structure",
+                    "required": [
+                        "AllowNotifications"
+                    ],
+                    "members": {
+                        "AllowNotifications": {},
+                        "FilterRule": {
+                            "type": "string",
+                            "sensitive": true
+                        }
+                    }
+                }
+            }
+        },
+        "S2q": {
+            "type": "string",
+            "sensitive": true
+        },
+        "S2t": {
+            "type": "structure",
+            "members": {
+                "Value": {},
+                "Detail": {}
+            }
+        },
+        "S34": {
+            "type": "string",
+            "sensitive": true
+        },
+        "S7": {
+            "type": "structure",
+            "members": {
+                "Arn": {},
+                "Name": {
+                    "type": "string",
+                    "sensitive": true
+                }
+            }
+        },
+        "Sf": {
+            "type": "string",
+            "sensitive": true
+        },
+        "Si": {
+            "type": "string",
+            "sensitive": true
+        },
+        "Sj": {
+            "type": "string",
+            "sensitive": true
+        },
+        "S1d": {
+            "type": "structure",
+            "members": {
+                "ChannelSummary": {
+                    "shape": "S1e"
+                },
+                "AppInstanceUserMembershipSummary": {
+                    "type": "structure",
+                    "members": {
+                        "Type": {},
+                        "ReadMarkerTimestamp": {
+                            "type": "timestamp"
+                        }
+                    }
+                }
+            }
+        },
+        "S1i": {
+            "type": "structure",
+            "members": {
+                "ChannelSummary": {
+                    "shape": "S1e"
+                }
+            }
+        },
+        "S1p": {
+            "type": "string",
+            "sensitive": true
+        },
+        "S1z": {
+            "type": "string",
+            "sensitive": true
+        }
+    }
+}

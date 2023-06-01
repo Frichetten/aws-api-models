@@ -1,0 +1,1758 @@
+{
+    "version": "2.0",
+    "metadata": {
+        "apiVersion": "2017-07-25",
+        "endpointPrefix": "evidently-lambda",
+        "jsonVersion": "1.1",
+        "protocol": "rest-json",
+        "serviceAbbreviation": "Evidently",
+        "serviceFullName": "AWS Evidently",
+        "signatureVersion": "v4",
+        "signingName": "evidently",
+        "uid": "evidently-lambda-2017-07-25",
+        "download_location": [
+            "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+        ]
+    },
+    "operations": {
+        "CreateExperiment": {
+            "http": {
+                "requestUri": "/applications/{applicationName}/experiments"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "applicationName",
+                    "description",
+                    "name"
+                ],
+                "members": {
+                    "applicationName": {
+                        "location": "uri",
+                        "locationName": "applicationName"
+                    },
+                    "description": {},
+                    "evaluationCriteria": {
+                        "shape": "S4"
+                    },
+                    "experimentAlias": {},
+                    "name": {},
+                    "treatments": {
+                        "shape": "Sc"
+                    },
+                    "treatmentAssignmentType": {},
+                    "exposure": {
+                        "type": "integer"
+                    },
+                    "assignmentGenerator": {},
+                    "segmentName": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "experiment": {
+                        "shape": "Sn"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "CreateSegment": {
+            "http": {
+                "requestUri": "/segments"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "name",
+                    "segmentBuilder",
+                    "segmentDescription"
+                ],
+                "members": {
+                    "name": {},
+                    "segmentBuilder": {
+                        "shape": "Ss"
+                    },
+                    "segmentDescription": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "segment": {
+                        "shape": "S13"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "CreateSegmentationDataStore": {
+            "http": {
+                "requestUri": "/segmentationdatastores"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "name",
+                    "importConfig"
+                ],
+                "members": {
+                    "name": {},
+                    "importConfig": {
+                        "shape": "S16"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "segmentationDataStore": {
+                        "shape": "S1h"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "DeleteExperiment": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/applications/{applicationName}/experiments/{experimentId}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "applicationName",
+                    "experimentId"
+                ],
+                "members": {
+                    "applicationName": {
+                        "location": "uri",
+                        "locationName": "applicationName"
+                    },
+                    "experimentId": {
+                        "location": "uri",
+                        "locationName": "experimentId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "experiment": {
+                        "shape": "Sn"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "DeleteSegment": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/segments/{name}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "name"
+                ],
+                "members": {
+                    "name": {
+                        "location": "uri",
+                        "locationName": "name"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "segment": {
+                        "shape": "S13"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "DeregisterApplication": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/applications/{applicationName}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "applicationName"
+                ],
+                "members": {
+                    "applicationName": {
+                        "location": "uri",
+                        "locationName": "applicationName"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "application": {
+                        "shape": "S1r"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "DescribeMetric": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/applications/{applicationName}/metrics/{metricNameSpace}/{metricName}/metadata"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "applicationName",
+                    "metricNameSpace",
+                    "metricName"
+                ],
+                "members": {
+                    "applicationName": {
+                        "location": "uri",
+                        "locationName": "applicationName"
+                    },
+                    "metricNameSpace": {
+                        "location": "uri",
+                        "locationName": "metricNameSpace"
+                    },
+                    "metricName": {
+                        "location": "uri",
+                        "locationName": "metricName"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "metric": {
+                        "shape": "S20"
+                    },
+                    "screenshotUrl": {},
+                    "expirationMillis": {
+                        "type": "long"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "EditApplication": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/applications/{applicationName}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "applicationName"
+                ],
+                "members": {
+                    "applicationName": {
+                        "location": "uri",
+                        "locationName": "applicationName"
+                    },
+                    "screenshotSetting": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "application": {
+                        "shape": "S1r"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "EditExperiment": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/applications/{applicationName}/experiments/{experimentId}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "applicationName",
+                    "experimentId"
+                ],
+                "members": {
+                    "applicationName": {
+                        "location": "uri",
+                        "locationName": "applicationName"
+                    },
+                    "description": {},
+                    "evaluationCriteria": {
+                        "shape": "S4"
+                    },
+                    "experimentAlias": {},
+                    "experimentId": {
+                        "location": "uri",
+                        "locationName": "experimentId"
+                    },
+                    "name": {},
+                    "treatments": {
+                        "shape": "Sc"
+                    },
+                    "treatmentAssignmentType": {},
+                    "exposure": {
+                        "type": "integer"
+                    },
+                    "assignmentGenerator": {},
+                    "segmentName": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "experiment": {
+                        "shape": "Sn"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "EditSegment": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/segments/{name}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "name"
+                ],
+                "members": {
+                    "name": {
+                        "location": "uri",
+                        "locationName": "name"
+                    },
+                    "segmentBuilder": {
+                        "shape": "Ss"
+                    },
+                    "segmentDescription": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "segment": {
+                        "shape": "S13"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "EditSegmentationUserData": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/segmentationdatastores/{name}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "name",
+                    "updateBehavior",
+                    "importConfig"
+                ],
+                "members": {
+                    "name": {
+                        "location": "uri",
+                        "locationName": "name"
+                    },
+                    "updateBehavior": {},
+                    "importConfig": {
+                        "shape": "S16"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "segmentationDataStore": {
+                        "shape": "S1h"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "GetApplication": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/applications/{applicationName}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "applicationName"
+                ],
+                "members": {
+                    "applicationName": {
+                        "location": "uri",
+                        "locationName": "applicationName"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "application": {
+                        "shape": "S1r"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "GetExperiment": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/applications/{applicationName}/experiments/{experimentId}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "applicationName",
+                    "experimentId"
+                ],
+                "members": {
+                    "applicationName": {
+                        "location": "uri",
+                        "locationName": "applicationName"
+                    },
+                    "experimentId": {
+                        "location": "uri",
+                        "locationName": "experimentId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "experiment": {
+                        "shape": "Sn"
+                    },
+                    "versionId": {
+                        "type": "long"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "GetExperimentResults": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/applications/{applicationName}/experiments/{experimentId}/experiment-results/metrics/{metricPath}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "applicationName",
+                    "experimentId",
+                    "metricPath"
+                ],
+                "members": {
+                    "nextToken": {
+                        "location": "querystring",
+                        "locationName": "nextToken"
+                    },
+                    "maxResults": {
+                        "location": "querystring",
+                        "locationName": "maxResults",
+                        "type": "integer"
+                    },
+                    "applicationName": {
+                        "location": "uri",
+                        "locationName": "applicationName"
+                    },
+                    "experimentId": {
+                        "location": "uri",
+                        "locationName": "experimentId"
+                    },
+                    "metricPath": {
+                        "location": "uri",
+                        "locationName": "metricPath"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ExperimentResults": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "applicationExperimentMetricResourceName": {},
+                                "treatmentAlias": {},
+                                "experimentId": {},
+                                "metricPath": {},
+                                "ownerAccountId": {},
+                                "applicationName": {},
+                                "applicationExperimentResourceName": {},
+                                "pvalue": {
+                                    "type": "double"
+                                },
+                                "sampleSize": {
+                                    "type": "long"
+                                },
+                                "meanValue": {
+                                    "type": "double"
+                                },
+                                "stdValue": {
+                                    "type": "double"
+                                },
+                                "varianceValue": {
+                                    "type": "double"
+                                }
+                            }
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "GetMetricData": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/applications/{applicationName}/metrics/{metricNameSpace}/{metricName}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "applicationName",
+                    "metricNameSpace",
+                    "metricName"
+                ],
+                "members": {
+                    "applicationName": {
+                        "location": "uri",
+                        "locationName": "applicationName"
+                    },
+                    "metricNameSpace": {
+                        "location": "uri",
+                        "locationName": "metricNameSpace"
+                    },
+                    "metricName": {
+                        "location": "uri",
+                        "locationName": "metricName"
+                    },
+                    "startTime": {
+                        "location": "querystring",
+                        "locationName": "startTime",
+                        "type": "timestamp"
+                    },
+                    "endTime": {
+                        "location": "querystring",
+                        "locationName": "endTime",
+                        "type": "timestamp"
+                    },
+                    "period": {
+                        "location": "querystring",
+                        "locationName": "period",
+                        "type": "integer"
+                    },
+                    "experimentId": {
+                        "location": "querystring",
+                        "locationName": "experimentId"
+                    },
+                    "treatmentAlias": {
+                        "location": "querystring",
+                        "locationName": "treatmentAlias"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "metricData": {
+                        "type": "structure",
+                        "members": {
+                            "timestamps": {
+                                "type": "list",
+                                "member": {
+                                    "type": "timestamp"
+                                }
+                            },
+                            "values": {
+                                "type": "list",
+                                "member": {
+                                    "type": "double"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "GetSegment": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/segments/{name}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "name"
+                ],
+                "members": {
+                    "name": {
+                        "location": "uri",
+                        "locationName": "name"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "segment": {
+                        "shape": "S13"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "GetSegmentationDataStore": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/segmentationdatastores/get-datastore/{name}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "name"
+                ],
+                "members": {
+                    "name": {
+                        "location": "uri",
+                        "locationName": "name"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "segmentationDataStore": {
+                        "shape": "S1h"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "GetSegmentationDataStorePreview": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/segmentationdatastores/preview/{name}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "name"
+                ],
+                "members": {
+                    "name": {
+                        "location": "uri",
+                        "locationName": "name"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "dataAttributes": {
+                        "shape": "S1b"
+                    },
+                    "previewData": {
+                        "shape": "S18"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "GetTreatmentAssignment": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/applications/{applicationName}/treatment-assignments/{userId}/{experimentId}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "userId",
+                    "applicationName",
+                    "experimentId"
+                ],
+                "members": {
+                    "userId": {
+                        "location": "uri",
+                        "locationName": "userId"
+                    },
+                    "applicationName": {
+                        "location": "uri",
+                        "locationName": "applicationName"
+                    },
+                    "experimentId": {
+                        "location": "uri",
+                        "locationName": "experimentId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "treatment": {
+                        "shape": "S32"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "ListApplications": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/applications"
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "nextToken": {
+                        "location": "querystring",
+                        "locationName": "nextToken"
+                    },
+                    "maxResults": {
+                        "location": "querystring",
+                        "locationName": "maxResults",
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "applications": {
+                        "type": "list",
+                        "member": {
+                            "shape": "S1r"
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "ListExperimentParticipants": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/applications/{applicationName}/experiments/{experimentId}/participants"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "applicationName",
+                    "experimentId"
+                ],
+                "members": {
+                    "applicationName": {
+                        "location": "uri",
+                        "locationName": "applicationName"
+                    },
+                    "experimentId": {
+                        "location": "uri",
+                        "locationName": "experimentId"
+                    },
+                    "assignmentSource": {
+                        "location": "querystring",
+                        "locationName": "assignmentSource"
+                    },
+                    "nextToken": {
+                        "location": "querystring",
+                        "locationName": "nextToken"
+                    },
+                    "maxResults": {
+                        "location": "querystring",
+                        "locationName": "maxResults",
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "treatments": {
+                        "shape": "S39"
+                    },
+                    "NextToken": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "ListExperiments": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/applications/{applicationName}/experiments"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "applicationName"
+                ],
+                "members": {
+                    "applicationName": {
+                        "location": "uri",
+                        "locationName": "applicationName"
+                    },
+                    "filter": {
+                        "location": "querystring",
+                        "locationName": "filter"
+                    },
+                    "filterValue": {
+                        "location": "querystring",
+                        "locationName": "filterValue"
+                    },
+                    "maxResults": {
+                        "location": "querystring",
+                        "locationName": "maxResults",
+                        "type": "integer"
+                    },
+                    "nextToken": {
+                        "location": "querystring",
+                        "locationName": "nextToken"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "experiments": {
+                        "type": "list",
+                        "member": {
+                            "shape": "Sn"
+                        }
+                    },
+                    "versionId": {
+                        "type": "long"
+                    },
+                    "NextToken": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "ListExposures": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/applications/{applicationName}/experiments/{experimentId}/exposures"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "applicationName",
+                    "experimentId"
+                ],
+                "members": {
+                    "applicationName": {
+                        "location": "uri",
+                        "locationName": "applicationName"
+                    },
+                    "experimentId": {
+                        "location": "uri",
+                        "locationName": "experimentId"
+                    },
+                    "maxResults": {
+                        "location": "querystring",
+                        "locationName": "maxResults",
+                        "type": "integer"
+                    },
+                    "nextToken": {
+                        "location": "querystring",
+                        "locationName": "nextToken"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "exposures": {
+                        "type": "list",
+                        "member": {
+                            "shape": "S3h"
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "ListMetrics": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/applications/{applicationName}/metrics"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "applicationName"
+                ],
+                "members": {
+                    "nextToken": {
+                        "location": "querystring",
+                        "locationName": "nextToken"
+                    },
+                    "maxResults": {
+                        "location": "querystring",
+                        "locationName": "maxResults",
+                        "type": "integer"
+                    },
+                    "applicationName": {
+                        "location": "uri",
+                        "locationName": "applicationName"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "metrics": {
+                        "shape": "S3k"
+                    },
+                    "NextToken": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "ListOrCreateTreatmentAssignments": {
+            "http": {
+                "requestUri": "/applications/{applicationName}/treatment-assignments/{userId}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "userId",
+                    "applicationName"
+                ],
+                "members": {
+                    "userId": {
+                        "location": "uri",
+                        "locationName": "userId"
+                    },
+                    "applicationName": {
+                        "location": "uri",
+                        "locationName": "applicationName"
+                    },
+                    "nextToken": {
+                        "location": "querystring",
+                        "locationName": "next-token"
+                    },
+                    "maxResults": {
+                        "location": "querystring",
+                        "locationName": "max-results",
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "treatments": {
+                        "shape": "S39"
+                    },
+                    "NextToken": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "ListSegmentationDataStores": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/segmentationdatastores"
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "nextToken": {
+                        "location": "querystring",
+                        "locationName": "nextToken"
+                    },
+                    "maxResults": {
+                        "location": "querystring",
+                        "locationName": "maxResults",
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "datastores": {
+                        "type": "list",
+                        "member": {
+                            "shape": "S1h"
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "ListSegments": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/segments"
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "nextToken": {
+                        "location": "querystring",
+                        "locationName": "nextToken"
+                    },
+                    "maxResults": {
+                        "location": "querystring",
+                        "locationName": "maxResults",
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "segments": {
+                        "type": "list",
+                        "member": {
+                            "shape": "S13"
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "ListTreatmentAssignments": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/applications/{applicationName}/treatment-assignments/{userId}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "userId",
+                    "applicationName"
+                ],
+                "members": {
+                    "userId": {
+                        "location": "uri",
+                        "locationName": "userId"
+                    },
+                    "applicationName": {
+                        "location": "uri",
+                        "locationName": "applicationName"
+                    },
+                    "nextToken": {
+                        "location": "querystring",
+                        "locationName": "next-token"
+                    },
+                    "maxResults": {
+                        "location": "querystring",
+                        "locationName": "max-results",
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "treatments": {
+                        "shape": "S39"
+                    },
+                    "NextToken": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "LogTreatmentAssignment": {
+            "http": {
+                "requestUri": "/applications/{applicationName}/treatment-assignments/{userId}/{experimentId}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "applicationName",
+                    "experimentId",
+                    "userId",
+                    "treatmentAssignment"
+                ],
+                "members": {
+                    "applicationName": {
+                        "location": "uri",
+                        "locationName": "applicationName"
+                    },
+                    "experimentId": {
+                        "location": "uri",
+                        "locationName": "experimentId"
+                    },
+                    "userId": {
+                        "location": "uri",
+                        "locationName": "userId"
+                    },
+                    "treatmentAssignment": {
+                        "shape": "S32"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "PutBatchMetrics": {
+            "http": {
+                "requestUri": "/applications/{applicationName}/metrics"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "applicationName",
+                    "metricsList"
+                ],
+                "members": {
+                    "accountId": {},
+                    "applicationName": {
+                        "location": "uri",
+                        "locationName": "applicationName"
+                    },
+                    "applicationVersionId": {
+                        "type": "long"
+                    },
+                    "userAgent": {},
+                    "metricsList": {
+                        "shape": "S3k"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "storedMetricsNumber": {
+                        "type": "integer"
+                    },
+                    "errorMetrics": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "metricNameSpace": {},
+                                "metricName": {},
+                                "error": {}
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "PutExposure": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/applications/{applicationName}/experiments/{experimentId}/exposures"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "applicationName",
+                    "experimentId",
+                    "exposure"
+                ],
+                "members": {
+                    "applicationName": {
+                        "location": "uri",
+                        "locationName": "applicationName"
+                    },
+                    "experimentId": {
+                        "location": "uri",
+                        "locationName": "experimentId"
+                    },
+                    "exposure": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "exposure": {
+                        "shape": "S3h"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "PutMetric": {
+            "http": {
+                "requestUri": "/applications/{applicationName}/metrics/{metricNameSpace}/{metricName}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "applicationName",
+                    "metricName",
+                    "metricNameSpace"
+                ],
+                "members": {
+                    "accountId": {},
+                    "applicationName": {
+                        "location": "uri",
+                        "locationName": "applicationName"
+                    },
+                    "eventType": {},
+                    "metricName": {
+                        "location": "uri",
+                        "locationName": "metricName"
+                    },
+                    "metricNameSpace": {
+                        "location": "uri",
+                        "locationName": "metricNameSpace"
+                    },
+                    "pageUrl": {},
+                    "userAgent": {},
+                    "applicationVersionId": {
+                        "type": "long"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "metric": {
+                        "shape": "S20"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "PutTreatmentAssignment": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/applications/{applicationName}/treatment-assignments/{userId}/{experimentId}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "applicationName",
+                    "experimentId",
+                    "userId",
+                    "treatmentAlias"
+                ],
+                "members": {
+                    "applicationName": {
+                        "location": "uri",
+                        "locationName": "applicationName"
+                    },
+                    "experimentId": {
+                        "location": "uri",
+                        "locationName": "experimentId"
+                    },
+                    "userId": {
+                        "location": "uri",
+                        "locationName": "userId"
+                    },
+                    "treatmentAlias": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "treatment": {
+                        "shape": "S32"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "RegisterApplication": {
+            "http": {
+                "requestUri": "/applications"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "applicationName"
+                ],
+                "members": {
+                    "applicationName": {},
+                    "screenshotSetting": {},
+                    "customerManagedStorage": {
+                        "shape": "S1w"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "application": {
+                        "shape": "S1r"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "ScheduleExperiment": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/applications/{applicationName}/experiments/{experimentId}/schedule"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "applicationName",
+                    "experimentId",
+                    "endTime"
+                ],
+                "members": {
+                    "applicationName": {
+                        "location": "uri",
+                        "locationName": "applicationName"
+                    },
+                    "experimentId": {
+                        "location": "uri",
+                        "locationName": "experimentId"
+                    },
+                    "startTime": {
+                        "type": "timestamp"
+                    },
+                    "endTime": {
+                        "type": "timestamp"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "experiment": {
+                        "shape": "Sn"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "StopExperiment": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/applications/{applicationName}/experiments/{experimentId}/schedule/stopAction"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "applicationName",
+                    "experimentId"
+                ],
+                "members": {
+                    "applicationName": {
+                        "location": "uri",
+                        "locationName": "applicationName"
+                    },
+                    "experimentId": {
+                        "location": "uri",
+                        "locationName": "experimentId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "experiment": {
+                        "shape": "Sn"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        }
+    },
+    "shapes": {
+        "S4": {
+            "type": "structure",
+            "members": {
+                "successCriteria": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "members": {
+                            "metricGroupId": {},
+                            "metricName": {},
+                            "metricNameSpace": {},
+                            "hypothesis": {},
+                            "hypothesizedChangePercentage": {
+                                "type": "double"
+                            }
+                        }
+                    }
+                },
+                "completionAction": {}
+            }
+        },
+        "Sc": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "treatmentAlias": {},
+                    "name": {},
+                    "description": {},
+                    "type": {},
+                    "proportion": {
+                        "type": "integer"
+                    },
+                    "successMetrics": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "metricGroupId": {},
+                                "metric": {
+                                    "type": "structure",
+                                    "members": {
+                                        "metricName": {},
+                                        "metricNameSpace": {}
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "Sn": {
+            "type": "structure",
+            "members": {
+                "applicationName": {},
+                "experimentId": {},
+                "description": {},
+                "duration": {
+                    "type": "long"
+                },
+                "endTime": {
+                    "type": "timestamp"
+                },
+                "evaluationCriteria": {
+                    "shape": "S4"
+                },
+                "experimentAlias": {},
+                "name": {},
+                "createTime": {
+                    "type": "timestamp"
+                },
+                "startTime": {
+                    "type": "timestamp"
+                },
+                "state": {},
+                "treatments": {
+                    "shape": "Sc"
+                },
+                "treatmentAssignmentType": {},
+                "exposure": {
+                    "type": "integer"
+                },
+                "segmentName": {},
+                "assignmentGenerator": {}
+            }
+        },
+        "Ss": {
+            "type": "structure",
+            "members": {
+                "segmentRuleExpression": {},
+                "segmentRuleMap": {
+                    "type": "map",
+                    "key": {},
+                    "value": {
+                        "type": "structure",
+                        "members": {
+                            "segmentationRules": {
+                                "type": "structure",
+                                "members": {
+                                    "rulesExpression": {},
+                                    "nameMap": {
+                                        "type": "map",
+                                        "key": {},
+                                        "value": {}
+                                    },
+                                    "valueMap": {
+                                        "type": "map",
+                                        "key": {},
+                                        "value": {
+                                            "type": "structure",
+                                            "members": {
+                                                "value": {},
+                                                "type": {}
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            "segmentationDataStoreName": {}
+                        }
+                    }
+                }
+            }
+        },
+        "S13": {
+            "type": "structure",
+            "members": {
+                "name": {},
+                "segmentBuilder": {
+                    "shape": "Ss"
+                },
+                "segmentDescription": {},
+                "createTime": {
+                    "type": "timestamp"
+                },
+                "lastModifiedTime": {
+                    "type": "timestamp"
+                },
+                "segmentStatus": {}
+            }
+        },
+        "S16": {
+            "type": "structure",
+            "members": {
+                "dataStoreSource": {
+                    "type": "structure",
+                    "members": {
+                        "localUpload": {
+                            "shape": "S18"
+                        },
+                        "dataStorage": {
+                            "type": "structure",
+                            "members": {
+                                "locationUri": {}
+                            }
+                        }
+                    }
+                },
+                "dataAttributes": {
+                    "shape": "S1b"
+                },
+                "containsHeader": {
+                    "type": "boolean"
+                },
+                "importSettings": {
+                    "type": "structure",
+                    "members": {
+                        "mimeType": {}
+                    }
+                }
+            }
+        },
+        "S18": {
+            "type": "list",
+            "member": {}
+        },
+        "S1b": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "attributeName": {},
+                    "attributeType": {}
+                }
+            }
+        },
+        "S1h": {
+            "type": "structure",
+            "members": {
+                "name": {},
+                "dataAttributes": {
+                    "shape": "S1b"
+                },
+                "importSource": {},
+                "userCount": {
+                    "type": "long"
+                },
+                "createTime": {
+                    "type": "timestamp"
+                },
+                "lastModifiedTime": {
+                    "type": "timestamp"
+                },
+                "importSegmentationDataEvent": {
+                    "type": "structure",
+                    "members": {
+                        "dataStoreStatus": {},
+                        "importFailedCount": {
+                            "type": "long"
+                        },
+                        "importFailedDataOutputPath": {},
+                        "message": {}
+                    }
+                }
+            }
+        },
+        "S1r": {
+            "type": "structure",
+            "members": {
+                "accountId": {},
+                "applicationName": {},
+                "applicationRegisterId": {},
+                "registerDate": {
+                    "type": "timestamp"
+                },
+                "storageDestination": {
+                    "deprecated": true
+                },
+                "storageConfig": {
+                    "type": "structure",
+                    "members": {
+                        "managedBy": {},
+                        "customerManagedStorage": {
+                            "shape": "S1w"
+                        }
+                    }
+                },
+                "screenshotSetting": {}
+            }
+        },
+        "S1w": {
+            "type": "structure",
+            "members": {
+                "resource": {}
+            }
+        },
+        "S20": {
+            "type": "structure",
+            "members": {
+                "applicationName": {},
+                "eventType": {},
+                "metricPath": {},
+                "metricNameSpace": {},
+                "metricName": {},
+                "pageUrl": {},
+                "eventTime": {
+                    "type": "long"
+                },
+                "customAttributes": {
+                    "type": "structure",
+                    "members": {
+                        "pageTitle": {},
+                        "referrerUrl": {},
+                        "timeZone": {},
+                        "language": {},
+                        "platform": {},
+                        "deviceResolution": {}
+                    }
+                }
+            }
+        },
+        "S32": {
+            "type": "structure",
+            "members": {
+                "experimentAlias": {},
+                "experimentId": {},
+                "userId": {},
+                "treatmentAlias": {},
+                "assignmentDate": {
+                    "type": "timestamp"
+                },
+                "bucket": {
+                    "type": "integer"
+                }
+            }
+        },
+        "S39": {
+            "type": "list",
+            "member": {
+                "shape": "S32"
+            }
+        },
+        "S3h": {
+            "type": "structure",
+            "members": {
+                "timestamp": {
+                    "type": "timestamp"
+                },
+                "percentage": {
+                    "type": "integer"
+                }
+            }
+        },
+        "S3k": {
+            "type": "list",
+            "member": {
+                "shape": "S20"
+            }
+        }
+    }
+}

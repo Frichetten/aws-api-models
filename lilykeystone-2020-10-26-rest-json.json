@@ -1,0 +1,1878 @@
+{
+    "version": "2.0",
+    "metadata": {
+        "apiVersion": "2020-10-26",
+        "endpointPrefix": "cases",
+        "jsonVersion": "1.1",
+        "protocol": "rest-json",
+        "serviceAbbreviation": "AmazonKeystone",
+        "serviceFullName": "Amazon Keystone Service",
+        "serviceId": "LilyKeystone",
+        "signatureVersion": "v4",
+        "signingName": "cases",
+        "uid": "lilykeystone-2020-10-26",
+        "download_location": [
+            "https://c.d.cdn.console.awsstatic.com/a/v1/ZAWFNVUCQB4JEXKWL6F6FFT4P7AKYYGWM37WX2KLWL77FLPV6YAQ/main.min.js"
+        ]
+    },
+    "operations": {
+        "BatchGetField": {
+            "http": {
+                "requestUri": "/domains/{domainId}/fields-batch",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "domainId",
+                    "fields"
+                ],
+                "members": {
+                    "domainId": {
+                        "location": "uri",
+                        "locationName": "domainId"
+                    },
+                    "fields": {
+                        "type": "list",
+                        "member": {
+                            "shape": "S4"
+                        }
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "errors",
+                    "fields"
+                ],
+                "members": {
+                    "errors": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "errorCode",
+                                "id"
+                            ],
+                            "members": {
+                                "errorCode": {},
+                                "id": {},
+                                "message": {}
+                            }
+                        }
+                    },
+                    "fields": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "fieldArn",
+                                "fieldId",
+                                "name",
+                                "namespace",
+                                "type"
+                            ],
+                            "members": {
+                                "description": {},
+                                "fieldArn": {},
+                                "fieldId": {},
+                                "name": {},
+                                "namespace": {},
+                                "tags": {
+                                    "shape": "Sg"
+                                },
+                                "type": {}
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://c.d.cdn.console.awsstatic.com/a/v1/ZAWFNVUCQB4JEXKWL6F6FFT4P7AKYYGWM37WX2KLWL77FLPV6YAQ/main.min.js"
+            ]
+        },
+        "BatchPutFieldOptions": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/domains/{domainId}/fields/{fieldId}/options",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "domainId",
+                    "fieldId",
+                    "options"
+                ],
+                "members": {
+                    "domainId": {
+                        "location": "uri",
+                        "locationName": "domainId"
+                    },
+                    "fieldId": {
+                        "location": "uri",
+                        "locationName": "fieldId"
+                    },
+                    "options": {
+                        "type": "list",
+                        "member": {
+                            "shape": "Sk"
+                        }
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "errors": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "errorCode",
+                                "message",
+                                "value"
+                            ],
+                            "members": {
+                                "errorCode": {},
+                                "message": {},
+                                "value": {}
+                            }
+                        }
+                    }
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://c.d.cdn.console.awsstatic.com/a/v1/ZAWFNVUCQB4JEXKWL6F6FFT4P7AKYYGWM37WX2KLWL77FLPV6YAQ/main.min.js"
+            ]
+        },
+        "CreateCase": {
+            "http": {
+                "requestUri": "/domains/{domainId}/cases",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "domainId",
+                    "fields",
+                    "templateId"
+                ],
+                "members": {
+                    "clientToken": {
+                        "idempotencyToken": true
+                    },
+                    "domainId": {
+                        "location": "uri",
+                        "locationName": "domainId"
+                    },
+                    "fields": {
+                        "type": "list",
+                        "member": {
+                            "shape": "Su"
+                        }
+                    },
+                    "templateId": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "caseArn",
+                    "caseId"
+                ],
+                "members": {
+                    "caseArn": {},
+                    "caseId": {}
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://c.d.cdn.console.awsstatic.com/a/v1/ZAWFNVUCQB4JEXKWL6F6FFT4P7AKYYGWM37WX2KLWL77FLPV6YAQ/main.min.js"
+            ]
+        },
+        "CreateDomain": {
+            "http": {
+                "requestUri": "/domains",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "name"
+                ],
+                "members": {
+                    "name": {},
+                    "serverSideEncryptionConfiguration": {
+                        "shape": "S14"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "domainArn",
+                    "domainId",
+                    "domainStatus"
+                ],
+                "members": {
+                    "domainArn": {},
+                    "domainId": {},
+                    "domainStatus": {}
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://c.d.cdn.console.awsstatic.com/a/v1/ZAWFNVUCQB4JEXKWL6F6FFT4P7AKYYGWM37WX2KLWL77FLPV6YAQ/main.min.js"
+            ]
+        },
+        "CreateField": {
+            "http": {
+                "requestUri": "/domains/{domainId}/fields",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "domainId",
+                    "name",
+                    "type"
+                ],
+                "members": {
+                    "description": {},
+                    "domainId": {
+                        "location": "uri",
+                        "locationName": "domainId"
+                    },
+                    "name": {},
+                    "type": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "fieldArn",
+                    "fieldId"
+                ],
+                "members": {
+                    "fieldArn": {},
+                    "fieldId": {}
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://c.d.cdn.console.awsstatic.com/a/v1/ZAWFNVUCQB4JEXKWL6F6FFT4P7AKYYGWM37WX2KLWL77FLPV6YAQ/main.min.js"
+            ]
+        },
+        "CreateLayout": {
+            "http": {
+                "requestUri": "/domains/{domainId}/layouts",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "content",
+                    "domainId",
+                    "name"
+                ],
+                "members": {
+                    "content": {
+                        "shape": "S1c"
+                    },
+                    "domainId": {
+                        "location": "uri",
+                        "locationName": "domainId"
+                    },
+                    "name": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "layoutArn",
+                    "layoutId"
+                ],
+                "members": {
+                    "layoutArn": {},
+                    "layoutId": {}
+                }
+            },
+            "download_location": [
+                "https://c.d.cdn.console.awsstatic.com/a/v1/ZAWFNVUCQB4JEXKWL6F6FFT4P7AKYYGWM37WX2KLWL77FLPV6YAQ/main.min.js"
+            ]
+        },
+        "CreateRelatedItem": {
+            "http": {
+                "requestUri": "/domains/{domainId}/cases/{caseId}/related-items/",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "caseId",
+                    "content",
+                    "domainId",
+                    "type"
+                ],
+                "members": {
+                    "caseId": {
+                        "location": "uri",
+                        "locationName": "caseId"
+                    },
+                    "content": {
+                        "type": "structure",
+                        "members": {
+                            "attachment": {
+                                "shape": "S1r"
+                            },
+                            "comment": {
+                                "shape": "S1t"
+                            },
+                            "contact": {
+                                "type": "structure",
+                                "required": [
+                                    "contactArn"
+                                ],
+                                "members": {
+                                    "contactArn": {}
+                                }
+                            }
+                        },
+                        "union": true
+                    },
+                    "domainId": {
+                        "location": "uri",
+                        "locationName": "domainId"
+                    },
+                    "type": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "relatedItemArn",
+                    "relatedItemId"
+                ],
+                "members": {
+                    "relatedItemArn": {},
+                    "relatedItemId": {}
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://c.d.cdn.console.awsstatic.com/a/v1/ZAWFNVUCQB4JEXKWL6F6FFT4P7AKYYGWM37WX2KLWL77FLPV6YAQ/main.min.js"
+            ]
+        },
+        "CreateTemplate": {
+            "http": {
+                "requestUri": "/domains/{domainId}/templates",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "domainId",
+                    "name"
+                ],
+                "members": {
+                    "defaultValues": {
+                        "shape": "S23"
+                    },
+                    "description": {},
+                    "domainId": {
+                        "location": "uri",
+                        "locationName": "domainId"
+                    },
+                    "layoutConfiguration": {
+                        "shape": "S26"
+                    },
+                    "name": {},
+                    "requiredFields": {
+                        "shape": "S28"
+                    },
+                    "status": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "templateArn",
+                    "templateId"
+                ],
+                "members": {
+                    "templateArn": {},
+                    "templateId": {}
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://c.d.cdn.console.awsstatic.com/a/v1/ZAWFNVUCQB4JEXKWL6F6FFT4P7AKYYGWM37WX2KLWL77FLPV6YAQ/main.min.js"
+            ]
+        },
+        "DeleteCase": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/domains/{domainId}/cases/{caseId}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "caseId",
+                    "domainId"
+                ],
+                "members": {
+                    "caseId": {
+                        "location": "uri",
+                        "locationName": "caseId"
+                    },
+                    "domainId": {
+                        "location": "uri",
+                        "locationName": "domainId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://c.d.cdn.console.awsstatic.com/a/v1/ZAWFNVUCQB4JEXKWL6F6FFT4P7AKYYGWM37WX2KLWL77FLPV6YAQ/main.min.js"
+            ]
+        },
+        "DeleteDomain": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/domains/{domainId}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "domainId"
+                ],
+                "members": {
+                    "domainId": {
+                        "location": "uri",
+                        "locationName": "domainId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://c.d.cdn.console.awsstatic.com/a/v1/ZAWFNVUCQB4JEXKWL6F6FFT4P7AKYYGWM37WX2KLWL77FLPV6YAQ/main.min.js"
+            ]
+        },
+        "DeleteField": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/domains/{domainId}/fields/{fieldId}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "domainId",
+                    "fieldId"
+                ],
+                "members": {
+                    "domainId": {
+                        "location": "uri",
+                        "locationName": "domainId"
+                    },
+                    "fieldId": {
+                        "location": "uri",
+                        "locationName": "fieldId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://c.d.cdn.console.awsstatic.com/a/v1/ZAWFNVUCQB4JEXKWL6F6FFT4P7AKYYGWM37WX2KLWL77FLPV6YAQ/main.min.js"
+            ]
+        },
+        "DeleteLayout": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/domains/{domainId}/layouts/{layoutId}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "domainId",
+                    "layoutId"
+                ],
+                "members": {
+                    "domainId": {
+                        "location": "uri",
+                        "locationName": "domainId"
+                    },
+                    "layoutId": {
+                        "location": "uri",
+                        "locationName": "layoutId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://c.d.cdn.console.awsstatic.com/a/v1/ZAWFNVUCQB4JEXKWL6F6FFT4P7AKYYGWM37WX2KLWL77FLPV6YAQ/main.min.js"
+            ]
+        },
+        "DeleteTemplate": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/domains/{domainId}/templates/{templateId}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "domainId",
+                    "templateId"
+                ],
+                "members": {
+                    "domainId": {
+                        "location": "uri",
+                        "locationName": "domainId"
+                    },
+                    "templateId": {
+                        "location": "uri",
+                        "locationName": "templateId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://c.d.cdn.console.awsstatic.com/a/v1/ZAWFNVUCQB4JEXKWL6F6FFT4P7AKYYGWM37WX2KLWL77FLPV6YAQ/main.min.js"
+            ]
+        },
+        "GetCase": {
+            "http": {
+                "requestUri": "/domains/{domainId}/cases/{caseId}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "caseId",
+                    "domainId",
+                    "fields"
+                ],
+                "members": {
+                    "caseId": {
+                        "location": "uri",
+                        "locationName": "caseId"
+                    },
+                    "domainId": {
+                        "location": "uri",
+                        "locationName": "domainId"
+                    },
+                    "fields": {
+                        "type": "list",
+                        "member": {
+                            "shape": "S4"
+                        }
+                    },
+                    "nextToken": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "fields",
+                    "templateId"
+                ],
+                "members": {
+                    "fields": {
+                        "type": "list",
+                        "member": {
+                            "shape": "Su"
+                        }
+                    },
+                    "nextToken": {},
+                    "tags": {
+                        "shape": "Sg"
+                    },
+                    "templateId": {}
+                }
+            },
+            "download_location": [
+                "https://c.d.cdn.console.awsstatic.com/a/v1/ZAWFNVUCQB4JEXKWL6F6FFT4P7AKYYGWM37WX2KLWL77FLPV6YAQ/main.min.js"
+            ]
+        },
+        "GetCaseEventConfiguration": {
+            "http": {
+                "requestUri": "/domains/{domainId}/case-event-configuration",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "domainId"
+                ],
+                "members": {
+                    "domainId": {
+                        "location": "uri",
+                        "locationName": "domainId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "eventBridge"
+                ],
+                "members": {
+                    "eventBridge": {
+                        "shape": "S2u"
+                    }
+                }
+            },
+            "download_location": [
+                "https://c.d.cdn.console.awsstatic.com/a/v1/ZAWFNVUCQB4JEXKWL6F6FFT4P7AKYYGWM37WX2KLWL77FLPV6YAQ/main.min.js"
+            ]
+        },
+        "GetDomain": {
+            "http": {
+                "requestUri": "/domains/{domainId}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "domainId"
+                ],
+                "members": {
+                    "domainId": {
+                        "location": "uri",
+                        "locationName": "domainId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "createdTime",
+                    "domainArn",
+                    "domainId",
+                    "domainStatus",
+                    "name",
+                    "tags"
+                ],
+                "members": {
+                    "createdTime": {
+                        "type": "timestamp",
+                        "timestampFormat": "iso8601"
+                    },
+                    "domainArn": {},
+                    "domainId": {},
+                    "domainStatus": {},
+                    "name": {},
+                    "serverSideEncryptionConfiguration": {
+                        "shape": "S14"
+                    },
+                    "tags": {
+                        "shape": "Sg"
+                    }
+                }
+            },
+            "download_location": [
+                "https://c.d.cdn.console.awsstatic.com/a/v1/ZAWFNVUCQB4JEXKWL6F6FFT4P7AKYYGWM37WX2KLWL77FLPV6YAQ/main.min.js"
+            ]
+        },
+        "GetLayout": {
+            "http": {
+                "requestUri": "/domains/{domainId}/layouts/{layoutId}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "domainId",
+                    "layoutId"
+                ],
+                "members": {
+                    "domainId": {
+                        "location": "uri",
+                        "locationName": "domainId"
+                    },
+                    "layoutId": {
+                        "location": "uri",
+                        "locationName": "layoutId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "content",
+                    "layoutArn",
+                    "layoutId",
+                    "name"
+                ],
+                "members": {
+                    "content": {
+                        "shape": "S1c"
+                    },
+                    "layoutArn": {},
+                    "layoutId": {},
+                    "name": {},
+                    "tags": {
+                        "shape": "Sg"
+                    }
+                }
+            },
+            "download_location": [
+                "https://c.d.cdn.console.awsstatic.com/a/v1/ZAWFNVUCQB4JEXKWL6F6FFT4P7AKYYGWM37WX2KLWL77FLPV6YAQ/main.min.js"
+            ]
+        },
+        "GetTemplate": {
+            "http": {
+                "requestUri": "/domains/{domainId}/templates/{templateId}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "domainId",
+                    "templateId"
+                ],
+                "members": {
+                    "domainId": {
+                        "location": "uri",
+                        "locationName": "domainId"
+                    },
+                    "templateId": {
+                        "location": "uri",
+                        "locationName": "templateId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "name",
+                    "status",
+                    "templateArn",
+                    "templateId"
+                ],
+                "members": {
+                    "defaultValues": {
+                        "shape": "S23"
+                    },
+                    "description": {},
+                    "layoutConfiguration": {
+                        "shape": "S26"
+                    },
+                    "name": {},
+                    "requiredFields": {
+                        "shape": "S28"
+                    },
+                    "status": {},
+                    "tags": {
+                        "shape": "Sg"
+                    },
+                    "templateArn": {},
+                    "templateId": {}
+                }
+            },
+            "download_location": [
+                "https://c.d.cdn.console.awsstatic.com/a/v1/ZAWFNVUCQB4JEXKWL6F6FFT4P7AKYYGWM37WX2KLWL77FLPV6YAQ/main.min.js"
+            ]
+        },
+        "ListCasesForContact": {
+            "http": {
+                "requestUri": "/domains/{domainId}/list-cases-for-contact",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "contactArn",
+                    "domainId"
+                ],
+                "members": {
+                    "contactArn": {},
+                    "domainId": {
+                        "location": "uri",
+                        "locationName": "domainId"
+                    },
+                    "maxResults": {
+                        "type": "integer"
+                    },
+                    "nextToken": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "cases"
+                ],
+                "members": {
+                    "cases": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "caseId",
+                                "templateId"
+                            ],
+                            "members": {
+                                "caseId": {},
+                                "templateId": {}
+                            }
+                        }
+                    },
+                    "nextToken": {}
+                }
+            },
+            "download_location": [
+                "https://c.d.cdn.console.awsstatic.com/a/v1/ZAWFNVUCQB4JEXKWL6F6FFT4P7AKYYGWM37WX2KLWL77FLPV6YAQ/main.min.js"
+            ]
+        },
+        "ListDomains": {
+            "http": {
+                "requestUri": "/domains-list",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "maxResults": {
+                        "location": "querystring",
+                        "locationName": "maxResults",
+                        "type": "integer"
+                    },
+                    "nextToken": {
+                        "location": "querystring",
+                        "locationName": "nextToken"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "domains"
+                ],
+                "members": {
+                    "domains": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "domainArn",
+                                "domainId",
+                                "name"
+                            ],
+                            "members": {
+                                "domainArn": {},
+                                "domainId": {},
+                                "name": {}
+                            }
+                        }
+                    },
+                    "nextToken": {}
+                }
+            },
+            "download_location": [
+                "https://c.d.cdn.console.awsstatic.com/a/v1/ZAWFNVUCQB4JEXKWL6F6FFT4P7AKYYGWM37WX2KLWL77FLPV6YAQ/main.min.js"
+            ]
+        },
+        "ListFieldOptions": {
+            "http": {
+                "requestUri": "/domains/{domainId}/fields/{fieldId}/options-list",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "domainId",
+                    "fieldId"
+                ],
+                "members": {
+                    "domainId": {
+                        "location": "uri",
+                        "locationName": "domainId"
+                    },
+                    "fieldId": {
+                        "location": "uri",
+                        "locationName": "fieldId"
+                    },
+                    "isActive": {
+                        "location": "querystring",
+                        "locationName": "isActive",
+                        "type": "boolean"
+                    },
+                    "maxResults": {
+                        "location": "querystring",
+                        "locationName": "maxResults",
+                        "type": "integer"
+                    },
+                    "nextToken": {
+                        "location": "querystring",
+                        "locationName": "nextToken"
+                    },
+                    "values": {
+                        "location": "querystring",
+                        "locationName": "values",
+                        "type": "list",
+                        "member": {}
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "options"
+                ],
+                "members": {
+                    "nextToken": {},
+                    "options": {
+                        "type": "list",
+                        "member": {
+                            "shape": "Sk"
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://c.d.cdn.console.awsstatic.com/a/v1/ZAWFNVUCQB4JEXKWL6F6FFT4P7AKYYGWM37WX2KLWL77FLPV6YAQ/main.min.js"
+            ]
+        },
+        "ListFields": {
+            "http": {
+                "requestUri": "/domains/{domainId}/fields-list",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "domainId"
+                ],
+                "members": {
+                    "domainId": {
+                        "location": "uri",
+                        "locationName": "domainId"
+                    },
+                    "maxResults": {
+                        "location": "querystring",
+                        "locationName": "maxResults",
+                        "type": "integer"
+                    },
+                    "nextToken": {
+                        "location": "querystring",
+                        "locationName": "nextToken"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "fields"
+                ],
+                "members": {
+                    "fields": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "fieldArn",
+                                "fieldId",
+                                "name",
+                                "namespace",
+                                "type"
+                            ],
+                            "members": {
+                                "fieldArn": {},
+                                "fieldId": {},
+                                "name": {},
+                                "namespace": {},
+                                "type": {}
+                            }
+                        }
+                    },
+                    "nextToken": {}
+                }
+            },
+            "download_location": [
+                "https://c.d.cdn.console.awsstatic.com/a/v1/ZAWFNVUCQB4JEXKWL6F6FFT4P7AKYYGWM37WX2KLWL77FLPV6YAQ/main.min.js"
+            ]
+        },
+        "ListLayouts": {
+            "http": {
+                "requestUri": "/domains/{domainId}/layouts-list",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "domainId"
+                ],
+                "members": {
+                    "domainId": {
+                        "location": "uri",
+                        "locationName": "domainId"
+                    },
+                    "maxResults": {
+                        "location": "querystring",
+                        "locationName": "maxResults",
+                        "type": "integer"
+                    },
+                    "nextToken": {
+                        "location": "querystring",
+                        "locationName": "nextToken"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "layouts"
+                ],
+                "members": {
+                    "layouts": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "layoutArn",
+                                "layoutId",
+                                "name"
+                            ],
+                            "members": {
+                                "layoutArn": {},
+                                "layoutId": {},
+                                "name": {}
+                            }
+                        }
+                    },
+                    "nextToken": {}
+                }
+            },
+            "download_location": [
+                "https://c.d.cdn.console.awsstatic.com/a/v1/ZAWFNVUCQB4JEXKWL6F6FFT4P7AKYYGWM37WX2KLWL77FLPV6YAQ/main.min.js"
+            ]
+        },
+        "ListTagsForResource": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/tags/{arn}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "arn"
+                ],
+                "members": {
+                    "arn": {
+                        "location": "uri",
+                        "locationName": "arn"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "tags": {
+                        "shape": "Sg"
+                    }
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://c.d.cdn.console.awsstatic.com/a/v1/ZAWFNVUCQB4JEXKWL6F6FFT4P7AKYYGWM37WX2KLWL77FLPV6YAQ/main.min.js"
+            ]
+        },
+        "ListTemplates": {
+            "http": {
+                "requestUri": "/domains/{domainId}/templates-list",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "domainId"
+                ],
+                "members": {
+                    "domainId": {
+                        "location": "uri",
+                        "locationName": "domainId"
+                    },
+                    "maxResults": {
+                        "location": "querystring",
+                        "locationName": "maxResults",
+                        "type": "integer"
+                    },
+                    "nextToken": {
+                        "location": "querystring",
+                        "locationName": "nextToken"
+                    },
+                    "status": {
+                        "location": "querystring",
+                        "locationName": "status",
+                        "type": "list",
+                        "member": {}
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "templates"
+                ],
+                "members": {
+                    "nextToken": {},
+                    "templates": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "arn",
+                                "id",
+                                "name",
+                                "status",
+                                "templateArn",
+                                "templateId"
+                            ],
+                            "members": {
+                                "arn": {
+                                    "deprecated": true,
+                                    "deprecatedMessage": "This parameter will be removed soon, templateArn should be used instead."
+                                },
+                                "description": {},
+                                "id": {
+                                    "deprecated": true,
+                                    "deprecatedMessage": "This parameter will be removed soon, templateId should be used instead."
+                                },
+                                "name": {},
+                                "status": {},
+                                "templateArn": {},
+                                "templateId": {}
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://c.d.cdn.console.awsstatic.com/a/v1/ZAWFNVUCQB4JEXKWL6F6FFT4P7AKYYGWM37WX2KLWL77FLPV6YAQ/main.min.js"
+            ]
+        },
+        "PutCaseEventConfiguration": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/domains/{domainId}/case-event-configuration",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "domainId",
+                    "eventBridge"
+                ],
+                "members": {
+                    "domainId": {
+                        "location": "uri",
+                        "locationName": "domainId"
+                    },
+                    "eventBridge": {
+                        "shape": "S2u"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://c.d.cdn.console.awsstatic.com/a/v1/ZAWFNVUCQB4JEXKWL6F6FFT4P7AKYYGWM37WX2KLWL77FLPV6YAQ/main.min.js"
+            ]
+        },
+        "SearchCases": {
+            "http": {
+                "requestUri": "/domains/{domainId}/cases-search",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "domainId"
+                ],
+                "members": {
+                    "domainId": {
+                        "location": "uri",
+                        "locationName": "domainId"
+                    },
+                    "fields": {
+                        "type": "list",
+                        "member": {
+                            "shape": "S4"
+                        }
+                    },
+                    "filter": {
+                        "shape": "S46"
+                    },
+                    "maxResults": {
+                        "type": "integer"
+                    },
+                    "nextToken": {},
+                    "searchTerm": {},
+                    "sorts": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "fieldId",
+                                "sortOrder"
+                            ],
+                            "members": {
+                                "fieldId": {},
+                                "sortOrder": {}
+                            }
+                        }
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "cases"
+                ],
+                "members": {
+                    "cases": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "caseId",
+                                "fields",
+                                "templateId"
+                            ],
+                            "members": {
+                                "caseId": {},
+                                "fields": {
+                                    "type": "list",
+                                    "member": {
+                                        "shape": "Su"
+                                    }
+                                },
+                                "tags": {
+                                    "shape": "Sg"
+                                },
+                                "templateId": {}
+                            }
+                        }
+                    },
+                    "nextToken": {}
+                }
+            },
+            "download_location": [
+                "https://c.d.cdn.console.awsstatic.com/a/v1/ZAWFNVUCQB4JEXKWL6F6FFT4P7AKYYGWM37WX2KLWL77FLPV6YAQ/main.min.js"
+            ]
+        },
+        "SearchRelatedItems": {
+            "http": {
+                "requestUri": "/domains/{domainId}/cases/{caseId}/related-items-search",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "caseId",
+                    "domainId"
+                ],
+                "members": {
+                    "caseId": {
+                        "location": "uri",
+                        "locationName": "caseId"
+                    },
+                    "domainId": {
+                        "location": "uri",
+                        "locationName": "domainId"
+                    },
+                    "filters": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "attachment": {
+                                    "type": "structure",
+                                    "members": {}
+                                },
+                                "comment": {
+                                    "type": "structure",
+                                    "members": {}
+                                },
+                                "contact": {
+                                    "type": "structure",
+                                    "members": {
+                                        "channel": {
+                                            "type": "list",
+                                            "member": {}
+                                        },
+                                        "contactArn": {}
+                                    }
+                                }
+                            },
+                            "union": true
+                        }
+                    },
+                    "maxResults": {
+                        "type": "integer"
+                    },
+                    "nextToken": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "relatedItems"
+                ],
+                "members": {
+                    "nextToken": {},
+                    "relatedItems": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "associationTime",
+                                "content",
+                                "relatedItemId",
+                                "type"
+                            ],
+                            "members": {
+                                "associationTime": {
+                                    "type": "timestamp",
+                                    "timestampFormat": "iso8601"
+                                },
+                                "content": {
+                                    "type": "structure",
+                                    "members": {
+                                        "attachment": {
+                                            "shape": "S1r"
+                                        },
+                                        "comment": {
+                                            "shape": "S1t"
+                                        },
+                                        "contact": {
+                                            "type": "structure",
+                                            "required": [
+                                                "channel",
+                                                "connectedToSystemTime",
+                                                "contactArn"
+                                            ],
+                                            "members": {
+                                                "channel": {},
+                                                "connectedToSystemTime": {
+                                                    "type": "timestamp",
+                                                    "timestampFormat": "iso8601"
+                                                },
+                                                "contactArn": {}
+                                            }
+                                        }
+                                    },
+                                    "union": true
+                                },
+                                "relatedItemId": {},
+                                "tags": {
+                                    "shape": "Sg"
+                                },
+                                "type": {}
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://c.d.cdn.console.awsstatic.com/a/v1/ZAWFNVUCQB4JEXKWL6F6FFT4P7AKYYGWM37WX2KLWL77FLPV6YAQ/main.min.js"
+            ]
+        },
+        "TagResource": {
+            "http": {
+                "requestUri": "/tags/{arn}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "arn",
+                    "tags"
+                ],
+                "members": {
+                    "arn": {
+                        "location": "uri",
+                        "locationName": "arn"
+                    },
+                    "tags": {
+                        "shape": "Sg"
+                    }
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://c.d.cdn.console.awsstatic.com/a/v1/ZAWFNVUCQB4JEXKWL6F6FFT4P7AKYYGWM37WX2KLWL77FLPV6YAQ/main.min.js"
+            ]
+        },
+        "UntagResource": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/tags/{arn}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "arn",
+                    "tagKeys"
+                ],
+                "members": {
+                    "arn": {
+                        "location": "uri",
+                        "locationName": "arn"
+                    },
+                    "tagKeys": {
+                        "location": "querystring",
+                        "locationName": "tagKeys",
+                        "type": "list",
+                        "member": {}
+                    }
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://c.d.cdn.console.awsstatic.com/a/v1/ZAWFNVUCQB4JEXKWL6F6FFT4P7AKYYGWM37WX2KLWL77FLPV6YAQ/main.min.js"
+            ]
+        },
+        "UpdateCase": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/domains/{domainId}/cases/{caseId}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "caseId",
+                    "domainId",
+                    "fields"
+                ],
+                "members": {
+                    "caseId": {
+                        "location": "uri",
+                        "locationName": "caseId"
+                    },
+                    "domainId": {
+                        "location": "uri",
+                        "locationName": "domainId"
+                    },
+                    "fields": {
+                        "type": "list",
+                        "member": {
+                            "shape": "Su"
+                        }
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://c.d.cdn.console.awsstatic.com/a/v1/ZAWFNVUCQB4JEXKWL6F6FFT4P7AKYYGWM37WX2KLWL77FLPV6YAQ/main.min.js"
+            ]
+        },
+        "UpdateField": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/domains/{domainId}/fields/{fieldId}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "domainId",
+                    "fieldId"
+                ],
+                "members": {
+                    "description": {},
+                    "domainId": {
+                        "location": "uri",
+                        "locationName": "domainId"
+                    },
+                    "fieldId": {
+                        "location": "uri",
+                        "locationName": "fieldId"
+                    },
+                    "name": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://c.d.cdn.console.awsstatic.com/a/v1/ZAWFNVUCQB4JEXKWL6F6FFT4P7AKYYGWM37WX2KLWL77FLPV6YAQ/main.min.js"
+            ]
+        },
+        "UpdateLayout": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/domains/{domainId}/layouts/{layoutId}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "domainId",
+                    "layoutId"
+                ],
+                "members": {
+                    "content": {
+                        "shape": "S1c"
+                    },
+                    "domainId": {
+                        "location": "uri",
+                        "locationName": "domainId"
+                    },
+                    "layoutId": {
+                        "location": "uri",
+                        "locationName": "layoutId"
+                    },
+                    "name": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://c.d.cdn.console.awsstatic.com/a/v1/ZAWFNVUCQB4JEXKWL6F6FFT4P7AKYYGWM37WX2KLWL77FLPV6YAQ/main.min.js"
+            ]
+        },
+        "UpdateTemplate": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/domains/{domainId}/templates/{templateId}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "domainId",
+                    "templateId"
+                ],
+                "members": {
+                    "defaultValues": {
+                        "shape": "S23"
+                    },
+                    "description": {},
+                    "domainId": {
+                        "location": "uri",
+                        "locationName": "domainId"
+                    },
+                    "layoutConfiguration": {
+                        "shape": "S26"
+                    },
+                    "name": {},
+                    "requiredFields": {
+                        "shape": "S28"
+                    },
+                    "status": {},
+                    "templateId": {
+                        "location": "uri",
+                        "locationName": "templateId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://c.d.cdn.console.awsstatic.com/a/v1/ZAWFNVUCQB4JEXKWL6F6FFT4P7AKYYGWM37WX2KLWL77FLPV6YAQ/main.min.js"
+            ]
+        }
+    },
+    "shapes": {
+        "S4": {
+            "type": "structure",
+            "required": [
+                "id"
+            ],
+            "members": {
+                "id": {}
+            }
+        },
+        "Sg": {
+            "type": "map",
+            "key": {},
+            "value": {}
+        },
+        "Sk": {
+            "type": "structure",
+            "required": [
+                "active",
+                "name",
+                "value"
+            ],
+            "members": {
+                "active": {
+                    "type": "boolean"
+                },
+                "name": {},
+                "value": {}
+            }
+        },
+        "Su": {
+            "type": "structure",
+            "required": [
+                "id",
+                "value"
+            ],
+            "members": {
+                "id": {},
+                "value": {
+                    "shape": "Sv"
+                }
+            }
+        },
+        "Sv": {
+            "type": "structure",
+            "members": {
+                "booleanValue": {
+                    "type": "boolean"
+                },
+                "doubleValue": {
+                    "type": "double"
+                },
+                "stringValue": {}
+            },
+            "union": true
+        },
+        "S14": {
+            "type": "structure",
+            "required": [
+                "kmsKeyArn"
+            ],
+            "members": {
+                "kmsKeyArn": {}
+            }
+        },
+        "S1c": {
+            "type": "structure",
+            "members": {
+                "basic": {
+                    "type": "structure",
+                    "members": {
+                        "moreInfo": {
+                            "shape": "S1e"
+                        },
+                        "topPanel": {
+                            "shape": "S1e"
+                        }
+                    }
+                }
+            },
+            "union": true
+        },
+        "S1e": {
+            "type": "structure",
+            "members": {
+                "sections": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "members": {
+                            "fieldGroup": {
+                                "type": "structure",
+                                "required": [
+                                    "fields"
+                                ],
+                                "members": {
+                                    "fields": {
+                                        "type": "list",
+                                        "member": {
+                                            "type": "structure",
+                                            "required": [
+                                                "id"
+                                            ],
+                                            "members": {
+                                                "id": {}
+                                            }
+                                        }
+                                    },
+                                    "name": {}
+                                }
+                            }
+                        },
+                        "union": true
+                    }
+                }
+            }
+        },
+        "S1r": {
+            "type": "structure",
+            "required": [
+                "attachmentArn"
+            ],
+            "members": {
+                "attachmentArn": {}
+            }
+        },
+        "S1t": {
+            "type": "structure",
+            "required": [
+                "body",
+                "contentType"
+            ],
+            "members": {
+                "body": {},
+                "contentType": {}
+            }
+        },
+        "S23": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "fieldId",
+                    "value"
+                ],
+                "members": {
+                    "fieldId": {},
+                    "value": {
+                        "shape": "Sv"
+                    }
+                }
+            }
+        },
+        "S26": {
+            "type": "structure",
+            "members": {
+                "defaultLayout": {}
+            }
+        },
+        "S28": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "fieldId"
+                ],
+                "members": {
+                    "fieldId": {}
+                }
+            }
+        },
+        "S2u": {
+            "type": "structure",
+            "required": [
+                "enabled"
+            ],
+            "members": {
+                "enabled": {
+                    "type": "boolean"
+                },
+                "includedData": {
+                    "type": "structure",
+                    "members": {
+                        "caseData": {
+                            "type": "structure",
+                            "required": [
+                                "fields"
+                            ],
+                            "members": {
+                                "fields": {
+                                    "type": "list",
+                                    "member": {
+                                        "shape": "S4"
+                                    }
+                                }
+                            }
+                        },
+                        "relatedItemData": {
+                            "type": "structure",
+                            "required": [
+                                "includeContent"
+                            ],
+                            "members": {
+                                "includeContent": {
+                                    "type": "boolean"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "S46": {
+            "type": "structure",
+            "members": {
+                "andAll": {
+                    "type": "list",
+                    "member": {
+                        "shape": "S46"
+                    }
+                },
+                "field": {
+                    "type": "structure",
+                    "members": {
+                        "contains": {
+                            "shape": "Su"
+                        },
+                        "equalTo": {
+                            "shape": "Su"
+                        },
+                        "greaterThan": {
+                            "shape": "Su"
+                        },
+                        "greaterThanOrEqualTo": {
+                            "shape": "Su"
+                        },
+                        "lessThan": {
+                            "shape": "Su"
+                        },
+                        "lessThanOrEqualTo": {
+                            "shape": "Su"
+                        }
+                    },
+                    "union": true
+                },
+                "not": {
+                    "shape": "S46"
+                },
+                "orAll": {
+                    "type": "list",
+                    "member": {
+                        "shape": "S46"
+                    }
+                }
+            },
+            "union": true
+        }
+    }
+}

@@ -1,0 +1,2055 @@
+{
+    "version": "2.0",
+    "metadata": {
+        "apiVersion": "2021-08-17",
+        "endpointPrefix": "gamesparks",
+        "jsonVersion": "1.1",
+        "protocol": "rest-json",
+        "serviceFullName": "GameSparks",
+        "serviceId": "GameSparks",
+        "signatureVersion": "v4",
+        "signingName": "gamesparks",
+        "uid": "gamesparks-2021-08-17",
+        "download_location": [
+            "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+        ]
+    },
+    "operations": {
+        "CreateGame": {
+            "http": {
+                "requestUri": "/game",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "GameName"
+                ],
+                "members": {
+                    "ClientToken": {},
+                    "Description": {},
+                    "GameName": {},
+                    "Tags": {
+                        "shape": "S5"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Game": {
+                        "shape": "S9"
+                    }
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "CreateSnapshot": {
+            "http": {
+                "requestUri": "/game/{GameName}/snapshot",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "GameName"
+                ],
+                "members": {
+                    "Description": {},
+                    "GameName": {
+                        "location": "uri",
+                        "locationName": "GameName"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Snapshot": {
+                        "shape": "Sh"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "CreateStage": {
+            "http": {
+                "requestUri": "/game/{GameName}/stage",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "GameName",
+                    "Role",
+                    "StageName"
+                ],
+                "members": {
+                    "ClientToken": {},
+                    "Description": {},
+                    "GameName": {
+                        "location": "uri",
+                        "locationName": "GameName"
+                    },
+                    "Role": {},
+                    "StageName": {},
+                    "Tags": {
+                        "shape": "S5"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Stage": {
+                        "shape": "St"
+                    }
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "DeleteGame": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/game/{GameName}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "GameName"
+                ],
+                "members": {
+                    "GameName": {
+                        "location": "uri",
+                        "locationName": "GameName"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "DeleteStage": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/game/{GameName}/stage/{StageName}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "GameName",
+                    "StageName"
+                ],
+                "members": {
+                    "GameName": {
+                        "location": "uri",
+                        "locationName": "GameName"
+                    },
+                    "StageName": {
+                        "location": "uri",
+                        "locationName": "StageName"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "DisconnectPlayer": {
+            "http": {
+                "requestUri": "/runtime/game/{GameName}/stage/{StageName}/player/{PlayerId}/disconnect",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "GameName",
+                    "PlayerId",
+                    "StageName"
+                ],
+                "members": {
+                    "GameName": {
+                        "location": "uri",
+                        "locationName": "GameName"
+                    },
+                    "PlayerId": {
+                        "location": "uri",
+                        "locationName": "PlayerId"
+                    },
+                    "StageName": {
+                        "location": "uri",
+                        "locationName": "StageName"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "DisconnectFailures": {
+                        "shape": "S14"
+                    },
+                    "DisconnectSuccesses": {
+                        "shape": "S14"
+                    }
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "ExportSnapshot": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/game/{GameName}/snapshot/{SnapshotId}/export",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "GameName",
+                    "SnapshotId"
+                ],
+                "members": {
+                    "GameName": {
+                        "location": "uri",
+                        "locationName": "GameName"
+                    },
+                    "SnapshotId": {
+                        "location": "uri",
+                        "locationName": "SnapshotId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "S3Url": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "GetExtension": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/extension/{Namespace}/{Name}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "Name",
+                    "Namespace"
+                ],
+                "members": {
+                    "Name": {
+                        "location": "uri",
+                        "locationName": "Name"
+                    },
+                    "Namespace": {
+                        "location": "uri",
+                        "locationName": "Namespace"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Extension": {
+                        "shape": "S1d"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "GetExtensionVersion": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/extension/{Namespace}/{Name}/version/{ExtensionVersion}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ExtensionVersion",
+                    "Name",
+                    "Namespace"
+                ],
+                "members": {
+                    "ExtensionVersion": {
+                        "location": "uri",
+                        "locationName": "ExtensionVersion"
+                    },
+                    "Name": {
+                        "location": "uri",
+                        "locationName": "Name"
+                    },
+                    "Namespace": {
+                        "location": "uri",
+                        "locationName": "Namespace"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ExtensionVersion": {
+                        "shape": "S1i"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "GetGame": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/game/{GameName}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "GameName"
+                ],
+                "members": {
+                    "GameName": {
+                        "location": "uri",
+                        "locationName": "GameName"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Game": {
+                        "shape": "S9"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "GetGameConfiguration": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/game/{GameName}/configuration",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "GameName"
+                ],
+                "members": {
+                    "GameName": {
+                        "location": "uri",
+                        "locationName": "GameName"
+                    },
+                    "Sections": {
+                        "shape": "S1n",
+                        "location": "querystring",
+                        "locationName": "Sections"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "GameConfiguration": {
+                        "shape": "S1p"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "GetGeneratedCodeJob": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/game/{GameName}/snapshot/{SnapshotId}/generated-sdk-code-job/{JobId}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "GameName",
+                    "JobId",
+                    "SnapshotId"
+                ],
+                "members": {
+                    "GameName": {
+                        "location": "uri",
+                        "locationName": "GameName"
+                    },
+                    "JobId": {
+                        "location": "uri",
+                        "locationName": "JobId"
+                    },
+                    "SnapshotId": {
+                        "location": "uri",
+                        "locationName": "SnapshotId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "GeneratedCodeJob": {
+                        "shape": "S1t"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "GetPlayerConnectionStatus": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/runtime/game/{GameName}/stage/{StageName}/player/{PlayerId}/connection",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "GameName",
+                    "PlayerId",
+                    "StageName"
+                ],
+                "members": {
+                    "GameName": {
+                        "location": "uri",
+                        "locationName": "GameName"
+                    },
+                    "PlayerId": {
+                        "location": "uri",
+                        "locationName": "PlayerId"
+                    },
+                    "StageName": {
+                        "location": "uri",
+                        "locationName": "StageName"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Connections": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "Created": {
+                                    "shape": "Sb"
+                                },
+                                "Id": {}
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "GetSnapshot": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/game/{GameName}/snapshot/{SnapshotId}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "GameName",
+                    "SnapshotId"
+                ],
+                "members": {
+                    "GameName": {
+                        "location": "uri",
+                        "locationName": "GameName"
+                    },
+                    "Sections": {
+                        "shape": "S1n",
+                        "location": "querystring",
+                        "locationName": "Sections"
+                    },
+                    "SnapshotId": {
+                        "location": "uri",
+                        "locationName": "SnapshotId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Snapshot": {
+                        "shape": "Sh"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "GetStage": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/game/{GameName}/stage/{StageName}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "GameName",
+                    "StageName"
+                ],
+                "members": {
+                    "GameName": {
+                        "location": "uri",
+                        "locationName": "GameName"
+                    },
+                    "StageName": {
+                        "location": "uri",
+                        "locationName": "StageName"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Stage": {
+                        "shape": "St"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "GetStageDeployment": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/game/{GameName}/stage/{StageName}/deployment",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "GameName",
+                    "StageName"
+                ],
+                "members": {
+                    "DeploymentId": {
+                        "location": "querystring",
+                        "locationName": "DeploymentId"
+                    },
+                    "GameName": {
+                        "location": "uri",
+                        "locationName": "GameName"
+                    },
+                    "StageName": {
+                        "location": "uri",
+                        "locationName": "StageName"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "StageDeployment": {
+                        "shape": "S27"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "ImportGameConfiguration": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/game/{GameName}/configuration",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "GameName",
+                    "ImportSource"
+                ],
+                "members": {
+                    "GameName": {
+                        "location": "uri",
+                        "locationName": "GameName"
+                    },
+                    "ImportSource": {
+                        "type": "structure",
+                        "required": [
+                            "File"
+                        ],
+                        "members": {
+                            "File": {
+                                "type": "blob"
+                            }
+                        }
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "GameConfiguration": {
+                        "shape": "S1p"
+                    }
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "ListExtensionVersions": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/extension/{Namespace}/{Name}/version",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "Name",
+                    "Namespace"
+                ],
+                "members": {
+                    "MaxResults": {
+                        "location": "querystring",
+                        "locationName": "MaxResults",
+                        "type": "integer"
+                    },
+                    "Name": {
+                        "location": "uri",
+                        "locationName": "Name"
+                    },
+                    "Namespace": {
+                        "location": "uri",
+                        "locationName": "Namespace"
+                    },
+                    "NextToken": {
+                        "location": "querystring",
+                        "locationName": "NextToken"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ExtensionVersions": {
+                        "type": "list",
+                        "member": {
+                            "shape": "S1i"
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "ListExtensions": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/extension",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "MaxResults": {
+                        "location": "querystring",
+                        "locationName": "MaxResults",
+                        "type": "integer"
+                    },
+                    "NextToken": {
+                        "location": "querystring",
+                        "locationName": "NextToken"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Extensions": {
+                        "type": "list",
+                        "member": {
+                            "shape": "S1d"
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "ListGames": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/game",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "MaxResults": {
+                        "location": "querystring",
+                        "locationName": "MaxResults",
+                        "type": "integer"
+                    },
+                    "NextToken": {
+                        "location": "querystring",
+                        "locationName": "NextToken"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Games": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "Description": {},
+                                "Name": {},
+                                "State": {},
+                                "Tags": {
+                                    "shape": "S5"
+                                }
+                            }
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "ListGeneratedCodeJobs": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/game/{GameName}/snapshot/{SnapshotId}/generated-sdk-code-jobs",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "GameName",
+                    "SnapshotId"
+                ],
+                "members": {
+                    "GameName": {
+                        "location": "uri",
+                        "locationName": "GameName"
+                    },
+                    "MaxResults": {
+                        "location": "querystring",
+                        "locationName": "MaxResults",
+                        "type": "integer"
+                    },
+                    "NextToken": {
+                        "location": "querystring",
+                        "locationName": "NextToken"
+                    },
+                    "SnapshotId": {
+                        "location": "uri",
+                        "locationName": "SnapshotId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "GeneratedCodeJobs": {
+                        "type": "list",
+                        "member": {
+                            "shape": "S1t"
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "ListSnapshots": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/game/{GameName}/snapshot",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "GameName"
+                ],
+                "members": {
+                    "GameName": {
+                        "location": "uri",
+                        "locationName": "GameName"
+                    },
+                    "MaxResults": {
+                        "location": "querystring",
+                        "locationName": "MaxResults",
+                        "type": "integer"
+                    },
+                    "NextToken": {
+                        "location": "querystring",
+                        "locationName": "NextToken"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "NextToken": {},
+                    "Snapshots": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "Created": {
+                                    "shape": "Sb"
+                                },
+                                "Description": {},
+                                "Id": {},
+                                "LastUpdated": {
+                                    "shape": "Sb"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "ListStageDeployments": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/game/{GameName}/stage/{StageName}/deployments",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "GameName",
+                    "StageName"
+                ],
+                "members": {
+                    "GameName": {
+                        "location": "uri",
+                        "locationName": "GameName"
+                    },
+                    "MaxResults": {
+                        "location": "querystring",
+                        "locationName": "MaxResults",
+                        "type": "integer"
+                    },
+                    "NextToken": {
+                        "location": "querystring",
+                        "locationName": "NextToken"
+                    },
+                    "StageName": {
+                        "location": "uri",
+                        "locationName": "StageName"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "NextToken": {},
+                    "StageDeployments": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "DeploymentAction": {},
+                                "DeploymentId": {},
+                                "DeploymentResult": {
+                                    "shape": "S29"
+                                },
+                                "DeploymentState": {},
+                                "LastUpdated": {
+                                    "shape": "Sb"
+                                },
+                                "SnapshotId": {}
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "ListStages": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/game/{GameName}/stage",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "GameName"
+                ],
+                "members": {
+                    "GameName": {
+                        "location": "uri",
+                        "locationName": "GameName"
+                    },
+                    "MaxResults": {
+                        "location": "querystring",
+                        "locationName": "MaxResults",
+                        "type": "integer"
+                    },
+                    "NextToken": {
+                        "location": "querystring",
+                        "locationName": "NextToken"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "NextToken": {},
+                    "Stages": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "Description": {},
+                                "GameKey": {},
+                                "Name": {},
+                                "State": {},
+                                "Tags": {
+                                    "shape": "S5"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "ListTagsForResource": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/tags/{ResourceArn}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ResourceArn"
+                ],
+                "members": {
+                    "ResourceArn": {
+                        "location": "uri",
+                        "locationName": "ResourceArn"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "tags": {
+                        "shape": "S5"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "StartGeneratedCodeJob": {
+            "http": {
+                "requestUri": "/game/{GameName}/snapshot/{SnapshotId}/generated-sdk-code-job",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "GameName",
+                    "Generator",
+                    "SnapshotId"
+                ],
+                "members": {
+                    "GameName": {
+                        "location": "uri",
+                        "locationName": "GameName"
+                    },
+                    "Generator": {
+                        "type": "structure",
+                        "members": {
+                            "GameSdkVersion": {},
+                            "Language": {},
+                            "TargetPlatform": {}
+                        }
+                    },
+                    "SnapshotId": {
+                        "location": "uri",
+                        "locationName": "SnapshotId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "GeneratedCodeJobId": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "StartStageDeployment": {
+            "http": {
+                "requestUri": "/game/{GameName}/stage/{StageName}/deployment",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "GameName",
+                    "SnapshotId",
+                    "StageName"
+                ],
+                "members": {
+                    "ClientToken": {},
+                    "GameName": {
+                        "location": "uri",
+                        "locationName": "GameName"
+                    },
+                    "SnapshotId": {},
+                    "StageName": {
+                        "location": "uri",
+                        "locationName": "StageName"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "StageDeployment": {
+                        "shape": "S27"
+                    }
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "TagResource": {
+            "http": {
+                "requestUri": "/tags/{ResourceArn}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ResourceArn",
+                    "tags"
+                ],
+                "members": {
+                    "ResourceArn": {
+                        "location": "uri",
+                        "locationName": "ResourceArn"
+                    },
+                    "tags": {
+                        "shape": "S5"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "UntagResource": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/tags/{ResourceArn}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ResourceArn",
+                    "tagKeys"
+                ],
+                "members": {
+                    "ResourceArn": {
+                        "location": "uri",
+                        "locationName": "ResourceArn"
+                    },
+                    "tagKeys": {
+                        "location": "querystring",
+                        "locationName": "tagKeys",
+                        "type": "list",
+                        "member": {}
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "UpdateGame": {
+            "http": {
+                "method": "PATCH",
+                "requestUri": "/game/{GameName}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "GameName"
+                ],
+                "members": {
+                    "Description": {},
+                    "GameName": {
+                        "location": "uri",
+                        "locationName": "GameName"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Game": {
+                        "shape": "S9"
+                    }
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "UpdateGameConfiguration": {
+            "http": {
+                "method": "PATCH",
+                "requestUri": "/game/{GameName}/configuration",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "GameName",
+                    "Modifications"
+                ],
+                "members": {
+                    "GameName": {
+                        "location": "uri",
+                        "locationName": "GameName"
+                    },
+                    "Modifications": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "Operation",
+                                "Path",
+                                "Section"
+                            ],
+                            "members": {
+                                "Operation": {},
+                                "Path": {},
+                                "Section": {},
+                                "Value": {
+                                    "shape": "Sm"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "GameConfiguration": {
+                        "shape": "S1p"
+                    }
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "UpdateSnapshot": {
+            "http": {
+                "method": "PATCH",
+                "requestUri": "/game/{GameName}/snapshot/{SnapshotId}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "GameName",
+                    "SnapshotId"
+                ],
+                "members": {
+                    "Description": {},
+                    "GameName": {
+                        "location": "uri",
+                        "locationName": "GameName"
+                    },
+                    "SnapshotId": {
+                        "location": "uri",
+                        "locationName": "SnapshotId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Snapshot": {
+                        "shape": "Sh"
+                    }
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "UpdateStage": {
+            "http": {
+                "method": "PATCH",
+                "requestUri": "/game/{GameName}/stage/{StageName}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "GameName",
+                    "StageName"
+                ],
+                "members": {
+                    "Description": {},
+                    "GameName": {
+                        "location": "uri",
+                        "locationName": "GameName"
+                    },
+                    "Role": {},
+                    "StageName": {
+                        "location": "uri",
+                        "locationName": "StageName"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Stage": {
+                        "shape": "St"
+                    }
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "CreateSnapshotFromGameConfiguration": {
+            "http": {
+                "requestUri": "/game/{GameName}/configuration/snapshot",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "GameName"
+                ],
+                "members": {
+                    "GameName": {
+                        "location": "uri",
+                        "locationName": "GameName"
+                    },
+                    "Description": {},
+                    "Tags": {
+                        "shape": "S5"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Snapshot": {
+                        "shape": "Si"
+                    }
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/CKQPNZM6IOQSV63C5YKXGXD4ZXHVAQNJGL6YQ7F472KDRNL34NBQ/app.js"
+            ]
+        },
+        "DeleteSnapshot": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/game/{GameName}/snapshot/{SnapshotId}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "GameName",
+                    "SnapshotId"
+                ],
+                "members": {
+                    "GameName": {
+                        "location": "uri",
+                        "locationName": "GameName"
+                    },
+                    "SnapshotId": {
+                        "location": "uri",
+                        "locationName": "SnapshotId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "idempotent": true,
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/CKQPNZM6IOQSV63C5YKXGXD4ZXHVAQNJGL6YQ7F472KDRNL34NBQ/app.js"
+            ]
+        },
+        "GetTransferStageDataJob": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/game/{GameName}/stage/{StageName}/transfer/{DataTransferJobId}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "GameName",
+                    "StageName",
+                    "DataTransferJobId"
+                ],
+                "members": {
+                    "GameName": {
+                        "location": "uri",
+                        "locationName": "GameName"
+                    },
+                    "StageName": {
+                        "location": "uri",
+                        "locationName": "StageName"
+                    },
+                    "DataTransferJobId": {
+                        "location": "uri",
+                        "locationName": "DataTransferJobId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "DataTransferJob": {
+                        "type": "structure",
+                        "members": {
+                            "DataTransferJobId": {},
+                            "TransferBufferId": {},
+                            "Destination": {
+                                "shape": "S2n"
+                            },
+                            "TransferState": {},
+                            "JobSubmitted": {
+                                "shape": "Sb"
+                            },
+                            "JobFinished": {
+                                "shape": "Sb"
+                            },
+                            "TransferResult": {
+                                "type": "structure",
+                                "members": {
+                                    "ResultCode": {},
+                                    "Message": {}
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/CKQPNZM6IOQSV63C5YKXGXD4ZXHVAQNJGL6YQ7F472KDRNL34NBQ/app.js"
+            ]
+        },
+        "InvokeBackend": {
+            "http": {
+                "requestUri": "/runtime/game/{GameName}/stage/{StageName}/invoke/backend",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "GameName",
+                    "StageName",
+                    "Service",
+                    "Operation",
+                    "Payload"
+                ],
+                "members": {
+                    "GameName": {
+                        "location": "uri",
+                        "locationName": "GameName"
+                    },
+                    "StageName": {
+                        "location": "uri",
+                        "locationName": "StageName"
+                    },
+                    "Service": {},
+                    "Operation": {},
+                    "Payload": {
+                        "shape": "S34"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Payload": {
+                        "shape": "S34"
+                    }
+                }
+            },
+            "idempotent": true,
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/CKQPNZM6IOQSV63C5YKXGXD4ZXHVAQNJGL6YQ7F472KDRNL34NBQ/app.js"
+            ]
+        },
+        "RaiseCloudCodeEvent": {
+            "http": {
+                "requestUri": "/runtime/game/{GameName}/stage/{StageName}/event/{MessageType}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "GameName",
+                    "StageName",
+                    "MessageType",
+                    "MessageId",
+                    "MessagePayload"
+                ],
+                "members": {
+                    "GameName": {
+                        "location": "uri",
+                        "locationName": "GameName"
+                    },
+                    "StageName": {
+                        "location": "uri",
+                        "locationName": "StageName"
+                    },
+                    "MessageType": {
+                        "location": "uri",
+                        "locationName": "MessageType"
+                    },
+                    "MessageId": {},
+                    "MessagePayload": {
+                        "shape": "S34"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/CKQPNZM6IOQSV63C5YKXGXD4ZXHVAQNJGL6YQ7F472KDRNL34NBQ/app.js"
+            ]
+        },
+        "StartTransferStageDataJob": {
+            "http": {
+                "requestUri": "/game/{GameName}/stage/{StageName}/transfer",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "GameName",
+                    "StageName",
+                    "TransferBufferId",
+                    "Destination"
+                ],
+                "members": {
+                    "GameName": {
+                        "location": "uri",
+                        "locationName": "GameName"
+                    },
+                    "StageName": {
+                        "location": "uri",
+                        "locationName": "StageName"
+                    },
+                    "TransferBufferId": {},
+                    "Destination": {
+                        "shape": "S2n"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "DataTransferJobId": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/CKQPNZM6IOQSV63C5YKXGXD4ZXHVAQNJGL6YQ7F472KDRNL34NBQ/app.js"
+            ]
+        },
+        "UpdateStageRole": {
+            "http": {
+                "method": "PATCH",
+                "requestUri": "/game/{GameName}/stage/{StageName}/role",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "GameName",
+                    "StageName",
+                    "Role"
+                ],
+                "members": {
+                    "GameName": {
+                        "location": "uri",
+                        "locationName": "GameName"
+                    },
+                    "StageName": {
+                        "location": "uri",
+                        "locationName": "StageName"
+                    },
+                    "Role": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Stage": {
+                        "shape": "Sw"
+                    }
+                }
+            },
+            "idempotent": true,
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/CKQPNZM6IOQSV63C5YKXGXD4ZXHVAQNJGL6YQ7F472KDRNL34NBQ/app.js"
+            ]
+        },
+        "UpdateStageTerminationProtection": {
+            "http": {
+                "method": "PATCH",
+                "requestUri": "/game/{GameName}/stage/{StageName}/termination-protection",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "GameName",
+                    "StageName",
+                    "TerminationProtection"
+                ],
+                "members": {
+                    "GameName": {
+                        "location": "uri",
+                        "locationName": "GameName"
+                    },
+                    "StageName": {
+                        "location": "uri",
+                        "locationName": "StageName"
+                    },
+                    "TerminationProtection": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Stage": {
+                        "shape": "Sw"
+                    }
+                }
+            },
+            "idempotent": true,
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/CKQPNZM6IOQSV63C5YKXGXD4ZXHVAQNJGL6YQ7F472KDRNL34NBQ/app.js"
+            ]
+        },
+        "ListTransferStageDataJobs": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/game/{GameName}/stage/{StageName}/transfers",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "GameName",
+                    "StageName"
+                ],
+                "members": {
+                    "GameName": {
+                        "location": "uri",
+                        "locationName": "GameName"
+                    },
+                    "StageName": {
+                        "location": "uri",
+                        "locationName": "StageName"
+                    },
+                    "MaxResults": {
+                        "location": "querystring",
+                        "locationName": "MaxResults",
+                        "type": "integer"
+                    },
+                    "NextToken": {
+                        "location": "querystring",
+                        "locationName": "NextToken"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "TransferDataJobs": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "TransferDataJobId": {},
+                                "TransferBufferId": {},
+                                "TransferState": {},
+                                "JobSubmitted": {
+                                    "shape": "Sb"
+                                },
+                                "JobFinished": {
+                                    "shape": "Sb"
+                                },
+                                "TransferResult": {
+                                    "shape": "S2v"
+                                }
+                            }
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/YAVVQHOUJQ5BPONXTO64RDBZLL6WW6AFDYCWZR5D32NSBORT3L5A/app.js"
+            ]
+        }
+    },
+    "shapes": {
+        "S5": {
+            "type": "map",
+            "key": {},
+            "value": {}
+        },
+        "S9": {
+            "type": "structure",
+            "members": {
+                "Arn": {},
+                "Created": {
+                    "shape": "Sb"
+                },
+                "Description": {},
+                "EnableTerminationProtection": {
+                    "type": "boolean"
+                },
+                "LastUpdated": {
+                    "shape": "Sb"
+                },
+                "Name": {},
+                "State": {},
+                "Tags": {
+                    "shape": "S5"
+                }
+            }
+        },
+        "Sb": {
+            "type": "timestamp",
+            "timestampFormat": "iso8601"
+        },
+        "Sh": {
+            "type": "structure",
+            "members": {
+                "Created": {
+                    "shape": "Sb"
+                },
+                "Description": {},
+                "Id": {},
+                "LastUpdated": {
+                    "shape": "Sb"
+                },
+                "Sections": {
+                    "shape": "Sj"
+                }
+            }
+        },
+        "Sj": {
+            "type": "map",
+            "key": {},
+            "value": {
+                "type": "structure",
+                "members": {
+                    "Attributes": {
+                        "shape": "Sm"
+                    },
+                    "Name": {},
+                    "Size": {
+                        "type": "integer"
+                    }
+                }
+            }
+        },
+        "Sm": {
+            "type": "structure",
+            "members": {},
+            "document": true
+        },
+        "St": {
+            "type": "structure",
+            "members": {
+                "Arn": {},
+                "Created": {
+                    "shape": "Sb"
+                },
+                "Description": {},
+                "GameKey": {},
+                "LastUpdated": {
+                    "shape": "Sb"
+                },
+                "LogGroup": {},
+                "Name": {},
+                "Role": {},
+                "State": {},
+                "Tags": {
+                    "shape": "S5"
+                }
+            }
+        },
+        "S14": {
+            "type": "list",
+            "member": {}
+        },
+        "S1d": {
+            "type": "structure",
+            "members": {
+                "Description": {},
+                "Name": {},
+                "Namespace": {}
+            }
+        },
+        "S1i": {
+            "type": "structure",
+            "members": {
+                "Name": {},
+                "Namespace": {},
+                "Schema": {},
+                "Version": {}
+            }
+        },
+        "S1n": {
+            "type": "list",
+            "member": {}
+        },
+        "S1p": {
+            "type": "structure",
+            "members": {
+                "Created": {
+                    "shape": "Sb"
+                },
+                "LastUpdated": {
+                    "shape": "Sb"
+                },
+                "Sections": {
+                    "shape": "Sj"
+                }
+            }
+        },
+        "S1t": {
+            "type": "structure",
+            "members": {
+                "Description": {},
+                "ExpirationTime": {
+                    "shape": "Sb"
+                },
+                "GeneratedCodeJobId": {},
+                "S3Url": {},
+                "Status": {}
+            }
+        },
+        "S27": {
+            "type": "structure",
+            "members": {
+                "Created": {
+                    "shape": "Sb"
+                },
+                "DeploymentAction": {},
+                "DeploymentId": {},
+                "DeploymentResult": {
+                    "shape": "S29"
+                },
+                "DeploymentState": {},
+                "LastUpdated": {
+                    "shape": "Sb"
+                },
+                "SnapshotId": {}
+            }
+        },
+        "S29": {
+            "type": "structure",
+            "members": {
+                "Message": {},
+                "ResultCode": {}
+            }
+        },
+        "Sg": {
+            "type": "structure",
+            "members": {},
+            "document": true
+        },
+        "Si": {
+            "type": "structure",
+            "members": {
+                "Id": {},
+                "Description": {},
+                "Sections": {
+                    "shape": "Sk"
+                },
+                "Created": {
+                    "shape": "Sb"
+                },
+                "LastUpdated": {
+                    "shape": "Sb"
+                },
+                "Tags": {
+                    "shape": "S5"
+                }
+            }
+        },
+        "Sk": {
+            "type": "map",
+            "key": {},
+            "value": {
+                "type": "structure",
+                "members": {
+                    "Name": {},
+                    "Size": {
+                        "type": "integer"
+                    },
+                    "Attributes": {
+                        "shape": "Sg"
+                    }
+                }
+            }
+        },
+        "Sw": {
+            "type": "structure",
+            "members": {
+                "Name": {},
+                "GameKey": {},
+                "Arn": {},
+                "Role": {},
+                "Description": {},
+                "Created": {
+                    "shape": "Sb"
+                },
+                "LastUpdated": {
+                    "shape": "Sb"
+                },
+                "State": {},
+                "Tags": {
+                    "shape": "S5"
+                },
+                "LogGroup": {},
+                "TerminationProtection": {
+                    "internalonly": true
+                },
+                "GameClientEndpointUrl": {
+                    "internalonly": true
+                }
+            }
+        },
+        "S1a": {
+            "type": "list",
+            "member": {}
+        },
+        "S1j": {
+            "type": "structure",
+            "members": {
+                "Namespace": {},
+                "Name": {},
+                "Description": {}
+            }
+        },
+        "S1o": {
+            "type": "structure",
+            "members": {
+                "Namespace": {},
+                "Name": {},
+                "Schema": {
+                    "shape": "Sg"
+                },
+                "Version": {}
+            }
+        },
+        "S1s": {
+            "type": "list",
+            "member": {}
+        },
+        "S1u": {
+            "type": "structure",
+            "members": {
+                "Sections": {
+                    "shape": "Sk"
+                },
+                "Created": {
+                    "shape": "Sb"
+                },
+                "LastUpdated": {
+                    "shape": "Sb"
+                }
+            }
+        },
+        "S1y": {
+            "type": "structure",
+            "members": {
+                "S3Url": {},
+                "Status": {},
+                "Description": {},
+                "ExpirationTime": {
+                    "shape": "Sb"
+                },
+                "GeneratedCodeJobId": {}
+            }
+        },
+        "S2c": {
+            "type": "structure",
+            "members": {
+                "DeploymentId": {},
+                "SnapshotId": {},
+                "DeploymentAction": {},
+                "DeploymentState": {},
+                "Created": {
+                    "shape": "Sb"
+                },
+                "LastUpdated": {
+                    "shape": "Sb"
+                },
+                "DeploymentResult": {
+                    "shape": "S2f"
+                }
+            }
+        },
+        "S2f": {
+            "type": "structure",
+            "members": {
+                "ResultCode": {},
+                "Message": {}
+            }
+        },
+        "S2n": {
+            "type": "structure",
+            "members": {
+                "S3": {
+                    "type": "structure",
+                    "required": [
+                        "BucketName"
+                    ],
+                    "members": {
+                        "BucketName": {},
+                        "Encryption": {
+                            "type": "structure",
+                            "members": {
+                                "KmsSse": {
+                                    "type": "structure",
+                                    "members": {
+                                        "KmsKeyId": {}
+                                    }
+                                }
+                            },
+                            "union": true
+                        },
+                        "Prefix": {}
+                    }
+                }
+            },
+            "union": true
+        },
+        "S34": {
+            "type": "structure",
+            "members": {},
+            "document": true
+        },
+        "S2v": {
+            "type": "structure",
+            "members": {
+                "ResultCode": {},
+                "Message": {}
+            }
+        }
+    }
+}

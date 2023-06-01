@@ -1,0 +1,611 @@
+{
+    "version": "2.0",
+    "metadata": {
+        "apiVersion": "2018-05-10",
+        "endpointPrefix": "sierraconnectionmanagementservicelambda",
+        "jsonVersion": "1.1",
+        "protocol": "rest-json",
+        "serviceFullName": "SierraConnectionManagementServiceLambda",
+        "serviceId": "SierraConnectionManagementServiceLambda",
+        "signatureVersion": "v4",
+        "signingName": "scn",
+        "uid": "sierraconnectionmanagementservicelambda-2018-05-10",
+        "download_location": [
+            "https://a.b.cdn.console.awsstatic.com/a/v1/TKHP6TGZH23RVCUZZP2OJ2PJJUFTMSQ666SII2V522LCUK4NBNXQ/vendors~4134d62c.js"
+        ]
+    },
+    "operations": {
+        "CreateConnection": {
+            "http": {
+                "requestUri": "/instance/{instanceId}/connections",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "instanceId",
+                    "name",
+                    "description",
+                    "bucketName",
+                    "groups"
+                ],
+                "members": {
+                    "instanceId": {
+                        "location": "uri",
+                        "locationName": "instanceId"
+                    },
+                    "name": {},
+                    "description": {},
+                    "bucketName": {},
+                    "groups": {
+                        "shape": "S6"
+                    },
+                    "region": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "connection"
+                ],
+                "members": {
+                    "connection": {
+                        "shape": "Sa"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/TKHP6TGZH23RVCUZZP2OJ2PJJUFTMSQ666SII2V522LCUK4NBNXQ/vendors~4134d62c.js"
+            ]
+        },
+        "CreateFlow": {
+            "http": {
+                "requestUri": "/instance/{instanceId}/connections/{connectionId}/flows",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "instanceId",
+                    "connectionId"
+                ],
+                "members": {
+                    "instanceId": {
+                        "location": "uri",
+                        "locationName": "instanceId"
+                    },
+                    "connectionId": {
+                        "location": "uri",
+                        "locationName": "connectionId"
+                    },
+                    "flow": {
+                        "type": "structure",
+                        "required": [
+                            "direction",
+                            "name"
+                        ],
+                        "members": {
+                            "entity": {
+                                "type": "structure",
+                                "required": [
+                                    "id",
+                                    "entityType"
+                                ],
+                                "members": {
+                                    "id": {},
+                                    "entityType": {}
+                                }
+                            },
+                            "direction": {},
+                            "name": {},
+                            "granularityType": {},
+                            "datasetId": {},
+                            "description": {},
+                            "status": {},
+                            "mappingId": {}
+                        }
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "flow"
+                ],
+                "members": {
+                    "flow": {
+                        "shape": "Sp"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/TKHP6TGZH23RVCUZZP2OJ2PJJUFTMSQ666SII2V522LCUK4NBNXQ/vendors~4134d62c.js"
+            ]
+        },
+        "DeleteConnection": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/instance/{instanceId}/connections/{connectionId}",
+                "responseCode": 204
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "instanceId",
+                    "connectionId"
+                ],
+                "members": {
+                    "instanceId": {
+                        "location": "uri",
+                        "locationName": "instanceId"
+                    },
+                    "connectionId": {
+                        "location": "uri",
+                        "locationName": "connectionId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "response": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/TKHP6TGZH23RVCUZZP2OJ2PJJUFTMSQ666SII2V522LCUK4NBNXQ/vendors~4134d62c.js"
+            ]
+        },
+        "DeleteFlow": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/instance/{instanceId}/connections/{connectionId}/flow/{flowId}",
+                "responseCode": 204
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "instanceId",
+                    "connectionId",
+                    "flowId"
+                ],
+                "members": {
+                    "instanceId": {
+                        "location": "uri",
+                        "locationName": "instanceId"
+                    },
+                    "connectionId": {
+                        "location": "uri",
+                        "locationName": "connectionId"
+                    },
+                    "flowId": {
+                        "location": "uri",
+                        "locationName": "flowId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "response": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/TKHP6TGZH23RVCUZZP2OJ2PJJUFTMSQ666SII2V522LCUK4NBNXQ/vendors~4134d62c.js"
+            ]
+        },
+        "GetConnection": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/instance/{instanceId}/connections/{connectionId}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "instanceId",
+                    "connectionId"
+                ],
+                "members": {
+                    "instanceId": {
+                        "location": "uri",
+                        "locationName": "instanceId"
+                    },
+                    "connectionId": {
+                        "location": "uri",
+                        "locationName": "connectionId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "connection"
+                ],
+                "members": {
+                    "connection": {
+                        "shape": "Sa"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/TKHP6TGZH23RVCUZZP2OJ2PJJUFTMSQ666SII2V522LCUK4NBNXQ/vendors~4134d62c.js"
+            ]
+        },
+        "GetFlow": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/instance/{instanceId}/flow/{flowId}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "instanceId",
+                    "flowId"
+                ],
+                "members": {
+                    "instanceId": {
+                        "location": "uri",
+                        "locationName": "instanceId"
+                    },
+                    "flowId": {
+                        "location": "uri",
+                        "locationName": "flowId"
+                    },
+                    "connectionId": {
+                        "location": "querystring",
+                        "locationName": "connectionId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "flow"
+                ],
+                "members": {
+                    "flow": {
+                        "shape": "Sp"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/TKHP6TGZH23RVCUZZP2OJ2PJJUFTMSQ666SII2V522LCUK4NBNXQ/vendors~4134d62c.js"
+            ]
+        },
+        "ListConnections": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/instance/{instanceId}/connections",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "instanceId"
+                ],
+                "members": {
+                    "instanceId": {
+                        "location": "uri",
+                        "locationName": "instanceId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "connections"
+                ],
+                "members": {
+                    "connections": {
+                        "type": "list",
+                        "member": {
+                            "shape": "Sa"
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/TKHP6TGZH23RVCUZZP2OJ2PJJUFTMSQ666SII2V522LCUK4NBNXQ/vendors~4134d62c.js"
+            ]
+        },
+        "ListFlowExecutions": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/instance/{instanceId}/connections/{connectionId}/flow/{flowId}/executions",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "instanceId",
+                    "flowId",
+                    "connectionId"
+                ],
+                "members": {
+                    "instanceId": {
+                        "location": "uri",
+                        "locationName": "instanceId"
+                    },
+                    "flowId": {
+                        "location": "uri",
+                        "locationName": "flowId"
+                    },
+                    "connectionId": {
+                        "location": "uri",
+                        "locationName": "connectionId"
+                    },
+                    "executionStatus": {
+                        "location": "querystring",
+                        "locationName": "executionStatus"
+                    },
+                    "maxResults": {
+                        "location": "querystring",
+                        "locationName": "maxResults",
+                        "type": "integer"
+                    },
+                    "nextToken": {
+                        "location": "querystring",
+                        "locationName": "nextToken"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "flowExecutions"
+                ],
+                "members": {
+                    "flowExecutions": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "executionId",
+                                "flowId"
+                            ],
+                            "members": {
+                                "executionId": {},
+                                "flowId": {},
+                                "instanceId": {},
+                                "status": {},
+                                "dpmWorkflowId": {},
+                                "createdAt": {
+                                    "type": "long"
+                                },
+                                "lastUpdatedAt": {
+                                    "type": "long"
+                                },
+                                "startedAt": {
+                                    "type": "long"
+                                },
+                                "completedAt": {
+                                    "type": "long"
+                                },
+                                "source": {
+                                    "shape": "Sr"
+                                },
+                                "destination": {
+                                    "shape": "Sr"
+                                },
+                                "fileName": {},
+                                "version": {
+                                    "type": "long"
+                                },
+                                "errorMessage": {}
+                            }
+                        }
+                    },
+                    "nextToken": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/TKHP6TGZH23RVCUZZP2OJ2PJJUFTMSQ666SII2V522LCUK4NBNXQ/vendors~4134d62c.js"
+            ]
+        },
+        "ListFlows": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/instance/{instanceId}/connections/{connectionId}/flows",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "instanceId",
+                    "connectionId"
+                ],
+                "members": {
+                    "instanceId": {
+                        "location": "uri",
+                        "locationName": "instanceId"
+                    },
+                    "connectionId": {
+                        "location": "uri",
+                        "locationName": "connectionId"
+                    },
+                    "datasetId": {
+                        "location": "querystring",
+                        "locationName": "datasetId"
+                    },
+                    "maxResults": {
+                        "location": "querystring",
+                        "locationName": "maxResults",
+                        "type": "integer"
+                    },
+                    "nextToken": {
+                        "location": "querystring",
+                        "locationName": "nextToken"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "flows"
+                ],
+                "members": {
+                    "flows": {
+                        "type": "list",
+                        "member": {
+                            "shape": "Sp"
+                        }
+                    },
+                    "nextToken": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/TKHP6TGZH23RVCUZZP2OJ2PJJUFTMSQ666SII2V522LCUK4NBNXQ/vendors~4134d62c.js"
+            ]
+        },
+        "PutPermission": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/instance/{instanceId}/connections/{connectionId}/permission",
+                "responseCode": 204
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "instanceId",
+                    "connectionId",
+                    "groups"
+                ],
+                "members": {
+                    "instanceId": {
+                        "location": "uri",
+                        "locationName": "instanceId"
+                    },
+                    "connectionId": {
+                        "location": "uri",
+                        "locationName": "connectionId"
+                    },
+                    "groups": {
+                        "shape": "S6"
+                    }
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/TKHP6TGZH23RVCUZZP2OJ2PJJUFTMSQ666SII2V522LCUK4NBNXQ/vendors~4134d62c.js"
+            ]
+        }
+    },
+    "shapes": {
+        "S6": {
+            "type": "list",
+            "member": {}
+        },
+        "Sa": {
+            "type": "structure",
+            "required": [
+                "connectionId",
+                "instanceId",
+                "name",
+                "bucketName",
+                "version"
+            ],
+            "members": {
+                "connectionId": {},
+                "instanceId": {},
+                "name": {},
+                "bucketName": {},
+                "description": {},
+                "version": {
+                    "type": "long"
+                },
+                "status": {},
+                "groups": {
+                    "shape": "S6"
+                }
+            }
+        },
+        "Sp": {
+            "type": "structure",
+            "required": [
+                "connectionId",
+                "flowId",
+                "instanceId",
+                "name",
+                "source",
+                "destination",
+                "version"
+            ],
+            "members": {
+                "connectionId": {},
+                "flowId": {},
+                "instanceId": {},
+                "name": {},
+                "description": {},
+                "status": {},
+                "mappingId": {},
+                "source": {
+                    "shape": "Sr"
+                },
+                "destination": {
+                    "shape": "Sr"
+                },
+                "createdAt": {
+                    "type": "long"
+                },
+                "updatedAt": {
+                    "type": "long"
+                },
+                "runningExecutions": {
+                    "type": "list",
+                    "member": {}
+                },
+                "version": {
+                    "type": "long"
+                }
+            }
+        },
+        "Sr": {
+            "type": "structure",
+            "required": [
+                "endpointType"
+            ],
+            "members": {
+                "endpointType": {},
+                "connectionId": {},
+                "config": {
+                    "type": "structure",
+                    "members": {
+                        "s3Endpoint": {
+                            "type": "structure",
+                            "required": [
+                                "bucketName",
+                                "bucketPrefix"
+                            ],
+                            "members": {
+                                "bucketName": {},
+                                "bucketPrefix": {},
+                                "createdTime": {
+                                    "type": "long"
+                                },
+                                "kmsArn": {}
+                            }
+                        },
+                        "sierraEndpoint": {
+                            "type": "structure",
+                            "required": [
+                                "entityId"
+                            ],
+                            "members": {
+                                "entityId": {},
+                                "datasetId": {}
+                            }
+                        }
+                    },
+                    "union": true
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,3575 @@
+{
+    "version": "2.0",
+    "metadata": {
+        "apiVersion": "2017-11-27",
+        "endpointPrefix": "iotanalytics",
+        "protocol": "rest-json",
+        "serviceFullName": "AWS IoT Analytics",
+        "serviceId": "IoTAnalytics",
+        "signatureVersion": "v4",
+        "signingName": "iotanalytics",
+        "uid": "iotanalytics-2017-11-27",
+        "download_location": [
+            "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+        ]
+    },
+    "operations": {
+        "BatchPutMessage": {
+            "http": {
+                "requestUri": "/messages/batch",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "channelName",
+                    "messages"
+                ],
+                "members": {
+                    "channelName": {},
+                    "messages": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "messageId",
+                                "payload"
+                            ],
+                            "members": {
+                                "messageId": {},
+                                "payload": {
+                                    "type": "blob"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "batchPutMessageErrorEntries": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "messageId": {},
+                                "errorCode": {},
+                                "errorMessage": {}
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "CancelPipelineReprocessing": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/pipelines/{pipelineName}/reprocessing/{reprocessingId}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "pipelineName",
+                    "reprocessingId"
+                ],
+                "members": {
+                    "pipelineName": {
+                        "location": "uri",
+                        "locationName": "pipelineName"
+                    },
+                    "reprocessingId": {
+                        "location": "uri",
+                        "locationName": "reprocessingId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "CreateChannel": {
+            "http": {
+                "requestUri": "/channels",
+                "responseCode": 201
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "channelName"
+                ],
+                "members": {
+                    "channelName": {},
+                    "channelStorage": {
+                        "shape": "Sh"
+                    },
+                    "retentionPeriod": {
+                        "shape": "Sn"
+                    },
+                    "tags": {
+                        "shape": "Sq"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "channelName": {},
+                    "channelArn": {},
+                    "retentionPeriod": {
+                        "shape": "Sn"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "CreateDataset": {
+            "http": {
+                "requestUri": "/datasets",
+                "responseCode": 201
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "datasetName",
+                    "actions"
+                ],
+                "members": {
+                    "datasetName": {},
+                    "actions": {
+                        "shape": "Sy"
+                    },
+                    "triggers": {
+                        "shape": "S1l"
+                    },
+                    "contentDeliveryRules": {
+                        "shape": "S1q"
+                    },
+                    "retentionPeriod": {
+                        "shape": "Sn"
+                    },
+                    "versioningConfiguration": {
+                        "shape": "S21"
+                    },
+                    "tags": {
+                        "shape": "Sq"
+                    },
+                    "lateDataRules": {
+                        "shape": "S24"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "datasetName": {},
+                    "datasetArn": {},
+                    "retentionPeriod": {
+                        "shape": "Sn"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "CreateDatasetContent": {
+            "http": {
+                "requestUri": "/datasets/{datasetName}/content"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "datasetName"
+                ],
+                "members": {
+                    "datasetName": {
+                        "location": "uri",
+                        "locationName": "datasetName"
+                    },
+                    "versionId": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "versionId": {}
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "CreateDatastore": {
+            "http": {
+                "requestUri": "/datastores",
+                "responseCode": 201
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "datastoreName"
+                ],
+                "members": {
+                    "datastoreName": {},
+                    "datastoreStorage": {
+                        "shape": "S2h"
+                    },
+                    "retentionPeriod": {
+                        "shape": "Sn"
+                    },
+                    "tags": {
+                        "shape": "Sq"
+                    },
+                    "fileFormatConfiguration": {
+                        "shape": "S2k"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "datastoreName": {},
+                    "datastoreArn": {},
+                    "retentionPeriod": {
+                        "shape": "Sn"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "CreatePipeline": {
+            "http": {
+                "requestUri": "/pipelines",
+                "responseCode": 201
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "pipelineName",
+                    "pipelineActivities"
+                ],
+                "members": {
+                    "pipelineName": {},
+                    "pipelineActivities": {
+                        "shape": "S2v"
+                    },
+                    "tags": {
+                        "shape": "Sq"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "pipelineName": {},
+                    "pipelineArn": {}
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "DeleteChannel": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/channels/{channelName}",
+                "responseCode": 204
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "channelName"
+                ],
+                "members": {
+                    "channelName": {
+                        "location": "uri",
+                        "locationName": "channelName"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "DeleteDataset": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/datasets/{datasetName}",
+                "responseCode": 204
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "datasetName"
+                ],
+                "members": {
+                    "datasetName": {
+                        "location": "uri",
+                        "locationName": "datasetName"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "DeleteDatasetContent": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/datasets/{datasetName}/content",
+                "responseCode": 204
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "datasetName"
+                ],
+                "members": {
+                    "datasetName": {
+                        "location": "uri",
+                        "locationName": "datasetName"
+                    },
+                    "versionId": {
+                        "location": "querystring",
+                        "locationName": "versionId"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "DeleteDatastore": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/datastores/{datastoreName}",
+                "responseCode": 204
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "datastoreName"
+                ],
+                "members": {
+                    "datastoreName": {
+                        "location": "uri",
+                        "locationName": "datastoreName"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "DeletePipeline": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/pipelines/{pipelineName}",
+                "responseCode": 204
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "pipelineName"
+                ],
+                "members": {
+                    "pipelineName": {
+                        "location": "uri",
+                        "locationName": "pipelineName"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "DescribeChannel": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/channels/{channelName}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "channelName"
+                ],
+                "members": {
+                    "channelName": {
+                        "location": "uri",
+                        "locationName": "channelName"
+                    },
+                    "includeStatistics": {
+                        "location": "querystring",
+                        "locationName": "includeStatistics",
+                        "type": "boolean"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "channel": {
+                        "type": "structure",
+                        "members": {
+                            "name": {},
+                            "storage": {
+                                "shape": "Sh"
+                            },
+                            "arn": {},
+                            "status": {},
+                            "retentionPeriod": {
+                                "shape": "Sn"
+                            },
+                            "creationTime": {
+                                "type": "timestamp"
+                            },
+                            "lastUpdateTime": {
+                                "type": "timestamp"
+                            },
+                            "lastMessageArrivalTime": {
+                                "type": "timestamp"
+                            }
+                        }
+                    },
+                    "statistics": {
+                        "type": "structure",
+                        "members": {
+                            "size": {
+                                "shape": "S3t"
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "DescribeDataset": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/datasets/{datasetName}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "datasetName"
+                ],
+                "members": {
+                    "datasetName": {
+                        "location": "uri",
+                        "locationName": "datasetName"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "dataset": {
+                        "type": "structure",
+                        "members": {
+                            "name": {},
+                            "arn": {},
+                            "actions": {
+                                "shape": "Sy"
+                            },
+                            "triggers": {
+                                "shape": "S1l"
+                            },
+                            "contentDeliveryRules": {
+                                "shape": "S1q"
+                            },
+                            "status": {},
+                            "creationTime": {
+                                "type": "timestamp"
+                            },
+                            "lastUpdateTime": {
+                                "type": "timestamp"
+                            },
+                            "retentionPeriod": {
+                                "shape": "Sn"
+                            },
+                            "versioningConfiguration": {
+                                "shape": "S21"
+                            },
+                            "lateDataRules": {
+                                "shape": "S24"
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "DescribeDatastore": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/datastores/{datastoreName}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "datastoreName"
+                ],
+                "members": {
+                    "datastoreName": {
+                        "location": "uri",
+                        "locationName": "datastoreName"
+                    },
+                    "includeStatistics": {
+                        "location": "querystring",
+                        "locationName": "includeStatistics",
+                        "type": "boolean"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "datastore": {
+                        "type": "structure",
+                        "members": {
+                            "name": {},
+                            "storage": {
+                                "shape": "S2h"
+                            },
+                            "arn": {},
+                            "status": {},
+                            "retentionPeriod": {
+                                "shape": "Sn"
+                            },
+                            "creationTime": {
+                                "type": "timestamp"
+                            },
+                            "lastUpdateTime": {
+                                "type": "timestamp"
+                            },
+                            "lastMessageArrivalTime": {
+                                "type": "timestamp"
+                            },
+                            "fileFormatConfiguration": {
+                                "shape": "S2k"
+                            }
+                        }
+                    },
+                    "statistics": {
+                        "type": "structure",
+                        "members": {
+                            "size": {
+                                "shape": "S3t"
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "DescribeLoggingOptions": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/logging"
+            },
+            "input": {
+                "type": "structure",
+                "members": {}
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "loggingOptions": {
+                        "shape": "S46"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "DescribePipeline": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/pipelines/{pipelineName}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "pipelineName"
+                ],
+                "members": {
+                    "pipelineName": {
+                        "location": "uri",
+                        "locationName": "pipelineName"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "pipeline": {
+                        "type": "structure",
+                        "members": {
+                            "name": {},
+                            "arn": {},
+                            "activities": {
+                                "shape": "S2v"
+                            },
+                            "reprocessingSummaries": {
+                                "shape": "S4c"
+                            },
+                            "creationTime": {
+                                "type": "timestamp"
+                            },
+                            "lastUpdateTime": {
+                                "type": "timestamp"
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "GetDatasetContent": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/datasets/{datasetName}/content"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "datasetName"
+                ],
+                "members": {
+                    "datasetName": {
+                        "location": "uri",
+                        "locationName": "datasetName"
+                    },
+                    "versionId": {
+                        "location": "querystring",
+                        "locationName": "versionId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "entries": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "entryName": {},
+                                "dataURI": {}
+                            }
+                        }
+                    },
+                    "timestamp": {
+                        "type": "timestamp"
+                    },
+                    "status": {
+                        "shape": "S4k"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "ListChannels": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/channels"
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "nextToken": {
+                        "location": "querystring",
+                        "locationName": "nextToken"
+                    },
+                    "maxResults": {
+                        "location": "querystring",
+                        "locationName": "maxResults",
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "channelSummaries": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "channelName": {},
+                                "channelStorage": {
+                                    "type": "structure",
+                                    "members": {
+                                        "serviceManagedS3": {
+                                            "type": "structure",
+                                            "members": {}
+                                        },
+                                        "customerManagedS3": {
+                                            "type": "structure",
+                                            "members": {
+                                                "bucket": {},
+                                                "keyPrefix": {},
+                                                "roleArn": {}
+                                            }
+                                        }
+                                    }
+                                },
+                                "status": {},
+                                "creationTime": {
+                                    "type": "timestamp"
+                                },
+                                "lastUpdateTime": {
+                                    "type": "timestamp"
+                                },
+                                "lastMessageArrivalTime": {
+                                    "type": "timestamp"
+                                }
+                            }
+                        }
+                    },
+                    "nextToken": {}
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "ListDatasetContents": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/datasets/{datasetName}/contents"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "datasetName"
+                ],
+                "members": {
+                    "datasetName": {
+                        "location": "uri",
+                        "locationName": "datasetName"
+                    },
+                    "nextToken": {
+                        "location": "querystring",
+                        "locationName": "nextToken"
+                    },
+                    "maxResults": {
+                        "location": "querystring",
+                        "locationName": "maxResults",
+                        "type": "integer"
+                    },
+                    "scheduledOnOrAfter": {
+                        "location": "querystring",
+                        "locationName": "scheduledOnOrAfter",
+                        "type": "timestamp"
+                    },
+                    "scheduledBefore": {
+                        "location": "querystring",
+                        "locationName": "scheduledBefore",
+                        "type": "timestamp"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "datasetContentSummaries": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "version": {},
+                                "status": {
+                                    "shape": "S4k"
+                                },
+                                "creationTime": {
+                                    "type": "timestamp"
+                                },
+                                "scheduleTime": {
+                                    "type": "timestamp"
+                                },
+                                "completionTime": {
+                                    "type": "timestamp"
+                                }
+                            }
+                        }
+                    },
+                    "nextToken": {}
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "ListDatasets": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/datasets"
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "nextToken": {
+                        "location": "querystring",
+                        "locationName": "nextToken"
+                    },
+                    "maxResults": {
+                        "location": "querystring",
+                        "locationName": "maxResults",
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "datasetSummaries": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "datasetName": {},
+                                "status": {},
+                                "creationTime": {
+                                    "type": "timestamp"
+                                },
+                                "lastUpdateTime": {
+                                    "type": "timestamp"
+                                },
+                                "triggers": {
+                                    "shape": "S1l"
+                                },
+                                "actions": {
+                                    "type": "list",
+                                    "member": {
+                                        "type": "structure",
+                                        "members": {
+                                            "actionName": {},
+                                            "actionType": {}
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "nextToken": {}
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "ListDatastores": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/datastores"
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "nextToken": {
+                        "location": "querystring",
+                        "locationName": "nextToken"
+                    },
+                    "maxResults": {
+                        "location": "querystring",
+                        "locationName": "maxResults",
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "datastoreSummaries": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "datastoreName": {},
+                                "datastoreStorage": {
+                                    "type": "structure",
+                                    "members": {
+                                        "serviceManagedS3": {
+                                            "type": "structure",
+                                            "members": {}
+                                        },
+                                        "customerManagedS3": {
+                                            "type": "structure",
+                                            "members": {
+                                                "bucket": {},
+                                                "keyPrefix": {},
+                                                "roleArn": {}
+                                            }
+                                        }
+                                    }
+                                },
+                                "status": {},
+                                "creationTime": {
+                                    "type": "timestamp"
+                                },
+                                "lastUpdateTime": {
+                                    "type": "timestamp"
+                                },
+                                "lastMessageArrivalTime": {
+                                    "type": "timestamp"
+                                },
+                                "fileFormatType": {}
+                            }
+                        }
+                    },
+                    "nextToken": {}
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "ListPipelines": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/pipelines"
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "nextToken": {
+                        "location": "querystring",
+                        "locationName": "nextToken"
+                    },
+                    "maxResults": {
+                        "location": "querystring",
+                        "locationName": "maxResults",
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "pipelineSummaries": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "pipelineName": {},
+                                "reprocessingSummaries": {
+                                    "shape": "S4c"
+                                },
+                                "creationTime": {
+                                    "type": "timestamp"
+                                },
+                                "lastUpdateTime": {
+                                    "type": "timestamp"
+                                }
+                            }
+                        }
+                    },
+                    "nextToken": {}
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "ListTagsForResource": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/tags"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "resourceArn"
+                ],
+                "members": {
+                    "resourceArn": {
+                        "location": "querystring",
+                        "locationName": "resourceArn"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "tags": {
+                        "shape": "Sq"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "PutLoggingOptions": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/logging"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "loggingOptions"
+                ],
+                "members": {
+                    "loggingOptions": {
+                        "shape": "S46"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "RunPipelineActivity": {
+            "http": {
+                "requestUri": "/pipelineactivities/run"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "pipelineActivity",
+                    "payloads"
+                ],
+                "members": {
+                    "pipelineActivity": {
+                        "shape": "S2w"
+                    },
+                    "payloads": {
+                        "shape": "S5o"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "payloads": {
+                        "shape": "S5o"
+                    },
+                    "logResult": {}
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "SampleChannelData": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/channels/{channelName}/sample"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "channelName"
+                ],
+                "members": {
+                    "channelName": {
+                        "location": "uri",
+                        "locationName": "channelName"
+                    },
+                    "maxMessages": {
+                        "location": "querystring",
+                        "locationName": "maxMessages",
+                        "type": "integer"
+                    },
+                    "startTime": {
+                        "location": "querystring",
+                        "locationName": "startTime",
+                        "type": "timestamp"
+                    },
+                    "endTime": {
+                        "location": "querystring",
+                        "locationName": "endTime",
+                        "type": "timestamp"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "payloads": {
+                        "shape": "S5o"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "StartPipelineReprocessing": {
+            "http": {
+                "requestUri": "/pipelines/{pipelineName}/reprocessing"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "pipelineName"
+                ],
+                "members": {
+                    "pipelineName": {
+                        "location": "uri",
+                        "locationName": "pipelineName"
+                    },
+                    "startTime": {
+                        "type": "timestamp"
+                    },
+                    "endTime": {
+                        "type": "timestamp"
+                    },
+                    "channelMessages": {
+                        "type": "structure",
+                        "members": {
+                            "s3Paths": {
+                                "type": "list",
+                                "member": {}
+                            }
+                        }
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "reprocessingId": {}
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "TagResource": {
+            "http": {
+                "requestUri": "/tags",
+                "responseCode": 204
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "resourceArn",
+                    "tags"
+                ],
+                "members": {
+                    "resourceArn": {
+                        "location": "querystring",
+                        "locationName": "resourceArn"
+                    },
+                    "tags": {
+                        "shape": "Sq"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "UntagResource": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/tags",
+                "responseCode": 204
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "resourceArn",
+                    "tagKeys"
+                ],
+                "members": {
+                    "resourceArn": {
+                        "location": "querystring",
+                        "locationName": "resourceArn"
+                    },
+                    "tagKeys": {
+                        "location": "querystring",
+                        "locationName": "tagKeys",
+                        "type": "list",
+                        "member": {}
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "UpdateChannel": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/channels/{channelName}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "channelName"
+                ],
+                "members": {
+                    "channelName": {
+                        "location": "uri",
+                        "locationName": "channelName"
+                    },
+                    "channelStorage": {
+                        "shape": "Sh"
+                    },
+                    "retentionPeriod": {
+                        "shape": "Sn"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "UpdateDataset": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/datasets/{datasetName}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "datasetName",
+                    "actions"
+                ],
+                "members": {
+                    "datasetName": {
+                        "location": "uri",
+                        "locationName": "datasetName"
+                    },
+                    "actions": {
+                        "shape": "Sy"
+                    },
+                    "triggers": {
+                        "shape": "S1l"
+                    },
+                    "contentDeliveryRules": {
+                        "shape": "S1q"
+                    },
+                    "retentionPeriod": {
+                        "shape": "Sn"
+                    },
+                    "versioningConfiguration": {
+                        "shape": "S21"
+                    },
+                    "lateDataRules": {
+                        "shape": "S24"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "UpdateDatastore": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/datastores/{datastoreName}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "datastoreName"
+                ],
+                "members": {
+                    "datastoreName": {
+                        "location": "uri",
+                        "locationName": "datastoreName"
+                    },
+                    "retentionPeriod": {
+                        "shape": "Sn"
+                    },
+                    "datastoreStorage": {
+                        "shape": "S2h"
+                    },
+                    "fileFormatConfiguration": {
+                        "shape": "S2k"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "UpdatePipeline": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/pipelines/{pipelineName}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "pipelineName",
+                    "pipelineActivities"
+                ],
+                "members": {
+                    "pipelineName": {
+                        "location": "uri",
+                        "locationName": "pipelineName"
+                    },
+                    "pipelineActivities": {
+                        "shape": "S2v"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "CreateDatastoreIndex": {
+            "http": {
+                "requestUri": "/datastores/{datastoreName}/index",
+                "responseCode": 201
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "datastoreName",
+                    "datastoreIndexName",
+                    "settings"
+                ],
+                "members": {
+                    "datastoreName": {
+                        "location": "uri",
+                        "locationName": "datastoreName"
+                    },
+                    "datastoreIndexName": {},
+                    "retentionPeriod": {
+                        "shape": "S38"
+                    },
+                    "backfillPeriod": {
+                        "type": "structure",
+                        "members": {
+                            "numberOfDays": {
+                                "type": "integer"
+                            }
+                        }
+                    },
+                    "settings": {
+                        "shape": "S3b"
+                    },
+                    "tags": {
+                        "shape": "Sq"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "datastoreName": {},
+                    "datastoreIndexName": {},
+                    "datastoreIndexArn": {},
+                    "retentionPeriod": {
+                        "shape": "S38"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d2wz0f36o3ba41.cloudfront.net/898db13c189b834c6fec0397daa842ce633d8dfb/app-vendors.js"
+            ]
+        },
+        "DeleteDatastoreIndex": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/datastores/{datastoreName}/index/{datastoreIndexName}",
+                "responseCode": 204
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "datastoreName",
+                    "datastoreIndexName"
+                ],
+                "members": {
+                    "datastoreName": {
+                        "location": "uri",
+                        "locationName": "datastoreName"
+                    },
+                    "datastoreIndexName": {
+                        "location": "uri",
+                        "locationName": "datastoreIndexName"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d2wz0f36o3ba41.cloudfront.net/898db13c189b834c6fec0397daa842ce633d8dfb/app-vendors.js"
+            ]
+        },
+        "DescribeDatastoreIndex": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/datastores/{datastoreName}/index/{datastoreIndexName}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "datastoreName",
+                    "datastoreIndexName"
+                ],
+                "members": {
+                    "datastoreName": {
+                        "location": "uri",
+                        "locationName": "datastoreName"
+                    },
+                    "datastoreIndexName": {
+                        "location": "uri",
+                        "locationName": "datastoreIndexName"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "datastoreIndex": {
+                        "type": "structure",
+                        "members": {
+                            "name": {},
+                            "datastoreName": {},
+                            "arn": {},
+                            "status": {},
+                            "retentionPeriod": {
+                                "shape": "S38"
+                            },
+                            "creationTime": {
+                                "type": "timestamp"
+                            },
+                            "lastUpdateTime": {
+                                "type": "timestamp"
+                            },
+                            "settings": {
+                                "shape": "S3b"
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://d2wz0f36o3ba41.cloudfront.net/898db13c189b834c6fec0397daa842ce633d8dfb/app-vendors.js"
+            ]
+        },
+        "ExecuteQuery": {
+            "http": {
+                "requestUri": "/query"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "queryString",
+                    "queryLanguageVersion"
+                ],
+                "members": {
+                    "queryString": {},
+                    "queryLanguageVersion": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "records": {
+                        "type": "list",
+                        "member": {
+                            "type": "map",
+                            "key": {},
+                            "value": {}
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://d2wz0f36o3ba41.cloudfront.net/898db13c189b834c6fec0397daa842ce633d8dfb/app-vendors.js"
+            ]
+        },
+        "ListDatastoreIndices": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/datastores/{datastoreName}/index"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "datastoreName"
+                ],
+                "members": {
+                    "datastoreName": {
+                        "location": "uri",
+                        "locationName": "datastoreName"
+                    },
+                    "nextToken": {
+                        "location": "querystring",
+                        "locationName": "nextToken"
+                    },
+                    "maxResults": {
+                        "location": "querystring",
+                        "locationName": "maxResults",
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "datastoreIndexSummaries": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "name": {},
+                                "status": {},
+                                "creationTime": {
+                                    "type": "timestamp"
+                                },
+                                "lastUpdateTime": {
+                                    "type": "timestamp"
+                                }
+                            }
+                        }
+                    },
+                    "nextToken": {}
+                }
+            },
+            "download_location": [
+                "https://d2wz0f36o3ba41.cloudfront.net/898db13c189b834c6fec0397daa842ce633d8dfb/app-vendors.js"
+            ]
+        },
+        "RunDatasetAction": {
+            "http": {
+                "requestUri": "/datasetaction/run"
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "queryAction": {
+                        "shape": "S11"
+                    },
+                    "containerAction": {
+                        "shape": "S19"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "datasetName": {},
+                    "versionId": {}
+                }
+            },
+            "download_location": [
+                "https://d2wz0f36o3ba41.cloudfront.net/898db13c189b834c6fec0397daa842ce633d8dfb/app-vendors.js"
+            ]
+        },
+        "UpdateDatastoreIndex": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/datastores/{datastoreName}/index/{datastoreIndexName}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "datastoreName",
+                    "datastoreIndexName"
+                ],
+                "members": {
+                    "datastoreName": {
+                        "location": "uri",
+                        "locationName": "datastoreName"
+                    },
+                    "datastoreIndexName": {
+                        "location": "uri",
+                        "locationName": "datastoreIndexName"
+                    },
+                    "retentionPeriod": {
+                        "shape": "S38"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d2wz0f36o3ba41.cloudfront.net/898db13c189b834c6fec0397daa842ce633d8dfb/app-vendors.js"
+            ]
+        }
+    },
+    "shapes": {
+        "Sh": {
+            "type": "structure",
+            "members": {
+                "serviceManagedS3": {
+                    "type": "structure",
+                    "members": {}
+                },
+                "customerManagedS3": {
+                    "type": "structure",
+                    "required": [
+                        "bucket",
+                        "roleArn"
+                    ],
+                    "members": {
+                        "bucket": {},
+                        "keyPrefix": {},
+                        "roleArn": {}
+                    }
+                }
+            }
+        },
+        "Sn": {
+            "type": "structure",
+            "members": {
+                "unlimited": {
+                    "type": "boolean"
+                },
+                "numberOfDays": {
+                    "type": "integer"
+                }
+            }
+        },
+        "Sq": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "key",
+                    "value"
+                ],
+                "members": {
+                    "key": {},
+                    "value": {}
+                }
+            }
+        },
+        "Sy": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "actionName": {},
+                    "queryAction": {
+                        "type": "structure",
+                        "required": [
+                            "sqlQuery"
+                        ],
+                        "members": {
+                            "sqlQuery": {},
+                            "filters": {
+                                "type": "list",
+                                "member": {
+                                    "type": "structure",
+                                    "members": {
+                                        "deltaTime": {
+                                            "type": "structure",
+                                            "required": [
+                                                "offsetSeconds",
+                                                "timeExpression"
+                                            ],
+                                            "members": {
+                                                "offsetSeconds": {
+                                                    "type": "integer"
+                                                },
+                                                "timeExpression": {}
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "containerAction": {
+                        "type": "structure",
+                        "required": [
+                            "image",
+                            "executionRoleArn",
+                            "resourceConfiguration"
+                        ],
+                        "members": {
+                            "image": {},
+                            "executionRoleArn": {},
+                            "resourceConfiguration": {
+                                "type": "structure",
+                                "required": [
+                                    "computeType",
+                                    "volumeSizeInGB"
+                                ],
+                                "members": {
+                                    "computeType": {},
+                                    "volumeSizeInGB": {
+                                        "type": "integer"
+                                    }
+                                }
+                            },
+                            "variables": {
+                                "type": "list",
+                                "member": {
+                                    "type": "structure",
+                                    "required": [
+                                        "name"
+                                    ],
+                                    "members": {
+                                        "name": {},
+                                        "stringValue": {},
+                                        "doubleValue": {
+                                            "type": "double"
+                                        },
+                                        "datasetContentVersionValue": {
+                                            "type": "structure",
+                                            "required": [
+                                                "datasetName"
+                                            ],
+                                            "members": {
+                                                "datasetName": {}
+                                            }
+                                        },
+                                        "outputFileUriValue": {
+                                            "type": "structure",
+                                            "required": [
+                                                "fileName"
+                                            ],
+                                            "members": {
+                                                "fileName": {}
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "S1l": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "schedule": {
+                        "type": "structure",
+                        "members": {
+                            "expression": {}
+                        }
+                    },
+                    "dataset": {
+                        "type": "structure",
+                        "required": [
+                            "name"
+                        ],
+                        "members": {
+                            "name": {}
+                        }
+                    }
+                }
+            }
+        },
+        "S1q": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "destination"
+                ],
+                "members": {
+                    "entryName": {},
+                    "destination": {
+                        "type": "structure",
+                        "members": {
+                            "iotEventsDestinationConfiguration": {
+                                "type": "structure",
+                                "required": [
+                                    "inputName",
+                                    "roleArn"
+                                ],
+                                "members": {
+                                    "inputName": {},
+                                    "roleArn": {}
+                                }
+                            },
+                            "s3DestinationConfiguration": {
+                                "type": "structure",
+                                "required": [
+                                    "bucket",
+                                    "key",
+                                    "roleArn"
+                                ],
+                                "members": {
+                                    "bucket": {},
+                                    "key": {},
+                                    "glueConfiguration": {
+                                        "type": "structure",
+                                        "required": [
+                                            "tableName",
+                                            "databaseName"
+                                        ],
+                                        "members": {
+                                            "tableName": {},
+                                            "databaseName": {}
+                                        }
+                                    },
+                                    "roleArn": {}
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "S21": {
+            "type": "structure",
+            "members": {
+                "unlimited": {
+                    "type": "boolean"
+                },
+                "maxVersions": {
+                    "type": "integer"
+                }
+            }
+        },
+        "S24": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "ruleConfiguration"
+                ],
+                "members": {
+                    "ruleName": {},
+                    "ruleConfiguration": {
+                        "type": "structure",
+                        "members": {
+                            "deltaTimeSessionWindowConfiguration": {
+                                "type": "structure",
+                                "required": [
+                                    "timeoutInMinutes"
+                                ],
+                                "members": {
+                                    "timeoutInMinutes": {
+                                        "type": "integer"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "S2h": {
+            "type": "structure",
+            "members": {
+                "serviceManagedS3": {
+                    "type": "structure",
+                    "members": {}
+                },
+                "customerManagedS3": {
+                    "type": "structure",
+                    "required": [
+                        "bucket",
+                        "roleArn"
+                    ],
+                    "members": {
+                        "bucket": {},
+                        "keyPrefix": {},
+                        "roleArn": {}
+                    }
+                }
+            }
+        },
+        "S2k": {
+            "type": "structure",
+            "members": {
+                "jsonConfiguration": {
+                    "type": "structure",
+                    "members": {}
+                },
+                "parquetConfiguration": {
+                    "type": "structure",
+                    "members": {
+                        "schemaDefinition": {
+                            "type": "structure",
+                            "members": {
+                                "columns": {
+                                    "type": "list",
+                                    "member": {
+                                        "type": "structure",
+                                        "required": [
+                                            "name",
+                                            "type"
+                                        ],
+                                        "members": {
+                                            "name": {},
+                                            "type": {}
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "S2v": {
+            "type": "list",
+            "member": {
+                "shape": "S2w"
+            }
+        },
+        "S2w": {
+            "type": "structure",
+            "members": {
+                "channel": {
+                    "type": "structure",
+                    "required": [
+                        "name",
+                        "channelName"
+                    ],
+                    "members": {
+                        "name": {},
+                        "channelName": {},
+                        "next": {}
+                    }
+                },
+                "lambda": {
+                    "type": "structure",
+                    "required": [
+                        "name",
+                        "lambdaName",
+                        "batchSize"
+                    ],
+                    "members": {
+                        "name": {},
+                        "lambdaName": {},
+                        "batchSize": {
+                            "type": "integer"
+                        },
+                        "next": {}
+                    }
+                },
+                "datastore": {
+                    "type": "structure",
+                    "required": [
+                        "name",
+                        "datastoreName"
+                    ],
+                    "members": {
+                        "name": {},
+                        "datastoreName": {}
+                    }
+                },
+                "addAttributes": {
+                    "type": "structure",
+                    "required": [
+                        "name",
+                        "attributes"
+                    ],
+                    "members": {
+                        "name": {},
+                        "attributes": {
+                            "type": "map",
+                            "key": {},
+                            "value": {}
+                        },
+                        "next": {}
+                    }
+                },
+                "removeAttributes": {
+                    "type": "structure",
+                    "required": [
+                        "name",
+                        "attributes"
+                    ],
+                    "members": {
+                        "name": {},
+                        "attributes": {
+                            "shape": "S37"
+                        },
+                        "next": {}
+                    }
+                },
+                "selectAttributes": {
+                    "type": "structure",
+                    "required": [
+                        "name",
+                        "attributes"
+                    ],
+                    "members": {
+                        "name": {},
+                        "attributes": {
+                            "shape": "S37"
+                        },
+                        "next": {}
+                    }
+                },
+                "filter": {
+                    "type": "structure",
+                    "required": [
+                        "name",
+                        "filter"
+                    ],
+                    "members": {
+                        "name": {},
+                        "filter": {},
+                        "next": {}
+                    }
+                },
+                "math": {
+                    "type": "structure",
+                    "required": [
+                        "name",
+                        "attribute",
+                        "math"
+                    ],
+                    "members": {
+                        "name": {},
+                        "attribute": {},
+                        "math": {},
+                        "next": {}
+                    }
+                },
+                "deviceRegistryEnrich": {
+                    "type": "structure",
+                    "required": [
+                        "name",
+                        "attribute",
+                        "thingName",
+                        "roleArn"
+                    ],
+                    "members": {
+                        "name": {},
+                        "attribute": {},
+                        "thingName": {},
+                        "roleArn": {},
+                        "next": {}
+                    }
+                },
+                "deviceShadowEnrich": {
+                    "type": "structure",
+                    "required": [
+                        "name",
+                        "attribute",
+                        "thingName",
+                        "roleArn"
+                    ],
+                    "members": {
+                        "name": {},
+                        "attribute": {},
+                        "thingName": {},
+                        "roleArn": {},
+                        "next": {}
+                    }
+                }
+            }
+        },
+        "S37": {
+            "type": "list",
+            "member": {}
+        },
+        "S3t": {
+            "type": "structure",
+            "members": {
+                "estimatedSizeInBytes": {
+                    "type": "double"
+                },
+                "estimatedOn": {
+                    "type": "timestamp"
+                }
+            }
+        },
+        "S46": {
+            "type": "structure",
+            "required": [
+                "roleArn",
+                "level",
+                "enabled"
+            ],
+            "members": {
+                "roleArn": {},
+                "level": {},
+                "enabled": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "S4c": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "id": {},
+                    "status": {},
+                    "creationTime": {
+                        "type": "timestamp"
+                    }
+                }
+            }
+        },
+        "S4k": {
+            "type": "structure",
+            "members": {
+                "state": {},
+                "reason": {}
+            }
+        },
+        "S5o": {
+            "type": "list",
+            "member": {
+                "type": "blob"
+            }
+        },
+        "S2b": {
+            "type": "structure",
+            "members": {
+                "serviceManagedS3": {
+                    "type": "structure",
+                    "members": {}
+                },
+                "customerManagedS3": {
+                    "type": "structure",
+                    "required": [
+                        "bucket",
+                        "roleArn"
+                    ],
+                    "members": {
+                        "bucket": {},
+                        "keyPrefix": {},
+                        "roleArn": {}
+                    }
+                }
+            }
+        },
+        "S2i": {
+            "type": "structure",
+            "members": {
+                "channel": {
+                    "type": "structure",
+                    "required": [
+                        "name",
+                        "channelName"
+                    ],
+                    "members": {
+                        "name": {},
+                        "channelName": {},
+                        "next": {}
+                    }
+                },
+                "lambda": {
+                    "type": "structure",
+                    "required": [
+                        "name",
+                        "lambdaName",
+                        "batchSize"
+                    ],
+                    "members": {
+                        "name": {},
+                        "lambdaName": {},
+                        "batchSize": {
+                            "type": "integer"
+                        },
+                        "next": {}
+                    }
+                },
+                "datastore": {
+                    "type": "structure",
+                    "required": [
+                        "name",
+                        "datastoreName"
+                    ],
+                    "members": {
+                        "name": {},
+                        "datastoreName": {}
+                    }
+                },
+                "addAttributes": {
+                    "type": "structure",
+                    "required": [
+                        "name",
+                        "attributes"
+                    ],
+                    "members": {
+                        "name": {},
+                        "attributes": {
+                            "type": "map",
+                            "key": {},
+                            "value": {}
+                        },
+                        "next": {}
+                    }
+                },
+                "removeAttributes": {
+                    "type": "structure",
+                    "required": [
+                        "name",
+                        "attributes"
+                    ],
+                    "members": {
+                        "name": {},
+                        "attributes": {
+                            "shape": "S2t"
+                        },
+                        "next": {}
+                    }
+                },
+                "selectAttributes": {
+                    "type": "structure",
+                    "required": [
+                        "name",
+                        "attributes"
+                    ],
+                    "members": {
+                        "name": {},
+                        "attributes": {
+                            "shape": "S2t"
+                        },
+                        "next": {}
+                    }
+                },
+                "filter": {
+                    "type": "structure",
+                    "required": [
+                        "name",
+                        "filter"
+                    ],
+                    "members": {
+                        "name": {},
+                        "filter": {},
+                        "next": {}
+                    }
+                },
+                "math": {
+                    "type": "structure",
+                    "required": [
+                        "name",
+                        "attribute",
+                        "math"
+                    ],
+                    "members": {
+                        "name": {},
+                        "attribute": {},
+                        "math": {},
+                        "next": {}
+                    }
+                },
+                "deviceRegistryEnrich": {
+                    "type": "structure",
+                    "required": [
+                        "name",
+                        "attribute",
+                        "thingName",
+                        "roleArn"
+                    ],
+                    "members": {
+                        "name": {},
+                        "attribute": {},
+                        "thingName": {},
+                        "roleArn": {},
+                        "next": {}
+                    }
+                },
+                "deviceShadowEnrich": {
+                    "type": "structure",
+                    "required": [
+                        "name",
+                        "attribute",
+                        "thingName",
+                        "roleArn"
+                    ],
+                    "members": {
+                        "name": {},
+                        "attribute": {},
+                        "thingName": {},
+                        "roleArn": {},
+                        "next": {}
+                    }
+                }
+            }
+        },
+        "S2t": {
+            "type": "list",
+            "member": {}
+        },
+        "S3f": {
+            "type": "structure",
+            "members": {
+                "estimatedSizeInBytes": {
+                    "type": "double"
+                },
+                "estimatedOn": {
+                    "type": "timestamp"
+                }
+            }
+        },
+        "S3s": {
+            "type": "structure",
+            "required": [
+                "roleArn",
+                "level",
+                "enabled"
+            ],
+            "members": {
+                "roleArn": {},
+                "level": {},
+                "enabled": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "S3y": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "id": {},
+                    "status": {},
+                    "creationTime": {
+                        "type": "timestamp"
+                    }
+                }
+            }
+        },
+        "S59": {
+            "type": "list",
+            "member": {
+                "type": "blob"
+            }
+        },
+        "S2m": {
+            "type": "structure",
+            "members": {
+                "jsonConfiguration": {
+                    "type": "structure",
+                    "members": {}
+                },
+                "parquetConfiguration": {
+                    "type": "structure",
+                    "members": {
+                        "schemaDefinition": {
+                            "type": "structure",
+                            "members": {
+                                "columns": {
+                                    "type": "list",
+                                    "member": {
+                                        "type": "structure",
+                                        "required": [
+                                            "name",
+                                            "type"
+                                        ],
+                                        "members": {
+                                            "name": {},
+                                            "type": {}
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "S2u": {
+            "type": "structure",
+            "members": {
+                "partitions": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "members": {
+                            "attributePartition": {
+                                "type": "structure",
+                                "required": [
+                                    "attributeName"
+                                ],
+                                "members": {
+                                    "attributeName": {}
+                                }
+                            },
+                            "timestampPartition": {
+                                "type": "structure",
+                                "required": [
+                                    "attributeName"
+                                ],
+                                "members": {
+                                    "attributeName": {},
+                                    "timestampFormat": {}
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "S34": {
+            "type": "list",
+            "member": {
+                "shape": "S35"
+            }
+        },
+        "S35": {
+            "type": "structure",
+            "members": {
+                "channel": {
+                    "type": "structure",
+                    "required": [
+                        "name",
+                        "channelName"
+                    ],
+                    "members": {
+                        "name": {},
+                        "channelName": {},
+                        "next": {}
+                    }
+                },
+                "lambda": {
+                    "type": "structure",
+                    "required": [
+                        "name",
+                        "lambdaName",
+                        "batchSize"
+                    ],
+                    "members": {
+                        "name": {},
+                        "lambdaName": {},
+                        "batchSize": {
+                            "type": "integer"
+                        },
+                        "next": {}
+                    }
+                },
+                "datastore": {
+                    "type": "structure",
+                    "required": [
+                        "name",
+                        "datastoreName"
+                    ],
+                    "members": {
+                        "name": {},
+                        "datastoreName": {}
+                    }
+                },
+                "addAttributes": {
+                    "type": "structure",
+                    "required": [
+                        "name",
+                        "attributes"
+                    ],
+                    "members": {
+                        "name": {},
+                        "attributes": {
+                            "type": "map",
+                            "key": {},
+                            "value": {}
+                        },
+                        "next": {}
+                    }
+                },
+                "removeAttributes": {
+                    "type": "structure",
+                    "required": [
+                        "name",
+                        "attributes"
+                    ],
+                    "members": {
+                        "name": {},
+                        "attributes": {
+                            "shape": "S3g"
+                        },
+                        "next": {}
+                    }
+                },
+                "selectAttributes": {
+                    "type": "structure",
+                    "required": [
+                        "name",
+                        "attributes"
+                    ],
+                    "members": {
+                        "name": {},
+                        "attributes": {
+                            "shape": "S3g"
+                        },
+                        "next": {}
+                    }
+                },
+                "filter": {
+                    "type": "structure",
+                    "required": [
+                        "name",
+                        "filter"
+                    ],
+                    "members": {
+                        "name": {},
+                        "filter": {},
+                        "next": {}
+                    }
+                },
+                "math": {
+                    "type": "structure",
+                    "required": [
+                        "name",
+                        "attribute",
+                        "math"
+                    ],
+                    "members": {
+                        "name": {},
+                        "attribute": {},
+                        "math": {},
+                        "next": {}
+                    }
+                },
+                "deviceRegistryEnrich": {
+                    "type": "structure",
+                    "required": [
+                        "name",
+                        "attribute",
+                        "thingName",
+                        "roleArn"
+                    ],
+                    "members": {
+                        "name": {},
+                        "attribute": {},
+                        "thingName": {},
+                        "roleArn": {},
+                        "next": {}
+                    }
+                },
+                "deviceShadowEnrich": {
+                    "type": "structure",
+                    "required": [
+                        "name",
+                        "attribute",
+                        "thingName",
+                        "roleArn"
+                    ],
+                    "members": {
+                        "name": {},
+                        "attribute": {},
+                        "thingName": {},
+                        "roleArn": {},
+                        "next": {}
+                    }
+                }
+            }
+        },
+        "S3g": {
+            "type": "list",
+            "member": {}
+        },
+        "S42": {
+            "type": "structure",
+            "members": {
+                "estimatedSizeInBytes": {
+                    "type": "double"
+                },
+                "estimatedOn": {
+                    "type": "timestamp"
+                }
+            }
+        },
+        "S4f": {
+            "type": "structure",
+            "required": [
+                "roleArn",
+                "level",
+                "enabled"
+            ],
+            "members": {
+                "roleArn": {},
+                "level": {},
+                "enabled": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "S4l": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "id": {},
+                    "status": {},
+                    "creationTime": {
+                        "type": "timestamp"
+                    }
+                }
+            }
+        },
+        "S4t": {
+            "type": "structure",
+            "members": {
+                "state": {},
+                "reason": {}
+            }
+        },
+        "S5z": {
+            "type": "list",
+            "member": {
+                "type": "blob"
+            }
+        },
+        "S2s": {
+            "type": "structure",
+            "members": {
+                "partitions": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "members": {
+                            "attributePartition": {
+                                "type": "structure",
+                                "required": [
+                                    "attributeName"
+                                ],
+                                "members": {
+                                    "attributeName": {}
+                                }
+                            },
+                            "timestampPartition": {
+                                "type": "structure",
+                                "required": [
+                                    "attributeName"
+                                ],
+                                "members": {
+                                    "attributeName": {},
+                                    "timestampFormat": {}
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "S32": {
+            "type": "list",
+            "member": {
+                "shape": "S33"
+            }
+        },
+        "S33": {
+            "type": "structure",
+            "members": {
+                "channel": {
+                    "type": "structure",
+                    "required": [
+                        "name",
+                        "channelName"
+                    ],
+                    "members": {
+                        "name": {},
+                        "channelName": {},
+                        "next": {}
+                    }
+                },
+                "lambda": {
+                    "type": "structure",
+                    "required": [
+                        "name",
+                        "lambdaName",
+                        "batchSize"
+                    ],
+                    "members": {
+                        "name": {},
+                        "lambdaName": {},
+                        "batchSize": {
+                            "type": "integer"
+                        },
+                        "next": {}
+                    }
+                },
+                "datastore": {
+                    "type": "structure",
+                    "required": [
+                        "name",
+                        "datastoreName"
+                    ],
+                    "members": {
+                        "name": {},
+                        "datastoreName": {}
+                    }
+                },
+                "addAttributes": {
+                    "type": "structure",
+                    "required": [
+                        "name",
+                        "attributes"
+                    ],
+                    "members": {
+                        "name": {},
+                        "attributes": {
+                            "type": "map",
+                            "key": {},
+                            "value": {}
+                        },
+                        "next": {}
+                    }
+                },
+                "removeAttributes": {
+                    "type": "structure",
+                    "required": [
+                        "name",
+                        "attributes"
+                    ],
+                    "members": {
+                        "name": {},
+                        "attributes": {
+                            "shape": "S3e"
+                        },
+                        "next": {}
+                    }
+                },
+                "selectAttributes": {
+                    "type": "structure",
+                    "required": [
+                        "name",
+                        "attributes"
+                    ],
+                    "members": {
+                        "name": {},
+                        "attributes": {
+                            "shape": "S3e"
+                        },
+                        "next": {}
+                    }
+                },
+                "filter": {
+                    "type": "structure",
+                    "required": [
+                        "name",
+                        "filter"
+                    ],
+                    "members": {
+                        "name": {},
+                        "filter": {},
+                        "next": {}
+                    }
+                },
+                "math": {
+                    "type": "structure",
+                    "required": [
+                        "name",
+                        "attribute",
+                        "math"
+                    ],
+                    "members": {
+                        "name": {},
+                        "attribute": {},
+                        "math": {},
+                        "next": {}
+                    }
+                },
+                "deviceRegistryEnrich": {
+                    "type": "structure",
+                    "required": [
+                        "name",
+                        "attribute",
+                        "thingName",
+                        "roleArn"
+                    ],
+                    "members": {
+                        "name": {},
+                        "attribute": {},
+                        "thingName": {},
+                        "roleArn": {},
+                        "next": {}
+                    }
+                },
+                "deviceShadowEnrich": {
+                    "type": "structure",
+                    "required": [
+                        "name",
+                        "attribute",
+                        "thingName",
+                        "roleArn"
+                    ],
+                    "members": {
+                        "name": {},
+                        "attribute": {},
+                        "thingName": {},
+                        "roleArn": {},
+                        "next": {}
+                    }
+                }
+            }
+        },
+        "S3e": {
+            "type": "list",
+            "member": {}
+        },
+        "S40": {
+            "type": "structure",
+            "members": {
+                "estimatedSizeInBytes": {
+                    "type": "double"
+                },
+                "estimatedOn": {
+                    "type": "timestamp"
+                }
+            }
+        },
+        "S4d": {
+            "type": "structure",
+            "required": [
+                "roleArn",
+                "level",
+                "enabled"
+            ],
+            "members": {
+                "roleArn": {},
+                "level": {},
+                "enabled": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "S4j": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "id": {},
+                    "status": {},
+                    "creationTime": {
+                        "type": "timestamp"
+                    }
+                }
+            }
+        },
+        "S4r": {
+            "type": "structure",
+            "members": {
+                "state": {},
+                "reason": {}
+            }
+        },
+        "S5v": {
+            "type": "list",
+            "member": {
+                "type": "blob"
+            }
+        },
+        "S11": {
+            "type": "structure",
+            "required": [
+                "sqlQuery"
+            ],
+            "members": {
+                "sqlQuery": {},
+                "filters": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "members": {
+                            "deltaTime": {
+                                "type": "structure",
+                                "required": [
+                                    "offsetSeconds",
+                                    "timeExpression"
+                                ],
+                                "members": {
+                                    "offsetSeconds": {
+                                        "type": "integer"
+                                    },
+                                    "timeExpression": {}
+                                }
+                            }
+                        }
+                    }
+                },
+                "queryLanguageVersion": {}
+            }
+        },
+        "S19": {
+            "type": "structure",
+            "required": [
+                "image",
+                "executionRoleArn",
+                "resourceConfiguration"
+            ],
+            "members": {
+                "image": {},
+                "executionRoleArn": {},
+                "resourceConfiguration": {
+                    "type": "structure",
+                    "required": [
+                        "computeType",
+                        "volumeSizeInGB"
+                    ],
+                    "members": {
+                        "computeType": {},
+                        "volumeSizeInGB": {
+                            "type": "integer"
+                        }
+                    }
+                },
+                "variables": {
+                    "shape": "S1e"
+                }
+            }
+        },
+        "S1e": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "name"
+                ],
+                "members": {
+                    "name": {},
+                    "stringValue": {},
+                    "doubleValue": {
+                        "type": "double"
+                    },
+                    "datasetContentVersionValue": {
+                        "type": "structure",
+                        "required": [
+                            "datasetName"
+                        ],
+                        "members": {
+                            "datasetName": {}
+                        }
+                    },
+                    "outputFileUriValue": {
+                        "type": "structure",
+                        "required": [
+                            "fileName"
+                        ],
+                        "members": {
+                            "fileName": {}
+                        }
+                    }
+                }
+            }
+        },
+        "S1o": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "schedule": {
+                        "type": "structure",
+                        "members": {
+                            "expression": {}
+                        }
+                    },
+                    "dataset": {
+                        "type": "structure",
+                        "required": [
+                            "name"
+                        ],
+                        "members": {
+                            "name": {}
+                        }
+                    }
+                }
+            }
+        },
+        "S1t": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "destination"
+                ],
+                "members": {
+                    "entryName": {},
+                    "destination": {
+                        "type": "structure",
+                        "members": {
+                            "iotEventsDestinationConfiguration": {
+                                "type": "structure",
+                                "required": [
+                                    "inputName",
+                                    "roleArn"
+                                ],
+                                "members": {
+                                    "inputName": {},
+                                    "roleArn": {}
+                                }
+                            },
+                            "s3DestinationConfiguration": {
+                                "type": "structure",
+                                "required": [
+                                    "bucket",
+                                    "key",
+                                    "roleArn"
+                                ],
+                                "members": {
+                                    "bucket": {},
+                                    "key": {},
+                                    "glueConfiguration": {
+                                        "type": "structure",
+                                        "required": [
+                                            "tableName",
+                                            "databaseName"
+                                        ],
+                                        "members": {
+                                            "tableName": {},
+                                            "databaseName": {}
+                                        }
+                                    },
+                                    "roleArn": {}
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "S27": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "ruleConfiguration"
+                ],
+                "members": {
+                    "ruleName": {},
+                    "ruleConfiguration": {
+                        "type": "structure",
+                        "members": {
+                            "deltaTimeSessionWindowConfiguration": {
+                                "type": "structure",
+                                "required": [
+                                    "timeoutInMinutes"
+                                ],
+                                "members": {
+                                    "timeoutInMinutes": {
+                                        "type": "integer"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "S2p": {
+            "type": "structure",
+            "members": {
+                "jsonConfiguration": {
+                    "type": "structure",
+                    "members": {}
+                },
+                "parquetConfiguration": {
+                    "type": "structure",
+                    "members": {
+                        "schemaDefinition": {
+                            "type": "structure",
+                            "members": {
+                                "columns": {
+                                    "type": "list",
+                                    "member": {
+                                        "type": "structure",
+                                        "required": [
+                                            "name",
+                                            "type"
+                                        ],
+                                        "members": {
+                                            "name": {},
+                                            "type": {}
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "S2x": {
+            "type": "structure",
+            "members": {
+                "partitions": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "members": {
+                            "attributePartition": {
+                                "type": "structure",
+                                "required": [
+                                    "attributeName"
+                                ],
+                                "members": {
+                                    "attributeName": {}
+                                }
+                            },
+                            "timestampPartition": {
+                                "type": "structure",
+                                "required": [
+                                    "attributeName"
+                                ],
+                                "members": {
+                                    "attributeName": {},
+                                    "timestampFormat": {}
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "S38": {
+            "type": "structure",
+            "members": {
+                "numberOfDays": {
+                    "type": "integer"
+                }
+            }
+        },
+        "S3b": {
+            "type": "structure",
+            "members": {
+                "timeseries": {
+                    "type": "structure",
+                    "required": [
+                        "timestampAttribute",
+                        "dimensionAttributes",
+                        "measureAttributes"
+                    ],
+                    "members": {
+                        "timestampAttribute": {},
+                        "dimensionAttributes": {
+                            "type": "list",
+                            "member": {
+                                "type": "structure",
+                                "required": [
+                                    "name",
+                                    "attribute"
+                                ],
+                                "members": {
+                                    "name": {},
+                                    "attribute": {}
+                                }
+                            }
+                        },
+                        "measureAttributes": {
+                            "type": "list",
+                            "member": {
+                                "type": "structure",
+                                "required": [
+                                    "name",
+                                    "attribute"
+                                ],
+                                "members": {
+                                    "name": {},
+                                    "attribute": {}
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "S3n": {
+            "type": "list",
+            "member": {
+                "shape": "S3o"
+            }
+        },
+        "S3o": {
+            "type": "structure",
+            "members": {
+                "channel": {
+                    "type": "structure",
+                    "required": [
+                        "name",
+                        "channelName"
+                    ],
+                    "members": {
+                        "name": {},
+                        "channelName": {},
+                        "next": {}
+                    }
+                },
+                "lambda": {
+                    "type": "structure",
+                    "required": [
+                        "name",
+                        "lambdaName",
+                        "batchSize"
+                    ],
+                    "members": {
+                        "name": {},
+                        "lambdaName": {},
+                        "batchSize": {
+                            "type": "integer"
+                        },
+                        "next": {}
+                    }
+                },
+                "datastore": {
+                    "type": "structure",
+                    "required": [
+                        "name",
+                        "datastoreName"
+                    ],
+                    "members": {
+                        "name": {},
+                        "datastoreName": {}
+                    }
+                },
+                "addAttributes": {
+                    "type": "structure",
+                    "required": [
+                        "name",
+                        "attributes"
+                    ],
+                    "members": {
+                        "name": {},
+                        "attributes": {
+                            "type": "map",
+                            "key": {},
+                            "value": {}
+                        },
+                        "next": {}
+                    }
+                },
+                "removeAttributes": {
+                    "type": "structure",
+                    "required": [
+                        "name",
+                        "attributes"
+                    ],
+                    "members": {
+                        "name": {},
+                        "attributes": {
+                            "shape": "S3x"
+                        },
+                        "next": {}
+                    }
+                },
+                "selectAttributes": {
+                    "type": "structure",
+                    "required": [
+                        "name",
+                        "attributes"
+                    ],
+                    "members": {
+                        "name": {},
+                        "attributes": {
+                            "shape": "S3x"
+                        },
+                        "next": {}
+                    }
+                },
+                "filter": {
+                    "type": "structure",
+                    "required": [
+                        "name",
+                        "filter"
+                    ],
+                    "members": {
+                        "name": {},
+                        "filter": {},
+                        "next": {}
+                    }
+                },
+                "math": {
+                    "type": "structure",
+                    "required": [
+                        "name",
+                        "attribute",
+                        "math"
+                    ],
+                    "members": {
+                        "name": {},
+                        "attribute": {},
+                        "math": {},
+                        "next": {}
+                    }
+                },
+                "deviceRegistryEnrich": {
+                    "type": "structure",
+                    "required": [
+                        "name",
+                        "attribute",
+                        "thingName",
+                        "roleArn"
+                    ],
+                    "members": {
+                        "name": {},
+                        "attribute": {},
+                        "thingName": {},
+                        "roleArn": {},
+                        "next": {}
+                    }
+                },
+                "deviceShadowEnrich": {
+                    "type": "structure",
+                    "required": [
+                        "name",
+                        "attribute",
+                        "thingName",
+                        "roleArn"
+                    ],
+                    "members": {
+                        "name": {},
+                        "attribute": {},
+                        "thingName": {},
+                        "roleArn": {},
+                        "next": {}
+                    }
+                }
+            }
+        },
+        "S3x": {
+            "type": "list",
+            "member": {}
+        },
+        "S51": {
+            "type": "structure",
+            "required": [
+                "roleArn",
+                "level",
+                "enabled"
+            ],
+            "members": {
+                "roleArn": {},
+                "level": {},
+                "enabled": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "S57": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "id": {},
+                    "status": {},
+                    "creationTime": {
+                        "type": "timestamp"
+                    },
+                    "startTime": {
+                        "type": "timestamp"
+                    },
+                    "endTime": {
+                        "type": "timestamp"
+                    },
+                    "progressPercentage": {
+                        "type": "integer"
+                    }
+                }
+            }
+        },
+        "S5m": {
+            "type": "structure",
+            "members": {
+                "state": {},
+                "reason": {}
+            }
+        },
+        "S6y": {
+            "type": "list",
+            "member": {
+                "type": "blob"
+            }
+        },
+        "S2n": {
+            "type": "list",
+            "member": {
+                "shape": "S2o"
+            }
+        },
+        "S2o": {
+            "type": "structure",
+            "members": {
+                "channel": {
+                    "type": "structure",
+                    "required": [
+                        "name",
+                        "channelName"
+                    ],
+                    "members": {
+                        "name": {},
+                        "channelName": {},
+                        "next": {}
+                    }
+                },
+                "lambda": {
+                    "type": "structure",
+                    "required": [
+                        "name",
+                        "lambdaName",
+                        "batchSize"
+                    ],
+                    "members": {
+                        "name": {},
+                        "lambdaName": {},
+                        "batchSize": {
+                            "type": "integer"
+                        },
+                        "next": {}
+                    }
+                },
+                "datastore": {
+                    "type": "structure",
+                    "required": [
+                        "name",
+                        "datastoreName"
+                    ],
+                    "members": {
+                        "name": {},
+                        "datastoreName": {}
+                    }
+                },
+                "addAttributes": {
+                    "type": "structure",
+                    "required": [
+                        "name",
+                        "attributes"
+                    ],
+                    "members": {
+                        "name": {},
+                        "attributes": {
+                            "type": "map",
+                            "key": {},
+                            "value": {}
+                        },
+                        "next": {}
+                    }
+                },
+                "removeAttributes": {
+                    "type": "structure",
+                    "required": [
+                        "name",
+                        "attributes"
+                    ],
+                    "members": {
+                        "name": {},
+                        "attributes": {
+                            "shape": "S2z"
+                        },
+                        "next": {}
+                    }
+                },
+                "selectAttributes": {
+                    "type": "structure",
+                    "required": [
+                        "name",
+                        "attributes"
+                    ],
+                    "members": {
+                        "name": {},
+                        "attributes": {
+                            "shape": "S2z"
+                        },
+                        "next": {}
+                    }
+                },
+                "filter": {
+                    "type": "structure",
+                    "required": [
+                        "name",
+                        "filter"
+                    ],
+                    "members": {
+                        "name": {},
+                        "filter": {},
+                        "next": {}
+                    }
+                },
+                "math": {
+                    "type": "structure",
+                    "required": [
+                        "name",
+                        "attribute",
+                        "math"
+                    ],
+                    "members": {
+                        "name": {},
+                        "attribute": {},
+                        "math": {},
+                        "next": {}
+                    }
+                },
+                "deviceRegistryEnrich": {
+                    "type": "structure",
+                    "required": [
+                        "name",
+                        "attribute",
+                        "thingName",
+                        "roleArn"
+                    ],
+                    "members": {
+                        "name": {},
+                        "attribute": {},
+                        "thingName": {},
+                        "roleArn": {},
+                        "next": {}
+                    }
+                },
+                "deviceShadowEnrich": {
+                    "type": "structure",
+                    "required": [
+                        "name",
+                        "attribute",
+                        "thingName",
+                        "roleArn"
+                    ],
+                    "members": {
+                        "name": {},
+                        "attribute": {},
+                        "thingName": {},
+                        "roleArn": {},
+                        "next": {}
+                    }
+                }
+            }
+        },
+        "S2z": {
+            "type": "list",
+            "member": {}
+        },
+        "S3l": {
+            "type": "structure",
+            "members": {
+                "estimatedSizeInBytes": {
+                    "type": "double"
+                },
+                "estimatedOn": {
+                    "type": "timestamp"
+                }
+            }
+        },
+        "S44": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "id": {},
+                    "status": {},
+                    "creationTime": {
+                        "type": "timestamp"
+                    }
+                }
+            }
+        },
+        "S5f": {
+            "type": "list",
+            "member": {
+                "type": "blob"
+            }
+        }
+    }
+}

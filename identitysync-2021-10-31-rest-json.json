@@ -1,0 +1,558 @@
+{
+    "version": "2.0",
+    "metadata": {
+        "apiVersion": "2021-10-31",
+        "endpointPrefix": "identity-sync",
+        "jsonVersion": "1.1",
+        "protocol": "rest-json",
+        "serviceFullName": "AWS Identity Sync",
+        "serviceId": "IdentitySync",
+        "signatureVersion": "v4",
+        "signingName": "identity-sync",
+        "uid": "identitysync-2021-10-31",
+        "download_location": [
+            "https://a.b.cdn.console.awsstatic.com/a/v1/6YGC45JG67XODRS46XPJI7RP7ARJHPGW7SCNENQW7NWV5RVCJYUQ/main.js"
+        ]
+    },
+    "operations": {
+        "CreateSyncFilter": {
+            "http": {
+                "requestUri": "/v0/profiles/{SyncProfileName}/filters",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "SyncProfileName",
+                    "FilterType",
+                    "Attributes",
+                    "Effect"
+                ],
+                "members": {
+                    "SyncProfileName": {
+                        "location": "uri",
+                        "locationName": "SyncProfileName"
+                    },
+                    "FilterType": {},
+                    "Attributes": {},
+                    "Effect": {},
+                    "DryRun": {
+                        "location": "querystring",
+                        "locationName": "DryRun",
+                        "type": "boolean"
+                    },
+                    "Augmentation": {
+                        "location": "querystring",
+                        "locationName": "Augmentation",
+                        "type": "boolean"
+                    },
+                    "ClientToken": {
+                        "idempotencyToken": true,
+                        "location": "header",
+                        "locationName": "X-Amz-Client-Token"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "SyncFilterId"
+                ],
+                "members": {
+                    "SyncFilterId": {},
+                    "DryRun": {
+                        "type": "boolean"
+                    },
+                    "Augmentation": {
+                        "type": "boolean"
+                    },
+                    "Attributes": {}
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/6YGC45JG67XODRS46XPJI7RP7ARJHPGW7SCNENQW7NWV5RVCJYUQ/main.js"
+            ]
+        },
+        "CreateSyncProfile": {
+            "http": {
+                "requestUri": "/v0/profiles",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "SyncProfileName",
+                    "SourceResourceArn"
+                ],
+                "members": {
+                    "SyncProfileName": {},
+                    "SourceResourceArn": {},
+                    "ClientToken": {
+                        "idempotencyToken": true,
+                        "location": "header",
+                        "locationName": "X-Amz-Client-Token"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "SyncProfileArn"
+                ],
+                "members": {
+                    "SyncProfileArn": {}
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/6YGC45JG67XODRS46XPJI7RP7ARJHPGW7SCNENQW7NWV5RVCJYUQ/main.js"
+            ]
+        },
+        "CreateSyncTarget": {
+            "http": {
+                "requestUri": "/v0/profiles/{SyncProfileName}/targets",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "SyncProfileName",
+                    "SyncTargetName",
+                    "TargetResourceArn"
+                ],
+                "members": {
+                    "SyncProfileName": {
+                        "location": "uri",
+                        "locationName": "SyncProfileName"
+                    },
+                    "SyncTargetName": {},
+                    "TargetResourceArn": {},
+                    "CustomAttributeMappings": {
+                        "shape": "Se"
+                    },
+                    "ClientToken": {
+                        "idempotencyToken": true,
+                        "location": "header",
+                        "locationName": "X-Amz-Client-Token"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "SyncTargetArn"
+                ],
+                "members": {
+                    "SyncTargetArn": {}
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/6YGC45JG67XODRS46XPJI7RP7ARJHPGW7SCNENQW7NWV5RVCJYUQ/main.js"
+            ]
+        },
+        "DeleteSyncFilter": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/v0/profiles/{SyncProfileName}/filters/{SyncFilterId}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "SyncProfileName",
+                    "SyncFilterId"
+                ],
+                "members": {
+                    "SyncProfileName": {
+                        "location": "uri",
+                        "locationName": "SyncProfileName"
+                    },
+                    "SyncFilterId": {
+                        "location": "uri",
+                        "locationName": "SyncFilterId"
+                    }
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/6YGC45JG67XODRS46XPJI7RP7ARJHPGW7SCNENQW7NWV5RVCJYUQ/main.js"
+            ]
+        },
+        "DeleteSyncProfile": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/v0/profiles/{SyncProfileName}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "SyncProfileName"
+                ],
+                "members": {
+                    "SyncProfileName": {
+                        "location": "uri",
+                        "locationName": "SyncProfileName"
+                    }
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/6YGC45JG67XODRS46XPJI7RP7ARJHPGW7SCNENQW7NWV5RVCJYUQ/main.js"
+            ]
+        },
+        "DeleteSyncTarget": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/v0/profiles/{SyncProfileName}/targets/{SyncTargetName}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "SyncProfileName",
+                    "SyncTargetName"
+                ],
+                "members": {
+                    "SyncProfileName": {
+                        "location": "uri",
+                        "locationName": "SyncProfileName"
+                    },
+                    "SyncTargetName": {
+                        "location": "uri",
+                        "locationName": "SyncTargetName"
+                    }
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/6YGC45JG67XODRS46XPJI7RP7ARJHPGW7SCNENQW7NWV5RVCJYUQ/main.js"
+            ]
+        },
+        "GetSyncProfile": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/v0/profiles/{SyncProfileName}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "SyncProfileName"
+                ],
+                "members": {
+                    "SyncProfileName": {
+                        "location": "uri",
+                        "locationName": "SyncProfileName"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "SyncProfileName",
+                    "SyncProfileArn",
+                    "SourceResourceArn",
+                    "Schedule",
+                    "SyncStatus",
+                    "CreateTime",
+                    "LastUpdateTime"
+                ],
+                "members": {
+                    "SyncProfileName": {},
+                    "SyncProfileArn": {},
+                    "SourceResourceArn": {},
+                    "Schedule": {
+                        "type": "structure",
+                        "members": {
+                            "State": {}
+                        }
+                    },
+                    "SyncStatus": {
+                        "shape": "So"
+                    },
+                    "CreateTime": {
+                        "shape": "Sq"
+                    },
+                    "LastUpdateTime": {
+                        "shape": "Sq"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/6YGC45JG67XODRS46XPJI7RP7ARJHPGW7SCNENQW7NWV5RVCJYUQ/main.js"
+            ]
+        },
+        "GetSyncTarget": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/v0/profiles/{SyncProfileName}/targets/{SyncTargetName}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "SyncProfileName",
+                    "SyncTargetName"
+                ],
+                "members": {
+                    "SyncProfileName": {
+                        "location": "uri",
+                        "locationName": "SyncProfileName"
+                    },
+                    "SyncTargetName": {
+                        "location": "uri",
+                        "locationName": "SyncTargetName"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "SyncTargetName",
+                    "SyncTargetArn",
+                    "TargetResourceArn",
+                    "SyncProfileName",
+                    "CustomAttributeMappings",
+                    "CreateTime",
+                    "LastUpdateTime",
+                    "SyncStatus"
+                ],
+                "members": {
+                    "SyncTargetName": {},
+                    "SyncTargetArn": {},
+                    "TargetResourceArn": {},
+                    "SyncProfileName": {},
+                    "CustomAttributeMappings": {
+                        "shape": "Se"
+                    },
+                    "CreateTime": {
+                        "shape": "Sq"
+                    },
+                    "LastUpdateTime": {
+                        "shape": "Sq"
+                    },
+                    "SyncStatus": {
+                        "shape": "So"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/6YGC45JG67XODRS46XPJI7RP7ARJHPGW7SCNENQW7NWV5RVCJYUQ/main.js"
+            ]
+        },
+        "ListSyncFilters": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/v0/profiles/{SyncProfileName}/filters",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "SyncProfileName",
+                    "FilterType"
+                ],
+                "members": {
+                    "SyncProfileName": {
+                        "location": "uri",
+                        "locationName": "SyncProfileName"
+                    },
+                    "FilterType": {
+                        "location": "querystring",
+                        "locationName": "FilterType"
+                    },
+                    "Effect": {
+                        "location": "querystring",
+                        "locationName": "Effect"
+                    },
+                    "Attributes": {
+                        "location": "querystring",
+                        "locationName": "Attributes"
+                    },
+                    "MaxResults": {
+                        "location": "querystring",
+                        "locationName": "MaxResults",
+                        "type": "integer"
+                    },
+                    "NextToken": {
+                        "location": "querystring",
+                        "locationName": "NextToken"
+                    },
+                    "Augmentation": {
+                        "location": "querystring",
+                        "locationName": "Augmentation",
+                        "type": "boolean"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "SyncFilters"
+                ],
+                "members": {
+                    "SyncFilters": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "SyncProfileName",
+                                "SyncFilterId",
+                                "FilterType",
+                                "Effect",
+                                "Attributes",
+                                "CreateTime"
+                            ],
+                            "members": {
+                                "SyncProfileName": {},
+                                "SyncFilterId": {},
+                                "FilterType": {},
+                                "Effect": {},
+                                "Attributes": {},
+                                "CreateTime": {
+                                    "shape": "Sq"
+                                }
+                            }
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/6YGC45JG67XODRS46XPJI7RP7ARJHPGW7SCNENQW7NWV5RVCJYUQ/main.js"
+            ]
+        },
+        "StartSync": {
+            "http": {
+                "requestUri": "/v0/profiles/{SyncProfileName}/startSync",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "SyncProfileName"
+                ],
+                "members": {
+                    "SyncProfileName": {
+                        "location": "uri",
+                        "locationName": "SyncProfileName"
+                    },
+                    "ClientToken": {
+                        "idempotencyToken": true,
+                        "location": "header",
+                        "locationName": "X-Amz-Client-Token"
+                    }
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/6YGC45JG67XODRS46XPJI7RP7ARJHPGW7SCNENQW7NWV5RVCJYUQ/main.js"
+            ]
+        },
+        "StopSync": {
+            "http": {
+                "requestUri": "/v0/profiles/{SyncProfileName}/stopSync",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "SyncProfileName"
+                ],
+                "members": {
+                    "SyncProfileName": {
+                        "location": "uri",
+                        "locationName": "SyncProfileName"
+                    },
+                    "ClientToken": {
+                        "idempotencyToken": true,
+                        "location": "header",
+                        "locationName": "X-Amz-Client-Token"
+                    }
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/6YGC45JG67XODRS46XPJI7RP7ARJHPGW7SCNENQW7NWV5RVCJYUQ/main.js"
+            ]
+        },
+        "UpdateSyncTarget": {
+            "http": {
+                "method": "PATCH",
+                "requestUri": "/v0/profiles/{SyncProfileName}/targets/{SyncTargetName}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "SyncProfileName",
+                    "SyncTargetName"
+                ],
+                "members": {
+                    "SyncProfileName": {
+                        "location": "uri",
+                        "locationName": "SyncProfileName"
+                    },
+                    "SyncTargetName": {
+                        "location": "uri",
+                        "locationName": "SyncTargetName"
+                    },
+                    "CustomAttributeMappings": {
+                        "shape": "Se"
+                    },
+                    "ClientToken": {
+                        "idempotencyToken": true,
+                        "location": "header",
+                        "locationName": "X-Amz-Client-Token"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "SyncTargetArn"
+                ],
+                "members": {
+                    "SyncTargetArn": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/6YGC45JG67XODRS46XPJI7RP7ARJHPGW7SCNENQW7NWV5RVCJYUQ/main.js"
+            ]
+        }
+    },
+    "shapes": {
+        "Se": {
+            "type": "structure",
+            "members": {
+                "User": {
+                    "shape": "Sf"
+                },
+                "Group": {
+                    "shape": "Sf"
+                }
+            }
+        },
+        "Sf": {
+            "type": "map",
+            "key": {},
+            "value": {}
+        },
+        "So": {
+            "type": "structure",
+            "members": {
+                "ErrorCodes": {
+                    "type": "list",
+                    "member": {}
+                }
+            }
+        },
+        "Sq": {
+            "type": "timestamp",
+            "timestampFormat": "iso8601"
+        }
+    }
+}

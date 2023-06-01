@@ -1,0 +1,2874 @@
+{
+    "version": "2.0",
+    "metadata": {
+        "apiVersion": "2021-06-17",
+        "endpointPrefix": "iotfleetwise",
+        "jsonVersion": "1.0",
+        "protocol": "json",
+        "serviceFullName": "AWS IoT FleetWise",
+        "serviceId": "IoTFleetWise",
+        "signatureVersion": "v4",
+        "signingName": "iotfleetwise",
+        "targetPrefix": "IoTAutobahnControlPlane",
+        "uid": "iotfleetwise-2021-06-17",
+        "download_location": [
+            "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+        ]
+    },
+    "operations": {
+        "AssociateVehicleFleet": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "vehicleName",
+                    "fleetId"
+                ],
+                "members": {
+                    "vehicleName": {},
+                    "fleetId": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "BatchCreateVehicle": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "vehicles"
+                ],
+                "members": {
+                    "vehicles": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "vehicleName",
+                                "modelManifestArn",
+                                "decoderManifestArn"
+                            ],
+                            "members": {
+                                "vehicleName": {},
+                                "modelManifestArn": {},
+                                "decoderManifestArn": {},
+                                "attributes": {
+                                    "shape": "S9"
+                                },
+                                "associationBehavior": {},
+                                "tags": {
+                                    "shape": "Sd"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "vehicles": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "vehicleName": {},
+                                "arn": {},
+                                "thingArn": {}
+                            }
+                        }
+                    },
+                    "errors": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "vehicleName": {},
+                                "code": {},
+                                "message": {}
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "BatchUpdateVehicle": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "vehicles"
+                ],
+                "members": {
+                    "vehicles": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "vehicleName"
+                            ],
+                            "members": {
+                                "vehicleName": {},
+                                "modelManifestArn": {},
+                                "decoderManifestArn": {},
+                                "attributes": {
+                                    "shape": "S9"
+                                },
+                                "attributeUpdateMode": {}
+                            }
+                        }
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "vehicles": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "vehicleName": {},
+                                "arn": {}
+                            }
+                        }
+                    },
+                    "errors": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "vehicleName": {},
+                                "code": {
+                                    "type": "integer"
+                                },
+                                "message": {}
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "CreateCampaign": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "name",
+                    "signalCatalogArn",
+                    "targetArn",
+                    "collectionScheme"
+                ],
+                "members": {
+                    "name": {},
+                    "description": {},
+                    "signalCatalogArn": {},
+                    "targetArn": {},
+                    "startTime": {
+                        "type": "timestamp"
+                    },
+                    "expiryTime": {
+                        "type": "timestamp"
+                    },
+                    "postTriggerCollectionDuration": {
+                        "type": "long"
+                    },
+                    "diagnosticsMode": {},
+                    "spoolingMode": {},
+                    "compression": {},
+                    "priority": {
+                        "type": "integer"
+                    },
+                    "signalsToCollect": {
+                        "shape": "S16"
+                    },
+                    "collectionScheme": {
+                        "shape": "S1a"
+                    },
+                    "dataExtraDimensions": {
+                        "shape": "S1h"
+                    },
+                    "tags": {
+                        "shape": "Sd"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "name": {},
+                    "arn": {}
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "CreateDecoderManifest": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "name",
+                    "modelManifestArn"
+                ],
+                "members": {
+                    "name": {},
+                    "description": {},
+                    "modelManifestArn": {},
+                    "signalDecoders": {
+                        "shape": "S1m"
+                    },
+                    "networkInterfaces": {
+                        "shape": "S20"
+                    },
+                    "tags": {
+                        "shape": "Sd"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "name",
+                    "arn"
+                ],
+                "members": {
+                    "name": {},
+                    "arn": {}
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "CreateFleet": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "fleetId",
+                    "signalCatalogArn"
+                ],
+                "members": {
+                    "fleetId": {},
+                    "description": {},
+                    "signalCatalogArn": {},
+                    "tags": {
+                        "shape": "Sd"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "id",
+                    "arn"
+                ],
+                "members": {
+                    "id": {},
+                    "arn": {}
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "CreateModelManifest": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "name",
+                    "nodes",
+                    "signalCatalogArn"
+                ],
+                "members": {
+                    "name": {},
+                    "description": {},
+                    "nodes": {
+                        "shape": "S2e"
+                    },
+                    "signalCatalogArn": {},
+                    "tags": {
+                        "shape": "Sd"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "name",
+                    "arn"
+                ],
+                "members": {
+                    "name": {},
+                    "arn": {}
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "CreateSignalCatalog": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "name"
+                ],
+                "members": {
+                    "name": {},
+                    "description": {},
+                    "nodes": {
+                        "shape": "S2h"
+                    },
+                    "tags": {
+                        "shape": "Sd"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "name",
+                    "arn"
+                ],
+                "members": {
+                    "name": {},
+                    "arn": {}
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "CreateVehicle": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "vehicleName",
+                    "modelManifestArn",
+                    "decoderManifestArn"
+                ],
+                "members": {
+                    "vehicleName": {},
+                    "modelManifestArn": {},
+                    "decoderManifestArn": {},
+                    "attributes": {
+                        "shape": "S9"
+                    },
+                    "associationBehavior": {},
+                    "tags": {
+                        "shape": "Sd"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "vehicleName": {},
+                    "arn": {},
+                    "thingArn": {}
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "DeleteCampaign": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "name"
+                ],
+                "members": {
+                    "name": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "name": {},
+                    "arn": {}
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "DeleteDecoderManifest": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "name"
+                ],
+                "members": {
+                    "name": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "name",
+                    "arn"
+                ],
+                "members": {
+                    "name": {},
+                    "arn": {}
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "DeleteFleet": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "fleetId"
+                ],
+                "members": {
+                    "fleetId": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "id": {},
+                    "arn": {}
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "DeleteModelManifest": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "name"
+                ],
+                "members": {
+                    "name": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "name",
+                    "arn"
+                ],
+                "members": {
+                    "name": {},
+                    "arn": {}
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "DeleteSignalCatalog": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "name"
+                ],
+                "members": {
+                    "name": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "name",
+                    "arn"
+                ],
+                "members": {
+                    "name": {},
+                    "arn": {}
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "DeleteVehicle": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "vehicleName"
+                ],
+                "members": {
+                    "vehicleName": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "vehicleName",
+                    "arn"
+                ],
+                "members": {
+                    "vehicleName": {},
+                    "arn": {}
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "DisassociateVehicleFleet": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "vehicleName",
+                    "fleetId"
+                ],
+                "members": {
+                    "vehicleName": {},
+                    "fleetId": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "GetCampaign": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "name"
+                ],
+                "members": {
+                    "name": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "name": {},
+                    "arn": {},
+                    "description": {},
+                    "signalCatalogArn": {},
+                    "targetArn": {},
+                    "status": {},
+                    "startTime": {
+                        "type": "timestamp"
+                    },
+                    "expiryTime": {
+                        "type": "timestamp"
+                    },
+                    "postTriggerCollectionDuration": {
+                        "type": "long"
+                    },
+                    "diagnosticsMode": {},
+                    "spoolingMode": {},
+                    "compression": {},
+                    "priority": {
+                        "type": "integer"
+                    },
+                    "signalsToCollect": {
+                        "shape": "S16"
+                    },
+                    "collectionScheme": {
+                        "shape": "S1a"
+                    },
+                    "dataExtraDimensions": {
+                        "shape": "S1h"
+                    },
+                    "creationTime": {
+                        "type": "timestamp"
+                    },
+                    "lastModificationTime": {
+                        "type": "timestamp"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "GetDecoderManifest": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "name"
+                ],
+                "members": {
+                    "name": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "name",
+                    "arn",
+                    "creationTime",
+                    "lastModificationTime"
+                ],
+                "members": {
+                    "name": {},
+                    "arn": {},
+                    "description": {},
+                    "modelManifestArn": {},
+                    "status": {},
+                    "creationTime": {
+                        "type": "timestamp"
+                    },
+                    "lastModificationTime": {
+                        "type": "timestamp"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "GetFleet": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "fleetId"
+                ],
+                "members": {
+                    "fleetId": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "id",
+                    "arn",
+                    "signalCatalogArn",
+                    "creationTime",
+                    "lastModificationTime"
+                ],
+                "members": {
+                    "id": {},
+                    "arn": {},
+                    "description": {},
+                    "signalCatalogArn": {},
+                    "creationTime": {
+                        "type": "timestamp"
+                    },
+                    "lastModificationTime": {
+                        "type": "timestamp"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "GetLoggingOptions": {
+            "input": {
+                "type": "structure",
+                "members": {}
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "cloudWatchLogDelivery"
+                ],
+                "members": {
+                    "cloudWatchLogDelivery": {
+                        "shape": "S3f"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "GetModelManifest": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "name"
+                ],
+                "members": {
+                    "name": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "name",
+                    "arn",
+                    "creationTime",
+                    "lastModificationTime"
+                ],
+                "members": {
+                    "name": {},
+                    "arn": {},
+                    "description": {},
+                    "signalCatalogArn": {},
+                    "status": {},
+                    "creationTime": {
+                        "type": "timestamp"
+                    },
+                    "lastModificationTime": {
+                        "type": "timestamp"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "GetRegisterAccountStatus": {
+            "input": {
+                "type": "structure",
+                "members": {}
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "customerAccountId",
+                    "accountStatus",
+                    "timestreamRegistrationResponse",
+                    "iamRegistrationResponse",
+                    "creationTime",
+                    "lastModificationTime"
+                ],
+                "members": {
+                    "customerAccountId": {},
+                    "accountStatus": {},
+                    "timestreamRegistrationResponse": {
+                        "type": "structure",
+                        "required": [
+                            "timestreamDatabaseName",
+                            "timestreamTableName",
+                            "registrationStatus"
+                        ],
+                        "members": {
+                            "timestreamDatabaseName": {},
+                            "timestreamTableName": {},
+                            "timestreamDatabaseArn": {},
+                            "timestreamTableArn": {},
+                            "registrationStatus": {},
+                            "errorMessage": {}
+                        }
+                    },
+                    "iamRegistrationResponse": {
+                        "type": "structure",
+                        "required": [
+                            "roleArn",
+                            "registrationStatus"
+                        ],
+                        "members": {
+                            "roleArn": {},
+                            "registrationStatus": {},
+                            "errorMessage": {}
+                        }
+                    },
+                    "creationTime": {
+                        "type": "timestamp"
+                    },
+                    "lastModificationTime": {
+                        "type": "timestamp"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "GetSignalCatalog": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "name"
+                ],
+                "members": {
+                    "name": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "name",
+                    "arn",
+                    "creationTime",
+                    "lastModificationTime"
+                ],
+                "members": {
+                    "name": {},
+                    "arn": {},
+                    "description": {},
+                    "nodeCounts": {
+                        "type": "structure",
+                        "members": {
+                            "totalNodes": {
+                                "type": "integer"
+                            },
+                            "totalBranches": {
+                                "type": "integer"
+                            },
+                            "totalSensors": {
+                                "type": "integer"
+                            },
+                            "totalAttributes": {
+                                "type": "integer"
+                            },
+                            "totalActuators": {
+                                "type": "integer"
+                            }
+                        }
+                    },
+                    "creationTime": {
+                        "type": "timestamp"
+                    },
+                    "lastModificationTime": {
+                        "type": "timestamp"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "GetVehicle": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "vehicleName"
+                ],
+                "members": {
+                    "vehicleName": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "vehicleName": {},
+                    "arn": {},
+                    "modelManifestArn": {},
+                    "decoderManifestArn": {},
+                    "attributes": {
+                        "shape": "S9"
+                    },
+                    "creationTime": {
+                        "type": "timestamp"
+                    },
+                    "lastModificationTime": {
+                        "type": "timestamp"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "GetVehicleStatus": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "vehicleName"
+                ],
+                "members": {
+                    "nextToken": {},
+                    "maxResults": {
+                        "type": "integer"
+                    },
+                    "vehicleName": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "campaigns": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "campaignName": {},
+                                "vehicleName": {},
+                                "status": {}
+                            }
+                        }
+                    },
+                    "nextToken": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "ImportDecoderManifest": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "name",
+                    "networkFileDefinitions"
+                ],
+                "members": {
+                    "name": {},
+                    "networkFileDefinitions": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "canDbc": {
+                                    "type": "structure",
+                                    "required": [
+                                        "networkInterface",
+                                        "canDbcFiles"
+                                    ],
+                                    "members": {
+                                        "networkInterface": {},
+                                        "canDbcFiles": {
+                                            "type": "list",
+                                            "member": {
+                                                "type": "blob"
+                                            }
+                                        },
+                                        "signalsMap": {
+                                            "type": "map",
+                                            "key": {},
+                                            "value": {}
+                                        }
+                                    }
+                                }
+                            },
+                            "union": true
+                        }
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "name",
+                    "arn"
+                ],
+                "members": {
+                    "name": {},
+                    "arn": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "ImportSignalCatalog": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "name"
+                ],
+                "members": {
+                    "name": {},
+                    "description": {},
+                    "vss": {
+                        "type": "structure",
+                        "members": {
+                            "vssJson": {}
+                        },
+                        "union": true
+                    },
+                    "tags": {
+                        "shape": "Sd"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "name",
+                    "arn"
+                ],
+                "members": {
+                    "name": {},
+                    "arn": {}
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "ListCampaigns": {
+            "input": {
+                "type": "structure",
+                "members": {
+                    "nextToken": {},
+                    "maxResults": {
+                        "type": "integer"
+                    },
+                    "status": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "campaignSummaries": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "creationTime",
+                                "lastModificationTime"
+                            ],
+                            "members": {
+                                "arn": {},
+                                "name": {},
+                                "description": {},
+                                "signalCatalogArn": {},
+                                "targetArn": {},
+                                "status": {},
+                                "creationTime": {
+                                    "type": "timestamp"
+                                },
+                                "lastModificationTime": {
+                                    "type": "timestamp"
+                                }
+                            }
+                        }
+                    },
+                    "nextToken": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "ListDecoderManifestNetworkInterfaces": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "name"
+                ],
+                "members": {
+                    "name": {},
+                    "nextToken": {},
+                    "maxResults": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "networkInterfaces": {
+                        "shape": "S20"
+                    },
+                    "nextToken": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "ListDecoderManifestSignals": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "name"
+                ],
+                "members": {
+                    "name": {},
+                    "nextToken": {},
+                    "maxResults": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "signalDecoders": {
+                        "shape": "S1m"
+                    },
+                    "nextToken": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "ListDecoderManifests": {
+            "input": {
+                "type": "structure",
+                "members": {
+                    "modelManifestArn": {},
+                    "nextToken": {},
+                    "maxResults": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "summaries": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "creationTime",
+                                "lastModificationTime"
+                            ],
+                            "members": {
+                                "name": {},
+                                "arn": {},
+                                "modelManifestArn": {},
+                                "description": {},
+                                "status": {},
+                                "creationTime": {
+                                    "type": "timestamp"
+                                },
+                                "lastModificationTime": {
+                                    "type": "timestamp"
+                                }
+                            }
+                        }
+                    },
+                    "nextToken": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "ListFleets": {
+            "input": {
+                "type": "structure",
+                "members": {
+                    "nextToken": {},
+                    "maxResults": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "fleetSummaries": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "id",
+                                "arn",
+                                "signalCatalogArn",
+                                "creationTime"
+                            ],
+                            "members": {
+                                "id": {},
+                                "arn": {},
+                                "description": {},
+                                "signalCatalogArn": {},
+                                "creationTime": {
+                                    "type": "timestamp"
+                                },
+                                "lastModificationTime": {
+                                    "type": "timestamp"
+                                }
+                            }
+                        }
+                    },
+                    "nextToken": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "ListFleetsForVehicle": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "vehicleName"
+                ],
+                "members": {
+                    "vehicleName": {},
+                    "nextToken": {},
+                    "maxResults": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "fleets": {
+                        "type": "list",
+                        "member": {}
+                    },
+                    "nextToken": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "ListModelManifestNodes": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "name"
+                ],
+                "members": {
+                    "name": {},
+                    "nextToken": {},
+                    "maxResults": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "nodes": {
+                        "shape": "S2h"
+                    },
+                    "nextToken": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "ListModelManifests": {
+            "input": {
+                "type": "structure",
+                "members": {
+                    "signalCatalogArn": {},
+                    "nextToken": {},
+                    "maxResults": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "summaries": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "creationTime",
+                                "lastModificationTime"
+                            ],
+                            "members": {
+                                "name": {},
+                                "arn": {},
+                                "signalCatalogArn": {},
+                                "description": {},
+                                "status": {},
+                                "creationTime": {
+                                    "type": "timestamp"
+                                },
+                                "lastModificationTime": {
+                                    "type": "timestamp"
+                                }
+                            }
+                        }
+                    },
+                    "nextToken": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "ListSignalCatalogNodes": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "name"
+                ],
+                "members": {
+                    "name": {},
+                    "nextToken": {},
+                    "maxResults": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "nodes": {
+                        "shape": "S2h"
+                    },
+                    "nextToken": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "ListSignalCatalogs": {
+            "input": {
+                "type": "structure",
+                "members": {
+                    "nextToken": {},
+                    "maxResults": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "summaries": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "name": {},
+                                "arn": {},
+                                "creationTime": {
+                                    "type": "timestamp"
+                                },
+                                "lastModificationTime": {
+                                    "type": "timestamp"
+                                }
+                            }
+                        }
+                    },
+                    "nextToken": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "ListTagsForResource": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ResourceARN"
+                ],
+                "members": {
+                    "ResourceARN": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Tags": {
+                        "shape": "Sd"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "ListVehicles": {
+            "input": {
+                "type": "structure",
+                "members": {
+                    "modelManifestArn": {},
+                    "nextToken": {},
+                    "maxResults": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "vehicleSummaries": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "vehicleName",
+                                "arn",
+                                "modelManifestArn",
+                                "decoderManifestArn",
+                                "creationTime",
+                                "lastModificationTime"
+                            ],
+                            "members": {
+                                "vehicleName": {},
+                                "arn": {},
+                                "modelManifestArn": {},
+                                "decoderManifestArn": {},
+                                "creationTime": {
+                                    "type": "timestamp"
+                                },
+                                "lastModificationTime": {
+                                    "type": "timestamp"
+                                }
+                            }
+                        }
+                    },
+                    "nextToken": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "ListVehiclesInFleet": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "fleetId"
+                ],
+                "members": {
+                    "fleetId": {},
+                    "nextToken": {},
+                    "maxResults": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "vehicles": {
+                        "type": "list",
+                        "member": {}
+                    },
+                    "nextToken": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "PutLoggingOptions": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "cloudWatchLogDelivery"
+                ],
+                "members": {
+                    "cloudWatchLogDelivery": {
+                        "shape": "S3f"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "RegisterAccount": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "timestreamResources"
+                ],
+                "members": {
+                    "timestreamResources": {
+                        "shape": "S5r"
+                    },
+                    "iamResources": {
+                        "shape": "S5s",
+                        "deprecated": true,
+                        "deprecatedMessage": "iamResources is no longer used or needed as input"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "registerAccountStatus",
+                    "timestreamResources",
+                    "iamResources",
+                    "creationTime",
+                    "lastModificationTime"
+                ],
+                "members": {
+                    "registerAccountStatus": {},
+                    "timestreamResources": {
+                        "shape": "S5r"
+                    },
+                    "iamResources": {
+                        "shape": "S5s"
+                    },
+                    "creationTime": {
+                        "type": "timestamp"
+                    },
+                    "lastModificationTime": {
+                        "type": "timestamp"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "TagResource": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ResourceARN",
+                    "Tags"
+                ],
+                "members": {
+                    "ResourceARN": {},
+                    "Tags": {
+                        "shape": "Sd"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "UntagResource": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ResourceARN",
+                    "TagKeys"
+                ],
+                "members": {
+                    "ResourceARN": {},
+                    "TagKeys": {
+                        "type": "list",
+                        "member": {}
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "UpdateCampaign": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "name",
+                    "action"
+                ],
+                "members": {
+                    "name": {},
+                    "description": {},
+                    "dataExtraDimensions": {
+                        "shape": "S1h"
+                    },
+                    "action": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "arn": {},
+                    "name": {},
+                    "status": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "UpdateDecoderManifest": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "name"
+                ],
+                "members": {
+                    "name": {},
+                    "description": {},
+                    "signalDecodersToAdd": {
+                        "shape": "S1m"
+                    },
+                    "signalDecodersToUpdate": {
+                        "shape": "S1m"
+                    },
+                    "signalDecodersToRemove": {
+                        "type": "list",
+                        "member": {}
+                    },
+                    "networkInterfacesToAdd": {
+                        "shape": "S20"
+                    },
+                    "networkInterfacesToUpdate": {
+                        "shape": "S20"
+                    },
+                    "networkInterfacesToRemove": {
+                        "type": "list",
+                        "member": {}
+                    },
+                    "status": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "name",
+                    "arn"
+                ],
+                "members": {
+                    "name": {},
+                    "arn": {}
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "UpdateFleet": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "fleetId"
+                ],
+                "members": {
+                    "fleetId": {},
+                    "description": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "id": {},
+                    "arn": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "UpdateModelManifest": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "name"
+                ],
+                "members": {
+                    "name": {},
+                    "description": {},
+                    "nodesToAdd": {
+                        "shape": "S6a"
+                    },
+                    "nodesToRemove": {
+                        "shape": "S6a"
+                    },
+                    "status": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "name",
+                    "arn"
+                ],
+                "members": {
+                    "name": {},
+                    "arn": {}
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "UpdateSignalCatalog": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "name"
+                ],
+                "members": {
+                    "name": {},
+                    "description": {},
+                    "nodesToAdd": {
+                        "shape": "S2h"
+                    },
+                    "nodesToUpdate": {
+                        "shape": "S2h"
+                    },
+                    "nodesToRemove": {
+                        "shape": "S6a"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "name",
+                    "arn"
+                ],
+                "members": {
+                    "name": {},
+                    "arn": {}
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "UpdateVehicle": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "vehicleName"
+                ],
+                "members": {
+                    "vehicleName": {},
+                    "modelManifestArn": {},
+                    "decoderManifestArn": {},
+                    "attributes": {
+                        "shape": "S9"
+                    },
+                    "attributeUpdateMode": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "vehicleName": {},
+                    "arn": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "GetEncryptionConfiguration": {
+            "input": {
+                "type": "structure",
+                "members": {}
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "kmsKeyId",
+                    "encryptionStatus",
+                    "creationTime",
+                    "lastModificationTime"
+                ],
+                "members": {
+                    "kmsKeyId": {},
+                    "encryptionStatus": {},
+                    "errorMessage": {},
+                    "creationTime": {
+                        "type": "timestamp"
+                    },
+                    "lastModificationTime": {
+                        "type": "timestamp"
+                    }
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/5WQHXS2MEP7FSHEFPM7SKEXIFPH2O2UHJTRHHNQC5GENESONDSWQ/vendors.js"
+            ]
+        },
+        "GetModelManifestStatus": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "name"
+                ],
+                "members": {
+                    "name": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "name",
+                    "arn",
+                    "status"
+                ],
+                "members": {
+                    "name": {},
+                    "arn": {},
+                    "status": {}
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/5WQHXS2MEP7FSHEFPM7SKEXIFPH2O2UHJTRHHNQC5GENESONDSWQ/vendors.js"
+            ]
+        },
+        "ListVehiclesWithAttributesFilter": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "signalCatalogArn",
+                    "attributeNames",
+                    "attributeValues"
+                ],
+                "members": {
+                    "nextToken": {},
+                    "maxResults": {
+                        "type": "integer"
+                    },
+                    "signalCatalogArn": {},
+                    "attributeNames": {
+                        "type": "list",
+                        "member": {}
+                    },
+                    "attributeValues": {
+                        "type": "list",
+                        "member": {}
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "vehicleSummaries": {
+                        "shape": "S60"
+                    },
+                    "nextToken": {}
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/5WQHXS2MEP7FSHEFPM7SKEXIFPH2O2UHJTRHHNQC5GENESONDSWQ/vendors.js"
+            ]
+        },
+        "LockServiceLinkedRole": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "RoleArn",
+                    "Timeout"
+                ],
+                "members": {
+                    "RoleArn": {},
+                    "Timeout": {
+                        "type": "long"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "CanBeDeleted"
+                ],
+                "members": {
+                    "CanBeDeleted": {
+                        "type": "boolean"
+                    },
+                    "ReasonOfFailure": {},
+                    "RelatedResources": {
+                        "type": "list",
+                        "member": {}
+                    }
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/5WQHXS2MEP7FSHEFPM7SKEXIFPH2O2UHJTRHHNQC5GENESONDSWQ/vendors.js"
+            ]
+        },
+        "PutEncryptionConfiguration": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "kmsKeyId"
+                ],
+                "members": {
+                    "kmsKeyId": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "kmsKeyId",
+                    "encryptionStatus"
+                ],
+                "members": {
+                    "kmsKeyId": {},
+                    "encryptionStatus": {}
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/5WQHXS2MEP7FSHEFPM7SKEXIFPH2O2UHJTRHHNQC5GENESONDSWQ/vendors.js"
+            ]
+        },
+        "UnlockServiceLinkedRole": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "RoleArn"
+                ],
+                "members": {
+                    "RoleArn": {},
+                    "DeletionStatus": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/5WQHXS2MEP7FSHEFPM7SKEXIFPH2O2UHJTRHHNQC5GENESONDSWQ/vendors.js"
+            ]
+        },
+        "UpdateModelManifestStatus": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "name",
+                    "status"
+                ],
+                "members": {
+                    "name": {},
+                    "status": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "name",
+                    "arn"
+                ],
+                "members": {
+                    "name": {},
+                    "arn": {}
+                }
+            },
+            "idempotent": true,
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/5WQHXS2MEP7FSHEFPM7SKEXIFPH2O2UHJTRHHNQC5GENESONDSWQ/vendors.js"
+            ]
+        },
+        "VerifyResourcesExistForTagris": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "TagrisSweepList"
+                ],
+                "members": {
+                    "TagrisSweepList": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "TagrisAccountId": {},
+                                "TagrisAmazonResourceName": {},
+                                "TagrisInternalId": {},
+                                "TagrisVersion": {
+                                    "type": "long"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "TagrisSweepListResult"
+                ],
+                "members": {
+                    "TagrisSweepListResult": {
+                        "type": "map",
+                        "key": {},
+                        "value": {}
+                    }
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/5WQHXS2MEP7FSHEFPM7SKEXIFPH2O2UHJTRHHNQC5GENESONDSWQ/vendors.js"
+            ]
+        },
+        "InternalRegisterAccount": {
+            "input": {
+                "shape": "S4y"
+            },
+            "output": {
+                "shape": "S51"
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/CDM2EMDOIS72U64ZU4TSELW4PRD5HRZJNWY4VZWI5LESWHZHAY6A/vendors.js"
+            ]
+        }
+    },
+    "shapes": {
+        "S9": {
+            "type": "map",
+            "key": {},
+            "value": {}
+        },
+        "Sd": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "Key",
+                    "Value"
+                ],
+                "members": {
+                    "Key": {},
+                    "Value": {}
+                }
+            }
+        },
+        "S16": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "name"
+                ],
+                "members": {
+                    "name": {},
+                    "maxSampleCount": {
+                        "type": "long"
+                    },
+                    "minimumSamplingIntervalMs": {
+                        "type": "long"
+                    }
+                }
+            }
+        },
+        "S1a": {
+            "type": "structure",
+            "members": {
+                "timeBasedCollectionScheme": {
+                    "type": "structure",
+                    "required": [
+                        "periodMs"
+                    ],
+                    "members": {
+                        "periodMs": {
+                            "type": "long"
+                        }
+                    }
+                },
+                "conditionBasedCollectionScheme": {
+                    "type": "structure",
+                    "required": [
+                        "expression"
+                    ],
+                    "members": {
+                        "expression": {},
+                        "minimumTriggerIntervalMs": {
+                            "type": "long"
+                        },
+                        "triggerMode": {},
+                        "conditionLanguageVersion": {
+                            "type": "integer"
+                        }
+                    }
+                }
+            },
+            "union": true
+        },
+        "S1h": {
+            "type": "list",
+            "member": {}
+        },
+        "S1m": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "fullyQualifiedName",
+                    "type",
+                    "interfaceId"
+                ],
+                "members": {
+                    "fullyQualifiedName": {},
+                    "type": {},
+                    "interfaceId": {},
+                    "canSignal": {
+                        "type": "structure",
+                        "required": [
+                            "messageId",
+                            "isBigEndian",
+                            "isSigned",
+                            "startBit",
+                            "offset",
+                            "factor",
+                            "length"
+                        ],
+                        "members": {
+                            "messageId": {
+                                "type": "integer"
+                            },
+                            "isBigEndian": {
+                                "type": "boolean"
+                            },
+                            "isSigned": {
+                                "type": "boolean"
+                            },
+                            "startBit": {
+                                "type": "integer"
+                            },
+                            "offset": {
+                                "type": "double"
+                            },
+                            "factor": {
+                                "type": "double"
+                            },
+                            "length": {
+                                "type": "integer"
+                            },
+                            "name": {}
+                        }
+                    },
+                    "obdSignal": {
+                        "type": "structure",
+                        "required": [
+                            "pidResponseLength",
+                            "serviceMode",
+                            "pid",
+                            "scaling",
+                            "offset",
+                            "startByte",
+                            "byteLength"
+                        ],
+                        "members": {
+                            "pidResponseLength": {
+                                "type": "integer"
+                            },
+                            "serviceMode": {
+                                "type": "integer"
+                            },
+                            "pid": {
+                                "type": "integer"
+                            },
+                            "scaling": {
+                                "type": "double"
+                            },
+                            "offset": {
+                                "type": "double"
+                            },
+                            "startByte": {
+                                "type": "integer"
+                            },
+                            "byteLength": {
+                                "type": "integer"
+                            },
+                            "bitRightShift": {
+                                "type": "integer"
+                            },
+                            "bitMaskLength": {
+                                "type": "integer"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "S20": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "interfaceId",
+                    "type"
+                ],
+                "members": {
+                    "interfaceId": {},
+                    "type": {},
+                    "canInterface": {
+                        "type": "structure",
+                        "required": [
+                            "name"
+                        ],
+                        "members": {
+                            "name": {},
+                            "protocolName": {},
+                            "protocolVersion": {}
+                        }
+                    },
+                    "obdInterface": {
+                        "type": "structure",
+                        "required": [
+                            "name",
+                            "requestMessageId"
+                        ],
+                        "members": {
+                            "name": {},
+                            "requestMessageId": {
+                                "type": "integer"
+                            },
+                            "obdStandard": {},
+                            "pidRequestIntervalSeconds": {
+                                "type": "integer"
+                            },
+                            "dtcRequestIntervalSeconds": {
+                                "type": "integer"
+                            },
+                            "useExtendedIds": {
+                                "type": "boolean"
+                            },
+                            "hasTransmissionEcu": {
+                                "type": "boolean"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "S2e": {
+            "type": "list",
+            "member": {}
+        },
+        "S2h": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "branch": {
+                        "type": "structure",
+                        "required": [
+                            "fullyQualifiedName"
+                        ],
+                        "members": {
+                            "fullyQualifiedName": {},
+                            "description": {}
+                        }
+                    },
+                    "sensor": {
+                        "type": "structure",
+                        "required": [
+                            "fullyQualifiedName",
+                            "dataType"
+                        ],
+                        "members": {
+                            "fullyQualifiedName": {},
+                            "dataType": {},
+                            "description": {},
+                            "unit": {},
+                            "allowedValues": {
+                                "shape": "S2e"
+                            },
+                            "min": {
+                                "type": "double"
+                            },
+                            "max": {
+                                "type": "double"
+                            }
+                        }
+                    },
+                    "actuator": {
+                        "type": "structure",
+                        "required": [
+                            "fullyQualifiedName",
+                            "dataType"
+                        ],
+                        "members": {
+                            "fullyQualifiedName": {},
+                            "dataType": {},
+                            "description": {},
+                            "unit": {},
+                            "allowedValues": {
+                                "shape": "S2e"
+                            },
+                            "min": {
+                                "type": "double"
+                            },
+                            "max": {
+                                "type": "double"
+                            },
+                            "assignedValue": {}
+                        }
+                    },
+                    "attribute": {
+                        "type": "structure",
+                        "required": [
+                            "fullyQualifiedName",
+                            "dataType"
+                        ],
+                        "members": {
+                            "fullyQualifiedName": {},
+                            "dataType": {},
+                            "description": {},
+                            "unit": {},
+                            "allowedValues": {
+                                "shape": "S2e"
+                            },
+                            "min": {
+                                "type": "double"
+                            },
+                            "max": {
+                                "type": "double"
+                            },
+                            "assignedValue": {},
+                            "defaultValue": {}
+                        }
+                    }
+                },
+                "union": true
+            }
+        },
+        "S3f": {
+            "type": "structure",
+            "required": [
+                "logType"
+            ],
+            "members": {
+                "logType": {},
+                "logGroupName": {}
+            }
+        },
+        "S5r": {
+            "type": "structure",
+            "required": [
+                "timestreamDatabaseName",
+                "timestreamTableName"
+            ],
+            "members": {
+                "timestreamDatabaseName": {},
+                "timestreamTableName": {}
+            }
+        },
+        "S5s": {
+            "type": "structure",
+            "required": [
+                "roleArn"
+            ],
+            "members": {
+                "roleArn": {}
+            }
+        },
+        "S6a": {
+            "type": "list",
+            "member": {}
+        },
+        "S17": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "name"
+                ],
+                "members": {
+                    "name": {},
+                    "maxSampleCount": {
+                        "type": "long"
+                    },
+                    "minimumSamplingIntervalMs": {
+                        "type": "long"
+                    }
+                }
+            }
+        },
+        "S1b": {
+            "type": "structure",
+            "members": {
+                "timeBasedCollectionScheme": {
+                    "type": "structure",
+                    "required": [
+                        "periodMs"
+                    ],
+                    "members": {
+                        "periodMs": {
+                            "type": "long"
+                        }
+                    }
+                },
+                "conditionBasedCollectionScheme": {
+                    "type": "structure",
+                    "required": [
+                        "expression"
+                    ],
+                    "members": {
+                        "expression": {},
+                        "minimumTriggerIntervalMs": {
+                            "type": "long"
+                        },
+                        "triggerMode": {},
+                        "conditionLanguageVersion": {
+                            "type": "integer"
+                        }
+                    }
+                }
+            },
+            "union": true
+        },
+        "S1i": {
+            "type": "list",
+            "member": {}
+        },
+        "S1k": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "s3Config": {
+                        "type": "structure",
+                        "required": [
+                            "bucketArn"
+                        ],
+                        "members": {
+                            "bucketArn": {
+                                "type": "string",
+                                "internalonly": true
+                            },
+                            "dataFormat": {
+                                "type": "string",
+                                "internalonly": true
+                            },
+                            "storageCompressionFormat": {
+                                "type": "string",
+                                "internalonly": true
+                            },
+                            "prefix": {
+                                "type": "string",
+                                "internalonly": true
+                            }
+                        },
+                        "internalonly": true
+                    },
+                    "timestreamConfig": {
+                        "type": "structure",
+                        "required": [
+                            "timestreamTableArn",
+                            "executionRoleArn"
+                        ],
+                        "members": {
+                            "timestreamTableArn": {
+                                "type": "string",
+                                "internalonly": true
+                            },
+                            "executionRoleArn": {}
+                        },
+                        "internalonly": true
+                    }
+                },
+                "internalonly": true,
+                "union": true
+            },
+            "internalonly": true
+        },
+        "S1x": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "fullyQualifiedName",
+                    "type",
+                    "interfaceId"
+                ],
+                "members": {
+                    "fullyQualifiedName": {},
+                    "type": {},
+                    "interfaceId": {},
+                    "canSignal": {
+                        "type": "structure",
+                        "required": [
+                            "messageId",
+                            "isBigEndian",
+                            "isSigned",
+                            "startBit",
+                            "offset",
+                            "factor",
+                            "length"
+                        ],
+                        "members": {
+                            "messageId": {
+                                "type": "integer"
+                            },
+                            "isBigEndian": {
+                                "type": "boolean"
+                            },
+                            "isSigned": {
+                                "type": "boolean"
+                            },
+                            "startBit": {
+                                "type": "integer"
+                            },
+                            "offset": {
+                                "type": "double"
+                            },
+                            "factor": {
+                                "type": "double"
+                            },
+                            "length": {
+                                "type": "integer"
+                            },
+                            "name": {}
+                        }
+                    },
+                    "obdSignal": {
+                        "type": "structure",
+                        "required": [
+                            "pidResponseLength",
+                            "serviceMode",
+                            "pid",
+                            "scaling",
+                            "offset",
+                            "startByte",
+                            "byteLength"
+                        ],
+                        "members": {
+                            "pidResponseLength": {
+                                "type": "integer"
+                            },
+                            "serviceMode": {
+                                "type": "integer"
+                            },
+                            "pid": {
+                                "type": "integer"
+                            },
+                            "scaling": {
+                                "type": "double"
+                            },
+                            "offset": {
+                                "type": "double"
+                            },
+                            "startByte": {
+                                "type": "integer"
+                            },
+                            "byteLength": {
+                                "type": "integer"
+                            },
+                            "bitRightShift": {
+                                "type": "integer"
+                            },
+                            "bitMaskLength": {
+                                "type": "integer"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "S2a": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "interfaceId",
+                    "type"
+                ],
+                "members": {
+                    "interfaceId": {},
+                    "type": {},
+                    "canInterface": {
+                        "type": "structure",
+                        "required": [
+                            "name"
+                        ],
+                        "members": {
+                            "name": {},
+                            "protocolName": {},
+                            "protocolVersion": {}
+                        }
+                    },
+                    "obdInterface": {
+                        "type": "structure",
+                        "required": [
+                            "name",
+                            "requestMessageId"
+                        ],
+                        "members": {
+                            "name": {},
+                            "requestMessageId": {
+                                "type": "integer"
+                            },
+                            "obdStandard": {},
+                            "pidRequestIntervalSeconds": {
+                                "type": "integer"
+                            },
+                            "dtcRequestIntervalSeconds": {
+                                "type": "integer"
+                            },
+                            "useExtendedIds": {
+                                "type": "boolean"
+                            },
+                            "hasTransmissionEcu": {
+                                "type": "boolean"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "S2o": {
+            "type": "list",
+            "member": {}
+        },
+        "S2r": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "branch": {
+                        "type": "structure",
+                        "required": [
+                            "fullyQualifiedName"
+                        ],
+                        "members": {
+                            "fullyQualifiedName": {},
+                            "description": {},
+                            "deprecationMessage": {},
+                            "comment": {}
+                        }
+                    },
+                    "sensor": {
+                        "type": "structure",
+                        "required": [
+                            "fullyQualifiedName",
+                            "dataType"
+                        ],
+                        "members": {
+                            "fullyQualifiedName": {},
+                            "dataType": {},
+                            "description": {},
+                            "unit": {},
+                            "allowedValues": {
+                                "shape": "S2o"
+                            },
+                            "min": {
+                                "type": "double"
+                            },
+                            "max": {
+                                "type": "double"
+                            },
+                            "deprecationMessage": {},
+                            "comment": {}
+                        }
+                    },
+                    "actuator": {
+                        "type": "structure",
+                        "required": [
+                            "fullyQualifiedName",
+                            "dataType"
+                        ],
+                        "members": {
+                            "fullyQualifiedName": {},
+                            "dataType": {},
+                            "description": {},
+                            "unit": {},
+                            "allowedValues": {
+                                "shape": "S2o"
+                            },
+                            "min": {
+                                "type": "double"
+                            },
+                            "max": {
+                                "type": "double"
+                            },
+                            "assignedValue": {
+                                "deprecated": true,
+                                "deprecatedMessage": "assignedValue is no longer in use"
+                            },
+                            "deprecationMessage": {},
+                            "comment": {}
+                        }
+                    },
+                    "attribute": {
+                        "type": "structure",
+                        "required": [
+                            "fullyQualifiedName",
+                            "dataType"
+                        ],
+                        "members": {
+                            "fullyQualifiedName": {},
+                            "dataType": {},
+                            "description": {},
+                            "unit": {},
+                            "allowedValues": {
+                                "shape": "S2o"
+                            },
+                            "min": {
+                                "type": "double"
+                            },
+                            "max": {
+                                "type": "double"
+                            },
+                            "assignedValue": {
+                                "deprecated": true,
+                                "deprecatedMessage": "assignedValue is no longer in use"
+                            },
+                            "defaultValue": {},
+                            "deprecationMessage": {},
+                            "comment": {}
+                        }
+                    }
+                },
+                "union": true
+            }
+        },
+        "S3v": {
+            "type": "structure",
+            "required": [
+                "logType"
+            ],
+            "members": {
+                "logType": {},
+                "logGroupName": {}
+            }
+        },
+        "S60": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "vehicleName",
+                    "arn",
+                    "modelManifestArn",
+                    "decoderManifestArn",
+                    "creationTime",
+                    "lastModificationTime"
+                ],
+                "members": {
+                    "vehicleName": {},
+                    "arn": {},
+                    "modelManifestArn": {},
+                    "decoderManifestArn": {},
+                    "creationTime": {
+                        "type": "timestamp"
+                    },
+                    "lastModificationTime": {
+                        "type": "timestamp"
+                    }
+                }
+            }
+        },
+        "S6l": {
+            "type": "structure",
+            "required": [
+                "timestreamDatabaseName",
+                "timestreamTableName"
+            ],
+            "members": {
+                "timestreamDatabaseName": {},
+                "timestreamTableName": {}
+            }
+        },
+        "S6m": {
+            "type": "structure",
+            "required": [
+                "roleArn"
+            ],
+            "members": {
+                "roleArn": {}
+            }
+        },
+        "S76": {
+            "type": "list",
+            "member": {}
+        },
+        "S4y": {
+            "type": "structure",
+            "members": {
+                "timestreamResources": {
+                    "shape": "S4z",
+                    "deprecated": true,
+                    "deprecatedMessage": "Amazon Timestream metadata is now passed in the CreateCampaign API."
+                },
+                "iamResources": {
+                    "shape": "S50",
+                    "deprecated": true,
+                    "deprecatedMessage": "iamResources is no longer used or needed as input"
+                }
+            }
+        },
+        "S4z": {
+            "type": "structure",
+            "required": [
+                "timestreamDatabaseName",
+                "timestreamTableName"
+            ],
+            "members": {
+                "timestreamDatabaseName": {},
+                "timestreamTableName": {}
+            }
+        },
+        "S50": {
+            "type": "structure",
+            "required": [
+                "roleArn"
+            ],
+            "members": {
+                "roleArn": {}
+            }
+        },
+        "S51": {
+            "type": "structure",
+            "required": [
+                "registerAccountStatus",
+                "iamResources",
+                "creationTime",
+                "lastModificationTime"
+            ],
+            "members": {
+                "registerAccountStatus": {},
+                "timestreamResources": {
+                    "shape": "S4z"
+                },
+                "iamResources": {
+                    "shape": "S50"
+                },
+                "creationTime": {
+                    "type": "timestamp"
+                },
+                "lastModificationTime": {
+                    "type": "timestamp"
+                }
+            }
+        },
+        "S64": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "vehicleName",
+                    "arn",
+                    "modelManifestArn",
+                    "decoderManifestArn",
+                    "creationTime",
+                    "lastModificationTime"
+                ],
+                "members": {
+                    "vehicleName": {},
+                    "arn": {},
+                    "modelManifestArn": {},
+                    "decoderManifestArn": {},
+                    "creationTime": {
+                        "type": "timestamp"
+                    },
+                    "lastModificationTime": {
+                        "type": "timestamp"
+                    }
+                }
+            }
+        }
+    }
+}

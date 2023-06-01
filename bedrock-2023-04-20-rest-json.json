@@ -1,0 +1,1242 @@
+{
+    "version": "2.0",
+    "metadata": {
+        "apiVersion": "2023-04-20",
+        "endpointPrefix": "bedrock",
+        "jsonVersion": "1.1",
+        "protocol": "rest-json",
+        "serviceFullName": "Amazon Bedrock",
+        "serviceId": "bedrock",
+        "signatureVersion": "v4",
+        "signingName": "bedrock",
+        "uid": "bedrock-2023-04-20",
+        "download_location": [
+            "https://a.b.cdn.console.awsstatic.com/a/v1/A7UV4RZFZUNSQTIOJKZGDFGSZL6XQETKWGH6ZFAN4Z7ZSUYHAW5Q/vendors.js"
+        ]
+    },
+    "operations": {
+        "AcceptAcknowledgement": {
+            "http": {
+                "requestUri": "/accept-acknowledgement",
+                "responseCode": 201
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "acknowledgementType",
+                    "acknowledgementFormVersion",
+                    "formData"
+                ],
+                "members": {
+                    "acknowledgementType": {},
+                    "acknowledgementFormVersion": {
+                        "type": "integer"
+                    },
+                    "formData": {
+                        "type": "structure",
+                        "required": [
+                            "formData"
+                        ],
+                        "members": {
+                            "formData": {
+                                "type": "blob"
+                            }
+                        }
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/A7UV4RZFZUNSQTIOJKZGDFGSZL6XQETKWGH6ZFAN4Z7ZSUYHAW5Q/vendors.js"
+            ]
+        },
+        "CreateFineTuningJob": {
+            "http": {
+                "requestUri": "/fine-tuning-jobs",
+                "responseCode": 201
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "jobName",
+                    "customModelName",
+                    "roleArn",
+                    "baseModelIdentifier",
+                    "trainingDataConfig",
+                    "outputDataConfig"
+                ],
+                "members": {
+                    "jobName": {},
+                    "customModelName": {},
+                    "roleArn": {},
+                    "clientRequestToken": {
+                        "idempotencyToken": true
+                    },
+                    "baseModelIdentifier": {},
+                    "hyperParameters": {
+                        "shape": "Sd"
+                    },
+                    "trainingDataConfig": {
+                        "shape": "Sj"
+                    },
+                    "validationDataConfig": {
+                        "shape": "Sl"
+                    },
+                    "outputDataConfig": {
+                        "shape": "Sp"
+                    },
+                    "jobTags": {
+                        "shape": "Sq"
+                    },
+                    "customModelTags": {
+                        "shape": "Sq"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "jobArn"
+                ],
+                "members": {
+                    "jobArn": {}
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/A7UV4RZFZUNSQTIOJKZGDFGSZL6XQETKWGH6ZFAN4Z7ZSUYHAW5Q/vendors.js"
+            ]
+        },
+        "DeleteCustomModel": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/custom-models/{modelIdentifier}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "modelIdentifier"
+                ],
+                "members": {
+                    "modelIdentifier": {
+                        "location": "uri",
+                        "locationName": "modelIdentifier"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/A7UV4RZFZUNSQTIOJKZGDFGSZL6XQETKWGH6ZFAN4Z7ZSUYHAW5Q/vendors.js"
+            ]
+        },
+        "DeletePrompt": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/playgrounds/prompts/{promptId}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "promptId"
+                ],
+                "members": {
+                    "promptId": {
+                        "location": "uri",
+                        "locationName": "promptId"
+                    },
+                    "playgroundId": {
+                        "location": "querystring",
+                        "locationName": "httpQuery"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/A7UV4RZFZUNSQTIOJKZGDFGSZL6XQETKWGH6ZFAN4Z7ZSUYHAW5Q/vendors.js"
+            ]
+        },
+        "GenerateText": {
+            "http": {
+                "requestUri": "/generateText",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "inputText",
+                    "modelIdentifier"
+                ],
+                "members": {
+                    "inputText": {
+                        "shape": "S13"
+                    },
+                    "textGenerationConfig": {
+                        "shape": "S14"
+                    },
+                    "modelIdentifier": {},
+                    "playgroundId": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "results": {
+                        "shape": "S1h"
+                    },
+                    "inputTextTokenCount": {
+                        "type": "integer"
+                    },
+                    "promptId": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/A7UV4RZFZUNSQTIOJKZGDFGSZL6XQETKWGH6ZFAN4Z7ZSUYHAW5Q/vendors.js"
+            ]
+        },
+        "GetCustomModel": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/custom-models/{modelIdentifier}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "modelIdentifier"
+                ],
+                "members": {
+                    "modelIdentifier": {
+                        "location": "uri",
+                        "locationName": "modelIdentifier"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "modelArn",
+                    "modelName",
+                    "jobArn",
+                    "baseModelArn",
+                    "trainingDataConfig",
+                    "outputDataConfig",
+                    "creationTime"
+                ],
+                "members": {
+                    "modelArn": {},
+                    "modelName": {},
+                    "jobName": {},
+                    "jobArn": {},
+                    "baseModelArn": {},
+                    "hyperParameters": {
+                        "shape": "Sd"
+                    },
+                    "trainingDataConfig": {
+                        "shape": "Sj"
+                    },
+                    "validationDataConfig": {
+                        "shape": "Sl"
+                    },
+                    "outputDataConfig": {
+                        "shape": "Sp"
+                    },
+                    "trainingMetrics": {
+                        "shape": "S1p"
+                    },
+                    "validationMetrics": {
+                        "shape": "S1r"
+                    },
+                    "realTimeInferenceStatus": {},
+                    "creationTime": {
+                        "type": "long"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/A7UV4RZFZUNSQTIOJKZGDFGSZL6XQETKWGH6ZFAN4Z7ZSUYHAW5Q/vendors.js"
+            ]
+        },
+        "GetFineTuningJob": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/fine-tuning-jobs/{jobIdentifier}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "jobIdentifier"
+                ],
+                "members": {
+                    "jobIdentifier": {
+                        "location": "uri",
+                        "locationName": "jobIdentifier"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "jobArn",
+                    "jobName",
+                    "roleArn",
+                    "outputModelName",
+                    "baseModelArn",
+                    "baseModelName",
+                    "trainingDataConfig",
+                    "outputDataConfig",
+                    "creationTime"
+                ],
+                "members": {
+                    "jobArn": {},
+                    "jobName": {},
+                    "roleArn": {},
+                    "outputModelName": {},
+                    "outputModelArn": {},
+                    "baseModelArn": {},
+                    "baseModelName": {},
+                    "trainingDataConfig": {
+                        "shape": "Sj"
+                    },
+                    "validationDataConfig": {
+                        "shape": "Sl"
+                    },
+                    "outputDataConfig": {
+                        "shape": "Sp"
+                    },
+                    "hyperParameters": {
+                        "shape": "Sd"
+                    },
+                    "clientRequestToken": {},
+                    "trainingMetrics": {
+                        "shape": "S1p"
+                    },
+                    "validationMetrics": {
+                        "shape": "S1r"
+                    },
+                    "status": {},
+                    "failureMessage": {},
+                    "creationTime": {
+                        "type": "long"
+                    },
+                    "lastModifiedTime": {
+                        "type": "long"
+                    },
+                    "endTime": {
+                        "type": "long"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/A7UV4RZFZUNSQTIOJKZGDFGSZL6XQETKWGH6ZFAN4Z7ZSUYHAW5Q/vendors.js"
+            ]
+        },
+        "GetModelPermission": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/model-permission/{modelIdentifier}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "modelIdentifier"
+                ],
+                "members": {
+                    "modelIdentifier": {
+                        "location": "uri",
+                        "locationName": "modelIdentifier"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "modelId",
+                    "hasModelPermission",
+                    "acknowledgedFTU"
+                ],
+                "members": {
+                    "modelId": {},
+                    "hasModelPermission": {
+                        "type": "boolean"
+                    },
+                    "acknowledgedFTU": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/A7UV4RZFZUNSQTIOJKZGDFGSZL6XQETKWGH6ZFAN4Z7ZSUYHAW5Q/vendors.js"
+            ]
+        },
+        "GetPrompt": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/playgrounds/prompts/{promptId}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "promptId"
+                ],
+                "members": {
+                    "promptId": {
+                        "location": "uri",
+                        "locationName": "promptId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "prompt"
+                ],
+                "members": {
+                    "prompt": {
+                        "shape": "S29"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/A7UV4RZFZUNSQTIOJKZGDFGSZL6XQETKWGH6ZFAN4Z7ZSUYHAW5Q/vendors.js"
+            ]
+        },
+        "GetTextEmbedding": {
+            "http": {
+                "requestUri": "/getTextEmbedding",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "inputText",
+                    "modelIdentifier"
+                ],
+                "members": {
+                    "inputText": {
+                        "type": "string",
+                        "sensitive": true
+                    },
+                    "modelIdentifier": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "embedding": {
+                        "type": "list",
+                        "member": {
+                            "type": "float",
+                            "sensitive": true
+                        }
+                    },
+                    "inputTextTokenCount": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/A7UV4RZFZUNSQTIOJKZGDFGSZL6XQETKWGH6ZFAN4Z7ZSUYHAW5Q/vendors.js"
+            ]
+        },
+        "GetUserFeedback": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/user-feedback/{playgroundId}/{promptId}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "playgroundId",
+                    "promptId"
+                ],
+                "members": {
+                    "playgroundId": {
+                        "location": "uri",
+                        "locationName": "playgroundId"
+                    },
+                    "promptId": {
+                        "location": "uri",
+                        "locationName": "promptId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "userFeedbackType"
+                ],
+                "members": {
+                    "userFeedbackType": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/A7UV4RZFZUNSQTIOJKZGDFGSZL6XQETKWGH6ZFAN4Z7ZSUYHAW5Q/vendors.js"
+            ]
+        },
+        "InvokeModel": {
+            "http": {
+                "requestUri": "/model/{modelId}/invoke",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "body",
+                    "modelId"
+                ],
+                "members": {
+                    "body": {
+                        "shape": "S2e"
+                    },
+                    "contentType": {
+                        "location": "header",
+                        "locationName": "Content-Type"
+                    },
+                    "accept": {
+                        "location": "header",
+                        "locationName": "Accept"
+                    },
+                    "modelId": {
+                        "location": "uri",
+                        "locationName": "modelId"
+                    },
+                    "save": {
+                        "location": "header",
+                        "locationName": "X-Amzn-Bedrock-Save",
+                        "type": "boolean"
+                    }
+                },
+                "payload": "body"
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "body"
+                ],
+                "members": {
+                    "body": {
+                        "shape": "S2e"
+                    },
+                    "contentType": {
+                        "location": "header",
+                        "locationName": "Content-Type"
+                    },
+                    "promptId": {
+                        "location": "header",
+                        "locationName": "X-Amzn-Bedrock-PromptId"
+                    }
+                },
+                "payload": "body"
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/A7UV4RZFZUNSQTIOJKZGDFGSZL6XQETKWGH6ZFAN4Z7ZSUYHAW5Q/vendors.js"
+            ]
+        },
+        "ListBuiltInModels": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/builtin-models",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "creationTimeBefore": {
+                        "shape": "S2u",
+                        "location": "querystring",
+                        "locationName": "creationTimeBefore"
+                    },
+                    "creationTimeAfter": {
+                        "shape": "S2u",
+                        "location": "querystring",
+                        "locationName": "creationTimeAfter"
+                    },
+                    "nameContains": {
+                        "location": "querystring",
+                        "locationName": "nameContains"
+                    },
+                    "maxResults": {
+                        "location": "querystring",
+                        "locationName": "maxResults",
+                        "type": "integer"
+                    },
+                    "nextToken": {
+                        "location": "querystring",
+                        "locationName": "nextToken"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "nextToken": {},
+                    "modelSummaries": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "modelArn",
+                                "modelName",
+                                "creationTime",
+                                "description"
+                            ],
+                            "members": {
+                                "modelArn": {},
+                                "modelName": {},
+                                "creationTime": {
+                                    "type": "long"
+                                },
+                                "description": {}
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/A7UV4RZFZUNSQTIOJKZGDFGSZL6XQETKWGH6ZFAN4Z7ZSUYHAW5Q/vendors.js"
+            ]
+        },
+        "ListCustomModels": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/custom-models",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "creationTimeBefore": {
+                        "shape": "S2u",
+                        "location": "querystring",
+                        "locationName": "creationTimeBefore"
+                    },
+                    "creationTimeAfter": {
+                        "shape": "S2u",
+                        "location": "querystring",
+                        "locationName": "creationTimeAfter"
+                    },
+                    "nameContains": {
+                        "location": "querystring",
+                        "locationName": "nameContains"
+                    },
+                    "maxResults": {
+                        "location": "querystring",
+                        "locationName": "maxResults",
+                        "type": "integer"
+                    },
+                    "nextToken": {
+                        "location": "querystring",
+                        "locationName": "nextToken"
+                    },
+                    "sortBy": {
+                        "location": "querystring",
+                        "locationName": "sortBy"
+                    },
+                    "sortOrder": {
+                        "location": "querystring",
+                        "locationName": "sortOrder"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "nextToken": {},
+                    "modelSummaries": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "modelArn",
+                                "modelName",
+                                "creationTime",
+                                "baseModelArn",
+                                "baseModelName"
+                            ],
+                            "members": {
+                                "modelArn": {},
+                                "modelName": {},
+                                "creationTime": {
+                                    "type": "long"
+                                },
+                                "baseModelArn": {},
+                                "baseModelName": {}
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/A7UV4RZFZUNSQTIOJKZGDFGSZL6XQETKWGH6ZFAN4Z7ZSUYHAW5Q/vendors.js"
+            ]
+        },
+        "ListFineTuningJobs": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/fine-tuning-jobs",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "creationTimeAfter": {
+                        "shape": "S2u",
+                        "location": "querystring",
+                        "locationName": "creationTimeAfter"
+                    },
+                    "creationTimeBefore": {
+                        "shape": "S2u",
+                        "location": "querystring",
+                        "locationName": "creationTimeBefore"
+                    },
+                    "statusEquals": {
+                        "location": "querystring",
+                        "locationName": "statusEquals"
+                    },
+                    "nameContains": {
+                        "location": "querystring",
+                        "locationName": "nameContains"
+                    },
+                    "maxResults": {
+                        "location": "querystring",
+                        "locationName": "maxResults",
+                        "type": "integer"
+                    },
+                    "nextToken": {
+                        "location": "querystring",
+                        "locationName": "nextToken"
+                    },
+                    "sortBy": {
+                        "location": "querystring",
+                        "locationName": "sortBy"
+                    },
+                    "sortOrder": {
+                        "location": "querystring",
+                        "locationName": "sortOrder"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "nextToken": {},
+                    "fineTuningJobSummaries": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "jobArn",
+                                "baseModelArn",
+                                "baseModelName",
+                                "jobName",
+                                "status",
+                                "customModelName",
+                                "lastModifiedTime",
+                                "creationTime"
+                            ],
+                            "members": {
+                                "jobArn": {},
+                                "baseModelArn": {},
+                                "baseModelName": {},
+                                "jobName": {},
+                                "status": {},
+                                "customModelArn": {},
+                                "customModelName": {},
+                                "lastModifiedTime": {
+                                    "type": "long"
+                                },
+                                "creationTime": {
+                                    "type": "long"
+                                },
+                                "endTime": {
+                                    "type": "long"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/A7UV4RZFZUNSQTIOJKZGDFGSZL6XQETKWGH6ZFAN4Z7ZSUYHAW5Q/vendors.js"
+            ]
+        },
+        "ListFoundationModels": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/foundation-models",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "byProvider": {
+                        "location": "querystring",
+                        "locationName": "byProvider"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "modelSummaries": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "modelArn",
+                                "modelId"
+                            ],
+                            "members": {
+                                "modelArn": {},
+                                "modelId": {}
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/A7UV4RZFZUNSQTIOJKZGDFGSZL6XQETKWGH6ZFAN4Z7ZSUYHAW5Q/vendors.js"
+            ]
+        },
+        "ListPrompts": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/playgrounds/prompts",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "playgroundId": {
+                        "location": "querystring",
+                        "locationName": "playgroundId"
+                    },
+                    "modality": {
+                        "location": "querystring",
+                        "locationName": "Modality"
+                    },
+                    "bookmarked": {
+                        "location": "querystring",
+                        "locationName": "bookmarked",
+                        "type": "boolean"
+                    },
+                    "maxResults": {
+                        "location": "querystring",
+                        "locationName": "maxResults",
+                        "type": "integer"
+                    },
+                    "nextToken": {
+                        "location": "querystring",
+                        "locationName": "nextToken"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "prompts": {
+                        "type": "list",
+                        "member": {
+                            "shape": "S29"
+                        }
+                    },
+                    "nextToken": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/A7UV4RZFZUNSQTIOJKZGDFGSZL6XQETKWGH6ZFAN4Z7ZSUYHAW5Q/vendors.js"
+            ]
+        },
+        "SendUserFeedback": {
+            "http": {
+                "requestUri": "/user-feedback",
+                "responseCode": 201
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "promptId",
+                    "playgroundId",
+                    "modelId",
+                    "feedback"
+                ],
+                "members": {
+                    "promptId": {},
+                    "playgroundId": {},
+                    "modelId": {},
+                    "feedback": {
+                        "type": "structure",
+                        "required": [
+                            "feedbackType",
+                            "metadata"
+                        ],
+                        "members": {
+                            "feedbackType": {},
+                            "metadata": {
+                                "type": "structure",
+                                "members": {
+                                    "negativeFeedback": {
+                                        "type": "structure",
+                                        "members": {
+                                            "idealResponse": {},
+                                            "responseTraits": {
+                                                "type": "list",
+                                                "member": {}
+                                            },
+                                            "harmfulTraitReasons": {
+                                                "type": "list",
+                                                "member": {}
+                                            }
+                                        }
+                                    },
+                                    "positiveFeedback": {
+                                        "type": "structure",
+                                        "members": {
+                                            "idealResponse": {}
+                                        }
+                                    }
+                                },
+                                "union": true
+                            }
+                        }
+                    },
+                    "prompt": {
+                        "type": "structure",
+                        "members": {
+                            "promptId": {},
+                            "inputText": {
+                                "shape": "S13"
+                            },
+                            "textGenerationConfig": {
+                                "shape": "S14"
+                            },
+                            "modelIdentifier": {},
+                            "playgroundId": {},
+                            "results": {
+                                "shape": "S1h"
+                            },
+                            "inputTokenCount": {
+                                "type": "integer"
+                            }
+                        }
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/A7UV4RZFZUNSQTIOJKZGDFGSZL6XQETKWGH6ZFAN4Z7ZSUYHAW5Q/vendors.js"
+            ]
+        },
+        "StopFineTuningJob": {
+            "http": {
+                "requestUri": "/fine-tuning-jobs/{jobIdentifier}/stop",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "jobIdentifier"
+                ],
+                "members": {
+                    "jobIdentifier": {
+                        "location": "uri",
+                        "locationName": "jobIdentifier"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/A7UV4RZFZUNSQTIOJKZGDFGSZL6XQETKWGH6ZFAN4Z7ZSUYHAW5Q/vendors.js"
+            ]
+        },
+        "UpdatePrompt": {
+            "http": {
+                "method": "PATCH",
+                "requestUri": "/playgrounds/prompts/{promptId}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "promptId",
+                    "bookmarked"
+                ],
+                "members": {
+                    "playgroundId": {},
+                    "promptId": {
+                        "location": "uri",
+                        "locationName": "promptId"
+                    },
+                    "bookmarked": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "prompt": {
+                        "shape": "S29"
+                    }
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/A7UV4RZFZUNSQTIOJKZGDFGSZL6XQETKWGH6ZFAN4Z7ZSUYHAW5Q/vendors.js"
+            ]
+        }
+    },
+    "shapes": {
+        "Sd": {
+            "type": "structure",
+            "members": {
+                "epochCount": {
+                    "type": "integer"
+                },
+                "batchSize": {
+                    "type": "integer"
+                },
+                "learningRateConfig": {
+                    "type": "structure",
+                    "members": {
+                        "learningRate": {
+                            "type": "float"
+                        },
+                        "learningRateWarmupSteps": {
+                            "type": "integer"
+                        }
+                    }
+                }
+            }
+        },
+        "Sj": {
+            "type": "structure",
+            "required": [
+                "s3Uri"
+            ],
+            "members": {
+                "s3Uri": {}
+            }
+        },
+        "Sl": {
+            "type": "structure",
+            "required": [
+                "validators"
+            ],
+            "members": {
+                "validators": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "required": [
+                            "name",
+                            "s3Uri"
+                        ],
+                        "members": {
+                            "name": {},
+                            "s3Uri": {}
+                        }
+                    }
+                }
+            }
+        },
+        "Sp": {
+            "type": "structure",
+            "required": [
+                "s3Uri"
+            ],
+            "members": {
+                "s3Uri": {}
+            }
+        },
+        "Sq": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "Key",
+                    "Value"
+                ],
+                "members": {
+                    "Key": {},
+                    "Value": {}
+                }
+            }
+        },
+        "S13": {
+            "type": "string",
+            "sensitive": true
+        },
+        "S14": {
+            "type": "structure",
+            "members": {
+                "maxTokenCount": {
+                    "type": "integer"
+                },
+                "minTokenCount": {
+                    "type": "integer"
+                },
+                "stopSequences": {
+                    "type": "list",
+                    "member": {
+                        "type": "string",
+                        "sensitive": true
+                    }
+                },
+                "temperature": {
+                    "type": "float"
+                },
+                "topP": {
+                    "type": "float"
+                },
+                "beamCount": {
+                    "type": "integer"
+                },
+                "topK": {
+                    "type": "integer"
+                },
+                "repetitionPenalty": {
+                    "type": "float"
+                },
+                "lengthPenalty": {
+                    "type": "float"
+                },
+                "noRepeatNgramSize": {
+                    "type": "integer"
+                }
+            },
+            "sensitive": true
+        },
+        "S1h": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "tokenCount",
+                    "outputText"
+                ],
+                "members": {
+                    "tokenCount": {
+                        "type": "integer"
+                    },
+                    "outputText": {
+                        "type": "string",
+                        "sensitive": true
+                    }
+                }
+            }
+        },
+        "S1p": {
+            "type": "structure",
+            "members": {
+                "trainingLoss": {
+                    "type": "float"
+                }
+            }
+        },
+        "S1r": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "validatorName": {},
+                    "validationLoss": {
+                        "type": "float"
+                    }
+                }
+            }
+        },
+        "S29": {
+            "type": "structure",
+            "required": [
+                "promptId",
+                "bookmarked",
+                "createdAt"
+            ],
+            "members": {
+                "playgroundId": {},
+                "promptId": {},
+                "bookmarked": {
+                    "type": "boolean"
+                },
+                "createdAt": {
+                    "type": "long"
+                },
+                "generateTextRequest": {
+                    "type": "structure",
+                    "required": [
+                        "inputText",
+                        "modelIdentifier"
+                    ],
+                    "members": {
+                        "inputText": {
+                            "shape": "S13"
+                        },
+                        "textGenerationConfig": {
+                            "shape": "S14"
+                        },
+                        "modelIdentifier": {},
+                        "playgroundId": {}
+                    }
+                },
+                "generateTextResponse": {
+                    "type": "structure",
+                    "members": {
+                        "results": {
+                            "shape": "S1h"
+                        },
+                        "inputTextTokenCount": {
+                            "type": "integer"
+                        },
+                        "promptId": {}
+                    }
+                },
+                "inputContentType": {},
+                "input": {
+                    "shape": "S2e"
+                },
+                "outputContentType": {},
+                "output": {
+                    "shape": "S2e"
+                },
+                "modality": {},
+                "modelId": {},
+                "modelArn": {},
+                "modelName": {},
+                "modelProvider": {}
+            }
+        },
+        "S2e": {
+            "type": "blob",
+            "sensitive": true
+        },
+        "S2u": {
+            "type": "timestamp",
+            "timestampFormat": "iso8601"
+        }
+    }
+}

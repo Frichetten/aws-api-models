@@ -1,0 +1,4428 @@
+{
+    "version": "2.0",
+    "metadata": {
+        "apiVersion": "2018-06-26",
+        "endpointPrefix": "forecast",
+        "jsonVersion": "1.1",
+        "protocol": "json",
+        "serviceFullName": "Amazon Forecast Service",
+        "serviceId": "forecast",
+        "signatureVersion": "v4",
+        "signingName": "forecast",
+        "targetPrefix": "AmazonForecast",
+        "uid": "forecast-2018-06-26",
+        "download_location": [
+            "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+        ]
+    },
+    "operations": {
+        "CreateDataset": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "DatasetName",
+                    "Domain",
+                    "DatasetType",
+                    "Schema"
+                ],
+                "members": {
+                    "DatasetName": {},
+                    "Domain": {},
+                    "DatasetType": {},
+                    "DataFrequency": {},
+                    "Schema": {
+                        "shape": "S6"
+                    },
+                    "EncryptionConfig": {
+                        "shape": "Sa"
+                    },
+                    "Tags": {
+                        "shape": "Sd"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "DatasetArn": {}
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "CreateDatasetGroup": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "DatasetGroupName",
+                    "Domain"
+                ],
+                "members": {
+                    "DatasetGroupName": {},
+                    "Domain": {},
+                    "DatasetArns": {
+                        "shape": "Sj"
+                    },
+                    "Tags": {
+                        "shape": "Sd"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "DatasetGroupArn": {}
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "CreateDatasetImportJob": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "DatasetImportJobName",
+                    "DatasetArn",
+                    "DataSource"
+                ],
+                "members": {
+                    "DatasetImportJobName": {},
+                    "DatasetArn": {},
+                    "DataSource": {
+                        "shape": "Sm"
+                    },
+                    "TimestampFormat": {},
+                    "TimeZone": {},
+                    "UseGeolocationForTimeZone": {
+                        "type": "boolean"
+                    },
+                    "GeolocationFormat": {},
+                    "Tags": {
+                        "shape": "Sd"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "DatasetImportJobArn": {}
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "CreateForecast": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ForecastName",
+                    "PredictorArn"
+                ],
+                "members": {
+                    "ForecastName": {},
+                    "PredictorArn": {},
+                    "ForecastTypes": {
+                        "shape": "Sv"
+                    },
+                    "Tags": {
+                        "shape": "Sd"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ForecastArn": {}
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "CreateForecastExportJob": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ForecastExportJobName",
+                    "ForecastArn",
+                    "Destination"
+                ],
+                "members": {
+                    "ForecastExportJobName": {},
+                    "ForecastArn": {},
+                    "Destination": {
+                        "shape": "Sz"
+                    },
+                    "Tags": {
+                        "shape": "Sd"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ForecastExportJobArn": {}
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "CreatePredictor": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "PredictorName",
+                    "ForecastHorizon",
+                    "InputDataConfig",
+                    "FeaturizationConfig"
+                ],
+                "members": {
+                    "PredictorName": {},
+                    "AlgorithmArn": {},
+                    "ForecastHorizon": {
+                        "type": "integer"
+                    },
+                    "ForecastTypes": {
+                        "shape": "Sv"
+                    },
+                    "PerformAutoML": {
+                        "type": "boolean"
+                    },
+                    "PerformHPO": {
+                        "type": "boolean"
+                    },
+                    "TrainingParameters": {
+                        "shape": "S14"
+                    },
+                    "EvaluationParameters": {
+                        "shape": "S17"
+                    },
+                    "HPOConfig": {
+                        "shape": "S18"
+                    },
+                    "InputDataConfig": {
+                        "shape": "S1k"
+                    },
+                    "FeaturizationConfig": {
+                        "shape": "S1n"
+                    },
+                    "EncryptionConfig": {
+                        "shape": "Sa"
+                    },
+                    "Tags": {
+                        "shape": "Sd"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "PredictorArn": {}
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "CreatePredictorBacktestExportJob": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "PredictorBacktestExportJobName",
+                    "PredictorArn",
+                    "Destination"
+                ],
+                "members": {
+                    "PredictorBacktestExportJobName": {},
+                    "PredictorArn": {},
+                    "Destination": {
+                        "shape": "Sz"
+                    },
+                    "Tags": {
+                        "shape": "Sd"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "PredictorBacktestExportJobArn": {}
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "DeleteDataset": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "DatasetArn"
+                ],
+                "members": {
+                    "DatasetArn": {}
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "DeleteDatasetGroup": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "DatasetGroupArn"
+                ],
+                "members": {
+                    "DatasetGroupArn": {}
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "DeleteDatasetImportJob": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "DatasetImportJobArn"
+                ],
+                "members": {
+                    "DatasetImportJobArn": {}
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "DeleteForecast": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ForecastArn"
+                ],
+                "members": {
+                    "ForecastArn": {}
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "DeleteForecastExportJob": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ForecastExportJobArn"
+                ],
+                "members": {
+                    "ForecastExportJobArn": {}
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "DeletePredictor": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "PredictorArn"
+                ],
+                "members": {
+                    "PredictorArn": {}
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "DeletePredictorBacktestExportJob": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "PredictorBacktestExportJobArn"
+                ],
+                "members": {
+                    "PredictorBacktestExportJobArn": {}
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "DescribeDataset": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "DatasetArn"
+                ],
+                "members": {
+                    "DatasetArn": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "DatasetArn": {},
+                    "DatasetName": {},
+                    "Domain": {},
+                    "DatasetType": {},
+                    "DataFrequency": {},
+                    "Schema": {
+                        "shape": "S6"
+                    },
+                    "EncryptionConfig": {
+                        "shape": "Sa"
+                    },
+                    "Status": {},
+                    "CreationTime": {
+                        "type": "timestamp"
+                    },
+                    "LastModificationTime": {
+                        "type": "timestamp"
+                    }
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "DescribeDatasetGroup": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "DatasetGroupArn"
+                ],
+                "members": {
+                    "DatasetGroupArn": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "DatasetGroupName": {},
+                    "DatasetGroupArn": {},
+                    "DatasetArns": {
+                        "shape": "Sj"
+                    },
+                    "Domain": {},
+                    "Status": {},
+                    "CreationTime": {
+                        "type": "timestamp"
+                    },
+                    "LastModificationTime": {
+                        "type": "timestamp"
+                    }
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "DescribeDatasetImportJob": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "DatasetImportJobArn"
+                ],
+                "members": {
+                    "DatasetImportJobArn": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "DatasetImportJobName": {},
+                    "DatasetImportJobArn": {},
+                    "DatasetArn": {},
+                    "TimestampFormat": {},
+                    "TimeZone": {},
+                    "UseGeolocationForTimeZone": {
+                        "type": "boolean"
+                    },
+                    "GeolocationFormat": {},
+                    "DataSource": {
+                        "shape": "Sm"
+                    },
+                    "FieldStatistics": {
+                        "type": "map",
+                        "key": {},
+                        "value": {
+                            "type": "structure",
+                            "members": {
+                                "Count": {
+                                    "type": "integer"
+                                },
+                                "CountDistinct": {
+                                    "type": "integer"
+                                },
+                                "CountNull": {
+                                    "type": "integer"
+                                },
+                                "CountNan": {
+                                    "type": "integer"
+                                },
+                                "Min": {},
+                                "Max": {},
+                                "Avg": {
+                                    "type": "double"
+                                },
+                                "Stddev": {
+                                    "type": "double"
+                                }
+                            }
+                        }
+                    },
+                    "DataSize": {
+                        "type": "double"
+                    },
+                    "Status": {},
+                    "Message": {},
+                    "CreationTime": {
+                        "type": "timestamp"
+                    },
+                    "LastModificationTime": {
+                        "type": "timestamp"
+                    }
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "DescribeForecast": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ForecastArn"
+                ],
+                "members": {
+                    "ForecastArn": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ForecastArn": {},
+                    "ForecastName": {},
+                    "ForecastTypes": {
+                        "shape": "Sv"
+                    },
+                    "PredictorArn": {},
+                    "DatasetGroupArn": {},
+                    "Status": {},
+                    "Message": {},
+                    "CreationTime": {
+                        "type": "timestamp"
+                    },
+                    "LastModificationTime": {
+                        "type": "timestamp"
+                    }
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "DescribeForecastExportJob": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ForecastExportJobArn"
+                ],
+                "members": {
+                    "ForecastExportJobArn": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ForecastExportJobArn": {},
+                    "ForecastExportJobName": {},
+                    "ForecastArn": {},
+                    "Destination": {
+                        "shape": "Sz"
+                    },
+                    "Message": {},
+                    "Status": {},
+                    "CreationTime": {
+                        "type": "timestamp"
+                    },
+                    "LastModificationTime": {
+                        "type": "timestamp"
+                    }
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "DescribePredictor": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "PredictorArn"
+                ],
+                "members": {
+                    "PredictorArn": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "PredictorArn": {},
+                    "PredictorName": {},
+                    "AlgorithmArn": {},
+                    "ForecastHorizon": {
+                        "type": "integer"
+                    },
+                    "ForecastTypes": {
+                        "shape": "Sv"
+                    },
+                    "PerformAutoML": {
+                        "type": "boolean"
+                    },
+                    "PerformHPO": {
+                        "type": "boolean"
+                    },
+                    "TrainingParameters": {
+                        "shape": "S14"
+                    },
+                    "EvaluationParameters": {
+                        "shape": "S17"
+                    },
+                    "HPOConfig": {
+                        "shape": "S18"
+                    },
+                    "InputDataConfig": {
+                        "shape": "S1k"
+                    },
+                    "FeaturizationConfig": {
+                        "shape": "S1n"
+                    },
+                    "EncryptionConfig": {
+                        "shape": "Sa"
+                    },
+                    "PredictorExecutionDetails": {
+                        "type": "structure",
+                        "members": {
+                            "PredictorExecutions": {
+                                "type": "list",
+                                "member": {
+                                    "type": "structure",
+                                    "members": {
+                                        "AlgorithmArn": {},
+                                        "TestWindows": {
+                                            "type": "list",
+                                            "member": {
+                                                "type": "structure",
+                                                "members": {
+                                                    "TestWindowStart": {
+                                                        "type": "timestamp"
+                                                    },
+                                                    "TestWindowEnd": {
+                                                        "type": "timestamp"
+                                                    },
+                                                    "Status": {},
+                                                    "Message": {}
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "DatasetImportJobArns": {
+                        "shape": "Sj"
+                    },
+                    "AutoMLAlgorithmArns": {
+                        "shape": "Sj"
+                    },
+                    "Status": {},
+                    "Message": {},
+                    "CreationTime": {
+                        "type": "timestamp"
+                    },
+                    "LastModificationTime": {
+                        "type": "timestamp"
+                    }
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "DescribePredictorBacktestExportJob": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "PredictorBacktestExportJobArn"
+                ],
+                "members": {
+                    "PredictorBacktestExportJobArn": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "PredictorBacktestExportJobArn": {},
+                    "PredictorBacktestExportJobName": {},
+                    "PredictorArn": {},
+                    "Destination": {
+                        "shape": "Sz"
+                    },
+                    "Message": {},
+                    "Status": {},
+                    "CreationTime": {
+                        "type": "timestamp"
+                    },
+                    "LastModificationTime": {
+                        "type": "timestamp"
+                    }
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "GetAccuracyMetrics": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "PredictorArn"
+                ],
+                "members": {
+                    "PredictorArn": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "PredictorEvaluationResults": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "AlgorithmArn": {},
+                                "TestWindows": {
+                                    "type": "list",
+                                    "member": {
+                                        "type": "structure",
+                                        "members": {
+                                            "TestWindowStart": {
+                                                "type": "timestamp"
+                                            },
+                                            "TestWindowEnd": {
+                                                "type": "timestamp"
+                                            },
+                                            "ItemCount": {
+                                                "type": "integer"
+                                            },
+                                            "EvaluationType": {},
+                                            "Metrics": {
+                                                "type": "structure",
+                                                "members": {
+                                                    "RMSE": {
+                                                        "deprecated": true,
+                                                        "deprecatedMessage": "This property is deprecated, please refer to ErrorMetrics for both RMSE and WAPE",
+                                                        "type": "double"
+                                                    },
+                                                    "WeightedQuantileLosses": {
+                                                        "type": "list",
+                                                        "member": {
+                                                            "type": "structure",
+                                                            "members": {
+                                                                "Quantile": {
+                                                                    "type": "double"
+                                                                },
+                                                                "LossValue": {
+                                                                    "type": "double"
+                                                                }
+                                                            }
+                                                        }
+                                                    },
+                                                    "ErrorMetrics": {
+                                                        "type": "list",
+                                                        "member": {
+                                                            "type": "structure",
+                                                            "members": {
+                                                                "ForecastType": {},
+                                                                "WAPE": {
+                                                                    "type": "double"
+                                                                },
+                                                                "RMSE": {
+                                                                    "type": "double"
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "ListDatasetGroups": {
+            "input": {
+                "type": "structure",
+                "members": {
+                    "NextToken": {},
+                    "MaxResults": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "DatasetGroups": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "DatasetGroupArn": {},
+                                "DatasetGroupName": {},
+                                "CreationTime": {
+                                    "type": "timestamp"
+                                },
+                                "LastModificationTime": {
+                                    "type": "timestamp"
+                                }
+                            }
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "ListDatasetImportJobs": {
+            "input": {
+                "type": "structure",
+                "members": {
+                    "NextToken": {},
+                    "MaxResults": {
+                        "type": "integer"
+                    },
+                    "Filters": {
+                        "shape": "S3e"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "DatasetImportJobs": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "DatasetImportJobArn": {},
+                                "DatasetImportJobName": {},
+                                "DataSource": {
+                                    "shape": "Sm"
+                                },
+                                "Status": {},
+                                "Message": {},
+                                "CreationTime": {
+                                    "type": "timestamp"
+                                },
+                                "LastModificationTime": {
+                                    "type": "timestamp"
+                                }
+                            }
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "ListDatasets": {
+            "input": {
+                "type": "structure",
+                "members": {
+                    "NextToken": {},
+                    "MaxResults": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Datasets": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "DatasetArn": {},
+                                "DatasetName": {},
+                                "DatasetType": {},
+                                "Domain": {},
+                                "CreationTime": {
+                                    "type": "timestamp"
+                                },
+                                "LastModificationTime": {
+                                    "type": "timestamp"
+                                }
+                            }
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "ListForecastExportJobs": {
+            "input": {
+                "type": "structure",
+                "members": {
+                    "NextToken": {},
+                    "MaxResults": {
+                        "type": "integer"
+                    },
+                    "Filters": {
+                        "shape": "S3e"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ForecastExportJobs": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "ForecastExportJobArn": {},
+                                "ForecastExportJobName": {},
+                                "Destination": {
+                                    "shape": "Sz"
+                                },
+                                "Status": {},
+                                "Message": {},
+                                "CreationTime": {
+                                    "type": "timestamp"
+                                },
+                                "LastModificationTime": {
+                                    "type": "timestamp"
+                                }
+                            }
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "ListForecasts": {
+            "input": {
+                "type": "structure",
+                "members": {
+                    "NextToken": {},
+                    "MaxResults": {
+                        "type": "integer"
+                    },
+                    "Filters": {
+                        "shape": "S3e"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Forecasts": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "ForecastArn": {},
+                                "ForecastName": {},
+                                "PredictorArn": {},
+                                "DatasetGroupArn": {},
+                                "Status": {},
+                                "Message": {},
+                                "CreationTime": {
+                                    "type": "timestamp"
+                                },
+                                "LastModificationTime": {
+                                    "type": "timestamp"
+                                }
+                            }
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "ListPredictorBacktestExportJobs": {
+            "input": {
+                "type": "structure",
+                "members": {
+                    "NextToken": {},
+                    "MaxResults": {
+                        "type": "integer"
+                    },
+                    "Filters": {
+                        "shape": "S3e"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "PredictorBacktestExportJobs": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "PredictorBacktestExportJobArn": {},
+                                "PredictorBacktestExportJobName": {},
+                                "Destination": {
+                                    "shape": "Sz"
+                                },
+                                "Status": {},
+                                "Message": {},
+                                "CreationTime": {
+                                    "type": "timestamp"
+                                },
+                                "LastModificationTime": {
+                                    "type": "timestamp"
+                                }
+                            }
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "ListPredictors": {
+            "input": {
+                "type": "structure",
+                "members": {
+                    "NextToken": {},
+                    "MaxResults": {
+                        "type": "integer"
+                    },
+                    "Filters": {
+                        "shape": "S3e"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Predictors": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "PredictorArn": {},
+                                "PredictorName": {},
+                                "DatasetGroupArn": {},
+                                "Status": {},
+                                "Message": {},
+                                "CreationTime": {
+                                    "type": "timestamp"
+                                },
+                                "LastModificationTime": {
+                                    "type": "timestamp"
+                                }
+                            }
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "ListTagsForResource": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ResourceArn"
+                ],
+                "members": {
+                    "ResourceArn": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Tags": {
+                        "shape": "Sd"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "TagResource": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ResourceArn",
+                    "Tags"
+                ],
+                "members": {
+                    "ResourceArn": {},
+                    "Tags": {
+                        "shape": "Sd"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "UntagResource": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ResourceArn",
+                    "TagKeys"
+                ],
+                "members": {
+                    "ResourceArn": {},
+                    "TagKeys": {
+                        "type": "list",
+                        "member": {
+                            "shape": "Sf"
+                        }
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "UpdateDatasetGroup": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "DatasetGroupArn",
+                    "DatasetArns"
+                ],
+                "members": {
+                    "DatasetGroupArn": {},
+                    "DatasetArns": {
+                        "shape": "Sj"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "DeleteResourceTree": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ResourceArn"
+                ],
+                "members": {
+                    "ResourceArn": {}
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://iotwireless.us-east-1.prod.console.iot.aws.dev/static/js/iotwireless.js"
+            ]
+        },
+        "StopResource": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ResourceArn"
+                ],
+                "members": {
+                    "ResourceArn": {}
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://iotwireless.us-east-1.prod.console.iot.aws.dev/static/js/iotwireless.js"
+            ]
+        },
+        "CreateAutoPredictor": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "PredictorName"
+                ],
+                "members": {
+                    "PredictorName": {},
+                    "ForecastHorizon": {
+                        "type": "integer"
+                    },
+                    "ForecastTypes": {
+                        "shape": "S4"
+                    },
+                    "ForecastDimensions": {
+                        "shape": "S6"
+                    },
+                    "ForecastFrequency": {},
+                    "DataConfig": {
+                        "shape": "S8"
+                    },
+                    "EncryptionConfig": {
+                        "shape": "Si"
+                    },
+                    "ReferencePredictorArn": {},
+                    "OptimizationMetric": {},
+                    "ExplainPredictor": {
+                        "type": "boolean"
+                    },
+                    "Tags": {
+                        "shape": "Sm"
+                    },
+                    "MonitorConfig": {
+                        "type": "structure",
+                        "required": [
+                            "MonitorName"
+                        ],
+                        "members": {
+                            "MonitorName": {}
+                        }
+                    },
+                    "TimeAlignmentBoundary": {
+                        "shape": "Sr"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "PredictorArn": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "CreateExplainability": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ExplainabilityName",
+                    "ResourceArn",
+                    "ExplainabilityConfig"
+                ],
+                "members": {
+                    "ExplainabilityName": {},
+                    "ResourceArn": {},
+                    "ExplainabilityConfig": {
+                        "shape": "S1j"
+                    },
+                    "DataSource": {
+                        "shape": "S19"
+                    },
+                    "Schema": {
+                        "shape": "S10"
+                    },
+                    "EnableVisualization": {
+                        "type": "boolean"
+                    },
+                    "StartDateTime": {},
+                    "EndDateTime": {},
+                    "Tags": {
+                        "shape": "Sm"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ExplainabilityArn": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "CreateExplainabilityExport": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ExplainabilityExportName",
+                    "ExplainabilityArn",
+                    "Destination"
+                ],
+                "members": {
+                    "ExplainabilityExportName": {},
+                    "ExplainabilityArn": {},
+                    "Destination": {
+                        "shape": "S1p"
+                    },
+                    "Tags": {
+                        "shape": "Sm"
+                    },
+                    "Format": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ExplainabilityExportArn": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "CreateMonitor": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "MonitorName",
+                    "ResourceArn"
+                ],
+                "members": {
+                    "MonitorName": {},
+                    "ResourceArn": {},
+                    "Tags": {
+                        "shape": "Sm"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "MonitorArn": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "CreateWhatIfAnalysis": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "WhatIfAnalysisName",
+                    "ForecastArn"
+                ],
+                "members": {
+                    "WhatIfAnalysisName": {},
+                    "ForecastArn": {},
+                    "TimeSeriesSelector": {
+                        "shape": "S1s"
+                    },
+                    "Tags": {
+                        "shape": "Sm"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "WhatIfAnalysisArn": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "CreateWhatIfForecast": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "WhatIfForecastName",
+                    "WhatIfAnalysisArn"
+                ],
+                "members": {
+                    "WhatIfForecastName": {},
+                    "WhatIfAnalysisArn": {},
+                    "TimeSeriesTransformations": {
+                        "shape": "S2v"
+                    },
+                    "TimeSeriesReplacementsDataSource": {
+                        "shape": "S33"
+                    },
+                    "Tags": {
+                        "shape": "Sm"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "WhatIfForecastArn": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "CreateWhatIfForecastExport": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "WhatIfForecastExportName",
+                    "WhatIfForecastArns",
+                    "Destination"
+                ],
+                "members": {
+                    "WhatIfForecastExportName": {},
+                    "WhatIfForecastArns": {
+                        "shape": "S37"
+                    },
+                    "Destination": {
+                        "shape": "S1p"
+                    },
+                    "Tags": {
+                        "shape": "Sm"
+                    },
+                    "Format": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "WhatIfForecastExportArn": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "DeleteExplainability": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ExplainabilityArn"
+                ],
+                "members": {
+                    "ExplainabilityArn": {}
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "DeleteExplainabilityExport": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ExplainabilityExportArn"
+                ],
+                "members": {
+                    "ExplainabilityExportArn": {}
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "DeleteMonitor": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "MonitorArn"
+                ],
+                "members": {
+                    "MonitorArn": {}
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "DeleteWhatIfAnalysis": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "WhatIfAnalysisArn"
+                ],
+                "members": {
+                    "WhatIfAnalysisArn": {}
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "DeleteWhatIfForecast": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "WhatIfForecastArn"
+                ],
+                "members": {
+                    "WhatIfForecastArn": {}
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "DeleteWhatIfForecastExport": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "WhatIfForecastExportArn"
+                ],
+                "members": {
+                    "WhatIfForecastExportArn": {}
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "DescribeAutoPredictor": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "PredictorArn"
+                ],
+                "members": {
+                    "PredictorArn": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "PredictorArn": {},
+                    "PredictorName": {},
+                    "ForecastHorizon": {
+                        "type": "integer"
+                    },
+                    "ForecastTypes": {
+                        "shape": "S4"
+                    },
+                    "ForecastFrequency": {},
+                    "ForecastDimensions": {
+                        "shape": "S6"
+                    },
+                    "DatasetImportJobArns": {
+                        "shape": "S16"
+                    },
+                    "DataConfig": {
+                        "shape": "S8"
+                    },
+                    "EncryptionConfig": {
+                        "shape": "Si"
+                    },
+                    "ReferencePredictorSummary": {
+                        "shape": "S3p"
+                    },
+                    "EstimatedTimeRemainingInMinutes": {
+                        "type": "long"
+                    },
+                    "Status": {},
+                    "Message": {},
+                    "CreationTime": {
+                        "type": "timestamp"
+                    },
+                    "LastModificationTime": {
+                        "type": "timestamp"
+                    },
+                    "OptimizationMetric": {},
+                    "ExplainabilityInfo": {
+                        "type": "structure",
+                        "members": {
+                            "ExplainabilityArn": {},
+                            "Status": {}
+                        }
+                    },
+                    "MonitorInfo": {
+                        "type": "structure",
+                        "members": {
+                            "MonitorArn": {},
+                            "Status": {}
+                        }
+                    },
+                    "TimeAlignmentBoundary": {
+                        "shape": "Sr"
+                    }
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "DescribeExplainability": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ExplainabilityArn"
+                ],
+                "members": {
+                    "ExplainabilityArn": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ExplainabilityArn": {},
+                    "ExplainabilityName": {},
+                    "ResourceArn": {},
+                    "ExplainabilityConfig": {
+                        "shape": "S1j"
+                    },
+                    "EnableVisualization": {
+                        "type": "boolean"
+                    },
+                    "DataSource": {
+                        "shape": "S19"
+                    },
+                    "Schema": {
+                        "shape": "S10"
+                    },
+                    "StartDateTime": {},
+                    "EndDateTime": {},
+                    "EstimatedTimeRemainingInMinutes": {
+                        "type": "long"
+                    },
+                    "Message": {},
+                    "Status": {},
+                    "CreationTime": {
+                        "type": "timestamp"
+                    },
+                    "LastModificationTime": {
+                        "type": "timestamp"
+                    }
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "DescribeExplainabilityExport": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ExplainabilityExportArn"
+                ],
+                "members": {
+                    "ExplainabilityExportArn": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ExplainabilityExportArn": {},
+                    "ExplainabilityExportName": {},
+                    "ExplainabilityArn": {},
+                    "Destination": {
+                        "shape": "S1p"
+                    },
+                    "Message": {},
+                    "Status": {},
+                    "CreationTime": {
+                        "type": "timestamp"
+                    },
+                    "LastModificationTime": {
+                        "type": "timestamp"
+                    },
+                    "Format": {}
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "DescribeMonitor": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "MonitorArn"
+                ],
+                "members": {
+                    "MonitorArn": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "MonitorName": {},
+                    "MonitorArn": {},
+                    "ResourceArn": {},
+                    "Status": {},
+                    "LastEvaluationTime": {
+                        "type": "timestamp"
+                    },
+                    "LastEvaluationState": {},
+                    "Baseline": {
+                        "type": "structure",
+                        "members": {
+                            "PredictorBaseline": {
+                                "type": "structure",
+                                "members": {
+                                    "BaselineMetrics": {
+                                        "type": "list",
+                                        "member": {
+                                            "type": "structure",
+                                            "members": {
+                                                "Name": {},
+                                                "Value": {
+                                                    "type": "double"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "Message": {},
+                    "CreationTime": {
+                        "type": "timestamp"
+                    },
+                    "LastModificationTime": {
+                        "type": "timestamp"
+                    },
+                    "EstimatedEvaluationTimeRemainingInMinutes": {
+                        "type": "long"
+                    }
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "DescribeWhatIfAnalysis": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "WhatIfAnalysisArn"
+                ],
+                "members": {
+                    "WhatIfAnalysisArn": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "WhatIfAnalysisName": {},
+                    "WhatIfAnalysisArn": {},
+                    "ForecastArn": {},
+                    "EstimatedTimeRemainingInMinutes": {
+                        "type": "long"
+                    },
+                    "Status": {},
+                    "Message": {},
+                    "CreationTime": {
+                        "type": "timestamp"
+                    },
+                    "LastModificationTime": {
+                        "type": "timestamp"
+                    },
+                    "TimeSeriesSelector": {
+                        "shape": "S1s"
+                    }
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "DescribeWhatIfForecast": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "WhatIfForecastArn"
+                ],
+                "members": {
+                    "WhatIfForecastArn": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "WhatIfForecastName": {},
+                    "WhatIfForecastArn": {},
+                    "WhatIfAnalysisArn": {},
+                    "EstimatedTimeRemainingInMinutes": {
+                        "type": "long"
+                    },
+                    "Status": {},
+                    "Message": {},
+                    "CreationTime": {
+                        "type": "timestamp"
+                    },
+                    "LastModificationTime": {
+                        "type": "timestamp"
+                    },
+                    "TimeSeriesTransformations": {
+                        "shape": "S2v"
+                    },
+                    "TimeSeriesReplacementsDataSource": {
+                        "shape": "S33"
+                    },
+                    "ForecastTypes": {
+                        "shape": "S4"
+                    }
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "DescribeWhatIfForecastExport": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "WhatIfForecastExportArn"
+                ],
+                "members": {
+                    "WhatIfForecastExportArn": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "WhatIfForecastExportArn": {},
+                    "WhatIfForecastExportName": {},
+                    "WhatIfForecastArns": {
+                        "type": "list",
+                        "member": {}
+                    },
+                    "Destination": {
+                        "shape": "S1p"
+                    },
+                    "Message": {},
+                    "Status": {},
+                    "CreationTime": {
+                        "type": "timestamp"
+                    },
+                    "EstimatedTimeRemainingInMinutes": {
+                        "type": "long"
+                    },
+                    "LastModificationTime": {
+                        "type": "timestamp"
+                    },
+                    "Format": {}
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "ListExplainabilities": {
+            "input": {
+                "type": "structure",
+                "members": {
+                    "NextToken": {},
+                    "MaxResults": {
+                        "type": "integer"
+                    },
+                    "Filters": {
+                        "shape": "S5l"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Explainabilities": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "ExplainabilityArn": {},
+                                "ExplainabilityName": {},
+                                "ResourceArn": {},
+                                "ExplainabilityConfig": {
+                                    "shape": "S1j"
+                                },
+                                "Status": {},
+                                "Message": {},
+                                "CreationTime": {
+                                    "type": "timestamp"
+                                },
+                                "LastModificationTime": {
+                                    "type": "timestamp"
+                                }
+                            }
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "ListExplainabilityExports": {
+            "input": {
+                "type": "structure",
+                "members": {
+                    "NextToken": {},
+                    "MaxResults": {
+                        "type": "integer"
+                    },
+                    "Filters": {
+                        "shape": "S5l"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ExplainabilityExports": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "ExplainabilityExportArn": {},
+                                "ExplainabilityExportName": {},
+                                "Destination": {
+                                    "shape": "S1p"
+                                },
+                                "Status": {},
+                                "Message": {},
+                                "CreationTime": {
+                                    "type": "timestamp"
+                                },
+                                "LastModificationTime": {
+                                    "type": "timestamp"
+                                }
+                            }
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "ListMonitorEvaluations": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "MonitorArn"
+                ],
+                "members": {
+                    "NextToken": {},
+                    "MaxResults": {
+                        "type": "integer"
+                    },
+                    "MonitorArn": {},
+                    "Filters": {
+                        "shape": "S5l"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "NextToken": {},
+                    "PredictorMonitorEvaluations": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "ResourceArn": {},
+                                "MonitorArn": {},
+                                "EvaluationTime": {
+                                    "type": "timestamp"
+                                },
+                                "EvaluationState": {},
+                                "WindowStartDatetime": {
+                                    "type": "timestamp"
+                                },
+                                "WindowEndDatetime": {
+                                    "type": "timestamp"
+                                },
+                                "PredictorEvent": {
+                                    "type": "structure",
+                                    "members": {
+                                        "Detail": {},
+                                        "Datetime": {
+                                            "type": "timestamp"
+                                        }
+                                    }
+                                },
+                                "MonitorDataSource": {
+                                    "type": "structure",
+                                    "members": {
+                                        "DatasetImportJobArn": {},
+                                        "ForecastArn": {},
+                                        "PredictorArn": {}
+                                    }
+                                },
+                                "MetricResults": {
+                                    "type": "list",
+                                    "member": {
+                                        "type": "structure",
+                                        "members": {
+                                            "MetricName": {},
+                                            "MetricValue": {
+                                                "type": "double"
+                                            }
+                                        }
+                                    }
+                                },
+                                "NumItemsEvaluated": {
+                                    "type": "long"
+                                },
+                                "Message": {}
+                            }
+                        }
+                    }
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "ListMonitors": {
+            "input": {
+                "type": "structure",
+                "members": {
+                    "NextToken": {},
+                    "MaxResults": {
+                        "type": "integer"
+                    },
+                    "Filters": {
+                        "shape": "S5l"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Monitors": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "MonitorArn": {},
+                                "MonitorName": {},
+                                "ResourceArn": {},
+                                "Status": {},
+                                "CreationTime": {
+                                    "type": "timestamp"
+                                },
+                                "LastModificationTime": {
+                                    "type": "timestamp"
+                                }
+                            }
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "ListWhatIfAnalyses": {
+            "input": {
+                "type": "structure",
+                "members": {
+                    "NextToken": {},
+                    "MaxResults": {
+                        "type": "integer"
+                    },
+                    "Filters": {
+                        "shape": "S5l"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "WhatIfAnalyses": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "WhatIfAnalysisArn": {},
+                                "WhatIfAnalysisName": {},
+                                "ForecastArn": {},
+                                "Status": {},
+                                "Message": {},
+                                "CreationTime": {
+                                    "type": "timestamp"
+                                },
+                                "LastModificationTime": {
+                                    "type": "timestamp"
+                                }
+                            }
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "ListWhatIfForecastExports": {
+            "input": {
+                "type": "structure",
+                "members": {
+                    "NextToken": {},
+                    "MaxResults": {
+                        "type": "integer"
+                    },
+                    "Filters": {
+                        "shape": "S5l"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "WhatIfForecastExports": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "WhatIfForecastExportArn": {},
+                                "WhatIfForecastArns": {
+                                    "shape": "S37"
+                                },
+                                "WhatIfForecastExportName": {},
+                                "Destination": {
+                                    "shape": "S1p"
+                                },
+                                "Status": {},
+                                "Message": {},
+                                "CreationTime": {
+                                    "type": "timestamp"
+                                },
+                                "LastModificationTime": {
+                                    "type": "timestamp"
+                                }
+                            }
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "ListWhatIfForecasts": {
+            "input": {
+                "type": "structure",
+                "members": {
+                    "NextToken": {},
+                    "MaxResults": {
+                        "type": "integer"
+                    },
+                    "Filters": {
+                        "shape": "S5l"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "WhatIfForecasts": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "WhatIfForecastArn": {},
+                                "WhatIfForecastName": {},
+                                "WhatIfAnalysisArn": {},
+                                "Status": {},
+                                "Message": {},
+                                "CreationTime": {
+                                    "type": "timestamp"
+                                },
+                                "LastModificationTime": {
+                                    "type": "timestamp"
+                                }
+                            }
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "ResumeResource": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ResourceArn"
+                ],
+                "members": {
+                    "ResourceArn": {}
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "CheckForecastBackfill": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "Arns"
+                ],
+                "members": {
+                    "Arns": {
+                        "shape": "S2"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Arns": {
+                        "shape": "S2"
+                    }
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/JPIO4XR2HZMPQBX3MM7D27MM3CHM4RJPVLXGIG6C6I5ICEYGGLCQ/main.js"
+            ]
+        },
+        "CreateForecastBackfill": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "StartDate",
+                    "EndDate"
+                ],
+                "members": {
+                    "StartDate": {},
+                    "EndDate": {},
+                    "SearchDomain": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Arns": {
+                        "shape": "S2"
+                    }
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/JPIO4XR2HZMPQBX3MM7D27MM3CHM4RJPVLXGIG6C6I5ICEYGGLCQ/main.js"
+            ]
+        },
+        "CreateForecastEndpoint": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ForecastEndpointName",
+                    "PredictorArn"
+                ],
+                "members": {
+                    "ForecastEndpointName": {},
+                    "PredictorArn": {},
+                    "Tags": {
+                        "shape": "Sq"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ForecastEndpointArn": {}
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/JPIO4XR2HZMPQBX3MM7D27MM3CHM4RJPVLXGIG6C6I5ICEYGGLCQ/main.js"
+            ]
+        },
+        "CreateForecastIndex": {
+            "input": {
+                "type": "structure",
+                "members": {
+                    "ForecastName": {},
+                    "PredictorName": {},
+                    "ForecastFrequency": {},
+                    "ForecastHorizon": {
+                        "type": "integer"
+                    },
+                    "ForecastSetLocation": {},
+                    "PredictorCmkArn": {},
+                    "PredictorRoleArn": {},
+                    "ExternalItemName": {},
+                    "TargetDatasetEndDateTime": {},
+                    "TargetDatasetImportLocation": {},
+                    "TargetDatasetImportCmkArn": {},
+                    "TargetDatasetImportRoleArn": {},
+                    "SearchDomainName": {},
+                    "SearchIndexName": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ForecastIndexArn": {}
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/JPIO4XR2HZMPQBX3MM7D27MM3CHM4RJPVLXGIG6C6I5ICEYGGLCQ/main.js"
+            ]
+        },
+        "CreateInference": {
+            "input": {
+                "type": "structure",
+                "members": {
+                    "InferenceName": {},
+                    "AlgorithmArn": {},
+                    "ForecastHorizon": {
+                        "type": "integer"
+                    },
+                    "TimeSeriesFeatureLabels": {
+                        "type": "list",
+                        "member": {}
+                    },
+                    "SageMakerTrainedModelLocation": {},
+                    "InputInferenceDataPath": {},
+                    "OutputPath": {},
+                    "InstanceType": {},
+                    "InstanceCount": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "InferenceArn": {}
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/JPIO4XR2HZMPQBX3MM7D27MM3CHM4RJPVLXGIG6C6I5ICEYGGLCQ/main.js"
+            ]
+        },
+        "CreateInjection": {
+            "input": {
+                "type": "structure",
+                "members": {
+                    "InjectionName": {},
+                    "SolutionName": {},
+                    "RefreshArn": {},
+                    "InferenceArn": {},
+                    "ForceNewVersion": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "InjectionArn": {}
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/JPIO4XR2HZMPQBX3MM7D27MM3CHM4RJPVLXGIG6C6I5ICEYGGLCQ/main.js"
+            ]
+        },
+        "CreateSeerTrainingJob": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "TrainingJobName",
+                    "AlgorithmArn"
+                ],
+                "members": {
+                    "TrainingJobName": {},
+                    "InputDataSource": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "DatasetImportJobArn": {},
+                                "DatasetType": {}
+                            }
+                        }
+                    },
+                    "TrainingParameters": {
+                        "shape": "S2o"
+                    },
+                    "FeaturizationConfig": {
+                        "type": "structure",
+                        "members": {
+                            "ForecastFrequency": {},
+                            "ForecastDimensions": {
+                                "shape": "Sa"
+                            },
+                            "TrainingSubsampleRatio": {
+                                "type": "double"
+                            },
+                            "TrainingSubsampleSeed": {
+                                "type": "long"
+                            },
+                            "Featurizations": {
+                                "type": "list",
+                                "member": {
+                                    "type": "structure",
+                                    "required": [
+                                        "AttributeName",
+                                        "FeatureType"
+                                    ],
+                                    "members": {
+                                        "DatasetArn": {},
+                                        "DatasetImportArn": {},
+                                        "AttributeName": {},
+                                        "InternalAttributeName": {},
+                                        "FeatureType": {},
+                                        "SF2FeatureLabel": {},
+                                        "FeaturizationPipeline": {
+                                            "shape": "S38"
+                                        }
+                                    }
+                                }
+                            },
+                            "PrimaryKey": {
+                                "type": "structure",
+                                "members": {
+                                    "Table": {},
+                                    "Field": {}
+                                }
+                            }
+                        }
+                    },
+                    "ForecastHorizon": {
+                        "type": "integer"
+                    },
+                    "AlgorithmArn": {},
+                    "SupplementaryFeatures": {
+                        "shape": "S33"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "TrainingJobArn": {}
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/JPIO4XR2HZMPQBX3MM7D27MM3CHM4RJPVLXGIG6C6I5ICEYGGLCQ/main.js"
+            ]
+        },
+        "DeleteForecastEndpoint": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ForecastEndpointArn"
+                ],
+                "members": {
+                    "ForecastEndpointArn": {}
+                }
+            },
+            "idempotent": true,
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/JPIO4XR2HZMPQBX3MM7D27MM3CHM4RJPVLXGIG6C6I5ICEYGGLCQ/main.js"
+            ]
+        },
+        "DescribeForecastEndpoint": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ForecastEndpointArn"
+                ],
+                "members": {
+                    "ForecastEndpointArn": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ForecastEndpointArn": {},
+                    "ForecastEndpointName": {},
+                    "PredictorArn": {},
+                    "Message": {},
+                    "Status": {},
+                    "CreationTime": {
+                        "type": "timestamp"
+                    },
+                    "LastModificationTime": {
+                        "type": "timestamp"
+                    }
+                }
+            },
+            "idempotent": true,
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/JPIO4XR2HZMPQBX3MM7D27MM3CHM4RJPVLXGIG6C6I5ICEYGGLCQ/main.js"
+            ]
+        },
+        "GetChildResources": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ResourceArn"
+                ],
+                "members": {
+                    "ResourceArn": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ChildResources": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "ChildResourceArn": {}
+                            }
+                        }
+                    }
+                }
+            },
+            "idempotent": true,
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/JPIO4XR2HZMPQBX3MM7D27MM3CHM4RJPVLXGIG6C6I5ICEYGGLCQ/main.js"
+            ]
+        },
+        "GetRecentForecastContext": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "TimeSeries",
+                    "ForecastEndpointArn"
+                ],
+                "members": {
+                    "TimeSeries": {
+                        "shape": "S6h"
+                    },
+                    "ForecastEndpointArn": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ForecastFrequency": {},
+                    "ForecastHorizon": {
+                        "type": "integer"
+                    },
+                    "ForecastHorizonStartDate": {},
+                    "ForecastHorizonEndDate": {},
+                    "HistoricalTargetTimeSeries": {
+                        "shape": "S6k"
+                    },
+                    "FutureRelatedTimeSeries": {
+                        "type": "list",
+                        "member": {
+                            "shape": "S6k"
+                        }
+                    }
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/JPIO4XR2HZMPQBX3MM7D27MM3CHM4RJPVLXGIG6C6I5ICEYGGLCQ/main.js"
+            ]
+        },
+        "InvokeForecastEndpoint": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "TimeSeries",
+                    "ForecastEndpointArn"
+                ],
+                "members": {
+                    "TimeSeries": {
+                        "shape": "S6h"
+                    },
+                    "ForecastEndpointArn": {},
+                    "RelatedTimeSeriesReplacements": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "AttributeName": {},
+                                "Replacements": {
+                                    "type": "map",
+                                    "key": {},
+                                    "value": {
+                                        "type": "double"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Predictions": {
+                        "type": "map",
+                        "key": {},
+                        "value": {
+                            "type": "list",
+                            "member": {
+                                "type": "structure",
+                                "members": {
+                                    "Timestamp": {},
+                                    "Value": {
+                                        "type": "double"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/JPIO4XR2HZMPQBX3MM7D27MM3CHM4RJPVLXGIG6C6I5ICEYGGLCQ/main.js"
+            ]
+        },
+        "VerifyResourcesExistForTagris": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "TagrisSweepList"
+                ],
+                "members": {
+                    "TagrisSweepList": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "TagrisAccountId": {},
+                                "TagrisAmazonResourceName": {},
+                                "TagrisInternalId": {},
+                                "TagrisVersion": {
+                                    "type": "long"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "TagrisSweepListResult"
+                ],
+                "members": {
+                    "TagrisSweepListResult": {
+                        "type": "map",
+                        "key": {},
+                        "value": {}
+                    }
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/JPIO4XR2HZMPQBX3MM7D27MM3CHM4RJPVLXGIG6C6I5ICEYGGLCQ/main.js"
+            ]
+        }
+    },
+    "shapes": {
+        "S6": {
+            "type": "structure",
+            "members": {
+                "Attributes": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "members": {
+                            "AttributeName": {},
+                            "AttributeType": {}
+                        }
+                    }
+                }
+            }
+        },
+        "Sa": {
+            "type": "structure",
+            "required": [
+                "RoleArn",
+                "KMSKeyArn"
+            ],
+            "members": {
+                "RoleArn": {},
+                "KMSKeyArn": {}
+            }
+        },
+        "Sd": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "Key",
+                    "Value"
+                ],
+                "members": {
+                    "Key": {
+                        "shape": "Sf"
+                    },
+                    "Value": {
+                        "type": "string",
+                        "sensitive": true
+                    }
+                }
+            }
+        },
+        "Sf": {
+            "type": "string",
+            "sensitive": true
+        },
+        "Sj": {
+            "type": "list",
+            "member": {}
+        },
+        "Sm": {
+            "type": "structure",
+            "required": [
+                "S3Config"
+            ],
+            "members": {
+                "S3Config": {
+                    "shape": "Sn"
+                }
+            }
+        },
+        "Sn": {
+            "type": "structure",
+            "required": [
+                "Path",
+                "RoleArn"
+            ],
+            "members": {
+                "Path": {},
+                "RoleArn": {},
+                "KMSKeyArn": {}
+            }
+        },
+        "Sv": {
+            "type": "list",
+            "member": {}
+        },
+        "Sz": {
+            "type": "structure",
+            "required": [
+                "S3Config"
+            ],
+            "members": {
+                "S3Config": {
+                    "shape": "Sn"
+                }
+            }
+        },
+        "S14": {
+            "type": "map",
+            "key": {},
+            "value": {}
+        },
+        "S17": {
+            "type": "structure",
+            "members": {
+                "NumberOfBacktestWindows": {
+                    "type": "integer"
+                },
+                "BackTestWindowOffset": {
+                    "type": "integer"
+                }
+            }
+        },
+        "S18": {
+            "type": "structure",
+            "members": {
+                "ParameterRanges": {
+                    "type": "structure",
+                    "members": {
+                        "CategoricalParameterRanges": {
+                            "type": "list",
+                            "member": {
+                                "type": "structure",
+                                "required": [
+                                    "Name",
+                                    "Values"
+                                ],
+                                "members": {
+                                    "Name": {},
+                                    "Values": {
+                                        "type": "list",
+                                        "member": {}
+                                    }
+                                }
+                            }
+                        },
+                        "ContinuousParameterRanges": {
+                            "type": "list",
+                            "member": {
+                                "type": "structure",
+                                "required": [
+                                    "Name",
+                                    "MaxValue",
+                                    "MinValue"
+                                ],
+                                "members": {
+                                    "Name": {},
+                                    "MaxValue": {
+                                        "type": "double"
+                                    },
+                                    "MinValue": {
+                                        "type": "double"
+                                    },
+                                    "ScalingType": {}
+                                }
+                            }
+                        },
+                        "IntegerParameterRanges": {
+                            "type": "list",
+                            "member": {
+                                "type": "structure",
+                                "required": [
+                                    "Name",
+                                    "MaxValue",
+                                    "MinValue"
+                                ],
+                                "members": {
+                                    "Name": {},
+                                    "MaxValue": {
+                                        "type": "integer"
+                                    },
+                                    "MinValue": {
+                                        "type": "integer"
+                                    },
+                                    "ScalingType": {}
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "S1k": {
+            "type": "structure",
+            "required": [
+                "DatasetGroupArn"
+            ],
+            "members": {
+                "DatasetGroupArn": {},
+                "SupplementaryFeatures": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "required": [
+                            "Name",
+                            "Value"
+                        ],
+                        "members": {
+                            "Name": {},
+                            "Value": {}
+                        }
+                    }
+                }
+            }
+        },
+        "S1n": {
+            "type": "structure",
+            "required": [
+                "ForecastFrequency"
+            ],
+            "members": {
+                "ForecastFrequency": {},
+                "ForecastDimensions": {
+                    "type": "list",
+                    "member": {}
+                },
+                "Featurizations": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "required": [
+                            "AttributeName"
+                        ],
+                        "members": {
+                            "AttributeName": {},
+                            "FeaturizationPipeline": {
+                                "type": "list",
+                                "member": {
+                                    "type": "structure",
+                                    "required": [
+                                        "FeaturizationMethodName"
+                                    ],
+                                    "members": {
+                                        "FeaturizationMethodName": {},
+                                        "FeaturizationMethodParameters": {
+                                            "type": "map",
+                                            "key": {},
+                                            "value": {}
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "S3e": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "Key",
+                    "Value",
+                    "Condition"
+                ],
+                "members": {
+                    "Key": {},
+                    "Value": {},
+                    "Condition": {}
+                }
+            }
+        },
+        "Si": {
+            "type": "structure",
+            "required": [
+                "S3Config"
+            ],
+            "members": {
+                "S3Config": {
+                    "shape": "Sj"
+                }
+            }
+        },
+        "So": {
+            "type": "list",
+            "member": {}
+        },
+        "Ss": {
+            "type": "structure",
+            "required": [
+                "S3Config"
+            ],
+            "members": {
+                "S3Config": {
+                    "shape": "Sj"
+                }
+            }
+        },
+        "Sx": {
+            "type": "map",
+            "key": {},
+            "value": {}
+        },
+        "S10": {
+            "type": "structure",
+            "members": {
+                "NumberOfBacktestWindows": {
+                    "type": "integer"
+                },
+                "BackTestWindowOffset": {
+                    "type": "integer"
+                }
+            }
+        },
+        "S11": {
+            "type": "structure",
+            "members": {
+                "ParameterRanges": {
+                    "type": "structure",
+                    "members": {
+                        "CategoricalParameterRanges": {
+                            "type": "list",
+                            "member": {
+                                "type": "structure",
+                                "required": [
+                                    "Name",
+                                    "Values"
+                                ],
+                                "members": {
+                                    "Name": {},
+                                    "Values": {
+                                        "type": "list",
+                                        "member": {}
+                                    }
+                                }
+                            }
+                        },
+                        "ContinuousParameterRanges": {
+                            "type": "list",
+                            "member": {
+                                "type": "structure",
+                                "required": [
+                                    "Name",
+                                    "MaxValue",
+                                    "MinValue"
+                                ],
+                                "members": {
+                                    "Name": {},
+                                    "MaxValue": {
+                                        "type": "double"
+                                    },
+                                    "MinValue": {
+                                        "type": "double"
+                                    },
+                                    "ScalingType": {}
+                                }
+                            }
+                        },
+                        "IntegerParameterRanges": {
+                            "type": "list",
+                            "member": {
+                                "type": "structure",
+                                "required": [
+                                    "Name",
+                                    "MaxValue",
+                                    "MinValue"
+                                ],
+                                "members": {
+                                    "Name": {},
+                                    "MaxValue": {
+                                        "type": "integer"
+                                    },
+                                    "MinValue": {
+                                        "type": "integer"
+                                    },
+                                    "ScalingType": {}
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "S1d": {
+            "type": "structure",
+            "required": [
+                "DatasetGroupArn"
+            ],
+            "members": {
+                "DatasetGroupArn": {},
+                "SupplementaryFeatures": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "required": [
+                            "Name",
+                            "Value"
+                        ],
+                        "members": {
+                            "Name": {},
+                            "Value": {}
+                        }
+                    }
+                }
+            }
+        },
+        "S1g": {
+            "type": "structure",
+            "required": [
+                "ForecastFrequency"
+            ],
+            "members": {
+                "ForecastFrequency": {},
+                "ForecastDimensions": {
+                    "type": "list",
+                    "member": {}
+                },
+                "Featurizations": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "required": [
+                            "AttributeName"
+                        ],
+                        "members": {
+                            "AttributeName": {},
+                            "FeaturizationPipeline": {
+                                "type": "list",
+                                "member": {
+                                    "type": "structure",
+                                    "required": [
+                                        "FeaturizationMethodName"
+                                    ],
+                                    "members": {
+                                        "FeaturizationMethodName": {},
+                                        "FeaturizationMethodParameters": {
+                                            "type": "map",
+                                            "key": {},
+                                            "value": {}
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "S30": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "Key",
+                    "Value",
+                    "Condition"
+                ],
+                "members": {
+                    "Key": {},
+                    "Value": {},
+                    "Condition": {}
+                }
+            }
+        },
+        "S15": {
+            "type": "map",
+            "key": {},
+            "value": {}
+        },
+        "S19": {
+            "type": "structure",
+            "members": {
+                "ParameterRanges": {
+                    "type": "structure",
+                    "members": {
+                        "CategoricalParameterRanges": {
+                            "type": "list",
+                            "member": {
+                                "type": "structure",
+                                "required": [
+                                    "Name",
+                                    "Values"
+                                ],
+                                "members": {
+                                    "Name": {},
+                                    "Values": {
+                                        "type": "list",
+                                        "member": {}
+                                    }
+                                }
+                            }
+                        },
+                        "ContinuousParameterRanges": {
+                            "type": "list",
+                            "member": {
+                                "type": "structure",
+                                "required": [
+                                    "Name",
+                                    "MaxValue",
+                                    "MinValue"
+                                ],
+                                "members": {
+                                    "Name": {},
+                                    "MaxValue": {
+                                        "type": "double"
+                                    },
+                                    "MinValue": {
+                                        "type": "double"
+                                    },
+                                    "ScalingType": {}
+                                }
+                            }
+                        },
+                        "IntegerParameterRanges": {
+                            "type": "list",
+                            "member": {
+                                "type": "structure",
+                                "required": [
+                                    "Name",
+                                    "MaxValue",
+                                    "MinValue"
+                                ],
+                                "members": {
+                                    "Name": {},
+                                    "MaxValue": {
+                                        "type": "integer"
+                                    },
+                                    "MinValue": {
+                                        "type": "integer"
+                                    },
+                                    "ScalingType": {}
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "S1l": {
+            "type": "structure",
+            "required": [
+                "DatasetGroupArn"
+            ],
+            "members": {
+                "DatasetGroupArn": {},
+                "SupplementaryFeatures": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "required": [
+                            "Name",
+                            "Value"
+                        ],
+                        "members": {
+                            "Name": {},
+                            "Value": {}
+                        }
+                    }
+                }
+            }
+        },
+        "S1o": {
+            "type": "structure",
+            "required": [
+                "ForecastFrequency"
+            ],
+            "members": {
+                "ForecastFrequency": {},
+                "ForecastDimensions": {
+                    "type": "list",
+                    "member": {}
+                },
+                "Featurizations": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "required": [
+                            "AttributeName"
+                        ],
+                        "members": {
+                            "AttributeName": {},
+                            "FeaturizationPipeline": {
+                                "type": "list",
+                                "member": {
+                                    "type": "structure",
+                                    "required": [
+                                        "FeaturizationMethodName"
+                                    ],
+                                    "members": {
+                                        "FeaturizationMethodName": {},
+                                        "FeaturizationMethodParameters": {
+                                            "type": "map",
+                                            "key": {},
+                                            "value": {}
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "S3h": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "Key",
+                    "Value",
+                    "Condition"
+                ],
+                "members": {
+                    "Key": {},
+                    "Value": {},
+                    "Condition": {}
+                }
+            }
+        },
+        "S4": {
+            "type": "list",
+            "member": {}
+        },
+        "S8": {
+            "type": "structure",
+            "required": [
+                "DatasetGroupArn"
+            ],
+            "members": {
+                "DatasetGroupArn": {},
+                "AttributeConfigs": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "required": [
+                            "AttributeName",
+                            "Transformations"
+                        ],
+                        "members": {
+                            "AttributeName": {},
+                            "Transformations": {
+                                "type": "map",
+                                "key": {},
+                                "value": {}
+                            }
+                        }
+                    }
+                },
+                "AdditionalDatasets": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "required": [
+                            "Name"
+                        ],
+                        "members": {
+                            "Name": {},
+                            "Configuration": {
+                                "type": "map",
+                                "key": {},
+                                "value": {
+                                    "shape": "Sh"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "Sh": {
+            "type": "list",
+            "member": {}
+        },
+        "Sr": {
+            "type": "structure",
+            "members": {
+                "Month": {},
+                "DayOfMonth": {
+                    "type": "integer"
+                },
+                "DayOfWeek": {},
+                "Hour": {
+                    "type": "integer"
+                }
+            }
+        },
+        "S16": {
+            "type": "list",
+            "member": {}
+        },
+        "S1a": {
+            "type": "structure",
+            "required": [
+                "Path",
+                "RoleArn"
+            ],
+            "members": {
+                "Path": {},
+                "RoleArn": {},
+                "KMSKeyArn": {}
+            }
+        },
+        "S1j": {
+            "type": "structure",
+            "required": [
+                "TimeSeriesGranularity",
+                "TimePointGranularity"
+            ],
+            "members": {
+                "TimeSeriesGranularity": {},
+                "TimePointGranularity": {}
+            }
+        },
+        "S1p": {
+            "type": "structure",
+            "required": [
+                "S3Config"
+            ],
+            "members": {
+                "S3Config": {
+                    "shape": "S1a"
+                }
+            }
+        },
+        "S1s": {
+            "type": "structure",
+            "members": {
+                "TimeSeriesIdentifiers": {
+                    "type": "structure",
+                    "members": {
+                        "DataSource": {
+                            "shape": "S19"
+                        },
+                        "Schema": {
+                            "shape": "S10"
+                        },
+                        "Format": {}
+                    }
+                }
+            }
+        },
+        "S21": {
+            "type": "map",
+            "key": {},
+            "value": {}
+        },
+        "S24": {
+            "type": "structure",
+            "members": {
+                "NumberOfBacktestWindows": {
+                    "type": "integer"
+                },
+                "BackTestWindowOffset": {
+                    "type": "integer"
+                }
+            }
+        },
+        "S25": {
+            "type": "structure",
+            "members": {
+                "ParameterRanges": {
+                    "type": "structure",
+                    "members": {
+                        "CategoricalParameterRanges": {
+                            "type": "list",
+                            "member": {
+                                "type": "structure",
+                                "required": [
+                                    "Name",
+                                    "Values"
+                                ],
+                                "members": {
+                                    "Name": {},
+                                    "Values": {
+                                        "shape": "Sh"
+                                    }
+                                }
+                            }
+                        },
+                        "ContinuousParameterRanges": {
+                            "type": "list",
+                            "member": {
+                                "type": "structure",
+                                "required": [
+                                    "Name",
+                                    "MaxValue",
+                                    "MinValue"
+                                ],
+                                "members": {
+                                    "Name": {},
+                                    "MaxValue": {
+                                        "type": "double"
+                                    },
+                                    "MinValue": {
+                                        "type": "double"
+                                    },
+                                    "ScalingType": {}
+                                }
+                            }
+                        },
+                        "IntegerParameterRanges": {
+                            "type": "list",
+                            "member": {
+                                "type": "structure",
+                                "required": [
+                                    "Name",
+                                    "MaxValue",
+                                    "MinValue"
+                                ],
+                                "members": {
+                                    "Name": {},
+                                    "MaxValue": {
+                                        "type": "integer"
+                                    },
+                                    "MinValue": {
+                                        "type": "integer"
+                                    },
+                                    "ScalingType": {}
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "S2f": {
+            "type": "structure",
+            "required": [
+                "DatasetGroupArn"
+            ],
+            "members": {
+                "DatasetGroupArn": {},
+                "SupplementaryFeatures": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "required": [
+                            "Name",
+                            "Value"
+                        ],
+                        "members": {
+                            "Name": {},
+                            "Value": {}
+                        }
+                    }
+                }
+            }
+        },
+        "S2i": {
+            "type": "structure",
+            "required": [
+                "ForecastFrequency"
+            ],
+            "members": {
+                "ForecastFrequency": {},
+                "ForecastDimensions": {
+                    "shape": "S6"
+                },
+                "Featurizations": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "required": [
+                            "AttributeName"
+                        ],
+                        "members": {
+                            "AttributeName": {},
+                            "FeaturizationPipeline": {
+                                "type": "list",
+                                "member": {
+                                    "type": "structure",
+                                    "required": [
+                                        "FeaturizationMethodName"
+                                    ],
+                                    "members": {
+                                        "FeaturizationMethodName": {},
+                                        "FeaturizationMethodParameters": {
+                                            "type": "map",
+                                            "key": {},
+                                            "value": {}
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "S2v": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "Action": {
+                        "type": "structure",
+                        "required": [
+                            "AttributeName",
+                            "Operation",
+                            "Value"
+                        ],
+                        "members": {
+                            "AttributeName": {},
+                            "Operation": {},
+                            "Value": {
+                                "type": "double"
+                            }
+                        }
+                    },
+                    "TimeSeriesConditions": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "AttributeName",
+                                "AttributeValue",
+                                "Condition"
+                            ],
+                            "members": {
+                                "AttributeName": {},
+                                "AttributeValue": {},
+                                "Condition": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "S33": {
+            "type": "structure",
+            "required": [
+                "S3Config",
+                "Schema"
+            ],
+            "members": {
+                "S3Config": {
+                    "shape": "S1a"
+                },
+                "Schema": {
+                    "shape": "S10"
+                },
+                "Format": {},
+                "TimestampFormat": {}
+            }
+        },
+        "S37": {
+            "type": "list",
+            "member": {}
+        },
+        "S3p": {
+            "type": "structure",
+            "members": {
+                "Arn": {},
+                "State": {}
+            }
+        },
+        "S5l": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "Key",
+                    "Value",
+                    "Condition"
+                ],
+                "members": {
+                    "Key": {},
+                    "Value": {},
+                    "Condition": {}
+                }
+            }
+        },
+        "S1q": {
+            "type": "structure",
+            "required": [
+                "S3Config"
+            ],
+            "members": {
+                "S3Config": {
+                    "shape": "S1a"
+                }
+            }
+        },
+        "S1t": {
+            "type": "structure",
+            "members": {
+                "TimeSeriesIdentifiers": {
+                    "type": "structure",
+                    "members": {
+                        "DataSource": {
+                            "shape": "S19"
+                        },
+                        "Schema": {
+                            "shape": "S10"
+                        },
+                        "Format": {}
+                    }
+                }
+            }
+        },
+        "S22": {
+            "type": "map",
+            "key": {},
+            "value": {}
+        },
+        "S26": {
+            "type": "structure",
+            "members": {
+                "ParameterRanges": {
+                    "type": "structure",
+                    "members": {
+                        "CategoricalParameterRanges": {
+                            "type": "list",
+                            "member": {
+                                "type": "structure",
+                                "required": [
+                                    "Name",
+                                    "Values"
+                                ],
+                                "members": {
+                                    "Name": {},
+                                    "Values": {
+                                        "shape": "Sh"
+                                    }
+                                }
+                            }
+                        },
+                        "ContinuousParameterRanges": {
+                            "type": "list",
+                            "member": {
+                                "type": "structure",
+                                "required": [
+                                    "Name",
+                                    "MaxValue",
+                                    "MinValue"
+                                ],
+                                "members": {
+                                    "Name": {},
+                                    "MaxValue": {
+                                        "type": "double"
+                                    },
+                                    "MinValue": {
+                                        "type": "double"
+                                    },
+                                    "ScalingType": {}
+                                }
+                            }
+                        },
+                        "IntegerParameterRanges": {
+                            "type": "list",
+                            "member": {
+                                "type": "structure",
+                                "required": [
+                                    "Name",
+                                    "MaxValue",
+                                    "MinValue"
+                                ],
+                                "members": {
+                                    "Name": {},
+                                    "MaxValue": {
+                                        "type": "integer"
+                                    },
+                                    "MinValue": {
+                                        "type": "integer"
+                                    },
+                                    "ScalingType": {}
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "S2g": {
+            "type": "structure",
+            "required": [
+                "DatasetGroupArn"
+            ],
+            "members": {
+                "DatasetGroupArn": {},
+                "SupplementaryFeatures": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "required": [
+                            "Name",
+                            "Value"
+                        ],
+                        "members": {
+                            "Name": {},
+                            "Value": {}
+                        }
+                    }
+                }
+            }
+        },
+        "S2j": {
+            "type": "structure",
+            "required": [
+                "ForecastFrequency"
+            ],
+            "members": {
+                "ForecastFrequency": {},
+                "ForecastDimensions": {
+                    "shape": "S6"
+                },
+                "Featurizations": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "required": [
+                            "AttributeName"
+                        ],
+                        "members": {
+                            "AttributeName": {},
+                            "FeaturizationPipeline": {
+                                "type": "list",
+                                "member": {
+                                    "type": "structure",
+                                    "required": [
+                                        "FeaturizationMethodName"
+                                    ],
+                                    "members": {
+                                        "FeaturizationMethodName": {},
+                                        "FeaturizationMethodParameters": {
+                                            "type": "map",
+                                            "key": {},
+                                            "value": {}
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "S2w": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "Action": {
+                        "type": "structure",
+                        "required": [
+                            "AttributeName",
+                            "Operation",
+                            "Value"
+                        ],
+                        "members": {
+                            "AttributeName": {},
+                            "Operation": {},
+                            "Value": {
+                                "type": "double"
+                            }
+                        }
+                    },
+                    "TimeSeriesConditions": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "AttributeName",
+                                "AttributeValue",
+                                "Condition"
+                            ],
+                            "members": {
+                                "AttributeName": {},
+                                "AttributeValue": {},
+                                "Condition": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "S34": {
+            "type": "structure",
+            "required": [
+                "S3Config",
+                "Schema"
+            ],
+            "members": {
+                "S3Config": {
+                    "shape": "S1a"
+                },
+                "Schema": {
+                    "shape": "S10"
+                },
+                "Format": {},
+                "TimestampFormat": {}
+            }
+        },
+        "S38": {
+            "type": "list",
+            "member": {}
+        },
+        "S3q": {
+            "type": "structure",
+            "members": {
+                "Arn": {},
+                "State": {}
+            }
+        },
+        "S5m": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "Key",
+                    "Value",
+                    "Condition"
+                ],
+                "members": {
+                    "Key": {},
+                    "Value": {},
+                    "Condition": {}
+                }
+            }
+        },
+        "S3g": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "Key",
+                    "Value",
+                    "Condition"
+                ],
+                "members": {
+                    "Key": {},
+                    "Value": {},
+                    "Condition": {}
+                }
+            }
+        },
+        "S2": {
+            "type": "list",
+            "member": {}
+        },
+        "Sc": {
+            "type": "structure",
+            "required": [
+                "DatasetGroupArn"
+            ],
+            "members": {
+                "DatasetGroupArn": {},
+                "AttributeConfigs": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "required": [
+                            "AttributeName",
+                            "Transformations"
+                        ],
+                        "members": {
+                            "AttributeName": {},
+                            "Transformations": {
+                                "type": "map",
+                                "key": {},
+                                "value": {}
+                            }
+                        }
+                    }
+                },
+                "AdditionalDatasets": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "required": [
+                            "Name"
+                        ],
+                        "members": {
+                            "Name": {},
+                            "Configuration": {
+                                "type": "map",
+                                "key": {},
+                                "value": {
+                                    "shape": "Sk"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "Sk": {
+            "type": "list",
+            "member": {}
+        },
+        "Sl": {
+            "type": "structure",
+            "required": [
+                "RoleArn",
+                "KMSKeyArn"
+            ],
+            "members": {
+                "RoleArn": {},
+                "KMSKeyArn": {}
+            }
+        },
+        "Sq": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "Key",
+                    "Value"
+                ],
+                "members": {
+                    "Key": {
+                        "shape": "Ss"
+                    },
+                    "Value": {
+                        "type": "string",
+                        "sensitive": true
+                    }
+                }
+            }
+        },
+        "S1e": {
+            "type": "structure",
+            "required": [
+                "Path",
+                "RoleArn"
+            ],
+            "members": {
+                "Path": {},
+                "RoleArn": {},
+                "KMSKeyArn": {}
+            }
+        },
+        "S1u": {
+            "type": "structure",
+            "required": [
+                "S3Config"
+            ],
+            "members": {
+                "S3Config": {
+                    "shape": "S1e"
+                }
+            }
+        },
+        "S1x": {
+            "type": "structure",
+            "members": {
+                "TimeSeriesIdentifiers": {
+                    "type": "structure",
+                    "members": {
+                        "DataSource": {
+                            "shape": "S1d"
+                        },
+                        "Schema": {
+                            "shape": "S14"
+                        },
+                        "Format": {}
+                    }
+                }
+            }
+        },
+        "S2o": {
+            "type": "map",
+            "key": {},
+            "value": {}
+        },
+        "S2r": {
+            "type": "structure",
+            "members": {
+                "NumberOfBacktestWindows": {
+                    "type": "integer"
+                },
+                "BackTestWindowOffset": {
+                    "type": "integer"
+                }
+            }
+        },
+        "S2s": {
+            "type": "structure",
+            "members": {
+                "ParameterRanges": {
+                    "type": "structure",
+                    "members": {
+                        "CategoricalParameterRanges": {
+                            "type": "list",
+                            "member": {
+                                "type": "structure",
+                                "required": [
+                                    "Name",
+                                    "Values"
+                                ],
+                                "members": {
+                                    "Name": {},
+                                    "Values": {
+                                        "shape": "Sk"
+                                    }
+                                }
+                            }
+                        },
+                        "ContinuousParameterRanges": {
+                            "type": "list",
+                            "member": {
+                                "type": "structure",
+                                "required": [
+                                    "Name",
+                                    "MaxValue",
+                                    "MinValue"
+                                ],
+                                "members": {
+                                    "Name": {},
+                                    "MaxValue": {
+                                        "type": "double"
+                                    },
+                                    "MinValue": {
+                                        "type": "double"
+                                    },
+                                    "ScalingType": {}
+                                }
+                            }
+                        },
+                        "IntegerParameterRanges": {
+                            "type": "list",
+                            "member": {
+                                "type": "structure",
+                                "required": [
+                                    "Name",
+                                    "MaxValue",
+                                    "MinValue"
+                                ],
+                                "members": {
+                                    "Name": {},
+                                    "MaxValue": {
+                                        "type": "integer"
+                                    },
+                                    "MinValue": {
+                                        "type": "integer"
+                                    },
+                                    "ScalingType": {}
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "S32": {
+            "type": "structure",
+            "required": [
+                "DatasetGroupArn"
+            ],
+            "members": {
+                "DatasetGroupArn": {},
+                "SupplementaryFeatures": {
+                    "shape": "S33"
+                }
+            }
+        },
+        "S35": {
+            "type": "structure",
+            "required": [
+                "ForecastFrequency"
+            ],
+            "members": {
+                "ForecastFrequency": {},
+                "ForecastDimensions": {
+                    "shape": "Sa"
+                },
+                "Featurizations": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "required": [
+                            "AttributeName"
+                        ],
+                        "members": {
+                            "AttributeName": {},
+                            "FeaturizationPipeline": {
+                                "shape": "S38"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "S3s": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "Action": {
+                        "type": "structure",
+                        "required": [
+                            "AttributeName",
+                            "Operation",
+                            "Value"
+                        ],
+                        "members": {
+                            "AttributeName": {},
+                            "Operation": {},
+                            "Value": {
+                                "type": "double"
+                            }
+                        }
+                    },
+                    "TimeSeriesConditions": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "AttributeName",
+                                "AttributeValue",
+                                "Condition"
+                            ],
+                            "members": {
+                                "AttributeName": {},
+                                "AttributeValue": {},
+                                "Condition": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "S40": {
+            "type": "structure",
+            "required": [
+                "S3Config",
+                "Schema"
+            ],
+            "members": {
+                "S3Config": {
+                    "shape": "S1e"
+                },
+                "Schema": {
+                    "shape": "S14"
+                },
+                "Format": {},
+                "TimestampFormat": {}
+            }
+        },
+        "S44": {
+            "type": "list",
+            "member": {}
+        },
+        "S4n": {
+            "type": "structure",
+            "members": {
+                "Arn": {},
+                "State": {}
+            }
+        },
+        "S6h": {
+            "type": "map",
+            "key": {},
+            "value": {}
+        },
+        "S6k": {
+            "type": "structure",
+            "members": {
+                "AttributeName": {},
+                "StartDate": {},
+                "Values": {
+                    "type": "list",
+                    "member": {
+                        "type": "double"
+                    }
+                }
+            }
+        },
+        "S73": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "Key",
+                    "Value",
+                    "Condition"
+                ],
+                "members": {
+                    "Key": {},
+                    "Value": {},
+                    "Condition": {}
+                }
+            }
+        },
+        "S3i": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "Key",
+                    "Value",
+                    "Condition"
+                ],
+                "members": {
+                    "Key": {},
+                    "Value": {},
+                    "Condition": {}
+                }
+            }
+        },
+        "Su": {
+            "type": "structure",
+            "members": {
+                "Attributes": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "members": {
+                            "AttributeName": {},
+                            "AttributeType": {}
+                        }
+                    }
+                }
+            }
+        },
+        "S13": {
+            "type": "structure",
+            "required": [
+                "S3Config"
+            ],
+            "members": {
+                "S3Config": {
+                    "shape": "S14"
+                }
+            }
+        },
+        "S1c": {
+            "type": "structure",
+            "required": [
+                "TimeSeriesGranularity",
+                "TimePointGranularity"
+            ],
+            "members": {
+                "TimeSeriesGranularity": {},
+                "TimePointGranularity": {}
+            }
+        },
+        "S1i": {
+            "type": "structure",
+            "required": [
+                "S3Config"
+            ],
+            "members": {
+                "S3Config": {
+                    "shape": "S14"
+                }
+            }
+        },
+        "S27": {
+            "type": "structure",
+            "required": [
+                "ForecastFrequency"
+            ],
+            "members": {
+                "ForecastFrequency": {},
+                "ForecastDimensions": {
+                    "shape": "S6"
+                },
+                "Featurizations": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "required": [
+                            "AttributeName"
+                        ],
+                        "members": {
+                            "AttributeName": {},
+                            "FeaturizationPipeline": {
+                                "type": "list",
+                                "member": {
+                                    "type": "structure",
+                                    "required": [
+                                        "FeaturizationMethodName"
+                                    ],
+                                    "members": {
+                                        "FeaturizationMethodName": {},
+                                        "FeaturizationMethodParameters": {
+                                            "type": "map",
+                                            "key": {},
+                                            "value": {}
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "S2t": {
+            "type": "structure",
+            "members": {
+                "Arn": {},
+                "State": {}
+            }
+        },
+        "S4a": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "Key",
+                    "Value",
+                    "Condition"
+                ],
+                "members": {
+                    "Key": {},
+                    "Value": {},
+                    "Condition": {}
+                }
+            }
+        },
+        "S4u": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "Key",
+                    "Value",
+                    "Condition"
+                ],
+                "members": {
+                    "Key": {},
+                    "Value": {},
+                    "Condition": {}
+                }
+            }
+        }
+    }
+}

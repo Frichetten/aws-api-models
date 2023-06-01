@@ -1,0 +1,651 @@
+{
+    "version": "2.0",
+    "metadata": {
+        "apiVersion": "2022-09-08",
+        "endpointPrefix": "widgets-chime",
+        "protocol": "rest-json",
+        "serviceFullName": "Chime Saral API",
+        "serviceId": "chimesaral",
+        "signatureVersion": "v4",
+        "signingName": "chime",
+        "uid": "chimesaralapiservice-2022-09-08",
+        "download_location": [
+            "https://a.b.cdn.console.awsstatic.com/a/v1/3JO5WWM4CW74UF3DXTM3BM6IND4I2PZU6QYHC2HFJ3PUFU7T545Q/commons.js"
+        ]
+    },
+    "operations": {
+        "BootstrapParticipant": {
+            "http": {
+                "requestUri": "/engagement-component-sessions/{SessionArn}/participants?operation=bootstrap",
+                "responseCode": 201
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "SessionArn",
+                    "Passcode"
+                ],
+                "members": {
+                    "SessionArn": {
+                        "location": "uri",
+                        "locationName": "SessionArn"
+                    },
+                    "Passcode": {
+                        "shape": "S3"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ChimeBearer": {},
+                    "Credentials": {
+                        "type": "structure",
+                        "members": {
+                            "AccessKeyId": {
+                                "type": "string",
+                                "sensitive": true
+                            },
+                            "Expiration": {
+                                "type": "timestamp"
+                            },
+                            "SecretKey": {
+                                "type": "string",
+                                "sensitive": true
+                            },
+                            "SessionToken": {
+                                "type": "string",
+                                "sensitive": true
+                            }
+                        }
+                    },
+                    "Meeting": {
+                        "type": "structure",
+                        "members": {
+                            "MeetingId": {},
+                            "MediaRegion": {},
+                            "MediaPlacement": {
+                                "type": "structure",
+                                "members": {
+                                    "AudioHostUrl": {},
+                                    "AudioFallbackUrl": {},
+                                    "SignalingUrl": {},
+                                    "TurnControlUrl": {},
+                                    "EventIngestionUrl": {}
+                                }
+                            },
+                            "MeetingFeatures": {
+                                "type": "structure",
+                                "members": {
+                                    "Audio": {
+                                        "type": "structure",
+                                        "members": {
+                                            "EchoReduction": {}
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "Attendee": {
+                        "type": "structure",
+                        "members": {
+                            "AttendeeId": {},
+                            "JoinToken": {
+                                "type": "string",
+                                "sensitive": true
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/3JO5WWM4CW74UF3DXTM3BM6IND4I2PZU6QYHC2HFJ3PUFU7T545Q/commons.js"
+            ]
+        },
+        "CreateEngagementComponent": {
+            "http": {
+                "requestUri": "/engagement-components",
+                "responseCode": 202
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "Id",
+                    "Configuration"
+                ],
+                "members": {
+                    "Id": {},
+                    "Description": {},
+                    "Configuration": {
+                        "shape": "Sn"
+                    },
+                    "Tags": {
+                        "shape": "S1a"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "EngagementComponent": {
+                        "shape": "S1f"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/3JO5WWM4CW74UF3DXTM3BM6IND4I2PZU6QYHC2HFJ3PUFU7T545Q/commons.js"
+            ]
+        },
+        "CreateEngagementComponentSessionParticipant": {
+            "http": {
+                "requestUri": "/engagement-component-sessions/{SessionArn}/participants",
+                "responseCode": 201
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "SessionArn",
+                    "ParticipantIdentifier"
+                ],
+                "members": {
+                    "SessionArn": {
+                        "location": "uri",
+                        "locationName": "SessionArn"
+                    },
+                    "ParticipantIdentifier": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ChimeBearer": {},
+                    "Passcode": {
+                        "shape": "S3"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/3JO5WWM4CW74UF3DXTM3BM6IND4I2PZU6QYHC2HFJ3PUFU7T545Q/commons.js"
+            ]
+        },
+        "DeleteEngagementComponent": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/engagement-components/{ComponentArn}",
+                "responseCode": 202
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ComponentArn"
+                ],
+                "members": {
+                    "ComponentArn": {
+                        "location": "uri",
+                        "locationName": "ComponentArn"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "EngagementComponent": {
+                        "shape": "S1f"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/3JO5WWM4CW74UF3DXTM3BM6IND4I2PZU6QYHC2HFJ3PUFU7T545Q/commons.js"
+            ]
+        },
+        "GetEngagementComponent": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/engagement-components/{ComponentArn}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ComponentArn"
+                ],
+                "members": {
+                    "ComponentArn": {
+                        "location": "uri",
+                        "locationName": "ComponentArn"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "EngagementComponent": {
+                        "shape": "S1f"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/3JO5WWM4CW74UF3DXTM3BM6IND4I2PZU6QYHC2HFJ3PUFU7T545Q/commons.js"
+            ]
+        },
+        "GetSessionContext": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/session-contexts/{SessionArn}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "SessionArn"
+                ],
+                "members": {
+                    "SessionArn": {
+                        "location": "uri",
+                        "locationName": "SessionArn"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "SessionArn": {},
+                    "SessionContext": {
+                        "shape": "S1u"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/3JO5WWM4CW74UF3DXTM3BM6IND4I2PZU6QYHC2HFJ3PUFU7T545Q/commons.js"
+            ]
+        },
+        "ListEngagementComponents": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/engagement-components",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "MaxResults": {
+                        "location": "querystring",
+                        "locationName": "max-results",
+                        "type": "integer"
+                    },
+                    "NextToken": {
+                        "shape": "S21",
+                        "location": "querystring",
+                        "locationName": "next-token"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "EngagementComponents": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "ComponentArn": {},
+                                "Id": {
+                                    "type": "string",
+                                    "sensitive": true
+                                },
+                                "Description": {
+                                    "shape": "S1g"
+                                },
+                                "Status": {},
+                                "CreatedOn": {
+                                    "shape": "S1k"
+                                },
+                                "UpdatedOn": {
+                                    "shape": "S1k"
+                                },
+                                "ErrorMessage": {}
+                            }
+                        }
+                    },
+                    "NextToken": {
+                        "shape": "S21"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/3JO5WWM4CW74UF3DXTM3BM6IND4I2PZU6QYHC2HFJ3PUFU7T545Q/commons.js"
+            ]
+        },
+        "ListTagsForResource": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/tags",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ResourceARN"
+                ],
+                "members": {
+                    "ResourceARN": {
+                        "location": "querystring",
+                        "locationName": "arn"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Tags": {
+                        "shape": "S1a"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/3JO5WWM4CW74UF3DXTM3BM6IND4I2PZU6QYHC2HFJ3PUFU7T545Q/commons.js"
+            ]
+        },
+        "TagResource": {
+            "http": {
+                "requestUri": "/tags?operation=tag-resource",
+                "responseCode": 204
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ResourceARN",
+                    "Tags"
+                ],
+                "members": {
+                    "ResourceARN": {},
+                    "Tags": {
+                        "shape": "S1a"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/3JO5WWM4CW74UF3DXTM3BM6IND4I2PZU6QYHC2HFJ3PUFU7T545Q/commons.js"
+            ]
+        },
+        "UntagResource": {
+            "http": {
+                "requestUri": "/tags?operation=untag-resource",
+                "responseCode": 204
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ResourceARN",
+                    "TagKeys"
+                ],
+                "members": {
+                    "ResourceARN": {},
+                    "TagKeys": {
+                        "type": "list",
+                        "member": {
+                            "shape": "S1c"
+                        }
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/3JO5WWM4CW74UF3DXTM3BM6IND4I2PZU6QYHC2HFJ3PUFU7T545Q/commons.js"
+            ]
+        },
+        "UpdateEngagementComponent": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/engagement-components/{ComponentArn}",
+                "responseCode": 202
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ComponentArn",
+                    "Configuration"
+                ],
+                "members": {
+                    "ComponentArn": {
+                        "location": "uri",
+                        "locationName": "ComponentArn"
+                    },
+                    "Description": {},
+                    "Configuration": {
+                        "shape": "Sn"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "EngagementComponent": {
+                        "shape": "S1f"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/3JO5WWM4CW74UF3DXTM3BM6IND4I2PZU6QYHC2HFJ3PUFU7T545Q/commons.js"
+            ]
+        },
+        "UpdateSessionContext": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/session-contexts/{SessionArn}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "SessionArn",
+                    "SessionContext"
+                ],
+                "members": {
+                    "SessionArn": {
+                        "location": "uri",
+                        "locationName": "SessionArn"
+                    },
+                    "SessionContext": {
+                        "shape": "S1u"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "SessionArn": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/3JO5WWM4CW74UF3DXTM3BM6IND4I2PZU6QYHC2HFJ3PUFU7T545Q/commons.js"
+            ]
+        }
+    },
+    "shapes": {
+        "S3": {
+            "type": "string",
+            "sensitive": true
+        },
+        "Sn": {
+            "type": "structure",
+            "required": [
+                "TelephonyOutboundConfiguration"
+            ],
+            "members": {
+                "TelephonyOutboundConfiguration": {
+                    "type": "structure",
+                    "required": [
+                        "VoiceConnectorArn",
+                        "ToSipUser"
+                    ],
+                    "members": {
+                        "VoiceConnectorArn": {},
+                        "ToSipUser": {}
+                    }
+                },
+                "MeetingConfiguration": {
+                    "type": "structure",
+                    "members": {
+                        "AttendeeCapabilities": {
+                            "type": "list",
+                            "member": {}
+                        },
+                        "AudioEnhancements": {
+                            "type": "list",
+                            "member": {}
+                        },
+                        "VideoEnhancements": {
+                            "type": "list",
+                            "member": {}
+                        }
+                    }
+                },
+                "RecordingConfiguration": {
+                    "type": "structure",
+                    "members": {
+                        "Option": {},
+                        "S3BucketArn": {}
+                    }
+                },
+                "AccessControlConfiguration": {
+                    "type": "structure",
+                    "members": {
+                        "UserRoleArn": {},
+                        "ExpertRoleArn": {},
+                        "ResourceManagerRoleArn": {}
+                    }
+                },
+                "SecurityConfiguration": {
+                    "type": "structure",
+                    "members": {
+                        "Domains": {
+                            "type": "list",
+                            "member": {
+                                "type": "string",
+                                "sensitive": true
+                            }
+                        }
+                    }
+                },
+                "ChatConfiguration": {
+                    "type": "structure",
+                    "members": {
+                        "ChatBotStatus": {},
+                        "ChatBotConfiguration": {
+                            "type": "structure",
+                            "members": {
+                                "LexBotAliasArn": {}
+                            }
+                        },
+                        "StreamingConfiguration": {
+                            "type": "map",
+                            "key": {},
+                            "value": {}
+                        }
+                    }
+                },
+                "AnalyticsConfiguration": {
+                    "type": "structure",
+                    "members": {
+                        "FirehoseArn": {}
+                    }
+                }
+            }
+        },
+        "S1a": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "Key",
+                    "Value"
+                ],
+                "members": {
+                    "Key": {
+                        "shape": "S1c"
+                    },
+                    "Value": {
+                        "type": "string",
+                        "sensitive": true
+                    }
+                }
+            }
+        },
+        "S1c": {
+            "type": "string",
+            "sensitive": true
+        },
+        "S1f": {
+            "type": "structure",
+            "members": {
+                "ComponentArn": {},
+                "Id": {},
+                "Description": {
+                    "shape": "S1g"
+                },
+                "Status": {},
+                "AppInstanceArn": {},
+                "Configuration": {
+                    "shape": "Sn"
+                },
+                "Resources": {
+                    "type": "structure",
+                    "members": {
+                        "CloudFormationStackArn": {},
+                        "AppInstanceBotArn": {},
+                        "OutboundSmaId": {},
+                        "ServiceIamRoleArn": {},
+                        "EndUserIamRoleArn": {},
+                        "ParticipantIamRoleArn": {}
+                    }
+                },
+                "CreatedOn": {
+                    "shape": "S1k"
+                },
+                "UpdatedOn": {
+                    "shape": "S1k"
+                },
+                "ErrorMessage": {}
+            }
+        },
+        "S1g": {
+            "type": "string",
+            "sensitive": true
+        },
+        "S1k": {
+            "type": "timestamp",
+            "timestampFormat": "iso8601"
+        },
+        "S1u": {
+            "type": "map",
+            "key": {
+                "type": "string",
+                "sensitive": true
+            },
+            "value": {
+                "type": "map",
+                "key": {
+                    "type": "string",
+                    "sensitive": true
+                },
+                "value": {
+                    "type": "string",
+                    "sensitive": true
+                }
+            }
+        },
+        "S21": {
+            "type": "string",
+            "sensitive": true
+        }
+    }
+}

@@ -1,0 +1,496 @@
+{
+    "version": "2.0",
+    "metadata": {
+        "apiVersion": "2020-01-20",
+        "endpointPrefix": "glue",
+        "jsonVersion": "1.1",
+        "protocol": "rest-json",
+        "serviceFullName": "Amazon Glue Notebook Control Plane",
+        "serviceId": "glue",
+        "signatureVersion": "v4",
+        "signingName": "glue",
+        "uid": "awsgluenotebookcontrolplane-2020-01-20",
+        "download_location": [
+            "https://a.b.cdn.console.awsstatic.com/a/v1/YB2K4EBNQU6TTNFADLK5HITBZ4ZVL6G7LLB6AIMZIJJKT23PQKNA/main.js"
+        ]
+    },
+    "operations": {
+        "GetNotebookInstanceStatus": {
+            "name": "GetNotebookInstanceStatus",
+            "http": {
+                "method": "GET",
+                "requestUri": "/notebook/{notebookId}/status"
+            },
+            "input": {
+                "shape": "GetNotebookInstanceStatusRequest"
+            },
+            "output": {
+                "shape": "GetNotebookInstanceStatusResponse"
+            },
+            "errors": [
+                {
+                    "shape": "GetTaskException"
+                },
+                {
+                    "shape": "EntityNotFoundException"
+                },
+                {
+                    "shape": "AccessDeniedException"
+                },
+                {
+                    "shape": "InternalServiceException"
+                },
+                {
+                    "shape": "OperationTimeoutException"
+                }
+            ],
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/YB2K4EBNQU6TTNFADLK5HITBZ4ZVL6G7LLB6AIMZIJJKT23PQKNA/main.js"
+            ]
+        },
+        "GlueNotebookAuthorize": {
+            "name": "GlueNotebookAuthorize",
+            "http": {
+                "method": "GET",
+                "requestUri": "/notebook/{notebookId}/authorize/{roleArn}"
+            },
+            "input": {
+                "shape": "GlueNotebookAuthorizeRequest"
+            },
+            "output": {
+                "shape": "GlueNotebookAuthorizeResponse"
+            },
+            "errors": [
+                {
+                    "shape": "EntityNotFoundException"
+                },
+                {
+                    "shape": "AccessDeniedException"
+                },
+                {
+                    "shape": "InternalServiceException"
+                }
+            ],
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/YB2K4EBNQU6TTNFADLK5HITBZ4ZVL6G7LLB6AIMZIJJKT23PQKNA/main.js"
+            ]
+        },
+        "GlueNotebookRefreshCredentials": {
+            "name": "GlueNotebookRefreshCredentials",
+            "http": {
+                "method": "GET",
+                "requestUri": "/refreshcredential"
+            },
+            "output": {
+                "shape": "GlueNotebookRefreshCredentialsResponse"
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/YB2K4EBNQU6TTNFADLK5HITBZ4ZVL6G7LLB6AIMZIJJKT23PQKNA/main.js"
+            ]
+        },
+        "StartNotebook": {
+            "name": "StartNotebook",
+            "http": {
+                "method": "POST",
+                "requestUri": "/notebook"
+            },
+            "input": {
+                "shape": "StartNotebookRequest"
+            },
+            "output": {
+                "shape": "StartNotebookResponse"
+            },
+            "errors": [
+                {
+                    "shape": "CreateTaskException"
+                },
+                {
+                    "shape": "GetTaskException"
+                },
+                {
+                    "shape": "AccessDeniedException"
+                },
+                {
+                    "shape": "AlreadyExistsException"
+                },
+                {
+                    "shape": "InvalidInputException"
+                },
+                {
+                    "shape": "ValidationException"
+                },
+                {
+                    "shape": "EntityNotFoundException"
+                },
+                {
+                    "shape": "InternalServiceException"
+                },
+                {
+                    "shape": "OperationTimeoutException"
+                },
+                {
+                    "shape": "InvalidInputException"
+                }
+            ],
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/YB2K4EBNQU6TTNFADLK5HITBZ4ZVL6G7LLB6AIMZIJJKT23PQKNA/main.js"
+            ]
+        },
+        "TerminateNotebook": {
+            "name": "TerminateNotebook",
+            "http": {
+                "method": "POST",
+                "requestUri": "/notebook/{notebookId}"
+            },
+            "input": {
+                "shape": "TerminateNotebookRequest"
+            },
+            "output": {
+                "shape": "TerminateNotebookResponse"
+            },
+            "errors": [
+                {
+                    "shape": "EntityNotFoundException"
+                },
+                {
+                    "shape": "AccessDeniedException"
+                },
+                {
+                    "shape": "InternalServiceException"
+                },
+                {
+                    "shape": "OperationTimeoutException"
+                },
+                {
+                    "shape": "InvalidInputException"
+                }
+            ],
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/YB2K4EBNQU6TTNFADLK5HITBZ4ZVL6G7LLB6AIMZIJJKT23PQKNA/main.js"
+            ]
+        }
+    },
+    "shapes": {
+        "AccessDeniedException": {
+            "type": "structure",
+            "members": {
+                "Message": {
+                    "shape": "MessageString"
+                }
+            },
+            "exception": true
+        },
+        "AlreadyExistsException": {
+            "type": "structure",
+            "members": {
+                "Message": {
+                    "shape": "MessageString"
+                }
+            },
+            "exception": true
+        },
+        "AtLeastTwoInteger": {
+            "type": "integer",
+            "min": 2
+        },
+        "CreateTaskException": {
+            "type": "structure",
+            "members": {
+                "message": {
+                    "shape": "NonEmptyString"
+                }
+            },
+            "error": {
+                "httpStatusCode": 400
+            },
+            "exception": true
+        },
+        "EntityNotFoundException": {
+            "type": "structure",
+            "members": {
+                "Message": {
+                    "shape": "MessageString"
+                },
+                "FromFederationSource": {
+                    "shape": "NullableBoolean"
+                }
+            },
+            "exception": true
+        },
+        "GetNotebookInstanceStatusRequest": {
+            "type": "structure",
+            "required": [
+                "notebookId"
+            ],
+            "members": {
+                "notebookId": {
+                    "shape": "uuid",
+                    "location": "uri",
+                    "locationName": "notebookId"
+                }
+            }
+        },
+        "GetNotebookInstanceStatusResponse": {
+            "type": "structure",
+            "members": {
+                "notebookInstanceStatus": {
+                    "shape": "NotebookStatus"
+                }
+            }
+        },
+        "GetTaskException": {
+            "type": "structure",
+            "members": {
+                "message": {
+                    "shape": "NonEmptyString"
+                }
+            },
+            "error": {
+                "httpStatusCode": 400
+            },
+            "exception": true
+        },
+        "GlueNotebookAuthorizeRequest": {
+            "type": "structure",
+            "required": [
+                "notebookId",
+                "roleArn",
+                "userId"
+            ],
+            "members": {
+                "notebookId": {
+                    "shape": "uuid",
+                    "location": "uri",
+                    "locationName": "notebookId"
+                },
+                "roleArn": {
+                    "shape": "roleArn",
+                    "location": "uri",
+                    "locationName": "roleArn"
+                },
+                "userId": {
+                    "shape": "userId"
+                }
+            }
+        },
+        "GlueNotebookAuthorizeResponse": {
+            "type": "structure",
+            "members": {
+                "address": {
+                    "shape": "ipAddress"
+                }
+            }
+        },
+        "GlueNotebookRefreshCredentialsResponse": {
+            "type": "structure",
+            "members": {
+                "jwt": {
+                    "shape": "jwt"
+                },
+                "tokenExpirationTime": {
+                    "shape": "PositiveLong"
+                }
+            }
+        },
+        "InternalServiceException": {
+            "type": "structure",
+            "members": {
+                "Message": {
+                    "shape": "MessageString"
+                }
+            },
+            "exception": true,
+            "fault": true
+        },
+        "InvalidInputException": {
+            "type": "structure",
+            "members": {
+                "Message": {
+                    "shape": "MessageString"
+                },
+                "FromFederationSource": {
+                    "shape": "NullableBoolean"
+                }
+            },
+            "exception": true
+        },
+        "MessageString": {
+            "type": "string"
+        },
+        "NonEmptyString": {
+            "type": "string",
+            "max": 2147483647,
+            "min": 1,
+            "pattern": "[sS]*"
+        },
+        "NonNegativeInteger": {
+            "type": "integer",
+            "box": true,
+            "min": 0
+        },
+        "NotebookStatus": {
+            "type": "string",
+            "enum": [
+                "CANCELED",
+                "FAILED",
+                "TIMEOUT",
+                "RUNNING",
+                "CANCELING",
+                "PROVISIONING"
+            ]
+        },
+        "NotebookType": {
+            "type": "string",
+            "enum": [
+                "JUPYTER_NOTEBOOK"
+            ]
+        },
+        "NullableBoolean": {
+            "type": "boolean",
+            "box": true
+        },
+        "NumericString": {
+            "type": "string",
+            "max": 2147483647,
+            "min": 1,
+            "pattern": "^d+.d+$"
+        },
+        "OperationTimeoutException": {
+            "type": "structure",
+            "members": {
+                "Message": {
+                    "shape": "MessageString"
+                }
+            },
+            "exception": true
+        },
+        "PositiveLong": {
+            "type": "long",
+            "min": 1
+        },
+        "StartNotebookRequest": {
+            "type": "structure",
+            "required": [
+                "roleArn",
+                "userId"
+            ],
+            "members": {
+                "roleArn": {
+                    "shape": "roleArn"
+                },
+                "timeout": {
+                    "shape": "NonNegativeInteger"
+                },
+                "notebookType": {
+                    "shape": "NotebookType"
+                },
+                "priority": {
+                    "shape": "NonNegativeInteger",
+                    "box": true
+                },
+                "maxCapacity": {
+                    "shape": "AtLeastTwoInteger",
+                    "box": true
+                },
+                "notebookArguments": {
+                    "shape": "notebookArguments"
+                },
+                "runtimeVersion": {
+                    "shape": "NumericString"
+                },
+                "userId": {
+                    "shape": "userId"
+                },
+                "command": {
+                    "shape": "NonEmptyString"
+                }
+            }
+        },
+        "StartNotebookResponse": {
+            "type": "structure",
+            "members": {
+                "notebookId": {
+                    "shape": "uuid"
+                },
+                "sessionId": {
+                    "shape": "uuid"
+                },
+                "status": {
+                    "shape": "NotebookStatus"
+                },
+                "jwt": {
+                    "shape": "jwt"
+                },
+                "tokenExpirationTime": {
+                    "shape": "PositiveLong"
+                }
+            }
+        },
+        "TerminateNotebookRequest": {
+            "type": "structure",
+            "required": [
+                "notebookId"
+            ],
+            "members": {
+                "notebookId": {
+                    "shape": "uuid",
+                    "location": "uri",
+                    "locationName": "notebookId"
+                }
+            }
+        },
+        "TerminateNotebookResponse": {
+            "type": "structure",
+            "members": {
+                "notebookInstanceStatus": {
+                    "shape": "NotebookStatus"
+                }
+            }
+        },
+        "ValidationException": {
+            "type": "structure",
+            "members": {
+                "Message": {
+                    "shape": "MessageString"
+                }
+            },
+            "exception": true
+        },
+        "ipAddress": {
+            "type": "string",
+            "max": 9,
+            "min": 5,
+            "pattern": "^(?:[0-9]{1,3}.){3}[0-9]{1,3}$"
+        },
+        "jwt": {
+            "type": "string",
+            "max": 2147483647,
+            "min": 1,
+            "pattern": "[sS]*",
+            "sensitive": true
+        },
+        "notebookArguments": {
+            "type": "list",
+            "member": {
+                "shape": "NonEmptyString"
+            }
+        },
+        "roleArn": {
+            "type": "string",
+            "max": 2048,
+            "min": 16,
+            "pattern": "arn:.*:iam::.*:role/.*"
+        },
+        "userId": {
+            "type": "string",
+            "sensitive": true
+        },
+        "uuid": {
+            "type": "string",
+            "max": 36,
+            "min": 36,
+            "pattern": "[sS]*"
+        }
+    },
+    "documentation": "An example service, deployed with the Octane Service creator, which will query and manipulate a set of beer information"
+}

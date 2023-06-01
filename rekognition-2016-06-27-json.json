@@ -1,0 +1,5652 @@
+{
+    "version": "2.0",
+    "metadata": {
+        "apiVersion": "2016-06-27",
+        "endpointPrefix": "rekognition",
+        "jsonVersion": "1.1",
+        "protocol": "json",
+        "serviceFullName": "Amazon Rekognition",
+        "serviceId": "Rekognition",
+        "signatureVersion": "v4",
+        "targetPrefix": "RekognitionService",
+        "uid": "rekognition-2016-06-27",
+        "download_location": [
+            "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+        ]
+    },
+    "operations": {
+        "CompareFaces": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "SourceImage",
+                    "TargetImage"
+                ],
+                "members": {
+                    "SourceImage": {
+                        "shape": "S2"
+                    },
+                    "TargetImage": {
+                        "shape": "S2"
+                    },
+                    "SimilarityThreshold": {
+                        "type": "float"
+                    },
+                    "QualityFilter": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "SourceImageFace": {
+                        "type": "structure",
+                        "members": {
+                            "BoundingBox": {
+                                "shape": "Sc"
+                            },
+                            "Confidence": {
+                                "type": "float"
+                            }
+                        }
+                    },
+                    "FaceMatches": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "Similarity": {
+                                    "type": "float"
+                                },
+                                "Face": {
+                                    "shape": "Sg"
+                                }
+                            }
+                        }
+                    },
+                    "UnmatchedFaces": {
+                        "type": "list",
+                        "member": {
+                            "shape": "Sg"
+                        }
+                    },
+                    "SourceImageOrientationCorrection": {},
+                    "TargetImageOrientationCorrection": {}
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "CreateCollection": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "CollectionId"
+                ],
+                "members": {
+                    "CollectionId": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "StatusCode": {
+                        "type": "integer"
+                    },
+                    "CollectionArn": {},
+                    "FaceModelVersion": {}
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "CreateProject": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ProjectName"
+                ],
+                "members": {
+                    "ProjectName": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ProjectArn": {}
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "CreateProjectVersion": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ProjectArn",
+                    "VersionName",
+                    "OutputConfig",
+                    "TrainingData",
+                    "TestingData"
+                ],
+                "members": {
+                    "ProjectArn": {},
+                    "VersionName": {},
+                    "OutputConfig": {
+                        "shape": "S10"
+                    },
+                    "TrainingData": {
+                        "shape": "S12"
+                    },
+                    "TestingData": {
+                        "shape": "S16"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ProjectVersionArn": {}
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "CreateStreamProcessor": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "Input",
+                    "Output",
+                    "Name",
+                    "Settings",
+                    "RoleArn"
+                ],
+                "members": {
+                    "Input": {
+                        "shape": "S1b"
+                    },
+                    "Output": {
+                        "shape": "S1e"
+                    },
+                    "Name": {},
+                    "Settings": {
+                        "shape": "S1i"
+                    },
+                    "RoleArn": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "StreamProcessorArn": {}
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "DeleteCollection": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "CollectionId"
+                ],
+                "members": {
+                    "CollectionId": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "StatusCode": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "DeleteFaces": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "CollectionId",
+                    "FaceIds"
+                ],
+                "members": {
+                    "CollectionId": {},
+                    "FaceIds": {
+                        "shape": "S1q"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "DeletedFaces": {
+                        "shape": "S1q"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "DeleteProject": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ProjectArn"
+                ],
+                "members": {
+                    "ProjectArn": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Status": {}
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "DeleteProjectVersion": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ProjectVersionArn"
+                ],
+                "members": {
+                    "ProjectVersionArn": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Status": {}
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "DeleteStreamProcessor": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "Name"
+                ],
+                "members": {
+                    "Name": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "DescribeCollection": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "CollectionId"
+                ],
+                "members": {
+                    "CollectionId": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "FaceCount": {
+                        "type": "long"
+                    },
+                    "FaceModelVersion": {},
+                    "CollectionARN": {},
+                    "CreationTimestamp": {
+                        "type": "timestamp"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "DescribeProjectVersions": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ProjectArn"
+                ],
+                "members": {
+                    "ProjectArn": {},
+                    "VersionNames": {
+                        "type": "list",
+                        "member": {}
+                    },
+                    "NextToken": {},
+                    "MaxResults": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ProjectVersionDescriptions": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "ProjectVersionArn": {},
+                                "CreationTimestamp": {
+                                    "type": "timestamp"
+                                },
+                                "MinInferenceUnits": {
+                                    "type": "integer"
+                                },
+                                "Status": {},
+                                "StatusMessage": {},
+                                "BillableTrainingTimeInSeconds": {
+                                    "type": "long"
+                                },
+                                "TrainingEndTimestamp": {
+                                    "type": "timestamp"
+                                },
+                                "OutputConfig": {
+                                    "shape": "S10"
+                                },
+                                "TrainingDataResult": {
+                                    "type": "structure",
+                                    "members": {
+                                        "Input": {
+                                            "shape": "S12"
+                                        },
+                                        "Output": {
+                                            "shape": "S12"
+                                        },
+                                        "Validation": {
+                                            "shape": "S2f"
+                                        }
+                                    }
+                                },
+                                "TestingDataResult": {
+                                    "type": "structure",
+                                    "members": {
+                                        "Input": {
+                                            "shape": "S16"
+                                        },
+                                        "Output": {
+                                            "shape": "S16"
+                                        },
+                                        "Validation": {
+                                            "shape": "S2f"
+                                        }
+                                    }
+                                },
+                                "EvaluationResult": {
+                                    "type": "structure",
+                                    "members": {
+                                        "F1Score": {
+                                            "type": "float"
+                                        },
+                                        "Summary": {
+                                            "type": "structure",
+                                            "members": {
+                                                "S3Object": {
+                                                    "shape": "S4"
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "ManifestSummary": {
+                                    "shape": "S15"
+                                }
+                            }
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "DescribeProjects": {
+            "input": {
+                "type": "structure",
+                "members": {
+                    "NextToken": {},
+                    "MaxResults": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ProjectDescriptions": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "ProjectArn": {},
+                                "CreationTimestamp": {
+                                    "type": "timestamp"
+                                },
+                                "Status": {}
+                            }
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "DescribeStreamProcessor": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "Name"
+                ],
+                "members": {
+                    "Name": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Name": {},
+                    "StreamProcessorArn": {},
+                    "Status": {},
+                    "StatusMessage": {},
+                    "CreationTimestamp": {
+                        "type": "timestamp"
+                    },
+                    "LastUpdateTimestamp": {
+                        "type": "timestamp"
+                    },
+                    "Input": {
+                        "shape": "S1b"
+                    },
+                    "Output": {
+                        "shape": "S1e"
+                    },
+                    "RoleArn": {},
+                    "Settings": {
+                        "shape": "S1i"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "DetectCustomLabels": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ProjectVersionArn",
+                    "Image"
+                ],
+                "members": {
+                    "ProjectVersionArn": {},
+                    "Image": {
+                        "shape": "S2"
+                    },
+                    "MaxResults": {
+                        "type": "integer"
+                    },
+                    "MinConfidence": {
+                        "type": "float"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "CustomLabels": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "Name": {},
+                                "Confidence": {
+                                    "type": "float"
+                                },
+                                "Geometry": {
+                                    "shape": "S2v"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "DetectFaces": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "Image"
+                ],
+                "members": {
+                    "Image": {
+                        "shape": "S2"
+                    },
+                    "Attributes": {
+                        "shape": "S2z"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "FaceDetails": {
+                        "type": "list",
+                        "member": {
+                            "shape": "S33"
+                        }
+                    },
+                    "OrientationCorrection": {}
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "DetectLabels": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "Image"
+                ],
+                "members": {
+                    "Image": {
+                        "shape": "S2"
+                    },
+                    "MaxLabels": {
+                        "type": "integer"
+                    },
+                    "MinConfidence": {
+                        "type": "float"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Labels": {
+                        "type": "list",
+                        "member": {
+                            "shape": "S3k"
+                        }
+                    },
+                    "OrientationCorrection": {},
+                    "LabelModelVersion": {}
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "DetectModerationLabels": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "Image"
+                ],
+                "members": {
+                    "Image": {
+                        "shape": "S2"
+                    },
+                    "MinConfidence": {
+                        "type": "float"
+                    },
+                    "HumanLoopConfig": {
+                        "type": "structure",
+                        "required": [
+                            "HumanLoopName",
+                            "FlowDefinitionArn"
+                        ],
+                        "members": {
+                            "HumanLoopName": {},
+                            "FlowDefinitionArn": {},
+                            "DataAttributes": {
+                                "type": "structure",
+                                "members": {
+                                    "ContentClassifiers": {
+                                        "type": "list",
+                                        "member": {}
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ModerationLabels": {
+                        "type": "list",
+                        "member": {
+                            "shape": "S3y"
+                        }
+                    },
+                    "ModerationModelVersion": {},
+                    "HumanLoopActivationOutput": {
+                        "type": "structure",
+                        "members": {
+                            "HumanLoopArn": {},
+                            "HumanLoopActivationReasons": {
+                                "type": "list",
+                                "member": {}
+                            },
+                            "HumanLoopActivationConditionsEvaluationResults": {
+                                "jsonvalue": true
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "DetectProtectiveEquipment": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "Image"
+                ],
+                "members": {
+                    "Image": {
+                        "shape": "S2"
+                    },
+                    "SummarizationAttributes": {
+                        "type": "structure",
+                        "required": [
+                            "MinConfidence",
+                            "RequiredEquipmentTypes"
+                        ],
+                        "members": {
+                            "MinConfidence": {
+                                "type": "float"
+                            },
+                            "RequiredEquipmentTypes": {
+                                "type": "list",
+                                "member": {}
+                            }
+                        }
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ProtectiveEquipmentModelVersion": {},
+                    "Persons": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "BodyParts": {
+                                    "type": "list",
+                                    "member": {
+                                        "type": "structure",
+                                        "members": {
+                                            "Name": {},
+                                            "Confidence": {
+                                                "type": "float"
+                                            },
+                                            "EquipmentDetections": {
+                                                "type": "list",
+                                                "member": {
+                                                    "type": "structure",
+                                                    "members": {
+                                                        "BoundingBox": {
+                                                            "shape": "Sc"
+                                                        },
+                                                        "Confidence": {
+                                                            "type": "float"
+                                                        },
+                                                        "Type": {},
+                                                        "CoversBodyPart": {
+                                                            "type": "structure",
+                                                            "members": {
+                                                                "Confidence": {
+                                                                    "type": "float"
+                                                                },
+                                                                "Value": {
+                                                                    "type": "boolean"
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "BoundingBox": {
+                                    "shape": "Sc"
+                                },
+                                "Confidence": {
+                                    "type": "float"
+                                },
+                                "Id": {
+                                    "type": "integer"
+                                }
+                            }
+                        }
+                    },
+                    "Summary": {
+                        "type": "structure",
+                        "members": {
+                            "PersonsWithRequiredEquipment": {
+                                "shape": "S4i"
+                            },
+                            "PersonsWithoutRequiredEquipment": {
+                                "shape": "S4i"
+                            },
+                            "PersonsIndeterminate": {
+                                "shape": "S4i"
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "DetectText": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "Image"
+                ],
+                "members": {
+                    "Image": {
+                        "shape": "S2"
+                    },
+                    "Filters": {
+                        "type": "structure",
+                        "members": {
+                            "WordFilter": {
+                                "shape": "S4l"
+                            },
+                            "RegionsOfInterest": {
+                                "shape": "S4o"
+                            }
+                        }
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "TextDetections": {
+                        "type": "list",
+                        "member": {
+                            "shape": "S4s"
+                        }
+                    },
+                    "TextModelVersion": {}
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "GetCelebrityInfo": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "Id"
+                ],
+                "members": {
+                    "Id": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Urls": {
+                        "shape": "S4x"
+                    },
+                    "Name": {}
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "GetCelebrityRecognition": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "JobId"
+                ],
+                "members": {
+                    "JobId": {},
+                    "MaxResults": {
+                        "type": "integer"
+                    },
+                    "NextToken": {},
+                    "SortBy": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "JobStatus": {},
+                    "StatusMessage": {},
+                    "VideoMetadata": {
+                        "shape": "S56"
+                    },
+                    "NextToken": {},
+                    "Celebrities": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "Timestamp": {
+                                    "type": "long"
+                                },
+                                "Celebrity": {
+                                    "type": "structure",
+                                    "members": {
+                                        "Urls": {
+                                            "shape": "S4x"
+                                        },
+                                        "Name": {},
+                                        "Id": {},
+                                        "Confidence": {
+                                            "type": "float"
+                                        },
+                                        "BoundingBox": {
+                                            "shape": "Sc"
+                                        },
+                                        "Face": {
+                                            "shape": "S33"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "GetContentModeration": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "JobId"
+                ],
+                "members": {
+                    "JobId": {},
+                    "MaxResults": {
+                        "type": "integer"
+                    },
+                    "NextToken": {},
+                    "SortBy": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "JobStatus": {},
+                    "StatusMessage": {},
+                    "VideoMetadata": {
+                        "shape": "S56"
+                    },
+                    "ModerationLabels": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "Timestamp": {
+                                    "type": "long"
+                                },
+                                "ModerationLabel": {
+                                    "shape": "S3y"
+                                }
+                            }
+                        }
+                    },
+                    "NextToken": {},
+                    "ModerationModelVersion": {}
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "GetFaceDetection": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "JobId"
+                ],
+                "members": {
+                    "JobId": {},
+                    "MaxResults": {
+                        "type": "integer"
+                    },
+                    "NextToken": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "JobStatus": {},
+                    "StatusMessage": {},
+                    "VideoMetadata": {
+                        "shape": "S56"
+                    },
+                    "NextToken": {},
+                    "Faces": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "Timestamp": {
+                                    "type": "long"
+                                },
+                                "Face": {
+                                    "shape": "S33"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "GetFaceSearch": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "JobId"
+                ],
+                "members": {
+                    "JobId": {},
+                    "MaxResults": {
+                        "type": "integer"
+                    },
+                    "NextToken": {},
+                    "SortBy": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "JobStatus": {},
+                    "StatusMessage": {},
+                    "NextToken": {},
+                    "VideoMetadata": {
+                        "shape": "S56"
+                    },
+                    "Persons": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "Timestamp": {
+                                    "type": "long"
+                                },
+                                "Person": {
+                                    "shape": "S5p"
+                                },
+                                "FaceMatches": {
+                                    "shape": "S5r"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "GetLabelDetection": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "JobId"
+                ],
+                "members": {
+                    "JobId": {},
+                    "MaxResults": {
+                        "type": "integer"
+                    },
+                    "NextToken": {},
+                    "SortBy": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "JobStatus": {},
+                    "StatusMessage": {},
+                    "VideoMetadata": {
+                        "shape": "S56"
+                    },
+                    "NextToken": {},
+                    "Labels": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "Timestamp": {
+                                    "type": "long"
+                                },
+                                "Label": {
+                                    "shape": "S3k"
+                                }
+                            }
+                        }
+                    },
+                    "LabelModelVersion": {}
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "GetPersonTracking": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "JobId"
+                ],
+                "members": {
+                    "JobId": {},
+                    "MaxResults": {
+                        "type": "integer"
+                    },
+                    "NextToken": {},
+                    "SortBy": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "JobStatus": {},
+                    "StatusMessage": {},
+                    "VideoMetadata": {
+                        "shape": "S56"
+                    },
+                    "NextToken": {},
+                    "Persons": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "Timestamp": {
+                                    "type": "long"
+                                },
+                                "Person": {
+                                    "shape": "S5p"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "GetSegmentDetection": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "JobId"
+                ],
+                "members": {
+                    "JobId": {},
+                    "MaxResults": {
+                        "type": "integer"
+                    },
+                    "NextToken": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "JobStatus": {},
+                    "StatusMessage": {},
+                    "VideoMetadata": {
+                        "type": "list",
+                        "member": {
+                            "shape": "S56"
+                        }
+                    },
+                    "AudioMetadata": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "Codec": {},
+                                "DurationMillis": {
+                                    "type": "long"
+                                },
+                                "SampleRate": {
+                                    "type": "long"
+                                },
+                                "NumberOfChannels": {
+                                    "type": "long"
+                                }
+                            }
+                        }
+                    },
+                    "NextToken": {},
+                    "Segments": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "Type": {},
+                                "StartTimestampMillis": {
+                                    "type": "long"
+                                },
+                                "EndTimestampMillis": {
+                                    "type": "long"
+                                },
+                                "DurationMillis": {
+                                    "type": "long"
+                                },
+                                "StartTimecodeSMPTE": {},
+                                "EndTimecodeSMPTE": {},
+                                "DurationSMPTE": {},
+                                "TechnicalCueSegment": {
+                                    "type": "structure",
+                                    "members": {
+                                        "Type": {},
+                                        "Confidence": {
+                                            "type": "float"
+                                        }
+                                    }
+                                },
+                                "ShotSegment": {
+                                    "type": "structure",
+                                    "members": {
+                                        "Index": {
+                                            "type": "long"
+                                        },
+                                        "Confidence": {
+                                            "type": "float"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "SelectedSegmentTypes": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "Type": {},
+                                "ModelVersion": {}
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "GetTextDetection": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "JobId"
+                ],
+                "members": {
+                    "JobId": {},
+                    "MaxResults": {
+                        "type": "integer"
+                    },
+                    "NextToken": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "JobStatus": {},
+                    "StatusMessage": {},
+                    "VideoMetadata": {
+                        "shape": "S56"
+                    },
+                    "TextDetections": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "Timestamp": {
+                                    "type": "long"
+                                },
+                                "TextDetection": {
+                                    "shape": "S4s"
+                                }
+                            }
+                        }
+                    },
+                    "NextToken": {},
+                    "TextModelVersion": {}
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "IndexFaces": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "CollectionId",
+                    "Image"
+                ],
+                "members": {
+                    "CollectionId": {},
+                    "Image": {
+                        "shape": "S2"
+                    },
+                    "ExternalImageId": {},
+                    "DetectionAttributes": {
+                        "shape": "S2z"
+                    },
+                    "MaxFaces": {
+                        "type": "integer"
+                    },
+                    "QualityFilter": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "FaceRecords": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "Face": {
+                                    "shape": "S5t"
+                                },
+                                "FaceDetail": {
+                                    "shape": "S33"
+                                }
+                            }
+                        }
+                    },
+                    "OrientationCorrection": {},
+                    "FaceModelVersion": {},
+                    "UnindexedFaces": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "Reasons": {
+                                    "type": "list",
+                                    "member": {}
+                                },
+                                "FaceDetail": {
+                                    "shape": "S33"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "ListCollections": {
+            "input": {
+                "type": "structure",
+                "members": {
+                    "NextToken": {},
+                    "MaxResults": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "CollectionIds": {
+                        "type": "list",
+                        "member": {}
+                    },
+                    "NextToken": {},
+                    "FaceModelVersions": {
+                        "type": "list",
+                        "member": {}
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "ListFaces": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "CollectionId"
+                ],
+                "members": {
+                    "CollectionId": {},
+                    "NextToken": {},
+                    "MaxResults": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Faces": {
+                        "type": "list",
+                        "member": {
+                            "shape": "S5t"
+                        }
+                    },
+                    "NextToken": {},
+                    "FaceModelVersion": {}
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "ListStreamProcessors": {
+            "input": {
+                "type": "structure",
+                "members": {
+                    "NextToken": {},
+                    "MaxResults": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "NextToken": {},
+                    "StreamProcessors": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "Name": {},
+                                "Status": {}
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "RecognizeCelebrities": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "Image"
+                ],
+                "members": {
+                    "Image": {
+                        "shape": "S2"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "CelebrityFaces": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "Urls": {
+                                    "shape": "S4x"
+                                },
+                                "Name": {},
+                                "Id": {},
+                                "Face": {
+                                    "shape": "Sg"
+                                },
+                                "MatchConfidence": {
+                                    "type": "float"
+                                }
+                            }
+                        }
+                    },
+                    "UnrecognizedFaces": {
+                        "type": "list",
+                        "member": {
+                            "shape": "Sg"
+                        }
+                    },
+                    "OrientationCorrection": {}
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "SearchFaces": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "CollectionId",
+                    "FaceId"
+                ],
+                "members": {
+                    "CollectionId": {},
+                    "FaceId": {},
+                    "MaxFaces": {
+                        "type": "integer"
+                    },
+                    "FaceMatchThreshold": {
+                        "type": "float"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "SearchedFaceId": {},
+                    "FaceMatches": {
+                        "shape": "S5r"
+                    },
+                    "FaceModelVersion": {}
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "SearchFacesByImage": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "CollectionId",
+                    "Image"
+                ],
+                "members": {
+                    "CollectionId": {},
+                    "Image": {
+                        "shape": "S2"
+                    },
+                    "MaxFaces": {
+                        "type": "integer"
+                    },
+                    "FaceMatchThreshold": {
+                        "type": "float"
+                    },
+                    "QualityFilter": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "SearchedFaceBoundingBox": {
+                        "shape": "Sc"
+                    },
+                    "SearchedFaceConfidence": {
+                        "type": "float"
+                    },
+                    "FaceMatches": {
+                        "shape": "S5r"
+                    },
+                    "FaceModelVersion": {}
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "StartCelebrityRecognition": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "Video"
+                ],
+                "members": {
+                    "Video": {
+                        "shape": "S7l"
+                    },
+                    "ClientRequestToken": {},
+                    "NotificationChannel": {
+                        "shape": "S7n"
+                    },
+                    "JobTag": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "JobId": {}
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "StartContentModeration": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "Video"
+                ],
+                "members": {
+                    "Video": {
+                        "shape": "S7l"
+                    },
+                    "MinConfidence": {
+                        "type": "float"
+                    },
+                    "ClientRequestToken": {},
+                    "NotificationChannel": {
+                        "shape": "S7n"
+                    },
+                    "JobTag": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "JobId": {}
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "StartFaceDetection": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "Video"
+                ],
+                "members": {
+                    "Video": {
+                        "shape": "S7l"
+                    },
+                    "ClientRequestToken": {},
+                    "NotificationChannel": {
+                        "shape": "S7n"
+                    },
+                    "FaceAttributes": {},
+                    "JobTag": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "JobId": {}
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "StartFaceSearch": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "Video",
+                    "CollectionId"
+                ],
+                "members": {
+                    "Video": {
+                        "shape": "S7l"
+                    },
+                    "ClientRequestToken": {},
+                    "FaceMatchThreshold": {
+                        "type": "float"
+                    },
+                    "CollectionId": {},
+                    "NotificationChannel": {
+                        "shape": "S7n"
+                    },
+                    "JobTag": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "JobId": {}
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "StartLabelDetection": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "Video"
+                ],
+                "members": {
+                    "Video": {
+                        "shape": "S7l"
+                    },
+                    "ClientRequestToken": {},
+                    "MinConfidence": {
+                        "type": "float"
+                    },
+                    "NotificationChannel": {
+                        "shape": "S7n"
+                    },
+                    "JobTag": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "JobId": {}
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "StartPersonTracking": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "Video"
+                ],
+                "members": {
+                    "Video": {
+                        "shape": "S7l"
+                    },
+                    "ClientRequestToken": {},
+                    "NotificationChannel": {
+                        "shape": "S7n"
+                    },
+                    "JobTag": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "JobId": {}
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "StartProjectVersion": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ProjectVersionArn",
+                    "MinInferenceUnits"
+                ],
+                "members": {
+                    "ProjectVersionArn": {},
+                    "MinInferenceUnits": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Status": {}
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "StartSegmentDetection": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "Video",
+                    "SegmentTypes"
+                ],
+                "members": {
+                    "Video": {
+                        "shape": "S7l"
+                    },
+                    "ClientRequestToken": {},
+                    "NotificationChannel": {
+                        "shape": "S7n"
+                    },
+                    "JobTag": {},
+                    "Filters": {
+                        "type": "structure",
+                        "members": {
+                            "TechnicalCueFilter": {
+                                "type": "structure",
+                                "members": {
+                                    "MinSegmentConfidence": {
+                                        "type": "float"
+                                    }
+                                }
+                            },
+                            "ShotFilter": {
+                                "type": "structure",
+                                "members": {
+                                    "MinSegmentConfidence": {
+                                        "type": "float"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "SegmentTypes": {
+                        "type": "list",
+                        "member": {}
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "JobId": {}
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "StartStreamProcessor": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "Name"
+                ],
+                "members": {
+                    "Name": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "StartTextDetection": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "Video"
+                ],
+                "members": {
+                    "Video": {
+                        "shape": "S7l"
+                    },
+                    "ClientRequestToken": {},
+                    "NotificationChannel": {
+                        "shape": "S7n"
+                    },
+                    "JobTag": {},
+                    "Filters": {
+                        "type": "structure",
+                        "members": {
+                            "WordFilter": {
+                                "shape": "S4l"
+                            },
+                            "RegionsOfInterest": {
+                                "shape": "S4o"
+                            }
+                        }
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "JobId": {}
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "StopProjectVersion": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ProjectVersionArn"
+                ],
+                "members": {
+                    "ProjectVersionArn": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Status": {}
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "StopStreamProcessor": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "Name"
+                ],
+                "members": {
+                    "Name": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "ListTagsForResource": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ResourceArn"
+                ],
+                "members": {
+                    "ResourceArn": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Tags": {
+                        "shape": "Sw"
+                    }
+                }
+            },
+            "download_location": [
+                "https://iotwireless.us-east-1.prod.console.iot.aws.dev/static/js/iotwireless.js"
+            ]
+        },
+        "TagResource": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ResourceArn",
+                    "Tags"
+                ],
+                "members": {
+                    "ResourceArn": {},
+                    "Tags": {
+                        "shape": "Sw"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://iotwireless.us-east-1.prod.console.iot.aws.dev/static/js/iotwireless.js"
+            ]
+        },
+        "UntagResource": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ResourceArn",
+                    "TagKeys"
+                ],
+                "members": {
+                    "ResourceArn": {},
+                    "TagKeys": {
+                        "type": "list",
+                        "member": {}
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://iotwireless.us-east-1.prod.console.iot.aws.dev/static/js/iotwireless.js"
+            ]
+        },
+        "CopyProjectVersion": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "SourceProjectArn",
+                    "SourceProjectVersionArn",
+                    "DestinationProjectArn",
+                    "VersionName",
+                    "OutputConfig"
+                ],
+                "members": {
+                    "SourceProjectArn": {},
+                    "SourceProjectVersionArn": {},
+                    "DestinationProjectArn": {},
+                    "VersionName": {},
+                    "OutputConfig": {
+                        "shape": "Sy"
+                    },
+                    "Tags": {
+                        "shape": "S10"
+                    },
+                    "KmsKeyId": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ProjectVersionArn": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "CreateDataset": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "DatasetType",
+                    "ProjectArn"
+                ],
+                "members": {
+                    "DatasetSource": {
+                        "type": "structure",
+                        "members": {
+                            "GroundTruthManifest": {
+                                "shape": "S1c"
+                            },
+                            "DatasetArn": {}
+                        }
+                    },
+                    "DatasetType": {},
+                    "ProjectArn": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "DatasetArn": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "DeleteDataset": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "DatasetArn"
+                ],
+                "members": {
+                    "DatasetArn": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "DeleteProjectPolicy": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ProjectArn",
+                    "PolicyName"
+                ],
+                "members": {
+                    "ProjectArn": {},
+                    "PolicyName": {},
+                    "PolicyRevisionId": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "DescribeDataset": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "DatasetArn"
+                ],
+                "members": {
+                    "DatasetArn": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "DatasetDescription": {
+                        "type": "structure",
+                        "members": {
+                            "CreationTimestamp": {
+                                "type": "timestamp"
+                            },
+                            "LastUpdatedTimestamp": {
+                                "type": "timestamp"
+                            },
+                            "Status": {},
+                            "StatusMessage": {},
+                            "StatusMessageCode": {},
+                            "DatasetStats": {
+                                "type": "structure",
+                                "members": {
+                                    "LabeledEntries": {
+                                        "type": "integer"
+                                    },
+                                    "TotalEntries": {
+                                        "type": "integer"
+                                    },
+                                    "TotalLabels": {
+                                        "type": "integer"
+                                    },
+                                    "ErrorEntries": {
+                                        "type": "integer"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "DistributeDatasetEntries": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "Datasets"
+                ],
+                "members": {
+                    "Datasets": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "Arn"
+                            ],
+                            "members": {
+                                "Arn": {}
+                            }
+                        }
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "ListDatasetEntries": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "DatasetArn"
+                ],
+                "members": {
+                    "DatasetArn": {},
+                    "ContainsLabels": {
+                        "type": "list",
+                        "member": {}
+                    },
+                    "Labeled": {
+                        "type": "boolean"
+                    },
+                    "SourceRefContains": {},
+                    "HasErrors": {
+                        "type": "boolean"
+                    },
+                    "NextToken": {},
+                    "MaxResults": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "DatasetEntries": {
+                        "type": "list",
+                        "member": {}
+                    },
+                    "NextToken": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "ListDatasetLabels": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "DatasetArn"
+                ],
+                "members": {
+                    "DatasetArn": {},
+                    "NextToken": {},
+                    "MaxResults": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "DatasetLabelDescriptions": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "LabelName": {},
+                                "LabelStats": {
+                                    "type": "structure",
+                                    "members": {
+                                        "EntryCount": {
+                                            "type": "integer"
+                                        },
+                                        "BoundingBoxCount": {
+                                            "type": "integer"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "ListProjectPolicies": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ProjectArn"
+                ],
+                "members": {
+                    "ProjectArn": {},
+                    "NextToken": {},
+                    "MaxResults": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ProjectPolicies": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "ProjectArn": {},
+                                "PolicyName": {},
+                                "PolicyRevisionId": {},
+                                "PolicyDocument": {},
+                                "CreationTimestamp": {
+                                    "type": "timestamp"
+                                },
+                                "LastUpdatedTimestamp": {
+                                    "type": "timestamp"
+                                }
+                            }
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "PutProjectPolicy": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ProjectArn",
+                    "PolicyName",
+                    "PolicyDocument"
+                ],
+                "members": {
+                    "ProjectArn": {},
+                    "PolicyName": {},
+                    "PolicyRevisionId": {},
+                    "PolicyDocument": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "PolicyRevisionId": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "UpdateDatasetEntries": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "DatasetArn",
+                    "Changes"
+                ],
+                "members": {
+                    "DatasetArn": {},
+                    "Changes": {
+                        "type": "structure",
+                        "required": [
+                            "GroundTruth"
+                        ],
+                        "members": {
+                            "GroundTruth": {
+                                "type": "blob"
+                            }
+                        }
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "UpdateStreamProcessor": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "Name"
+                ],
+                "members": {
+                    "Name": {},
+                    "SettingsForUpdate": {
+                        "type": "structure",
+                        "members": {
+                            "ConnectedHomeForUpdate": {
+                                "type": "structure",
+                                "members": {
+                                    "Labels": {
+                                        "shape": "S21"
+                                    },
+                                    "MinConfidence": {
+                                        "type": "float"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "RegionsOfInterestForUpdate": {
+                        "shape": "S26"
+                    },
+                    "DataSharingPreferenceForUpdate": {
+                        "shape": "S2a"
+                    },
+                    "ParametersToDelete": {
+                        "type": "list",
+                        "member": {}
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "CreateFaceLivenessSession": {
+            "input": {
+                "type": "structure",
+                "members": {
+                    "KmsKeyId": {},
+                    "Settings": {
+                        "type": "structure",
+                        "members": {
+                            "OutputConfig": {
+                                "type": "structure",
+                                "required": [
+                                    "S3Bucket"
+                                ],
+                                "members": {
+                                    "S3Bucket": {},
+                                    "S3KeyPrefix": {}
+                                }
+                            },
+                            "AuditImagesLimit": {
+                                "type": "integer"
+                            }
+                        }
+                    },
+                    "ClientRequestToken": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "SessionId"
+                ],
+                "members": {
+                    "SessionId": {}
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/LNBIP3SSBJJEGTSEE5VZUJHYSBHMHROVHKM6HOKQMPW54VG5DQUQ/vendors.js"
+            ]
+        },
+        "GetFaceLivenessSessionResults": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "SessionId"
+                ],
+                "members": {
+                    "SessionId": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "SessionId",
+                    "Status"
+                ],
+                "members": {
+                    "SessionId": {},
+                    "Status": {},
+                    "Confidence": {
+                        "type": "float"
+                    },
+                    "ReferenceImage": {
+                        "shape": "S7h"
+                    },
+                    "AuditImages": {
+                        "type": "list",
+                        "member": {
+                            "shape": "S7h"
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/LNBIP3SSBJJEGTSEE5VZUJHYSBHMHROVHKM6HOKQMPW54VG5DQUQ/vendors.js"
+            ]
+        }
+    },
+    "shapes": {
+        "S2": {
+            "type": "structure",
+            "members": {
+                "Bytes": {
+                    "type": "blob"
+                },
+                "S3Object": {
+                    "shape": "S4"
+                }
+            }
+        },
+        "S4": {
+            "type": "structure",
+            "members": {
+                "Bucket": {},
+                "Name": {},
+                "Version": {}
+            }
+        },
+        "Sc": {
+            "type": "structure",
+            "members": {
+                "Width": {
+                    "type": "float"
+                },
+                "Height": {
+                    "type": "float"
+                },
+                "Left": {
+                    "type": "float"
+                },
+                "Top": {
+                    "type": "float"
+                }
+            }
+        },
+        "Sg": {
+            "type": "structure",
+            "members": {
+                "BoundingBox": {
+                    "shape": "Sc"
+                },
+                "Confidence": {
+                    "type": "float"
+                },
+                "Landmarks": {
+                    "shape": "Sh"
+                },
+                "Pose": {
+                    "shape": "Sk"
+                },
+                "Quality": {
+                    "shape": "Sm"
+                }
+            }
+        },
+        "Sh": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "Type": {},
+                    "X": {
+                        "type": "float"
+                    },
+                    "Y": {
+                        "type": "float"
+                    }
+                }
+            }
+        },
+        "Sk": {
+            "type": "structure",
+            "members": {
+                "Roll": {
+                    "type": "float"
+                },
+                "Yaw": {
+                    "type": "float"
+                },
+                "Pitch": {
+                    "type": "float"
+                }
+            }
+        },
+        "Sm": {
+            "type": "structure",
+            "members": {
+                "Brightness": {
+                    "type": "float"
+                },
+                "Sharpness": {
+                    "type": "float"
+                }
+            }
+        },
+        "S10": {
+            "type": "structure",
+            "members": {
+                "S3Bucket": {},
+                "S3KeyPrefix": {}
+            }
+        },
+        "S12": {
+            "type": "structure",
+            "members": {
+                "Assets": {
+                    "shape": "S13"
+                }
+            }
+        },
+        "S13": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "GroundTruthManifest": {
+                        "shape": "S15"
+                    }
+                }
+            }
+        },
+        "S15": {
+            "type": "structure",
+            "members": {
+                "S3Object": {
+                    "shape": "S4"
+                }
+            }
+        },
+        "S16": {
+            "type": "structure",
+            "members": {
+                "Assets": {
+                    "shape": "S13"
+                },
+                "AutoCreate": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "S1b": {
+            "type": "structure",
+            "members": {
+                "KinesisVideoStream": {
+                    "type": "structure",
+                    "members": {
+                        "Arn": {}
+                    }
+                }
+            }
+        },
+        "S1e": {
+            "type": "structure",
+            "members": {
+                "KinesisDataStream": {
+                    "type": "structure",
+                    "members": {
+                        "Arn": {}
+                    }
+                }
+            }
+        },
+        "S1i": {
+            "type": "structure",
+            "members": {
+                "FaceSearch": {
+                    "type": "structure",
+                    "members": {
+                        "CollectionId": {},
+                        "FaceMatchThreshold": {
+                            "type": "float"
+                        }
+                    }
+                }
+            }
+        },
+        "S1q": {
+            "type": "list",
+            "member": {}
+        },
+        "S2f": {
+            "type": "structure",
+            "members": {
+                "Assets": {
+                    "shape": "S13"
+                }
+            }
+        },
+        "S2v": {
+            "type": "structure",
+            "members": {
+                "BoundingBox": {
+                    "shape": "Sc"
+                },
+                "Polygon": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "members": {
+                            "X": {
+                                "type": "float"
+                            },
+                            "Y": {
+                                "type": "float"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "S2z": {
+            "type": "list",
+            "member": {}
+        },
+        "S33": {
+            "type": "structure",
+            "members": {
+                "BoundingBox": {
+                    "shape": "Sc"
+                },
+                "AgeRange": {
+                    "type": "structure",
+                    "members": {
+                        "Low": {
+                            "type": "integer"
+                        },
+                        "High": {
+                            "type": "integer"
+                        }
+                    }
+                },
+                "Smile": {
+                    "type": "structure",
+                    "members": {
+                        "Value": {
+                            "type": "boolean"
+                        },
+                        "Confidence": {
+                            "type": "float"
+                        }
+                    }
+                },
+                "Eyeglasses": {
+                    "type": "structure",
+                    "members": {
+                        "Value": {
+                            "type": "boolean"
+                        },
+                        "Confidence": {
+                            "type": "float"
+                        }
+                    }
+                },
+                "Sunglasses": {
+                    "type": "structure",
+                    "members": {
+                        "Value": {
+                            "type": "boolean"
+                        },
+                        "Confidence": {
+                            "type": "float"
+                        }
+                    }
+                },
+                "Gender": {
+                    "type": "structure",
+                    "members": {
+                        "Value": {},
+                        "Confidence": {
+                            "type": "float"
+                        }
+                    }
+                },
+                "Beard": {
+                    "type": "structure",
+                    "members": {
+                        "Value": {
+                            "type": "boolean"
+                        },
+                        "Confidence": {
+                            "type": "float"
+                        }
+                    }
+                },
+                "Mustache": {
+                    "type": "structure",
+                    "members": {
+                        "Value": {
+                            "type": "boolean"
+                        },
+                        "Confidence": {
+                            "type": "float"
+                        }
+                    }
+                },
+                "EyesOpen": {
+                    "type": "structure",
+                    "members": {
+                        "Value": {
+                            "type": "boolean"
+                        },
+                        "Confidence": {
+                            "type": "float"
+                        }
+                    }
+                },
+                "MouthOpen": {
+                    "type": "structure",
+                    "members": {
+                        "Value": {
+                            "type": "boolean"
+                        },
+                        "Confidence": {
+                            "type": "float"
+                        }
+                    }
+                },
+                "Emotions": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "members": {
+                            "Type": {},
+                            "Confidence": {
+                                "type": "float"
+                            }
+                        }
+                    }
+                },
+                "Landmarks": {
+                    "shape": "Sh"
+                },
+                "Pose": {
+                    "shape": "Sk"
+                },
+                "Quality": {
+                    "shape": "Sm"
+                },
+                "Confidence": {
+                    "type": "float"
+                }
+            }
+        },
+        "S3k": {
+            "type": "structure",
+            "members": {
+                "Name": {},
+                "Confidence": {
+                    "type": "float"
+                },
+                "Instances": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "members": {
+                            "BoundingBox": {
+                                "shape": "Sc"
+                            },
+                            "Confidence": {
+                                "type": "float"
+                            }
+                        }
+                    }
+                },
+                "Parents": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "members": {
+                            "Name": {}
+                        }
+                    }
+                }
+            }
+        },
+        "S3y": {
+            "type": "structure",
+            "members": {
+                "Confidence": {
+                    "type": "float"
+                },
+                "Name": {},
+                "ParentName": {}
+            }
+        },
+        "S4i": {
+            "type": "list",
+            "member": {
+                "type": "integer"
+            }
+        },
+        "S4l": {
+            "type": "structure",
+            "members": {
+                "MinConfidence": {
+                    "type": "float"
+                },
+                "MinBoundingBoxHeight": {
+                    "type": "float"
+                },
+                "MinBoundingBoxWidth": {
+                    "type": "float"
+                }
+            }
+        },
+        "S4o": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "BoundingBox": {
+                        "shape": "Sc"
+                    }
+                }
+            }
+        },
+        "S4s": {
+            "type": "structure",
+            "members": {
+                "DetectedText": {},
+                "Type": {},
+                "Id": {
+                    "type": "integer"
+                },
+                "ParentId": {
+                    "type": "integer"
+                },
+                "Confidence": {
+                    "type": "float"
+                },
+                "Geometry": {
+                    "shape": "S2v"
+                }
+            }
+        },
+        "S4x": {
+            "type": "list",
+            "member": {}
+        },
+        "S56": {
+            "type": "structure",
+            "members": {
+                "Codec": {},
+                "DurationMillis": {
+                    "type": "long"
+                },
+                "Format": {},
+                "FrameRate": {
+                    "type": "float"
+                },
+                "FrameHeight": {
+                    "type": "long"
+                },
+                "FrameWidth": {
+                    "type": "long"
+                }
+            }
+        },
+        "S5p": {
+            "type": "structure",
+            "members": {
+                "Index": {
+                    "type": "long"
+                },
+                "BoundingBox": {
+                    "shape": "Sc"
+                },
+                "Face": {
+                    "shape": "S33"
+                }
+            }
+        },
+        "S5r": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "Similarity": {
+                        "type": "float"
+                    },
+                    "Face": {
+                        "shape": "S5t"
+                    }
+                }
+            }
+        },
+        "S5t": {
+            "type": "structure",
+            "members": {
+                "FaceId": {},
+                "BoundingBox": {
+                    "shape": "Sc"
+                },
+                "ImageId": {},
+                "ExternalImageId": {},
+                "Confidence": {
+                    "type": "float"
+                }
+            }
+        },
+        "S7l": {
+            "type": "structure",
+            "members": {
+                "S3Object": {
+                    "shape": "S4"
+                }
+            }
+        },
+        "S7n": {
+            "type": "structure",
+            "required": [
+                "SNSTopicArn",
+                "RoleArn"
+            ],
+            "members": {
+                "SNSTopicArn": {},
+                "RoleArn": {}
+            }
+        },
+        "S2u": {
+            "type": "structure",
+            "members": {
+                "BoundingBox": {
+                    "shape": "Sc"
+                },
+                "Polygon": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "members": {
+                            "X": {
+                                "type": "float"
+                            },
+                            "Y": {
+                                "type": "float"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "S2y": {
+            "type": "list",
+            "member": {}
+        },
+        "S32": {
+            "type": "structure",
+            "members": {
+                "BoundingBox": {
+                    "shape": "Sc"
+                },
+                "AgeRange": {
+                    "type": "structure",
+                    "members": {
+                        "Low": {
+                            "type": "integer"
+                        },
+                        "High": {
+                            "type": "integer"
+                        }
+                    }
+                },
+                "Smile": {
+                    "type": "structure",
+                    "members": {
+                        "Value": {
+                            "type": "boolean"
+                        },
+                        "Confidence": {
+                            "type": "float"
+                        }
+                    }
+                },
+                "Eyeglasses": {
+                    "type": "structure",
+                    "members": {
+                        "Value": {
+                            "type": "boolean"
+                        },
+                        "Confidence": {
+                            "type": "float"
+                        }
+                    }
+                },
+                "Sunglasses": {
+                    "type": "structure",
+                    "members": {
+                        "Value": {
+                            "type": "boolean"
+                        },
+                        "Confidence": {
+                            "type": "float"
+                        }
+                    }
+                },
+                "Gender": {
+                    "type": "structure",
+                    "members": {
+                        "Value": {},
+                        "Confidence": {
+                            "type": "float"
+                        }
+                    }
+                },
+                "Beard": {
+                    "type": "structure",
+                    "members": {
+                        "Value": {
+                            "type": "boolean"
+                        },
+                        "Confidence": {
+                            "type": "float"
+                        }
+                    }
+                },
+                "Mustache": {
+                    "type": "structure",
+                    "members": {
+                        "Value": {
+                            "type": "boolean"
+                        },
+                        "Confidence": {
+                            "type": "float"
+                        }
+                    }
+                },
+                "EyesOpen": {
+                    "type": "structure",
+                    "members": {
+                        "Value": {
+                            "type": "boolean"
+                        },
+                        "Confidence": {
+                            "type": "float"
+                        }
+                    }
+                },
+                "MouthOpen": {
+                    "type": "structure",
+                    "members": {
+                        "Value": {
+                            "type": "boolean"
+                        },
+                        "Confidence": {
+                            "type": "float"
+                        }
+                    }
+                },
+                "Emotions": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "members": {
+                            "Type": {},
+                            "Confidence": {
+                                "type": "float"
+                            }
+                        }
+                    }
+                },
+                "Landmarks": {
+                    "shape": "Sh"
+                },
+                "Pose": {
+                    "shape": "Sk"
+                },
+                "Quality": {
+                    "shape": "Sm"
+                },
+                "Confidence": {
+                    "type": "float"
+                }
+            }
+        },
+        "S3j": {
+            "type": "structure",
+            "members": {
+                "Name": {},
+                "Confidence": {
+                    "type": "float"
+                },
+                "Instances": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "members": {
+                            "BoundingBox": {
+                                "shape": "Sc"
+                            },
+                            "Confidence": {
+                                "type": "float"
+                            }
+                        }
+                    }
+                },
+                "Parents": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "members": {
+                            "Name": {}
+                        }
+                    }
+                }
+            }
+        },
+        "S3x": {
+            "type": "structure",
+            "members": {
+                "Confidence": {
+                    "type": "float"
+                },
+                "Name": {},
+                "ParentName": {}
+            }
+        },
+        "S45": {
+            "type": "structure",
+            "members": {
+                "MinConfidence": {
+                    "type": "float"
+                },
+                "MinBoundingBoxHeight": {
+                    "type": "float"
+                },
+                "MinBoundingBoxWidth": {
+                    "type": "float"
+                }
+            }
+        },
+        "S48": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "BoundingBox": {
+                        "shape": "Sc"
+                    }
+                }
+            }
+        },
+        "S4c": {
+            "type": "structure",
+            "members": {
+                "DetectedText": {},
+                "Type": {},
+                "Id": {
+                    "type": "integer"
+                },
+                "ParentId": {
+                    "type": "integer"
+                },
+                "Confidence": {
+                    "type": "float"
+                },
+                "Geometry": {
+                    "shape": "S2u"
+                }
+            }
+        },
+        "S4h": {
+            "type": "list",
+            "member": {}
+        },
+        "S4q": {
+            "type": "structure",
+            "members": {
+                "Codec": {},
+                "DurationMillis": {
+                    "type": "long"
+                },
+                "Format": {},
+                "FrameRate": {
+                    "type": "float"
+                },
+                "FrameHeight": {
+                    "type": "long"
+                },
+                "FrameWidth": {
+                    "type": "long"
+                }
+            }
+        },
+        "S59": {
+            "type": "structure",
+            "members": {
+                "Index": {
+                    "type": "long"
+                },
+                "BoundingBox": {
+                    "shape": "Sc"
+                },
+                "Face": {
+                    "shape": "S32"
+                }
+            }
+        },
+        "S5b": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "Similarity": {
+                        "type": "float"
+                    },
+                    "Face": {
+                        "shape": "S5d"
+                    }
+                }
+            }
+        },
+        "S5d": {
+            "type": "structure",
+            "members": {
+                "FaceId": {},
+                "BoundingBox": {
+                    "shape": "Sc"
+                },
+                "ImageId": {},
+                "ExternalImageId": {},
+                "Confidence": {
+                    "type": "float"
+                }
+            }
+        },
+        "S6q": {
+            "type": "structure",
+            "members": {
+                "S3Object": {
+                    "shape": "S4"
+                }
+            }
+        },
+        "S6s": {
+            "type": "structure",
+            "required": [
+                "SNSTopicArn",
+                "RoleArn"
+            ],
+            "members": {
+                "SNSTopicArn": {},
+                "RoleArn": {}
+            }
+        },
+        "Sn": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "Type": {},
+                    "Confidence": {
+                        "type": "float"
+                    }
+                }
+            }
+        },
+        "Sq": {
+            "type": "structure",
+            "members": {
+                "Value": {
+                    "type": "boolean"
+                },
+                "Confidence": {
+                    "type": "float"
+                }
+            }
+        },
+        "Sw": {
+            "type": "map",
+            "key": {},
+            "value": {}
+        },
+        "S18": {
+            "type": "structure",
+            "members": {
+                "S3Bucket": {},
+                "S3KeyPrefix": {}
+            }
+        },
+        "S1a": {
+            "type": "structure",
+            "members": {
+                "Assets": {
+                    "shape": "S1b"
+                }
+            }
+        },
+        "S1d": {
+            "type": "structure",
+            "members": {
+                "S3Object": {
+                    "shape": "S4"
+                }
+            }
+        },
+        "S1j": {
+            "type": "structure",
+            "members": {
+                "KinesisVideoStream": {
+                    "type": "structure",
+                    "members": {
+                        "Arn": {}
+                    }
+                }
+            }
+        },
+        "S1m": {
+            "type": "structure",
+            "members": {
+                "KinesisDataStream": {
+                    "type": "structure",
+                    "members": {
+                        "Arn": {}
+                    }
+                }
+            }
+        },
+        "S1y": {
+            "type": "list",
+            "member": {}
+        },
+        "S2n": {
+            "type": "structure",
+            "members": {
+                "Assets": {
+                    "shape": "S1b"
+                }
+            }
+        },
+        "S37": {
+            "type": "list",
+            "member": {}
+        },
+        "S3b": {
+            "type": "structure",
+            "members": {
+                "BoundingBox": {
+                    "shape": "Sc"
+                },
+                "AgeRange": {
+                    "type": "structure",
+                    "members": {
+                        "Low": {
+                            "type": "integer"
+                        },
+                        "High": {
+                            "type": "integer"
+                        }
+                    }
+                },
+                "Smile": {
+                    "shape": "Sq"
+                },
+                "Eyeglasses": {
+                    "type": "structure",
+                    "members": {
+                        "Value": {
+                            "type": "boolean"
+                        },
+                        "Confidence": {
+                            "type": "float"
+                        }
+                    }
+                },
+                "Sunglasses": {
+                    "type": "structure",
+                    "members": {
+                        "Value": {
+                            "type": "boolean"
+                        },
+                        "Confidence": {
+                            "type": "float"
+                        }
+                    }
+                },
+                "Gender": {
+                    "type": "structure",
+                    "members": {
+                        "Value": {},
+                        "Confidence": {
+                            "type": "float"
+                        }
+                    }
+                },
+                "Beard": {
+                    "type": "structure",
+                    "members": {
+                        "Value": {
+                            "type": "boolean"
+                        },
+                        "Confidence": {
+                            "type": "float"
+                        }
+                    }
+                },
+                "Mustache": {
+                    "type": "structure",
+                    "members": {
+                        "Value": {
+                            "type": "boolean"
+                        },
+                        "Confidence": {
+                            "type": "float"
+                        }
+                    }
+                },
+                "EyesOpen": {
+                    "type": "structure",
+                    "members": {
+                        "Value": {
+                            "type": "boolean"
+                        },
+                        "Confidence": {
+                            "type": "float"
+                        }
+                    }
+                },
+                "MouthOpen": {
+                    "type": "structure",
+                    "members": {
+                        "Value": {
+                            "type": "boolean"
+                        },
+                        "Confidence": {
+                            "type": "float"
+                        }
+                    }
+                },
+                "Emotions": {
+                    "shape": "Sn"
+                },
+                "Landmarks": {
+                    "shape": "Sh"
+                },
+                "Pose": {
+                    "shape": "Sk"
+                },
+                "Quality": {
+                    "shape": "Sm"
+                },
+                "Confidence": {
+                    "type": "float"
+                }
+            }
+        },
+        "S3o": {
+            "type": "structure",
+            "members": {
+                "Name": {},
+                "Confidence": {
+                    "type": "float"
+                },
+                "Instances": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "members": {
+                            "BoundingBox": {
+                                "shape": "Sc"
+                            },
+                            "Confidence": {
+                                "type": "float"
+                            }
+                        }
+                    }
+                },
+                "Parents": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "members": {
+                            "Name": {}
+                        }
+                    }
+                }
+            }
+        },
+        "S42": {
+            "type": "structure",
+            "members": {
+                "Confidence": {
+                    "type": "float"
+                },
+                "Name": {},
+                "ParentName": {}
+            }
+        },
+        "S4m": {
+            "type": "list",
+            "member": {
+                "type": "integer"
+            }
+        },
+        "S4p": {
+            "type": "structure",
+            "members": {
+                "MinConfidence": {
+                    "type": "float"
+                },
+                "MinBoundingBoxHeight": {
+                    "type": "float"
+                },
+                "MinBoundingBoxWidth": {
+                    "type": "float"
+                }
+            }
+        },
+        "S4w": {
+            "type": "structure",
+            "members": {
+                "DetectedText": {},
+                "Type": {},
+                "Id": {
+                    "type": "integer"
+                },
+                "ParentId": {
+                    "type": "integer"
+                },
+                "Confidence": {
+                    "type": "float"
+                },
+                "Geometry": {
+                    "shape": "S33"
+                }
+            }
+        },
+        "S51": {
+            "type": "list",
+            "member": {}
+        },
+        "S53": {
+            "type": "structure",
+            "members": {
+                "Type": {}
+            }
+        },
+        "S5c": {
+            "type": "structure",
+            "members": {
+                "Codec": {},
+                "DurationMillis": {
+                    "type": "long"
+                },
+                "Format": {},
+                "FrameRate": {
+                    "type": "float"
+                },
+                "FrameHeight": {
+                    "type": "long"
+                },
+                "FrameWidth": {
+                    "type": "long"
+                },
+                "ColorRange": {}
+            }
+        },
+        "S5w": {
+            "type": "structure",
+            "members": {
+                "Index": {
+                    "type": "long"
+                },
+                "BoundingBox": {
+                    "shape": "Sc"
+                },
+                "Face": {
+                    "shape": "S3b"
+                }
+            }
+        },
+        "S5y": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "Similarity": {
+                        "type": "float"
+                    },
+                    "Face": {
+                        "shape": "S60"
+                    }
+                }
+            }
+        },
+        "S60": {
+            "type": "structure",
+            "members": {
+                "FaceId": {},
+                "BoundingBox": {
+                    "shape": "Sc"
+                },
+                "ImageId": {},
+                "ExternalImageId": {},
+                "Confidence": {
+                    "type": "float"
+                }
+            }
+        },
+        "S7v": {
+            "type": "structure",
+            "members": {
+                "S3Object": {
+                    "shape": "S4"
+                }
+            }
+        },
+        "S7x": {
+            "type": "structure",
+            "required": [
+                "SNSTopicArn",
+                "RoleArn"
+            ],
+            "members": {
+                "SNSTopicArn": {},
+                "RoleArn": {}
+            }
+        },
+        "Sy": {
+            "type": "structure",
+            "members": {
+                "S3Bucket": {},
+                "S3KeyPrefix": {}
+            }
+        },
+        "S1c": {
+            "type": "structure",
+            "members": {
+                "S3Object": {
+                    "shape": "S4"
+                }
+            }
+        },
+        "S1k": {
+            "type": "structure",
+            "members": {
+                "Assets": {
+                    "shape": "S1l"
+                }
+            }
+        },
+        "S1l": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "GroundTruthManifest": {
+                        "shape": "S1c"
+                    }
+                }
+            }
+        },
+        "S1n": {
+            "type": "structure",
+            "members": {
+                "Assets": {
+                    "shape": "S1l"
+                },
+                "AutoCreate": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "S1t": {
+            "type": "structure",
+            "members": {
+                "KinesisDataStream": {
+                    "type": "structure",
+                    "members": {
+                        "Arn": {}
+                    }
+                },
+                "S3Destination": {
+                    "type": "structure",
+                    "members": {
+                        "Bucket": {},
+                        "KeyPrefix": {}
+                    }
+                }
+            }
+        },
+        "S21": {
+            "type": "list",
+            "member": {}
+        },
+        "S24": {
+            "type": "structure",
+            "required": [
+                "SNSTopicArn"
+            ],
+            "members": {
+                "SNSTopicArn": {}
+            }
+        },
+        "S26": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "BoundingBox": {
+                        "shape": "Sc"
+                    },
+                    "Polygon": {
+                        "shape": "S28"
+                    }
+                }
+            }
+        },
+        "S28": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "X": {
+                        "type": "float"
+                    },
+                    "Y": {
+                        "type": "float"
+                    }
+                }
+            }
+        },
+        "S2a": {
+            "type": "structure",
+            "required": [
+                "OptIn"
+            ],
+            "members": {
+                "OptIn": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "S2i": {
+            "type": "list",
+            "member": {}
+        },
+        "S3h": {
+            "type": "structure",
+            "members": {
+                "Assets": {
+                    "shape": "S1l"
+                }
+            }
+        },
+        "S40": {
+            "type": "structure",
+            "members": {
+                "BoundingBox": {
+                    "shape": "Sc"
+                },
+                "Polygon": {
+                    "shape": "S28"
+                }
+            }
+        },
+        "S46": {
+            "type": "structure",
+            "members": {
+                "BoundingBox": {
+                    "shape": "Sc"
+                },
+                "AgeRange": {
+                    "type": "structure",
+                    "members": {
+                        "Low": {
+                            "type": "integer"
+                        },
+                        "High": {
+                            "type": "integer"
+                        }
+                    }
+                },
+                "Smile": {
+                    "shape": "Sq"
+                },
+                "Eyeglasses": {
+                    "type": "structure",
+                    "members": {
+                        "Value": {
+                            "type": "boolean"
+                        },
+                        "Confidence": {
+                            "type": "float"
+                        }
+                    }
+                },
+                "Sunglasses": {
+                    "type": "structure",
+                    "members": {
+                        "Value": {
+                            "type": "boolean"
+                        },
+                        "Confidence": {
+                            "type": "float"
+                        }
+                    }
+                },
+                "Gender": {
+                    "type": "structure",
+                    "members": {
+                        "Value": {},
+                        "Confidence": {
+                            "type": "float"
+                        }
+                    }
+                },
+                "Beard": {
+                    "type": "structure",
+                    "members": {
+                        "Value": {
+                            "type": "boolean"
+                        },
+                        "Confidence": {
+                            "type": "float"
+                        }
+                    }
+                },
+                "Mustache": {
+                    "type": "structure",
+                    "members": {
+                        "Value": {
+                            "type": "boolean"
+                        },
+                        "Confidence": {
+                            "type": "float"
+                        }
+                    }
+                },
+                "EyesOpen": {
+                    "type": "structure",
+                    "members": {
+                        "Value": {
+                            "type": "boolean"
+                        },
+                        "Confidence": {
+                            "type": "float"
+                        }
+                    }
+                },
+                "MouthOpen": {
+                    "type": "structure",
+                    "members": {
+                        "Value": {
+                            "type": "boolean"
+                        },
+                        "Confidence": {
+                            "type": "float"
+                        }
+                    }
+                },
+                "Emotions": {
+                    "shape": "Sn"
+                },
+                "Landmarks": {
+                    "shape": "Sh"
+                },
+                "Pose": {
+                    "shape": "Sk"
+                },
+                "Quality": {
+                    "shape": "Sm"
+                },
+                "Confidence": {
+                    "type": "float"
+                }
+            }
+        },
+        "S4r": {
+            "type": "structure",
+            "members": {
+                "Name": {},
+                "Confidence": {
+                    "type": "float"
+                },
+                "Instances": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "members": {
+                            "BoundingBox": {
+                                "shape": "Sc"
+                            },
+                            "Confidence": {
+                                "type": "float"
+                            },
+                            "DominantColors": {
+                                "shape": "S4u"
+                            }
+                        }
+                    }
+                },
+                "Parents": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "members": {
+                            "Name": {}
+                        }
+                    }
+                },
+                "Aliases": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "members": {
+                            "Name": {}
+                        }
+                    }
+                },
+                "Categories": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "members": {
+                            "Name": {}
+                        }
+                    }
+                }
+            }
+        },
+        "S4u": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "Red": {
+                        "type": "integer"
+                    },
+                    "Blue": {
+                        "type": "integer"
+                    },
+                    "Green": {
+                        "type": "integer"
+                    },
+                    "HexCode": {},
+                    "CSSColor": {},
+                    "SimplifiedColor": {},
+                    "PixelPercent": {
+                        "type": "float"
+                    }
+                }
+            }
+        },
+        "S5f": {
+            "type": "structure",
+            "members": {
+                "Confidence": {
+                    "type": "float"
+                },
+                "Name": {},
+                "ParentName": {}
+            }
+        },
+        "S5z": {
+            "type": "list",
+            "member": {
+                "type": "integer"
+            }
+        },
+        "S62": {
+            "type": "structure",
+            "members": {
+                "MinConfidence": {
+                    "type": "float"
+                },
+                "MinBoundingBoxHeight": {
+                    "type": "float"
+                },
+                "MinBoundingBoxWidth": {
+                    "type": "float"
+                }
+            }
+        },
+        "S67": {
+            "type": "structure",
+            "members": {
+                "DetectedText": {},
+                "Type": {},
+                "Id": {
+                    "type": "integer"
+                },
+                "ParentId": {
+                    "type": "integer"
+                },
+                "Confidence": {
+                    "type": "float"
+                },
+                "Geometry": {
+                    "shape": "S40"
+                }
+            }
+        },
+        "S6g": {
+            "type": "list",
+            "member": {}
+        },
+        "S6i": {
+            "type": "structure",
+            "members": {
+                "Type": {}
+            }
+        },
+        "S6r": {
+            "type": "structure",
+            "members": {
+                "Codec": {},
+                "DurationMillis": {
+                    "type": "long"
+                },
+                "Format": {},
+                "FrameRate": {
+                    "type": "float"
+                },
+                "FrameHeight": {
+                    "type": "long"
+                },
+                "FrameWidth": {
+                    "type": "long"
+                },
+                "ColorRange": {}
+            }
+        },
+        "S7b": {
+            "type": "structure",
+            "members": {
+                "Index": {
+                    "type": "long"
+                },
+                "BoundingBox": {
+                    "shape": "Sc"
+                },
+                "Face": {
+                    "shape": "S46"
+                }
+            }
+        },
+        "S7d": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "Similarity": {
+                        "type": "float"
+                    },
+                    "Face": {
+                        "shape": "S7f"
+                    }
+                }
+            }
+        },
+        "S7f": {
+            "type": "structure",
+            "members": {
+                "FaceId": {},
+                "BoundingBox": {
+                    "shape": "Sc"
+                },
+                "ImageId": {},
+                "ExternalImageId": {},
+                "Confidence": {
+                    "type": "float"
+                },
+                "IndexFacesModelVersion": {}
+            }
+        },
+        "S9z": {
+            "type": "structure",
+            "members": {
+                "S3Object": {
+                    "shape": "S4"
+                }
+            }
+        },
+        "Sa1": {
+            "type": "structure",
+            "required": [
+                "SNSTopicArn",
+                "RoleArn"
+            ],
+            "members": {
+                "SNSTopicArn": {},
+                "RoleArn": {}
+            }
+        },
+        "Sr": {
+            "type": "map",
+            "key": {},
+            "value": {}
+        },
+        "S19": {
+            "type": "structure",
+            "members": {
+                "Assets": {
+                    "shape": "S16"
+                },
+                "AutoCreate": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "S1f": {
+            "type": "structure",
+            "members": {
+                "KinesisVideoStream": {
+                    "type": "structure",
+                    "members": {
+                        "Arn": {}
+                    }
+                }
+            }
+        },
+        "S1u": {
+            "type": "list",
+            "member": {}
+        },
+        "S2j": {
+            "type": "structure",
+            "members": {
+                "Assets": {
+                    "shape": "S16"
+                }
+            }
+        },
+        "S5a": {
+            "type": "structure",
+            "members": {
+                "Codec": {},
+                "DurationMillis": {
+                    "type": "long"
+                },
+                "Format": {},
+                "FrameRate": {
+                    "type": "float"
+                },
+                "FrameHeight": {
+                    "type": "long"
+                },
+                "FrameWidth": {
+                    "type": "long"
+                }
+            }
+        },
+        "S5v": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "Similarity": {
+                        "type": "float"
+                    },
+                    "Face": {
+                        "shape": "S5x"
+                    }
+                }
+            }
+        },
+        "S5x": {
+            "type": "structure",
+            "members": {
+                "FaceId": {},
+                "BoundingBox": {
+                    "shape": "Sc"
+                },
+                "ImageId": {},
+                "ExternalImageId": {},
+                "Confidence": {
+                    "type": "float"
+                }
+            }
+        },
+        "S7s": {
+            "type": "structure",
+            "members": {
+                "S3Object": {
+                    "shape": "S4"
+                }
+            }
+        },
+        "S7u": {
+            "type": "structure",
+            "required": [
+                "SNSTopicArn",
+                "RoleArn"
+            ],
+            "members": {
+                "SNSTopicArn": {},
+                "RoleArn": {}
+            }
+        },
+        "S4k": {
+            "type": "structure",
+            "members": {
+                "LabelInclusionFilters": {
+                    "shape": "S4l"
+                },
+                "LabelExclusionFilters": {
+                    "shape": "S4l"
+                },
+                "LabelCategoryInclusionFilters": {
+                    "shape": "S4l"
+                },
+                "LabelCategoryExclusionFilters": {
+                    "shape": "S4l"
+                }
+            }
+        },
+        "Sa0": {
+            "type": "structure",
+            "members": {
+                "S3Object": {
+                    "shape": "S4"
+                }
+            }
+        },
+        "Sa2": {
+            "type": "structure",
+            "required": [
+                "SNSTopicArn",
+                "RoleArn"
+            ],
+            "members": {
+                "SNSTopicArn": {},
+                "RoleArn": {}
+            }
+        },
+        "S14": {
+            "type": "structure",
+            "members": {
+                "S3Object": {
+                    "shape": "S4"
+                }
+            }
+        },
+        "S1g": {
+            "type": "structure",
+            "members": {
+                "Assets": {
+                    "shape": "S1h"
+                }
+            }
+        },
+        "S1h": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "GroundTruthManifest": {
+                        "shape": "S14"
+                    }
+                }
+            }
+        },
+        "S1o": {
+            "type": "structure",
+            "members": {
+                "KinesisVideoStream": {
+                    "type": "structure",
+                    "members": {
+                        "Arn": {}
+                    }
+                }
+            }
+        },
+        "S1r": {
+            "type": "structure",
+            "members": {
+                "KinesisDataStream": {
+                    "type": "structure",
+                    "members": {
+                        "Arn": {}
+                    }
+                }
+            }
+        },
+        "S1v": {
+            "type": "structure",
+            "members": {
+                "FaceSearch": {
+                    "type": "structure",
+                    "members": {
+                        "CollectionId": {},
+                        "FaceMatchThreshold": {
+                            "type": "float"
+                        }
+                    }
+                }
+            }
+        },
+        "S25": {
+            "type": "list",
+            "member": {}
+        },
+        "S30": {
+            "type": "structure",
+            "members": {
+                "Assets": {
+                    "shape": "S1h"
+                }
+            }
+        },
+        "S3n": {
+            "type": "list",
+            "member": {}
+        },
+        "S3r": {
+            "type": "structure",
+            "members": {
+                "BoundingBox": {
+                    "shape": "Sc"
+                },
+                "AgeRange": {
+                    "type": "structure",
+                    "members": {
+                        "Low": {
+                            "type": "integer"
+                        },
+                        "High": {
+                            "type": "integer"
+                        }
+                    }
+                },
+                "Smile": {
+                    "shape": "Sq"
+                },
+                "Eyeglasses": {
+                    "type": "structure",
+                    "members": {
+                        "Value": {
+                            "type": "boolean"
+                        },
+                        "Confidence": {
+                            "type": "float"
+                        }
+                    }
+                },
+                "Sunglasses": {
+                    "type": "structure",
+                    "members": {
+                        "Value": {
+                            "type": "boolean"
+                        },
+                        "Confidence": {
+                            "type": "float"
+                        }
+                    }
+                },
+                "Gender": {
+                    "type": "structure",
+                    "members": {
+                        "Value": {},
+                        "Confidence": {
+                            "type": "float"
+                        }
+                    }
+                },
+                "Beard": {
+                    "type": "structure",
+                    "members": {
+                        "Value": {
+                            "type": "boolean"
+                        },
+                        "Confidence": {
+                            "type": "float"
+                        }
+                    }
+                },
+                "Mustache": {
+                    "type": "structure",
+                    "members": {
+                        "Value": {
+                            "type": "boolean"
+                        },
+                        "Confidence": {
+                            "type": "float"
+                        }
+                    }
+                },
+                "EyesOpen": {
+                    "type": "structure",
+                    "members": {
+                        "Value": {
+                            "type": "boolean"
+                        },
+                        "Confidence": {
+                            "type": "float"
+                        }
+                    }
+                },
+                "MouthOpen": {
+                    "type": "structure",
+                    "members": {
+                        "Value": {
+                            "type": "boolean"
+                        },
+                        "Confidence": {
+                            "type": "float"
+                        }
+                    }
+                },
+                "Emotions": {
+                    "shape": "Sn"
+                },
+                "Landmarks": {
+                    "shape": "Sh"
+                },
+                "Pose": {
+                    "shape": "Sk"
+                },
+                "Quality": {
+                    "shape": "Sm"
+                },
+                "Confidence": {
+                    "type": "float"
+                }
+            }
+        },
+        "S44": {
+            "type": "structure",
+            "members": {
+                "Name": {},
+                "Confidence": {
+                    "type": "float"
+                },
+                "Instances": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "members": {
+                            "BoundingBox": {
+                                "shape": "Sc"
+                            },
+                            "Confidence": {
+                                "type": "float"
+                            }
+                        }
+                    }
+                },
+                "Parents": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "members": {
+                            "Name": {}
+                        }
+                    }
+                }
+            }
+        },
+        "S52": {
+            "type": "list",
+            "member": {
+                "type": "integer"
+            }
+        },
+        "S55": {
+            "type": "structure",
+            "members": {
+                "MinConfidence": {
+                    "type": "float"
+                },
+                "MinBoundingBoxHeight": {
+                    "type": "float"
+                },
+                "MinBoundingBoxWidth": {
+                    "type": "float"
+                }
+            }
+        },
+        "S58": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "BoundingBox": {
+                        "shape": "Sc"
+                    }
+                }
+            }
+        },
+        "S5l": {
+            "type": "list",
+            "member": {}
+        },
+        "S5n": {
+            "type": "structure",
+            "members": {
+                "Type": {}
+            }
+        },
+        "S6k": {
+            "type": "structure",
+            "members": {
+                "FaceId": {},
+                "BoundingBox": {
+                    "shape": "Sc"
+                },
+                "ImageId": {},
+                "ExternalImageId": {},
+                "Confidence": {
+                    "type": "float"
+                },
+                "IndexFacesModelVersion": {}
+            }
+        },
+        "S8w": {
+            "type": "structure",
+            "members": {
+                "S3Object": {
+                    "shape": "S4"
+                }
+            }
+        },
+        "S8y": {
+            "type": "structure",
+            "required": [
+                "SNSTopicArn",
+                "RoleArn"
+            ],
+            "members": {
+                "SNSTopicArn": {},
+                "RoleArn": {}
+            }
+        },
+        "S1w": {
+            "type": "structure",
+            "members": {
+                "FaceSearch": {
+                    "type": "structure",
+                    "members": {
+                        "CollectionId": {},
+                        "FaceMatchThreshold": {
+                            "type": "float"
+                        }
+                    }
+                },
+                "ConnectedHome": {
+                    "type": "structure",
+                    "required": [
+                        "Labels"
+                    ],
+                    "members": {
+                        "Labels": {
+                            "shape": "S1z"
+                        },
+                        "MinConfidence": {
+                            "type": "float"
+                        }
+                    }
+                }
+            }
+        },
+        "S1z": {
+            "type": "list",
+            "member": {}
+        },
+        "S22": {
+            "type": "structure",
+            "required": [
+                "SNSTopicArn"
+            ],
+            "members": {
+                "SNSTopicArn": {}
+            }
+        },
+        "S2g": {
+            "type": "list",
+            "member": {}
+        },
+        "S3u": {
+            "type": "structure",
+            "members": {
+                "BoundingBox": {
+                    "shape": "Sc"
+                },
+                "Polygon": {
+                    "shape": "S26"
+                }
+            }
+        },
+        "S3w": {
+            "type": "list",
+            "member": {}
+        },
+        "S4d": {
+            "type": "structure",
+            "members": {
+                "Name": {},
+                "Confidence": {
+                    "type": "float"
+                },
+                "Instances": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "members": {
+                            "BoundingBox": {
+                                "shape": "Sc"
+                            },
+                            "Confidence": {
+                                "type": "float"
+                            }
+                        }
+                    }
+                },
+                "Parents": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "members": {
+                            "Name": {}
+                        }
+                    }
+                }
+            }
+        },
+        "S5e": {
+            "type": "structure",
+            "members": {
+                "MinConfidence": {
+                    "type": "float"
+                },
+                "MinBoundingBoxHeight": {
+                    "type": "float"
+                },
+                "MinBoundingBoxWidth": {
+                    "type": "float"
+                }
+            }
+        },
+        "S5j": {
+            "type": "structure",
+            "members": {
+                "DetectedText": {},
+                "Type": {},
+                "Id": {
+                    "type": "integer"
+                },
+                "ParentId": {
+                    "type": "integer"
+                },
+                "Confidence": {
+                    "type": "float"
+                },
+                "Geometry": {
+                    "shape": "S3u"
+                }
+            }
+        },
+        "S5s": {
+            "type": "list",
+            "member": {}
+        },
+        "S5u": {
+            "type": "structure",
+            "members": {
+                "Type": {}
+            }
+        },
+        "S63": {
+            "type": "structure",
+            "members": {
+                "Codec": {},
+                "DurationMillis": {
+                    "type": "long"
+                },
+                "Format": {},
+                "FrameRate": {
+                    "type": "float"
+                },
+                "FrameHeight": {
+                    "type": "long"
+                },
+                "FrameWidth": {
+                    "type": "long"
+                },
+                "ColorRange": {}
+            }
+        },
+        "S6n": {
+            "type": "structure",
+            "members": {
+                "Index": {
+                    "type": "long"
+                },
+                "BoundingBox": {
+                    "shape": "Sc"
+                },
+                "Face": {
+                    "shape": "S40"
+                }
+            }
+        },
+        "S6p": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "Similarity": {
+                        "type": "float"
+                    },
+                    "Face": {
+                        "shape": "S6r"
+                    }
+                }
+            }
+        },
+        "S93": {
+            "type": "structure",
+            "members": {
+                "S3Object": {
+                    "shape": "S4"
+                }
+            }
+        },
+        "S95": {
+            "type": "structure",
+            "required": [
+                "SNSTopicArn",
+                "RoleArn"
+            ],
+            "members": {
+                "SNSTopicArn": {},
+                "RoleArn": {}
+            }
+        },
+        "S1s": {
+            "type": "structure",
+            "members": {
+                "Assets": {
+                    "shape": "S1t"
+                }
+            }
+        },
+        "S29": {
+            "type": "list",
+            "member": {}
+        },
+        "S2c": {
+            "type": "structure",
+            "required": [
+                "SNSTopicArn"
+            ],
+            "members": {
+                "SNSTopicArn": {}
+            }
+        },
+        "S2e": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "BoundingBox": {
+                        "shape": "Sc"
+                    },
+                    "Polygon": {
+                        "shape": "S2g"
+                    }
+                }
+            }
+        },
+        "S2q": {
+            "type": "list",
+            "member": {}
+        },
+        "S3p": {
+            "type": "structure",
+            "members": {
+                "Assets": {
+                    "shape": "S1t"
+                }
+            }
+        },
+        "S4a": {
+            "type": "list",
+            "member": {}
+        },
+        "S4e": {
+            "type": "structure",
+            "members": {
+                "BoundingBox": {
+                    "shape": "Sc"
+                },
+                "AgeRange": {
+                    "type": "structure",
+                    "members": {
+                        "Low": {
+                            "type": "integer"
+                        },
+                        "High": {
+                            "type": "integer"
+                        }
+                    }
+                },
+                "Smile": {
+                    "shape": "Sq"
+                },
+                "Eyeglasses": {
+                    "type": "structure",
+                    "members": {
+                        "Value": {
+                            "type": "boolean"
+                        },
+                        "Confidence": {
+                            "type": "float"
+                        }
+                    }
+                },
+                "Sunglasses": {
+                    "type": "structure",
+                    "members": {
+                        "Value": {
+                            "type": "boolean"
+                        },
+                        "Confidence": {
+                            "type": "float"
+                        }
+                    }
+                },
+                "Gender": {
+                    "type": "structure",
+                    "members": {
+                        "Value": {},
+                        "Confidence": {
+                            "type": "float"
+                        }
+                    }
+                },
+                "Beard": {
+                    "type": "structure",
+                    "members": {
+                        "Value": {
+                            "type": "boolean"
+                        },
+                        "Confidence": {
+                            "type": "float"
+                        }
+                    }
+                },
+                "Mustache": {
+                    "type": "structure",
+                    "members": {
+                        "Value": {
+                            "type": "boolean"
+                        },
+                        "Confidence": {
+                            "type": "float"
+                        }
+                    }
+                },
+                "EyesOpen": {
+                    "type": "structure",
+                    "members": {
+                        "Value": {
+                            "type": "boolean"
+                        },
+                        "Confidence": {
+                            "type": "float"
+                        }
+                    }
+                },
+                "MouthOpen": {
+                    "type": "structure",
+                    "members": {
+                        "Value": {
+                            "type": "boolean"
+                        },
+                        "Confidence": {
+                            "type": "float"
+                        }
+                    }
+                },
+                "Emotions": {
+                    "shape": "Sn"
+                },
+                "Landmarks": {
+                    "shape": "Sh"
+                },
+                "Pose": {
+                    "shape": "Sk"
+                },
+                "Quality": {
+                    "shape": "Sm"
+                },
+                "Confidence": {
+                    "type": "float"
+                }
+            }
+        },
+        "S4t": {
+            "type": "list",
+            "member": {}
+        },
+        "S4z": {
+            "type": "structure",
+            "members": {
+                "Name": {},
+                "Confidence": {
+                    "type": "float"
+                },
+                "Instances": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "members": {
+                            "BoundingBox": {
+                                "shape": "Sc"
+                            },
+                            "Confidence": {
+                                "type": "float"
+                            },
+                            "DominantColors": {
+                                "shape": "S52"
+                            }
+                        }
+                    }
+                },
+                "Parents": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "members": {
+                            "Name": {}
+                        }
+                    }
+                },
+                "Aliases": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "members": {
+                            "Name": {}
+                        }
+                    }
+                },
+                "Categories": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "members": {
+                            "Name": {}
+                        }
+                    }
+                }
+            }
+        },
+        "S6a": {
+            "type": "structure",
+            "members": {
+                "MinConfidence": {
+                    "type": "float"
+                },
+                "MinBoundingBoxHeight": {
+                    "type": "float"
+                },
+                "MinBoundingBoxWidth": {
+                    "type": "float"
+                }
+            }
+        },
+        "S6f": {
+            "type": "structure",
+            "members": {
+                "DetectedText": {},
+                "Type": {},
+                "Id": {
+                    "type": "integer"
+                },
+                "ParentId": {
+                    "type": "integer"
+                },
+                "Confidence": {
+                    "type": "float"
+                },
+                "Geometry": {
+                    "shape": "S48"
+                }
+            }
+        },
+        "S6o": {
+            "type": "list",
+            "member": {}
+        },
+        "S6z": {
+            "type": "structure",
+            "members": {
+                "Codec": {},
+                "DurationMillis": {
+                    "type": "long"
+                },
+                "Format": {},
+                "FrameRate": {
+                    "type": "float"
+                },
+                "FrameHeight": {
+                    "type": "long"
+                },
+                "FrameWidth": {
+                    "type": "long"
+                },
+                "ColorRange": {}
+            }
+        },
+        "S7h": {
+            "type": "structure",
+            "members": {
+                "Bytes": {
+                    "type": "blob",
+                    "sensitive": true
+                },
+                "S3Object": {
+                    "shape": "S4"
+                },
+                "BoundingBox": {
+                    "shape": "Sc"
+                }
+            }
+        },
+        "S7p": {
+            "type": "structure",
+            "members": {
+                "Index": {
+                    "type": "long"
+                },
+                "BoundingBox": {
+                    "shape": "Sc"
+                },
+                "Face": {
+                    "shape": "S4e"
+                }
+            }
+        },
+        "S7r": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "Similarity": {
+                        "type": "float"
+                    },
+                    "Face": {
+                        "shape": "S7t"
+                    }
+                }
+            }
+        },
+        "S7t": {
+            "type": "structure",
+            "members": {
+                "FaceId": {},
+                "BoundingBox": {
+                    "shape": "Sc"
+                },
+                "ImageId": {},
+                "ExternalImageId": {},
+                "Confidence": {
+                    "type": "float"
+                },
+                "IndexFacesModelVersion": {}
+            }
+        },
+        "Sae": {
+            "type": "structure",
+            "members": {
+                "S3Object": {
+                    "shape": "S4"
+                }
+            }
+        },
+        "Saf": {
+            "type": "structure",
+            "required": [
+                "SNSTopicArn",
+                "RoleArn"
+            ],
+            "members": {
+                "SNSTopicArn": {},
+                "RoleArn": {}
+            }
+        },
+        "S4j": {
+            "type": "structure",
+            "members": {
+                "Name": {},
+                "Confidence": {
+                    "type": "float"
+                },
+                "Instances": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "members": {
+                            "BoundingBox": {
+                                "shape": "Sc"
+                            },
+                            "Confidence": {
+                                "type": "float"
+                            }
+                        }
+                    }
+                },
+                "Parents": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "members": {
+                            "Name": {}
+                        }
+                    }
+                }
+            }
+        },
+        "S5h": {
+            "type": "list",
+            "member": {
+                "type": "integer"
+            }
+        },
+        "S5k": {
+            "type": "structure",
+            "members": {
+                "MinConfidence": {
+                    "type": "float"
+                },
+                "MinBoundingBoxHeight": {
+                    "type": "float"
+                },
+                "MinBoundingBoxWidth": {
+                    "type": "float"
+                }
+            }
+        },
+        "S69": {
+            "type": "structure",
+            "members": {
+                "Codec": {},
+                "DurationMillis": {
+                    "type": "long"
+                },
+                "Format": {},
+                "FrameRate": {
+                    "type": "float"
+                },
+                "FrameHeight": {
+                    "type": "long"
+                },
+                "FrameWidth": {
+                    "type": "long"
+                },
+                "ColorRange": {}
+            }
+        },
+        "S6t": {
+            "type": "structure",
+            "members": {
+                "Index": {
+                    "type": "long"
+                },
+                "BoundingBox": {
+                    "shape": "Sc"
+                },
+                "Face": {
+                    "shape": "S46"
+                }
+            }
+        },
+        "S6v": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "Similarity": {
+                        "type": "float"
+                    },
+                    "Face": {
+                        "shape": "S6x"
+                    }
+                }
+            }
+        },
+        "S6x": {
+            "type": "structure",
+            "members": {
+                "FaceId": {},
+                "BoundingBox": {
+                    "shape": "Sc"
+                },
+                "ImageId": {},
+                "ExternalImageId": {},
+                "Confidence": {
+                    "type": "float"
+                },
+                "IndexFacesModelVersion": {}
+            }
+        },
+        "S9h": {
+            "type": "structure",
+            "members": {
+                "S3Object": {
+                    "shape": "S4"
+                }
+            }
+        },
+        "S9j": {
+            "type": "structure",
+            "required": [
+                "SNSTopicArn",
+                "RoleArn"
+            ],
+            "members": {
+                "SNSTopicArn": {},
+                "RoleArn": {}
+            }
+        },
+        "S8v": {
+            "type": "structure",
+            "members": {
+                "S3Object": {
+                    "shape": "S4"
+                }
+            }
+        },
+        "S8x": {
+            "type": "structure",
+            "required": [
+                "SNSTopicArn",
+                "RoleArn"
+            ],
+            "members": {
+                "SNSTopicArn": {},
+                "RoleArn": {}
+            }
+        },
+        "S3f": {
+            "type": "structure",
+            "members": {
+                "Name": {},
+                "Confidence": {
+                    "type": "float"
+                },
+                "Instances": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "members": {
+                            "BoundingBox": {
+                                "shape": "Sc"
+                            },
+                            "Confidence": {
+                                "type": "float"
+                            }
+                        }
+                    }
+                },
+                "Parents": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "members": {
+                            "Name": {}
+                        }
+                    }
+                }
+            }
+        },
+        "S3t": {
+            "type": "structure",
+            "members": {
+                "Confidence": {
+                    "type": "float"
+                },
+                "Name": {},
+                "ParentName": {}
+            }
+        },
+        "S47": {
+            "type": "list",
+            "member": {}
+        },
+        "S4g": {
+            "type": "structure",
+            "members": {
+                "Codec": {},
+                "DurationMillis": {
+                    "type": "long"
+                },
+                "Format": {},
+                "FrameRate": {
+                    "type": "float"
+                },
+                "FrameHeight": {
+                    "type": "long"
+                },
+                "FrameWidth": {
+                    "type": "long"
+                }
+            }
+        },
+        "S6c": {
+            "type": "structure",
+            "members": {
+                "S3Object": {
+                    "shape": "S4"
+                }
+            }
+        },
+        "S6e": {
+            "type": "structure",
+            "required": [
+                "SNSTopicArn",
+                "RoleArn"
+            ],
+            "members": {
+                "SNSTopicArn": {},
+                "RoleArn": {}
+            }
+        },
+        "S75": {
+            "type": "structure",
+            "members": {
+                "S3Object": {
+                    "shape": "S4"
+                }
+            }
+        },
+        "S77": {
+            "type": "structure",
+            "required": [
+                "SNSTopicArn",
+                "RoleArn"
+            ],
+            "members": {
+                "SNSTopicArn": {},
+                "RoleArn": {}
+            }
+        },
+        "S50": {
+            "type": "structure",
+            "members": {
+                "Name": {},
+                "Confidence": {
+                    "type": "float"
+                },
+                "Instances": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "members": {
+                            "BoundingBox": {
+                                "shape": "Sc"
+                            },
+                            "Confidence": {
+                                "type": "float"
+                            },
+                            "DominantColors": {
+                                "shape": "S53"
+                            }
+                        }
+                    }
+                },
+                "Parents": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "members": {
+                            "Name": {}
+                        }
+                    }
+                },
+                "Aliases": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "members": {
+                            "Name": {}
+                        }
+                    }
+                },
+                "Categories": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "members": {
+                            "Name": {}
+                        }
+                    }
+                }
+            }
+        },
+        "S5o": {
+            "type": "structure",
+            "members": {
+                "Confidence": {
+                    "type": "float"
+                },
+                "Name": {},
+                "ParentName": {}
+            }
+        },
+        "S68": {
+            "type": "list",
+            "member": {
+                "type": "integer"
+            }
+        },
+        "S6b": {
+            "type": "structure",
+            "members": {
+                "MinConfidence": {
+                    "type": "float"
+                },
+                "MinBoundingBoxHeight": {
+                    "type": "float"
+                },
+                "MinBoundingBoxWidth": {
+                    "type": "float"
+                }
+            }
+        },
+        "S70": {
+            "type": "structure",
+            "members": {
+                "Codec": {},
+                "DurationMillis": {
+                    "type": "long"
+                },
+                "Format": {},
+                "FrameRate": {
+                    "type": "float"
+                },
+                "FrameHeight": {
+                    "type": "long"
+                },
+                "FrameWidth": {
+                    "type": "long"
+                },
+                "ColorRange": {}
+            }
+        },
+        "S76": {
+            "type": "structure",
+            "members": {
+                "S3Object": {
+                    "shape": "S4"
+                }
+            }
+        },
+        "S7m": {
+            "type": "structure",
+            "members": {
+                "Bytes": {
+                    "type": "blob",
+                    "sensitive": true
+                },
+                "S3Object": {
+                    "shape": "S4"
+                },
+                "BoundingBox": {
+                    "shape": "Sc"
+                }
+            }
+        },
+        "S7w": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "Similarity": {
+                        "type": "float"
+                    },
+                    "Face": {
+                        "shape": "S7y"
+                    }
+                }
+            }
+        },
+        "S7y": {
+            "type": "structure",
+            "members": {
+                "FaceId": {},
+                "BoundingBox": {
+                    "shape": "Sc"
+                },
+                "ImageId": {},
+                "ExternalImageId": {},
+                "Confidence": {
+                    "type": "float"
+                },
+                "IndexFacesModelVersion": {}
+            }
+        },
+        "Sak": {
+            "type": "structure",
+            "required": [
+                "SNSTopicArn",
+                "RoleArn"
+            ],
+            "members": {
+                "SNSTopicArn": {},
+                "RoleArn": {}
+            }
+        },
+        "Saj": {
+            "type": "structure",
+            "required": [
+                "SNSTopicArn",
+                "RoleArn"
+            ],
+            "members": {
+                "SNSTopicArn": {},
+                "RoleArn": {}
+            }
+        },
+        "S4v": {
+            "type": "list",
+            "member": {}
+        },
+        "S54": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "Red": {
+                        "type": "integer"
+                    },
+                    "Blue": {
+                        "type": "integer"
+                    },
+                    "Green": {
+                        "type": "integer"
+                    },
+                    "HexCode": {},
+                    "CSSColor": {},
+                    "SimplifiedColor": {},
+                    "PixelPercent": {
+                        "type": "float"
+                    }
+                }
+            }
+        },
+        "S6h": {
+            "type": "structure",
+            "members": {
+                "DetectedText": {},
+                "Type": {},
+                "Id": {
+                    "type": "integer"
+                },
+                "ParentId": {
+                    "type": "integer"
+                },
+                "Confidence": {
+                    "type": "float"
+                },
+                "Geometry": {
+                    "shape": "S48"
+                }
+            }
+        },
+        "S71": {
+            "type": "structure",
+            "members": {
+                "Codec": {},
+                "DurationMillis": {
+                    "type": "long"
+                },
+                "Format": {},
+                "FrameRate": {
+                    "type": "float"
+                },
+                "FrameHeight": {
+                    "type": "long"
+                },
+                "FrameWidth": {
+                    "type": "long"
+                },
+                "ColorRange": {}
+            }
+        },
+        "S7z": {
+            "type": "structure",
+            "members": {
+                "FaceId": {},
+                "BoundingBox": {
+                    "shape": "Sc"
+                },
+                "ImageId": {},
+                "ExternalImageId": {},
+                "Confidence": {
+                    "type": "float"
+                },
+                "IndexFacesModelVersion": {}
+            }
+        },
+        "Sal": {
+            "type": "structure",
+            "required": [
+                "SNSTopicArn",
+                "RoleArn"
+            ],
+            "members": {
+                "SNSTopicArn": {},
+                "RoleArn": {}
+            }
+        }
+    }
+}

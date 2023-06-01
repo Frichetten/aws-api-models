@@ -1,0 +1,597 @@
+{
+    "version": "2.0",
+    "metadata": {
+        "apiVersion": "2022-08-01",
+        "endpointPrefix": "observer",
+        "jsonVersion": "1.1",
+        "protocol": "rest-json",
+        "serviceFullName": "ObserverMonitoring",
+        "serviceId": "ObserverMonitoring",
+        "signatureVersion": "v4",
+        "signingName": "observermonitoring",
+        "uid": "observer-2022-08-01",
+        "download_location": [
+            "https://d3kld4ju0n55da.cloudfront.net/a8a23ff2-36f3-44fd-9746-550e23c208cb/main.js"
+        ]
+    },
+    "operations": {
+        "CreateObserver": {
+            "http": {
+                "requestUri": "/observer",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "Name",
+                    "Schedule",
+                    "Endpoint",
+                    "CheckType"
+                ],
+                "members": {
+                    "HttpConfig": {
+                        "shape": "S2"
+                    },
+                    "Name": {},
+                    "Schedule": {
+                        "shape": "Sn"
+                    },
+                    "Endpoint": {},
+                    "CheckType": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "observer": {
+                        "shape": "Sr"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d3kld4ju0n55da.cloudfront.net/a8a23ff2-36f3-44fd-9746-550e23c208cb/main.js"
+            ]
+        },
+        "DeleteObserver": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/observer/{ObserverIdentifier}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ObserverIdentifier"
+                ],
+                "members": {
+                    "ObserverIdentifier": {
+                        "location": "uri",
+                        "locationName": "ObserverIdentifier"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://d3kld4ju0n55da.cloudfront.net/a8a23ff2-36f3-44fd-9746-550e23c208cb/main.js"
+            ]
+        },
+        "GetObserver": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/observer/{ObserverIdentifier}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ObserverIdentifier"
+                ],
+                "members": {
+                    "ObserverIdentifier": {
+                        "location": "uri",
+                        "locationName": "ObserverIdentifier"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "observer": {
+                        "shape": "Sr"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d3kld4ju0n55da.cloudfront.net/a8a23ff2-36f3-44fd-9746-550e23c208cb/main.js"
+            ]
+        },
+        "GetObserverRuns": {
+            "http": {
+                "requestUri": "/observer/{ObserverIdentifier}/runs",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ObserverIdentifier"
+                ],
+                "members": {
+                    "MaxResults": {
+                        "type": "integer"
+                    },
+                    "Filters": {
+                        "type": "structure",
+                        "members": {
+                            "TimeRange": {
+                                "type": "structure",
+                                "members": {
+                                    "StartTime": {
+                                        "type": "timestamp"
+                                    },
+                                    "StopTime": {
+                                        "type": "timestamp"
+                                    }
+                                }
+                            },
+                            "Status": {}
+                        }
+                    },
+                    "NextToken": {
+                        "location": "querystring",
+                        "locationName": "nextToken"
+                    },
+                    "ObserverIdentifier": {
+                        "location": "uri",
+                        "locationName": "ObserverIdentifier"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "NextToken": {},
+                    "ObserverRuns": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "Name": {},
+                                "Id": {},
+                                "Endpoint": {},
+                                "Timeline": {
+                                    "type": "structure",
+                                    "members": {
+                                        "Completed": {
+                                            "type": "timestamp"
+                                        },
+                                        "Started": {
+                                            "type": "timestamp"
+                                        }
+                                    }
+                                },
+                                "Result": {},
+                                "FailureReason": {},
+                                "CheckType": {},
+                                "HttpRun": {
+                                    "type": "structure",
+                                    "members": {
+                                        "RunStatusCode": {
+                                            "type": "integer"
+                                        },
+                                        "NetworkTiming": {
+                                            "type": "structure",
+                                            "members": {
+                                                "ResponseTime": {
+                                                    "type": "long"
+                                                },
+                                                "DNSLookupTime": {
+                                                    "type": "long"
+                                                },
+                                                "TCPConnectionTime": {
+                                                    "type": "long"
+                                                },
+                                                "TLSHandshakeTime": {
+                                                    "type": "long"
+                                                },
+                                                "TimeToFirstByte": {
+                                                    "type": "long"
+                                                },
+                                                "ContentTransferTime": {
+                                                    "type": "long"
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "HttpAssertionsResult": {
+                                    "type": "structure",
+                                    "members": {
+                                        "CertificateAssertionResult": {
+                                            "type": "structure",
+                                            "members": {
+                                                "Result": {},
+                                                "DaysToExpiry": {
+                                                    "type": "integer"
+                                                },
+                                                "DaysLeftForExpiry": {
+                                                    "type": "integer"
+                                                }
+                                            }
+                                        },
+                                        "ResponseTimeAssertionResult": {
+                                            "type": "structure",
+                                            "members": {
+                                                "Result": {},
+                                                "ResponseTimeThreshold": {
+                                                    "type": "long"
+                                                },
+                                                "ActualResponseTime": {
+                                                    "type": "long"
+                                                }
+                                            }
+                                        },
+                                        "StatusCodeAssertionResult": {
+                                            "type": "structure",
+                                            "members": {
+                                                "Result": {},
+                                                "TargetStatusCode": {
+                                                    "shape": "Sj"
+                                                },
+                                                "ActualStatusCode": {
+                                                    "type": "integer"
+                                                },
+                                                "Operator": {}
+                                            }
+                                        },
+                                        "HttpBodyAssertionResults": {
+                                            "type": "list",
+                                            "member": {
+                                                "type": "structure",
+                                                "members": {
+                                                    "Result": {},
+                                                    "TargetHttpBody": {},
+                                                    "ActualHttpBody": {},
+                                                    "BodyOperator": {}
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://d3kld4ju0n55da.cloudfront.net/a8a23ff2-36f3-44fd-9746-550e23c208cb/main.js"
+            ]
+        },
+        "ListObservers": {
+            "http": {
+                "requestUri": "/observerSummary/list",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "Names": {
+                        "type": "list",
+                        "member": {}
+                    },
+                    "MaxResults": {
+                        "location": "querystring",
+                        "locationName": "maxResults",
+                        "type": "integer"
+                    },
+                    "NextToken": {
+                        "location": "querystring",
+                        "locationName": "nextToken"
+                    },
+                    "Types": {
+                        "type": "list",
+                        "member": {}
+                    },
+                    "State": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "NextToken": {},
+                    "Observers": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "Name": {},
+                                "Arn": {},
+                                "Id": {},
+                                "Type": {},
+                                "Schedule": {
+                                    "shape": "St"
+                                },
+                                "Endpoint": {},
+                                "Timeline": {
+                                    "shape": "Sw"
+                                },
+                                "State": {}
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://d3kld4ju0n55da.cloudfront.net/a8a23ff2-36f3-44fd-9746-550e23c208cb/main.js"
+            ]
+        },
+        "StartObserver": {
+            "http": {
+                "requestUri": "/observer/{ObserverIdentifier}/start",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ObserverIdentifier"
+                ],
+                "members": {
+                    "ObserverIdentifier": {
+                        "location": "uri",
+                        "locationName": "ObserverIdentifier"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "observer": {
+                        "shape": "Sr"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d3kld4ju0n55da.cloudfront.net/a8a23ff2-36f3-44fd-9746-550e23c208cb/main.js"
+            ]
+        },
+        "StopObserver": {
+            "http": {
+                "requestUri": "/observer/{ObserverIdentifier}/stop",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ObserverIdentifier"
+                ],
+                "members": {
+                    "ObserverIdentifier": {
+                        "location": "uri",
+                        "locationName": "ObserverIdentifier"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "observer": {
+                        "shape": "Sr"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d3kld4ju0n55da.cloudfront.net/a8a23ff2-36f3-44fd-9746-550e23c208cb/main.js"
+            ]
+        },
+        "UpdateObserver": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/observer/{ObserverIdentifier}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ObserverIdentifier"
+                ],
+                "members": {
+                    "Schedule": {
+                        "shape": "Sn"
+                    },
+                    "Endpoint": {},
+                    "HttpConfig": {
+                        "shape": "S2"
+                    },
+                    "ObserverIdentifier": {
+                        "location": "uri",
+                        "locationName": "ObserverIdentifier"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "observer": {
+                        "shape": "Sr"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d3kld4ju0n55da.cloudfront.net/a8a23ff2-36f3-44fd-9746-550e23c208cb/main.js"
+            ]
+        }
+    },
+    "shapes": {
+        "S2": {
+            "type": "structure",
+            "members": {
+                "Hostname": {},
+                "Port": {
+                    "type": "integer"
+                },
+                "HttpMethod": {},
+                "HttpHeaders": {
+                    "shape": "S6"
+                },
+                "UseIPv6": {
+                    "type": "boolean"
+                },
+                "RequestBody": {},
+                "VerifyCert": {
+                    "type": "boolean"
+                },
+                "HttpAssertions": {
+                    "type": "structure",
+                    "members": {
+                        "CertDaysToExpiry": {
+                            "type": "integer"
+                        },
+                        "BodyList": {
+                            "shape": "Sc"
+                        },
+                        "ResponseTimeThreshold": {
+                            "type": "long"
+                        },
+                        "StatusCode": {
+                            "shape": "Sh"
+                        }
+                    }
+                }
+            }
+        },
+        "S6": {
+            "type": "map",
+            "key": {},
+            "value": {}
+        },
+        "Sc": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "BodyOperator": {},
+                    "Target": {}
+                }
+            }
+        },
+        "Sh": {
+            "type": "structure",
+            "members": {
+                "Operator": {},
+                "TargetStatusCode": {
+                    "shape": "Sj"
+                }
+            }
+        },
+        "Sj": {
+            "type": "structure",
+            "members": {
+                "Range": {
+                    "type": "structure",
+                    "members": {
+                        "Min": {
+                            "type": "integer"
+                        },
+                        "Max": {
+                            "type": "integer"
+                        }
+                    }
+                },
+                "Value": {
+                    "type": "integer"
+                }
+            }
+        },
+        "Sn": {
+            "type": "structure",
+            "members": {
+                "DurationInSeconds": {
+                    "type": "long"
+                },
+                "Expression": {}
+            }
+        },
+        "Sr": {
+            "type": "structure",
+            "members": {
+                "Name": {},
+                "Arn": {},
+                "Schedule": {
+                    "shape": "St"
+                },
+                "CheckType": {},
+                "Endpoint": {},
+                "HttpConfig": {
+                    "type": "structure",
+                    "members": {
+                        "Hostname": {},
+                        "Port": {
+                            "type": "integer"
+                        },
+                        "HttpMethod": {},
+                        "HttpHeaders": {
+                            "shape": "S6"
+                        },
+                        "UseIPv6": {
+                            "type": "boolean"
+                        },
+                        "RequestBody": {},
+                        "VerifyCert": {
+                            "type": "boolean"
+                        },
+                        "HttpAssertions": {
+                            "type": "structure",
+                            "members": {
+                                "CertDaysToExpiry": {
+                                    "type": "integer"
+                                },
+                                "BodyList": {
+                                    "shape": "Sc"
+                                },
+                                "ResponseTimeThreshold": {
+                                    "type": "long"
+                                },
+                                "StatusCode": {
+                                    "shape": "Sh"
+                                }
+                            }
+                        }
+                    }
+                },
+                "Timeline": {
+                    "shape": "Sw"
+                },
+                "ObserverState": {}
+            }
+        },
+        "St": {
+            "type": "structure",
+            "members": {
+                "DurationInSeconds": {
+                    "type": "long"
+                },
+                "Expression": {}
+            }
+        },
+        "Sw": {
+            "type": "structure",
+            "members": {
+                "Created": {
+                    "type": "timestamp"
+                },
+                "LastModified": {
+                    "type": "timestamp"
+                },
+                "LastStarted": {
+                    "type": "timestamp"
+                },
+                "LastStopped": {
+                    "type": "timestamp"
+                }
+            }
+        }
+    }
+}

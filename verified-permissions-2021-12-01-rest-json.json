@@ -1,0 +1,1054 @@
+{
+    "version": "2.0",
+    "metadata": {
+        "apiVersion": "2021-12-01",
+        "endpointPrefix": "verifiedpermissions",
+        "jsonVersion": "1.1",
+        "protocol": "rest-json",
+        "serviceFullName": "Amazon Verified Permissions",
+        "serviceId": "Verified Permissions",
+        "signatureVersion": "v4",
+        "signingName": "verifiedpermissions",
+        "uid": "verified-permissions-2021-12-01",
+        "download_location": [
+            "https://a.b.cdn.console.awsstatic.com/a/v1/WGEKL7HWDOZG55C2REKJ72SV2QJNLGTGTCLJ4SZYHBI646L7SGNQ/vendors.js"
+        ]
+    },
+    "operations": {
+        "CreatePolicy": {
+            "http": {
+                "requestUri": "/policy-stores/{PolicyStoreIdentifier}/policies",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "PolicyStoreIdentifier",
+                    "PolicyDefinition"
+                ],
+                "members": {
+                    "ClientToken": {
+                        "idempotencyToken": true
+                    },
+                    "PolicyStoreIdentifier": {
+                        "location": "uri",
+                        "locationName": "PolicyStoreIdentifier"
+                    },
+                    "PolicyDefinition": {
+                        "type": "structure",
+                        "members": {
+                            "InlinePolicy": {
+                                "type": "structure",
+                                "required": [
+                                    "PolicyBody"
+                                ],
+                                "members": {
+                                    "Description": {},
+                                    "PolicyBody": {}
+                                }
+                            },
+                            "TemplatedPolicy": {
+                                "type": "structure",
+                                "required": [
+                                    "PolicyTemplateIdentifier"
+                                ],
+                                "members": {
+                                    "PolicyTemplateIdentifier": {},
+                                    "Principal": {
+                                        "shape": "Sa"
+                                    },
+                                    "Resource": {
+                                        "shape": "Sa"
+                                    }
+                                }
+                            }
+                        },
+                        "union": true
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "PolicyStoreId",
+                    "PolicyId",
+                    "Arn",
+                    "PolicyType",
+                    "CreatedDate",
+                    "LastUpdatedDate"
+                ],
+                "members": {
+                    "PolicyStoreId": {},
+                    "PolicyId": {},
+                    "Arn": {},
+                    "PolicyType": {},
+                    "Principal": {
+                        "shape": "Sa"
+                    },
+                    "Resource": {
+                        "shape": "Sa"
+                    },
+                    "CreatedDate": {
+                        "shape": "Sh"
+                    },
+                    "LastUpdatedDate": {
+                        "shape": "Sh"
+                    }
+                }
+            },
+            "endpoint": {
+                "hostPrefix": "admin-"
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/WGEKL7HWDOZG55C2REKJ72SV2QJNLGTGTCLJ4SZYHBI646L7SGNQ/vendors.js"
+            ]
+        },
+        "CreatePolicyStore": {
+            "http": {
+                "requestUri": "/policy-stores",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "ClientToken": {
+                        "idempotencyToken": true
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "PolicyStoreId",
+                    "Arn",
+                    "CreatedDate"
+                ],
+                "members": {
+                    "PolicyStoreId": {},
+                    "Arn": {},
+                    "CreatedDate": {
+                        "shape": "Sh"
+                    }
+                }
+            },
+            "endpoint": {
+                "hostPrefix": "admin-"
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/WGEKL7HWDOZG55C2REKJ72SV2QJNLGTGTCLJ4SZYHBI646L7SGNQ/vendors.js"
+            ]
+        },
+        "CreatePolicyTemplate": {
+            "http": {
+                "requestUri": "/policy-stores/{PolicyStoreIdentifier}/policy-templates",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "PolicyStoreIdentifier",
+                    "PolicyBody"
+                ],
+                "members": {
+                    "ClientToken": {
+                        "idempotencyToken": true
+                    },
+                    "PolicyStoreIdentifier": {
+                        "location": "uri",
+                        "locationName": "PolicyStoreIdentifier"
+                    },
+                    "Description": {},
+                    "PolicyBody": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "PolicyStoreId",
+                    "PolicyTemplateId",
+                    "Arn",
+                    "CreatedDate",
+                    "LastUpdatedDate"
+                ],
+                "members": {
+                    "PolicyStoreId": {},
+                    "PolicyTemplateId": {},
+                    "Arn": {},
+                    "CreatedDate": {
+                        "shape": "Sh"
+                    },
+                    "LastUpdatedDate": {
+                        "shape": "Sh"
+                    }
+                }
+            },
+            "endpoint": {
+                "hostPrefix": "admin-"
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/WGEKL7HWDOZG55C2REKJ72SV2QJNLGTGTCLJ4SZYHBI646L7SGNQ/vendors.js"
+            ]
+        },
+        "DeletePolicy": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/policy-stores/{PolicyStoreIdentifier}/policies/{PolicyIdentifier}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "PolicyStoreIdentifier",
+                    "PolicyIdentifier"
+                ],
+                "members": {
+                    "PolicyStoreIdentifier": {
+                        "location": "uri",
+                        "locationName": "PolicyStoreIdentifier"
+                    },
+                    "PolicyIdentifier": {
+                        "location": "uri",
+                        "locationName": "PolicyIdentifier"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "endpoint": {
+                "hostPrefix": "admin-"
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/WGEKL7HWDOZG55C2REKJ72SV2QJNLGTGTCLJ4SZYHBI646L7SGNQ/vendors.js"
+            ]
+        },
+        "DeletePolicyStore": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/policy-stores/{PolicyStoreIdentifier}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "PolicyStoreIdentifier"
+                ],
+                "members": {
+                    "PolicyStoreIdentifier": {
+                        "location": "uri",
+                        "locationName": "PolicyStoreIdentifier"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "endpoint": {
+                "hostPrefix": "admin-"
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/WGEKL7HWDOZG55C2REKJ72SV2QJNLGTGTCLJ4SZYHBI646L7SGNQ/vendors.js"
+            ]
+        },
+        "DeletePolicyTemplate": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/policy-stores/{PolicyStoreIdentifier}/policy-templates/{PolicyTemplateIdentifier}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "PolicyStoreIdentifier",
+                    "PolicyTemplateIdentifier"
+                ],
+                "members": {
+                    "PolicyStoreIdentifier": {
+                        "location": "uri",
+                        "locationName": "PolicyStoreIdentifier"
+                    },
+                    "PolicyTemplateIdentifier": {
+                        "location": "uri",
+                        "locationName": "PolicyTemplateIdentifier"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "endpoint": {
+                "hostPrefix": "admin-"
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/WGEKL7HWDOZG55C2REKJ72SV2QJNLGTGTCLJ4SZYHBI646L7SGNQ/vendors.js"
+            ]
+        },
+        "GetPolicy": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/policy-stores/{PolicyStoreIdentifier}/policies/{PolicyIdentifier}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "PolicyStoreIdentifier",
+                    "PolicyIdentifier"
+                ],
+                "members": {
+                    "PolicyStoreIdentifier": {
+                        "location": "uri",
+                        "locationName": "PolicyStoreIdentifier"
+                    },
+                    "PolicyIdentifier": {
+                        "location": "uri",
+                        "locationName": "PolicyIdentifier"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "PolicyStoreId",
+                    "PolicyId",
+                    "Arn",
+                    "PolicyType",
+                    "PolicyDefinition",
+                    "CreatedDate",
+                    "LastUpdatedDate"
+                ],
+                "members": {
+                    "PolicyStoreId": {},
+                    "PolicyId": {},
+                    "Arn": {},
+                    "PolicyType": {},
+                    "Principal": {
+                        "shape": "Sa"
+                    },
+                    "Resource": {
+                        "shape": "Sa"
+                    },
+                    "PolicyDefinition": {
+                        "type": "structure",
+                        "members": {
+                            "InlinePolicy": {
+                                "type": "structure",
+                                "required": [
+                                    "PolicyBody"
+                                ],
+                                "members": {
+                                    "Description": {},
+                                    "PolicyBody": {}
+                                }
+                            },
+                            "TemplatedPolicy": {
+                                "type": "structure",
+                                "required": [
+                                    "PolicyTemplateId"
+                                ],
+                                "members": {
+                                    "PolicyTemplateId": {},
+                                    "Principal": {
+                                        "shape": "Sa"
+                                    },
+                                    "Resource": {
+                                        "shape": "Sa"
+                                    }
+                                }
+                            }
+                        },
+                        "union": true
+                    },
+                    "CreatedDate": {
+                        "shape": "Sh"
+                    },
+                    "LastUpdatedDate": {
+                        "shape": "Sh"
+                    }
+                }
+            },
+            "endpoint": {
+                "hostPrefix": "admin-"
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/WGEKL7HWDOZG55C2REKJ72SV2QJNLGTGTCLJ4SZYHBI646L7SGNQ/vendors.js"
+            ]
+        },
+        "GetPolicyTemplate": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/policy-stores/{PolicyStoreIdentifier}/policy-templates/{PolicyTemplateIdentifier}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "PolicyStoreIdentifier",
+                    "PolicyTemplateIdentifier"
+                ],
+                "members": {
+                    "PolicyStoreIdentifier": {
+                        "location": "uri",
+                        "locationName": "PolicyStoreIdentifier"
+                    },
+                    "PolicyTemplateIdentifier": {
+                        "location": "uri",
+                        "locationName": "PolicyTemplateIdentifier"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "PolicyStoreId",
+                    "PolicyTemplateId",
+                    "Arn",
+                    "PolicyBody",
+                    "CreatedDate",
+                    "LastUpdatedDate"
+                ],
+                "members": {
+                    "PolicyStoreId": {},
+                    "PolicyTemplateId": {},
+                    "Arn": {},
+                    "Description": {},
+                    "PolicyBody": {},
+                    "CreatedDate": {
+                        "shape": "Sh"
+                    },
+                    "LastUpdatedDate": {
+                        "shape": "Sh"
+                    }
+                }
+            },
+            "endpoint": {
+                "hostPrefix": "admin-"
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/WGEKL7HWDOZG55C2REKJ72SV2QJNLGTGTCLJ4SZYHBI646L7SGNQ/vendors.js"
+            ]
+        },
+        "GetSchema": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/policy-stores/{PolicyStoreIdentifier}/schema",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "PolicyStoreIdentifier"
+                ],
+                "members": {
+                    "PolicyStoreIdentifier": {
+                        "location": "uri",
+                        "locationName": "PolicyStoreIdentifier"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "PolicyStoreId",
+                    "Arn",
+                    "Schema",
+                    "CreatedDate",
+                    "LastUpdatedDate"
+                ],
+                "members": {
+                    "PolicyStoreId": {},
+                    "Arn": {},
+                    "Schema": {},
+                    "CreatedDate": {
+                        "shape": "Sh"
+                    },
+                    "LastUpdatedDate": {
+                        "shape": "Sh"
+                    }
+                }
+            },
+            "endpoint": {
+                "hostPrefix": "admin-"
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/WGEKL7HWDOZG55C2REKJ72SV2QJNLGTGTCLJ4SZYHBI646L7SGNQ/vendors.js"
+            ]
+        },
+        "IsAuthorized": {
+            "http": {
+                "requestUri": "/policy-stores/{PolicyStoreIdentifier}/is-authorized",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "PolicyStoreIdentifier"
+                ],
+                "members": {
+                    "PolicyStoreIdentifier": {
+                        "location": "uri",
+                        "locationName": "PolicyStoreIdentifier"
+                    },
+                    "Principal": {
+                        "shape": "Sa"
+                    },
+                    "Action": {
+                        "type": "structure",
+                        "required": [
+                            "ActionType",
+                            "ActionId"
+                        ],
+                        "members": {
+                            "ActionType": {},
+                            "ActionId": {}
+                        }
+                    },
+                    "Resource": {
+                        "shape": "Sa"
+                    },
+                    "Context": {
+                        "type": "map",
+                        "key": {},
+                        "value": {
+                            "shape": "S19"
+                        }
+                    },
+                    "SliceComplement": {
+                        "type": "structure",
+                        "members": {
+                            "Entities": {
+                                "type": "list",
+                                "member": {
+                                    "type": "structure",
+                                    "required": [
+                                        "Identifier"
+                                    ],
+                                    "members": {
+                                        "Identifier": {
+                                            "shape": "Sa"
+                                        },
+                                        "Attributes": {
+                                            "type": "map",
+                                            "key": {},
+                                            "value": {
+                                                "shape": "S19"
+                                            }
+                                        },
+                                        "Parents": {
+                                            "type": "list",
+                                            "member": {
+                                                "shape": "Sa"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Decision": {},
+                    "DeterminingPolicies": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "DeterminingPolicyIdentifier": {}
+                            }
+                        }
+                    },
+                    "Errors": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "ErrorDescription": {}
+                            }
+                        }
+                    }
+                }
+            },
+            "endpoint": {
+                "hostPrefix": "authz-"
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/WGEKL7HWDOZG55C2REKJ72SV2QJNLGTGTCLJ4SZYHBI646L7SGNQ/vendors.js"
+            ]
+        },
+        "ListPolicies": {
+            "http": {
+                "requestUri": "/list/policy-stores/{PolicyStoreIdentifier}/policies",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "PolicyStoreIdentifier"
+                ],
+                "members": {
+                    "PolicyStoreIdentifier": {
+                        "location": "uri",
+                        "locationName": "PolicyStoreIdentifier"
+                    },
+                    "NextToken": {},
+                    "MaxResults": {
+                        "type": "integer"
+                    },
+                    "Filter": {
+                        "type": "structure",
+                        "members": {
+                            "Principal": {
+                                "shape": "S1u"
+                            },
+                            "Resource": {
+                                "shape": "S1u"
+                            },
+                            "PolicyType": {},
+                            "PolicyTemplateId": {}
+                        }
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "Policies"
+                ],
+                "members": {
+                    "NextToken": {},
+                    "Policies": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "PolicyStoreId",
+                                "PolicyId",
+                                "Arn",
+                                "PolicyType",
+                                "PolicyDefinition",
+                                "CreatedDate",
+                                "LastUpdatedDate"
+                            ],
+                            "members": {
+                                "PolicyStoreId": {},
+                                "PolicyId": {},
+                                "Arn": {},
+                                "PolicyType": {},
+                                "Principal": {
+                                    "shape": "Sa"
+                                },
+                                "Resource": {
+                                    "shape": "Sa"
+                                },
+                                "PolicyDefinition": {
+                                    "type": "structure",
+                                    "members": {
+                                        "InlinePolicy": {
+                                            "type": "structure",
+                                            "members": {
+                                                "Description": {}
+                                            }
+                                        },
+                                        "TemplatedPolicy": {
+                                            "type": "structure",
+                                            "required": [
+                                                "PolicyTemplateId"
+                                            ],
+                                            "members": {
+                                                "PolicyTemplateId": {},
+                                                "Principal": {
+                                                    "shape": "Sa"
+                                                },
+                                                "Resource": {
+                                                    "shape": "Sa"
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "union": true
+                                },
+                                "CreatedDate": {
+                                    "shape": "Sh"
+                                },
+                                "LastUpdatedDate": {
+                                    "shape": "Sh"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "endpoint": {
+                "hostPrefix": "admin-"
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/WGEKL7HWDOZG55C2REKJ72SV2QJNLGTGTCLJ4SZYHBI646L7SGNQ/vendors.js"
+            ]
+        },
+        "ListPolicyStores": {
+            "http": {
+                "requestUri": "/list/policy-stores",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "NextToken": {},
+                    "MaxResults": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "PolicyStores"
+                ],
+                "members": {
+                    "NextToken": {},
+                    "PolicyStores": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "PolicyStoreId",
+                                "Arn",
+                                "CreatedDate"
+                            ],
+                            "members": {
+                                "PolicyStoreId": {},
+                                "Arn": {},
+                                "CreatedDate": {
+                                    "shape": "Sh"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "endpoint": {
+                "hostPrefix": "admin-"
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/WGEKL7HWDOZG55C2REKJ72SV2QJNLGTGTCLJ4SZYHBI646L7SGNQ/vendors.js"
+            ]
+        },
+        "ListPolicyTemplates": {
+            "http": {
+                "requestUri": "/list/policy-stores/{PolicyStoreIdentifier}/policy-templates",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "PolicyStoreIdentifier"
+                ],
+                "members": {
+                    "PolicyStoreIdentifier": {
+                        "location": "uri",
+                        "locationName": "PolicyStoreIdentifier"
+                    },
+                    "NextToken": {},
+                    "MaxResults": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "PolicyTemplates"
+                ],
+                "members": {
+                    "NextToken": {},
+                    "PolicyTemplates": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "PolicyStoreId",
+                                "PolicyTemplateId",
+                                "Arn",
+                                "CreatedDate",
+                                "LastUpdatedDate"
+                            ],
+                            "members": {
+                                "PolicyStoreId": {},
+                                "PolicyTemplateId": {},
+                                "Arn": {},
+                                "Description": {},
+                                "CreatedDate": {
+                                    "shape": "Sh"
+                                },
+                                "LastUpdatedDate": {
+                                    "shape": "Sh"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "endpoint": {
+                "hostPrefix": "admin-"
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/WGEKL7HWDOZG55C2REKJ72SV2QJNLGTGTCLJ4SZYHBI646L7SGNQ/vendors.js"
+            ]
+        },
+        "PutSchema": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/policy-stores/{PolicyStoreIdentifier}/schema",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "PolicyStoreIdentifier",
+                    "Schema"
+                ],
+                "members": {
+                    "PolicyStoreIdentifier": {
+                        "location": "uri",
+                        "locationName": "PolicyStoreIdentifier"
+                    },
+                    "Schema": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "PolicyStoreId",
+                    "Arn",
+                    "Namespaces",
+                    "CreatedDate",
+                    "LastUpdatedDate"
+                ],
+                "members": {
+                    "PolicyStoreId": {},
+                    "Arn": {},
+                    "Namespaces": {
+                        "type": "list",
+                        "member": {}
+                    },
+                    "CreatedDate": {
+                        "shape": "Sh"
+                    },
+                    "LastUpdatedDate": {
+                        "shape": "Sh"
+                    }
+                }
+            },
+            "endpoint": {
+                "hostPrefix": "admin-"
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/WGEKL7HWDOZG55C2REKJ72SV2QJNLGTGTCLJ4SZYHBI646L7SGNQ/vendors.js"
+            ]
+        },
+        "UpdatePolicy": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/policy-stores/{PolicyStoreIdentifier}/policies/{PolicyIdentifier}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "PolicyStoreIdentifier",
+                    "PolicyIdentifier",
+                    "PolicyDefinition"
+                ],
+                "members": {
+                    "PolicyStoreIdentifier": {
+                        "location": "uri",
+                        "locationName": "PolicyStoreIdentifier"
+                    },
+                    "PolicyIdentifier": {
+                        "location": "uri",
+                        "locationName": "PolicyIdentifier"
+                    },
+                    "PolicyDefinition": {
+                        "type": "structure",
+                        "members": {
+                            "InlinePolicy": {
+                                "type": "structure",
+                                "required": [
+                                    "PolicyBody"
+                                ],
+                                "members": {
+                                    "Description": {},
+                                    "PolicyBody": {}
+                                }
+                            }
+                        },
+                        "union": true
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "PolicyStoreId",
+                    "PolicyId",
+                    "Arn",
+                    "PolicyType",
+                    "CreatedDate",
+                    "LastUpdatedDate"
+                ],
+                "members": {
+                    "PolicyStoreId": {},
+                    "PolicyId": {},
+                    "Arn": {},
+                    "PolicyType": {},
+                    "Principal": {
+                        "shape": "Sa"
+                    },
+                    "Resource": {
+                        "shape": "Sa"
+                    },
+                    "CreatedDate": {
+                        "shape": "Sh"
+                    },
+                    "LastUpdatedDate": {
+                        "shape": "Sh"
+                    }
+                }
+            },
+            "endpoint": {
+                "hostPrefix": "admin-"
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/WGEKL7HWDOZG55C2REKJ72SV2QJNLGTGTCLJ4SZYHBI646L7SGNQ/vendors.js"
+            ]
+        },
+        "UpdatePolicyTemplate": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/policy-stores/{PolicyStoreIdentifier}/policy-templates/{PolicyTemplateIdentifier}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "PolicyStoreIdentifier",
+                    "PolicyTemplateIdentifier",
+                    "PolicyBody"
+                ],
+                "members": {
+                    "PolicyStoreIdentifier": {
+                        "location": "uri",
+                        "locationName": "PolicyStoreIdentifier"
+                    },
+                    "PolicyTemplateIdentifier": {
+                        "location": "uri",
+                        "locationName": "PolicyTemplateIdentifier"
+                    },
+                    "Description": {},
+                    "PolicyBody": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "PolicyStoreId",
+                    "PolicyTemplateId",
+                    "Arn",
+                    "CreatedDate",
+                    "LastUpdatedDate"
+                ],
+                "members": {
+                    "PolicyStoreId": {},
+                    "PolicyTemplateId": {},
+                    "Arn": {},
+                    "CreatedDate": {
+                        "shape": "Sh"
+                    },
+                    "LastUpdatedDate": {
+                        "shape": "Sh"
+                    }
+                }
+            },
+            "endpoint": {
+                "hostPrefix": "admin-"
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/WGEKL7HWDOZG55C2REKJ72SV2QJNLGTGTCLJ4SZYHBI646L7SGNQ/vendors.js"
+            ]
+        }
+    },
+    "shapes": {
+        "Sa": {
+            "type": "structure",
+            "required": [
+                "EntityType",
+                "EntityId"
+            ],
+            "members": {
+                "EntityType": {},
+                "EntityId": {}
+            }
+        },
+        "Sh": {
+            "type": "timestamp",
+            "timestampFormat": "iso8601"
+        },
+        "S19": {
+            "type": "structure",
+            "members": {
+                "Boolean": {
+                    "type": "boolean"
+                },
+                "EntityIdentifier": {
+                    "shape": "Sa"
+                },
+                "Long": {
+                    "type": "long"
+                },
+                "String": {},
+                "Set": {
+                    "type": "list",
+                    "member": {
+                        "shape": "S19"
+                    }
+                },
+                "Record": {
+                    "type": "map",
+                    "key": {},
+                    "value": {
+                        "shape": "S19"
+                    }
+                }
+            },
+            "union": true
+        },
+        "S1u": {
+            "type": "structure",
+            "members": {
+                "Unspecified": {
+                    "type": "boolean"
+                },
+                "Identifier": {
+                    "shape": "Sa"
+                }
+            },
+            "union": true
+        }
+    }
+}

@@ -1,0 +1,2218 @@
+{
+    "version": "2.0",
+    "metadata": {
+        "apiVersion": "2015-09-21",
+        "endpointPrefix": "api.ecr",
+        "jsonVersion": "1.1",
+        "protocol": "json",
+        "serviceAbbreviation": "Amazon ECR",
+        "serviceFullName": "Amazon EC2 Container Registry",
+        "serviceId": "ECR",
+        "signatureVersion": "v4",
+        "signingName": "ecr",
+        "targetPrefix": "AmazonEC2ContainerRegistry_V20150921",
+        "uid": "ecr-2015-09-21",
+        "download_location": [
+            "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+        ]
+    },
+    "operations": {
+        "BatchCheckLayerAvailability": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "repositoryName",
+                    "layerDigests"
+                ],
+                "members": {
+                    "registryId": {},
+                    "repositoryName": {},
+                    "layerDigests": {
+                        "type": "list",
+                        "member": {}
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "layers": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "layerDigest": {},
+                                "layerAvailability": {},
+                                "layerSize": {
+                                    "type": "long"
+                                },
+                                "mediaType": {}
+                            }
+                        }
+                    },
+                    "failures": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "layerDigest": {},
+                                "failureCode": {},
+                                "failureReason": {}
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "BatchDeleteImage": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "repositoryName",
+                    "imageIds"
+                ],
+                "members": {
+                    "registryId": {},
+                    "repositoryName": {},
+                    "imageIds": {
+                        "shape": "Si"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "imageIds": {
+                        "shape": "Si"
+                    },
+                    "failures": {
+                        "shape": "Sn"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "BatchGetImage": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "repositoryName",
+                    "imageIds"
+                ],
+                "members": {
+                    "registryId": {},
+                    "repositoryName": {},
+                    "imageIds": {
+                        "shape": "Si"
+                    },
+                    "acceptedMediaTypes": {
+                        "type": "list",
+                        "member": {}
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "images": {
+                        "type": "list",
+                        "member": {
+                            "shape": "Sv"
+                        }
+                    },
+                    "failures": {
+                        "shape": "Sn"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "CompleteLayerUpload": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "repositoryName",
+                    "uploadId",
+                    "layerDigests"
+                ],
+                "members": {
+                    "registryId": {},
+                    "repositoryName": {},
+                    "uploadId": {},
+                    "layerDigests": {
+                        "type": "list",
+                        "member": {}
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "registryId": {},
+                    "repositoryName": {},
+                    "uploadId": {},
+                    "layerDigest": {}
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "CreateRepository": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "repositoryName"
+                ],
+                "members": {
+                    "repositoryName": {},
+                    "tags": {
+                        "shape": "S12"
+                    },
+                    "imageTagMutability": {},
+                    "imageScanningConfiguration": {
+                        "shape": "S17"
+                    },
+                    "encryptionConfiguration": {
+                        "shape": "S19"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "repository": {
+                        "shape": "S1d"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "DeleteLifecyclePolicy": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "repositoryName"
+                ],
+                "members": {
+                    "registryId": {},
+                    "repositoryName": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "registryId": {},
+                    "repositoryName": {},
+                    "lifecyclePolicyText": {},
+                    "lastEvaluatedAt": {
+                        "type": "timestamp"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "DeleteRegistryPolicy": {
+            "input": {
+                "type": "structure",
+                "members": {}
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "registryId": {},
+                    "policyText": {}
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "DeleteRepository": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "repositoryName"
+                ],
+                "members": {
+                    "registryId": {},
+                    "repositoryName": {},
+                    "force": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "repository": {
+                        "shape": "S1d"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "DeleteRepositoryPolicy": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "repositoryName"
+                ],
+                "members": {
+                    "registryId": {},
+                    "repositoryName": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "registryId": {},
+                    "repositoryName": {},
+                    "policyText": {}
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "DescribeImageScanFindings": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "repositoryName",
+                    "imageId"
+                ],
+                "members": {
+                    "registryId": {},
+                    "repositoryName": {},
+                    "imageId": {
+                        "shape": "Sj"
+                    },
+                    "nextToken": {},
+                    "maxResults": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "registryId": {},
+                    "repositoryName": {},
+                    "imageId": {
+                        "shape": "Sj"
+                    },
+                    "imageScanStatus": {
+                        "shape": "S1y"
+                    },
+                    "imageScanFindings": {
+                        "type": "structure",
+                        "members": {
+                            "imageScanCompletedAt": {
+                                "type": "timestamp"
+                            },
+                            "vulnerabilitySourceUpdatedAt": {
+                                "type": "timestamp"
+                            },
+                            "findings": {
+                                "type": "list",
+                                "member": {
+                                    "type": "structure",
+                                    "members": {
+                                        "name": {},
+                                        "description": {},
+                                        "uri": {},
+                                        "severity": {},
+                                        "attributes": {
+                                            "type": "list",
+                                            "member": {
+                                                "type": "structure",
+                                                "required": [
+                                                    "key"
+                                                ],
+                                                "members": {
+                                                    "key": {},
+                                                    "value": {}
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            "findingSeverityCounts": {
+                                "shape": "S2d"
+                            }
+                        }
+                    },
+                    "nextToken": {}
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "DescribeImages": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "repositoryName"
+                ],
+                "members": {
+                    "registryId": {},
+                    "repositoryName": {},
+                    "imageIds": {
+                        "shape": "Si"
+                    },
+                    "nextToken": {},
+                    "maxResults": {
+                        "type": "integer"
+                    },
+                    "filter": {
+                        "type": "structure",
+                        "members": {
+                            "tagStatus": {}
+                        }
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "imageDetails": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "registryId": {},
+                                "repositoryName": {},
+                                "imageDigest": {},
+                                "imageTags": {
+                                    "shape": "S2l"
+                                },
+                                "imageSizeInBytes": {
+                                    "type": "long"
+                                },
+                                "imagePushedAt": {
+                                    "type": "timestamp"
+                                },
+                                "imageScanStatus": {
+                                    "shape": "S1y"
+                                },
+                                "imageScanFindingsSummary": {
+                                    "type": "structure",
+                                    "members": {
+                                        "imageScanCompletedAt": {
+                                            "type": "timestamp"
+                                        },
+                                        "vulnerabilitySourceUpdatedAt": {
+                                            "type": "timestamp"
+                                        },
+                                        "findingSeverityCounts": {
+                                            "shape": "S2d"
+                                        }
+                                    }
+                                },
+                                "imageManifestMediaType": {},
+                                "artifactMediaType": {}
+                            }
+                        }
+                    },
+                    "nextToken": {}
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "DescribeRegistry": {
+            "input": {
+                "type": "structure",
+                "members": {}
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "registryId": {},
+                    "replicationConfiguration": {
+                        "shape": "S2r"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "DescribeRepositories": {
+            "input": {
+                "type": "structure",
+                "members": {
+                    "registryId": {},
+                    "repositoryNames": {
+                        "type": "list",
+                        "member": {}
+                    },
+                    "nextToken": {},
+                    "maxResults": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "repositories": {
+                        "type": "list",
+                        "member": {
+                            "shape": "S1d"
+                        }
+                    },
+                    "nextToken": {}
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "GetAuthorizationToken": {
+            "input": {
+                "type": "structure",
+                "members": {
+                    "registryIds": {
+                        "deprecated": true,
+                        "deprecatedMessage": "This field is deprecated. The returned authorization token can be used to access any Amazon ECR registry that the IAM principal has access to, specifying a registry ID doesn't change the permissions scope of the authorization token.",
+                        "type": "list",
+                        "member": {}
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "authorizationData": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "authorizationToken": {},
+                                "expiresAt": {
+                                    "type": "timestamp"
+                                },
+                                "proxyEndpoint": {}
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "GetDownloadUrlForLayer": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "repositoryName",
+                    "layerDigest"
+                ],
+                "members": {
+                    "registryId": {},
+                    "repositoryName": {},
+                    "layerDigest": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "downloadUrl": {},
+                    "layerDigest": {}
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "GetLifecyclePolicy": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "repositoryName"
+                ],
+                "members": {
+                    "registryId": {},
+                    "repositoryName": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "registryId": {},
+                    "repositoryName": {},
+                    "lifecyclePolicyText": {},
+                    "lastEvaluatedAt": {
+                        "type": "timestamp"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "GetLifecyclePolicyPreview": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "repositoryName"
+                ],
+                "members": {
+                    "registryId": {},
+                    "repositoryName": {},
+                    "imageIds": {
+                        "shape": "Si"
+                    },
+                    "nextToken": {},
+                    "maxResults": {
+                        "type": "integer"
+                    },
+                    "filter": {
+                        "type": "structure",
+                        "members": {
+                            "tagStatus": {}
+                        }
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "registryId": {},
+                    "repositoryName": {},
+                    "lifecyclePolicyText": {},
+                    "status": {},
+                    "nextToken": {},
+                    "previewResults": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "imageTags": {
+                                    "shape": "S2l"
+                                },
+                                "imageDigest": {},
+                                "imagePushedAt": {
+                                    "type": "timestamp"
+                                },
+                                "action": {
+                                    "type": "structure",
+                                    "members": {
+                                        "type": {}
+                                    }
+                                },
+                                "appliedRulePriority": {
+                                    "type": "integer"
+                                }
+                            }
+                        }
+                    },
+                    "summary": {
+                        "type": "structure",
+                        "members": {
+                            "expiringImageTotalCount": {
+                                "type": "integer"
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "GetRegistryPolicy": {
+            "input": {
+                "type": "structure",
+                "members": {}
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "registryId": {},
+                    "policyText": {}
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "GetRepositoryPolicy": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "repositoryName"
+                ],
+                "members": {
+                    "registryId": {},
+                    "repositoryName": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "registryId": {},
+                    "repositoryName": {},
+                    "policyText": {}
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "InitiateLayerUpload": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "repositoryName"
+                ],
+                "members": {
+                    "registryId": {},
+                    "repositoryName": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "uploadId": {},
+                    "partSize": {
+                        "type": "long"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "ListImages": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "repositoryName"
+                ],
+                "members": {
+                    "registryId": {},
+                    "repositoryName": {},
+                    "nextToken": {},
+                    "maxResults": {
+                        "type": "integer"
+                    },
+                    "filter": {
+                        "type": "structure",
+                        "members": {
+                            "tagStatus": {}
+                        }
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "imageIds": {
+                        "shape": "Si"
+                    },
+                    "nextToken": {}
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "ListTagsForResource": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "resourceArn"
+                ],
+                "members": {
+                    "resourceArn": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "tags": {
+                        "shape": "S12"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "PutImage": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "repositoryName",
+                    "imageManifest"
+                ],
+                "members": {
+                    "registryId": {},
+                    "repositoryName": {},
+                    "imageManifest": {},
+                    "imageManifestMediaType": {},
+                    "imageTag": {},
+                    "imageDigest": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "image": {
+                        "shape": "Sv"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "PutImageScanningConfiguration": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "repositoryName",
+                    "imageScanningConfiguration"
+                ],
+                "members": {
+                    "registryId": {},
+                    "repositoryName": {},
+                    "imageScanningConfiguration": {
+                        "shape": "S17"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "registryId": {},
+                    "repositoryName": {},
+                    "imageScanningConfiguration": {
+                        "shape": "S17"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "PutImageTagMutability": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "repositoryName",
+                    "imageTagMutability"
+                ],
+                "members": {
+                    "registryId": {},
+                    "repositoryName": {},
+                    "imageTagMutability": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "registryId": {},
+                    "repositoryName": {},
+                    "imageTagMutability": {}
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "PutLifecyclePolicy": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "repositoryName",
+                    "lifecyclePolicyText"
+                ],
+                "members": {
+                    "registryId": {},
+                    "repositoryName": {},
+                    "lifecyclePolicyText": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "registryId": {},
+                    "repositoryName": {},
+                    "lifecyclePolicyText": {}
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "PutRegistryPolicy": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "policyText"
+                ],
+                "members": {
+                    "policyText": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "registryId": {},
+                    "policyText": {}
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "PutReplicationConfiguration": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "replicationConfiguration"
+                ],
+                "members": {
+                    "replicationConfiguration": {
+                        "shape": "S2r"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "replicationConfiguration": {
+                        "shape": "S2r"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "SetRepositoryPolicy": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "repositoryName",
+                    "policyText"
+                ],
+                "members": {
+                    "registryId": {},
+                    "repositoryName": {},
+                    "policyText": {},
+                    "force": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "registryId": {},
+                    "repositoryName": {},
+                    "policyText": {}
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "StartImageScan": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "repositoryName",
+                    "imageId"
+                ],
+                "members": {
+                    "registryId": {},
+                    "repositoryName": {},
+                    "imageId": {
+                        "shape": "Sj"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "registryId": {},
+                    "repositoryName": {},
+                    "imageId": {
+                        "shape": "Sj"
+                    },
+                    "imageScanStatus": {
+                        "shape": "S1y"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "StartLifecyclePolicyPreview": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "repositoryName"
+                ],
+                "members": {
+                    "registryId": {},
+                    "repositoryName": {},
+                    "lifecyclePolicyText": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "registryId": {},
+                    "repositoryName": {},
+                    "lifecyclePolicyText": {},
+                    "status": {}
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "TagResource": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "resourceArn",
+                    "tags"
+                ],
+                "members": {
+                    "resourceArn": {},
+                    "tags": {
+                        "shape": "S12"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "UntagResource": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "resourceArn",
+                    "tagKeys"
+                ],
+                "members": {
+                    "resourceArn": {},
+                    "tagKeys": {
+                        "type": "list",
+                        "member": {}
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "UploadLayerPart": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "repositoryName",
+                    "uploadId",
+                    "partFirstByte",
+                    "partLastByte",
+                    "layerPartBlob"
+                ],
+                "members": {
+                    "registryId": {},
+                    "repositoryName": {},
+                    "uploadId": {},
+                    "partFirstByte": {
+                        "type": "long"
+                    },
+                    "partLastByte": {
+                        "type": "long"
+                    },
+                    "layerPartBlob": {
+                        "type": "blob"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "registryId": {},
+                    "repositoryName": {},
+                    "uploadId": {},
+                    "lastByteReceived": {
+                        "type": "long"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "BatchGetRepositoryScanningConfiguration": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "repositoryNames"
+                ],
+                "members": {
+                    "repositoryNames": {
+                        "type": "list",
+                        "member": {}
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "scanningConfigurations": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "repositoryArn": {},
+                                "repositoryName": {},
+                                "scanOnPush": {
+                                    "type": "boolean"
+                                },
+                                "scanFrequency": {},
+                                "appliedScanFilters": {
+                                    "shape": "S15"
+                                }
+                            }
+                        }
+                    },
+                    "failures": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "repositoryName": {},
+                                "failureCode": {},
+                                "failureReason": {}
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/CGJXZR6KWK4HWILROC6UQIRVDGVSAMSF7CRFEQR2WUZWSF2VPKDQ/vendors.js"
+            ]
+        },
+        "CreatePullThroughCacheRule": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ecrRepositoryPrefix",
+                    "upstreamRegistryUrl"
+                ],
+                "members": {
+                    "ecrRepositoryPrefix": {},
+                    "upstreamRegistryUrl": {},
+                    "registryId": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ecrRepositoryPrefix": {},
+                    "upstreamRegistryUrl": {},
+                    "createdAt": {
+                        "type": "timestamp"
+                    },
+                    "registryId": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/CGJXZR6KWK4HWILROC6UQIRVDGVSAMSF7CRFEQR2WUZWSF2VPKDQ/vendors.js"
+            ]
+        },
+        "DeletePullThroughCacheRule": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ecrRepositoryPrefix"
+                ],
+                "members": {
+                    "ecrRepositoryPrefix": {},
+                    "registryId": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ecrRepositoryPrefix": {},
+                    "upstreamRegistryUrl": {},
+                    "createdAt": {
+                        "type": "timestamp"
+                    },
+                    "registryId": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/CGJXZR6KWK4HWILROC6UQIRVDGVSAMSF7CRFEQR2WUZWSF2VPKDQ/vendors.js"
+            ]
+        },
+        "DescribeImageReplicationStatus": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "repositoryName",
+                    "imageId"
+                ],
+                "members": {
+                    "repositoryName": {},
+                    "imageId": {
+                        "shape": "Sj"
+                    },
+                    "registryId": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "repositoryName": {},
+                    "imageId": {
+                        "shape": "Sj"
+                    },
+                    "replicationStatuses": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "region": {},
+                                "registryId": {},
+                                "status": {},
+                                "failureCode": {}
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/CGJXZR6KWK4HWILROC6UQIRVDGVSAMSF7CRFEQR2WUZWSF2VPKDQ/vendors.js"
+            ]
+        },
+        "DescribePullThroughCacheRules": {
+            "input": {
+                "type": "structure",
+                "members": {
+                    "registryId": {},
+                    "ecrRepositoryPrefixes": {
+                        "type": "list",
+                        "member": {}
+                    },
+                    "nextToken": {},
+                    "maxResults": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "pullThroughCacheRules": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "ecrRepositoryPrefix": {},
+                                "upstreamRegistryUrl": {},
+                                "createdAt": {
+                                    "type": "timestamp"
+                                },
+                                "registryId": {}
+                            }
+                        }
+                    },
+                    "nextToken": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/CGJXZR6KWK4HWILROC6UQIRVDGVSAMSF7CRFEQR2WUZWSF2VPKDQ/vendors.js"
+            ]
+        },
+        "GetRegistryScanningConfiguration": {
+            "input": {
+                "type": "structure",
+                "members": {}
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "registryId": {},
+                    "scanningConfiguration": {
+                        "shape": "S63"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/CGJXZR6KWK4HWILROC6UQIRVDGVSAMSF7CRFEQR2WUZWSF2VPKDQ/vendors.js"
+            ]
+        },
+        "PutRegistryScanningConfiguration": {
+            "input": {
+                "type": "structure",
+                "members": {
+                    "scanType": {},
+                    "rules": {
+                        "shape": "S65"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "registryScanningConfiguration": {
+                        "shape": "S63"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/CGJXZR6KWK4HWILROC6UQIRVDGVSAMSF7CRFEQR2WUZWSF2VPKDQ/vendors.js"
+            ]
+        },
+        "BatchCompleteLayerReplication": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "registryId",
+                    "repositoryName",
+                    "layers"
+                ],
+                "members": {
+                    "registryId": {},
+                    "repositoryName": {},
+                    "layers": {
+                        "shape": "Si"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "registryId": {},
+                    "repositoryName": {},
+                    "layers": {
+                        "shape": "Si"
+                    },
+                    "failures": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "layerId": {},
+                                "layerDigest": {},
+                                "layerUploadId": {},
+                                "layerSize": {
+                                    "type": "long"
+                                },
+                                "storageLocation": {},
+                                "failureCode": {},
+                                "failureReason": {}
+                            }
+                        }
+                    }
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/RVP4V4P7JLCFDRESM7CQOZ6BKFOB5C6TSVVLXWBDFNLMNFVQFYXA/vendors.js"
+            ]
+        },
+        "BatchGetImageReferrer": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "repositoryName",
+                    "subjectId"
+                ],
+                "members": {
+                    "registryId": {},
+                    "repositoryName": {},
+                    "subjectId": {
+                        "type": "structure",
+                        "required": [
+                            "imageDigest"
+                        ],
+                        "members": {
+                            "imageDigest": {}
+                        }
+                    },
+                    "filter": {
+                        "type": "structure",
+                        "members": {
+                            "artifactTypes": {
+                                "type": "list",
+                                "member": {}
+                            }
+                        }
+                    },
+                    "nextToken": {},
+                    "maxResults": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "referrers": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "digest",
+                                "mediaType",
+                                "size"
+                            ],
+                            "members": {
+                                "digest": {},
+                                "mediaType": {},
+                                "artifactType": {},
+                                "size": {
+                                    "type": "long"
+                                },
+                                "annotations": {
+                                    "type": "map",
+                                    "key": {},
+                                    "value": {}
+                                }
+                            }
+                        }
+                    },
+                    "nextToken": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/RVP4V4P7JLCFDRESM7CQOZ6BKFOB5C6TSVVLXWBDFNLMNFVQFYXA/vendors.js"
+            ]
+        },
+        "BatchInitiateLayerReplication": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "registryId",
+                    "repositoryName",
+                    "layerDigests"
+                ],
+                "members": {
+                    "registryId": {},
+                    "repositoryName": {},
+                    "layerDigests": {
+                        "shape": "S22"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "layersToReplicate": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "layerId": {},
+                                "layerDigest": {},
+                                "layerUploadId": {},
+                                "storageLocation": {}
+                            }
+                        }
+                    },
+                    "layersAlreadyAvailable": {
+                        "shape": "S22"
+                    },
+                    "sessionCredentials": {
+                        "type": "structure",
+                        "members": {
+                            "accessKeyId": {
+                                "type": "string",
+                                "sensitive": true
+                            },
+                            "secretAccessKey": {
+                                "type": "string",
+                                "sensitive": true
+                            },
+                            "sessionToken": {
+                                "type": "string",
+                                "sensitive": true
+                            },
+                            "expiresAt": {
+                                "type": "timestamp"
+                            }
+                        }
+                    },
+                    "encryptionConfiguration": {
+                        "type": "structure",
+                        "members": {
+                            "serverSideEncryption": {},
+                            "ssekmsKeyId": {},
+                            "ssekmsEncryptionContext": {}
+                        }
+                    }
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/RVP4V4P7JLCFDRESM7CQOZ6BKFOB5C6TSVVLXWBDFNLMNFVQFYXA/vendors.js"
+            ]
+        },
+        "LockServiceLinkedRole": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "RoleArn",
+                    "Timeout"
+                ],
+                "members": {
+                    "RoleArn": {},
+                    "Timeout": {
+                        "type": "long"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "CanBeDeleted"
+                ],
+                "members": {
+                    "CanBeDeleted": {
+                        "type": "boolean"
+                    },
+                    "ReasonOfFailure": {},
+                    "RelatedResources": {
+                        "type": "list",
+                        "member": {}
+                    }
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/RVP4V4P7JLCFDRESM7CQOZ6BKFOB5C6TSVVLXWBDFNLMNFVQFYXA/vendors.js"
+            ]
+        },
+        "PutImageForReplication": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "repositoryName",
+                    "imageManifest",
+                    "replicationInfo"
+                ],
+                "members": {
+                    "registryId": {},
+                    "repositoryName": {},
+                    "imageManifest": {},
+                    "imageManifestMediaType": {},
+                    "imageTag": {},
+                    "imageDigest": {},
+                    "replicationInfo": {
+                        "type": "structure",
+                        "members": {
+                            "sourceImageCreatedAt": {
+                                "type": "timestamp"
+                            },
+                            "sourceTagCreatedAt": {
+                                "type": "timestamp"
+                            },
+                            "sourceRegion": {},
+                            "sourceRegistryId": {}
+                        }
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "image": {
+                        "shape": "S16"
+                    }
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/RVP4V4P7JLCFDRESM7CQOZ6BKFOB5C6TSVVLXWBDFNLMNFVQFYXA/vendors.js"
+            ]
+        },
+        "UnlockServiceLinkedRole": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "RoleArn"
+                ],
+                "members": {
+                    "RoleArn": {},
+                    "DeletionStatus": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/RVP4V4P7JLCFDRESM7CQOZ6BKFOB5C6TSVVLXWBDFNLMNFVQFYXA/vendors.js"
+            ]
+        }
+    },
+    "shapes": {
+        "Si": {
+            "type": "list",
+            "member": {
+                "shape": "Sj"
+            }
+        },
+        "Sj": {
+            "type": "structure",
+            "members": {
+                "imageDigest": {},
+                "imageTag": {}
+            }
+        },
+        "Sn": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "imageId": {
+                        "shape": "Sj"
+                    },
+                    "failureCode": {},
+                    "failureReason": {}
+                }
+            }
+        },
+        "Sv": {
+            "type": "structure",
+            "members": {
+                "registryId": {},
+                "repositoryName": {},
+                "imageId": {
+                    "shape": "Sj"
+                },
+                "imageManifest": {},
+                "imageManifestMediaType": {}
+            }
+        },
+        "S12": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "Key": {},
+                    "Value": {}
+                }
+            }
+        },
+        "S17": {
+            "type": "structure",
+            "members": {
+                "scanOnPush": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "S19": {
+            "type": "structure",
+            "required": [
+                "encryptionType"
+            ],
+            "members": {
+                "encryptionType": {},
+                "kmsKey": {}
+            }
+        },
+        "S1d": {
+            "type": "structure",
+            "members": {
+                "repositoryArn": {},
+                "registryId": {},
+                "repositoryName": {},
+                "repositoryUri": {},
+                "createdAt": {
+                    "type": "timestamp"
+                },
+                "imageTagMutability": {},
+                "imageScanningConfiguration": {
+                    "shape": "S17"
+                },
+                "encryptionConfiguration": {
+                    "shape": "S19"
+                }
+            }
+        },
+        "S1y": {
+            "type": "structure",
+            "members": {
+                "status": {},
+                "description": {}
+            }
+        },
+        "S2d": {
+            "type": "map",
+            "key": {},
+            "value": {
+                "type": "integer"
+            }
+        },
+        "S2l": {
+            "type": "list",
+            "member": {}
+        },
+        "S2r": {
+            "type": "structure",
+            "required": [
+                "rules"
+            ],
+            "members": {
+                "rules": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "required": [
+                            "destinations"
+                        ],
+                        "members": {
+                            "destinations": {
+                                "type": "list",
+                                "member": {
+                                    "type": "structure",
+                                    "required": [
+                                        "region",
+                                        "registryId"
+                                    ],
+                                    "members": {
+                                        "region": {},
+                                        "registryId": {}
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "S1a": {
+            "type": "structure",
+            "members": {
+                "repositoryArn": {},
+                "registryId": {},
+                "repositoryName": {},
+                "repositoryUri": {},
+                "createdAt": {
+                    "type": "timestamp"
+                },
+                "imageTagMutability": {},
+                "imageScanningConfiguration": {
+                    "shape": "S17"
+                }
+            }
+        },
+        "S1s": {
+            "type": "structure",
+            "members": {
+                "status": {},
+                "description": {}
+            }
+        },
+        "S27": {
+            "type": "map",
+            "key": {},
+            "value": {
+                "type": "integer"
+            }
+        },
+        "S2f": {
+            "type": "list",
+            "member": {}
+        },
+        "S15": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "filter",
+                    "filterType"
+                ],
+                "members": {
+                    "filter": {},
+                    "filterType": {}
+                }
+            }
+        },
+        "S1n": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "Key": {},
+                    "Value": {}
+                }
+            }
+        },
+        "S1t": {
+            "type": "structure",
+            "required": [
+                "encryptionType"
+            ],
+            "members": {
+                "encryptionType": {},
+                "kmsKey": {}
+            }
+        },
+        "S1x": {
+            "type": "structure",
+            "members": {
+                "repositoryArn": {},
+                "registryId": {},
+                "repositoryName": {},
+                "repositoryUri": {},
+                "createdAt": {
+                    "type": "timestamp"
+                },
+                "imageTagMutability": {},
+                "imageScanningConfiguration": {
+                    "shape": "S1s"
+                },
+                "encryptionConfiguration": {
+                    "shape": "S1t"
+                }
+            }
+        },
+        "S2o": {
+            "type": "structure",
+            "members": {
+                "status": {},
+                "description": {}
+            }
+        },
+        "S2u": {
+            "type": "map",
+            "key": {},
+            "value": {
+                "type": "integer"
+            }
+        },
+        "S4m": {
+            "type": "list",
+            "member": {}
+        },
+        "S4y": {
+            "type": "structure",
+            "required": [
+                "rules"
+            ],
+            "members": {
+                "rules": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "required": [
+                            "destinations"
+                        ],
+                        "members": {
+                            "destinations": {
+                                "type": "list",
+                                "member": {
+                                    "type": "structure",
+                                    "required": [
+                                        "region",
+                                        "registryId"
+                                    ],
+                                    "members": {
+                                        "region": {},
+                                        "registryId": {}
+                                    }
+                                }
+                            },
+                            "repositoryFilters": {
+                                "type": "list",
+                                "member": {
+                                    "type": "structure",
+                                    "required": [
+                                        "filter",
+                                        "filterType"
+                                    ],
+                                    "members": {
+                                        "filter": {},
+                                        "filterType": {}
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "S63": {
+            "type": "structure",
+            "members": {
+                "scanType": {},
+                "rules": {
+                    "shape": "S65"
+                }
+            }
+        },
+        "S65": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "scanFrequency",
+                    "repositoryFilters"
+                ],
+                "members": {
+                    "scanFrequency": {},
+                    "repositoryFilters": {
+                        "shape": "S15"
+                    }
+                }
+            }
+        },
+        "S25": {
+            "type": "structure",
+            "members": {
+                "status": {},
+                "description": {}
+            }
+        },
+        "S2k": {
+            "type": "map",
+            "key": {},
+            "value": {
+                "type": "integer"
+            }
+        },
+        "S2s": {
+            "type": "list",
+            "member": {}
+        },
+        "S2y": {
+            "type": "structure",
+            "required": [
+                "rules"
+            ],
+            "members": {
+                "rules": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "required": [
+                            "destinations"
+                        ],
+                        "members": {
+                            "destinations": {
+                                "type": "list",
+                                "member": {
+                                    "type": "structure",
+                                    "required": [
+                                        "region",
+                                        "registryId"
+                                    ],
+                                    "members": {
+                                        "region": {},
+                                        "registryId": {}
+                                    }
+                                }
+                            },
+                            "repositoryFilters": {
+                                "type": "list",
+                                "member": {
+                                    "type": "structure",
+                                    "required": [
+                                        "filter",
+                                        "filterType"
+                                    ],
+                                    "members": {
+                                        "filter": {},
+                                        "filterType": {}
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "St": {
+            "type": "list",
+            "member": {
+                "shape": "Su"
+            }
+        },
+        "Su": {
+            "type": "structure",
+            "members": {
+                "imageDigest": {},
+                "imageTag": {}
+            }
+        },
+        "Sy": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "imageId": {
+                        "shape": "Su"
+                    },
+                    "failureCode": {},
+                    "failureReason": {}
+                }
+            }
+        },
+        "S16": {
+            "type": "structure",
+            "members": {
+                "registryId": {},
+                "repositoryName": {},
+                "imageId": {
+                    "shape": "Su"
+                },
+                "imageManifest": {},
+                "imageManifestMediaType": {}
+            }
+        },
+        "S22": {
+            "type": "list",
+            "member": {}
+        },
+        "S2n": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "Key",
+                    "Value"
+                ],
+                "members": {
+                    "Key": {},
+                    "Value": {}
+                }
+            }
+        },
+        "S2t": {
+            "type": "structure",
+            "required": [
+                "encryptionType"
+            ],
+            "members": {
+                "encryptionType": {},
+                "kmsKey": {}
+            }
+        },
+        "S2w": {
+            "type": "structure",
+            "members": {
+                "repositoryArn": {},
+                "registryId": {},
+                "repositoryName": {},
+                "repositoryUri": {},
+                "createdAt": {
+                    "type": "timestamp"
+                },
+                "imageTagMutability": {},
+                "imageScanningConfiguration": {
+                    "shape": "S2s"
+                },
+                "encryptionConfiguration": {
+                    "shape": "S2t"
+                }
+            }
+        },
+        "S3m": {
+            "type": "structure",
+            "members": {
+                "status": {},
+                "description": {}
+            }
+        },
+        "S3s": {
+            "type": "map",
+            "key": {},
+            "value": {
+                "type": "integer"
+            }
+        },
+        "S5k": {
+            "type": "list",
+            "member": {}
+        },
+        "S5v": {
+            "type": "structure",
+            "required": [
+                "rules"
+            ],
+            "members": {
+                "rules": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "required": [
+                            "destinations"
+                        ],
+                        "members": {
+                            "destinations": {
+                                "type": "list",
+                                "member": {
+                                    "type": "structure",
+                                    "required": [
+                                        "region",
+                                        "registryId"
+                                    ],
+                                    "members": {
+                                        "region": {},
+                                        "registryId": {}
+                                    }
+                                }
+                            },
+                            "repositoryFilters": {
+                                "type": "list",
+                                "member": {
+                                    "type": "structure",
+                                    "required": [
+                                        "filter",
+                                        "filterType"
+                                    ],
+                                    "members": {
+                                        "filter": {},
+                                        "filterType": {}
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "S6z": {
+            "type": "structure",
+            "members": {
+                "scanType": {},
+                "rules": {
+                    "shape": "S71"
+                }
+            }
+        },
+        "S71": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "scanFrequency",
+                    "repositoryFilters"
+                ],
+                "members": {
+                    "scanFrequency": {},
+                    "repositoryFilters": {
+                        "shape": "S1t"
+                    }
+                }
+            }
+        },
+        "S4x": {
+            "type": "structure",
+            "required": [
+                "rules"
+            ],
+            "members": {
+                "rules": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "required": [
+                            "destinations"
+                        ],
+                        "members": {
+                            "destinations": {
+                                "type": "list",
+                                "member": {
+                                    "type": "structure",
+                                    "required": [
+                                        "region",
+                                        "registryId"
+                                    ],
+                                    "members": {
+                                        "region": {},
+                                        "registryId": {}
+                                    }
+                                }
+                            },
+                            "repositoryFilters": {
+                                "type": "list",
+                                "member": {
+                                    "type": "structure",
+                                    "required": [
+                                        "filter",
+                                        "filterType"
+                                    ],
+                                    "members": {
+                                        "filter": {},
+                                        "filterType": {}
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "S62": {
+            "type": "structure",
+            "members": {
+                "scanType": {},
+                "rules": {
+                    "shape": "S64"
+                }
+            }
+        },
+        "S64": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "scanFrequency",
+                    "repositoryFilters"
+                ],
+                "members": {
+                    "scanFrequency": {},
+                    "repositoryFilters": {
+                        "shape": "S15"
+                    }
+                }
+            }
+        }
+    }
+}

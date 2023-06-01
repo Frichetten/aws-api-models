@@ -1,0 +1,2549 @@
+{
+    "version": "2.0",
+    "metadata": {
+        "apiVersion": "2021-04-28",
+        "endpointPrefix": "m2",
+        "jsonVersion": "1.1",
+        "protocol": "rest-json",
+        "serviceFullName": "AWSMainframeModernization",
+        "serviceId": "m2",
+        "signatureVersion": "v4",
+        "signingName": "m2",
+        "uid": "m2-2021-04-28",
+        "download_location": [
+            "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+        ]
+    },
+    "operations": {
+        "CancelBatchJobExecution": {
+            "http": {
+                "requestUri": "/applications/{applicationId}/batch-job-executions/{executionId}/cancel",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "applicationId",
+                    "executionId"
+                ],
+                "members": {
+                    "applicationId": {
+                        "location": "uri",
+                        "locationName": "applicationId"
+                    },
+                    "executionId": {
+                        "location": "uri",
+                        "locationName": "executionId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "CreateApplication": {
+            "http": {
+                "requestUri": "/applications",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "definition",
+                    "engineType",
+                    "name"
+                ],
+                "members": {
+                    "clientToken": {
+                        "idempotencyToken": true
+                    },
+                    "definition": {
+                        "shape": "S6"
+                    },
+                    "description": {},
+                    "engineType": {},
+                    "name": {},
+                    "tags": {
+                        "shape": "Sc"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "applicationArn",
+                    "applicationId",
+                    "applicationVersion"
+                ],
+                "members": {
+                    "applicationArn": {},
+                    "applicationId": {},
+                    "applicationVersion": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "CreateDataSetImportTask": {
+            "http": {
+                "requestUri": "/applications/{applicationId}/dataset-import-task",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "applicationId",
+                    "importConfig"
+                ],
+                "members": {
+                    "applicationId": {
+                        "location": "uri",
+                        "locationName": "applicationId"
+                    },
+                    "clientToken": {
+                        "idempotencyToken": true
+                    },
+                    "importConfig": {
+                        "type": "structure",
+                        "members": {
+                            "dataSets": {
+                                "type": "list",
+                                "member": {
+                                    "type": "structure",
+                                    "required": [
+                                        "dataSet",
+                                        "externalLocation"
+                                    ],
+                                    "members": {
+                                        "dataSet": {
+                                            "type": "structure",
+                                            "required": [
+                                                "datasetName",
+                                                "datasetOrg",
+                                                "recordLength"
+                                            ],
+                                            "members": {
+                                                "datasetName": {},
+                                                "datasetOrg": {
+                                                    "type": "structure",
+                                                    "members": {
+                                                        "gdg": {
+                                                            "type": "structure",
+                                                            "members": {
+                                                                "limit": {
+                                                                    "type": "integer"
+                                                                },
+                                                                "rollDisposition": {}
+                                                            }
+                                                        },
+                                                        "vsam": {
+                                                            "type": "structure",
+                                                            "required": [
+                                                                "format"
+                                                            ],
+                                                            "members": {
+                                                                "alternateKeys": {
+                                                                    "shape": "Sr"
+                                                                },
+                                                                "compressed": {
+                                                                    "type": "boolean"
+                                                                },
+                                                                "encoding": {},
+                                                                "format": {},
+                                                                "primaryKey": {
+                                                                    "shape": "Su"
+                                                                }
+                                                            }
+                                                        }
+                                                    },
+                                                    "union": true
+                                                },
+                                                "recordLength": {
+                                                    "type": "structure",
+                                                    "required": [
+                                                        "max",
+                                                        "min"
+                                                    ],
+                                                    "members": {
+                                                        "max": {
+                                                            "type": "integer"
+                                                        },
+                                                        "min": {
+                                                            "type": "integer"
+                                                        }
+                                                    }
+                                                },
+                                                "relativePath": {},
+                                                "storageType": {}
+                                            }
+                                        },
+                                        "externalLocation": {
+                                            "type": "structure",
+                                            "members": {
+                                                "s3Location": {}
+                                            },
+                                            "union": true
+                                        }
+                                    }
+                                }
+                            },
+                            "s3Location": {}
+                        },
+                        "union": true
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "taskId"
+                ],
+                "members": {
+                    "taskId": {}
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "CreateDeployment": {
+            "http": {
+                "requestUri": "/applications/{applicationId}/deployments",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "applicationId",
+                    "applicationVersion",
+                    "environmentId"
+                ],
+                "members": {
+                    "applicationId": {
+                        "location": "uri",
+                        "locationName": "applicationId"
+                    },
+                    "applicationVersion": {
+                        "type": "integer"
+                    },
+                    "clientToken": {
+                        "idempotencyToken": true
+                    },
+                    "environmentId": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "deploymentId"
+                ],
+                "members": {
+                    "deploymentId": {}
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "CreateEnvironment": {
+            "http": {
+                "requestUri": "/environments",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "engineType",
+                    "instanceType",
+                    "name"
+                ],
+                "members": {
+                    "clientToken": {
+                        "idempotencyToken": true
+                    },
+                    "description": {},
+                    "engineType": {},
+                    "engineVersion": {},
+                    "highAvailabilityConfig": {
+                        "shape": "S12"
+                    },
+                    "instanceType": {},
+                    "name": {},
+                    "preferredMaintenanceWindow": {},
+                    "publiclyAccessible": {
+                        "type": "boolean"
+                    },
+                    "securityGroupIds": {
+                        "shape": "S16"
+                    },
+                    "storageConfigurations": {
+                        "shape": "S17"
+                    },
+                    "subnetIds": {
+                        "shape": "S16"
+                    },
+                    "tags": {
+                        "shape": "Sc"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "environmentId"
+                ],
+                "members": {
+                    "environmentId": {}
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "DeleteApplication": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/applications/{applicationId}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "applicationId"
+                ],
+                "members": {
+                    "applicationId": {
+                        "location": "uri",
+                        "locationName": "applicationId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "DeleteApplicationFromEnvironment": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/applications/{applicationId}/environment/{environmentId}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "applicationId",
+                    "environmentId"
+                ],
+                "members": {
+                    "applicationId": {
+                        "location": "uri",
+                        "locationName": "applicationId"
+                    },
+                    "environmentId": {
+                        "location": "uri",
+                        "locationName": "environmentId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "DeleteEnvironment": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/environments/{environmentId}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "environmentId"
+                ],
+                "members": {
+                    "environmentId": {
+                        "location": "uri",
+                        "locationName": "environmentId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "GetApplication": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/applications/{applicationId}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "applicationId"
+                ],
+                "members": {
+                    "applicationId": {
+                        "location": "uri",
+                        "locationName": "applicationId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "applicationArn",
+                    "applicationId",
+                    "creationTime",
+                    "engineType",
+                    "latestVersion",
+                    "name",
+                    "status"
+                ],
+                "members": {
+                    "applicationArn": {},
+                    "applicationId": {},
+                    "creationTime": {
+                        "type": "timestamp"
+                    },
+                    "deployedVersion": {
+                        "type": "structure",
+                        "required": [
+                            "applicationVersion",
+                            "status"
+                        ],
+                        "members": {
+                            "applicationVersion": {
+                                "type": "integer"
+                            },
+                            "status": {},
+                            "statusReason": {}
+                        }
+                    },
+                    "description": {},
+                    "engineType": {},
+                    "environmentId": {},
+                    "lastStartTime": {
+                        "type": "timestamp"
+                    },
+                    "latestVersion": {
+                        "shape": "S1o"
+                    },
+                    "listenerArns": {
+                        "shape": "S1q"
+                    },
+                    "listenerPorts": {
+                        "type": "list",
+                        "member": {
+                            "type": "integer"
+                        }
+                    },
+                    "loadBalancerDnsName": {},
+                    "logGroups": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "logGroupName",
+                                "logType"
+                            ],
+                            "members": {
+                                "logGroupName": {},
+                                "logType": {}
+                            }
+                        }
+                    },
+                    "name": {},
+                    "status": {},
+                    "statusReason": {},
+                    "tags": {
+                        "shape": "Sc"
+                    },
+                    "targetGroupArns": {
+                        "shape": "S1q"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "GetApplicationVersion": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/applications/{applicationId}/versions/{applicationVersion}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "applicationId",
+                    "applicationVersion"
+                ],
+                "members": {
+                    "applicationId": {
+                        "location": "uri",
+                        "locationName": "applicationId"
+                    },
+                    "applicationVersion": {
+                        "location": "uri",
+                        "locationName": "applicationVersion",
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "applicationVersion",
+                    "creationTime",
+                    "definitionContent",
+                    "name",
+                    "status"
+                ],
+                "members": {
+                    "applicationVersion": {
+                        "type": "integer"
+                    },
+                    "creationTime": {
+                        "type": "timestamp"
+                    },
+                    "definitionContent": {},
+                    "description": {},
+                    "name": {},
+                    "status": {},
+                    "statusReason": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "GetBatchJobExecution": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/applications/{applicationId}/batch-job-executions/{executionId}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "applicationId",
+                    "executionId"
+                ],
+                "members": {
+                    "applicationId": {
+                        "location": "uri",
+                        "locationName": "applicationId"
+                    },
+                    "executionId": {
+                        "location": "uri",
+                        "locationName": "executionId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "applicationId",
+                    "executionId",
+                    "startTime",
+                    "status"
+                ],
+                "members": {
+                    "applicationId": {},
+                    "endTime": {
+                        "type": "timestamp"
+                    },
+                    "executionId": {},
+                    "jobId": {},
+                    "jobName": {},
+                    "jobType": {},
+                    "jobUser": {},
+                    "startTime": {
+                        "type": "timestamp"
+                    },
+                    "status": {},
+                    "statusReason": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "GetDataSetDetails": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/applications/{applicationId}/datasets/{dataSetName}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "applicationId",
+                    "dataSetName"
+                ],
+                "members": {
+                    "applicationId": {
+                        "location": "uri",
+                        "locationName": "applicationId"
+                    },
+                    "dataSetName": {
+                        "location": "uri",
+                        "locationName": "dataSetName"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "dataSetName"
+                ],
+                "members": {
+                    "blocksize": {
+                        "type": "integer"
+                    },
+                    "creationTime": {
+                        "type": "timestamp"
+                    },
+                    "dataSetName": {},
+                    "dataSetOrg": {
+                        "type": "structure",
+                        "members": {
+                            "gdg": {
+                                "type": "structure",
+                                "members": {
+                                    "limit": {
+                                        "type": "integer"
+                                    },
+                                    "rollDisposition": {}
+                                }
+                            },
+                            "vsam": {
+                                "type": "structure",
+                                "members": {
+                                    "alternateKeys": {
+                                        "shape": "Sr"
+                                    },
+                                    "cacheAtStartup": {
+                                        "type": "boolean"
+                                    },
+                                    "compressed": {
+                                        "type": "boolean"
+                                    },
+                                    "encoding": {},
+                                    "primaryKey": {
+                                        "shape": "Su"
+                                    },
+                                    "recordFormat": {}
+                                }
+                            }
+                        },
+                        "union": true
+                    },
+                    "lastReferencedTime": {
+                        "type": "timestamp"
+                    },
+                    "lastUpdatedTime": {
+                        "type": "timestamp"
+                    },
+                    "location": {},
+                    "recordLength": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "GetDataSetImportTask": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/applications/{applicationId}/dataset-import-tasks/{taskId}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "applicationId",
+                    "taskId"
+                ],
+                "members": {
+                    "applicationId": {
+                        "location": "uri",
+                        "locationName": "applicationId"
+                    },
+                    "taskId": {
+                        "location": "uri",
+                        "locationName": "taskId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "status",
+                    "taskId"
+                ],
+                "members": {
+                    "status": {},
+                    "summary": {
+                        "shape": "S2b"
+                    },
+                    "taskId": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "GetDeployment": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/applications/{applicationId}/deployments/{deploymentId}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "applicationId",
+                    "deploymentId"
+                ],
+                "members": {
+                    "applicationId": {
+                        "location": "uri",
+                        "locationName": "applicationId"
+                    },
+                    "deploymentId": {
+                        "location": "uri",
+                        "locationName": "deploymentId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "applicationId",
+                    "applicationVersion",
+                    "creationTime",
+                    "deploymentId",
+                    "environmentId",
+                    "status"
+                ],
+                "members": {
+                    "applicationId": {},
+                    "applicationVersion": {
+                        "type": "integer"
+                    },
+                    "creationTime": {
+                        "type": "timestamp"
+                    },
+                    "deploymentId": {},
+                    "environmentId": {},
+                    "status": {},
+                    "statusReason": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "GetEnvironment": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/environments/{environmentId}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "environmentId"
+                ],
+                "members": {
+                    "environmentId": {
+                        "location": "uri",
+                        "locationName": "environmentId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "creationTime",
+                    "engineType",
+                    "engineVersion",
+                    "environmentArn",
+                    "environmentId",
+                    "instanceType",
+                    "name",
+                    "securityGroupIds",
+                    "status",
+                    "subnetIds",
+                    "vpcId"
+                ],
+                "members": {
+                    "actualCapacity": {
+                        "type": "integer"
+                    },
+                    "creationTime": {
+                        "type": "timestamp"
+                    },
+                    "description": {},
+                    "engineType": {},
+                    "engineVersion": {},
+                    "environmentArn": {},
+                    "environmentId": {},
+                    "highAvailabilityConfig": {
+                        "shape": "S12"
+                    },
+                    "instanceType": {},
+                    "loadBalancerArn": {},
+                    "name": {},
+                    "pendingMaintenance": {
+                        "type": "structure",
+                        "members": {
+                            "engineVersion": {},
+                            "schedule": {
+                                "type": "structure",
+                                "members": {
+                                    "endTime": {
+                                        "type": "timestamp"
+                                    },
+                                    "startTime": {
+                                        "type": "timestamp"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "preferredMaintenanceWindow": {},
+                    "publiclyAccessible": {
+                        "type": "boolean"
+                    },
+                    "securityGroupIds": {
+                        "shape": "S16"
+                    },
+                    "status": {},
+                    "statusReason": {},
+                    "storageConfigurations": {
+                        "shape": "S17"
+                    },
+                    "subnetIds": {
+                        "shape": "S16"
+                    },
+                    "tags": {
+                        "shape": "Sc"
+                    },
+                    "vpcId": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "ListApplicationVersions": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/applications/{applicationId}/versions",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "applicationId"
+                ],
+                "members": {
+                    "applicationId": {
+                        "location": "uri",
+                        "locationName": "applicationId"
+                    },
+                    "maxResults": {
+                        "location": "querystring",
+                        "locationName": "maxResults",
+                        "type": "integer"
+                    },
+                    "nextToken": {
+                        "location": "querystring",
+                        "locationName": "nextToken"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "applicationVersions"
+                ],
+                "members": {
+                    "applicationVersions": {
+                        "type": "list",
+                        "member": {
+                            "shape": "S1o"
+                        }
+                    },
+                    "nextToken": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "ListApplications": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/applications",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "environmentId": {
+                        "location": "querystring",
+                        "locationName": "environmentId"
+                    },
+                    "maxResults": {
+                        "location": "querystring",
+                        "locationName": "maxResults",
+                        "type": "integer"
+                    },
+                    "names": {
+                        "shape": "S2p",
+                        "location": "querystring",
+                        "locationName": "names"
+                    },
+                    "nextToken": {
+                        "location": "querystring",
+                        "locationName": "nextToken"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "applications"
+                ],
+                "members": {
+                    "applications": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "applicationArn",
+                                "applicationId",
+                                "applicationVersion",
+                                "creationTime",
+                                "engineType",
+                                "name",
+                                "status"
+                            ],
+                            "members": {
+                                "applicationArn": {},
+                                "applicationId": {},
+                                "applicationVersion": {
+                                    "type": "integer"
+                                },
+                                "creationTime": {
+                                    "type": "timestamp"
+                                },
+                                "deploymentStatus": {},
+                                "description": {},
+                                "engineType": {},
+                                "environmentId": {},
+                                "lastStartTime": {
+                                    "type": "timestamp"
+                                },
+                                "name": {},
+                                "status": {},
+                                "versionStatus": {}
+                            }
+                        }
+                    },
+                    "nextToken": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "ListBatchJobDefinitions": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/applications/{applicationId}/batch-job-definitions",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "applicationId"
+                ],
+                "members": {
+                    "applicationId": {
+                        "location": "uri",
+                        "locationName": "applicationId"
+                    },
+                    "maxResults": {
+                        "location": "querystring",
+                        "locationName": "maxResults",
+                        "type": "integer"
+                    },
+                    "nextToken": {
+                        "location": "querystring",
+                        "locationName": "nextToken"
+                    },
+                    "prefix": {
+                        "location": "querystring",
+                        "locationName": "prefix"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "batchJobDefinitions"
+                ],
+                "members": {
+                    "batchJobDefinitions": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "fileBatchJobDefinition": {
+                                    "type": "structure",
+                                    "required": [
+                                        "fileName"
+                                    ],
+                                    "members": {
+                                        "fileName": {},
+                                        "folderPath": {}
+                                    }
+                                },
+                                "scriptBatchJobDefinition": {
+                                    "type": "structure",
+                                    "required": [
+                                        "scriptName"
+                                    ],
+                                    "members": {
+                                        "scriptName": {}
+                                    }
+                                }
+                            },
+                            "union": true
+                        }
+                    },
+                    "nextToken": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "ListBatchJobExecutions": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/applications/{applicationId}/batch-job-executions",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "applicationId"
+                ],
+                "members": {
+                    "applicationId": {
+                        "location": "uri",
+                        "locationName": "applicationId"
+                    },
+                    "executionIds": {
+                        "location": "querystring",
+                        "locationName": "executionIds",
+                        "type": "list",
+                        "member": {}
+                    },
+                    "jobName": {
+                        "location": "querystring",
+                        "locationName": "jobName"
+                    },
+                    "maxResults": {
+                        "location": "querystring",
+                        "locationName": "maxResults",
+                        "type": "integer"
+                    },
+                    "nextToken": {
+                        "location": "querystring",
+                        "locationName": "nextToken"
+                    },
+                    "startedAfter": {
+                        "location": "querystring",
+                        "locationName": "startedAfter",
+                        "type": "timestamp"
+                    },
+                    "startedBefore": {
+                        "location": "querystring",
+                        "locationName": "startedBefore",
+                        "type": "timestamp"
+                    },
+                    "status": {
+                        "location": "querystring",
+                        "locationName": "status"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "batchJobExecutions"
+                ],
+                "members": {
+                    "batchJobExecutions": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "applicationId",
+                                "executionId",
+                                "startTime",
+                                "status"
+                            ],
+                            "members": {
+                                "applicationId": {},
+                                "endTime": {
+                                    "type": "timestamp"
+                                },
+                                "executionId": {},
+                                "jobId": {},
+                                "jobName": {},
+                                "jobType": {},
+                                "startTime": {
+                                    "type": "timestamp"
+                                },
+                                "status": {}
+                            }
+                        }
+                    },
+                    "nextToken": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "ListDataSetImportHistory": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/applications/{applicationId}/dataset-import-tasks",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "applicationId"
+                ],
+                "members": {
+                    "applicationId": {
+                        "location": "uri",
+                        "locationName": "applicationId"
+                    },
+                    "maxResults": {
+                        "location": "querystring",
+                        "locationName": "maxResults",
+                        "type": "integer"
+                    },
+                    "nextToken": {
+                        "location": "querystring",
+                        "locationName": "nextToken"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "dataSetImportTasks"
+                ],
+                "members": {
+                    "dataSetImportTasks": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "status",
+                                "summary",
+                                "taskId"
+                            ],
+                            "members": {
+                                "status": {},
+                                "summary": {
+                                    "shape": "S2b"
+                                },
+                                "taskId": {}
+                            }
+                        }
+                    },
+                    "nextToken": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "ListDataSets": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/applications/{applicationId}/datasets",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "applicationId"
+                ],
+                "members": {
+                    "applicationId": {
+                        "location": "uri",
+                        "locationName": "applicationId"
+                    },
+                    "maxResults": {
+                        "location": "querystring",
+                        "locationName": "maxResults",
+                        "type": "integer"
+                    },
+                    "nextToken": {
+                        "location": "querystring",
+                        "locationName": "nextToken"
+                    },
+                    "prefix": {
+                        "location": "querystring",
+                        "locationName": "prefix"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "dataSets"
+                ],
+                "members": {
+                    "dataSets": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "dataSetName"
+                            ],
+                            "members": {
+                                "creationTime": {
+                                    "type": "timestamp"
+                                },
+                                "dataSetName": {},
+                                "dataSetOrg": {},
+                                "format": {},
+                                "lastReferencedTime": {
+                                    "type": "timestamp"
+                                },
+                                "lastUpdatedTime": {
+                                    "type": "timestamp"
+                                }
+                            }
+                        }
+                    },
+                    "nextToken": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "ListDeployments": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/applications/{applicationId}/deployments",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "applicationId"
+                ],
+                "members": {
+                    "applicationId": {
+                        "location": "uri",
+                        "locationName": "applicationId"
+                    },
+                    "maxResults": {
+                        "location": "querystring",
+                        "locationName": "maxResults",
+                        "type": "integer"
+                    },
+                    "nextToken": {
+                        "location": "querystring",
+                        "locationName": "nextToken"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "deployments"
+                ],
+                "members": {
+                    "deployments": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "applicationId",
+                                "applicationVersion",
+                                "creationTime",
+                                "deploymentId",
+                                "environmentId",
+                                "status"
+                            ],
+                            "members": {
+                                "applicationId": {},
+                                "applicationVersion": {
+                                    "type": "integer"
+                                },
+                                "creationTime": {
+                                    "type": "timestamp"
+                                },
+                                "deploymentId": {},
+                                "environmentId": {},
+                                "status": {},
+                                "statusReason": {}
+                            }
+                        }
+                    },
+                    "nextToken": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "ListEngineVersions": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/engine-versions",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "engineType": {
+                        "location": "querystring",
+                        "locationName": "engineType"
+                    },
+                    "maxResults": {
+                        "location": "querystring",
+                        "locationName": "maxResults",
+                        "type": "integer"
+                    },
+                    "nextToken": {
+                        "location": "querystring",
+                        "locationName": "nextToken"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "engineVersions"
+                ],
+                "members": {
+                    "engineVersions": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "engineType",
+                                "engineVersion"
+                            ],
+                            "members": {
+                                "engineType": {},
+                                "engineVersion": {}
+                            }
+                        }
+                    },
+                    "nextToken": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "ListEnvironments": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/environments",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "engineType": {
+                        "location": "querystring",
+                        "locationName": "engineType"
+                    },
+                    "maxResults": {
+                        "location": "querystring",
+                        "locationName": "maxResults",
+                        "type": "integer"
+                    },
+                    "names": {
+                        "shape": "S2p",
+                        "location": "querystring",
+                        "locationName": "names"
+                    },
+                    "nextToken": {
+                        "location": "querystring",
+                        "locationName": "nextToken"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "environments"
+                ],
+                "members": {
+                    "environments": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "creationTime",
+                                "engineType",
+                                "engineVersion",
+                                "environmentArn",
+                                "environmentId",
+                                "instanceType",
+                                "name",
+                                "status"
+                            ],
+                            "members": {
+                                "creationTime": {
+                                    "type": "timestamp"
+                                },
+                                "engineType": {},
+                                "engineVersion": {},
+                                "environmentArn": {},
+                                "environmentId": {},
+                                "instanceType": {},
+                                "name": {},
+                                "status": {}
+                            }
+                        }
+                    },
+                    "nextToken": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "ListTagsForResource": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/tags/{resourceArn}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "resourceArn"
+                ],
+                "members": {
+                    "resourceArn": {
+                        "location": "uri",
+                        "locationName": "resourceArn"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "tags"
+                ],
+                "members": {
+                    "tags": {
+                        "shape": "Sc"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "StartApplication": {
+            "http": {
+                "requestUri": "/applications/{applicationId}/start",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "applicationId"
+                ],
+                "members": {
+                    "applicationId": {
+                        "location": "uri",
+                        "locationName": "applicationId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "StartBatchJob": {
+            "http": {
+                "requestUri": "/applications/{applicationId}/batch-job",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "applicationId",
+                    "batchJobIdentifier"
+                ],
+                "members": {
+                    "applicationId": {
+                        "location": "uri",
+                        "locationName": "applicationId"
+                    },
+                    "batchJobIdentifier": {
+                        "type": "structure",
+                        "members": {
+                            "fileBatchJobIdentifier": {
+                                "type": "structure",
+                                "required": [
+                                    "fileName"
+                                ],
+                                "members": {
+                                    "fileName": {},
+                                    "folderPath": {}
+                                }
+                            },
+                            "scriptBatchJobIdentifier": {
+                                "type": "structure",
+                                "required": [
+                                    "scriptName"
+                                ],
+                                "members": {
+                                    "scriptName": {}
+                                }
+                            }
+                        },
+                        "union": true
+                    },
+                    "jobParams": {
+                        "type": "map",
+                        "key": {},
+                        "value": {}
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "executionId"
+                ],
+                "members": {
+                    "executionId": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "StopApplication": {
+            "http": {
+                "requestUri": "/applications/{applicationId}/stop",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "applicationId"
+                ],
+                "members": {
+                    "applicationId": {
+                        "location": "uri",
+                        "locationName": "applicationId"
+                    },
+                    "forceStop": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "TagResource": {
+            "http": {
+                "requestUri": "/tags/{resourceArn}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "resourceArn",
+                    "tags"
+                ],
+                "members": {
+                    "resourceArn": {
+                        "location": "uri",
+                        "locationName": "resourceArn"
+                    },
+                    "tags": {
+                        "shape": "Sc"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "UntagResource": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/tags/{resourceArn}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "resourceArn",
+                    "tagKeys"
+                ],
+                "members": {
+                    "resourceArn": {
+                        "location": "uri",
+                        "locationName": "resourceArn"
+                    },
+                    "tagKeys": {
+                        "location": "querystring",
+                        "locationName": "tagKeys",
+                        "type": "list",
+                        "member": {}
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "UpdateApplication": {
+            "http": {
+                "method": "PATCH",
+                "requestUri": "/applications/{applicationId}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "applicationId",
+                    "currentApplicationVersion"
+                ],
+                "members": {
+                    "applicationId": {
+                        "location": "uri",
+                        "locationName": "applicationId"
+                    },
+                    "currentApplicationVersion": {
+                        "type": "integer"
+                    },
+                    "definition": {
+                        "shape": "S6"
+                    },
+                    "description": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "applicationVersion"
+                ],
+                "members": {
+                    "applicationVersion": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "UpdateEnvironment": {
+            "http": {
+                "method": "PATCH",
+                "requestUri": "/environments/{environmentId}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "environmentId"
+                ],
+                "members": {
+                    "applyDuringMaintenanceWindow": {
+                        "type": "boolean"
+                    },
+                    "desiredCapacity": {
+                        "type": "integer"
+                    },
+                    "engineVersion": {},
+                    "environmentId": {
+                        "location": "uri",
+                        "locationName": "environmentId"
+                    },
+                    "instanceType": {},
+                    "preferredMaintenanceWindow": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "environmentId"
+                ],
+                "members": {
+                    "environmentId": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "CreateDataSetExportTask": {
+            "http": {
+                "requestUri": "/applications/{applicationId}/dataset-export-task",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "applicationId",
+                    "exportConfig"
+                ],
+                "members": {
+                    "applicationId": {
+                        "location": "uri",
+                        "locationName": "applicationId"
+                    },
+                    "exportConfig": {
+                        "type": "structure",
+                        "members": {
+                            "s3Location": {},
+                            "dataSets": {
+                                "type": "list",
+                                "member": {
+                                    "type": "structure",
+                                    "required": [
+                                        "datasetName",
+                                        "externalLocation"
+                                    ],
+                                    "members": {
+                                        "datasetName": {},
+                                        "externalLocation": {
+                                            "shape": "Sm"
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "union": true
+                    },
+                    "clientToken": {
+                        "idempotencyToken": true
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "taskId"
+                ],
+                "members": {
+                    "taskId": {}
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/P2CYTKOACSPZBJROWXO75ONMGZLPLGAQ5WD754J2NCKRBPWNTXQA/vendors.js"
+            ]
+        },
+        "CreateRepository": {
+            "http": {
+                "requestUri": "/repositories",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "name"
+                ],
+                "members": {
+                    "name": {},
+                    "description": {},
+                    "tags": {
+                        "shape": "Sc"
+                    },
+                    "clientToken": {
+                        "idempotencyToken": true
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "repositoryId"
+                ],
+                "members": {
+                    "repositoryId": {}
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/P2CYTKOACSPZBJROWXO75ONMGZLPLGAQ5WD754J2NCKRBPWNTXQA/vendors.js"
+            ]
+        },
+        "DeleteRepository": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/repositories/{repositoryId}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "repositoryId"
+                ],
+                "members": {
+                    "repositoryId": {
+                        "location": "uri",
+                        "locationName": "repositoryId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/P2CYTKOACSPZBJROWXO75ONMGZLPLGAQ5WD754J2NCKRBPWNTXQA/vendors.js"
+            ]
+        },
+        "GetDataSetExportTask": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/applications/{applicationId}/dataset-export-tasks/{taskId}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "applicationId",
+                    "taskId"
+                ],
+                "members": {
+                    "applicationId": {
+                        "location": "uri",
+                        "locationName": "applicationId"
+                    },
+                    "taskId": {
+                        "location": "uri",
+                        "locationName": "taskId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "taskId",
+                    "status"
+                ],
+                "members": {
+                    "taskId": {},
+                    "status": {},
+                    "summary": {
+                        "type": "structure",
+                        "required": [
+                            "total",
+                            "succeeded",
+                            "failed",
+                            "pending",
+                            "inProgress"
+                        ],
+                        "members": {
+                            "total": {
+                                "type": "integer"
+                            },
+                            "succeeded": {
+                                "type": "integer"
+                            },
+                            "failed": {
+                                "type": "integer"
+                            },
+                            "pending": {
+                                "type": "integer"
+                            },
+                            "inProgress": {
+                                "type": "integer"
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/P2CYTKOACSPZBJROWXO75ONMGZLPLGAQ5WD754J2NCKRBPWNTXQA/vendors.js"
+            ]
+        },
+        "GetSignedBluinsightsUrl": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/signed-bi-url",
+                "responseCode": 200
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "signedBiUrl"
+                ],
+                "members": {
+                    "signedBiUrl": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/P2CYTKOACSPZBJROWXO75ONMGZLPLGAQ5WD754J2NCKRBPWNTXQA/vendors.js"
+            ]
+        },
+        "ListRepositories": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/repositories",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "nextToken": {
+                        "location": "querystring",
+                        "locationName": "nextToken"
+                    },
+                    "maxResults": {
+                        "location": "querystring",
+                        "locationName": "maxResults",
+                        "type": "integer"
+                    },
+                    "names": {
+                        "shape": "S3e",
+                        "location": "querystring",
+                        "locationName": "names"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "repositories"
+                ],
+                "members": {
+                    "repositories": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "name",
+                                "repositoryId",
+                                "repositoryArn",
+                                "status",
+                                "creationTime"
+                            ],
+                            "members": {
+                                "name": {},
+                                "repositoryId": {},
+                                "repositoryArn": {},
+                                "status": {},
+                                "creationTime": {
+                                    "type": "timestamp"
+                                }
+                            }
+                        }
+                    },
+                    "nextToken": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/P2CYTKOACSPZBJROWXO75ONMGZLPLGAQ5WD754J2NCKRBPWNTXQA/vendors.js"
+            ]
+        },
+        "GetApplicationHealth": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/applications/{applicationId}/health",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "applicationId"
+                ],
+                "members": {
+                    "applicationId": {
+                        "location": "uri",
+                        "locationName": "applicationId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "applicationId",
+                    "healthStatus"
+                ],
+                "members": {
+                    "applicationId": {},
+                    "healthStatus": {},
+                    "healthSummary": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "healthStatus",
+                                "hostCountPercent"
+                            ],
+                            "members": {
+                                "healthStatus": {},
+                                "hostCountPercent": {},
+                                "unhealthyReasonCode": {},
+                                "unhealthyReason": {}
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/WD6QKTXHAQJJO7CGZMQXWJMERH3I5AQ3NHYRTGMY7S3JJKKQBILA/vendors.js"
+            ]
+        }
+    },
+    "shapes": {
+        "S6": {
+            "type": "structure",
+            "members": {
+                "content": {},
+                "s3Location": {}
+            },
+            "union": true
+        },
+        "Sc": {
+            "type": "map",
+            "key": {},
+            "value": {}
+        },
+        "Sr": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "length",
+                    "offset"
+                ],
+                "members": {
+                    "allowDuplicates": {
+                        "type": "boolean"
+                    },
+                    "length": {
+                        "type": "integer"
+                    },
+                    "name": {},
+                    "offset": {
+                        "type": "integer"
+                    }
+                }
+            }
+        },
+        "Su": {
+            "type": "structure",
+            "required": [
+                "length",
+                "offset"
+            ],
+            "members": {
+                "length": {
+                    "type": "integer"
+                },
+                "name": {},
+                "offset": {
+                    "type": "integer"
+                }
+            }
+        },
+        "S12": {
+            "type": "structure",
+            "required": [
+                "desiredCapacity"
+            ],
+            "members": {
+                "desiredCapacity": {
+                    "type": "integer"
+                }
+            }
+        },
+        "S16": {
+            "type": "list",
+            "member": {}
+        },
+        "S17": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "efs": {
+                        "type": "structure",
+                        "required": [
+                            "fileSystemId",
+                            "mountPoint"
+                        ],
+                        "members": {
+                            "fileSystemId": {
+                                "locationName": "file-system-id"
+                            },
+                            "mountPoint": {
+                                "locationName": "mount-point"
+                            }
+                        }
+                    },
+                    "fsx": {
+                        "type": "structure",
+                        "required": [
+                            "fileSystemId",
+                            "mountPoint"
+                        ],
+                        "members": {
+                            "fileSystemId": {
+                                "locationName": "file-system-id"
+                            },
+                            "mountPoint": {
+                                "locationName": "mount-point"
+                            }
+                        }
+                    }
+                },
+                "union": true
+            }
+        },
+        "S1o": {
+            "type": "structure",
+            "required": [
+                "applicationVersion",
+                "creationTime",
+                "status"
+            ],
+            "members": {
+                "applicationVersion": {
+                    "type": "integer"
+                },
+                "creationTime": {
+                    "type": "timestamp"
+                },
+                "status": {},
+                "statusReason": {}
+            }
+        },
+        "S1q": {
+            "type": "list",
+            "member": {}
+        },
+        "S2b": {
+            "type": "structure",
+            "required": [
+                "failed",
+                "inProgress",
+                "pending",
+                "succeeded",
+                "total"
+            ],
+            "members": {
+                "failed": {
+                    "type": "integer"
+                },
+                "inProgress": {
+                    "type": "integer"
+                },
+                "pending": {
+                    "type": "integer"
+                },
+                "succeeded": {
+                    "type": "integer"
+                },
+                "total": {
+                    "type": "integer"
+                }
+            }
+        },
+        "S2p": {
+            "type": "list",
+            "member": {}
+        },
+        "S21": {
+            "type": "structure",
+            "members": {
+                "fileBatchJobIdentifier": {
+                    "type": "structure",
+                    "required": [
+                        "fileName"
+                    ],
+                    "members": {
+                        "fileName": {},
+                        "folderPath": {}
+                    }
+                },
+                "scriptBatchJobIdentifier": {
+                    "type": "structure",
+                    "required": [
+                        "scriptName"
+                    ],
+                    "members": {
+                        "scriptName": {}
+                    }
+                }
+            },
+            "union": true
+        },
+        "S2e": {
+            "type": "structure",
+            "required": [
+                "failed",
+                "inProgress",
+                "pending",
+                "succeeded",
+                "total"
+            ],
+            "members": {
+                "failed": {
+                    "type": "integer"
+                },
+                "inProgress": {
+                    "type": "integer"
+                },
+                "pending": {
+                    "type": "integer"
+                },
+                "succeeded": {
+                    "type": "integer"
+                },
+                "total": {
+                    "type": "integer"
+                }
+            }
+        },
+        "S2s": {
+            "type": "list",
+            "member": {}
+        },
+        "S8": {
+            "type": "structure",
+            "members": {
+                "s3Location": {},
+                "content": {}
+            },
+            "union": true
+        },
+        "Sm": {
+            "type": "structure",
+            "members": {
+                "s3Location": {}
+            },
+            "union": true
+        },
+        "Sx": {
+            "type": "structure",
+            "required": [
+                "offset",
+                "length"
+            ],
+            "members": {
+                "name": {},
+                "offset": {
+                    "type": "integer"
+                },
+                "length": {
+                    "type": "integer"
+                }
+            }
+        },
+        "Sz": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "offset",
+                    "length"
+                ],
+                "members": {
+                    "name": {},
+                    "offset": {
+                        "type": "integer"
+                    },
+                    "length": {
+                        "type": "integer"
+                    },
+                    "allowDuplicates": {
+                        "type": "boolean"
+                    }
+                }
+            }
+        },
+        "S14": {
+            "type": "list",
+            "member": {}
+        },
+        "S1d": {
+            "type": "list",
+            "member": {}
+        },
+        "S1f": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "efs": {
+                        "type": "structure",
+                        "required": [
+                            "fileSystemId",
+                            "mountPoint"
+                        ],
+                        "members": {
+                            "fileSystemId": {
+                                "locationName": "file-system-id"
+                            },
+                            "mountPoint": {
+                                "locationName": "mount-point"
+                            }
+                        }
+                    },
+                    "fsx": {
+                        "type": "structure",
+                        "required": [
+                            "fileSystemId",
+                            "mountPoint"
+                        ],
+                        "members": {
+                            "fileSystemId": {
+                                "locationName": "file-system-id"
+                            },
+                            "mountPoint": {
+                                "locationName": "mount-point"
+                            }
+                        }
+                    }
+                },
+                "union": true
+            }
+        },
+        "S1j": {
+            "type": "structure",
+            "required": [
+                "desiredCapacity"
+            ],
+            "members": {
+                "desiredCapacity": {
+                    "type": "integer"
+                }
+            }
+        },
+        "S1z": {
+            "type": "structure",
+            "required": [
+                "applicationVersion",
+                "status",
+                "creationTime"
+            ],
+            "members": {
+                "applicationVersion": {
+                    "type": "integer"
+                },
+                "status": {},
+                "statusReason": {},
+                "creationTime": {
+                    "type": "timestamp"
+                }
+            }
+        },
+        "S27": {
+            "type": "list",
+            "member": {}
+        },
+        "S28": {
+            "type": "list",
+            "member": {
+                "type": "integer"
+            }
+        },
+        "S2g": {
+            "type": "structure",
+            "members": {
+                "fileBatchJobIdentifier": {
+                    "type": "structure",
+                    "required": [
+                        "fileName"
+                    ],
+                    "members": {
+                        "fileName": {},
+                        "folderPath": {}
+                    }
+                },
+                "scriptBatchJobIdentifier": {
+                    "type": "structure",
+                    "required": [
+                        "scriptName"
+                    ],
+                    "members": {
+                        "scriptName": {}
+                    }
+                }
+            },
+            "union": true
+        },
+        "S2j": {
+            "type": "map",
+            "key": {},
+            "value": {}
+        },
+        "S2z": {
+            "type": "structure",
+            "required": [
+                "total",
+                "succeeded",
+                "failed",
+                "pending",
+                "inProgress"
+            ],
+            "members": {
+                "total": {
+                    "type": "integer"
+                },
+                "succeeded": {
+                    "type": "integer"
+                },
+                "failed": {
+                    "type": "integer"
+                },
+                "pending": {
+                    "type": "integer"
+                },
+                "inProgress": {
+                    "type": "integer"
+                }
+            }
+        },
+        "S3e": {
+            "type": "list",
+            "member": {}
+        },
+        "S2l": {
+            "type": "structure",
+            "members": {
+                "fileBatchJobIdentifier": {
+                    "type": "structure",
+                    "required": [
+                        "fileName"
+                    ],
+                    "members": {
+                        "fileName": {},
+                        "folderPath": {}
+                    }
+                },
+                "scriptBatchJobIdentifier": {
+                    "type": "structure",
+                    "required": [
+                        "scriptName"
+                    ],
+                    "members": {
+                        "scriptName": {}
+                    }
+                }
+            },
+            "union": true
+        },
+        "S2o": {
+            "type": "map",
+            "key": {},
+            "value": {}
+        },
+        "S34": {
+            "type": "structure",
+            "required": [
+                "total",
+                "succeeded",
+                "failed",
+                "pending",
+                "inProgress"
+            ],
+            "members": {
+                "total": {
+                    "type": "integer"
+                },
+                "succeeded": {
+                    "type": "integer"
+                },
+                "failed": {
+                    "type": "integer"
+                },
+                "pending": {
+                    "type": "integer"
+                },
+                "inProgress": {
+                    "type": "integer"
+                }
+            }
+        },
+        "S3j": {
+            "type": "list",
+            "member": {}
+        }
+    }
+}

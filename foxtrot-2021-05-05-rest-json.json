@@ -1,0 +1,1623 @@
+{
+    "version": "2.0",
+    "metadata": {
+        "apiVersion": "2021-05-05",
+        "endpointPrefix": "foxtrot",
+        "jsonVersion": "1.1",
+        "protocol": "rest-json",
+        "serviceFullName": "FoxtrotService",
+        "serviceId": "Foxtrot",
+        "signatureVersion": "v4",
+        "signingName": "scn",
+        "uid": "foxtrot-2021-05-05",
+        "download_location": [
+            "https://a.b.cdn.console.awsstatic.com/a/v1/TKHP6TGZH23RVCUZZP2OJ2PJJUFTMSQ666SII2V522LCUK4NBNXQ/vendors~4134d62c.js"
+        ]
+    },
+    "operations": {
+        "CreateDemandPlan": {
+            "http": {
+                "requestUri": "/instances/{instanceId}/workbooks/{workbookId}/planningcycles/{planningCycleId}/sourceforecasts/{sourceForecastId}/demandplans",
+                "responseCode": 201
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "workbookId",
+                    "instanceId",
+                    "planningCycleId",
+                    "sourceForecastId",
+                    "quantileValue",
+                    "demandPlanName"
+                ],
+                "members": {
+                    "workbookId": {
+                        "location": "uri",
+                        "locationName": "workbookId"
+                    },
+                    "instanceId": {
+                        "location": "uri",
+                        "locationName": "instanceId"
+                    },
+                    "planningCycleId": {
+                        "location": "uri",
+                        "locationName": "planningCycleId"
+                    },
+                    "sourceForecastId": {
+                        "location": "uri",
+                        "locationName": "sourceForecastId"
+                    },
+                    "quantileValue": {},
+                    "derivedForecastIds": {
+                        "type": "list",
+                        "member": {}
+                    },
+                    "demandPlanName": {},
+                    "demandPlanDescription": {},
+                    "isGalaxy": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "demandPlanId": {},
+                    "sourceForecastId": {},
+                    "planningCycleId": {},
+                    "instanceId": {},
+                    "quantileValue": {},
+                    "derivedForecastIds": {
+                        "shape": "Sc"
+                    },
+                    "demandPlanName": {},
+                    "demandPlanDescription": {},
+                    "creationTime": {
+                        "type": "timestamp"
+                    },
+                    "createdBy": {},
+                    "demandPlanStatus": {}
+                }
+            },
+            "endpoint": {
+                "hostPrefix": "oms."
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/TKHP6TGZH23RVCUZZP2OJ2PJJUFTMSQ666SII2V522LCUK4NBNXQ/vendors~4134d62c.js"
+            ]
+        },
+        "CreateDemandPlanningCycle": {
+            "http": {
+                "requestUri": "/instances/{instanceId}/workbooks/{workbookId}/demandplanningcycles",
+                "responseCode": 201
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "workbookId",
+                    "instanceId",
+                    "planningCycleConfig"
+                ],
+                "members": {
+                    "workbookId": {
+                        "location": "uri",
+                        "locationName": "workbookId"
+                    },
+                    "instanceId": {
+                        "location": "uri",
+                        "locationName": "instanceId"
+                    },
+                    "planningCycleConfig": {
+                        "shape": "Sg"
+                    },
+                    "recurrenceConfig": {
+                        "shape": "Si"
+                    },
+                    "isGalaxy": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "instanceId": {},
+                    "workbookId": {},
+                    "planningCycleId": {},
+                    "planningCycleConfig": {
+                        "shape": "Sg"
+                    },
+                    "datasetGroupId": {},
+                    "demandPlanningCycleId": {},
+                    "demandPlanningCycleResources": {
+                        "shape": "Sq"
+                    },
+                    "createTime": {
+                        "shape": "Sh"
+                    },
+                    "updateTime": {
+                        "shape": "Sh"
+                    },
+                    "status": {},
+                    "recurrenceConfig": {
+                        "shape": "Si"
+                    }
+                }
+            },
+            "endpoint": {
+                "hostPrefix": "control."
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/TKHP6TGZH23RVCUZZP2OJ2PJJUFTMSQ666SII2V522LCUK4NBNXQ/vendors~4134d62c.js"
+            ]
+        },
+        "CreateDerivedForecast": {
+            "http": {
+                "requestUri": "/instances/{instanceId}/workbooks/{workbookId}/planningcycles/{planningCycleId}/derivedforecasts",
+                "responseCode": 201
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "workbookId",
+                    "instanceId",
+                    "planningCycleId",
+                    "sourceForecastId",
+                    "name"
+                ],
+                "members": {
+                    "workbookId": {
+                        "location": "uri",
+                        "locationName": "workbookId"
+                    },
+                    "instanceId": {
+                        "location": "uri",
+                        "locationName": "instanceId"
+                    },
+                    "planningCycleId": {
+                        "location": "uri",
+                        "locationName": "planningCycleId"
+                    },
+                    "sourceForecastId": {},
+                    "name": {},
+                    "quantileValue": {},
+                    "filters": {
+                        "shape": "Sw"
+                    },
+                    "overrides": {
+                        "type": "map",
+                        "key": {},
+                        "value": {
+                            "type": "double"
+                        }
+                    },
+                    "overrideAll": {
+                        "type": "structure",
+                        "required": [
+                            "type",
+                            "value"
+                        ],
+                        "members": {
+                            "type": {},
+                            "value": {
+                                "type": "double"
+                            }
+                        }
+                    },
+                    "forecastGranularity": {},
+                    "overrideReason": {},
+                    "otherOverrideReason": {},
+                    "isGalaxy": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "derivedForecastId": {},
+                    "name": {},
+                    "instanceId": {},
+                    "planningCycleId": {},
+                    "baselineForecastId": {},
+                    "createdBy": {},
+                    "creationTime": {
+                        "type": "timestamp"
+                    },
+                    "status": {},
+                    "forecastGranularity": {},
+                    "overrideReason": {},
+                    "otherOverrideReason": {}
+                }
+            },
+            "endpoint": {
+                "hostPrefix": "oms."
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/TKHP6TGZH23RVCUZZP2OJ2PJJUFTMSQ666SII2V522LCUK4NBNXQ/vendors~4134d62c.js"
+            ]
+        },
+        "DeleteDemandForecastConfig": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/instances/{instanceId}/workbooks/{workbookId}/demandplanningcycles/{demandPlanningCycleId}/demandforecastconfig",
+                "responseCode": 204
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "demandPlanningCycleId",
+                    "workbookId",
+                    "instanceId"
+                ],
+                "members": {
+                    "demandPlanningCycleId": {
+                        "location": "uri",
+                        "locationName": "demandPlanningCycleId"
+                    },
+                    "workbookId": {
+                        "location": "uri",
+                        "locationName": "workbookId"
+                    },
+                    "instanceId": {
+                        "location": "uri",
+                        "locationName": "instanceId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "endpoint": {
+                "hostPrefix": "control."
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/TKHP6TGZH23RVCUZZP2OJ2PJJUFTMSQ666SII2V522LCUK4NBNXQ/vendors~4134d62c.js"
+            ]
+        },
+        "DeleteDemandPlan": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/instances/{instanceId}/workbooks/{workbookId}/planningcycles/{planningCycleId}/sourceforecasts/{sourceForecastId}/demandplans/{demandPlanId}",
+                "responseCode": 204
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "workbookId",
+                    "instanceId",
+                    "planningCycleId",
+                    "sourceForecastId",
+                    "demandPlanId"
+                ],
+                "members": {
+                    "workbookId": {
+                        "location": "uri",
+                        "locationName": "workbookId"
+                    },
+                    "instanceId": {
+                        "location": "uri",
+                        "locationName": "instanceId"
+                    },
+                    "planningCycleId": {
+                        "location": "uri",
+                        "locationName": "planningCycleId"
+                    },
+                    "sourceForecastId": {
+                        "location": "uri",
+                        "locationName": "sourceForecastId"
+                    },
+                    "demandPlanId": {
+                        "location": "uri",
+                        "locationName": "demandPlanId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "endpoint": {
+                "hostPrefix": "oms."
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/TKHP6TGZH23RVCUZZP2OJ2PJJUFTMSQ666SII2V522LCUK4NBNXQ/vendors~4134d62c.js"
+            ]
+        },
+        "DeleteDemandPlanningCycle": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/instances/{instanceId}/workbooks/{workbookId}/demandplanningcycles/{demandPlanningCycleId}",
+                "responseCode": 204
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "workbookId",
+                    "instanceId",
+                    "demandPlanningCycleId"
+                ],
+                "members": {
+                    "workbookId": {
+                        "location": "uri",
+                        "locationName": "workbookId"
+                    },
+                    "instanceId": {
+                        "location": "uri",
+                        "locationName": "instanceId"
+                    },
+                    "demandPlanningCycleId": {
+                        "location": "uri",
+                        "locationName": "demandPlanningCycleId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "endpoint": {
+                "hostPrefix": "control."
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/TKHP6TGZH23RVCUZZP2OJ2PJJUFTMSQ666SII2V522LCUK4NBNXQ/vendors~4134d62c.js"
+            ]
+        },
+        "DeleteDerivedForecast": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/instances/{instanceId}/workbooks/{workbookId}/planningcycles/{planningCycleId}/derivedforecasts/{derivedForecastId}",
+                "responseCode": 204
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "workbookId",
+                    "instanceId",
+                    "planningCycleId",
+                    "derivedForecastId"
+                ],
+                "members": {
+                    "workbookId": {
+                        "location": "uri",
+                        "locationName": "workbookId"
+                    },
+                    "instanceId": {
+                        "location": "uri",
+                        "locationName": "instanceId"
+                    },
+                    "planningCycleId": {
+                        "location": "uri",
+                        "locationName": "planningCycleId"
+                    },
+                    "derivedForecastId": {
+                        "location": "uri",
+                        "locationName": "derivedForecastId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "endpoint": {
+                "hostPrefix": "oms."
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/TKHP6TGZH23RVCUZZP2OJ2PJJUFTMSQ666SII2V522LCUK4NBNXQ/vendors~4134d62c.js"
+            ]
+        },
+        "DescribeBaselineForecast": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/instances/{instanceId}/workbooks/{workbookId}/planningcycles/{planningCycleId}/baselineforecasts/{baselineForecastId}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "workbookId",
+                    "instanceId",
+                    "planningCycleId",
+                    "baselineForecastId"
+                ],
+                "members": {
+                    "workbookId": {
+                        "location": "uri",
+                        "locationName": "workbookId"
+                    },
+                    "instanceId": {
+                        "location": "uri",
+                        "locationName": "instanceId"
+                    },
+                    "planningCycleId": {
+                        "location": "uri",
+                        "locationName": "planningCycleId"
+                    },
+                    "baselineForecastId": {
+                        "location": "uri",
+                        "locationName": "baselineForecastId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "datasetId": {},
+                    "planningCycleId": {},
+                    "instanceId": {},
+                    "baselineForecastId": {},
+                    "forecastType": {},
+                    "creationTime": {
+                        "type": "timestamp"
+                    },
+                    "status": {},
+                    "createdBy": {},
+                    "filterKeys": {
+                        "shape": "Sx"
+                    },
+                    "productHierarchyDimensions": {
+                        "type": "list",
+                        "member": {}
+                    },
+                    "locationHierarchyDimensions": {
+                        "type": "list",
+                        "member": {}
+                    },
+                    "customerHierarchyDimensions": {
+                        "type": "list",
+                        "member": {}
+                    },
+                    "salesDataDatasetId": {},
+                    "salesDataDatasetVersion": {},
+                    "itemMetadataDatasetId": {},
+                    "forecastGranularity": {},
+                    "forecastHorizon": {
+                        "type": "integer"
+                    },
+                    "forecastStartDate": {
+                        "type": "timestamp"
+                    },
+                    "historicalSalesDatasetId": {},
+                    "forecastNormalizedImpactScores": {
+                        "type": "map",
+                        "key": {},
+                        "value": {
+                            "type": "double"
+                        }
+                    },
+                    "explainabilityDatasetId": {},
+                    "lowestGrainModelAccuracyS3PresignedUrl": {},
+                    "rmse": {
+                        "type": "double"
+                    },
+                    "mape": {
+                        "type": "double"
+                    },
+                    "wape": {
+                        "type": "double"
+                    },
+                    "baselineForecastEntityId": {}
+                }
+            },
+            "endpoint": {
+                "hostPrefix": "oms."
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/TKHP6TGZH23RVCUZZP2OJ2PJJUFTMSQ666SII2V522LCUK4NBNXQ/vendors~4134d62c.js"
+            ]
+        },
+        "DescribeDemandPlanningCycleAccuracyJob": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/instances/{instanceId}/workbooks/{workbookId}/demandplanningcycles/{demandPlanningCycleId}/demandplanningcycleaccuracyjobs/{jobId}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "jobId",
+                    "workbookId",
+                    "instanceId",
+                    "demandPlanningCycleId"
+                ],
+                "members": {
+                    "jobId": {
+                        "location": "uri",
+                        "locationName": "jobId"
+                    },
+                    "workbookId": {
+                        "location": "uri",
+                        "locationName": "workbookId"
+                    },
+                    "instanceId": {
+                        "location": "uri",
+                        "locationName": "instanceId"
+                    },
+                    "demandPlanningCycleId": {
+                        "location": "uri",
+                        "locationName": "demandPlanningCycleId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "jobId": {},
+                    "instanceId": {},
+                    "workbookId": {},
+                    "demandPlanningCycleId": {},
+                    "status": {},
+                    "creationTime": {
+                        "type": "timestamp"
+                    },
+                    "updateTime": {
+                        "type": "timestamp"
+                    },
+                    "errorMessage": {},
+                    "jobType": {}
+                }
+            },
+            "endpoint": {
+                "hostPrefix": "workflow."
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/TKHP6TGZH23RVCUZZP2OJ2PJJUFTMSQ666SII2V522LCUK4NBNXQ/vendors~4134d62c.js"
+            ]
+        },
+        "DescribeDerivedForecast": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/instances/{instanceId}/workbooks/{workbookId}/planningcycles/{planningCycleId}/derivedforecasts/{derivedForecastId}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "workbookId",
+                    "instanceId",
+                    "planningCycleId",
+                    "derivedForecastId"
+                ],
+                "members": {
+                    "workbookId": {
+                        "location": "uri",
+                        "locationName": "workbookId"
+                    },
+                    "instanceId": {
+                        "location": "uri",
+                        "locationName": "instanceId"
+                    },
+                    "planningCycleId": {
+                        "location": "uri",
+                        "locationName": "planningCycleId"
+                    },
+                    "derivedForecastId": {
+                        "location": "uri",
+                        "locationName": "derivedForecastId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "derivedForecastId": {},
+                    "name": {},
+                    "instanceId": {},
+                    "planningCycleId": {},
+                    "baselineForecastId": {},
+                    "datasetId": {},
+                    "creationTime": {
+                        "type": "timestamp"
+                    },
+                    "updateTime": {
+                        "type": "timestamp"
+                    },
+                    "createdBy": {},
+                    "updatedBy": {},
+                    "status": {},
+                    "errorMessage": {},
+                    "forecastGranularity": {},
+                    "filters": {
+                        "shape": "Sw"
+                    },
+                    "overrideReason": {},
+                    "otherOverrideReason": {},
+                    "derivedForecastDatasetPreSignedS3Url": {}
+                }
+            },
+            "endpoint": {
+                "hostPrefix": "oms."
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/TKHP6TGZH23RVCUZZP2OJ2PJJUFTMSQ666SII2V522LCUK4NBNXQ/vendors~4134d62c.js"
+            ]
+        },
+        "DescribeForecastingJob": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/instances/{instanceId}/workbooks/{workbookId}/demandplanningcycles/{demandPlanningCycleId}/forecastingjobs/{jobId}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "jobId",
+                    "workbookId",
+                    "instanceId",
+                    "demandPlanningCycleId"
+                ],
+                "members": {
+                    "jobId": {
+                        "location": "uri",
+                        "locationName": "jobId"
+                    },
+                    "workbookId": {
+                        "location": "uri",
+                        "locationName": "workbookId"
+                    },
+                    "instanceId": {
+                        "location": "uri",
+                        "locationName": "instanceId"
+                    },
+                    "demandPlanningCycleId": {
+                        "location": "uri",
+                        "locationName": "demandPlanningCycleId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "jobId": {},
+                    "instanceId": {},
+                    "workbookId": {},
+                    "demandPlanningCycleId": {},
+                    "status": {},
+                    "creationTime": {
+                        "type": "timestamp"
+                    },
+                    "updateTime": {
+                        "type": "timestamp"
+                    },
+                    "errorMessage": {},
+                    "jobType": {}
+                }
+            },
+            "endpoint": {
+                "hostPrefix": "workflow."
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/TKHP6TGZH23RVCUZZP2OJ2PJJUFTMSQ666SII2V522LCUK4NBNXQ/vendors~4134d62c.js"
+            ]
+        },
+        "GetDemandForecastConfig": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/instances/{instanceId}/workbooks/{workbookId}/demandplanningcycles/{demandPlanningCycleId}/demandforecastconfig",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "demandPlanningCycleId",
+                    "workbookId",
+                    "instanceId"
+                ],
+                "members": {
+                    "demandPlanningCycleId": {
+                        "location": "uri",
+                        "locationName": "demandPlanningCycleId"
+                    },
+                    "workbookId": {
+                        "location": "uri",
+                        "locationName": "workbookId"
+                    },
+                    "instanceId": {
+                        "location": "uri",
+                        "locationName": "instanceId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "demandPlanningCycleId": {},
+                    "instanceId": {},
+                    "demandForecastConfiguration": {
+                        "shape": "S20"
+                    },
+                    "createTime": {
+                        "shape": "Sh"
+                    },
+                    "updateTime": {
+                        "shape": "Sh"
+                    }
+                }
+            },
+            "endpoint": {
+                "hostPrefix": "control."
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/TKHP6TGZH23RVCUZZP2OJ2PJJUFTMSQ666SII2V522LCUK4NBNXQ/vendors~4134d62c.js"
+            ]
+        },
+        "GetDemandPlan": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/instances/{instanceId}/workbooks/{workbookId}/planningcycles/{planningCycleId}/sourceforecasts/{sourceForecastId}/demandplans/{demandPlanId}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "workbookId",
+                    "instanceId",
+                    "planningCycleId",
+                    "sourceForecastId",
+                    "demandPlanId"
+                ],
+                "members": {
+                    "workbookId": {
+                        "location": "uri",
+                        "locationName": "workbookId"
+                    },
+                    "instanceId": {
+                        "location": "uri",
+                        "locationName": "instanceId"
+                    },
+                    "planningCycleId": {
+                        "location": "uri",
+                        "locationName": "planningCycleId"
+                    },
+                    "sourceForecastId": {
+                        "location": "uri",
+                        "locationName": "sourceForecastId"
+                    },
+                    "demandPlanId": {
+                        "location": "uri",
+                        "locationName": "demandPlanId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "demandPlanId": {},
+                    "instanceId": {},
+                    "planningCycleId": {},
+                    "sourceForecastId": {},
+                    "derivedForecastIds": {
+                        "shape": "Sc"
+                    },
+                    "quantileValue": {},
+                    "demandPlanName": {},
+                    "demandPlanDescription": {},
+                    "demandPlanDatasetId": {},
+                    "creationTime": {
+                        "type": "timestamp"
+                    },
+                    "createdBy": {},
+                    "updateTime": {
+                        "type": "timestamp"
+                    },
+                    "updatedBy": {},
+                    "demandPlanStatus": {},
+                    "latestExecutionStatus": {},
+                    "latestExecutionErrorMessage": {}
+                }
+            },
+            "endpoint": {
+                "hostPrefix": "oms."
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/TKHP6TGZH23RVCUZZP2OJ2PJJUFTMSQ666SII2V522LCUK4NBNXQ/vendors~4134d62c.js"
+            ]
+        },
+        "GetDemandPlanningCycle": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/instances/{instanceId}/workbooks/{workbookId}/demandplanningcycles/{demandPlanningCycleId}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "workbookId",
+                    "instanceId",
+                    "demandPlanningCycleId"
+                ],
+                "members": {
+                    "workbookId": {
+                        "location": "uri",
+                        "locationName": "workbookId"
+                    },
+                    "instanceId": {
+                        "location": "uri",
+                        "locationName": "instanceId"
+                    },
+                    "demandPlanningCycleId": {
+                        "location": "uri",
+                        "locationName": "demandPlanningCycleId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "instanceId": {},
+                    "workbookId": {},
+                    "planningCycleId": {},
+                    "planningCycleConfig": {
+                        "shape": "Sg"
+                    },
+                    "datasetGroupId": {},
+                    "demandPlanningCycleId": {},
+                    "demandPlanningCycleResources": {
+                        "shape": "Sq"
+                    },
+                    "createTime": {
+                        "shape": "Sh"
+                    },
+                    "updateTime": {
+                        "shape": "Sh"
+                    },
+                    "status": {},
+                    "recurrenceConfig": {
+                        "shape": "Si"
+                    }
+                }
+            },
+            "endpoint": {
+                "hostPrefix": "control."
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/TKHP6TGZH23RVCUZZP2OJ2PJJUFTMSQ666SII2V522LCUK4NBNXQ/vendors~4134d62c.js"
+            ]
+        },
+        "GetDemandPlanningCycleAccuracy": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/instances/{instanceId}/workbooks/{workbookId}/planningcycles/{planningCycleId}/accuracy",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "workbookId",
+                    "instanceId",
+                    "planningCycleId"
+                ],
+                "members": {
+                    "workbookId": {
+                        "location": "uri",
+                        "locationName": "workbookId"
+                    },
+                    "instanceId": {
+                        "location": "uri",
+                        "locationName": "instanceId"
+                    },
+                    "planningCycleId": {
+                        "location": "uri",
+                        "locationName": "planningCycleId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "planningCycleId": {},
+                    "instanceId": {},
+                    "workbookId": {},
+                    "createTime": {
+                        "type": "timestamp"
+                    },
+                    "lowestGrainAccuracyDatasetId": {},
+                    "rmse": {
+                        "type": "double"
+                    },
+                    "mape": {
+                        "type": "double"
+                    },
+                    "wape": {
+                        "type": "double"
+                    },
+                    "overallAccuracy": {
+                        "type": "double"
+                    },
+                    "outputS3PreSignedURL": {}
+                }
+            },
+            "endpoint": {
+                "hostPrefix": "oms."
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/TKHP6TGZH23RVCUZZP2OJ2PJJUFTMSQ666SII2V522LCUK4NBNXQ/vendors~4134d62c.js"
+            ]
+        },
+        "ListDemandPlans": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/instances/{instanceId}/workbooks/{workbookId}/planningcycles/{planningCycleId}/sourceforecasts/{sourceForecastId}/demandplans",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "workbookId",
+                    "instanceId",
+                    "planningCycleId",
+                    "sourceForecastId"
+                ],
+                "members": {
+                    "workbookId": {
+                        "location": "uri",
+                        "locationName": "workbookId"
+                    },
+                    "instanceId": {
+                        "location": "uri",
+                        "locationName": "instanceId"
+                    },
+                    "planningCycleId": {
+                        "location": "uri",
+                        "locationName": "planningCycleId"
+                    },
+                    "sourceForecastId": {
+                        "location": "uri",
+                        "locationName": "sourceForecastId"
+                    },
+                    "nextToken": {
+                        "location": "querystring",
+                        "locationName": "nextToken"
+                    },
+                    "maxResults": {
+                        "location": "querystring",
+                        "locationName": "maxResults",
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "demandPlans"
+                ],
+                "members": {
+                    "demandPlans": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "demandPlanId": {},
+                                "demandPlanName": {},
+                                "demandPlanDescription": {},
+                                "demandPlanStatus": {},
+                                "instanceId": {},
+                                "planningCycleId": {},
+                                "demandPlanDatasetId": {},
+                                "creationTime": {
+                                    "type": "timestamp"
+                                },
+                                "updateTime": {
+                                    "type": "timestamp"
+                                },
+                                "createdBy": {},
+                                "updatedBy": {}
+                            }
+                        }
+                    },
+                    "nextToken": {}
+                }
+            },
+            "endpoint": {
+                "hostPrefix": "oms."
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/TKHP6TGZH23RVCUZZP2OJ2PJJUFTMSQ666SII2V522LCUK4NBNXQ/vendors~4134d62c.js"
+            ]
+        },
+        "ListDerivedForecasts": {
+            "http": {
+                "requestUri": "/instances/{instanceId}/workbooks/{workbookId}/planningcycles/{planningCycleId}/baselineforecasts/{baselineForecastId}/derivedforecasts",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "workbookId",
+                    "instanceId",
+                    "planningCycleId",
+                    "baselineForecastId",
+                    "filtersUsedForDerivedForecasts"
+                ],
+                "members": {
+                    "workbookId": {
+                        "location": "uri",
+                        "locationName": "workbookId"
+                    },
+                    "instanceId": {
+                        "location": "uri",
+                        "locationName": "instanceId"
+                    },
+                    "planningCycleId": {
+                        "location": "uri",
+                        "locationName": "planningCycleId"
+                    },
+                    "baselineForecastId": {
+                        "location": "uri",
+                        "locationName": "baselineForecastId"
+                    },
+                    "filtersUsedForDerivedForecasts": {
+                        "shape": "Sw"
+                    },
+                    "nextToken": {
+                        "location": "querystring",
+                        "locationName": "nextToken"
+                    },
+                    "maxResults": {
+                        "location": "querystring",
+                        "locationName": "maxResults",
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "derivedForecasts"
+                ],
+                "members": {
+                    "derivedForecasts": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "derivedForecastId": {},
+                                "name": {},
+                                "instanceId": {},
+                                "planningCycleId": {},
+                                "baselineForecastId": {},
+                                "datasetId": {},
+                                "creationTime": {
+                                    "type": "timestamp"
+                                },
+                                "updateTime": {
+                                    "type": "timestamp"
+                                },
+                                "createdBy": {},
+                                "updatedBy": {},
+                                "status": {},
+                                "errorMessage": {},
+                                "forecastGranularity": {},
+                                "filters": {
+                                    "shape": "Sw"
+                                },
+                                "overrideReason": {},
+                                "otherOverrideReason": {}
+                            }
+                        }
+                    },
+                    "nextToken": {}
+                }
+            },
+            "endpoint": {
+                "hostPrefix": "oms."
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/TKHP6TGZH23RVCUZZP2OJ2PJJUFTMSQ666SII2V522LCUK4NBNXQ/vendors~4134d62c.js"
+            ]
+        },
+        "ListForecastingJobs": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/instances/{instanceId}/workbooks/{workbookId}/demandplanningcycles/{demandPlanningCycleId}/forecastingjobs",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "workbookId",
+                    "instanceId",
+                    "demandPlanningCycleId"
+                ],
+                "members": {
+                    "workbookId": {
+                        "location": "uri",
+                        "locationName": "workbookId"
+                    },
+                    "instanceId": {
+                        "location": "uri",
+                        "locationName": "instanceId"
+                    },
+                    "demandPlanningCycleId": {
+                        "location": "uri",
+                        "locationName": "demandPlanningCycleId"
+                    },
+                    "nextToken": {
+                        "location": "querystring",
+                        "locationName": "nextToken"
+                    },
+                    "maxResults": {
+                        "location": "querystring",
+                        "locationName": "maxResults",
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "jobs"
+                ],
+                "members": {
+                    "jobs": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "jobId"
+                            ],
+                            "members": {
+                                "jobId": {},
+                                "creationTime": {
+                                    "type": "timestamp"
+                                },
+                                "jobType": {},
+                                "status": {},
+                                "updateTime": {
+                                    "type": "timestamp"
+                                },
+                                "errorMessage": {}
+                            }
+                        }
+                    },
+                    "nextToken": {}
+                }
+            },
+            "endpoint": {
+                "hostPrefix": "workflow."
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/TKHP6TGZH23RVCUZZP2OJ2PJJUFTMSQ666SII2V522LCUK4NBNXQ/vendors~4134d62c.js"
+            ]
+        },
+        "PublishDemandPlan": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/instances/{instanceId}/workbooks/{workbookId}/planningcycles/{planningCycleId}/demandplans/{demandPlanId}/publish",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "workbookId",
+                    "instanceId",
+                    "planningCycleId",
+                    "demandPlanId"
+                ],
+                "members": {
+                    "workbookId": {
+                        "location": "uri",
+                        "locationName": "workbookId"
+                    },
+                    "instanceId": {
+                        "location": "uri",
+                        "locationName": "instanceId"
+                    },
+                    "planningCycleId": {
+                        "location": "uri",
+                        "locationName": "planningCycleId"
+                    },
+                    "demandPlanId": {
+                        "location": "uri",
+                        "locationName": "demandPlanId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "demandPlanId": {},
+                    "demandPlanDatasetId": {},
+                    "demandPlanningCycleId": {},
+                    "demandPlanStatus": {},
+                    "updateTime": {
+                        "type": "timestamp"
+                    },
+                    "updatedBy": {}
+                }
+            },
+            "endpoint": {
+                "hostPrefix": "oms."
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/TKHP6TGZH23RVCUZZP2OJ2PJJUFTMSQ666SII2V522LCUK4NBNXQ/vendors~4134d62c.js"
+            ]
+        },
+        "PutDemandForecastConfig": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/instances/{instanceId}/workbooks/{workbookId}/demandplanningcycles/{demandPlanningCycleId}/demandforecastconfig",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "demandPlanningCycleId",
+                    "workbookId",
+                    "instanceId",
+                    "demandForecastConfiguration"
+                ],
+                "members": {
+                    "demandPlanningCycleId": {
+                        "location": "uri",
+                        "locationName": "demandPlanningCycleId"
+                    },
+                    "workbookId": {
+                        "location": "uri",
+                        "locationName": "workbookId"
+                    },
+                    "instanceId": {
+                        "location": "uri",
+                        "locationName": "instanceId"
+                    },
+                    "demandForecastConfiguration": {
+                        "shape": "S20"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "demandPlanningCycleId": {},
+                    "instanceId": {},
+                    "demandForecastConfiguration": {
+                        "shape": "S20"
+                    },
+                    "createTime": {
+                        "shape": "Sh"
+                    },
+                    "updateTime": {
+                        "shape": "Sh"
+                    }
+                }
+            },
+            "endpoint": {
+                "hostPrefix": "control."
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/TKHP6TGZH23RVCUZZP2OJ2PJJUFTMSQ666SII2V522LCUK4NBNXQ/vendors~4134d62c.js"
+            ]
+        },
+        "StartDemandPlanningCycleAccuracyJob": {
+            "http": {
+                "requestUri": "/instances/{instanceId}/workbooks/{workbookId}/demandplanningcycles/{demandPlanningCycleId}/demandplanningcycleaccuracyjobs",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "workbookId",
+                    "instanceId",
+                    "demandPlanningCycleId"
+                ],
+                "members": {
+                    "workbookId": {
+                        "location": "uri",
+                        "locationName": "workbookId"
+                    },
+                    "instanceId": {
+                        "location": "uri",
+                        "locationName": "instanceId"
+                    },
+                    "demandPlanningCycleId": {
+                        "location": "uri",
+                        "locationName": "demandPlanningCycleId"
+                    },
+                    "isGalaxy": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "jobId": {},
+                    "instanceId": {},
+                    "workbookId": {},
+                    "demandPlanningCycleId": {}
+                }
+            },
+            "endpoint": {
+                "hostPrefix": "workflow."
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/TKHP6TGZH23RVCUZZP2OJ2PJJUFTMSQ666SII2V522LCUK4NBNXQ/vendors~4134d62c.js"
+            ]
+        },
+        "StartForecastingJob": {
+            "http": {
+                "requestUri": "/instances/{instanceId}/workbooks/{workbookId}/demandplanningcycles/{demandPlanningCycleId}/forecastingjobs",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "workbookId",
+                    "instanceId",
+                    "demandPlanningCycleId"
+                ],
+                "members": {
+                    "workbookId": {
+                        "location": "uri",
+                        "locationName": "workbookId"
+                    },
+                    "instanceId": {
+                        "location": "uri",
+                        "locationName": "instanceId"
+                    },
+                    "demandPlanningCycleId": {
+                        "location": "uri",
+                        "locationName": "demandPlanningCycleId"
+                    },
+                    "isGalaxy": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "jobId": {},
+                    "instanceId": {},
+                    "workbookId": {},
+                    "demandPlanningCycleId": {}
+                }
+            },
+            "endpoint": {
+                "hostPrefix": "workflow."
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/TKHP6TGZH23RVCUZZP2OJ2PJJUFTMSQ666SII2V522LCUK4NBNXQ/vendors~4134d62c.js"
+            ]
+        },
+        "UpdateDemandPlan": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/instances/{instanceId}/workbooks/{workbookId}/planningcycles/{planningCycleId}/sourceforecasts/{sourceForecastId}/demandplans/{demandPlanId}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "workbookId",
+                    "instanceId",
+                    "planningCycleId",
+                    "sourceForecastId",
+                    "demandPlanId"
+                ],
+                "members": {
+                    "workbookId": {
+                        "location": "uri",
+                        "locationName": "workbookId"
+                    },
+                    "instanceId": {
+                        "location": "uri",
+                        "locationName": "instanceId"
+                    },
+                    "planningCycleId": {
+                        "location": "uri",
+                        "locationName": "planningCycleId"
+                    },
+                    "sourceForecastId": {
+                        "location": "uri",
+                        "locationName": "sourceForecastId"
+                    },
+                    "demandPlanId": {
+                        "location": "uri",
+                        "locationName": "demandPlanId"
+                    },
+                    "addDerivedForecasts": {
+                        "type": "list",
+                        "member": {}
+                    },
+                    "demandPlanName": {},
+                    "demandPlanDescription": {},
+                    "isGalaxy": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "demandPlanId": {},
+                    "demandPlanName": {},
+                    "demandPlanDescription": {},
+                    "demandPlanStatus": {},
+                    "updateTime": {
+                        "type": "timestamp"
+                    },
+                    "updatedBy": {},
+                    "latestExecutionStatus": {}
+                }
+            },
+            "endpoint": {
+                "hostPrefix": "oms."
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/TKHP6TGZH23RVCUZZP2OJ2PJJUFTMSQ666SII2V522LCUK4NBNXQ/vendors~4134d62c.js"
+            ]
+        },
+        "UpdateDerivedForecast": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/instances/{instanceId}/workbooks/{workbookId}/planningcycles/{planningCycleId}/derivedforecasts/{derivedForecastId}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "workbookId",
+                    "instanceId",
+                    "planningCycleId",
+                    "derivedForecastId",
+                    "name"
+                ],
+                "members": {
+                    "workbookId": {
+                        "location": "uri",
+                        "locationName": "workbookId"
+                    },
+                    "instanceId": {
+                        "location": "uri",
+                        "locationName": "instanceId"
+                    },
+                    "planningCycleId": {
+                        "location": "uri",
+                        "locationName": "planningCycleId"
+                    },
+                    "derivedForecastId": {
+                        "location": "uri",
+                        "locationName": "derivedForecastId"
+                    },
+                    "name": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "derivedForecastId": {},
+                    "name": {},
+                    "instanceId": {},
+                    "planningCycleId": {},
+                    "baselineForecastId": {},
+                    "datasetId": {},
+                    "creationTime": {
+                        "type": "timestamp"
+                    },
+                    "updateTime": {
+                        "type": "timestamp"
+                    },
+                    "createdBy": {},
+                    "updatedBy": {},
+                    "status": {},
+                    "errorMessage": {},
+                    "overrideReason": {},
+                    "otherOverrideReason": {}
+                }
+            },
+            "endpoint": {
+                "hostPrefix": "oms."
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/TKHP6TGZH23RVCUZZP2OJ2PJJUFTMSQ666SII2V522LCUK4NBNXQ/vendors~4134d62c.js"
+            ]
+        }
+    },
+    "shapes": {
+        "Sc": {
+            "type": "list",
+            "member": {}
+        },
+        "Sg": {
+            "type": "structure",
+            "required": [
+                "planningStartTime"
+            ],
+            "members": {
+                "planningStartTime": {
+                    "shape": "Sh"
+                },
+                "planningEndTime": {
+                    "shape": "Sh"
+                },
+                "status": {}
+            }
+        },
+        "Sh": {
+            "type": "timestamp",
+            "timestampFormat": "iso8601"
+        },
+        "Si": {
+            "type": "structure",
+            "members": {
+                "totalNumberOfCyclesInRecurrence": {
+                    "type": "integer"
+                },
+                "eachDemandPlanningCycleLength": {
+                    "type": "integer"
+                },
+                "demandPlanningCycleLengthUnit": {}
+            }
+        },
+        "Sq": {
+            "type": "structure",
+            "members": {
+                "baselineForecastId": {},
+                "demandPlanId": {},
+                "salesDatasetIdForBaseline": {},
+                "salesDatasetIdVersionForBaseline": {}
+            }
+        },
+        "Sw": {
+            "type": "map",
+            "key": {},
+            "value": {
+                "shape": "Sx"
+            }
+        },
+        "Sx": {
+            "type": "list",
+            "member": {}
+        },
+        "S20": {
+            "type": "structure",
+            "required": [
+                "datasetGroupId",
+                "forecastHorizon",
+                "forecastFrequency"
+            ],
+            "members": {
+                "datasetGroupId": {},
+                "forecastHorizon": {
+                    "type": "integer"
+                },
+                "forecastFrequency": {},
+                "notificationEnabledEvents": {
+                    "type": "list",
+                    "member": {}
+                },
+                "filterKeys": {
+                    "type": "list",
+                    "member": {}
+                },
+                "productHierarchyDimensions": {
+                    "type": "list",
+                    "member": {}
+                },
+                "locationHierarchyDimensions": {
+                    "type": "list",
+                    "member": {}
+                },
+                "customerHierarchyDimensions": {
+                    "type": "list",
+                    "member": {}
+                },
+                "productAttributes": {
+                    "type": "list",
+                    "member": {}
+                }
+            }
+        }
+    }
+}

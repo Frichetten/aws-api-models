@@ -1,0 +1,166 @@
+{
+    "version": "2.0",
+    "metadata": {
+        "apiVersion": "2021-08-17",
+        "endpointPrefix": "amplify",
+        "jsonVersion": "1.1",
+        "protocol": "rest-json",
+        "serviceFullName": "AWS Amplify Console Extensions Service",
+        "serviceId": "Amplify",
+        "signatureVersion": "v4",
+        "signingName": "amplify",
+        "uid": "amplify-2021-08-17",
+        "download_location": [
+            "https://a.b.cdn.console.awsstatic.com/a/v1/KQMEXOK7L6BVCDPNO6NAQWCL7LD254QDDB53M4HDV7RJKL27XFBA/vendors~main.js"
+        ]
+    },
+    "operations": {
+        "CreateApp": {
+            "name": "CreateApp",
+            "http": {
+                "method": "POST",
+                "requestUri": "/access-token",
+                "responseCode": 200
+            },
+            "input": {
+                "shape": "GenerateAccessTokenRequest"
+            },
+            "output": {
+                "shape": "GenerateAccessTokenResponse"
+            },
+            "errors": [
+                {
+                    "shape": "ValidationException"
+                },
+                {
+                    "shape": "InvalidParameterException"
+                }
+            ],
+            "documentation": "<p>Generates a Github access token required for the CreateApp operation</p>",
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/KQMEXOK7L6BVCDPNO6NAQWCL7LD254QDDB53M4HDV7RJKL27XFBA/vendors~main.js"
+            ]
+        }
+    },
+    "shapes": {
+        "GenerateAccessTokenRequest": {
+            "type": "structure",
+            "required": [
+                "clientId",
+                "code",
+                "repositoryType"
+            ],
+            "members": {
+                "accountId": {
+                    "shape": "String"
+                },
+                "clientId": {
+                    "shape": "String"
+                },
+                "code": {
+                    "shape": "SensitiveString"
+                },
+                "repositoryType": {
+                    "shape": "String"
+                },
+                "state": {
+                    "shape": "String"
+                }
+            }
+        },
+        "GenerateAccessTokenResponse": {
+            "type": "structure",
+            "required": [
+                "body"
+            ],
+            "members": {
+                "body": {
+                    "shape": "GitHubBody"
+                }
+            },
+            "payload": "body"
+        },
+        "GitHubBody": {
+            "type": "structure",
+            "required": [
+                "accessToken"
+            ],
+            "members": {
+                "accessToken": {
+                    "shape": "SensitiveString"
+                },
+                "installationIds": {
+                    "shape": "InstallationIds"
+                }
+            }
+        },
+        "InstallationIds": {
+            "type": "list",
+            "member": {
+                "shape": "Integer"
+            }
+        },
+        "Integer": {
+            "type": "integer",
+            "box": true
+        },
+        "InvalidParameterException": {
+            "type": "structure",
+            "members": {
+                "message": {
+                    "shape": "String"
+                }
+            },
+            "exception": true
+        },
+        "SensitiveString": {
+            "type": "string",
+            "sensitive": true
+        },
+        "String": {
+            "type": "string"
+        },
+        "ValidationException": {
+            "type": "structure",
+            "required": [
+                "message"
+            ],
+            "members": {
+                "fieldList": {
+                    "shape": "ValidationExceptionFieldList",
+                    "documentation": "<p>A list of specific failures encountered while validating the input. A member can appear in this list more than once if it failed to satisfy multiple constraints.</p>"
+                },
+                "message": {
+                    "shape": "String",
+                    "documentation": "<p>A summary of the validation failure.</p>"
+                }
+            },
+            "documentation": "<p>A standard error for input validation failures. This should be thrown by services when a member of the input structure falls outside of the modeled or documented constraints.</p>",
+            "exception": true
+        },
+        "ValidationExceptionField": {
+            "type": "structure",
+            "required": [
+                "message",
+                "path"
+            ],
+            "members": {
+                "message": {
+                    "shape": "String",
+                    "documentation": "<p>A detailed description of the validation failure.</p>"
+                },
+                "path": {
+                    "shape": "String",
+                    "documentation": "<p>A JSONPointer expression to the structure member whose value failed to satisfy the modeled constraints.</p>"
+                }
+            },
+            "documentation": "<p>Describes one specific validation failure for an input member.</p>"
+        },
+        "ValidationExceptionFieldList": {
+            "type": "list",
+            "member": {
+                "shape": "ValidationExceptionField"
+            }
+        }
+    }
+}

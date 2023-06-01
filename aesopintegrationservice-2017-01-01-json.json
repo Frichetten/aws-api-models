@@ -1,0 +1,203 @@
+{
+    "version": "2.0",
+    "metadata": {
+        "apiVersion": "2017-01-01",
+        "endpointPrefix": "aesopintegrationservice",
+        "jsonVersion": "1.0",
+        "protocol": "json",
+        "signatureVersion": "v4",
+        "targetPrefix": "AESOPIntegrationService",
+        "uid": "aesopintegrationservice-2017-01-01",
+        "download_location": [
+            "https://a.b.cdn.console.awsstatic.com/a/v1/6APWNKTBZPAHVCP7CJO3GWJX2FL5HKDS5AXMW4QGJLIYK65HIEYA/main.js"
+        ]
+    },
+    "operations": {
+        "AvsCorrectAddress": {
+            "name": "AvsCorrectAddress",
+            "http": {
+                "method": "POST",
+                "requestUri": "/"
+            },
+            "input": {
+                "shape": "AvsAddress"
+            },
+            "output": {
+                "shape": "AvsCorrectAddressResponse"
+            },
+            "errors": [
+                {
+                    "shape": "ServiceException"
+                },
+                {
+                    "shape": "NotFoundException"
+                },
+                {
+                    "shape": "NoPermissionException"
+                }
+            ],
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/6APWNKTBZPAHVCP7CJO3GWJX2FL5HKDS5AXMW4QGJLIYK65HIEYA/main.js"
+            ]
+        },
+        "BuyNowGetBillingInfo": {
+            "name": "BuyNowGetBillingInfo",
+            "http": {
+                "method": "POST",
+                "requestUri": "/"
+            },
+            "input": {
+                "shape": "BuyNowGetBillingInfoRequest"
+            },
+            "output": {
+                "shape": "BuyNowGetBillingInfoResponse"
+            },
+            "errors": [
+                {
+                    "shape": "ServiceException"
+                },
+                {
+                    "shape": "NotFoundException"
+                },
+                {
+                    "shape": "NoPermissionException"
+                }
+            ],
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/6APWNKTBZPAHVCP7CJO3GWJX2FL5HKDS5AXMW4QGJLIYK65HIEYA/main.js"
+            ]
+        }
+    },
+    "shapes": {
+        "AvsAddress": {
+            "type": "structure",
+            "required": [
+                "address1"
+            ],
+            "members": {
+                "name": {
+                    "shape": "String"
+                },
+                "address1": {
+                    "shape": "String"
+                },
+                "address2": {
+                    "shape": "String"
+                },
+                "address3": {
+                    "shape": "String"
+                },
+                "city": {
+                    "shape": "String"
+                },
+                "state": {
+                    "shape": "String"
+                },
+                "zip": {
+                    "shape": "String"
+                },
+                "voice": {
+                    "shape": "String"
+                },
+                "country": {
+                    "shape": "String"
+                }
+            }
+        },
+        "AvsAddresses": {
+            "type": "list",
+            "member": {
+                "shape": "AvsAddress"
+            }
+        },
+        "AvsCorrectAddressResponse": {
+            "type": "structure",
+            "required": [
+                "resultCode"
+            ],
+            "members": {
+                "resultCode": {
+                    "shape": "String"
+                },
+                "suggestedAddresses": {
+                    "shape": "AvsAddresses"
+                },
+                "dpsScreeningResult": {
+                    "shape": "String"
+                }
+            }
+        },
+        "BuyNowGetBillingInfoRequest": {
+            "type": "structure",
+            "members": {
+                "accountId": {
+                    "shape": "String"
+                }
+            }
+        },
+        "BuyNowGetBillingInfoResponse": {
+            "type": "structure",
+            "members": {
+                "name": {
+                    "shape": "String"
+                },
+                "email": {
+                    "shape": "String"
+                },
+                "addressId": {
+                    "shape": "String"
+                },
+                "addressLine1": {
+                    "shape": "String"
+                },
+                "addressLine2": {
+                    "shape": "String"
+                },
+                "addressLine3": {
+                    "shape": "String"
+                },
+                "city": {
+                    "shape": "String"
+                },
+                "stateOrRegion": {
+                    "shape": "String"
+                },
+                "postalCode": {
+                    "shape": "String"
+                },
+                "countryCode": {
+                    "shape": "String"
+                }
+            }
+        },
+        "ErrorMessage": {
+            "type": "string",
+            "max": 1024,
+            "min": 1
+        },
+        "NoPermissionException": {
+            "type": "structure",
+            "members": {},
+            "exception": true
+        },
+        "NotFoundException": {
+            "type": "structure",
+            "members": {},
+            "exception": true
+        },
+        "ServiceException": {
+            "type": "structure",
+            "members": {
+                "Message": {
+                    "shape": "ErrorMessage"
+                }
+            },
+            "exception": true
+        },
+        "String": {
+            "type": "string",
+            "max": 255,
+            "min": 0
+        }
+    }
+}

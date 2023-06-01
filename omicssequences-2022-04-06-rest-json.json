@@ -1,0 +1,2234 @@
+{
+    "version": "2.0",
+    "metadata": {
+        "apiVersion": "2022-04-06",
+        "endpointPrefix": "omicssequences",
+        "jsonVersion": "1.1",
+        "protocol": "rest-json",
+        "ripServiceName": "omics/mosaic",
+        "serviceFullName": "Amazon Omics Sequences",
+        "serviceId": "OmicsSequences",
+        "signatureVersion": "v4",
+        "signingName": "omics",
+        "uid": "omicssequences-2022-04-06",
+        "download_location": [
+            "https://a.b.cdn.console.awsstatic.com/a/v1/7WXYPGWFR4DZO4SDWQYLPIMAEGPCYM4TBYFLWHZECNEPWY45XXTQ/vendors.js"
+        ]
+    },
+    "operations": {
+        "AbortMultipartReadSetUpload": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/sequencestore/{sequenceStoreId}/upload/{uploadId}/abort",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "sequenceStoreId",
+                    "uploadId"
+                ],
+                "members": {
+                    "sequenceStoreId": {
+                        "location": "uri",
+                        "locationName": "sequenceStoreId"
+                    },
+                    "uploadId": {
+                        "location": "uri",
+                        "locationName": "uploadId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "authtype": "v4",
+            "endpoint": {
+                "hostPrefix": "control-storage-"
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/7WXYPGWFR4DZO4SDWQYLPIMAEGPCYM4TBYFLWHZECNEPWY45XXTQ/vendors.js"
+            ]
+        },
+        "BatchDeleteReadSet": {
+            "http": {
+                "requestUri": "/sequencestore/{sequenceStoreId}/readset/batch/delete",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ids",
+                    "sequenceStoreId"
+                ],
+                "members": {
+                    "ids": {
+                        "type": "list",
+                        "member": {}
+                    },
+                    "sequenceStoreId": {
+                        "location": "uri",
+                        "locationName": "sequenceStoreId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "errors": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "id",
+                                "code",
+                                "message"
+                            ],
+                            "members": {
+                                "id": {},
+                                "code": {},
+                                "message": {}
+                            }
+                        }
+                    }
+                }
+            },
+            "authtype": "v4",
+            "endpoint": {
+                "hostPrefix": "control-storage-"
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/7WXYPGWFR4DZO4SDWQYLPIMAEGPCYM4TBYFLWHZECNEPWY45XXTQ/vendors.js"
+            ]
+        },
+        "CompleteMultipartReadSetUpload": {
+            "http": {
+                "requestUri": "/sequencestore/{sequenceStoreId}/upload/{uploadId}/complete",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "sequenceStoreId",
+                    "uploadId",
+                    "parts"
+                ],
+                "members": {
+                    "sequenceStoreId": {
+                        "location": "uri",
+                        "locationName": "sequenceStoreId"
+                    },
+                    "uploadId": {
+                        "location": "uri",
+                        "locationName": "uploadId"
+                    },
+                    "parts": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "partNumber",
+                                "file",
+                                "checksum"
+                            ],
+                            "members": {
+                                "partNumber": {
+                                    "type": "integer"
+                                },
+                                "file": {},
+                                "checksum": {}
+                            }
+                        }
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "readSetId"
+                ],
+                "members": {
+                    "readSetId": {}
+                }
+            },
+            "authtype": "v4",
+            "endpoint": {
+                "hostPrefix": "storage-"
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/7WXYPGWFR4DZO4SDWQYLPIMAEGPCYM4TBYFLWHZECNEPWY45XXTQ/vendors.js"
+            ]
+        },
+        "CreateMultipartReadSetUpload": {
+            "http": {
+                "requestUri": "/sequencestore/{sequenceStoreId}/upload",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "sequenceStoreId",
+                    "sourceFileType",
+                    "subjectId",
+                    "sampleId",
+                    "referenceArn",
+                    "name"
+                ],
+                "members": {
+                    "sequenceStoreId": {
+                        "location": "uri",
+                        "locationName": "sequenceStoreId"
+                    },
+                    "clientToken": {},
+                    "sourceFileType": {},
+                    "subjectId": {},
+                    "sampleId": {},
+                    "generatedFrom": {},
+                    "referenceArn": {},
+                    "name": {},
+                    "description": {},
+                    "tags": {
+                        "shape": "Sr"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "sequenceStoreId",
+                    "uploadId",
+                    "sourceFileType",
+                    "subjectId",
+                    "sampleId",
+                    "referenceArn",
+                    "creationTime"
+                ],
+                "members": {
+                    "sequenceStoreId": {},
+                    "uploadId": {},
+                    "sourceFileType": {},
+                    "subjectId": {},
+                    "sampleId": {},
+                    "generatedFrom": {},
+                    "referenceArn": {},
+                    "name": {},
+                    "description": {},
+                    "tags": {
+                        "shape": "Sr"
+                    },
+                    "creationTime": {
+                        "shape": "Sv"
+                    }
+                }
+            },
+            "authtype": "v4",
+            "endpoint": {
+                "hostPrefix": "control-storage-"
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/7WXYPGWFR4DZO4SDWQYLPIMAEGPCYM4TBYFLWHZECNEPWY45XXTQ/vendors.js"
+            ]
+        },
+        "CreateReferenceStore": {
+            "http": {
+                "requestUri": "/referencestore",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "name"
+                ],
+                "members": {
+                    "name": {},
+                    "description": {},
+                    "sseConfig": {
+                        "shape": "Sz"
+                    },
+                    "tags": {
+                        "shape": "Sr"
+                    },
+                    "clientToken": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "id",
+                    "arn",
+                    "creationTime"
+                ],
+                "members": {
+                    "id": {},
+                    "arn": {},
+                    "name": {},
+                    "description": {},
+                    "sseConfig": {
+                        "shape": "Sz"
+                    },
+                    "creationTime": {
+                        "shape": "Sv"
+                    }
+                }
+            },
+            "authtype": "v4",
+            "endpoint": {
+                "hostPrefix": "control-storage-"
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/7WXYPGWFR4DZO4SDWQYLPIMAEGPCYM4TBYFLWHZECNEPWY45XXTQ/vendors.js"
+            ]
+        },
+        "CreateSequenceStore": {
+            "http": {
+                "requestUri": "/sequencestore",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "name"
+                ],
+                "members": {
+                    "name": {},
+                    "description": {},
+                    "sseConfig": {
+                        "shape": "Sz"
+                    },
+                    "tags": {
+                        "shape": "Sr"
+                    },
+                    "clientToken": {},
+                    "evacuationLocation": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "id",
+                    "arn",
+                    "creationTime"
+                ],
+                "members": {
+                    "id": {},
+                    "arn": {},
+                    "name": {},
+                    "description": {},
+                    "sseConfig": {
+                        "shape": "Sz"
+                    },
+                    "creationTime": {
+                        "shape": "Sv"
+                    },
+                    "evacuationLocation": {}
+                }
+            },
+            "authtype": "v4",
+            "endpoint": {
+                "hostPrefix": "control-storage-"
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/7WXYPGWFR4DZO4SDWQYLPIMAEGPCYM4TBYFLWHZECNEPWY45XXTQ/vendors.js"
+            ]
+        },
+        "DeleteReference": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/referencestore/{referenceStoreId}/reference/{id}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "id",
+                    "referenceStoreId"
+                ],
+                "members": {
+                    "id": {
+                        "location": "uri",
+                        "locationName": "id"
+                    },
+                    "referenceStoreId": {
+                        "location": "uri",
+                        "locationName": "referenceStoreId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "authtype": "v4",
+            "endpoint": {
+                "hostPrefix": "control-storage-"
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/7WXYPGWFR4DZO4SDWQYLPIMAEGPCYM4TBYFLWHZECNEPWY45XXTQ/vendors.js"
+            ]
+        },
+        "DeleteReferenceStore": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/referencestore/{id}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "id"
+                ],
+                "members": {
+                    "id": {
+                        "location": "uri",
+                        "locationName": "id"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "authtype": "v4",
+            "endpoint": {
+                "hostPrefix": "control-storage-"
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/7WXYPGWFR4DZO4SDWQYLPIMAEGPCYM4TBYFLWHZECNEPWY45XXTQ/vendors.js"
+            ]
+        },
+        "DeleteSequenceStore": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/sequencestore/{id}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "id"
+                ],
+                "members": {
+                    "id": {
+                        "location": "uri",
+                        "locationName": "id"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "authtype": "v4",
+            "endpoint": {
+                "hostPrefix": "control-storage-"
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/7WXYPGWFR4DZO4SDWQYLPIMAEGPCYM4TBYFLWHZECNEPWY45XXTQ/vendors.js"
+            ]
+        },
+        "GetReadSet": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/sequencestore/{sequenceStoreId}/readset/{id}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "id",
+                    "sequenceStoreId",
+                    "partNumber"
+                ],
+                "members": {
+                    "id": {
+                        "location": "uri",
+                        "locationName": "id"
+                    },
+                    "sequenceStoreId": {
+                        "location": "uri",
+                        "locationName": "sequenceStoreId"
+                    },
+                    "file": {
+                        "location": "querystring",
+                        "locationName": "file"
+                    },
+                    "partNumber": {
+                        "location": "querystring",
+                        "locationName": "partNumber",
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "payload": {
+                        "type": "blob",
+                        "streaming": true
+                    }
+                },
+                "payload": "payload"
+            },
+            "authtype": "v4",
+            "endpoint": {
+                "hostPrefix": "storage-"
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/7WXYPGWFR4DZO4SDWQYLPIMAEGPCYM4TBYFLWHZECNEPWY45XXTQ/vendors.js"
+            ]
+        },
+        "GetReadSetActivationJob": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/sequencestore/{sequenceStoreId}/activationjob/{id}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "id",
+                    "sequenceStoreId"
+                ],
+                "members": {
+                    "id": {
+                        "location": "uri",
+                        "locationName": "id"
+                    },
+                    "sequenceStoreId": {
+                        "location": "uri",
+                        "locationName": "sequenceStoreId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "id",
+                    "sequenceStoreId",
+                    "status",
+                    "creationTime"
+                ],
+                "members": {
+                    "id": {},
+                    "sequenceStoreId": {},
+                    "status": {},
+                    "statusMessage": {},
+                    "creationTime": {
+                        "shape": "Sv"
+                    },
+                    "completionTime": {
+                        "shape": "Sv"
+                    },
+                    "sources": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "readSetId",
+                                "status"
+                            ],
+                            "members": {
+                                "readSetId": {},
+                                "status": {},
+                                "statusMessage": {}
+                            }
+                        }
+                    }
+                }
+            },
+            "authtype": "v4",
+            "endpoint": {
+                "hostPrefix": "control-storage-"
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/7WXYPGWFR4DZO4SDWQYLPIMAEGPCYM4TBYFLWHZECNEPWY45XXTQ/vendors.js"
+            ]
+        },
+        "GetReadSetExportJob": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/sequencestore/{sequenceStoreId}/exportjob/{id}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "sequenceStoreId",
+                    "id"
+                ],
+                "members": {
+                    "sequenceStoreId": {
+                        "location": "uri",
+                        "locationName": "sequenceStoreId"
+                    },
+                    "id": {
+                        "location": "uri",
+                        "locationName": "id"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "id",
+                    "sequenceStoreId",
+                    "destination",
+                    "status",
+                    "creationTime"
+                ],
+                "members": {
+                    "id": {},
+                    "sequenceStoreId": {},
+                    "destination": {},
+                    "status": {},
+                    "statusMessage": {},
+                    "creationTime": {
+                        "shape": "Sv"
+                    },
+                    "completionTime": {
+                        "shape": "Sv"
+                    },
+                    "readSets": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "id",
+                                "status"
+                            ],
+                            "members": {
+                                "id": {},
+                                "status": {},
+                                "statusMessage": {}
+                            }
+                        }
+                    }
+                }
+            },
+            "authtype": "v4",
+            "endpoint": {
+                "hostPrefix": "control-storage-"
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/7WXYPGWFR4DZO4SDWQYLPIMAEGPCYM4TBYFLWHZECNEPWY45XXTQ/vendors.js"
+            ]
+        },
+        "GetReadSetImportJob": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/sequencestore/{sequenceStoreId}/importjob/{id}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "id",
+                    "sequenceStoreId"
+                ],
+                "members": {
+                    "id": {
+                        "location": "uri",
+                        "locationName": "id"
+                    },
+                    "sequenceStoreId": {
+                        "location": "uri",
+                        "locationName": "sequenceStoreId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "id",
+                    "sequenceStoreId",
+                    "roleArn",
+                    "status",
+                    "creationTime",
+                    "sources"
+                ],
+                "members": {
+                    "id": {},
+                    "sequenceStoreId": {},
+                    "roleArn": {},
+                    "status": {},
+                    "statusMessage": {},
+                    "creationTime": {
+                        "shape": "Sv"
+                    },
+                    "completionTime": {
+                        "shape": "Sv"
+                    },
+                    "sources": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "sourceFiles",
+                                "sourceFileType",
+                                "status",
+                                "subjectId",
+                                "sampleId"
+                            ],
+                            "members": {
+                                "sourceFiles": {
+                                    "shape": "S29"
+                                },
+                                "sourceFileType": {},
+                                "status": {},
+                                "statusMessage": {},
+                                "subjectId": {},
+                                "sampleId": {},
+                                "generatedFrom": {},
+                                "referenceArn": {},
+                                "name": {},
+                                "description": {},
+                                "tags": {
+                                    "shape": "Sr"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "authtype": "v4",
+            "endpoint": {
+                "hostPrefix": "control-storage-"
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/7WXYPGWFR4DZO4SDWQYLPIMAEGPCYM4TBYFLWHZECNEPWY45XXTQ/vendors.js"
+            ]
+        },
+        "GetReadSetMetadata": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/sequencestore/{sequenceStoreId}/readset/{id}/metadata",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "id",
+                    "sequenceStoreId"
+                ],
+                "members": {
+                    "id": {
+                        "location": "uri",
+                        "locationName": "id"
+                    },
+                    "sequenceStoreId": {
+                        "location": "uri",
+                        "locationName": "sequenceStoreId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "id",
+                    "arn",
+                    "sequenceStoreId",
+                    "status",
+                    "fileType",
+                    "creationTime"
+                ],
+                "members": {
+                    "id": {},
+                    "arn": {},
+                    "sequenceStoreId": {},
+                    "subjectId": {},
+                    "sampleId": {},
+                    "status": {},
+                    "name": {},
+                    "description": {},
+                    "fileType": {},
+                    "creationTime": {
+                        "shape": "Sv"
+                    },
+                    "sequenceInformation": {
+                        "shape": "S2g"
+                    },
+                    "referenceArn": {},
+                    "files": {
+                        "type": "structure",
+                        "members": {
+                            "source1": {
+                                "shape": "S2j"
+                            },
+                            "source2": {
+                                "shape": "S2j"
+                            },
+                            "index": {
+                                "shape": "S2j"
+                            }
+                        }
+                    },
+                    "statusMessage": {}
+                }
+            },
+            "authtype": "v4",
+            "endpoint": {
+                "hostPrefix": "control-storage-"
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/7WXYPGWFR4DZO4SDWQYLPIMAEGPCYM4TBYFLWHZECNEPWY45XXTQ/vendors.js"
+            ]
+        },
+        "GetReference": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/referencestore/{referenceStoreId}/reference/{id}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "id",
+                    "referenceStoreId",
+                    "partNumber"
+                ],
+                "members": {
+                    "id": {
+                        "location": "uri",
+                        "locationName": "id"
+                    },
+                    "referenceStoreId": {
+                        "location": "uri",
+                        "locationName": "referenceStoreId"
+                    },
+                    "range": {
+                        "location": "header",
+                        "locationName": "Range"
+                    },
+                    "partNumber": {
+                        "location": "querystring",
+                        "locationName": "partNumber",
+                        "type": "integer"
+                    },
+                    "file": {
+                        "location": "querystring",
+                        "locationName": "file"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "payload": {
+                        "type": "blob",
+                        "streaming": true
+                    }
+                },
+                "payload": "payload"
+            },
+            "authtype": "v4",
+            "endpoint": {
+                "hostPrefix": "storage-"
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/7WXYPGWFR4DZO4SDWQYLPIMAEGPCYM4TBYFLWHZECNEPWY45XXTQ/vendors.js"
+            ]
+        },
+        "GetReferenceImportJob": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/referencestore/{referenceStoreId}/importjob/{id}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "id",
+                    "referenceStoreId"
+                ],
+                "members": {
+                    "id": {
+                        "location": "uri",
+                        "locationName": "id"
+                    },
+                    "referenceStoreId": {
+                        "location": "uri",
+                        "locationName": "referenceStoreId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "id",
+                    "referenceStoreId",
+                    "roleArn",
+                    "status",
+                    "creationTime",
+                    "sources"
+                ],
+                "members": {
+                    "id": {},
+                    "referenceStoreId": {},
+                    "roleArn": {},
+                    "status": {},
+                    "statusMessage": {},
+                    "creationTime": {
+                        "shape": "Sv"
+                    },
+                    "completionTime": {
+                        "shape": "Sv"
+                    },
+                    "sources": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "status"
+                            ],
+                            "members": {
+                                "sourceFile": {},
+                                "status": {},
+                                "statusMessage": {},
+                                "name": {},
+                                "description": {},
+                                "tags": {
+                                    "shape": "Sr"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "authtype": "v4",
+            "endpoint": {
+                "hostPrefix": "control-storage-"
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/7WXYPGWFR4DZO4SDWQYLPIMAEGPCYM4TBYFLWHZECNEPWY45XXTQ/vendors.js"
+            ]
+        },
+        "GetReferenceMetadata": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/referencestore/{referenceStoreId}/reference/{id}/metadata",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "id",
+                    "referenceStoreId"
+                ],
+                "members": {
+                    "id": {
+                        "location": "uri",
+                        "locationName": "id"
+                    },
+                    "referenceStoreId": {
+                        "location": "uri",
+                        "locationName": "referenceStoreId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "id",
+                    "arn",
+                    "referenceStoreId",
+                    "md5",
+                    "creationTime",
+                    "updateTime"
+                ],
+                "members": {
+                    "id": {},
+                    "arn": {},
+                    "referenceStoreId": {},
+                    "md5": {},
+                    "status": {},
+                    "name": {},
+                    "description": {},
+                    "creationTime": {
+                        "shape": "Sv"
+                    },
+                    "updateTime": {
+                        "shape": "Sv"
+                    },
+                    "files": {
+                        "type": "structure",
+                        "members": {
+                            "source": {
+                                "shape": "S2j"
+                            },
+                            "index": {
+                                "shape": "S2j"
+                            }
+                        }
+                    }
+                }
+            },
+            "authtype": "v4",
+            "endpoint": {
+                "hostPrefix": "control-storage-"
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/7WXYPGWFR4DZO4SDWQYLPIMAEGPCYM4TBYFLWHZECNEPWY45XXTQ/vendors.js"
+            ]
+        },
+        "GetReferenceStore": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/referencestore/{id}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "id"
+                ],
+                "members": {
+                    "id": {
+                        "location": "uri",
+                        "locationName": "id"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "id",
+                    "arn",
+                    "creationTime"
+                ],
+                "members": {
+                    "id": {},
+                    "arn": {},
+                    "name": {},
+                    "description": {},
+                    "sseConfig": {
+                        "shape": "Sz"
+                    },
+                    "creationTime": {
+                        "shape": "Sv"
+                    }
+                }
+            },
+            "authtype": "v4",
+            "endpoint": {
+                "hostPrefix": "control-storage-"
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/7WXYPGWFR4DZO4SDWQYLPIMAEGPCYM4TBYFLWHZECNEPWY45XXTQ/vendors.js"
+            ]
+        },
+        "GetSequenceStore": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/sequencestore/{id}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "id"
+                ],
+                "members": {
+                    "id": {
+                        "location": "uri",
+                        "locationName": "id"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "id",
+                    "arn",
+                    "creationTime"
+                ],
+                "members": {
+                    "id": {},
+                    "arn": {},
+                    "name": {},
+                    "description": {},
+                    "sseConfig": {
+                        "shape": "Sz"
+                    },
+                    "creationTime": {
+                        "shape": "Sv"
+                    },
+                    "evacuationLocation": {}
+                }
+            },
+            "authtype": "v4",
+            "endpoint": {
+                "hostPrefix": "control-storage-"
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/7WXYPGWFR4DZO4SDWQYLPIMAEGPCYM4TBYFLWHZECNEPWY45XXTQ/vendors.js"
+            ]
+        },
+        "ListMultipartReadSetUploads": {
+            "http": {
+                "requestUri": "/sequencestore/{sequenceStoreId}/uploads",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "sequenceStoreId"
+                ],
+                "members": {
+                    "sequenceStoreId": {
+                        "location": "uri",
+                        "locationName": "sequenceStoreId"
+                    },
+                    "maxResults": {
+                        "location": "querystring",
+                        "locationName": "maxResults",
+                        "type": "integer"
+                    },
+                    "nextToken": {
+                        "location": "querystring",
+                        "locationName": "nextToken"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "nextToken": {},
+                    "uploads": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "sequenceStoreId",
+                                "uploadId",
+                                "sourceFileType",
+                                "subjectId",
+                                "sampleId",
+                                "generatedFrom",
+                                "referenceArn",
+                                "creationTime"
+                            ],
+                            "members": {
+                                "sequenceStoreId": {},
+                                "uploadId": {},
+                                "sourceFileType": {},
+                                "subjectId": {},
+                                "sampleId": {},
+                                "generatedFrom": {},
+                                "referenceArn": {},
+                                "name": {},
+                                "description": {},
+                                "tags": {
+                                    "shape": "Sr"
+                                },
+                                "creationTime": {
+                                    "shape": "Sv"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "authtype": "v4",
+            "endpoint": {
+                "hostPrefix": "control-storage-"
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/7WXYPGWFR4DZO4SDWQYLPIMAEGPCYM4TBYFLWHZECNEPWY45XXTQ/vendors.js"
+            ]
+        },
+        "ListReadSetActivationJobs": {
+            "http": {
+                "requestUri": "/sequencestore/{sequenceStoreId}/activationjobs",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "sequenceStoreId"
+                ],
+                "members": {
+                    "sequenceStoreId": {
+                        "location": "uri",
+                        "locationName": "sequenceStoreId"
+                    },
+                    "maxResults": {
+                        "location": "querystring",
+                        "locationName": "maxResults",
+                        "type": "integer"
+                    },
+                    "nextToken": {
+                        "location": "querystring",
+                        "locationName": "nextToken"
+                    },
+                    "filter": {
+                        "type": "structure",
+                        "members": {
+                            "status": {},
+                            "createdAfter": {
+                                "shape": "Sv"
+                            },
+                            "createdBefore": {
+                                "shape": "Sv"
+                            }
+                        }
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "nextToken": {},
+                    "activationJobs": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "id",
+                                "sequenceStoreId",
+                                "status",
+                                "creationTime"
+                            ],
+                            "members": {
+                                "id": {},
+                                "sequenceStoreId": {},
+                                "status": {},
+                                "creationTime": {
+                                    "shape": "Sv"
+                                },
+                                "completionTime": {
+                                    "shape": "Sv"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "authtype": "v4",
+            "endpoint": {
+                "hostPrefix": "control-storage-"
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/7WXYPGWFR4DZO4SDWQYLPIMAEGPCYM4TBYFLWHZECNEPWY45XXTQ/vendors.js"
+            ]
+        },
+        "ListReadSetExportJobs": {
+            "http": {
+                "requestUri": "/sequencestore/{sequenceStoreId}/exportjobs",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "sequenceStoreId"
+                ],
+                "members": {
+                    "sequenceStoreId": {
+                        "location": "uri",
+                        "locationName": "sequenceStoreId"
+                    },
+                    "maxResults": {
+                        "location": "querystring",
+                        "locationName": "maxResults",
+                        "type": "integer"
+                    },
+                    "nextToken": {
+                        "location": "querystring",
+                        "locationName": "nextToken"
+                    },
+                    "filter": {
+                        "type": "structure",
+                        "members": {
+                            "status": {},
+                            "createdAfter": {
+                                "shape": "Sv"
+                            },
+                            "createdBefore": {
+                                "shape": "Sv"
+                            }
+                        }
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "nextToken": {},
+                    "exportJobs": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "id",
+                                "sequenceStoreId",
+                                "destination",
+                                "status",
+                                "creationTime"
+                            ],
+                            "members": {
+                                "id": {},
+                                "sequenceStoreId": {},
+                                "destination": {},
+                                "status": {},
+                                "creationTime": {
+                                    "shape": "Sv"
+                                },
+                                "completionTime": {
+                                    "shape": "Sv"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "authtype": "v4",
+            "endpoint": {
+                "hostPrefix": "control-storage-"
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/7WXYPGWFR4DZO4SDWQYLPIMAEGPCYM4TBYFLWHZECNEPWY45XXTQ/vendors.js"
+            ]
+        },
+        "ListReadSetImportJobs": {
+            "http": {
+                "requestUri": "/sequencestore/{sequenceStoreId}/importjobs",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "sequenceStoreId"
+                ],
+                "members": {
+                    "maxResults": {
+                        "location": "querystring",
+                        "locationName": "maxResults",
+                        "type": "integer"
+                    },
+                    "nextToken": {
+                        "location": "querystring",
+                        "locationName": "nextToken"
+                    },
+                    "sequenceStoreId": {
+                        "location": "uri",
+                        "locationName": "sequenceStoreId"
+                    },
+                    "filter": {
+                        "type": "structure",
+                        "members": {
+                            "status": {},
+                            "createdAfter": {
+                                "shape": "Sv"
+                            },
+                            "createdBefore": {
+                                "shape": "Sv"
+                            }
+                        }
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "nextToken": {},
+                    "importJobs": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "id",
+                                "sequenceStoreId",
+                                "roleArn",
+                                "status",
+                                "creationTime"
+                            ],
+                            "members": {
+                                "id": {},
+                                "sequenceStoreId": {},
+                                "roleArn": {},
+                                "status": {},
+                                "creationTime": {
+                                    "shape": "Sv"
+                                },
+                                "completionTime": {
+                                    "shape": "Sv"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "authtype": "v4",
+            "endpoint": {
+                "hostPrefix": "control-storage-"
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/7WXYPGWFR4DZO4SDWQYLPIMAEGPCYM4TBYFLWHZECNEPWY45XXTQ/vendors.js"
+            ]
+        },
+        "ListReadSetUploadParts": {
+            "http": {
+                "requestUri": "/sequencestore/{sequenceStoreId}/upload/{uploadId}/parts",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "sequenceStoreId",
+                    "uploadId",
+                    "file"
+                ],
+                "members": {
+                    "sequenceStoreId": {
+                        "location": "uri",
+                        "locationName": "sequenceStoreId"
+                    },
+                    "uploadId": {
+                        "location": "uri",
+                        "locationName": "uploadId"
+                    },
+                    "file": {},
+                    "maxResults": {
+                        "location": "querystring",
+                        "locationName": "maxResults",
+                        "type": "integer"
+                    },
+                    "nextToken": {
+                        "location": "querystring",
+                        "locationName": "nextToken"
+                    },
+                    "filter": {
+                        "type": "structure",
+                        "members": {
+                            "createdAfter": {
+                                "shape": "Sv"
+                            },
+                            "createdBefore": {
+                                "shape": "Sv"
+                            }
+                        }
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "nextToken": {},
+                    "parts": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "partNumber",
+                                "partSize",
+                                "file",
+                                "checksum"
+                            ],
+                            "members": {
+                                "partNumber": {
+                                    "type": "integer"
+                                },
+                                "partSize": {
+                                    "type": "long"
+                                },
+                                "file": {},
+                                "checksum": {},
+                                "creationTime": {
+                                    "shape": "Sv"
+                                },
+                                "lastUpdatedTime": {
+                                    "shape": "Sv"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "authtype": "v4",
+            "endpoint": {
+                "hostPrefix": "control-storage-"
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/7WXYPGWFR4DZO4SDWQYLPIMAEGPCYM4TBYFLWHZECNEPWY45XXTQ/vendors.js"
+            ]
+        },
+        "ListReadSets": {
+            "http": {
+                "requestUri": "/sequencestore/{sequenceStoreId}/readsets",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "sequenceStoreId"
+                ],
+                "members": {
+                    "sequenceStoreId": {
+                        "location": "uri",
+                        "locationName": "sequenceStoreId"
+                    },
+                    "maxResults": {
+                        "location": "querystring",
+                        "locationName": "maxResults",
+                        "type": "integer"
+                    },
+                    "nextToken": {
+                        "location": "querystring",
+                        "locationName": "nextToken"
+                    },
+                    "filter": {
+                        "type": "structure",
+                        "members": {
+                            "name": {},
+                            "status": {},
+                            "referenceArn": {},
+                            "createdAfter": {
+                                "shape": "Sv"
+                            },
+                            "createdBefore": {
+                                "shape": "Sv"
+                            },
+                            "sampleId": {},
+                            "subjectId": {},
+                            "generatedFrom": {}
+                        }
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "readSets"
+                ],
+                "members": {
+                    "nextToken": {},
+                    "readSets": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "id",
+                                "arn",
+                                "sequenceStoreId",
+                                "status",
+                                "fileType",
+                                "creationTime"
+                            ],
+                            "members": {
+                                "id": {},
+                                "arn": {},
+                                "sequenceStoreId": {},
+                                "subjectId": {},
+                                "sampleId": {},
+                                "status": {},
+                                "name": {},
+                                "description": {},
+                                "referenceArn": {},
+                                "fileType": {},
+                                "sequenceInformation": {
+                                    "shape": "S2g"
+                                },
+                                "creationTime": {
+                                    "shape": "Sv"
+                                },
+                                "statusMessage": {}
+                            }
+                        }
+                    }
+                }
+            },
+            "authtype": "v4",
+            "endpoint": {
+                "hostPrefix": "control-storage-"
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/7WXYPGWFR4DZO4SDWQYLPIMAEGPCYM4TBYFLWHZECNEPWY45XXTQ/vendors.js"
+            ]
+        },
+        "ListReferenceImportJobs": {
+            "http": {
+                "requestUri": "/referencestore/{referenceStoreId}/importjobs",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "referenceStoreId"
+                ],
+                "members": {
+                    "maxResults": {
+                        "location": "querystring",
+                        "locationName": "maxResults",
+                        "type": "integer"
+                    },
+                    "nextToken": {
+                        "location": "querystring",
+                        "locationName": "nextToken"
+                    },
+                    "referenceStoreId": {
+                        "location": "uri",
+                        "locationName": "referenceStoreId"
+                    },
+                    "filter": {
+                        "type": "structure",
+                        "members": {
+                            "status": {},
+                            "createdAfter": {
+                                "shape": "Sv"
+                            },
+                            "createdBefore": {
+                                "shape": "Sv"
+                            }
+                        }
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "nextToken": {},
+                    "importJobs": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "id",
+                                "referenceStoreId",
+                                "roleArn",
+                                "status",
+                                "creationTime"
+                            ],
+                            "members": {
+                                "id": {},
+                                "referenceStoreId": {},
+                                "roleArn": {},
+                                "status": {},
+                                "creationTime": {
+                                    "shape": "Sv"
+                                },
+                                "completionTime": {
+                                    "shape": "Sv"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "authtype": "v4",
+            "endpoint": {
+                "hostPrefix": "control-storage-"
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/7WXYPGWFR4DZO4SDWQYLPIMAEGPCYM4TBYFLWHZECNEPWY45XXTQ/vendors.js"
+            ]
+        },
+        "ListReferenceStores": {
+            "http": {
+                "requestUri": "/referencestores",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "maxResults": {
+                        "location": "querystring",
+                        "locationName": "maxResults",
+                        "type": "integer"
+                    },
+                    "nextToken": {
+                        "location": "querystring",
+                        "locationName": "nextToken"
+                    },
+                    "filter": {
+                        "type": "structure",
+                        "members": {
+                            "name": {},
+                            "createdAfter": {
+                                "shape": "Sv"
+                            },
+                            "createdBefore": {
+                                "shape": "Sv"
+                            }
+                        }
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "referenceStores"
+                ],
+                "members": {
+                    "nextToken": {},
+                    "referenceStores": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "arn",
+                                "id",
+                                "creationTime"
+                            ],
+                            "members": {
+                                "arn": {},
+                                "id": {},
+                                "name": {},
+                                "description": {},
+                                "sseConfig": {
+                                    "shape": "Sz"
+                                },
+                                "creationTime": {
+                                    "shape": "Sv"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "authtype": "v4",
+            "endpoint": {
+                "hostPrefix": "control-storage-"
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/7WXYPGWFR4DZO4SDWQYLPIMAEGPCYM4TBYFLWHZECNEPWY45XXTQ/vendors.js"
+            ]
+        },
+        "ListReferences": {
+            "http": {
+                "requestUri": "/referencestore/{referenceStoreId}/references",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "referenceStoreId"
+                ],
+                "members": {
+                    "referenceStoreId": {
+                        "location": "uri",
+                        "locationName": "referenceStoreId"
+                    },
+                    "maxResults": {
+                        "location": "querystring",
+                        "locationName": "maxResults",
+                        "type": "integer"
+                    },
+                    "nextToken": {
+                        "location": "querystring",
+                        "locationName": "nextToken"
+                    },
+                    "filter": {
+                        "type": "structure",
+                        "members": {
+                            "name": {},
+                            "md5": {},
+                            "createdAfter": {
+                                "shape": "Sv"
+                            },
+                            "createdBefore": {
+                                "shape": "Sv"
+                            }
+                        }
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "references"
+                ],
+                "members": {
+                    "nextToken": {},
+                    "references": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "id",
+                                "arn",
+                                "referenceStoreId",
+                                "md5",
+                                "creationTime",
+                                "updateTime"
+                            ],
+                            "members": {
+                                "id": {},
+                                "arn": {},
+                                "referenceStoreId": {},
+                                "md5": {},
+                                "status": {},
+                                "name": {},
+                                "description": {},
+                                "creationTime": {
+                                    "shape": "Sv"
+                                },
+                                "updateTime": {
+                                    "shape": "Sv"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "authtype": "v4",
+            "endpoint": {
+                "hostPrefix": "control-storage-"
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/7WXYPGWFR4DZO4SDWQYLPIMAEGPCYM4TBYFLWHZECNEPWY45XXTQ/vendors.js"
+            ]
+        },
+        "ListSequenceStores": {
+            "http": {
+                "requestUri": "/sequencestores",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "maxResults": {
+                        "location": "querystring",
+                        "locationName": "maxResults",
+                        "type": "integer"
+                    },
+                    "nextToken": {
+                        "location": "querystring",
+                        "locationName": "nextToken"
+                    },
+                    "filter": {
+                        "type": "structure",
+                        "members": {
+                            "name": {},
+                            "createdAfter": {
+                                "shape": "Sv"
+                            },
+                            "createdBefore": {
+                                "shape": "Sv"
+                            }
+                        }
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "sequenceStores"
+                ],
+                "members": {
+                    "nextToken": {},
+                    "sequenceStores": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "arn",
+                                "id",
+                                "creationTime"
+                            ],
+                            "members": {
+                                "arn": {},
+                                "id": {},
+                                "name": {},
+                                "description": {},
+                                "sseConfig": {
+                                    "shape": "Sz"
+                                },
+                                "creationTime": {
+                                    "shape": "Sv"
+                                },
+                                "evacuationLocation": {}
+                            }
+                        }
+                    }
+                }
+            },
+            "authtype": "v4",
+            "endpoint": {
+                "hostPrefix": "control-storage-"
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/7WXYPGWFR4DZO4SDWQYLPIMAEGPCYM4TBYFLWHZECNEPWY45XXTQ/vendors.js"
+            ]
+        },
+        "StartReadSetActivationJob": {
+            "http": {
+                "requestUri": "/sequencestore/{sequenceStoreId}/activationjob",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "sequenceStoreId",
+                    "sources"
+                ],
+                "members": {
+                    "sequenceStoreId": {
+                        "location": "uri",
+                        "locationName": "sequenceStoreId"
+                    },
+                    "clientToken": {},
+                    "sources": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "readSetId"
+                            ],
+                            "members": {
+                                "readSetId": {}
+                            }
+                        }
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "id",
+                    "sequenceStoreId",
+                    "status",
+                    "creationTime"
+                ],
+                "members": {
+                    "id": {},
+                    "sequenceStoreId": {},
+                    "status": {},
+                    "creationTime": {
+                        "shape": "Sv"
+                    }
+                }
+            },
+            "authtype": "v4",
+            "endpoint": {
+                "hostPrefix": "control-storage-"
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/7WXYPGWFR4DZO4SDWQYLPIMAEGPCYM4TBYFLWHZECNEPWY45XXTQ/vendors.js"
+            ]
+        },
+        "StartReadSetExportJob": {
+            "http": {
+                "requestUri": "/sequencestore/{sequenceStoreId}/exportjob",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "sequenceStoreId",
+                    "destination",
+                    "roleArn",
+                    "sources"
+                ],
+                "members": {
+                    "sequenceStoreId": {
+                        "location": "uri",
+                        "locationName": "sequenceStoreId"
+                    },
+                    "destination": {},
+                    "roleArn": {},
+                    "clientToken": {},
+                    "sources": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "readSetId"
+                            ],
+                            "members": {
+                                "readSetId": {}
+                            }
+                        }
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "id",
+                    "sequenceStoreId",
+                    "destination",
+                    "status",
+                    "creationTime"
+                ],
+                "members": {
+                    "id": {},
+                    "sequenceStoreId": {},
+                    "destination": {},
+                    "status": {},
+                    "creationTime": {
+                        "shape": "Sv"
+                    }
+                }
+            },
+            "authtype": "v4",
+            "endpoint": {
+                "hostPrefix": "control-storage-"
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/7WXYPGWFR4DZO4SDWQYLPIMAEGPCYM4TBYFLWHZECNEPWY45XXTQ/vendors.js"
+            ]
+        },
+        "StartReadSetImportJob": {
+            "http": {
+                "requestUri": "/sequencestore/{sequenceStoreId}/importjob",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "sequenceStoreId",
+                    "roleArn",
+                    "sources"
+                ],
+                "members": {
+                    "sequenceStoreId": {
+                        "location": "uri",
+                        "locationName": "sequenceStoreId"
+                    },
+                    "roleArn": {},
+                    "clientToken": {},
+                    "sources": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "sourceFiles",
+                                "sourceFileType",
+                                "subjectId",
+                                "sampleId",
+                                "referenceArn"
+                            ],
+                            "members": {
+                                "sourceFiles": {
+                                    "shape": "S29"
+                                },
+                                "sourceFileType": {},
+                                "subjectId": {},
+                                "sampleId": {},
+                                "generatedFrom": {},
+                                "referenceArn": {},
+                                "name": {},
+                                "description": {},
+                                "tags": {
+                                    "shape": "Sr"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "id",
+                    "sequenceStoreId",
+                    "roleArn",
+                    "status",
+                    "creationTime"
+                ],
+                "members": {
+                    "id": {},
+                    "sequenceStoreId": {},
+                    "roleArn": {},
+                    "status": {},
+                    "creationTime": {
+                        "shape": "Sv"
+                    }
+                }
+            },
+            "authtype": "v4",
+            "endpoint": {
+                "hostPrefix": "control-storage-"
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/7WXYPGWFR4DZO4SDWQYLPIMAEGPCYM4TBYFLWHZECNEPWY45XXTQ/vendors.js"
+            ]
+        },
+        "StartReferenceImportJob": {
+            "http": {
+                "requestUri": "/referencestore/{referenceStoreId}/importjob",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "referenceStoreId",
+                    "roleArn",
+                    "sources"
+                ],
+                "members": {
+                    "referenceStoreId": {
+                        "location": "uri",
+                        "locationName": "referenceStoreId"
+                    },
+                    "roleArn": {},
+                    "clientToken": {},
+                    "sources": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "sourceFile",
+                                "name"
+                            ],
+                            "members": {
+                                "sourceFile": {},
+                                "name": {},
+                                "description": {},
+                                "tags": {
+                                    "shape": "Sr"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "id",
+                    "referenceStoreId",
+                    "roleArn",
+                    "status",
+                    "creationTime"
+                ],
+                "members": {
+                    "id": {},
+                    "referenceStoreId": {},
+                    "roleArn": {},
+                    "status": {},
+                    "creationTime": {
+                        "shape": "Sv"
+                    }
+                }
+            },
+            "authtype": "v4",
+            "endpoint": {
+                "hostPrefix": "control-storage-"
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/7WXYPGWFR4DZO4SDWQYLPIMAEGPCYM4TBYFLWHZECNEPWY45XXTQ/vendors.js"
+            ]
+        },
+        "UploadReadSetPart": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/sequencestore/{sequenceStoreId}/upload/{uploadId}/part",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "sequenceStoreId",
+                    "uploadId",
+                    "file",
+                    "partNumber",
+                    "payload"
+                ],
+                "members": {
+                    "sequenceStoreId": {
+                        "location": "uri",
+                        "locationName": "sequenceStoreId"
+                    },
+                    "uploadId": {
+                        "location": "uri",
+                        "locationName": "uploadId"
+                    },
+                    "file": {
+                        "location": "querystring",
+                        "locationName": "file"
+                    },
+                    "partNumber": {
+                        "location": "querystring",
+                        "locationName": "partNumber",
+                        "type": "integer"
+                    },
+                    "payload": {
+                        "type": "blob",
+                        "requiresLength": true,
+                        "streaming": true
+                    }
+                },
+                "payload": "payload"
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "checksum"
+                ],
+                "members": {
+                    "checksum": {}
+                }
+            },
+            "authtype": "v4-unsigned-body",
+            "endpoint": {
+                "hostPrefix": "storage-"
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/7WXYPGWFR4DZO4SDWQYLPIMAEGPCYM4TBYFLWHZECNEPWY45XXTQ/vendors.js"
+            ]
+        }
+    },
+    "shapes": {
+        "Sr": {
+            "type": "map",
+            "key": {},
+            "value": {}
+        },
+        "Sv": {
+            "type": "timestamp",
+            "timestampFormat": "iso8601"
+        },
+        "Sz": {
+            "type": "structure",
+            "required": [
+                "type"
+            ],
+            "members": {
+                "type": {},
+                "keyArn": {}
+            }
+        },
+        "S29": {
+            "type": "structure",
+            "required": [
+                "source1"
+            ],
+            "members": {
+                "source1": {},
+                "source2": {}
+            }
+        },
+        "S2g": {
+            "type": "structure",
+            "members": {
+                "totalReadCount": {
+                    "type": "long"
+                },
+                "totalBaseCount": {
+                    "type": "long"
+                },
+                "generatedFrom": {},
+                "alignment": {}
+            }
+        },
+        "S2j": {
+            "type": "structure",
+            "members": {
+                "totalParts": {
+                    "type": "integer"
+                },
+                "partSize": {
+                    "type": "long"
+                },
+                "contentLength": {
+                    "type": "long"
+                }
+            }
+        }
+    }
+}

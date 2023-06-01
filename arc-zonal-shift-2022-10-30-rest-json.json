@@ -1,0 +1,546 @@
+{
+    "version": "2.0",
+    "metadata": {
+        "apiVersion": "2022-10-30",
+        "endpointPrefix": "arc-zonal-shift",
+        "jsonVersion": "1.1",
+        "protocol": "rest-json",
+        "serviceFullName": "AWS ARC - Zonal Shift",
+        "serviceId": "ARC Zonal Shift",
+        "signatureVersion": "v4",
+        "signingName": "arc-zonal-shift",
+        "uid": "arc-zonal-shift-2022-10-30",
+        "download_location": [
+            "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+        ]
+    },
+    "operations": {
+        "CancelZonalShift": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/zonalshifts/{zonalShiftId}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "zonalShiftId"
+                ],
+                "members": {
+                    "zonalShiftId": {
+                        "location": "uri",
+                        "locationName": "zonalShiftId"
+                    }
+                }
+            },
+            "output": {
+                "shape": "S3"
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "GetManagedResource": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/managedresources/{resourceIdentifier}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "resourceIdentifier"
+                ],
+                "members": {
+                    "resourceIdentifier": {
+                        "location": "uri",
+                        "locationName": "resourceIdentifier"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "appliedWeights",
+                    "zonalShifts"
+                ],
+                "members": {
+                    "appliedWeights": {
+                        "type": "map",
+                        "key": {},
+                        "value": {
+                            "type": "float"
+                        }
+                    },
+                    "arn": {},
+                    "name": {},
+                    "zonalShifts": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "appliedStatus",
+                                "awayFrom",
+                                "comment",
+                                "expiryTime",
+                                "resourceIdentifier",
+                                "startTime",
+                                "zonalShiftId"
+                            ],
+                            "members": {
+                                "appliedStatus": {},
+                                "awayFrom": {},
+                                "comment": {},
+                                "expiryTime": {
+                                    "type": "timestamp"
+                                },
+                                "resourceIdentifier": {},
+                                "startTime": {
+                                    "type": "timestamp"
+                                },
+                                "zonalShiftId": {}
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "ListManagedResources": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/managedresources",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "maxResults": {
+                        "location": "querystring",
+                        "locationName": "maxResults",
+                        "type": "integer"
+                    },
+                    "nextToken": {
+                        "location": "querystring",
+                        "locationName": "nextToken"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "items"
+                ],
+                "members": {
+                    "items": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "availabilityZones"
+                            ],
+                            "members": {
+                                "arn": {},
+                                "availabilityZones": {
+                                    "type": "list",
+                                    "member": {}
+                                },
+                                "name": {}
+                            }
+                        }
+                    },
+                    "nextToken": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "ListZonalShifts": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/zonalshifts",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "maxResults": {
+                        "location": "querystring",
+                        "locationName": "maxResults",
+                        "type": "integer"
+                    },
+                    "nextToken": {
+                        "location": "querystring",
+                        "locationName": "nextToken"
+                    },
+                    "status": {
+                        "location": "querystring",
+                        "locationName": "status"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "items": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "awayFrom",
+                                "comment",
+                                "expiryTime",
+                                "resourceIdentifier",
+                                "startTime",
+                                "status",
+                                "zonalShiftId"
+                            ],
+                            "members": {
+                                "awayFrom": {},
+                                "comment": {},
+                                "expiryTime": {
+                                    "type": "timestamp"
+                                },
+                                "resourceIdentifier": {},
+                                "startTime": {
+                                    "type": "timestamp"
+                                },
+                                "status": {},
+                                "zonalShiftId": {}
+                            }
+                        }
+                    },
+                    "nextToken": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "StartZonalShift": {
+            "http": {
+                "requestUri": "/zonalshifts",
+                "responseCode": 201
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "awayFrom",
+                    "comment",
+                    "expiresIn",
+                    "resourceIdentifier"
+                ],
+                "members": {
+                    "awayFrom": {},
+                    "comment": {},
+                    "expiresIn": {},
+                    "resourceIdentifier": {}
+                }
+            },
+            "output": {
+                "shape": "S3"
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "UpdateZonalShift": {
+            "http": {
+                "method": "PATCH",
+                "requestUri": "/zonalshifts/{zonalShiftId}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "zonalShiftId"
+                ],
+                "members": {
+                    "comment": {},
+                    "expiresIn": {},
+                    "zonalShiftId": {
+                        "location": "uri",
+                        "locationName": "zonalShiftId"
+                    }
+                }
+            },
+            "output": {
+                "shape": "S3"
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "GetAzWeatherAlert": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/weather/alert/{alertId}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "alertId"
+                ],
+                "members": {
+                    "alertId": {
+                        "location": "uri",
+                        "locationName": "alertId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "azWeatherAlert": {
+                        "shape": "Sd"
+                    }
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/WJTB4TBUDZXT6GZLI7G7AKQ33FL7DKO56XCTM7C5VIZ66MQ6NO2A/vendors.js"
+            ]
+        },
+        "ListAzWeatherAlerts": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/weather/alerts",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "nextToken": {
+                        "location": "querystring",
+                        "locationName": "nextToken"
+                    },
+                    "maxResults": {
+                        "location": "querystring",
+                        "locationName": "maxResults",
+                        "type": "integer"
+                    },
+                    "isActiveOnly": {
+                        "location": "querystring",
+                        "locationName": "isActiveOnly",
+                        "type": "boolean"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "azWeatherAlerts": {
+                        "shape": "Sy"
+                    },
+                    "nextToken": {}
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/WJTB4TBUDZXT6GZLI7G7AKQ33FL7DKO56XCTM7C5VIZ66MQ6NO2A/vendors.js"
+            ]
+        },
+        "StartAzWeatherAlert": {
+            "http": {
+                "requestUri": "/weather/start",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "alertId"
+                ],
+                "members": {
+                    "alertId": {},
+                    "fabrics": {
+                        "shape": "Se"
+                    },
+                    "azId": {},
+                    "internalAzName": {},
+                    "comment": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "azWeatherAlert"
+                ],
+                "members": {
+                    "azWeatherAlert": {
+                        "shape": "Sd"
+                    }
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/WJTB4TBUDZXT6GZLI7G7AKQ33FL7DKO56XCTM7C5VIZ66MQ6NO2A/vendors.js"
+            ]
+        },
+        "StopAzWeatherAlert": {
+            "http": {
+                "requestUri": "/weather/stop",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "comment": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "azWeatherAlerts"
+                ],
+                "members": {
+                    "azWeatherAlerts": {
+                        "shape": "Sy"
+                    }
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/WJTB4TBUDZXT6GZLI7G7AKQ33FL7DKO56XCTM7C5VIZ66MQ6NO2A/vendors.js"
+            ]
+        },
+        "UpdateAzWeatherAlert": {
+            "http": {
+                "method": "PATCH",
+                "requestUri": "/weather/alert/{alertId}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "alertId"
+                ],
+                "members": {
+                    "alertId": {
+                        "location": "uri",
+                        "locationName": "alertId"
+                    },
+                    "fabrics": {
+                        "shape": "Se"
+                    },
+                    "comment": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "azWeatherAlert"
+                ],
+                "members": {
+                    "azWeatherAlert": {
+                        "shape": "Sd"
+                    }
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/WJTB4TBUDZXT6GZLI7G7AKQ33FL7DKO56XCTM7C5VIZ66MQ6NO2A/vendors.js"
+            ]
+        },
+        "UpdateAutoShiftConfiguration": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/managedresources/{resourceIdentifier}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "resourceIdentifier",
+                    "autoShiftStatus"
+                ],
+                "members": {
+                    "resourceIdentifier": {
+                        "location": "uri",
+                        "locationName": "resourceIdentifier"
+                    },
+                    "autoShiftStatus": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "resourceIdentifier",
+                    "autoShiftStatus"
+                ],
+                "members": {
+                    "resourceIdentifier": {},
+                    "autoShiftStatus": {}
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/AXVYYMKUB5I6T5HYHK4WXBQWQR3QXKH3WIN5DPJJRDUSHKV3HY3Q/vendors.js"
+            ]
+        }
+    },
+    "shapes": {
+        "S3": {
+            "type": "structure",
+            "required": [
+                "awayFrom",
+                "comment",
+                "expiryTime",
+                "resourceIdentifier",
+                "startTime",
+                "status",
+                "zonalShiftId"
+            ],
+            "members": {
+                "awayFrom": {},
+                "comment": {},
+                "expiryTime": {
+                    "type": "timestamp"
+                },
+                "resourceIdentifier": {},
+                "startTime": {
+                    "type": "timestamp"
+                },
+                "status": {},
+                "zonalShiftId": {}
+            }
+        },
+        "Sd": {
+            "type": "structure",
+            "members": {
+                "alertId": {},
+                "azId": {},
+                "fabrics": {
+                    "shape": "Se"
+                },
+                "internalAzName": {},
+                "active": {
+                    "type": "boolean"
+                },
+                "startTime": {
+                    "type": "timestamp"
+                },
+                "endTime": {
+                    "type": "timestamp"
+                },
+                "comments": {
+                    "type": "list",
+                    "member": {}
+                }
+            }
+        },
+        "Se": {
+            "type": "list",
+            "member": {}
+        },
+        "Sy": {
+            "type": "list",
+            "member": {
+                "shape": "Sd"
+            }
+        }
+    }
+}

@@ -1,0 +1,498 @@
+{
+    "version": "2.0",
+    "metadata": {
+        "apiVersion": "2018-05-10",
+        "endpointPrefix": "sierranotificationsservicelambda",
+        "jsonVersion": "1.1",
+        "protocol": "rest-json",
+        "serviceFullName": "SierraNotificationsService",
+        "serviceId": "SierraNotificationsServiceLambda",
+        "signatureVersion": "v4",
+        "signingName": "scn",
+        "uid": "sierranotificationsservicelambda-2018-05-10",
+        "download_location": [
+            "https://a.b.cdn.console.awsstatic.com/a/v1/TKHP6TGZH23RVCUZZP2OJ2PJJUFTMSQ666SII2V522LCUK4NBNXQ/vendors~4134d62c.js"
+        ]
+    },
+    "operations": {
+        "BatchMarkNotificationAsDelivered": {
+            "http": {
+                "requestUri": "/batch-mark-notification-as-delivered",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "instanceId",
+                    "notificationIdList"
+                ],
+                "members": {
+                    "instanceId": {},
+                    "notificationIdList": {
+                        "shape": "S3"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "notificationIdList"
+                ],
+                "members": {
+                    "notificationIdList": {
+                        "shape": "S3"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/TKHP6TGZH23RVCUZZP2OJ2PJJUFTMSQ666SII2V522LCUK4NBNXQ/vendors~4134d62c.js"
+            ]
+        },
+        "GetNotificationsPreference": {
+            "http": {
+                "requestUri": "/get-notifications-preference",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "instanceId"
+                ],
+                "members": {
+                    "instanceId": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "allNotificationsEnabled": {
+                        "type": "boolean"
+                    },
+                    "granularPreferences": {
+                        "shape": "S9"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/TKHP6TGZH23RVCUZZP2OJ2PJJUFTMSQ666SII2V522LCUK4NBNXQ/vendors~4134d62c.js"
+            ]
+        },
+        "ListUserNotifications": {
+            "http": {
+                "requestUri": "/list-user-notifications",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "instanceId"
+                ],
+                "members": {
+                    "instanceId": {},
+                    "priority": {},
+                    "nextToken": {},
+                    "maxResults": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "notifications"
+                ],
+                "members": {
+                    "notifications": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "id",
+                                "instanceId",
+                                "ssoUserId",
+                                "body",
+                                "priority",
+                                "isRead",
+                                "isDelivered",
+                                "receivedTime",
+                                "userNotificationContentMetadata"
+                            ],
+                            "members": {
+                                "id": {},
+                                "instanceId": {},
+                                "ssoUserId": {},
+                                "body": {},
+                                "priority": {},
+                                "isRead": {
+                                    "type": "boolean"
+                                },
+                                "isDelivered": {
+                                    "type": "boolean"
+                                },
+                                "receivedTime": {
+                                    "type": "timestamp"
+                                },
+                                "userNotificationContentMetadata": {
+                                    "type": "structure",
+                                    "required": [
+                                        "resourceName",
+                                        "resourceId",
+                                        "resourceType",
+                                        "relatedResourceId",
+                                        "eventType"
+                                    ],
+                                    "members": {
+                                        "actorName": {},
+                                        "resourceName": {},
+                                        "resourceId": {},
+                                        "resourceType": {},
+                                        "relatedResourceId": {},
+                                        "eventType": {}
+                                    }
+                                },
+                                "userNotificationPayload": {}
+                            }
+                        }
+                    },
+                    "hasUnreadMessages": {
+                        "type": "boolean"
+                    },
+                    "nextToken": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/TKHP6TGZH23RVCUZZP2OJ2PJJUFTMSQ666SII2V522LCUK4NBNXQ/vendors~4134d62c.js"
+            ]
+        },
+        "MarkNotificationAsDelivered": {
+            "http": {
+                "requestUri": "/mark-notification-as-delivered",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "instanceId",
+                    "notificationId"
+                ],
+                "members": {
+                    "instanceId": {},
+                    "notificationId": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "notificationId"
+                ],
+                "members": {
+                    "notificationId": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/TKHP6TGZH23RVCUZZP2OJ2PJJUFTMSQ666SII2V522LCUK4NBNXQ/vendors~4134d62c.js"
+            ]
+        },
+        "MarkNotificationAsRead": {
+            "http": {
+                "requestUri": "/mark-notification-as-read",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "instanceId",
+                    "notificationId"
+                ],
+                "members": {
+                    "instanceId": {},
+                    "notificationId": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "notificationId"
+                ],
+                "members": {
+                    "notificationId": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/TKHP6TGZH23RVCUZZP2OJ2PJJUFTMSQ666SII2V522LCUK4NBNXQ/vendors~4134d62c.js"
+            ]
+        },
+        "SendEmail": {
+            "http": {
+                "requestUri": "/send-email",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "clientToken",
+                    "awsAccountId",
+                    "instanceId",
+                    "recipientList",
+                    "recipientType",
+                    "eventTimestamp",
+                    "emailType"
+                ],
+                "members": {
+                    "clientToken": {
+                        "idempotencyToken": true
+                    },
+                    "awsAccountId": {},
+                    "instanceId": {},
+                    "recipientList": {
+                        "shape": "Sw"
+                    },
+                    "recipientType": {},
+                    "eventTimestamp": {
+                        "type": "long"
+                    },
+                    "emailType": {},
+                    "roleName": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "notificationId": {},
+                    "instanceId": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/TKHP6TGZH23RVCUZZP2OJ2PJJUFTMSQ666SII2V522LCUK4NBNXQ/vendors~4134d62c.js"
+            ]
+        },
+        "SendNotification": {
+            "http": {
+                "requestUri": "/send-notification",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "clientToken",
+                    "awsAccountId",
+                    "resourceId",
+                    "resourceType",
+                    "eventType",
+                    "instanceId",
+                    "eventTimestamp",
+                    "priority",
+                    "relatedResourceId",
+                    "resourceName"
+                ],
+                "members": {
+                    "clientToken": {
+                        "idempotencyToken": true
+                    },
+                    "awsAccountId": {},
+                    "resourceId": {},
+                    "resourceType": {},
+                    "eventType": {},
+                    "instanceId": {},
+                    "serviceId": {},
+                    "eventTimestamp": {
+                        "type": "integer"
+                    },
+                    "messageBody": {},
+                    "priority": {},
+                    "relatedResourceId": {},
+                    "actorId": {},
+                    "resourceName": {},
+                    "userList": {
+                        "shape": "Sw"
+                    },
+                    "overrideUserPreference": {
+                        "type": "boolean"
+                    },
+                    "additionalParams": {
+                        "jsonvalue": true
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "notificationId": {}
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/TKHP6TGZH23RVCUZZP2OJ2PJJUFTMSQ666SII2V522LCUK4NBNXQ/vendors~4134d62c.js"
+            ]
+        },
+        "SendNotificationV2": {
+            "http": {
+                "requestUri": "/send-notification-v2",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "clientToken",
+                    "awsAccountId",
+                    "instanceId",
+                    "resourceId",
+                    "resourceType",
+                    "eventType",
+                    "eventTimestamp",
+                    "priority",
+                    "recipientType",
+                    "recipientList"
+                ],
+                "members": {
+                    "clientToken": {
+                        "idempotencyToken": true
+                    },
+                    "awsAccountId": {},
+                    "instanceId": {},
+                    "resourceId": {},
+                    "resourceType": {},
+                    "eventType": {},
+                    "eventTimestamp": {
+                        "type": "timestamp"
+                    },
+                    "priority": {},
+                    "actorId": {},
+                    "recipientType": {},
+                    "recipientList": {
+                        "shape": "Sw"
+                    },
+                    "additionalParams": {
+                        "jsonvalue": true
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "notificationId": {}
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/TKHP6TGZH23RVCUZZP2OJ2PJJUFTMSQ666SII2V522LCUK4NBNXQ/vendors~4134d62c.js"
+            ]
+        },
+        "SetNotificationsPreference": {
+            "http": {
+                "requestUri": "/set-notifications-preference",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "instanceId",
+                    "allNotificationsEnabled"
+                ],
+                "members": {
+                    "instanceId": {},
+                    "allNotificationsEnabled": {
+                        "type": "boolean"
+                    },
+                    "granularPreferences": {
+                        "shape": "S9"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "allNotificationsEnabled": {
+                        "type": "boolean"
+                    },
+                    "granularPreferences": {
+                        "shape": "S9"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/TKHP6TGZH23RVCUZZP2OJ2PJJUFTMSQ666SII2V522LCUK4NBNXQ/vendors~4134d62c.js"
+            ]
+        },
+        "UpdateNotificationPreference": {
+            "http": {
+                "requestUri": "/update-notification-preference",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "instanceId",
+                    "resourceId",
+                    "resourceType",
+                    "permission",
+                    "ssoIdentityType",
+                    "ssoIdentity"
+                ],
+                "members": {
+                    "instanceId": {},
+                    "resourceId": {},
+                    "resourceType": {},
+                    "permission": {},
+                    "ssoIdentityType": {},
+                    "ssoIdentity": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "instanceId": {},
+                    "resourceId": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/TKHP6TGZH23RVCUZZP2OJ2PJJUFTMSQ666SII2V522LCUK4NBNXQ/vendors~4134d62c.js"
+            ]
+        }
+    },
+    "shapes": {
+        "S3": {
+            "type": "list",
+            "member": {}
+        },
+        "S9": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "appScope",
+                    "notificationEvents"
+                ],
+                "members": {
+                    "appScope": {},
+                    "notificationEvents": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "resourceType",
+                                "eventType",
+                                "inApp",
+                                "email"
+                            ],
+                            "members": {
+                                "resourceType": {},
+                                "eventType": {},
+                                "inApp": {
+                                    "type": "boolean"
+                                },
+                                "email": {
+                                    "type": "boolean"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "Sw": {
+            "type": "list",
+            "member": {}
+        }
+    }
+}

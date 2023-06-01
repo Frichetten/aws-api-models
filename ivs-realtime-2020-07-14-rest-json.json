@@ -1,0 +1,638 @@
+{
+    "version": "2.0",
+    "metadata": {
+        "apiVersion": "2020-07-14",
+        "endpointPrefix": "ivsrealtime",
+        "jsonVersion": "1.1",
+        "protocol": "rest-json",
+        "serviceAbbreviation": "ivsrealtime",
+        "serviceFullName": "Amazon Interactive Video Service RealTime",
+        "serviceId": "IVS RealTime",
+        "signatureVersion": "v4",
+        "signingName": "ivs",
+        "uid": "ivs-realtime-2020-07-14",
+        "download_location": [
+            "https://a.b.cdn.console.awsstatic.com/a/v1/LNBIP3SSBJJEGTSEE5VZUJHYSBHMHROVHKM6HOKQMPW54VG5DQUQ/vendors.js"
+        ]
+    },
+    "operations": {
+        "CreateParticipantToken": {
+            "http": {
+                "requestUri": "/CreateParticipantToken",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "stageArn"
+                ],
+                "members": {
+                    "attributes": {
+                        "shape": "S2"
+                    },
+                    "capabilities": {
+                        "shape": "S4"
+                    },
+                    "duration": {
+                        "type": "integer"
+                    },
+                    "stageArn": {},
+                    "userId": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "participantToken": {
+                        "shape": "Sa"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/LNBIP3SSBJJEGTSEE5VZUJHYSBHMHROVHKM6HOKQMPW54VG5DQUQ/vendors.js"
+            ]
+        },
+        "CreateStage": {
+            "http": {
+                "requestUri": "/CreateStage",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "name": {},
+                    "participantTokenConfigurations": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "attributes": {
+                                    "shape": "S2"
+                                },
+                                "capabilities": {
+                                    "shape": "S4"
+                                },
+                                "duration": {
+                                    "type": "integer"
+                                },
+                                "userId": {}
+                            }
+                        }
+                    },
+                    "tags": {
+                        "shape": "Si"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "participantTokens": {
+                        "type": "list",
+                        "member": {
+                            "shape": "Sa"
+                        }
+                    },
+                    "stage": {
+                        "shape": "Sn"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/LNBIP3SSBJJEGTSEE5VZUJHYSBHMHROVHKM6HOKQMPW54VG5DQUQ/vendors.js"
+            ]
+        },
+        "DeleteStage": {
+            "http": {
+                "requestUri": "/DeleteStage",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "arn"
+                ],
+                "members": {
+                    "arn": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/LNBIP3SSBJJEGTSEE5VZUJHYSBHMHROVHKM6HOKQMPW54VG5DQUQ/vendors.js"
+            ]
+        },
+        "DisconnectParticipant": {
+            "http": {
+                "requestUri": "/DisconnectParticipant",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "participantId",
+                    "stageArn"
+                ],
+                "members": {
+                    "participantId": {},
+                    "reason": {},
+                    "stageArn": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/LNBIP3SSBJJEGTSEE5VZUJHYSBHMHROVHKM6HOKQMPW54VG5DQUQ/vendors.js"
+            ]
+        },
+        "GetStage": {
+            "http": {
+                "requestUri": "/GetStage",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "arn"
+                ],
+                "members": {
+                    "arn": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "stage": {
+                        "shape": "Sn"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/LNBIP3SSBJJEGTSEE5VZUJHYSBHMHROVHKM6HOKQMPW54VG5DQUQ/vendors.js"
+            ]
+        },
+        "ListStages": {
+            "http": {
+                "requestUri": "/ListStages",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "maxResults": {
+                        "type": "integer"
+                    },
+                    "nextToken": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "stages"
+                ],
+                "members": {
+                    "nextToken": {},
+                    "stages": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "arn"
+                            ],
+                            "members": {
+                                "activeSessionId": {},
+                                "arn": {},
+                                "name": {},
+                                "tags": {
+                                    "shape": "Si"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/LNBIP3SSBJJEGTSEE5VZUJHYSBHMHROVHKM6HOKQMPW54VG5DQUQ/vendors.js"
+            ]
+        },
+        "ListTagsForResource": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/tags/{resourceArn}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "resourceArn"
+                ],
+                "members": {
+                    "resourceArn": {
+                        "location": "uri",
+                        "locationName": "resourceArn"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "tags"
+                ],
+                "members": {
+                    "tags": {
+                        "shape": "Si"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/LNBIP3SSBJJEGTSEE5VZUJHYSBHMHROVHKM6HOKQMPW54VG5DQUQ/vendors.js"
+            ]
+        },
+        "TagResource": {
+            "http": {
+                "requestUri": "/tags/{resourceArn}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "resourceArn",
+                    "tags"
+                ],
+                "members": {
+                    "resourceArn": {
+                        "location": "uri",
+                        "locationName": "resourceArn"
+                    },
+                    "tags": {
+                        "shape": "Si"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/LNBIP3SSBJJEGTSEE5VZUJHYSBHMHROVHKM6HOKQMPW54VG5DQUQ/vendors.js"
+            ]
+        },
+        "UntagResource": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/tags/{resourceArn}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "resourceArn",
+                    "tagKeys"
+                ],
+                "members": {
+                    "resourceArn": {
+                        "location": "uri",
+                        "locationName": "resourceArn"
+                    },
+                    "tagKeys": {
+                        "location": "querystring",
+                        "locationName": "tagKeys",
+                        "type": "list",
+                        "member": {}
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/LNBIP3SSBJJEGTSEE5VZUJHYSBHMHROVHKM6HOKQMPW54VG5DQUQ/vendors.js"
+            ]
+        },
+        "UpdateStage": {
+            "http": {
+                "requestUri": "/UpdateStage",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "arn"
+                ],
+                "members": {
+                    "arn": {},
+                    "name": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "stage": {
+                        "shape": "Sn"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/LNBIP3SSBJJEGTSEE5VZUJHYSBHMHROVHKM6HOKQMPW54VG5DQUQ/vendors.js"
+            ]
+        },
+        "GetParticipant": {
+            "http": {
+                "requestUri": "/GetParticipant",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "participantId",
+                    "sessionId",
+                    "stageArn"
+                ],
+                "members": {
+                    "participantId": {},
+                    "sessionId": {},
+                    "stageArn": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "participant": {
+                        "type": "structure",
+                        "members": {
+                            "attributes": {
+                                "type": "map",
+                                "key": {},
+                                "value": {}
+                            },
+                            "firstJoinTime": {
+                                "shape": "Sz"
+                            },
+                            "participantId": {},
+                            "published": {
+                                "type": "boolean"
+                            },
+                            "state": {},
+                            "userId": {}
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/T3VHIIKI5ICDYRLZSGXWDEZJZIPRGLAB4BLWHWAFNJVC47OCU4GA/vendors.sdk.js"
+            ]
+        },
+        "GetStageSession": {
+            "http": {
+                "requestUri": "/GetStageSession",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "sessionId",
+                    "stageArn"
+                ],
+                "members": {
+                    "sessionId": {},
+                    "stageArn": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "stageSession": {
+                        "type": "structure",
+                        "members": {
+                            "endTime": {
+                                "shape": "Sz"
+                            },
+                            "sessionId": {},
+                            "startTime": {
+                                "shape": "Sz"
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/T3VHIIKI5ICDYRLZSGXWDEZJZIPRGLAB4BLWHWAFNJVC47OCU4GA/vendors.sdk.js"
+            ]
+        },
+        "ListParticipantEvents": {
+            "http": {
+                "requestUri": "/ListParticipantEvents",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "participantId",
+                    "sessionId",
+                    "stageArn"
+                ],
+                "members": {
+                    "maxResults": {
+                        "type": "integer"
+                    },
+                    "nextToken": {},
+                    "participantId": {},
+                    "sessionId": {},
+                    "stageArn": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "events"
+                ],
+                "members": {
+                    "events": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "errorCode": {},
+                                "eventTime": {
+                                    "shape": "Sz"
+                                },
+                                "name": {},
+                                "participantId": {},
+                                "remoteParticipantId": {}
+                            }
+                        }
+                    },
+                    "nextToken": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/T3VHIIKI5ICDYRLZSGXWDEZJZIPRGLAB4BLWHWAFNJVC47OCU4GA/vendors.sdk.js"
+            ]
+        },
+        "ListParticipants": {
+            "http": {
+                "requestUri": "/ListParticipants",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "sessionId",
+                    "stageArn"
+                ],
+                "members": {
+                    "filterByPublished": {
+                        "type": "boolean"
+                    },
+                    "filterByState": {},
+                    "filterByUserId": {},
+                    "maxResults": {
+                        "type": "integer"
+                    },
+                    "nextToken": {},
+                    "sessionId": {},
+                    "stageArn": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "participants"
+                ],
+                "members": {
+                    "nextToken": {},
+                    "participants": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "firstJoinTime": {
+                                    "shape": "Sz"
+                                },
+                                "participantId": {},
+                                "published": {
+                                    "type": "boolean"
+                                },
+                                "state": {},
+                                "userId": {}
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/T3VHIIKI5ICDYRLZSGXWDEZJZIPRGLAB4BLWHWAFNJVC47OCU4GA/vendors.sdk.js"
+            ]
+        },
+        "ListStageSessions": {
+            "http": {
+                "requestUri": "/ListStageSessions",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "stageArn"
+                ],
+                "members": {
+                    "maxResults": {
+                        "type": "integer"
+                    },
+                    "nextToken": {},
+                    "stageArn": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "stageSessions"
+                ],
+                "members": {
+                    "nextToken": {},
+                    "stageSessions": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "endTime": {
+                                    "shape": "Sz"
+                                },
+                                "sessionId": {},
+                                "startTime": {
+                                    "shape": "Sz"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/T3VHIIKI5ICDYRLZSGXWDEZJZIPRGLAB4BLWHWAFNJVC47OCU4GA/vendors.sdk.js"
+            ]
+        }
+    },
+    "shapes": {
+        "S2": {
+            "type": "map",
+            "key": {},
+            "value": {}
+        },
+        "S4": {
+            "type": "list",
+            "member": {}
+        },
+        "Sa": {
+            "type": "structure",
+            "members": {
+                "attributes": {
+                    "shape": "S2"
+                },
+                "capabilities": {
+                    "shape": "S4"
+                },
+                "duration": {
+                    "type": "integer"
+                },
+                "expirationTime": {
+                    "type": "timestamp",
+                    "timestampFormat": "iso8601"
+                },
+                "participantId": {},
+                "token": {
+                    "type": "string",
+                    "sensitive": true
+                },
+                "userId": {}
+            }
+        },
+        "Si": {
+            "type": "map",
+            "key": {},
+            "value": {}
+        },
+        "Sn": {
+            "type": "structure",
+            "required": [
+                "arn"
+            ],
+            "members": {
+                "activeSessionId": {},
+                "arn": {},
+                "name": {},
+                "tags": {
+                    "shape": "Si"
+                }
+            }
+        },
+        "Sz": {
+            "type": "timestamp",
+            "timestampFormat": "iso8601"
+        }
+    }
+}

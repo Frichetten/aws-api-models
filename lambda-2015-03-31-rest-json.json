@@ -1,0 +1,4679 @@
+{
+    "version": "2.0",
+    "metadata": {
+        "apiVersion": "2015-03-31",
+        "endpointPrefix": "lambda",
+        "protocol": "rest-json",
+        "serviceFullName": "AWS Lambda",
+        "serviceId": "Lambda",
+        "signatureVersion": "v4",
+        "uid": "lambda-2015-03-31",
+        "download_location": [
+            "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+        ]
+    },
+    "operations": {
+        "AddLayerVersionPermission": {
+            "http": {
+                "requestUri": "/2018-10-31/layers/{LayerName}/versions/{VersionNumber}/policy",
+                "responseCode": 201
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "LayerName",
+                    "VersionNumber",
+                    "StatementId",
+                    "Action",
+                    "Principal"
+                ],
+                "members": {
+                    "LayerName": {
+                        "location": "uri",
+                        "locationName": "LayerName"
+                    },
+                    "VersionNumber": {
+                        "location": "uri",
+                        "locationName": "VersionNumber",
+                        "type": "long"
+                    },
+                    "StatementId": {},
+                    "Action": {},
+                    "Principal": {},
+                    "OrganizationId": {},
+                    "RevisionId": {
+                        "location": "querystring",
+                        "locationName": "RevisionId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Statement": {},
+                    "RevisionId": {}
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "AddPermission": {
+            "http": {
+                "requestUri": "/2015-03-31/functions/{FunctionName}/policy",
+                "responseCode": 201
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "FunctionName",
+                    "StatementId",
+                    "Action",
+                    "Principal"
+                ],
+                "members": {
+                    "FunctionName": {
+                        "location": "uri",
+                        "locationName": "FunctionName"
+                    },
+                    "StatementId": {},
+                    "Action": {},
+                    "Principal": {},
+                    "SourceArn": {},
+                    "SourceAccount": {},
+                    "EventSourceToken": {},
+                    "Qualifier": {
+                        "location": "querystring",
+                        "locationName": "Qualifier"
+                    },
+                    "RevisionId": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Statement": {}
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "CreateAlias": {
+            "http": {
+                "requestUri": "/2015-03-31/functions/{FunctionName}/aliases",
+                "responseCode": 201
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "FunctionName",
+                    "Name",
+                    "FunctionVersion"
+                ],
+                "members": {
+                    "FunctionName": {
+                        "location": "uri",
+                        "locationName": "FunctionName"
+                    },
+                    "Name": {},
+                    "FunctionVersion": {},
+                    "Description": {},
+                    "RoutingConfig": {
+                        "shape": "Sn"
+                    }
+                }
+            },
+            "output": {
+                "shape": "Sr"
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "CreateCodeSigningConfig": {
+            "http": {
+                "requestUri": "/2020-04-22/code-signing-configs/",
+                "responseCode": 201
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "AllowedPublishers"
+                ],
+                "members": {
+                    "Description": {},
+                    "AllowedPublishers": {
+                        "shape": "Su"
+                    },
+                    "CodeSigningPolicies": {
+                        "shape": "Sw"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "CodeSigningConfig"
+                ],
+                "members": {
+                    "CodeSigningConfig": {
+                        "shape": "Sz"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "CreateEventSourceMapping": {
+            "http": {
+                "requestUri": "/2015-03-31/event-source-mappings/",
+                "responseCode": 202
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "FunctionName"
+                ],
+                "members": {
+                    "EventSourceArn": {},
+                    "FunctionName": {},
+                    "Enabled": {
+                        "type": "boolean"
+                    },
+                    "BatchSize": {
+                        "type": "integer"
+                    },
+                    "MaximumBatchingWindowInSeconds": {
+                        "type": "integer"
+                    },
+                    "ParallelizationFactor": {
+                        "type": "integer"
+                    },
+                    "StartingPosition": {},
+                    "StartingPositionTimestamp": {
+                        "type": "timestamp"
+                    },
+                    "DestinationConfig": {
+                        "shape": "S1a"
+                    },
+                    "MaximumRecordAgeInSeconds": {
+                        "type": "integer"
+                    },
+                    "BisectBatchOnFunctionError": {
+                        "type": "boolean"
+                    },
+                    "MaximumRetryAttempts": {
+                        "type": "integer"
+                    },
+                    "TumblingWindowInSeconds": {
+                        "type": "integer"
+                    },
+                    "Topics": {
+                        "shape": "S1i"
+                    },
+                    "Queues": {
+                        "shape": "S1k"
+                    },
+                    "SourceAccessConfigurations": {
+                        "shape": "S1m"
+                    },
+                    "SelfManagedEventSource": {
+                        "shape": "S1q"
+                    },
+                    "FunctionResponseTypes": {
+                        "shape": "S1v"
+                    }
+                }
+            },
+            "output": {
+                "shape": "S1x"
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "CreateFunction": {
+            "http": {
+                "requestUri": "/2015-03-31/functions",
+                "responseCode": 201
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "FunctionName",
+                    "Role",
+                    "Code"
+                ],
+                "members": {
+                    "FunctionName": {},
+                    "Runtime": {},
+                    "Role": {},
+                    "Handler": {},
+                    "Code": {
+                        "type": "structure",
+                        "members": {
+                            "ZipFile": {
+                                "shape": "S23"
+                            },
+                            "S3Bucket": {},
+                            "S3Key": {},
+                            "S3ObjectVersion": {},
+                            "ImageUri": {}
+                        }
+                    },
+                    "Description": {},
+                    "Timeout": {
+                        "type": "integer"
+                    },
+                    "MemorySize": {
+                        "type": "integer"
+                    },
+                    "Publish": {
+                        "type": "boolean"
+                    },
+                    "VpcConfig": {
+                        "shape": "S2a"
+                    },
+                    "PackageType": {},
+                    "DeadLetterConfig": {
+                        "shape": "S2g"
+                    },
+                    "Environment": {
+                        "shape": "S2i"
+                    },
+                    "KMSKeyArn": {},
+                    "TracingConfig": {
+                        "shape": "S2n"
+                    },
+                    "Tags": {
+                        "shape": "S2p"
+                    },
+                    "Layers": {
+                        "shape": "S2s"
+                    },
+                    "FileSystemConfigs": {
+                        "shape": "S2u"
+                    },
+                    "ImageConfig": {
+                        "shape": "S2y"
+                    },
+                    "CodeSigningConfigArn": {}
+                }
+            },
+            "output": {
+                "shape": "S31"
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "DeleteAlias": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/2015-03-31/functions/{FunctionName}/aliases/{Name}",
+                "responseCode": 204
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "FunctionName",
+                    "Name"
+                ],
+                "members": {
+                    "FunctionName": {
+                        "location": "uri",
+                        "locationName": "FunctionName"
+                    },
+                    "Name": {
+                        "location": "uri",
+                        "locationName": "Name"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "DeleteCodeSigningConfig": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/2020-04-22/code-signing-configs/{CodeSigningConfigArn}",
+                "responseCode": 204
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "CodeSigningConfigArn"
+                ],
+                "members": {
+                    "CodeSigningConfigArn": {
+                        "location": "uri",
+                        "locationName": "CodeSigningConfigArn"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "DeleteEventSourceMapping": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/2015-03-31/event-source-mappings/{UUID}",
+                "responseCode": 202
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "UUID"
+                ],
+                "members": {
+                    "UUID": {
+                        "location": "uri",
+                        "locationName": "UUID"
+                    }
+                }
+            },
+            "output": {
+                "shape": "S1x"
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "DeleteFunction": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/2015-03-31/functions/{FunctionName}",
+                "responseCode": 204
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "FunctionName"
+                ],
+                "members": {
+                    "FunctionName": {
+                        "location": "uri",
+                        "locationName": "FunctionName"
+                    },
+                    "Qualifier": {
+                        "location": "querystring",
+                        "locationName": "Qualifier"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "DeleteFunctionCodeSigningConfig": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/2020-06-30/functions/{FunctionName}/code-signing-config",
+                "responseCode": 204
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "FunctionName"
+                ],
+                "members": {
+                    "FunctionName": {
+                        "location": "uri",
+                        "locationName": "FunctionName"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "DeleteFunctionConcurrency": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/2017-10-31/functions/{FunctionName}/concurrency",
+                "responseCode": 204
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "FunctionName"
+                ],
+                "members": {
+                    "FunctionName": {
+                        "location": "uri",
+                        "locationName": "FunctionName"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "DeleteFunctionEventInvokeConfig": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/2019-09-25/functions/{FunctionName}/event-invoke-config",
+                "responseCode": 204
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "FunctionName"
+                ],
+                "members": {
+                    "FunctionName": {
+                        "location": "uri",
+                        "locationName": "FunctionName"
+                    },
+                    "Qualifier": {
+                        "location": "querystring",
+                        "locationName": "Qualifier"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "DeleteLayerVersion": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/2018-10-31/layers/{LayerName}/versions/{VersionNumber}",
+                "responseCode": 204
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "LayerName",
+                    "VersionNumber"
+                ],
+                "members": {
+                    "LayerName": {
+                        "location": "uri",
+                        "locationName": "LayerName"
+                    },
+                    "VersionNumber": {
+                        "location": "uri",
+                        "locationName": "VersionNumber",
+                        "type": "long"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "DeleteProvisionedConcurrencyConfig": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/2019-09-30/functions/{FunctionName}/provisioned-concurrency",
+                "responseCode": 204
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "FunctionName",
+                    "Qualifier"
+                ],
+                "members": {
+                    "FunctionName": {
+                        "location": "uri",
+                        "locationName": "FunctionName"
+                    },
+                    "Qualifier": {
+                        "location": "querystring",
+                        "locationName": "Qualifier"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "GetAccountSettings": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/2016-08-19/account-settings/",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {}
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "AccountLimit": {
+                        "type": "structure",
+                        "members": {
+                            "TotalCodeSize": {
+                                "type": "long"
+                            },
+                            "CodeSizeUnzipped": {
+                                "type": "long"
+                            },
+                            "CodeSizeZipped": {
+                                "type": "long"
+                            },
+                            "ConcurrentExecutions": {
+                                "type": "integer"
+                            },
+                            "UnreservedConcurrentExecutions": {
+                                "type": "integer"
+                            }
+                        }
+                    },
+                    "AccountUsage": {
+                        "type": "structure",
+                        "members": {
+                            "TotalCodeSize": {
+                                "type": "long"
+                            },
+                            "FunctionCount": {
+                                "type": "long"
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "GetAlias": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/2015-03-31/functions/{FunctionName}/aliases/{Name}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "FunctionName",
+                    "Name"
+                ],
+                "members": {
+                    "FunctionName": {
+                        "location": "uri",
+                        "locationName": "FunctionName"
+                    },
+                    "Name": {
+                        "location": "uri",
+                        "locationName": "Name"
+                    }
+                }
+            },
+            "output": {
+                "shape": "Sr"
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "GetCodeSigningConfig": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/2020-04-22/code-signing-configs/{CodeSigningConfigArn}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "CodeSigningConfigArn"
+                ],
+                "members": {
+                    "CodeSigningConfigArn": {
+                        "location": "uri",
+                        "locationName": "CodeSigningConfigArn"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "CodeSigningConfig"
+                ],
+                "members": {
+                    "CodeSigningConfig": {
+                        "shape": "Sz"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "GetEventSourceMapping": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/2015-03-31/event-source-mappings/{UUID}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "UUID"
+                ],
+                "members": {
+                    "UUID": {
+                        "location": "uri",
+                        "locationName": "UUID"
+                    }
+                }
+            },
+            "output": {
+                "shape": "S1x"
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "GetFunction": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/2015-03-31/functions/{FunctionName}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "FunctionName"
+                ],
+                "members": {
+                    "FunctionName": {
+                        "location": "uri",
+                        "locationName": "FunctionName"
+                    },
+                    "Qualifier": {
+                        "location": "querystring",
+                        "locationName": "Qualifier"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Configuration": {
+                        "shape": "S31"
+                    },
+                    "Code": {
+                        "type": "structure",
+                        "members": {
+                            "RepositoryType": {},
+                            "Location": {},
+                            "ImageUri": {},
+                            "ResolvedImageUri": {}
+                        }
+                    },
+                    "Tags": {
+                        "shape": "S2p"
+                    },
+                    "Concurrency": {
+                        "shape": "S48"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "GetFunctionCodeSigningConfig": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/2020-06-30/functions/{FunctionName}/code-signing-config",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "FunctionName"
+                ],
+                "members": {
+                    "FunctionName": {
+                        "location": "uri",
+                        "locationName": "FunctionName"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "CodeSigningConfigArn",
+                    "FunctionName"
+                ],
+                "members": {
+                    "CodeSigningConfigArn": {},
+                    "FunctionName": {}
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "GetFunctionConcurrency": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/2019-09-30/functions/{FunctionName}/concurrency",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "FunctionName"
+                ],
+                "members": {
+                    "FunctionName": {
+                        "location": "uri",
+                        "locationName": "FunctionName"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ReservedConcurrentExecutions": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "GetFunctionConfiguration": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/2015-03-31/functions/{FunctionName}/configuration",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "FunctionName"
+                ],
+                "members": {
+                    "FunctionName": {
+                        "location": "uri",
+                        "locationName": "FunctionName"
+                    },
+                    "Qualifier": {
+                        "location": "querystring",
+                        "locationName": "Qualifier"
+                    }
+                }
+            },
+            "output": {
+                "shape": "S31"
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "GetFunctionEventInvokeConfig": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/2019-09-25/functions/{FunctionName}/event-invoke-config",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "FunctionName"
+                ],
+                "members": {
+                    "FunctionName": {
+                        "location": "uri",
+                        "locationName": "FunctionName"
+                    },
+                    "Qualifier": {
+                        "location": "querystring",
+                        "locationName": "Qualifier"
+                    }
+                }
+            },
+            "output": {
+                "shape": "S4g"
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "GetLayerVersion": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/2018-10-31/layers/{LayerName}/versions/{VersionNumber}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "LayerName",
+                    "VersionNumber"
+                ],
+                "members": {
+                    "LayerName": {
+                        "location": "uri",
+                        "locationName": "LayerName"
+                    },
+                    "VersionNumber": {
+                        "location": "uri",
+                        "locationName": "VersionNumber",
+                        "type": "long"
+                    }
+                }
+            },
+            "output": {
+                "shape": "S4k"
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "GetLayerVersionByArn": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/2018-10-31/layers?find=LayerVersion",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "Arn"
+                ],
+                "members": {
+                    "Arn": {
+                        "location": "querystring",
+                        "locationName": "Arn"
+                    }
+                }
+            },
+            "output": {
+                "shape": "S4k"
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "GetLayerVersionPolicy": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/2018-10-31/layers/{LayerName}/versions/{VersionNumber}/policy",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "LayerName",
+                    "VersionNumber"
+                ],
+                "members": {
+                    "LayerName": {
+                        "location": "uri",
+                        "locationName": "LayerName"
+                    },
+                    "VersionNumber": {
+                        "location": "uri",
+                        "locationName": "VersionNumber",
+                        "type": "long"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Policy": {},
+                    "RevisionId": {}
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "GetPolicy": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/2015-03-31/functions/{FunctionName}/policy",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "FunctionName"
+                ],
+                "members": {
+                    "FunctionName": {
+                        "location": "uri",
+                        "locationName": "FunctionName"
+                    },
+                    "Qualifier": {
+                        "location": "querystring",
+                        "locationName": "Qualifier"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Policy": {},
+                    "RevisionId": {}
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "GetProvisionedConcurrencyConfig": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/2019-09-30/functions/{FunctionName}/provisioned-concurrency",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "FunctionName",
+                    "Qualifier"
+                ],
+                "members": {
+                    "FunctionName": {
+                        "location": "uri",
+                        "locationName": "FunctionName"
+                    },
+                    "Qualifier": {
+                        "location": "querystring",
+                        "locationName": "Qualifier"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "RequestedProvisionedConcurrentExecutions": {
+                        "type": "integer"
+                    },
+                    "AvailableProvisionedConcurrentExecutions": {
+                        "type": "integer"
+                    },
+                    "AllocatedProvisionedConcurrentExecutions": {
+                        "type": "integer"
+                    },
+                    "Status": {},
+                    "StatusReason": {},
+                    "LastModified": {}
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "Invoke": {
+            "http": {
+                "requestUri": "/2015-03-31/functions/{FunctionName}/invocations"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "FunctionName"
+                ],
+                "members": {
+                    "FunctionName": {
+                        "location": "uri",
+                        "locationName": "FunctionName"
+                    },
+                    "InvocationType": {
+                        "location": "header",
+                        "locationName": "X-Amz-Invocation-Type"
+                    },
+                    "LogType": {
+                        "location": "header",
+                        "locationName": "X-Amz-Log-Type"
+                    },
+                    "ClientContext": {
+                        "location": "header",
+                        "locationName": "X-Amz-Client-Context"
+                    },
+                    "Payload": {
+                        "shape": "S23"
+                    },
+                    "Qualifier": {
+                        "location": "querystring",
+                        "locationName": "Qualifier"
+                    }
+                },
+                "payload": "Payload"
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "StatusCode": {
+                        "location": "statusCode",
+                        "type": "integer"
+                    },
+                    "FunctionError": {
+                        "location": "header",
+                        "locationName": "X-Amz-Function-Error"
+                    },
+                    "LogResult": {
+                        "location": "header",
+                        "locationName": "X-Amz-Log-Result"
+                    },
+                    "Payload": {
+                        "shape": "S23"
+                    },
+                    "ExecutedVersion": {
+                        "location": "header",
+                        "locationName": "X-Amz-Executed-Version"
+                    }
+                },
+                "payload": "Payload"
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "InvokeAsync": {
+            "http": {
+                "requestUri": "/2014-11-13/functions/{FunctionName}/invoke-async/",
+                "responseCode": 202
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "FunctionName",
+                    "InvokeArgs"
+                ],
+                "members": {
+                    "FunctionName": {
+                        "location": "uri",
+                        "locationName": "FunctionName"
+                    },
+                    "InvokeArgs": {
+                        "type": "blob",
+                        "streaming": true
+                    }
+                },
+                "deprecated": true,
+                "payload": "InvokeArgs"
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Status": {
+                        "location": "statusCode",
+                        "type": "integer"
+                    }
+                },
+                "deprecated": true
+            },
+            "deprecated": true,
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "ListAliases": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/2015-03-31/functions/{FunctionName}/aliases",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "FunctionName"
+                ],
+                "members": {
+                    "FunctionName": {
+                        "location": "uri",
+                        "locationName": "FunctionName"
+                    },
+                    "FunctionVersion": {
+                        "location": "querystring",
+                        "locationName": "FunctionVersion"
+                    },
+                    "Marker": {
+                        "location": "querystring",
+                        "locationName": "Marker"
+                    },
+                    "MaxItems": {
+                        "location": "querystring",
+                        "locationName": "MaxItems",
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "NextMarker": {},
+                    "Aliases": {
+                        "type": "list",
+                        "member": {
+                            "shape": "Sr"
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "ListCodeSigningConfigs": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/2020-04-22/code-signing-configs/",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "Marker": {
+                        "location": "querystring",
+                        "locationName": "Marker"
+                    },
+                    "MaxItems": {
+                        "location": "querystring",
+                        "locationName": "MaxItems",
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "NextMarker": {},
+                    "CodeSigningConfigs": {
+                        "type": "list",
+                        "member": {
+                            "shape": "Sz"
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "ListEventSourceMappings": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/2015-03-31/event-source-mappings/",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "EventSourceArn": {
+                        "location": "querystring",
+                        "locationName": "EventSourceArn"
+                    },
+                    "FunctionName": {
+                        "location": "querystring",
+                        "locationName": "FunctionName"
+                    },
+                    "Marker": {
+                        "location": "querystring",
+                        "locationName": "Marker"
+                    },
+                    "MaxItems": {
+                        "location": "querystring",
+                        "locationName": "MaxItems",
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "NextMarker": {},
+                    "EventSourceMappings": {
+                        "type": "list",
+                        "member": {
+                            "shape": "S1x"
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "ListFunctionEventInvokeConfigs": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/2019-09-25/functions/{FunctionName}/event-invoke-config/list",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "FunctionName"
+                ],
+                "members": {
+                    "FunctionName": {
+                        "location": "uri",
+                        "locationName": "FunctionName"
+                    },
+                    "Marker": {
+                        "location": "querystring",
+                        "locationName": "Marker"
+                    },
+                    "MaxItems": {
+                        "location": "querystring",
+                        "locationName": "MaxItems",
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "FunctionEventInvokeConfigs": {
+                        "type": "list",
+                        "member": {
+                            "shape": "S4g"
+                        }
+                    },
+                    "NextMarker": {}
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "ListFunctions": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/2015-03-31/functions/",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "MasterRegion": {
+                        "location": "querystring",
+                        "locationName": "MasterRegion"
+                    },
+                    "FunctionVersion": {
+                        "location": "querystring",
+                        "locationName": "FunctionVersion"
+                    },
+                    "Marker": {
+                        "location": "querystring",
+                        "locationName": "Marker"
+                    },
+                    "MaxItems": {
+                        "location": "querystring",
+                        "locationName": "MaxItems",
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "NextMarker": {},
+                    "Functions": {
+                        "shape": "S5p"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "ListFunctionsByCodeSigningConfig": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/2020-04-22/code-signing-configs/{CodeSigningConfigArn}/functions",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "CodeSigningConfigArn"
+                ],
+                "members": {
+                    "CodeSigningConfigArn": {
+                        "location": "uri",
+                        "locationName": "CodeSigningConfigArn"
+                    },
+                    "Marker": {
+                        "location": "querystring",
+                        "locationName": "Marker"
+                    },
+                    "MaxItems": {
+                        "location": "querystring",
+                        "locationName": "MaxItems",
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "NextMarker": {},
+                    "FunctionArns": {
+                        "type": "list",
+                        "member": {}
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "ListLayerVersions": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/2018-10-31/layers/{LayerName}/versions",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "LayerName"
+                ],
+                "members": {
+                    "CompatibleRuntime": {
+                        "location": "querystring",
+                        "locationName": "CompatibleRuntime"
+                    },
+                    "LayerName": {
+                        "location": "uri",
+                        "locationName": "LayerName"
+                    },
+                    "Marker": {
+                        "location": "querystring",
+                        "locationName": "Marker"
+                    },
+                    "MaxItems": {
+                        "location": "querystring",
+                        "locationName": "MaxItems",
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "NextMarker": {},
+                    "LayerVersions": {
+                        "type": "list",
+                        "member": {
+                            "shape": "S5x"
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "ListLayers": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/2018-10-31/layers",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "CompatibleRuntime": {
+                        "location": "querystring",
+                        "locationName": "CompatibleRuntime"
+                    },
+                    "Marker": {
+                        "location": "querystring",
+                        "locationName": "Marker"
+                    },
+                    "MaxItems": {
+                        "location": "querystring",
+                        "locationName": "MaxItems",
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "NextMarker": {},
+                    "Layers": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "LayerName": {},
+                                "LayerArn": {},
+                                "LatestMatchingVersion": {
+                                    "shape": "S5x"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "ListProvisionedConcurrencyConfigs": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/2019-09-30/functions/{FunctionName}/provisioned-concurrency?List=ALL",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "FunctionName"
+                ],
+                "members": {
+                    "FunctionName": {
+                        "location": "uri",
+                        "locationName": "FunctionName"
+                    },
+                    "Marker": {
+                        "location": "querystring",
+                        "locationName": "Marker"
+                    },
+                    "MaxItems": {
+                        "location": "querystring",
+                        "locationName": "MaxItems",
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ProvisionedConcurrencyConfigs": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "FunctionArn": {},
+                                "RequestedProvisionedConcurrentExecutions": {
+                                    "type": "integer"
+                                },
+                                "AvailableProvisionedConcurrentExecutions": {
+                                    "type": "integer"
+                                },
+                                "AllocatedProvisionedConcurrentExecutions": {
+                                    "type": "integer"
+                                },
+                                "Status": {},
+                                "StatusReason": {},
+                                "LastModified": {}
+                            }
+                        }
+                    },
+                    "NextMarker": {}
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "ListTags": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/2017-03-31/tags/{ARN}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "Resource"
+                ],
+                "members": {
+                    "Resource": {
+                        "location": "uri",
+                        "locationName": "ARN"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Tags": {
+                        "shape": "S2p"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "ListVersionsByFunction": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/2015-03-31/functions/{FunctionName}/versions",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "FunctionName"
+                ],
+                "members": {
+                    "FunctionName": {
+                        "location": "uri",
+                        "locationName": "FunctionName"
+                    },
+                    "Marker": {
+                        "location": "querystring",
+                        "locationName": "Marker"
+                    },
+                    "MaxItems": {
+                        "location": "querystring",
+                        "locationName": "MaxItems",
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "NextMarker": {},
+                    "Versions": {
+                        "shape": "S5p"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "PublishLayerVersion": {
+            "http": {
+                "requestUri": "/2018-10-31/layers/{LayerName}/versions",
+                "responseCode": 201
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "LayerName",
+                    "Content"
+                ],
+                "members": {
+                    "LayerName": {
+                        "location": "uri",
+                        "locationName": "LayerName"
+                    },
+                    "Description": {},
+                    "Content": {
+                        "type": "structure",
+                        "members": {
+                            "S3Bucket": {},
+                            "S3Key": {},
+                            "S3ObjectVersion": {},
+                            "ZipFile": {
+                                "shape": "S23"
+                            }
+                        }
+                    },
+                    "CompatibleRuntimes": {
+                        "shape": "S4n"
+                    },
+                    "LicenseInfo": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Content": {
+                        "shape": "S4l"
+                    },
+                    "LayerArn": {},
+                    "LayerVersionArn": {},
+                    "Description": {},
+                    "CreatedDate": {},
+                    "Version": {
+                        "type": "long"
+                    },
+                    "CompatibleRuntimes": {
+                        "shape": "S4n"
+                    },
+                    "LicenseInfo": {}
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "PublishVersion": {
+            "http": {
+                "requestUri": "/2015-03-31/functions/{FunctionName}/versions",
+                "responseCode": 201
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "FunctionName"
+                ],
+                "members": {
+                    "FunctionName": {
+                        "location": "uri",
+                        "locationName": "FunctionName"
+                    },
+                    "CodeSha256": {},
+                    "Description": {},
+                    "RevisionId": {}
+                }
+            },
+            "output": {
+                "shape": "S31"
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "PutFunctionCodeSigningConfig": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/2020-06-30/functions/{FunctionName}/code-signing-config",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "CodeSigningConfigArn",
+                    "FunctionName"
+                ],
+                "members": {
+                    "CodeSigningConfigArn": {},
+                    "FunctionName": {
+                        "location": "uri",
+                        "locationName": "FunctionName"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "CodeSigningConfigArn",
+                    "FunctionName"
+                ],
+                "members": {
+                    "CodeSigningConfigArn": {},
+                    "FunctionName": {}
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "PutFunctionConcurrency": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/2017-10-31/functions/{FunctionName}/concurrency",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "FunctionName",
+                    "ReservedConcurrentExecutions"
+                ],
+                "members": {
+                    "FunctionName": {
+                        "location": "uri",
+                        "locationName": "FunctionName"
+                    },
+                    "ReservedConcurrentExecutions": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "shape": "S48"
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "PutFunctionEventInvokeConfig": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/2019-09-25/functions/{FunctionName}/event-invoke-config",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "FunctionName"
+                ],
+                "members": {
+                    "FunctionName": {
+                        "location": "uri",
+                        "locationName": "FunctionName"
+                    },
+                    "Qualifier": {
+                        "location": "querystring",
+                        "locationName": "Qualifier"
+                    },
+                    "MaximumRetryAttempts": {
+                        "type": "integer"
+                    },
+                    "MaximumEventAgeInSeconds": {
+                        "type": "integer"
+                    },
+                    "DestinationConfig": {
+                        "shape": "S1a"
+                    }
+                }
+            },
+            "output": {
+                "shape": "S4g"
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "PutProvisionedConcurrencyConfig": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/2019-09-30/functions/{FunctionName}/provisioned-concurrency",
+                "responseCode": 202
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "FunctionName",
+                    "Qualifier",
+                    "ProvisionedConcurrentExecutions"
+                ],
+                "members": {
+                    "FunctionName": {
+                        "location": "uri",
+                        "locationName": "FunctionName"
+                    },
+                    "Qualifier": {
+                        "location": "querystring",
+                        "locationName": "Qualifier"
+                    },
+                    "ProvisionedConcurrentExecutions": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "RequestedProvisionedConcurrentExecutions": {
+                        "type": "integer"
+                    },
+                    "AvailableProvisionedConcurrentExecutions": {
+                        "type": "integer"
+                    },
+                    "AllocatedProvisionedConcurrentExecutions": {
+                        "type": "integer"
+                    },
+                    "Status": {},
+                    "StatusReason": {},
+                    "LastModified": {}
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "RemoveLayerVersionPermission": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/2018-10-31/layers/{LayerName}/versions/{VersionNumber}/policy/{StatementId}",
+                "responseCode": 204
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "LayerName",
+                    "VersionNumber",
+                    "StatementId"
+                ],
+                "members": {
+                    "LayerName": {
+                        "location": "uri",
+                        "locationName": "LayerName"
+                    },
+                    "VersionNumber": {
+                        "location": "uri",
+                        "locationName": "VersionNumber",
+                        "type": "long"
+                    },
+                    "StatementId": {
+                        "location": "uri",
+                        "locationName": "StatementId"
+                    },
+                    "RevisionId": {
+                        "location": "querystring",
+                        "locationName": "RevisionId"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "RemovePermission": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/2015-03-31/functions/{FunctionName}/policy/{StatementId}",
+                "responseCode": 204
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "FunctionName",
+                    "StatementId"
+                ],
+                "members": {
+                    "FunctionName": {
+                        "location": "uri",
+                        "locationName": "FunctionName"
+                    },
+                    "StatementId": {
+                        "location": "uri",
+                        "locationName": "StatementId"
+                    },
+                    "Qualifier": {
+                        "location": "querystring",
+                        "locationName": "Qualifier"
+                    },
+                    "RevisionId": {
+                        "location": "querystring",
+                        "locationName": "RevisionId"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "TagResource": {
+            "http": {
+                "requestUri": "/2017-03-31/tags/{ARN}",
+                "responseCode": 204
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "Resource",
+                    "Tags"
+                ],
+                "members": {
+                    "Resource": {
+                        "location": "uri",
+                        "locationName": "ARN"
+                    },
+                    "Tags": {
+                        "shape": "S2p"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "UntagResource": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/2017-03-31/tags/{ARN}",
+                "responseCode": 204
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "Resource",
+                    "TagKeys"
+                ],
+                "members": {
+                    "Resource": {
+                        "location": "uri",
+                        "locationName": "ARN"
+                    },
+                    "TagKeys": {
+                        "location": "querystring",
+                        "locationName": "tagKeys",
+                        "type": "list",
+                        "member": {}
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "UpdateAlias": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/2015-03-31/functions/{FunctionName}/aliases/{Name}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "FunctionName",
+                    "Name"
+                ],
+                "members": {
+                    "FunctionName": {
+                        "location": "uri",
+                        "locationName": "FunctionName"
+                    },
+                    "Name": {
+                        "location": "uri",
+                        "locationName": "Name"
+                    },
+                    "FunctionVersion": {},
+                    "Description": {},
+                    "RoutingConfig": {
+                        "shape": "Sn"
+                    },
+                    "RevisionId": {}
+                }
+            },
+            "output": {
+                "shape": "Sr"
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "UpdateCodeSigningConfig": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/2020-04-22/code-signing-configs/{CodeSigningConfigArn}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "CodeSigningConfigArn"
+                ],
+                "members": {
+                    "CodeSigningConfigArn": {
+                        "location": "uri",
+                        "locationName": "CodeSigningConfigArn"
+                    },
+                    "Description": {},
+                    "AllowedPublishers": {
+                        "shape": "Su"
+                    },
+                    "CodeSigningPolicies": {
+                        "shape": "Sw"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "CodeSigningConfig"
+                ],
+                "members": {
+                    "CodeSigningConfig": {
+                        "shape": "Sz"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "UpdateEventSourceMapping": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/2015-03-31/event-source-mappings/{UUID}",
+                "responseCode": 202
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "UUID"
+                ],
+                "members": {
+                    "UUID": {
+                        "location": "uri",
+                        "locationName": "UUID"
+                    },
+                    "FunctionName": {},
+                    "Enabled": {
+                        "type": "boolean"
+                    },
+                    "BatchSize": {
+                        "type": "integer"
+                    },
+                    "MaximumBatchingWindowInSeconds": {
+                        "type": "integer"
+                    },
+                    "DestinationConfig": {
+                        "shape": "S1a"
+                    },
+                    "MaximumRecordAgeInSeconds": {
+                        "type": "integer"
+                    },
+                    "BisectBatchOnFunctionError": {
+                        "type": "boolean"
+                    },
+                    "MaximumRetryAttempts": {
+                        "type": "integer"
+                    },
+                    "ParallelizationFactor": {
+                        "type": "integer"
+                    },
+                    "SourceAccessConfigurations": {
+                        "shape": "S1m"
+                    },
+                    "TumblingWindowInSeconds": {
+                        "type": "integer"
+                    },
+                    "FunctionResponseTypes": {
+                        "shape": "S1v"
+                    }
+                }
+            },
+            "output": {
+                "shape": "S1x"
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "UpdateFunctionCode": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/2015-03-31/functions/{FunctionName}/code",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "FunctionName"
+                ],
+                "members": {
+                    "FunctionName": {
+                        "location": "uri",
+                        "locationName": "FunctionName"
+                    },
+                    "ZipFile": {
+                        "shape": "S23"
+                    },
+                    "S3Bucket": {},
+                    "S3Key": {},
+                    "S3ObjectVersion": {},
+                    "ImageUri": {},
+                    "Publish": {
+                        "type": "boolean"
+                    },
+                    "DryRun": {
+                        "type": "boolean"
+                    },
+                    "RevisionId": {}
+                }
+            },
+            "output": {
+                "shape": "S31"
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "UpdateFunctionConfiguration": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/2015-03-31/functions/{FunctionName}/configuration",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "FunctionName"
+                ],
+                "members": {
+                    "FunctionName": {
+                        "location": "uri",
+                        "locationName": "FunctionName"
+                    },
+                    "Role": {},
+                    "Handler": {},
+                    "Description": {},
+                    "Timeout": {
+                        "type": "integer"
+                    },
+                    "MemorySize": {
+                        "type": "integer"
+                    },
+                    "VpcConfig": {
+                        "shape": "S2a"
+                    },
+                    "Environment": {
+                        "shape": "S2i"
+                    },
+                    "Runtime": {},
+                    "DeadLetterConfig": {
+                        "shape": "S2g"
+                    },
+                    "KMSKeyArn": {},
+                    "TracingConfig": {
+                        "shape": "S2n"
+                    },
+                    "RevisionId": {},
+                    "Layers": {
+                        "shape": "S2s"
+                    },
+                    "FileSystemConfigs": {
+                        "shape": "S2u"
+                    },
+                    "ImageConfig": {
+                        "shape": "S2y"
+                    }
+                }
+            },
+            "output": {
+                "shape": "S31"
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "UpdateFunctionEventInvokeConfig": {
+            "http": {
+                "requestUri": "/2019-09-25/functions/{FunctionName}/event-invoke-config",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "FunctionName"
+                ],
+                "members": {
+                    "FunctionName": {
+                        "location": "uri",
+                        "locationName": "FunctionName"
+                    },
+                    "Qualifier": {
+                        "location": "querystring",
+                        "locationName": "Qualifier"
+                    },
+                    "MaximumRetryAttempts": {
+                        "type": "integer"
+                    },
+                    "MaximumEventAgeInSeconds": {
+                        "type": "integer"
+                    },
+                    "DestinationConfig": {
+                        "shape": "S1a"
+                    }
+                }
+            },
+            "output": {
+                "shape": "S4g"
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "CreateFunctionUrlConfig": {
+            "http": {
+                "requestUri": "/2021-10-31/functions/{FunctionName}/url",
+                "responseCode": 201
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "FunctionName",
+                    "AuthType"
+                ],
+                "members": {
+                    "FunctionName": {
+                        "location": "uri",
+                        "locationName": "FunctionName"
+                    },
+                    "Qualifier": {
+                        "location": "querystring",
+                        "locationName": "Qualifier"
+                    },
+                    "AuthType": {},
+                    "Cors": {
+                        "shape": "S3z"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "FunctionUrl",
+                    "FunctionArn",
+                    "AuthType",
+                    "CreationTime"
+                ],
+                "members": {
+                    "FunctionUrl": {},
+                    "FunctionArn": {},
+                    "AuthType": {},
+                    "Cors": {
+                        "shape": "S3z"
+                    },
+                    "CreationTime": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/XVGWMJFITXJVVMUVIP64XMDO3HXY35VOI2FZPKFVZLYMOGN55ZCA/main.js"
+            ]
+        },
+        "DeleteFunctionUrlConfig": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/2021-10-31/functions/{FunctionName}/url",
+                "responseCode": 204
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "FunctionName"
+                ],
+                "members": {
+                    "FunctionName": {
+                        "location": "uri",
+                        "locationName": "FunctionName"
+                    },
+                    "Qualifier": {
+                        "location": "querystring",
+                        "locationName": "Qualifier"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/XVGWMJFITXJVVMUVIP64XMDO3HXY35VOI2FZPKFVZLYMOGN55ZCA/main.js"
+            ]
+        },
+        "GetFunctionUrlConfig": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/2021-10-31/functions/{FunctionName}/url",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "FunctionName"
+                ],
+                "members": {
+                    "FunctionName": {
+                        "location": "uri",
+                        "locationName": "FunctionName"
+                    },
+                    "Qualifier": {
+                        "location": "querystring",
+                        "locationName": "Qualifier"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "FunctionUrl",
+                    "FunctionArn",
+                    "AuthType",
+                    "CreationTime",
+                    "LastModifiedTime"
+                ],
+                "members": {
+                    "FunctionUrl": {},
+                    "FunctionArn": {},
+                    "AuthType": {},
+                    "Cors": {
+                        "shape": "S3z"
+                    },
+                    "CreationTime": {},
+                    "LastModifiedTime": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/XVGWMJFITXJVVMUVIP64XMDO3HXY35VOI2FZPKFVZLYMOGN55ZCA/main.js"
+            ]
+        },
+        "ListFunctionUrlConfigs": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/2021-10-31/functions/{FunctionName}/urls",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "FunctionName"
+                ],
+                "members": {
+                    "FunctionName": {
+                        "location": "uri",
+                        "locationName": "FunctionName"
+                    },
+                    "Marker": {
+                        "location": "querystring",
+                        "locationName": "Marker"
+                    },
+                    "MaxItems": {
+                        "location": "querystring",
+                        "locationName": "MaxItems",
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "FunctionUrlConfigs"
+                ],
+                "members": {
+                    "FunctionUrlConfigs": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "FunctionUrl",
+                                "FunctionArn",
+                                "CreationTime",
+                                "LastModifiedTime",
+                                "AuthType"
+                            ],
+                            "members": {
+                                "FunctionUrl": {},
+                                "FunctionArn": {},
+                                "CreationTime": {},
+                                "LastModifiedTime": {},
+                                "Cors": {
+                                    "shape": "S3z"
+                                },
+                                "AuthType": {}
+                            }
+                        }
+                    },
+                    "NextMarker": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/XVGWMJFITXJVVMUVIP64XMDO3HXY35VOI2FZPKFVZLYMOGN55ZCA/main.js"
+            ]
+        },
+        "UpdateFunctionUrlConfig": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/2021-10-31/functions/{FunctionName}/url",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "FunctionName"
+                ],
+                "members": {
+                    "FunctionName": {
+                        "location": "uri",
+                        "locationName": "FunctionName"
+                    },
+                    "Qualifier": {
+                        "location": "querystring",
+                        "locationName": "Qualifier"
+                    },
+                    "AuthType": {},
+                    "Cors": {
+                        "shape": "S3z"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "FunctionUrl",
+                    "FunctionArn",
+                    "AuthType",
+                    "CreationTime",
+                    "LastModifiedTime"
+                ],
+                "members": {
+                    "FunctionUrl": {},
+                    "FunctionArn": {},
+                    "AuthType": {},
+                    "Cors": {
+                        "shape": "S3z"
+                    },
+                    "CreationTime": {},
+                    "LastModifiedTime": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/XVGWMJFITXJVVMUVIP64XMDO3HXY35VOI2FZPKFVZLYMOGN55ZCA/main.js"
+            ]
+        },
+        "GetRuntimeManagementConfig": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/2021-07-20/functions/{FunctionName}/runtime-management-config",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "FunctionName"
+                ],
+                "members": {
+                    "FunctionName": {
+                        "location": "uri",
+                        "locationName": "FunctionName"
+                    },
+                    "Qualifier": {
+                        "location": "querystring",
+                        "locationName": "Qualifier"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "UpdateRuntimeOn": {},
+                    "RuntimeVersionArn": {},
+                    "FunctionArn": {}
+                }
+            },
+            "download_location": [
+                "https://greengrass.us-east-1.prod.console.iot.aws.dev/static/js/greengrass.js"
+            ]
+        },
+        "PutRuntimeManagementConfig": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/2021-07-20/functions/{FunctionName}/runtime-management-config",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "FunctionName",
+                    "UpdateRuntimeOn"
+                ],
+                "members": {
+                    "FunctionName": {
+                        "location": "uri",
+                        "locationName": "FunctionName"
+                    },
+                    "Qualifier": {
+                        "location": "querystring",
+                        "locationName": "Qualifier"
+                    },
+                    "UpdateRuntimeOn": {},
+                    "RuntimeVersionArn": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "UpdateRuntimeOn",
+                    "FunctionArn"
+                ],
+                "members": {
+                    "UpdateRuntimeOn": {},
+                    "FunctionArn": {},
+                    "RuntimeVersionArn": {}
+                }
+            },
+            "download_location": [
+                "https://greengrass.us-east-1.prod.console.iot.aws.dev/static/js/greengrass.js"
+            ]
+        },
+        "InvokeWithResponseStream": {
+            "http": {
+                "requestUri": "/2021-11-15/functions/{FunctionName}/response-streaming-invocations"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "FunctionName"
+                ],
+                "members": {
+                    "FunctionName": {
+                        "location": "uri",
+                        "locationName": "FunctionName"
+                    },
+                    "InvocationType": {
+                        "location": "header",
+                        "locationName": "X-Amz-Invocation-Type"
+                    },
+                    "LogType": {
+                        "location": "header",
+                        "locationName": "X-Amz-Log-Type"
+                    },
+                    "ClientContext": {
+                        "location": "header",
+                        "locationName": "X-Amz-Client-Context"
+                    },
+                    "Qualifier": {
+                        "location": "querystring",
+                        "locationName": "Qualifier"
+                    },
+                    "Payload": {
+                        "shape": "S2h"
+                    }
+                },
+                "payload": "Payload"
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "StatusCode": {
+                        "location": "statusCode",
+                        "type": "integer"
+                    },
+                    "ExecutedVersion": {
+                        "location": "header",
+                        "locationName": "X-Amz-Executed-Version"
+                    },
+                    "EventStream": {
+                        "type": "structure",
+                        "members": {
+                            "PayloadChunk": {
+                                "type": "structure",
+                                "members": {
+                                    "Payload": {
+                                        "shape": "S2h",
+                                        "eventpayload": true
+                                    }
+                                },
+                                "event": true
+                            },
+                            "InvokeComplete": {
+                                "type": "structure",
+                                "members": {
+                                    "ErrorCode": {},
+                                    "ErrorDetails": {},
+                                    "LogResult": {}
+                                },
+                                "event": true
+                            }
+                        },
+                        "eventstream": true
+                    },
+                    "ResponseStreamContentType": {
+                        "location": "header",
+                        "locationName": "Content-Type"
+                    }
+                },
+                "payload": "EventStream"
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/2UB33AZXWRI5CTHDBMBLEMI6D6X2ZUVC6NGEPJPXVWL2IBDCXF4Q/main.js"
+            ]
+        }
+    },
+    "shapes": {
+        "Sn": {
+            "type": "structure",
+            "members": {
+                "AdditionalVersionWeights": {
+                    "type": "map",
+                    "key": {},
+                    "value": {
+                        "type": "double"
+                    }
+                }
+            }
+        },
+        "Sr": {
+            "type": "structure",
+            "members": {
+                "AliasArn": {},
+                "Name": {},
+                "FunctionVersion": {},
+                "Description": {},
+                "RoutingConfig": {
+                    "shape": "Sn"
+                },
+                "RevisionId": {}
+            }
+        },
+        "Su": {
+            "type": "structure",
+            "required": [
+                "SigningProfileVersionArns"
+            ],
+            "members": {
+                "SigningProfileVersionArns": {
+                    "type": "list",
+                    "member": {}
+                }
+            }
+        },
+        "Sw": {
+            "type": "structure",
+            "members": {
+                "UntrustedArtifactOnDeployment": {}
+            }
+        },
+        "Sz": {
+            "type": "structure",
+            "required": [
+                "CodeSigningConfigId",
+                "CodeSigningConfigArn",
+                "AllowedPublishers",
+                "CodeSigningPolicies",
+                "LastModified"
+            ],
+            "members": {
+                "CodeSigningConfigId": {},
+                "CodeSigningConfigArn": {},
+                "Description": {},
+                "AllowedPublishers": {
+                    "shape": "Su"
+                },
+                "CodeSigningPolicies": {
+                    "shape": "Sw"
+                },
+                "LastModified": {}
+            }
+        },
+        "S1a": {
+            "type": "structure",
+            "members": {
+                "OnSuccess": {
+                    "type": "structure",
+                    "members": {
+                        "Destination": {}
+                    }
+                },
+                "OnFailure": {
+                    "type": "structure",
+                    "members": {
+                        "Destination": {}
+                    }
+                }
+            }
+        },
+        "S1i": {
+            "type": "list",
+            "member": {}
+        },
+        "S1k": {
+            "type": "list",
+            "member": {}
+        },
+        "S1m": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "Type": {},
+                    "URI": {}
+                }
+            }
+        },
+        "S1q": {
+            "type": "structure",
+            "members": {
+                "Endpoints": {
+                    "type": "map",
+                    "key": {},
+                    "value": {
+                        "type": "list",
+                        "member": {}
+                    }
+                }
+            }
+        },
+        "S1v": {
+            "type": "list",
+            "member": {}
+        },
+        "S1x": {
+            "type": "structure",
+            "members": {
+                "UUID": {},
+                "StartingPosition": {},
+                "StartingPositionTimestamp": {
+                    "type": "timestamp"
+                },
+                "BatchSize": {
+                    "type": "integer"
+                },
+                "MaximumBatchingWindowInSeconds": {
+                    "type": "integer"
+                },
+                "ParallelizationFactor": {
+                    "type": "integer"
+                },
+                "EventSourceArn": {},
+                "FunctionArn": {},
+                "LastModified": {
+                    "type": "timestamp"
+                },
+                "LastProcessingResult": {},
+                "State": {},
+                "StateTransitionReason": {},
+                "DestinationConfig": {
+                    "shape": "S1a"
+                },
+                "Topics": {
+                    "shape": "S1i"
+                },
+                "Queues": {
+                    "shape": "S1k"
+                },
+                "SourceAccessConfigurations": {
+                    "shape": "S1m"
+                },
+                "SelfManagedEventSource": {
+                    "shape": "S1q"
+                },
+                "MaximumRecordAgeInSeconds": {
+                    "type": "integer"
+                },
+                "BisectBatchOnFunctionError": {
+                    "type": "boolean"
+                },
+                "MaximumRetryAttempts": {
+                    "type": "integer"
+                },
+                "TumblingWindowInSeconds": {
+                    "type": "integer"
+                },
+                "FunctionResponseTypes": {
+                    "shape": "S1v"
+                }
+            }
+        },
+        "S23": {
+            "type": "blob",
+            "sensitive": true
+        },
+        "S2a": {
+            "type": "structure",
+            "members": {
+                "SubnetIds": {
+                    "shape": "S2b"
+                },
+                "SecurityGroupIds": {
+                    "shape": "S2d"
+                }
+            }
+        },
+        "S2b": {
+            "type": "list",
+            "member": {}
+        },
+        "S2d": {
+            "type": "list",
+            "member": {}
+        },
+        "S2g": {
+            "type": "structure",
+            "members": {
+                "TargetArn": {}
+            }
+        },
+        "S2i": {
+            "type": "structure",
+            "members": {
+                "Variables": {
+                    "shape": "S2j"
+                }
+            }
+        },
+        "S2j": {
+            "type": "map",
+            "key": {
+                "type": "string",
+                "sensitive": true
+            },
+            "value": {
+                "type": "string",
+                "sensitive": true
+            },
+            "sensitive": true
+        },
+        "S2n": {
+            "type": "structure",
+            "members": {
+                "Mode": {}
+            }
+        },
+        "S2p": {
+            "type": "map",
+            "key": {},
+            "value": {}
+        },
+        "S2s": {
+            "type": "list",
+            "member": {}
+        },
+        "S2u": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "Arn",
+                    "LocalMountPath"
+                ],
+                "members": {
+                    "Arn": {},
+                    "LocalMountPath": {}
+                }
+            }
+        },
+        "S2y": {
+            "type": "structure",
+            "members": {
+                "EntryPoint": {
+                    "shape": "S2z"
+                },
+                "Command": {
+                    "shape": "S2z"
+                },
+                "WorkingDirectory": {}
+            }
+        },
+        "S2z": {
+            "type": "list",
+            "member": {}
+        },
+        "S31": {
+            "type": "structure",
+            "members": {
+                "FunctionName": {},
+                "FunctionArn": {},
+                "Runtime": {},
+                "Role": {},
+                "Handler": {},
+                "CodeSize": {
+                    "type": "long"
+                },
+                "Description": {},
+                "Timeout": {
+                    "type": "integer"
+                },
+                "MemorySize": {
+                    "type": "integer"
+                },
+                "LastModified": {},
+                "CodeSha256": {},
+                "Version": {},
+                "VpcConfig": {
+                    "type": "structure",
+                    "members": {
+                        "SubnetIds": {
+                            "shape": "S2b"
+                        },
+                        "SecurityGroupIds": {
+                            "shape": "S2d"
+                        },
+                        "VpcId": {}
+                    }
+                },
+                "DeadLetterConfig": {
+                    "shape": "S2g"
+                },
+                "Environment": {
+                    "type": "structure",
+                    "members": {
+                        "Variables": {
+                            "shape": "S2j"
+                        },
+                        "Error": {
+                            "type": "structure",
+                            "members": {
+                                "ErrorCode": {},
+                                "Message": {
+                                    "shape": "S39"
+                                }
+                            }
+                        }
+                    }
+                },
+                "KMSKeyArn": {},
+                "TracingConfig": {
+                    "type": "structure",
+                    "members": {
+                        "Mode": {}
+                    }
+                },
+                "MasterArn": {},
+                "RevisionId": {},
+                "Layers": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "members": {
+                            "Arn": {},
+                            "CodeSize": {
+                                "type": "long"
+                            },
+                            "SigningProfileVersionArn": {},
+                            "SigningJobArn": {}
+                        }
+                    }
+                },
+                "State": {},
+                "StateReason": {},
+                "StateReasonCode": {},
+                "LastUpdateStatus": {},
+                "LastUpdateStatusReason": {},
+                "LastUpdateStatusReasonCode": {},
+                "FileSystemConfigs": {
+                    "shape": "S2u"
+                },
+                "PackageType": {},
+                "ImageConfigResponse": {
+                    "type": "structure",
+                    "members": {
+                        "ImageConfig": {
+                            "shape": "S2y"
+                        },
+                        "Error": {
+                            "type": "structure",
+                            "members": {
+                                "ErrorCode": {},
+                                "Message": {
+                                    "shape": "S39"
+                                }
+                            }
+                        }
+                    }
+                },
+                "SigningProfileVersionArn": {},
+                "SigningJobArn": {}
+            }
+        },
+        "S39": {
+            "type": "string",
+            "sensitive": true
+        },
+        "S48": {
+            "type": "structure",
+            "members": {
+                "ReservedConcurrentExecutions": {
+                    "type": "integer"
+                }
+            }
+        },
+        "S4g": {
+            "type": "structure",
+            "members": {
+                "LastModified": {
+                    "type": "timestamp"
+                },
+                "FunctionArn": {},
+                "MaximumRetryAttempts": {
+                    "type": "integer"
+                },
+                "MaximumEventAgeInSeconds": {
+                    "type": "integer"
+                },
+                "DestinationConfig": {
+                    "shape": "S1a"
+                }
+            }
+        },
+        "S4k": {
+            "type": "structure",
+            "members": {
+                "Content": {
+                    "shape": "S4l"
+                },
+                "LayerArn": {},
+                "LayerVersionArn": {},
+                "Description": {},
+                "CreatedDate": {},
+                "Version": {
+                    "type": "long"
+                },
+                "CompatibleRuntimes": {
+                    "shape": "S4n"
+                },
+                "LicenseInfo": {}
+            }
+        },
+        "S4l": {
+            "type": "structure",
+            "members": {
+                "Location": {},
+                "CodeSha256": {},
+                "CodeSize": {
+                    "type": "long"
+                },
+                "SigningProfileVersionArn": {},
+                "SigningJobArn": {}
+            }
+        },
+        "S4n": {
+            "type": "list",
+            "member": {}
+        },
+        "S5p": {
+            "type": "list",
+            "member": {
+                "shape": "S31"
+            }
+        },
+        "S5x": {
+            "type": "structure",
+            "members": {
+                "LayerVersionArn": {},
+                "Version": {
+                    "type": "long"
+                },
+                "Description": {},
+                "CreatedDate": {},
+                "CompatibleRuntimes": {
+                    "shape": "S4n"
+                },
+                "LicenseInfo": {}
+            }
+        },
+        "S10": {
+            "type": "structure",
+            "members": {
+                "OnSuccess": {
+                    "type": "structure",
+                    "members": {
+                        "Destination": {}
+                    }
+                },
+                "OnFailure": {
+                    "type": "structure",
+                    "members": {
+                        "Destination": {}
+                    }
+                }
+            }
+        },
+        "S17": {
+            "type": "structure",
+            "members": {
+                "UUID": {},
+                "BatchSize": {
+                    "type": "integer"
+                },
+                "MaximumBatchingWindowInSeconds": {
+                    "type": "integer"
+                },
+                "ParallelizationFactor": {
+                    "type": "integer"
+                },
+                "EventSourceArn": {},
+                "FunctionArn": {},
+                "LastModified": {
+                    "type": "timestamp"
+                },
+                "LastProcessingResult": {},
+                "State": {},
+                "StateTransitionReason": {},
+                "DestinationConfig": {
+                    "shape": "S10"
+                },
+                "MaximumRecordAgeInSeconds": {
+                    "type": "integer"
+                },
+                "BisectBatchOnFunctionError": {
+                    "type": "boolean"
+                },
+                "MaximumRetryAttempts": {
+                    "type": "integer"
+                }
+            }
+        },
+        "S1d": {
+            "type": "blob",
+            "sensitive": true
+        },
+        "S1l": {
+            "type": "list",
+            "member": {}
+        },
+        "S1n": {
+            "type": "list",
+            "member": {}
+        },
+        "S1p": {
+            "type": "structure",
+            "members": {
+                "TargetArn": {}
+            }
+        },
+        "S1r": {
+            "type": "structure",
+            "members": {
+                "Variables": {
+                    "shape": "S1s"
+                }
+            }
+        },
+        "S1s": {
+            "type": "map",
+            "key": {
+                "type": "string",
+                "sensitive": true
+            },
+            "value": {
+                "type": "string",
+                "sensitive": true
+            },
+            "sensitive": true
+        },
+        "S1w": {
+            "type": "structure",
+            "members": {
+                "Mode": {}
+            }
+        },
+        "S1y": {
+            "type": "map",
+            "key": {},
+            "value": {}
+        },
+        "S21": {
+            "type": "list",
+            "member": {}
+        },
+        "S34": {
+            "type": "structure",
+            "members": {
+                "ReservedConcurrentExecutions": {
+                    "type": "integer"
+                }
+            }
+        },
+        "S3a": {
+            "type": "structure",
+            "members": {
+                "LastModified": {
+                    "type": "timestamp"
+                },
+                "FunctionArn": {},
+                "MaximumRetryAttempts": {
+                    "type": "integer"
+                },
+                "MaximumEventAgeInSeconds": {
+                    "type": "integer"
+                },
+                "DestinationConfig": {
+                    "shape": "S10"
+                }
+            }
+        },
+        "S3e": {
+            "type": "structure",
+            "members": {
+                "Content": {
+                    "shape": "S3f"
+                },
+                "LayerArn": {},
+                "LayerVersionArn": {},
+                "Description": {},
+                "CreatedDate": {},
+                "Version": {
+                    "type": "long"
+                },
+                "CompatibleRuntimes": {
+                    "shape": "S3h"
+                },
+                "LicenseInfo": {}
+            }
+        },
+        "S3f": {
+            "type": "structure",
+            "members": {
+                "Location": {},
+                "CodeSha256": {},
+                "CodeSize": {
+                    "type": "long"
+                }
+            }
+        },
+        "S3h": {
+            "type": "list",
+            "member": {}
+        },
+        "Sp": {
+            "type": "structure",
+            "members": {
+                "AdditionalVersionWeights": {
+                    "type": "map",
+                    "key": {},
+                    "value": {
+                        "type": "double"
+                    }
+                }
+            }
+        },
+        "St": {
+            "type": "structure",
+            "members": {
+                "AliasArn": {},
+                "Name": {},
+                "FunctionVersion": {},
+                "Description": {},
+                "RoutingConfig": {
+                    "shape": "Sp"
+                },
+                "RevisionId": {}
+            }
+        },
+        "Sy": {
+            "type": "structure",
+            "members": {
+                "UntrustedArtifactOnDeployment": {}
+            }
+        },
+        "S11": {
+            "type": "structure",
+            "required": [
+                "CodeSigningConfigId",
+                "CodeSigningConfigArn",
+                "AllowedPublishers",
+                "CodeSigningPolicies",
+                "LastModified"
+            ],
+            "members": {
+                "CodeSigningConfigId": {},
+                "CodeSigningConfigArn": {},
+                "Description": {},
+                "AllowedPublishers": {
+                    "shape": "Sw"
+                },
+                "CodeSigningPolicies": {
+                    "shape": "Sy"
+                },
+                "LastModified": {}
+            }
+        },
+        "S18": {
+            "type": "structure",
+            "members": {
+                "Filters": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "members": {
+                            "Pattern": {}
+                        }
+                    }
+                }
+            }
+        },
+        "S1g": {
+            "type": "structure",
+            "members": {
+                "OnSuccess": {
+                    "type": "structure",
+                    "members": {
+                        "Destination": {}
+                    }
+                },
+                "OnFailure": {
+                    "type": "structure",
+                    "members": {
+                        "Destination": {}
+                    }
+                }
+            }
+        },
+        "S1o": {
+            "type": "list",
+            "member": {}
+        },
+        "S24": {
+            "type": "structure",
+            "members": {
+                "ConsumerGroupId": {}
+            }
+        },
+        "S25": {
+            "type": "structure",
+            "members": {
+                "UUID": {},
+                "StartingPosition": {},
+                "StartingPositionTimestamp": {
+                    "type": "timestamp"
+                },
+                "BatchSize": {
+                    "type": "integer"
+                },
+                "MaximumBatchingWindowInSeconds": {
+                    "type": "integer"
+                },
+                "ParallelizationFactor": {
+                    "type": "integer"
+                },
+                "EventSourceArn": {},
+                "FilterCriteria": {
+                    "shape": "S18"
+                },
+                "FunctionArn": {},
+                "LastModified": {
+                    "type": "timestamp"
+                },
+                "LastProcessingResult": {},
+                "State": {},
+                "StateTransitionReason": {},
+                "DestinationConfig": {
+                    "shape": "S1g"
+                },
+                "Topics": {
+                    "shape": "S1o"
+                },
+                "Queues": {
+                    "shape": "S1q"
+                },
+                "SourceAccessConfigurations": {
+                    "shape": "S1s"
+                },
+                "SelfManagedEventSource": {
+                    "shape": "S1w"
+                },
+                "MaximumRecordAgeInSeconds": {
+                    "type": "integer"
+                },
+                "BisectBatchOnFunctionError": {
+                    "type": "boolean"
+                },
+                "MaximumRetryAttempts": {
+                    "type": "integer"
+                },
+                "TumblingWindowInSeconds": {
+                    "type": "integer"
+                },
+                "FunctionResponseTypes": {
+                    "shape": "S21"
+                },
+                "AmazonManagedKafkaEventSourceConfig": {
+                    "shape": "S23"
+                },
+                "SelfManagedKafkaEventSourceConfig": {
+                    "shape": "S24"
+                }
+            }
+        },
+        "S2l": {
+            "type": "list",
+            "member": {}
+        },
+        "S2o": {
+            "type": "structure",
+            "members": {
+                "TargetArn": {}
+            }
+        },
+        "S2q": {
+            "type": "structure",
+            "members": {
+                "Variables": {
+                    "shape": "S2r"
+                }
+            }
+        },
+        "S2r": {
+            "type": "map",
+            "key": {
+                "type": "string",
+                "sensitive": true
+            },
+            "value": {
+                "type": "string",
+                "sensitive": true
+            },
+            "sensitive": true
+        },
+        "S2v": {
+            "type": "structure",
+            "members": {
+                "Mode": {}
+            }
+        },
+        "S2x": {
+            "type": "map",
+            "key": {},
+            "value": {}
+        },
+        "S30": {
+            "type": "list",
+            "member": {}
+        },
+        "S32": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "Arn",
+                    "LocalMountPath"
+                ],
+                "members": {
+                    "Arn": {},
+                    "LocalMountPath": {}
+                }
+            }
+        },
+        "S36": {
+            "type": "structure",
+            "members": {
+                "EntryPoint": {
+                    "shape": "S37"
+                },
+                "Command": {
+                    "shape": "S37"
+                },
+                "WorkingDirectory": {}
+            }
+        },
+        "S37": {
+            "type": "list",
+            "member": {}
+        },
+        "S3b": {
+            "type": "structure",
+            "required": [
+                "Size"
+            ],
+            "members": {
+                "Size": {
+                    "type": "integer"
+                }
+            }
+        },
+        "S3d": {
+            "type": "structure",
+            "members": {
+                "FunctionName": {},
+                "FunctionArn": {},
+                "Runtime": {},
+                "Role": {},
+                "Handler": {},
+                "CodeSize": {
+                    "type": "long"
+                },
+                "Description": {},
+                "Timeout": {
+                    "type": "integer"
+                },
+                "MemorySize": {
+                    "type": "integer"
+                },
+                "LastModified": {},
+                "CodeSha256": {},
+                "Version": {},
+                "VpcConfig": {
+                    "type": "structure",
+                    "members": {
+                        "SubnetIds": {
+                            "shape": "S2j"
+                        },
+                        "SecurityGroupIds": {
+                            "shape": "S2l"
+                        },
+                        "VpcId": {}
+                    }
+                },
+                "DeadLetterConfig": {
+                    "shape": "S2o"
+                },
+                "Environment": {
+                    "type": "structure",
+                    "members": {
+                        "Variables": {
+                            "shape": "S2r"
+                        },
+                        "Error": {
+                            "type": "structure",
+                            "members": {
+                                "ErrorCode": {},
+                                "Message": {
+                                    "shape": "S3l"
+                                }
+                            }
+                        }
+                    }
+                },
+                "KMSKeyArn": {},
+                "TracingConfig": {
+                    "type": "structure",
+                    "members": {
+                        "Mode": {}
+                    }
+                },
+                "MasterArn": {},
+                "RevisionId": {},
+                "Layers": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "members": {
+                            "Arn": {},
+                            "CodeSize": {
+                                "type": "long"
+                            },
+                            "SigningProfileVersionArn": {},
+                            "SigningJobArn": {}
+                        }
+                    }
+                },
+                "State": {},
+                "StateReason": {},
+                "StateReasonCode": {},
+                "LastUpdateStatus": {},
+                "LastUpdateStatusReason": {},
+                "LastUpdateStatusReasonCode": {},
+                "FileSystemConfigs": {
+                    "shape": "S32"
+                },
+                "PackageType": {},
+                "ImageConfigResponse": {
+                    "type": "structure",
+                    "members": {
+                        "ImageConfig": {
+                            "shape": "S36"
+                        },
+                        "Error": {
+                            "type": "structure",
+                            "members": {
+                                "ErrorCode": {},
+                                "Message": {
+                                    "shape": "S3l"
+                                }
+                            }
+                        }
+                    }
+                },
+                "SigningProfileVersionArn": {},
+                "SigningJobArn": {},
+                "Architectures": {
+                    "shape": "S39"
+                },
+                "EphemeralStorage": {
+                    "shape": "S3b"
+                }
+            }
+        },
+        "S3l": {
+            "type": "string",
+            "sensitive": true
+        },
+        "S3z": {
+            "type": "structure",
+            "members": {
+                "AllowCredentials": {
+                    "type": "boolean"
+                },
+                "AllowHeaders": {
+                    "shape": "S41"
+                },
+                "AllowMethods": {
+                    "type": "list",
+                    "member": {}
+                },
+                "AllowOrigins": {
+                    "type": "list",
+                    "member": {}
+                },
+                "ExposeHeaders": {
+                    "shape": "S41"
+                },
+                "MaxAge": {
+                    "type": "integer"
+                }
+            }
+        },
+        "S41": {
+            "type": "list",
+            "member": {}
+        },
+        "S4y": {
+            "type": "structure",
+            "members": {
+                "ReservedConcurrentExecutions": {
+                    "type": "integer"
+                }
+            }
+        },
+        "S56": {
+            "type": "structure",
+            "members": {
+                "LastModified": {
+                    "type": "timestamp"
+                },
+                "FunctionArn": {},
+                "MaximumRetryAttempts": {
+                    "type": "integer"
+                },
+                "MaximumEventAgeInSeconds": {
+                    "type": "integer"
+                },
+                "DestinationConfig": {
+                    "shape": "S1g"
+                }
+            }
+        },
+        "S5c": {
+            "type": "structure",
+            "members": {
+                "Content": {
+                    "shape": "S5d"
+                },
+                "LayerArn": {},
+                "LayerVersionArn": {},
+                "Description": {},
+                "CreatedDate": {},
+                "Version": {
+                    "type": "long"
+                },
+                "CompatibleRuntimes": {
+                    "shape": "S5f"
+                },
+                "LicenseInfo": {},
+                "CompatibleArchitectures": {
+                    "shape": "S5h"
+                }
+            }
+        },
+        "S5d": {
+            "type": "structure",
+            "members": {
+                "Location": {},
+                "CodeSha256": {},
+                "CodeSize": {
+                    "type": "long"
+                },
+                "SigningProfileVersionArn": {},
+                "SigningJobArn": {}
+            }
+        },
+        "S5f": {
+            "type": "list",
+            "member": {}
+        },
+        "S5h": {
+            "type": "list",
+            "member": {}
+        },
+        "S6n": {
+            "type": "list",
+            "member": {
+                "shape": "S3d"
+            }
+        },
+        "S6v": {
+            "type": "structure",
+            "members": {
+                "LayerVersionArn": {},
+                "Version": {
+                    "type": "long"
+                },
+                "Description": {},
+                "CreatedDate": {},
+                "CompatibleRuntimes": {
+                    "shape": "S5f"
+                },
+                "LicenseInfo": {},
+                "CompatibleArchitectures": {
+                    "shape": "S5h"
+                }
+            }
+        },
+        "S27": {
+            "type": "structure",
+            "members": {
+                "DatabaseName": {},
+                "CollectionName": {},
+                "FullDocument": {}
+            }
+        },
+        "S2h": {
+            "type": "blob",
+            "sensitive": true
+        },
+        "S2w": {
+            "type": "structure",
+            "members": {
+                "Variables": {
+                    "shape": "S2x"
+                }
+            }
+        },
+        "S33": {
+            "type": "map",
+            "key": {},
+            "value": {}
+        },
+        "S38": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "Arn",
+                    "LocalMountPath"
+                ],
+                "members": {
+                    "Arn": {},
+                    "LocalMountPath": {}
+                }
+            }
+        },
+        "S3c": {
+            "type": "structure",
+            "members": {
+                "EntryPoint": {
+                    "shape": "S3d"
+                },
+                "Command": {
+                    "shape": "S3d"
+                },
+                "WorkingDirectory": {}
+            }
+        },
+        "S3j": {
+            "type": "structure",
+            "members": {
+                "ApplyOn": {}
+            }
+        },
+        "S3t": {
+            "type": "string",
+            "sensitive": true
+        },
+        "S4c": {
+            "type": "structure",
+            "members": {
+                "AllowCredentials": {
+                    "type": "boolean"
+                },
+                "AllowHeaders": {
+                    "shape": "S4e"
+                },
+                "AllowMethods": {
+                    "type": "list",
+                    "member": {}
+                },
+                "AllowOrigins": {
+                    "type": "list",
+                    "member": {}
+                },
+                "ExposeHeaders": {
+                    "shape": "S4e"
+                },
+                "MaxAge": {
+                    "type": "integer"
+                }
+            }
+        },
+        "S4e": {
+            "type": "list",
+            "member": {}
+        },
+        "S5b": {
+            "type": "structure",
+            "members": {
+                "ReservedConcurrentExecutions": {
+                    "type": "integer"
+                }
+            }
+        },
+        "S5j": {
+            "type": "structure",
+            "members": {
+                "LastModified": {
+                    "type": "timestamp"
+                },
+                "FunctionArn": {},
+                "MaximumRetryAttempts": {
+                    "type": "integer"
+                },
+                "MaximumEventAgeInSeconds": {
+                    "type": "integer"
+                },
+                "DestinationConfig": {
+                    "shape": "S1g"
+                }
+            }
+        },
+        "S5q": {
+            "type": "structure",
+            "members": {
+                "Location": {},
+                "CodeSha256": {},
+                "CodeSize": {
+                    "type": "long"
+                },
+                "SigningProfileVersionArn": {},
+                "SigningJobArn": {}
+            }
+        },
+        "S5s": {
+            "type": "list",
+            "member": {}
+        },
+        "S5u": {
+            "type": "list",
+            "member": {}
+        },
+        "S73": {
+            "type": "list",
+            "member": {
+                "shape": "S3l"
+            }
+        },
+        "S7b": {
+            "type": "structure",
+            "members": {
+                "LayerVersionArn": {},
+                "Version": {
+                    "type": "long"
+                },
+                "Description": {},
+                "CreatedDate": {},
+                "CompatibleRuntimes": {
+                    "shape": "S5s"
+                },
+                "LicenseInfo": {},
+                "CompatibleArchitectures": {
+                    "shape": "S5u"
+                }
+            }
+        },
+        "S29": {
+            "type": "blob",
+            "sensitive": true
+        },
+        "S2m": {
+            "type": "structure",
+            "members": {
+                "TargetArn": {}
+            }
+        },
+        "S2t": {
+            "type": "structure",
+            "members": {
+                "Mode": {}
+            }
+        },
+        "S35": {
+            "type": "list",
+            "member": {}
+        },
+        "S3x": {
+            "type": "structure",
+            "members": {
+                "AllowCredentials": {
+                    "type": "boolean"
+                },
+                "AllowHeaders": {
+                    "shape": "S3z"
+                },
+                "AllowMethods": {
+                    "type": "list",
+                    "member": {}
+                },
+                "AllowOrigins": {
+                    "type": "list",
+                    "member": {}
+                },
+                "ExposeHeaders": {
+                    "shape": "S3z"
+                },
+                "MaxAge": {
+                    "type": "integer"
+                }
+            }
+        },
+        "S4w": {
+            "type": "structure",
+            "members": {
+                "ReservedConcurrentExecutions": {
+                    "type": "integer"
+                }
+            }
+        },
+        "S54": {
+            "type": "structure",
+            "members": {
+                "LastModified": {
+                    "type": "timestamp"
+                },
+                "FunctionArn": {},
+                "MaximumRetryAttempts": {
+                    "type": "integer"
+                },
+                "MaximumEventAgeInSeconds": {
+                    "type": "integer"
+                },
+                "DestinationConfig": {
+                    "shape": "S1g"
+                }
+            }
+        },
+        "S5a": {
+            "type": "structure",
+            "members": {
+                "Content": {
+                    "shape": "S5b"
+                },
+                "LayerArn": {},
+                "LayerVersionArn": {},
+                "Description": {},
+                "CreatedDate": {},
+                "Version": {
+                    "type": "long"
+                },
+                "CompatibleRuntimes": {
+                    "shape": "S5d"
+                },
+                "LicenseInfo": {},
+                "CompatibleArchitectures": {
+                    "shape": "S5f"
+                }
+            }
+        },
+        "S6l": {
+            "type": "list",
+            "member": {
+                "shape": "S3b"
+            }
+        },
+        "S6t": {
+            "type": "structure",
+            "members": {
+                "LayerVersionArn": {},
+                "Version": {
+                    "type": "long"
+                },
+                "Description": {},
+                "CreatedDate": {},
+                "CompatibleRuntimes": {
+                    "shape": "S5d"
+                },
+                "LicenseInfo": {},
+                "CompatibleArchitectures": {
+                    "shape": "S5f"
+                }
+            }
+        },
+        "S3n": {
+            "type": "string",
+            "sensitive": true
+        },
+        "S43": {
+            "type": "structure",
+            "members": {
+                "AllowCredentials": {
+                    "type": "boolean"
+                },
+                "AllowHeaders": {
+                    "shape": "S45"
+                },
+                "AllowMethods": {
+                    "type": "list",
+                    "member": {}
+                },
+                "AllowOrigins": {
+                    "type": "list",
+                    "member": {}
+                },
+                "ExposeHeaders": {
+                    "shape": "S45"
+                },
+                "MaxAge": {
+                    "type": "integer"
+                }
+            }
+        },
+        "S45": {
+            "type": "list",
+            "member": {}
+        },
+        "S52": {
+            "type": "structure",
+            "members": {
+                "ReservedConcurrentExecutions": {
+                    "type": "integer"
+                }
+            }
+        },
+        "S5g": {
+            "type": "structure",
+            "members": {
+                "Content": {
+                    "shape": "S5h"
+                },
+                "LayerArn": {},
+                "LayerVersionArn": {},
+                "Description": {},
+                "CreatedDate": {},
+                "Version": {
+                    "type": "long"
+                },
+                "CompatibleRuntimes": {
+                    "shape": "S5j"
+                },
+                "LicenseInfo": {},
+                "CompatibleArchitectures": {
+                    "shape": "S5l"
+                }
+            }
+        },
+        "S5l": {
+            "type": "list",
+            "member": {}
+        },
+        "S6r": {
+            "type": "list",
+            "member": {
+                "shape": "S3f"
+            }
+        },
+        "S6z": {
+            "type": "structure",
+            "members": {
+                "LayerVersionArn": {},
+                "Version": {
+                    "type": "long"
+                },
+                "Description": {},
+                "CreatedDate": {},
+                "CompatibleRuntimes": {
+                    "shape": "S5j"
+                },
+                "LicenseInfo": {},
+                "CompatibleArchitectures": {
+                    "shape": "S5l"
+                }
+            }
+        },
+        "S2k": {
+            "type": "structure",
+            "members": {
+                "SubnetIds": {
+                    "shape": "S2l"
+                },
+                "SecurityGroupIds": {
+                    "shape": "S2n"
+                }
+            }
+        },
+        "S3p": {
+            "type": "string",
+            "sensitive": true
+        },
+        "S4a": {
+            "type": "list",
+            "member": {}
+        },
+        "S57": {
+            "type": "structure",
+            "members": {
+                "ReservedConcurrentExecutions": {
+                    "type": "integer"
+                }
+            }
+        },
+        "S5m": {
+            "type": "structure",
+            "members": {
+                "Location": {},
+                "CodeSha256": {},
+                "CodeSize": {
+                    "type": "long"
+                },
+                "SigningProfileVersionArn": {},
+                "SigningJobArn": {}
+            }
+        },
+        "S5o": {
+            "type": "list",
+            "member": {}
+        },
+        "S77": {
+            "type": "structure",
+            "members": {
+                "LayerVersionArn": {},
+                "Version": {
+                    "type": "long"
+                },
+                "Description": {},
+                "CreatedDate": {},
+                "CompatibleRuntimes": {
+                    "shape": "S5o"
+                },
+                "LicenseInfo": {},
+                "CompatibleArchitectures": {
+                    "shape": "S5q"
+                }
+            }
+        },
+        "S5k": {
+            "type": "structure",
+            "members": {
+                "LastModified": {
+                    "type": "timestamp"
+                },
+                "FunctionArn": {},
+                "MaximumRetryAttempts": {
+                    "type": "integer"
+                },
+                "MaximumEventAgeInSeconds": {
+                    "type": "integer"
+                },
+                "DestinationConfig": {
+                    "shape": "S1g"
+                }
+            }
+        },
+        "S5r": {
+            "type": "structure",
+            "members": {
+                "Location": {},
+                "CodeSha256": {},
+                "CodeSize": {
+                    "type": "long"
+                },
+                "SigningProfileVersionArn": {},
+                "SigningJobArn": {}
+            }
+        },
+        "S5t": {
+            "type": "list",
+            "member": {}
+        },
+        "S5v": {
+            "type": "list",
+            "member": {}
+        },
+        "S7a": {
+            "type": "list",
+            "member": {
+                "shape": "S3l"
+            }
+        },
+        "S7i": {
+            "type": "structure",
+            "members": {
+                "LayerVersionArn": {},
+                "Version": {
+                    "type": "long"
+                },
+                "Description": {},
+                "CreatedDate": {},
+                "CompatibleRuntimes": {
+                    "shape": "S5t"
+                },
+                "LicenseInfo": {},
+                "CompatibleArchitectures": {
+                    "shape": "S5v"
+                }
+            }
+        },
+        "S4i": {
+            "type": "structure",
+            "members": {
+                "LastModified": {
+                    "type": "timestamp"
+                },
+                "FunctionArn": {},
+                "MaximumRetryAttempts": {
+                    "type": "integer"
+                },
+                "MaximumEventAgeInSeconds": {
+                    "type": "integer"
+                },
+                "DestinationConfig": {
+                    "shape": "S1a"
+                }
+            }
+        },
+        "S4m": {
+            "type": "structure",
+            "members": {
+                "Content": {
+                    "shape": "S4n"
+                },
+                "LayerArn": {},
+                "LayerVersionArn": {},
+                "Description": {},
+                "CreatedDate": {},
+                "Version": {
+                    "type": "long"
+                },
+                "CompatibleRuntimes": {
+                    "shape": "S4p"
+                },
+                "LicenseInfo": {},
+                "CompatibleArchitectures": {
+                    "shape": "S4r"
+                }
+            }
+        },
+        "S4p": {
+            "type": "list",
+            "member": {}
+        },
+        "S4r": {
+            "type": "list",
+            "member": {}
+        },
+        "S60": {
+            "type": "structure",
+            "members": {
+                "LayerVersionArn": {},
+                "Version": {
+                    "type": "long"
+                },
+                "Description": {},
+                "CreatedDate": {},
+                "CompatibleRuntimes": {
+                    "shape": "S4p"
+                },
+                "LicenseInfo": {},
+                "CompatibleArchitectures": {
+                    "shape": "S4r"
+                }
+            }
+        },
+        "S16": {
+            "type": "structure",
+            "members": {
+                "Filters": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "members": {
+                            "Pattern": {}
+                        }
+                    }
+                }
+            }
+        },
+        "S1e": {
+            "type": "structure",
+            "members": {
+                "OnSuccess": {
+                    "type": "structure",
+                    "members": {
+                        "Destination": {}
+                    }
+                },
+                "OnFailure": {
+                    "type": "structure",
+                    "members": {
+                        "Destination": {}
+                    }
+                }
+            }
+        },
+        "S1u": {
+            "type": "structure",
+            "members": {
+                "Endpoints": {
+                    "type": "map",
+                    "key": {},
+                    "value": {
+                        "type": "list",
+                        "member": {}
+                    }
+                }
+            }
+        },
+        "S1z": {
+            "type": "list",
+            "member": {}
+        },
+        "S2e": {
+            "type": "structure",
+            "members": {
+                "SubnetIds": {
+                    "shape": "S2f"
+                },
+                "SecurityGroupIds": {
+                    "shape": "S2h"
+                }
+            }
+        },
+        "S2f": {
+            "type": "list",
+            "member": {}
+        },
+        "S4q": {
+            "type": "structure",
+            "members": {
+                "Content": {
+                    "shape": "S4r"
+                },
+                "LayerArn": {},
+                "LayerVersionArn": {},
+                "Description": {},
+                "CreatedDate": {},
+                "Version": {
+                    "type": "long"
+                },
+                "CompatibleRuntimes": {
+                    "shape": "S4t"
+                },
+                "LicenseInfo": {},
+                "CompatibleArchitectures": {
+                    "shape": "S4v"
+                }
+            }
+        },
+        "S4t": {
+            "type": "list",
+            "member": {}
+        },
+        "S4v": {
+            "type": "list",
+            "member": {}
+        },
+        "S5w": {
+            "type": "list",
+            "member": {
+                "shape": "S37"
+            }
+        },
+        "S64": {
+            "type": "structure",
+            "members": {
+                "LayerVersionArn": {},
+                "Version": {
+                    "type": "long"
+                },
+                "Description": {},
+                "CreatedDate": {},
+                "CompatibleRuntimes": {
+                    "shape": "S4t"
+                },
+                "LicenseInfo": {},
+                "CompatibleArchitectures": {
+                    "shape": "S4v"
+                }
+            }
+        },
+        "S47": {
+            "type": "list",
+            "member": {}
+        },
+        "S5i": {
+            "type": "structure",
+            "members": {
+                "Content": {
+                    "shape": "S5j"
+                },
+                "LayerArn": {},
+                "LayerVersionArn": {},
+                "Description": {},
+                "CreatedDate": {},
+                "Version": {
+                    "type": "long"
+                },
+                "CompatibleRuntimes": {
+                    "shape": "S5l"
+                },
+                "LicenseInfo": {},
+                "CompatibleArchitectures": {
+                    "shape": "S5n"
+                }
+            }
+        },
+        "S5n": {
+            "type": "list",
+            "member": {}
+        },
+        "S71": {
+            "type": "structure",
+            "members": {
+                "LayerVersionArn": {},
+                "Version": {
+                    "type": "long"
+                },
+                "Description": {},
+                "CreatedDate": {},
+                "CompatibleRuntimes": {
+                    "shape": "S5l"
+                },
+                "LicenseInfo": {},
+                "CompatibleArchitectures": {
+                    "shape": "S5n"
+                }
+            }
+        },
+        "S3i": {
+            "type": "structure",
+            "members": {
+                "Content": {
+                    "shape": "S3j"
+                },
+                "LayerArn": {},
+                "LayerVersionArn": {},
+                "Description": {},
+                "CreatedDate": {},
+                "Version": {
+                    "type": "long"
+                },
+                "CompatibleRuntimes": {
+                    "shape": "S3l"
+                },
+                "LicenseInfo": {}
+            }
+        },
+        "S19": {
+            "type": "structure",
+            "members": {
+                "UUID": {},
+                "BatchSize": {
+                    "type": "integer"
+                },
+                "MaximumBatchingWindowInSeconds": {
+                    "type": "integer"
+                },
+                "ParallelizationFactor": {
+                    "type": "integer"
+                },
+                "EventSourceArn": {},
+                "FunctionArn": {},
+                "LastModified": {
+                    "type": "timestamp"
+                },
+                "LastProcessingResult": {},
+                "State": {},
+                "StateTransitionReason": {},
+                "DestinationConfig": {
+                    "shape": "S10"
+                },
+                "Topics": {
+                    "shape": "S17"
+                },
+                "MaximumRecordAgeInSeconds": {
+                    "type": "integer"
+                },
+                "BisectBatchOnFunctionError": {
+                    "type": "boolean"
+                },
+                "MaximumRetryAttempts": {
+                    "type": "integer"
+                }
+            }
+        },
+        "S1f": {
+            "type": "blob",
+            "sensitive": true
+        },
+        "S1t": {
+            "type": "structure",
+            "members": {
+                "Variables": {
+                    "shape": "S1u"
+                }
+            }
+        },
+        "S20": {
+            "type": "map",
+            "key": {},
+            "value": {}
+        },
+        "S3g": {
+            "type": "structure",
+            "members": {
+                "LastModified": {
+                    "type": "timestamp"
+                },
+                "FunctionArn": {},
+                "MaximumRetryAttempts": {
+                    "type": "integer"
+                },
+                "MaximumEventAgeInSeconds": {
+                    "type": "integer"
+                },
+                "DestinationConfig": {
+                    "shape": "S10"
+                }
+            }
+        },
+        "S3k": {
+            "type": "structure",
+            "members": {
+                "Content": {
+                    "shape": "S3l"
+                },
+                "LayerArn": {},
+                "LayerVersionArn": {},
+                "Description": {},
+                "CreatedDate": {},
+                "Version": {
+                    "type": "long"
+                },
+                "CompatibleRuntimes": {
+                    "shape": "S3n"
+                },
+                "LicenseInfo": {}
+            }
+        },
+        "S1h": {
+            "type": "list",
+            "member": {}
+        },
+        "S1j": {
+            "type": "list",
+            "member": {}
+        },
+        "S22": {
+            "type": "list",
+            "member": {}
+        },
+        "S4b": {
+            "type": "structure",
+            "members": {
+                "Content": {
+                    "shape": "S4c"
+                },
+                "LayerArn": {},
+                "LayerVersionArn": {},
+                "Description": {},
+                "CreatedDate": {},
+                "Version": {
+                    "type": "long"
+                },
+                "CompatibleRuntimes": {
+                    "shape": "S4e"
+                },
+                "LicenseInfo": {}
+            }
+        },
+        "So": {
+            "type": "structure",
+            "members": {
+                "AdditionalVersionWeights": {
+                    "type": "map",
+                    "key": {},
+                    "value": {
+                        "type": "double"
+                    }
+                }
+            }
+        },
+        "Ss": {
+            "type": "structure",
+            "members": {
+                "AliasArn": {},
+                "Name": {},
+                "FunctionVersion": {},
+                "Description": {},
+                "RoutingConfig": {
+                    "shape": "So"
+                },
+                "RevisionId": {}
+            }
+        },
+        "Sv": {
+            "type": "structure",
+            "required": [
+                "SigningProfileVersionArns"
+            ],
+            "members": {
+                "SigningProfileVersionArns": {
+                    "type": "list",
+                    "member": {}
+                }
+            }
+        },
+        "Sx": {
+            "type": "structure",
+            "members": {
+                "UntrustedArtifactOnDeployment": {}
+            }
+        },
+        "S28": {
+            "type": "blob",
+            "sensitive": true
+        },
+        "S4f": {
+            "type": "structure",
+            "members": {
+                "ReservedConcurrentExecutions": {
+                    "type": "integer"
+                }
+            }
+        },
+        "S4s": {
+            "type": "structure",
+            "members": {
+                "Location": {},
+                "CodeSha256": {},
+                "CodeSize": {
+                    "type": "long"
+                },
+                "SigningProfileVersionArn": {},
+                "SigningJobArn": {}
+            }
+        },
+        "S4u": {
+            "type": "list",
+            "member": {}
+        },
+        "S65": {
+            "type": "structure",
+            "members": {
+                "LayerVersionArn": {},
+                "Version": {
+                    "type": "long"
+                },
+                "Description": {},
+                "CreatedDate": {},
+                "CompatibleRuntimes": {
+                    "shape": "S4u"
+                },
+                "LicenseInfo": {},
+                "CompatibleArchitectures": {
+                    "shape": "S4w"
+                }
+            }
+        }
+    }
+}

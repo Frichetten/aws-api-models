@@ -1,0 +1,3715 @@
+{
+    "version": "2.0",
+    "metadata": {
+        "apiVersion": "2017-11-01",
+        "endpointPrefix": "eks",
+        "jsonVersion": "1.1",
+        "protocol": "rest-json",
+        "serviceAbbreviation": "Amazon EKS",
+        "serviceFullName": "Amazon Elastic Kubernetes Service",
+        "serviceId": "EKS",
+        "signatureVersion": "v4",
+        "signingName": "eks",
+        "uid": "eks-2017-11-01",
+        "download_location": [
+            "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+        ]
+    },
+    "operations": {
+        "AssociateEncryptionConfig": {
+            "http": {
+                "requestUri": "/clusters/{name}/encryption-config/associate"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "clusterName",
+                    "encryptionConfig"
+                ],
+                "members": {
+                    "clusterName": {
+                        "location": "uri",
+                        "locationName": "name"
+                    },
+                    "encryptionConfig": {
+                        "shape": "S3"
+                    },
+                    "clientRequestToken": {
+                        "idempotencyToken": true
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "update": {
+                        "shape": "S8"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "AssociateIdentityProviderConfig": {
+            "http": {
+                "requestUri": "/clusters/{name}/identity-provider-configs/associate"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "clusterName",
+                    "oidc"
+                ],
+                "members": {
+                    "clusterName": {
+                        "location": "uri",
+                        "locationName": "name"
+                    },
+                    "oidc": {
+                        "type": "structure",
+                        "required": [
+                            "identityProviderConfigName",
+                            "issuerUrl",
+                            "clientId"
+                        ],
+                        "members": {
+                            "identityProviderConfigName": {},
+                            "issuerUrl": {},
+                            "clientId": {},
+                            "usernameClaim": {},
+                            "usernamePrefix": {},
+                            "groupsClaim": {},
+                            "groupsPrefix": {},
+                            "requiredClaims": {
+                                "shape": "Sk"
+                            }
+                        }
+                    },
+                    "tags": {
+                        "shape": "Sn"
+                    },
+                    "clientRequestToken": {
+                        "idempotencyToken": true
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "update": {
+                        "shape": "S8"
+                    },
+                    "tags": {
+                        "shape": "Sn"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "CreateAddon": {
+            "http": {
+                "requestUri": "/clusters/{name}/addons"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "clusterName",
+                    "addonName"
+                ],
+                "members": {
+                    "clusterName": {
+                        "location": "uri",
+                        "locationName": "name"
+                    },
+                    "addonName": {},
+                    "addonVersion": {},
+                    "serviceAccountRoleArn": {},
+                    "resolveConflicts": {},
+                    "clientRequestToken": {
+                        "idempotencyToken": true
+                    },
+                    "tags": {
+                        "shape": "Sn"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "addon": {
+                        "shape": "Sw"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "CreateCluster": {
+            "http": {
+                "requestUri": "/clusters"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "name",
+                    "roleArn",
+                    "resourcesVpcConfig"
+                ],
+                "members": {
+                    "name": {},
+                    "version": {},
+                    "roleArn": {},
+                    "resourcesVpcConfig": {
+                        "shape": "S14"
+                    },
+                    "kubernetesNetworkConfig": {
+                        "type": "structure",
+                        "members": {
+                            "serviceIpv4Cidr": {},
+                            "ipFamily": {}
+                        }
+                    },
+                    "logging": {
+                        "shape": "S18"
+                    },
+                    "clientRequestToken": {
+                        "idempotencyToken": true
+                    },
+                    "tags": {
+                        "shape": "Sn"
+                    },
+                    "encryptionConfig": {
+                        "shape": "S3"
+                    },
+                    "outpostConfig": {
+                        "type": "structure",
+                        "required": [
+                            "outpostArns",
+                            "controlPlaneInstanceType"
+                        ],
+                        "members": {
+                            "outpostArns": {
+                                "shape": "S5"
+                            },
+                            "controlPlaneInstanceType": {},
+                            "controlPlanePlacement": {
+                                "type": "structure",
+                                "members": {
+                                    "groupName": {}
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "cluster": {
+                        "shape": "S1g"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "CreateFargateProfile": {
+            "http": {
+                "requestUri": "/clusters/{name}/fargate-profiles"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "fargateProfileName",
+                    "clusterName",
+                    "podExecutionRoleArn"
+                ],
+                "members": {
+                    "fargateProfileName": {},
+                    "clusterName": {
+                        "location": "uri",
+                        "locationName": "name"
+                    },
+                    "podExecutionRoleArn": {},
+                    "subnets": {
+                        "shape": "S5"
+                    },
+                    "selectors": {
+                        "shape": "S1w"
+                    },
+                    "clientRequestToken": {
+                        "idempotencyToken": true
+                    },
+                    "tags": {
+                        "shape": "Sn"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "fargateProfile": {
+                        "shape": "S20"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "CreateNodegroup": {
+            "http": {
+                "requestUri": "/clusters/{name}/node-groups"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "clusterName",
+                    "nodegroupName",
+                    "subnets",
+                    "nodeRole"
+                ],
+                "members": {
+                    "clusterName": {
+                        "location": "uri",
+                        "locationName": "name"
+                    },
+                    "nodegroupName": {},
+                    "scalingConfig": {
+                        "shape": "S23"
+                    },
+                    "diskSize": {
+                        "type": "integer"
+                    },
+                    "subnets": {
+                        "shape": "S5"
+                    },
+                    "instanceTypes": {
+                        "shape": "S5"
+                    },
+                    "amiType": {},
+                    "remoteAccess": {
+                        "shape": "S28"
+                    },
+                    "nodeRole": {},
+                    "labels": {
+                        "shape": "S29"
+                    },
+                    "taints": {
+                        "shape": "S2c"
+                    },
+                    "tags": {
+                        "shape": "Sn"
+                    },
+                    "clientRequestToken": {
+                        "idempotencyToken": true
+                    },
+                    "launchTemplate": {
+                        "shape": "S2h"
+                    },
+                    "updateConfig": {
+                        "shape": "S2i"
+                    },
+                    "capacityType": {},
+                    "version": {},
+                    "releaseVersion": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "nodegroup": {
+                        "shape": "S2n"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "DeleteAddon": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/clusters/{name}/addons/{addonName}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "clusterName",
+                    "addonName"
+                ],
+                "members": {
+                    "clusterName": {
+                        "location": "uri",
+                        "locationName": "name"
+                    },
+                    "addonName": {
+                        "location": "uri",
+                        "locationName": "addonName"
+                    },
+                    "preserve": {
+                        "location": "querystring",
+                        "locationName": "preserve",
+                        "type": "boolean"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "addon": {
+                        "shape": "Sw"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "DeleteCluster": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/clusters/{name}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "name"
+                ],
+                "members": {
+                    "name": {
+                        "location": "uri",
+                        "locationName": "name"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "cluster": {
+                        "shape": "S1g"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "DeleteFargateProfile": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/clusters/{name}/fargate-profiles/{fargateProfileName}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "clusterName",
+                    "fargateProfileName"
+                ],
+                "members": {
+                    "clusterName": {
+                        "location": "uri",
+                        "locationName": "name"
+                    },
+                    "fargateProfileName": {
+                        "location": "uri",
+                        "locationName": "fargateProfileName"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "fargateProfile": {
+                        "shape": "S20"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "DeleteNodegroup": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/clusters/{name}/node-groups/{nodegroupName}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "clusterName",
+                    "nodegroupName"
+                ],
+                "members": {
+                    "clusterName": {
+                        "location": "uri",
+                        "locationName": "name"
+                    },
+                    "nodegroupName": {
+                        "location": "uri",
+                        "locationName": "nodegroupName"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "nodegroup": {
+                        "shape": "S2n"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "DeregisterCluster": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/cluster-registrations/{name}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "name"
+                ],
+                "members": {
+                    "name": {
+                        "location": "uri",
+                        "locationName": "name"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "cluster": {
+                        "shape": "S1g"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "DescribeAddon": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/clusters/{name}/addons/{addonName}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "clusterName",
+                    "addonName"
+                ],
+                "members": {
+                    "clusterName": {
+                        "location": "uri",
+                        "locationName": "name"
+                    },
+                    "addonName": {
+                        "location": "uri",
+                        "locationName": "addonName"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "addon": {
+                        "shape": "Sw"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "DescribeAddonVersions": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/addons/supported-versions"
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "kubernetesVersion": {
+                        "location": "querystring",
+                        "locationName": "kubernetesVersion"
+                    },
+                    "maxResults": {
+                        "location": "querystring",
+                        "locationName": "maxResults",
+                        "type": "integer"
+                    },
+                    "nextToken": {
+                        "location": "querystring",
+                        "locationName": "nextToken"
+                    },
+                    "addonName": {
+                        "location": "querystring",
+                        "locationName": "addonName"
+                    },
+                    "types": {
+                        "shape": "S5",
+                        "location": "querystring",
+                        "locationName": "types"
+                    },
+                    "publishers": {
+                        "shape": "S5",
+                        "location": "querystring",
+                        "locationName": "publishers"
+                    },
+                    "owners": {
+                        "shape": "S5",
+                        "location": "querystring",
+                        "locationName": "owners"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "addons": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "addonName": {},
+                                "type": {},
+                                "addonVersions": {
+                                    "type": "list",
+                                    "member": {
+                                        "type": "structure",
+                                        "members": {
+                                            "addonVersion": {},
+                                            "architecture": {
+                                                "shape": "S5"
+                                            },
+                                            "compatibilities": {
+                                                "type": "list",
+                                                "member": {
+                                                    "type": "structure",
+                                                    "members": {
+                                                        "clusterVersion": {},
+                                                        "platformVersions": {
+                                                            "shape": "S5"
+                                                        },
+                                                        "defaultVersion": {
+                                                            "type": "boolean"
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "requiresConfiguration": {
+                                                "type": "boolean"
+                                            }
+                                        }
+                                    }
+                                },
+                                "publisher": {},
+                                "owner": {},
+                                "marketplaceInformation": {
+                                    "shape": "S12"
+                                }
+                            }
+                        }
+                    },
+                    "nextToken": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "DescribeCluster": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/clusters/{name}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "name"
+                ],
+                "members": {
+                    "name": {
+                        "location": "uri",
+                        "locationName": "name"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "cluster": {
+                        "shape": "S1g"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "DescribeFargateProfile": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/clusters/{name}/fargate-profiles/{fargateProfileName}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "clusterName",
+                    "fargateProfileName"
+                ],
+                "members": {
+                    "clusterName": {
+                        "location": "uri",
+                        "locationName": "name"
+                    },
+                    "fargateProfileName": {
+                        "location": "uri",
+                        "locationName": "fargateProfileName"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "fargateProfile": {
+                        "shape": "S20"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "DescribeIdentityProviderConfig": {
+            "http": {
+                "requestUri": "/clusters/{name}/identity-provider-configs/describe"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "clusterName",
+                    "identityProviderConfig"
+                ],
+                "members": {
+                    "clusterName": {
+                        "location": "uri",
+                        "locationName": "name"
+                    },
+                    "identityProviderConfig": {
+                        "shape": "S3m"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "identityProviderConfig": {
+                        "type": "structure",
+                        "members": {
+                            "oidc": {
+                                "type": "structure",
+                                "members": {
+                                    "identityProviderConfigName": {},
+                                    "identityProviderConfigArn": {},
+                                    "clusterName": {},
+                                    "issuerUrl": {},
+                                    "clientId": {},
+                                    "usernameClaim": {},
+                                    "usernamePrefix": {},
+                                    "groupsClaim": {},
+                                    "groupsPrefix": {},
+                                    "requiredClaims": {
+                                        "shape": "Sk"
+                                    },
+                                    "tags": {
+                                        "shape": "Sn"
+                                    },
+                                    "status": {}
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "DescribeNodegroup": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/clusters/{name}/node-groups/{nodegroupName}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "clusterName",
+                    "nodegroupName"
+                ],
+                "members": {
+                    "clusterName": {
+                        "location": "uri",
+                        "locationName": "name"
+                    },
+                    "nodegroupName": {
+                        "location": "uri",
+                        "locationName": "nodegroupName"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "nodegroup": {
+                        "shape": "S2n"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "DescribeUpdate": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/clusters/{name}/updates/{updateId}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "name",
+                    "updateId"
+                ],
+                "members": {
+                    "name": {
+                        "location": "uri",
+                        "locationName": "name"
+                    },
+                    "updateId": {
+                        "location": "uri",
+                        "locationName": "updateId"
+                    },
+                    "nodegroupName": {
+                        "location": "querystring",
+                        "locationName": "nodegroupName"
+                    },
+                    "addonName": {
+                        "location": "querystring",
+                        "locationName": "addonName"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "update": {
+                        "shape": "S8"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "DisassociateIdentityProviderConfig": {
+            "http": {
+                "requestUri": "/clusters/{name}/identity-provider-configs/disassociate"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "clusterName",
+                    "identityProviderConfig"
+                ],
+                "members": {
+                    "clusterName": {
+                        "location": "uri",
+                        "locationName": "name"
+                    },
+                    "identityProviderConfig": {
+                        "shape": "S3m"
+                    },
+                    "clientRequestToken": {
+                        "idempotencyToken": true
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "update": {
+                        "shape": "S8"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "ListAddons": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/clusters/{name}/addons"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "clusterName"
+                ],
+                "members": {
+                    "clusterName": {
+                        "location": "uri",
+                        "locationName": "name"
+                    },
+                    "maxResults": {
+                        "location": "querystring",
+                        "locationName": "maxResults",
+                        "type": "integer"
+                    },
+                    "nextToken": {
+                        "location": "querystring",
+                        "locationName": "nextToken"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "addons": {
+                        "shape": "S5"
+                    },
+                    "nextToken": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "ListClusters": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/clusters"
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "maxResults": {
+                        "location": "querystring",
+                        "locationName": "maxResults",
+                        "type": "integer"
+                    },
+                    "nextToken": {
+                        "location": "querystring",
+                        "locationName": "nextToken"
+                    },
+                    "include": {
+                        "location": "querystring",
+                        "locationName": "include",
+                        "type": "list",
+                        "member": {}
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "clusters": {
+                        "shape": "S5"
+                    },
+                    "nextToken": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "ListFargateProfiles": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/clusters/{name}/fargate-profiles"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "clusterName"
+                ],
+                "members": {
+                    "clusterName": {
+                        "location": "uri",
+                        "locationName": "name"
+                    },
+                    "maxResults": {
+                        "location": "querystring",
+                        "locationName": "maxResults",
+                        "type": "integer"
+                    },
+                    "nextToken": {
+                        "location": "querystring",
+                        "locationName": "nextToken"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "fargateProfileNames": {
+                        "shape": "S5"
+                    },
+                    "nextToken": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "ListIdentityProviderConfigs": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/clusters/{name}/identity-provider-configs"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "clusterName"
+                ],
+                "members": {
+                    "clusterName": {
+                        "location": "uri",
+                        "locationName": "name"
+                    },
+                    "maxResults": {
+                        "location": "querystring",
+                        "locationName": "maxResults",
+                        "type": "integer"
+                    },
+                    "nextToken": {
+                        "location": "querystring",
+                        "locationName": "nextToken"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "identityProviderConfigs": {
+                        "type": "list",
+                        "member": {
+                            "shape": "S3m"
+                        }
+                    },
+                    "nextToken": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "ListNodegroups": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/clusters/{name}/node-groups"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "clusterName"
+                ],
+                "members": {
+                    "clusterName": {
+                        "location": "uri",
+                        "locationName": "name"
+                    },
+                    "maxResults": {
+                        "location": "querystring",
+                        "locationName": "maxResults",
+                        "type": "integer"
+                    },
+                    "nextToken": {
+                        "location": "querystring",
+                        "locationName": "nextToken"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "nodegroups": {
+                        "shape": "S5"
+                    },
+                    "nextToken": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "ListTagsForResource": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/tags/{resourceArn}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "resourceArn"
+                ],
+                "members": {
+                    "resourceArn": {
+                        "location": "uri",
+                        "locationName": "resourceArn"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "tags": {
+                        "shape": "Sn"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "ListUpdates": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/clusters/{name}/updates"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "name"
+                ],
+                "members": {
+                    "name": {
+                        "location": "uri",
+                        "locationName": "name"
+                    },
+                    "nodegroupName": {
+                        "location": "querystring",
+                        "locationName": "nodegroupName"
+                    },
+                    "addonName": {
+                        "location": "querystring",
+                        "locationName": "addonName"
+                    },
+                    "nextToken": {
+                        "location": "querystring",
+                        "locationName": "nextToken"
+                    },
+                    "maxResults": {
+                        "location": "querystring",
+                        "locationName": "maxResults",
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "updateIds": {
+                        "shape": "S5"
+                    },
+                    "nextToken": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "RegisterCluster": {
+            "http": {
+                "requestUri": "/cluster-registrations"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "name",
+                    "connectorConfig"
+                ],
+                "members": {
+                    "name": {},
+                    "connectorConfig": {
+                        "type": "structure",
+                        "required": [
+                            "roleArn",
+                            "provider"
+                        ],
+                        "members": {
+                            "roleArn": {},
+                            "provider": {}
+                        }
+                    },
+                    "clientRequestToken": {
+                        "idempotencyToken": true
+                    },
+                    "tags": {
+                        "shape": "Sn"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "cluster": {
+                        "shape": "S1g"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "TagResource": {
+            "http": {
+                "requestUri": "/tags/{resourceArn}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "resourceArn",
+                    "tags"
+                ],
+                "members": {
+                    "resourceArn": {
+                        "location": "uri",
+                        "locationName": "resourceArn"
+                    },
+                    "tags": {
+                        "shape": "Sn"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "UntagResource": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/tags/{resourceArn}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "resourceArn",
+                    "tagKeys"
+                ],
+                "members": {
+                    "resourceArn": {
+                        "location": "uri",
+                        "locationName": "resourceArn"
+                    },
+                    "tagKeys": {
+                        "location": "querystring",
+                        "locationName": "tagKeys",
+                        "type": "list",
+                        "member": {}
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "UpdateAddon": {
+            "http": {
+                "requestUri": "/clusters/{name}/addons/{addonName}/update"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "clusterName",
+                    "addonName"
+                ],
+                "members": {
+                    "clusterName": {
+                        "location": "uri",
+                        "locationName": "name"
+                    },
+                    "addonName": {
+                        "location": "uri",
+                        "locationName": "addonName"
+                    },
+                    "addonVersion": {},
+                    "serviceAccountRoleArn": {},
+                    "resolveConflicts": {},
+                    "clientRequestToken": {
+                        "idempotencyToken": true
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "update": {
+                        "shape": "S8"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "UpdateClusterConfig": {
+            "http": {
+                "requestUri": "/clusters/{name}/update-config"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "name"
+                ],
+                "members": {
+                    "name": {
+                        "location": "uri",
+                        "locationName": "name"
+                    },
+                    "resourcesVpcConfig": {
+                        "shape": "S14"
+                    },
+                    "logging": {
+                        "shape": "S18"
+                    },
+                    "clientRequestToken": {
+                        "idempotencyToken": true
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "update": {
+                        "shape": "S8"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "UpdateClusterVersion": {
+            "http": {
+                "requestUri": "/clusters/{name}/updates"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "name",
+                    "version"
+                ],
+                "members": {
+                    "name": {
+                        "location": "uri",
+                        "locationName": "name"
+                    },
+                    "version": {},
+                    "clientRequestToken": {
+                        "idempotencyToken": true
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "update": {
+                        "shape": "S8"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "UpdateNodegroupConfig": {
+            "http": {
+                "requestUri": "/clusters/{name}/node-groups/{nodegroupName}/update-config"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "clusterName",
+                    "nodegroupName"
+                ],
+                "members": {
+                    "clusterName": {
+                        "location": "uri",
+                        "locationName": "name"
+                    },
+                    "nodegroupName": {
+                        "location": "uri",
+                        "locationName": "nodegroupName"
+                    },
+                    "labels": {
+                        "type": "structure",
+                        "members": {
+                            "addOrUpdateLabels": {
+                                "shape": "S29"
+                            },
+                            "removeLabels": {
+                                "type": "list",
+                                "member": {}
+                            }
+                        }
+                    },
+                    "taints": {
+                        "type": "structure",
+                        "members": {
+                            "addOrUpdateTaints": {
+                                "shape": "S2c"
+                            },
+                            "removeTaints": {
+                                "shape": "S2c"
+                            }
+                        }
+                    },
+                    "scalingConfig": {
+                        "shape": "S23"
+                    },
+                    "updateConfig": {
+                        "shape": "S2i"
+                    },
+                    "clientRequestToken": {
+                        "idempotencyToken": true
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "update": {
+                        "shape": "S8"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "UpdateNodegroupVersion": {
+            "http": {
+                "requestUri": "/clusters/{name}/node-groups/{nodegroupName}/update-version"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "clusterName",
+                    "nodegroupName"
+                ],
+                "members": {
+                    "clusterName": {
+                        "location": "uri",
+                        "locationName": "name"
+                    },
+                    "nodegroupName": {
+                        "location": "uri",
+                        "locationName": "nodegroupName"
+                    },
+                    "version": {},
+                    "releaseVersion": {},
+                    "launchTemplate": {
+                        "shape": "S2h"
+                    },
+                    "force": {
+                        "type": "boolean"
+                    },
+                    "clientRequestToken": {
+                        "idempotencyToken": true
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "update": {
+                        "shape": "S8"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "AssociateAccessPolicy": {
+            "http": {
+                "requestUri": "/clusters/{name}/access-entries/{principalArn}/access-policies"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "clusterName",
+                    "principalArn",
+                    "policyArn",
+                    "accessScope"
+                ],
+                "members": {
+                    "clusterName": {
+                        "location": "uri",
+                        "locationName": "name"
+                    },
+                    "principalArn": {
+                        "location": "uri",
+                        "locationName": "principalArn"
+                    },
+                    "policyArn": {},
+                    "accessScope": {
+                        "shape": "S3"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "clusterName": {},
+                    "principalArn": {},
+                    "associatedAccessPolicy": {
+                        "shape": "S7"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d363dv9t4dnbqy.cloudfront.net/16fa9e0674c4b23d1fd4350021405f6d16855890/main.js"
+            ]
+        },
+        "CreateAccessEntry": {
+            "http": {
+                "requestUri": "/clusters/{name}/access-entries"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "clusterName",
+                    "principalArn"
+                ],
+                "members": {
+                    "clusterName": {
+                        "location": "uri",
+                        "locationName": "name"
+                    },
+                    "principalArn": {},
+                    "kubernetesGroups": {
+                        "shape": "S5"
+                    },
+                    "tags": {
+                        "shape": "Ss"
+                    },
+                    "clientRequestToken": {
+                        "idempotencyToken": true
+                    },
+                    "username": {},
+                    "type": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "accessEntry": {
+                        "shape": "Sy"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d363dv9t4dnbqy.cloudfront.net/16fa9e0674c4b23d1fd4350021405f6d16855890/main.js"
+            ]
+        },
+        "DeleteAccessEntry": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/clusters/{name}/access-entries/{principalArn}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "clusterName",
+                    "principalArn"
+                ],
+                "members": {
+                    "clusterName": {
+                        "location": "uri",
+                        "locationName": "name"
+                    },
+                    "principalArn": {
+                        "location": "uri",
+                        "locationName": "principalArn"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://d363dv9t4dnbqy.cloudfront.net/16fa9e0674c4b23d1fd4350021405f6d16855890/main.js"
+            ]
+        },
+        "DescribeAccessEntry": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/clusters/{name}/access-entries/{principalArn}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "clusterName",
+                    "principalArn"
+                ],
+                "members": {
+                    "clusterName": {
+                        "location": "uri",
+                        "locationName": "name"
+                    },
+                    "principalArn": {
+                        "location": "uri",
+                        "locationName": "principalArn"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "accessEntry": {
+                        "shape": "Sy"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d363dv9t4dnbqy.cloudfront.net/16fa9e0674c4b23d1fd4350021405f6d16855890/main.js"
+            ]
+        },
+        "DescribeAddonConfiguration": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/addons/configuration-schemas"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "addonName",
+                    "addonVersion"
+                ],
+                "members": {
+                    "addonName": {
+                        "location": "querystring",
+                        "locationName": "addonName"
+                    },
+                    "addonVersion": {
+                        "location": "querystring",
+                        "locationName": "addonVersion"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "addonName": {},
+                    "addonVersion": {},
+                    "configurationSchema": {},
+                    "serviceAccountRoleConfiguration": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "serviceAccountName": {},
+                                "requiredIamPolicies": {
+                                    "shape": "S5"
+                                },
+                                "requiredIamPermissions": {
+                                    "shape": "S5"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://d363dv9t4dnbqy.cloudfront.net/16fa9e0674c4b23d1fd4350021405f6d16855890/main.js"
+            ]
+        },
+        "DisassociateAccessPolicy": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/clusters/{name}/access-entries/{principalArn}/access-policies/{policyArn}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "clusterName",
+                    "principalArn",
+                    "policyArn"
+                ],
+                "members": {
+                    "clusterName": {
+                        "location": "uri",
+                        "locationName": "name"
+                    },
+                    "principalArn": {
+                        "location": "uri",
+                        "locationName": "principalArn"
+                    },
+                    "policyArn": {
+                        "location": "uri",
+                        "locationName": "policyArn"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://d363dv9t4dnbqy.cloudfront.net/16fa9e0674c4b23d1fd4350021405f6d16855890/main.js"
+            ]
+        },
+        "ListAccessEntries": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/clusters/{name}/access-entries"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "clusterName"
+                ],
+                "members": {
+                    "clusterName": {
+                        "location": "uri",
+                        "locationName": "name"
+                    },
+                    "associatedPolicyArn": {
+                        "location": "querystring",
+                        "locationName": "associatedPolicyArn"
+                    },
+                    "maxResults": {
+                        "location": "querystring",
+                        "locationName": "maxResults",
+                        "type": "integer"
+                    },
+                    "nextToken": {
+                        "location": "querystring",
+                        "locationName": "nextToken"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "accessEntries": {
+                        "shape": "S5"
+                    },
+                    "nextToken": {}
+                }
+            },
+            "download_location": [
+                "https://d363dv9t4dnbqy.cloudfront.net/16fa9e0674c4b23d1fd4350021405f6d16855890/main.js"
+            ]
+        },
+        "ListAccessPolicies": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/access-policies"
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "maxResults": {
+                        "location": "querystring",
+                        "locationName": "maxResults",
+                        "type": "integer"
+                    },
+                    "nextToken": {
+                        "location": "querystring",
+                        "locationName": "nextToken"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "accessPolicies": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "name": {},
+                                "arn": {}
+                            }
+                        }
+                    },
+                    "nextToken": {}
+                }
+            },
+            "download_location": [
+                "https://d363dv9t4dnbqy.cloudfront.net/16fa9e0674c4b23d1fd4350021405f6d16855890/main.js"
+            ]
+        },
+        "ListAssociatedAccessPolicies": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/clusters/{name}/access-entries/{principalArn}/access-policies"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "clusterName",
+                    "principalArn"
+                ],
+                "members": {
+                    "clusterName": {
+                        "location": "uri",
+                        "locationName": "name"
+                    },
+                    "principalArn": {
+                        "location": "uri",
+                        "locationName": "principalArn"
+                    },
+                    "maxResults": {
+                        "location": "querystring",
+                        "locationName": "maxResults",
+                        "type": "integer"
+                    },
+                    "nextToken": {
+                        "location": "querystring",
+                        "locationName": "nextToken"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "clusterName": {},
+                    "principalArn": {},
+                    "nextToken": {},
+                    "associatedAccessPolicies": {
+                        "type": "list",
+                        "member": {
+                            "shape": "S7"
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://d363dv9t4dnbqy.cloudfront.net/16fa9e0674c4b23d1fd4350021405f6d16855890/main.js"
+            ]
+        },
+        "UpdateAccessEntry": {
+            "http": {
+                "requestUri": "/clusters/{name}/access-entries/{principalArn}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "clusterName",
+                    "principalArn"
+                ],
+                "members": {
+                    "clusterName": {
+                        "location": "uri",
+                        "locationName": "name"
+                    },
+                    "principalArn": {
+                        "location": "uri",
+                        "locationName": "principalArn"
+                    },
+                    "kubernetesGroups": {
+                        "shape": "S5"
+                    },
+                    "clientRequestToken": {
+                        "idempotencyToken": true
+                    },
+                    "username": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "accessEntry": {
+                        "shape": "Sy"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d363dv9t4dnbqy.cloudfront.net/16fa9e0674c4b23d1fd4350021405f6d16855890/main.js"
+            ]
+        }
+    },
+    "shapes": {
+        "S3": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "resources": {
+                        "shape": "S5"
+                    },
+                    "provider": {
+                        "type": "structure",
+                        "members": {
+                            "keyArn": {}
+                        }
+                    }
+                }
+            }
+        },
+        "S5": {
+            "type": "list",
+            "member": {}
+        },
+        "S8": {
+            "type": "structure",
+            "members": {
+                "id": {},
+                "status": {},
+                "type": {},
+                "params": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "members": {
+                            "type": {},
+                            "value": {}
+                        }
+                    }
+                },
+                "createdAt": {
+                    "type": "timestamp"
+                },
+                "errors": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "members": {
+                            "errorCode": {},
+                            "errorMessage": {},
+                            "resourceIds": {
+                                "shape": "S5"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "Sk": {
+            "type": "map",
+            "key": {},
+            "value": {}
+        },
+        "Sn": {
+            "type": "map",
+            "key": {},
+            "value": {}
+        },
+        "Sw": {
+            "type": "structure",
+            "members": {
+                "addonName": {},
+                "clusterName": {},
+                "status": {},
+                "addonVersion": {},
+                "health": {
+                    "type": "structure",
+                    "members": {
+                        "issues": {
+                            "type": "list",
+                            "member": {
+                                "type": "structure",
+                                "members": {
+                                    "code": {},
+                                    "message": {},
+                                    "resourceIds": {
+                                        "shape": "S5"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "addonArn": {},
+                "createdAt": {
+                    "type": "timestamp"
+                },
+                "modifiedAt": {
+                    "type": "timestamp"
+                },
+                "serviceAccountRoleArn": {},
+                "tags": {
+                    "shape": "Sn"
+                },
+                "publisher": {},
+                "owner": {},
+                "marketplaceInformation": {
+                    "shape": "S12"
+                }
+            }
+        },
+        "S12": {
+            "type": "structure",
+            "members": {
+                "productId": {},
+                "productUrl": {}
+            }
+        },
+        "S14": {
+            "type": "structure",
+            "members": {
+                "subnetIds": {
+                    "shape": "S5"
+                },
+                "securityGroupIds": {
+                    "shape": "S5"
+                },
+                "endpointPublicAccess": {
+                    "type": "boolean"
+                },
+                "endpointPrivateAccess": {
+                    "type": "boolean"
+                },
+                "publicAccessCidrs": {
+                    "shape": "S5"
+                }
+            }
+        },
+        "S18": {
+            "type": "structure",
+            "members": {
+                "clusterLogging": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "members": {
+                            "types": {
+                                "type": "list",
+                                "member": {}
+                            },
+                            "enabled": {
+                                "type": "boolean"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "S1g": {
+            "type": "structure",
+            "members": {
+                "name": {},
+                "arn": {},
+                "createdAt": {
+                    "type": "timestamp"
+                },
+                "version": {},
+                "endpoint": {},
+                "roleArn": {},
+                "resourcesVpcConfig": {
+                    "type": "structure",
+                    "members": {
+                        "subnetIds": {
+                            "shape": "S5"
+                        },
+                        "securityGroupIds": {
+                            "shape": "S5"
+                        },
+                        "clusterSecurityGroupId": {},
+                        "vpcId": {},
+                        "endpointPublicAccess": {
+                            "type": "boolean"
+                        },
+                        "endpointPrivateAccess": {
+                            "type": "boolean"
+                        },
+                        "publicAccessCidrs": {
+                            "shape": "S5"
+                        }
+                    }
+                },
+                "kubernetesNetworkConfig": {
+                    "type": "structure",
+                    "members": {
+                        "serviceIpv4Cidr": {},
+                        "serviceIpv6Cidr": {},
+                        "ipFamily": {}
+                    }
+                },
+                "logging": {
+                    "shape": "S18"
+                },
+                "identity": {
+                    "type": "structure",
+                    "members": {
+                        "oidc": {
+                            "type": "structure",
+                            "members": {
+                                "issuer": {}
+                            }
+                        }
+                    }
+                },
+                "status": {},
+                "certificateAuthority": {
+                    "type": "structure",
+                    "members": {
+                        "data": {}
+                    }
+                },
+                "clientRequestToken": {},
+                "platformVersion": {},
+                "tags": {
+                    "shape": "Sn"
+                },
+                "encryptionConfig": {
+                    "shape": "S3"
+                },
+                "connectorConfig": {
+                    "type": "structure",
+                    "members": {
+                        "activationId": {},
+                        "activationCode": {},
+                        "activationExpiry": {
+                            "type": "timestamp"
+                        },
+                        "provider": {},
+                        "roleArn": {}
+                    }
+                },
+                "id": {},
+                "health": {
+                    "type": "structure",
+                    "members": {
+                        "issues": {
+                            "type": "list",
+                            "member": {
+                                "type": "structure",
+                                "members": {
+                                    "code": {},
+                                    "message": {},
+                                    "resourceIds": {
+                                        "shape": "S5"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "outpostConfig": {
+                    "type": "structure",
+                    "required": [
+                        "outpostArns",
+                        "controlPlaneInstanceType"
+                    ],
+                    "members": {
+                        "outpostArns": {
+                            "shape": "S5"
+                        },
+                        "controlPlaneInstanceType": {},
+                        "controlPlanePlacement": {
+                            "type": "structure",
+                            "members": {
+                                "groupName": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "S1w": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "namespace": {},
+                    "labels": {
+                        "type": "map",
+                        "key": {},
+                        "value": {}
+                    }
+                }
+            }
+        },
+        "S20": {
+            "type": "structure",
+            "members": {
+                "fargateProfileName": {},
+                "fargateProfileArn": {},
+                "clusterName": {},
+                "createdAt": {
+                    "type": "timestamp"
+                },
+                "podExecutionRoleArn": {},
+                "subnets": {
+                    "shape": "S5"
+                },
+                "selectors": {
+                    "shape": "S1w"
+                },
+                "status": {},
+                "tags": {
+                    "shape": "Sn"
+                }
+            }
+        },
+        "S23": {
+            "type": "structure",
+            "members": {
+                "minSize": {
+                    "type": "integer"
+                },
+                "maxSize": {
+                    "type": "integer"
+                },
+                "desiredSize": {
+                    "type": "integer"
+                }
+            }
+        },
+        "S28": {
+            "type": "structure",
+            "members": {
+                "ec2SshKey": {},
+                "sourceSecurityGroups": {
+                    "shape": "S5"
+                }
+            }
+        },
+        "S29": {
+            "type": "map",
+            "key": {},
+            "value": {}
+        },
+        "S2c": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "key": {},
+                    "value": {},
+                    "effect": {}
+                }
+            }
+        },
+        "S2h": {
+            "type": "structure",
+            "members": {
+                "name": {},
+                "version": {},
+                "id": {}
+            }
+        },
+        "S2i": {
+            "type": "structure",
+            "members": {
+                "maxUnavailable": {
+                    "type": "integer"
+                },
+                "maxUnavailablePercentage": {
+                    "type": "integer"
+                }
+            }
+        },
+        "S2n": {
+            "type": "structure",
+            "members": {
+                "nodegroupName": {},
+                "nodegroupArn": {},
+                "clusterName": {},
+                "version": {},
+                "releaseVersion": {},
+                "createdAt": {
+                    "type": "timestamp"
+                },
+                "modifiedAt": {
+                    "type": "timestamp"
+                },
+                "status": {},
+                "capacityType": {},
+                "scalingConfig": {
+                    "shape": "S23"
+                },
+                "instanceTypes": {
+                    "shape": "S5"
+                },
+                "subnets": {
+                    "shape": "S5"
+                },
+                "remoteAccess": {
+                    "shape": "S28"
+                },
+                "amiType": {},
+                "nodeRole": {},
+                "labels": {
+                    "shape": "S29"
+                },
+                "taints": {
+                    "shape": "S2c"
+                },
+                "resources": {
+                    "type": "structure",
+                    "members": {
+                        "autoScalingGroups": {
+                            "type": "list",
+                            "member": {
+                                "type": "structure",
+                                "members": {
+                                    "name": {}
+                                }
+                            }
+                        },
+                        "remoteAccessSecurityGroup": {}
+                    }
+                },
+                "diskSize": {
+                    "type": "integer"
+                },
+                "health": {
+                    "type": "structure",
+                    "members": {
+                        "issues": {
+                            "type": "list",
+                            "member": {
+                                "type": "structure",
+                                "members": {
+                                    "code": {},
+                                    "message": {},
+                                    "resourceIds": {
+                                        "shape": "S5"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "updateConfig": {
+                    "shape": "S2i"
+                },
+                "launchTemplate": {
+                    "shape": "S2h"
+                },
+                "tags": {
+                    "shape": "Sn"
+                }
+            }
+        },
+        "S3m": {
+            "type": "structure",
+            "required": [
+                "type",
+                "name"
+            ],
+            "members": {
+                "type": {},
+                "name": {}
+            }
+        },
+        "S4": {
+            "type": "structure",
+            "members": {
+                "subnetIds": {
+                    "shape": "S5"
+                },
+                "securityGroupIds": {
+                    "shape": "S5"
+                },
+                "endpointPublicAccess": {
+                    "type": "boolean"
+                },
+                "endpointPrivateAccess": {
+                    "type": "boolean"
+                },
+                "publicAccessCidrs": {
+                    "shape": "S5"
+                }
+            }
+        },
+        "S7": {
+            "type": "structure",
+            "members": {
+                "clusterLogging": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "members": {
+                            "types": {
+                                "type": "list",
+                                "member": {}
+                            },
+                            "enabled": {
+                                "type": "boolean"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "Sc": {
+            "type": "map",
+            "key": {},
+            "value": {}
+        },
+        "Sg": {
+            "type": "structure",
+            "members": {
+                "name": {},
+                "arn": {},
+                "createdAt": {
+                    "type": "timestamp"
+                },
+                "version": {},
+                "endpoint": {},
+                "roleArn": {},
+                "resourcesVpcConfig": {
+                    "type": "structure",
+                    "members": {
+                        "subnetIds": {
+                            "shape": "S5"
+                        },
+                        "securityGroupIds": {
+                            "shape": "S5"
+                        },
+                        "clusterSecurityGroupId": {},
+                        "vpcId": {},
+                        "endpointPublicAccess": {
+                            "type": "boolean"
+                        },
+                        "endpointPrivateAccess": {
+                            "type": "boolean"
+                        },
+                        "publicAccessCidrs": {
+                            "shape": "S5"
+                        }
+                    }
+                },
+                "logging": {
+                    "shape": "S7"
+                },
+                "identity": {
+                    "type": "structure",
+                    "members": {
+                        "oidc": {
+                            "type": "structure",
+                            "members": {
+                                "issuer": {}
+                            }
+                        }
+                    }
+                },
+                "status": {},
+                "certificateAuthority": {
+                    "type": "structure",
+                    "members": {
+                        "data": {}
+                    }
+                },
+                "clientRequestToken": {},
+                "platformVersion": {},
+                "tags": {
+                    "shape": "Sc"
+                }
+            }
+        },
+        "Sp": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "namespace": {},
+                    "labels": {
+                        "type": "map",
+                        "key": {},
+                        "value": {}
+                    }
+                }
+            }
+        },
+        "St": {
+            "type": "structure",
+            "members": {
+                "fargateProfileName": {},
+                "fargateProfileArn": {},
+                "clusterName": {},
+                "createdAt": {
+                    "type": "timestamp"
+                },
+                "podExecutionRoleArn": {},
+                "subnets": {
+                    "shape": "S5"
+                },
+                "selectors": {
+                    "shape": "Sp"
+                },
+                "status": {},
+                "tags": {
+                    "shape": "Sc"
+                }
+            }
+        },
+        "S10": {
+            "type": "structure",
+            "members": {
+                "ec2SshKey": {},
+                "sourceSecurityGroups": {
+                    "shape": "S5"
+                }
+            }
+        },
+        "S11": {
+            "type": "map",
+            "key": {},
+            "value": {}
+        },
+        "S15": {
+            "type": "structure",
+            "members": {
+                "nodegroupName": {},
+                "nodegroupArn": {},
+                "clusterName": {},
+                "version": {},
+                "releaseVersion": {},
+                "createdAt": {
+                    "type": "timestamp"
+                },
+                "modifiedAt": {
+                    "type": "timestamp"
+                },
+                "status": {},
+                "scalingConfig": {
+                    "shape": "Sw"
+                },
+                "instanceTypes": {
+                    "shape": "S5"
+                },
+                "subnets": {
+                    "shape": "S5"
+                },
+                "remoteAccess": {
+                    "shape": "S10"
+                },
+                "amiType": {},
+                "nodeRole": {},
+                "labels": {
+                    "shape": "S11"
+                },
+                "resources": {
+                    "type": "structure",
+                    "members": {
+                        "autoScalingGroups": {
+                            "type": "list",
+                            "member": {
+                                "type": "structure",
+                                "members": {
+                                    "name": {}
+                                }
+                            }
+                        },
+                        "remoteAccessSecurityGroup": {}
+                    }
+                },
+                "diskSize": {
+                    "type": "integer"
+                },
+                "health": {
+                    "type": "structure",
+                    "members": {
+                        "issues": {
+                            "type": "list",
+                            "member": {
+                                "type": "structure",
+                                "members": {
+                                    "code": {},
+                                    "message": {},
+                                    "resourceIds": {
+                                        "shape": "S5"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "tags": {
+                    "shape": "Sc"
+                }
+            }
+        },
+        "S1s": {
+            "type": "structure",
+            "members": {
+                "id": {},
+                "status": {},
+                "type": {},
+                "params": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "members": {
+                            "type": {},
+                            "value": {}
+                        }
+                    }
+                },
+                "createdAt": {
+                    "type": "timestamp"
+                },
+                "errors": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "members": {
+                            "errorCode": {},
+                            "errorMessage": {},
+                            "resourceIds": {
+                                "shape": "S5"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "Sa": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "resources": {
+                        "shape": "S5"
+                    },
+                    "provider": {
+                        "type": "structure",
+                        "members": {
+                            "keyArn": {}
+                        }
+                    }
+                }
+            }
+        },
+        "Se": {
+            "type": "structure",
+            "members": {
+                "id": {},
+                "status": {},
+                "type": {},
+                "params": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "members": {
+                            "type": {},
+                            "value": {}
+                        }
+                    }
+                },
+                "createdAt": {
+                    "type": "timestamp"
+                },
+                "errors": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "members": {
+                            "errorCode": {},
+                            "errorMessage": {},
+                            "resourceIds": {
+                                "shape": "S5"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "Ss": {
+            "type": "map",
+            "key": {},
+            "value": {}
+        },
+        "Sy": {
+            "type": "structure",
+            "members": {
+                "clusterName": {},
+                "principalArn": {},
+                "kubernetesGroups": {
+                    "shape": "S5"
+                },
+                "accessEntryArn": {},
+                "createdAt": {
+                    "type": "timestamp"
+                },
+                "modifiedAt": {
+                    "type": "timestamp"
+                },
+                "tags": {
+                    "shape": "Ss"
+                },
+                "username": {},
+                "type": {}
+            }
+        },
+        "S1a": {
+            "type": "structure",
+            "members": {
+                "productId": {},
+                "productUrl": {}
+            }
+        },
+        "S1c": {
+            "type": "structure",
+            "members": {
+                "subnetIds": {
+                    "shape": "S5"
+                },
+                "securityGroupIds": {
+                    "shape": "S5"
+                },
+                "endpointPublicAccess": {
+                    "type": "boolean"
+                },
+                "endpointPrivateAccess": {
+                    "type": "boolean"
+                },
+                "publicAccessCidrs": {
+                    "shape": "S5"
+                }
+            }
+        },
+        "S1o": {
+            "type": "structure",
+            "members": {
+                "name": {},
+                "arn": {},
+                "createdAt": {
+                    "type": "timestamp"
+                },
+                "version": {},
+                "endpoint": {},
+                "roleArn": {},
+                "resourcesVpcConfig": {
+                    "type": "structure",
+                    "members": {
+                        "subnetIds": {
+                            "shape": "S5"
+                        },
+                        "securityGroupIds": {
+                            "shape": "S5"
+                        },
+                        "clusterSecurityGroupId": {},
+                        "vpcId": {},
+                        "endpointPublicAccess": {
+                            "type": "boolean"
+                        },
+                        "endpointPrivateAccess": {
+                            "type": "boolean"
+                        },
+                        "publicAccessCidrs": {
+                            "shape": "S5"
+                        }
+                    }
+                },
+                "kubernetesNetworkConfig": {
+                    "type": "structure",
+                    "members": {
+                        "serviceIpv4Cidr": {},
+                        "serviceIpv6Cidr": {},
+                        "ipFamily": {}
+                    }
+                },
+                "logging": {
+                    "shape": "S1g"
+                },
+                "identity": {
+                    "type": "structure",
+                    "members": {
+                        "oidc": {
+                            "type": "structure",
+                            "members": {
+                                "issuer": {}
+                            }
+                        }
+                    }
+                },
+                "status": {},
+                "certificateAuthority": {
+                    "type": "structure",
+                    "members": {
+                        "data": {}
+                    }
+                },
+                "clientRequestToken": {},
+                "platformVersion": {},
+                "tags": {
+                    "shape": "Ss"
+                },
+                "encryptionConfig": {
+                    "shape": "Sa"
+                },
+                "connectorConfig": {
+                    "type": "structure",
+                    "members": {
+                        "activationId": {},
+                        "activationCode": {},
+                        "activationExpiry": {
+                            "type": "timestamp"
+                        },
+                        "provider": {},
+                        "roleArn": {}
+                    }
+                },
+                "id": {},
+                "health": {
+                    "type": "structure",
+                    "members": {
+                        "issues": {
+                            "type": "list",
+                            "member": {
+                                "type": "structure",
+                                "members": {
+                                    "code": {},
+                                    "message": {},
+                                    "resourceIds": {
+                                        "shape": "S5"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "outpostConfig": {
+                    "type": "structure",
+                    "required": [
+                        "outpostArns",
+                        "controlPlaneInstanceType"
+                    ],
+                    "members": {
+                        "outpostArns": {
+                            "shape": "S5"
+                        },
+                        "controlPlaneInstanceType": {},
+                        "controlPlanePlacement": {
+                            "type": "structure",
+                            "members": {
+                                "groupName": {}
+                            }
+                        }
+                    }
+                },
+                "enableClusterCreatorAdminPermissions": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "S24": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "namespace": {},
+                    "labels": {
+                        "type": "map",
+                        "key": {},
+                        "value": {}
+                    }
+                }
+            }
+        },
+        "S2b": {
+            "type": "structure",
+            "members": {
+                "minSize": {
+                    "type": "integer"
+                },
+                "maxSize": {
+                    "type": "integer"
+                },
+                "desiredSize": {
+                    "type": "integer"
+                }
+            }
+        },
+        "S2g": {
+            "type": "structure",
+            "members": {
+                "ec2SshKey": {},
+                "sourceSecurityGroups": {
+                    "shape": "S5"
+                }
+            }
+        },
+        "S2k": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "key": {},
+                    "value": {},
+                    "effect": {}
+                }
+            }
+        },
+        "S2p": {
+            "type": "structure",
+            "members": {
+                "name": {},
+                "version": {},
+                "id": {}
+            }
+        },
+        "S2q": {
+            "type": "structure",
+            "members": {
+                "maxUnavailable": {
+                    "type": "integer"
+                },
+                "maxUnavailablePercentage": {
+                    "type": "integer"
+                }
+            }
+        },
+        "S2v": {
+            "type": "structure",
+            "members": {
+                "nodegroupName": {},
+                "nodegroupArn": {},
+                "clusterName": {},
+                "version": {},
+                "releaseVersion": {},
+                "createdAt": {
+                    "type": "timestamp"
+                },
+                "modifiedAt": {
+                    "type": "timestamp"
+                },
+                "status": {},
+                "capacityType": {},
+                "scalingConfig": {
+                    "shape": "S2b"
+                },
+                "instanceTypes": {
+                    "shape": "S5"
+                },
+                "subnets": {
+                    "shape": "S5"
+                },
+                "remoteAccess": {
+                    "shape": "S2g"
+                },
+                "amiType": {},
+                "nodeRole": {},
+                "labels": {
+                    "shape": "S2h"
+                },
+                "taints": {
+                    "shape": "S2k"
+                },
+                "resources": {
+                    "type": "structure",
+                    "members": {
+                        "autoScalingGroups": {
+                            "type": "list",
+                            "member": {
+                                "type": "structure",
+                                "members": {
+                                    "name": {}
+                                }
+                            }
+                        },
+                        "remoteAccessSecurityGroup": {}
+                    }
+                },
+                "diskSize": {
+                    "type": "integer"
+                },
+                "health": {
+                    "type": "structure",
+                    "members": {
+                        "issues": {
+                            "type": "list",
+                            "member": {
+                                "type": "structure",
+                                "members": {
+                                    "code": {},
+                                    "message": {},
+                                    "resourceIds": {
+                                        "shape": "S5"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "updateConfig": {
+                    "shape": "S2q"
+                },
+                "launchTemplate": {
+                    "shape": "S2p"
+                },
+                "tags": {
+                    "shape": "Ss"
+                }
+            }
+        },
+        "S42": {
+            "type": "structure",
+            "required": [
+                "type",
+                "name"
+            ],
+            "members": {
+                "type": {},
+                "name": {}
+            }
+        },
+        "Sb": {
+            "type": "structure",
+            "members": {
+                "id": {},
+                "status": {},
+                "type": {},
+                "params": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "members": {
+                            "type": {},
+                            "value": {}
+                        }
+                    }
+                },
+                "createdAt": {
+                    "type": "timestamp"
+                },
+                "errors": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "members": {
+                            "errorCode": {},
+                            "errorMessage": {},
+                            "resourceIds": {
+                                "shape": "Sl"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "Sl": {
+            "type": "list",
+            "member": {}
+        },
+        "Sr": {
+            "type": "structure",
+            "members": {
+                "addonName": {},
+                "clusterName": {},
+                "status": {},
+                "addonVersion": {},
+                "health": {
+                    "type": "structure",
+                    "members": {
+                        "issues": {
+                            "type": "list",
+                            "member": {
+                                "type": "structure",
+                                "members": {
+                                    "code": {},
+                                    "message": {},
+                                    "resourceIds": {
+                                        "shape": "Sl"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "addonArn": {},
+                "createdAt": {
+                    "type": "timestamp"
+                },
+                "modifiedAt": {
+                    "type": "timestamp"
+                },
+                "serviceAccountRoleArn": {},
+                "tags": {
+                    "shape": "S7"
+                }
+            }
+        },
+        "S16": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "resources": {
+                        "shape": "Sl"
+                    },
+                    "provider": {
+                        "type": "structure",
+                        "members": {
+                            "keyArn": {}
+                        }
+                    }
+                }
+            }
+        },
+        "S1j": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "namespace": {},
+                    "labels": {
+                        "type": "map",
+                        "key": {},
+                        "value": {}
+                    }
+                }
+            }
+        },
+        "S1n": {
+            "type": "structure",
+            "members": {
+                "fargateProfileName": {},
+                "fargateProfileArn": {},
+                "clusterName": {},
+                "createdAt": {
+                    "type": "timestamp"
+                },
+                "podExecutionRoleArn": {},
+                "subnets": {
+                    "shape": "Sl"
+                },
+                "selectors": {
+                    "shape": "S1j"
+                },
+                "status": {},
+                "tags": {
+                    "shape": "S7"
+                }
+            }
+        },
+        "S1q": {
+            "type": "structure",
+            "members": {
+                "minSize": {
+                    "type": "integer"
+                },
+                "maxSize": {
+                    "type": "integer"
+                },
+                "desiredSize": {
+                    "type": "integer"
+                }
+            }
+        },
+        "S1u": {
+            "type": "structure",
+            "members": {
+                "ec2SshKey": {},
+                "sourceSecurityGroups": {
+                    "shape": "Sl"
+                }
+            }
+        },
+        "S1v": {
+            "type": "map",
+            "key": {},
+            "value": {}
+        },
+        "S1y": {
+            "type": "structure",
+            "members": {
+                "name": {},
+                "version": {},
+                "id": {}
+            }
+        },
+        "S21": {
+            "type": "structure",
+            "members": {
+                "nodegroupName": {},
+                "nodegroupArn": {},
+                "clusterName": {},
+                "version": {},
+                "releaseVersion": {},
+                "createdAt": {
+                    "type": "timestamp"
+                },
+                "modifiedAt": {
+                    "type": "timestamp"
+                },
+                "status": {},
+                "capacityType": {},
+                "scalingConfig": {
+                    "shape": "S1q"
+                },
+                "instanceTypes": {
+                    "shape": "Sl"
+                },
+                "subnets": {
+                    "shape": "Sl"
+                },
+                "remoteAccess": {
+                    "shape": "S1u"
+                },
+                "amiType": {},
+                "nodeRole": {},
+                "labels": {
+                    "shape": "S1v"
+                },
+                "resources": {
+                    "type": "structure",
+                    "members": {
+                        "autoScalingGroups": {
+                            "type": "list",
+                            "member": {
+                                "type": "structure",
+                                "members": {
+                                    "name": {}
+                                }
+                            }
+                        },
+                        "remoteAccessSecurityGroup": {}
+                    }
+                },
+                "diskSize": {
+                    "type": "integer"
+                },
+                "health": {
+                    "type": "structure",
+                    "members": {
+                        "issues": {
+                            "type": "list",
+                            "member": {
+                                "type": "structure",
+                                "members": {
+                                    "code": {},
+                                    "message": {},
+                                    "resourceIds": {
+                                        "shape": "Sl"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "launchTemplate": {
+                    "shape": "S1y"
+                },
+                "tags": {
+                    "shape": "S7"
+                }
+            }
+        },
+        "S2y": {
+            "type": "structure",
+            "required": [
+                "type",
+                "name"
+            ],
+            "members": {
+                "type": {},
+                "name": {}
+            }
+        },
+        "S3o": {
+            "type": "structure",
+            "required": [
+                "type",
+                "name"
+            ],
+            "members": {
+                "type": {},
+                "name": {}
+            }
+        },
+        "Sf": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "resources": {
+                        "shape": "S5"
+                    },
+                    "provider": {
+                        "type": "structure",
+                        "members": {
+                            "keyArn": {}
+                        }
+                    }
+                }
+            }
+        },
+        "Sj": {
+            "type": "structure",
+            "members": {
+                "name": {},
+                "arn": {},
+                "createdAt": {
+                    "type": "timestamp"
+                },
+                "version": {},
+                "endpoint": {},
+                "roleArn": {},
+                "resourcesVpcConfig": {
+                    "type": "structure",
+                    "members": {
+                        "subnetIds": {
+                            "shape": "S5"
+                        },
+                        "securityGroupIds": {
+                            "shape": "S5"
+                        },
+                        "clusterSecurityGroupId": {},
+                        "vpcId": {},
+                        "endpointPublicAccess": {
+                            "type": "boolean"
+                        },
+                        "endpointPrivateAccess": {
+                            "type": "boolean"
+                        },
+                        "publicAccessCidrs": {
+                            "shape": "S5"
+                        }
+                    }
+                },
+                "logging": {
+                    "shape": "S7"
+                },
+                "identity": {
+                    "type": "structure",
+                    "members": {
+                        "oidc": {
+                            "type": "structure",
+                            "members": {
+                                "issuer": {}
+                            }
+                        }
+                    }
+                },
+                "status": {},
+                "certificateAuthority": {
+                    "type": "structure",
+                    "members": {
+                        "data": {}
+                    }
+                },
+                "clientRequestToken": {},
+                "platformVersion": {},
+                "tags": {
+                    "shape": "Sc"
+                },
+                "encryptionConfig": {
+                    "shape": "Sf"
+                }
+            }
+        },
+        "Sz": {
+            "type": "structure",
+            "members": {
+                "minSize": {
+                    "type": "integer"
+                },
+                "maxSize": {
+                    "type": "integer"
+                },
+                "desiredSize": {
+                    "type": "integer"
+                }
+            }
+        },
+        "S13": {
+            "type": "structure",
+            "members": {
+                "ec2SshKey": {},
+                "sourceSecurityGroups": {
+                    "shape": "S5"
+                }
+            }
+        },
+        "S17": {
+            "type": "structure",
+            "members": {
+                "clusterLogging": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "members": {
+                            "types": {
+                                "type": "list",
+                                "member": {}
+                            },
+                            "enabled": {
+                                "type": "boolean"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "S1d": {
+            "type": "structure",
+            "members": {
+                "name": {},
+                "arn": {},
+                "createdAt": {
+                    "type": "timestamp"
+                },
+                "version": {},
+                "endpoint": {},
+                "roleArn": {},
+                "resourcesVpcConfig": {
+                    "type": "structure",
+                    "members": {
+                        "subnetIds": {
+                            "shape": "S5"
+                        },
+                        "securityGroupIds": {
+                            "shape": "S5"
+                        },
+                        "clusterSecurityGroupId": {},
+                        "vpcId": {},
+                        "endpointPublicAccess": {
+                            "type": "boolean"
+                        },
+                        "endpointPrivateAccess": {
+                            "type": "boolean"
+                        },
+                        "publicAccessCidrs": {
+                            "shape": "S5"
+                        }
+                    }
+                },
+                "kubernetesNetworkConfig": {
+                    "type": "structure",
+                    "members": {
+                        "serviceIpv4Cidr": {},
+                        "serviceIpv6Cidr": {},
+                        "ipFamily": {}
+                    }
+                },
+                "logging": {
+                    "shape": "S17"
+                },
+                "identity": {
+                    "type": "structure",
+                    "members": {
+                        "oidc": {
+                            "type": "structure",
+                            "members": {
+                                "issuer": {}
+                            }
+                        }
+                    }
+                },
+                "status": {},
+                "certificateAuthority": {
+                    "type": "structure",
+                    "members": {
+                        "data": {}
+                    }
+                },
+                "clientRequestToken": {},
+                "platformVersion": {},
+                "tags": {
+                    "shape": "Sn"
+                },
+                "encryptionConfig": {
+                    "shape": "S3"
+                },
+                "connectorConfig": {
+                    "type": "structure",
+                    "members": {
+                        "activationId": {},
+                        "activationCode": {},
+                        "activationExpiry": {
+                            "type": "timestamp"
+                        },
+                        "provider": {},
+                        "roleArn": {}
+                    }
+                }
+            }
+        },
+        "S1r": {
+            "type": "structure",
+            "members": {
+                "fargateProfileName": {},
+                "fargateProfileArn": {},
+                "clusterName": {},
+                "createdAt": {
+                    "type": "timestamp"
+                },
+                "podExecutionRoleArn": {},
+                "subnets": {
+                    "shape": "S5"
+                },
+                "selectors": {
+                    "shape": "S1n"
+                },
+                "status": {},
+                "tags": {
+                    "shape": "Sn"
+                }
+            }
+        },
+        "S1z": {
+            "type": "structure",
+            "members": {
+                "ec2SshKey": {},
+                "sourceSecurityGroups": {
+                    "shape": "S5"
+                }
+            }
+        },
+        "S2e": {
+            "type": "structure",
+            "members": {
+                "nodegroupName": {},
+                "nodegroupArn": {},
+                "clusterName": {},
+                "version": {},
+                "releaseVersion": {},
+                "createdAt": {
+                    "type": "timestamp"
+                },
+                "modifiedAt": {
+                    "type": "timestamp"
+                },
+                "status": {},
+                "capacityType": {},
+                "scalingConfig": {
+                    "shape": "S1u"
+                },
+                "instanceTypes": {
+                    "shape": "S5"
+                },
+                "subnets": {
+                    "shape": "S5"
+                },
+                "remoteAccess": {
+                    "shape": "S1z"
+                },
+                "amiType": {},
+                "nodeRole": {},
+                "labels": {
+                    "shape": "S20"
+                },
+                "taints": {
+                    "shape": "S23"
+                },
+                "resources": {
+                    "type": "structure",
+                    "members": {
+                        "autoScalingGroups": {
+                            "type": "list",
+                            "member": {
+                                "type": "structure",
+                                "members": {
+                                    "name": {}
+                                }
+                            }
+                        },
+                        "remoteAccessSecurityGroup": {}
+                    }
+                },
+                "diskSize": {
+                    "type": "integer"
+                },
+                "health": {
+                    "type": "structure",
+                    "members": {
+                        "issues": {
+                            "type": "list",
+                            "member": {
+                                "type": "structure",
+                                "members": {
+                                    "code": {},
+                                    "message": {},
+                                    "resourceIds": {
+                                        "shape": "S5"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "updateConfig": {
+                    "shape": "S29"
+                },
+                "launchTemplate": {
+                    "shape": "S28"
+                },
+                "tags": {
+                    "shape": "Sn"
+                }
+            }
+        },
+        "S3d": {
+            "type": "structure",
+            "required": [
+                "type",
+                "name"
+            ],
+            "members": {
+                "type": {},
+                "name": {}
+            }
+        },
+        "S1m": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "namespace": {},
+                    "labels": {
+                        "type": "map",
+                        "key": {},
+                        "value": {}
+                    }
+                }
+            }
+        },
+        "S1t": {
+            "type": "structure",
+            "members": {
+                "minSize": {
+                    "type": "integer"
+                },
+                "maxSize": {
+                    "type": "integer"
+                },
+                "desiredSize": {
+                    "type": "integer"
+                }
+            }
+        },
+        "S22": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "key": {},
+                    "value": {},
+                    "effect": {}
+                }
+            }
+        },
+        "S27": {
+            "type": "structure",
+            "members": {
+                "name": {},
+                "version": {},
+                "id": {}
+            }
+        },
+        "S2d": {
+            "type": "structure",
+            "members": {
+                "nodegroupName": {},
+                "nodegroupArn": {},
+                "clusterName": {},
+                "version": {},
+                "releaseVersion": {},
+                "createdAt": {
+                    "type": "timestamp"
+                },
+                "modifiedAt": {
+                    "type": "timestamp"
+                },
+                "status": {},
+                "capacityType": {},
+                "scalingConfig": {
+                    "shape": "S1t"
+                },
+                "instanceTypes": {
+                    "shape": "S5"
+                },
+                "subnets": {
+                    "shape": "S5"
+                },
+                "remoteAccess": {
+                    "shape": "S1y"
+                },
+                "amiType": {},
+                "nodeRole": {},
+                "labels": {
+                    "shape": "S1z"
+                },
+                "taints": {
+                    "shape": "S22"
+                },
+                "resources": {
+                    "type": "structure",
+                    "members": {
+                        "autoScalingGroups": {
+                            "type": "list",
+                            "member": {
+                                "type": "structure",
+                                "members": {
+                                    "name": {}
+                                }
+                            }
+                        },
+                        "remoteAccessSecurityGroup": {}
+                    }
+                },
+                "diskSize": {
+                    "type": "integer"
+                },
+                "health": {
+                    "type": "structure",
+                    "members": {
+                        "issues": {
+                            "type": "list",
+                            "member": {
+                                "type": "structure",
+                                "members": {
+                                    "code": {},
+                                    "message": {},
+                                    "resourceIds": {
+                                        "shape": "S5"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "updateConfig": {
+                    "shape": "S28"
+                },
+                "launchTemplate": {
+                    "shape": "S27"
+                },
+                "tags": {
+                    "shape": "Sn"
+                }
+            }
+        },
+        "S3c": {
+            "type": "structure",
+            "required": [
+                "type",
+                "name"
+            ],
+            "members": {
+                "type": {},
+                "name": {}
+            }
+        }
+    }
+}

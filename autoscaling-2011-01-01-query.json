@@ -1,0 +1,5524 @@
+{
+    "version": "2.0",
+    "metadata": {
+        "apiVersion": "2011-01-01",
+        "endpointPrefix": "autoscaling",
+        "protocol": "query",
+        "serviceFullName": "Auto Scaling",
+        "serviceId": "Auto Scaling",
+        "signatureVersion": "v4",
+        "uid": "autoscaling-2011-01-01",
+        "xmlNamespace": "http://autoscaling.amazonaws.com/doc/2011-01-01/",
+        "download_location": [
+            "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+        ]
+    },
+    "operations": {
+        "AttachInstances": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "AutoScalingGroupName"
+                ],
+                "members": {
+                    "InstanceIds": {
+                        "shape": "S2"
+                    },
+                    "AutoScalingGroupName": {}
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "AttachLoadBalancerTargetGroups": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "AutoScalingGroupName",
+                    "TargetGroupARNs"
+                ],
+                "members": {
+                    "AutoScalingGroupName": {},
+                    "TargetGroupARNs": {
+                        "shape": "S6"
+                    }
+                }
+            },
+            "output": {
+                "resultWrapper": "AttachLoadBalancerTargetGroupsResult",
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "AttachLoadBalancers": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "AutoScalingGroupName",
+                    "LoadBalancerNames"
+                ],
+                "members": {
+                    "AutoScalingGroupName": {},
+                    "LoadBalancerNames": {
+                        "shape": "Sa"
+                    }
+                }
+            },
+            "output": {
+                "resultWrapper": "AttachLoadBalancersResult",
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "BatchDeleteScheduledAction": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "AutoScalingGroupName",
+                    "ScheduledActionNames"
+                ],
+                "members": {
+                    "AutoScalingGroupName": {},
+                    "ScheduledActionNames": {
+                        "shape": "Sd"
+                    }
+                }
+            },
+            "output": {
+                "resultWrapper": "BatchDeleteScheduledActionResult",
+                "type": "structure",
+                "members": {
+                    "FailedScheduledActions": {
+                        "shape": "Sf"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "BatchPutScheduledUpdateGroupAction": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "AutoScalingGroupName",
+                    "ScheduledUpdateGroupActions"
+                ],
+                "members": {
+                    "AutoScalingGroupName": {},
+                    "ScheduledUpdateGroupActions": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "ScheduledActionName"
+                            ],
+                            "members": {
+                                "ScheduledActionName": {},
+                                "StartTime": {
+                                    "type": "timestamp"
+                                },
+                                "EndTime": {
+                                    "type": "timestamp"
+                                },
+                                "Recurrence": {},
+                                "MinSize": {
+                                    "type": "integer"
+                                },
+                                "MaxSize": {
+                                    "type": "integer"
+                                },
+                                "DesiredCapacity": {
+                                    "type": "integer"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "output": {
+                "resultWrapper": "BatchPutScheduledUpdateGroupActionResult",
+                "type": "structure",
+                "members": {
+                    "FailedScheduledUpdateGroupActions": {
+                        "shape": "Sf"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "CancelInstanceRefresh": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "AutoScalingGroupName"
+                ],
+                "members": {
+                    "AutoScalingGroupName": {}
+                }
+            },
+            "output": {
+                "resultWrapper": "CancelInstanceRefreshResult",
+                "type": "structure",
+                "members": {
+                    "InstanceRefreshId": {}
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "CompleteLifecycleAction": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "LifecycleHookName",
+                    "AutoScalingGroupName",
+                    "LifecycleActionResult"
+                ],
+                "members": {
+                    "LifecycleHookName": {},
+                    "AutoScalingGroupName": {},
+                    "LifecycleActionToken": {},
+                    "LifecycleActionResult": {},
+                    "InstanceId": {}
+                }
+            },
+            "output": {
+                "resultWrapper": "CompleteLifecycleActionResult",
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "CreateAutoScalingGroup": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "AutoScalingGroupName",
+                    "MinSize",
+                    "MaxSize"
+                ],
+                "members": {
+                    "AutoScalingGroupName": {},
+                    "LaunchConfigurationName": {},
+                    "LaunchTemplate": {
+                        "shape": "S10"
+                    },
+                    "MixedInstancesPolicy": {
+                        "shape": "S12"
+                    },
+                    "InstanceId": {},
+                    "MinSize": {
+                        "type": "integer"
+                    },
+                    "MaxSize": {
+                        "type": "integer"
+                    },
+                    "DesiredCapacity": {
+                        "type": "integer"
+                    },
+                    "DefaultCooldown": {
+                        "type": "integer"
+                    },
+                    "AvailabilityZones": {
+                        "shape": "S1d"
+                    },
+                    "LoadBalancerNames": {
+                        "shape": "Sa"
+                    },
+                    "TargetGroupARNs": {
+                        "shape": "S6"
+                    },
+                    "HealthCheckType": {},
+                    "HealthCheckGracePeriod": {
+                        "type": "integer"
+                    },
+                    "PlacementGroup": {},
+                    "VPCZoneIdentifier": {},
+                    "TerminationPolicies": {
+                        "shape": "S1g"
+                    },
+                    "NewInstancesProtectedFromScaleIn": {
+                        "type": "boolean"
+                    },
+                    "CapacityRebalance": {
+                        "type": "boolean"
+                    },
+                    "LifecycleHookSpecificationList": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "LifecycleHookName",
+                                "LifecycleTransition"
+                            ],
+                            "members": {
+                                "LifecycleHookName": {},
+                                "LifecycleTransition": {},
+                                "NotificationMetadata": {},
+                                "HeartbeatTimeout": {
+                                    "type": "integer"
+                                },
+                                "DefaultResult": {},
+                                "NotificationTargetARN": {},
+                                "RoleARN": {}
+                            }
+                        }
+                    },
+                    "Tags": {
+                        "shape": "S1q"
+                    },
+                    "ServiceLinkedRoleARN": {},
+                    "MaxInstanceLifetime": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "CreateLaunchConfiguration": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "LaunchConfigurationName"
+                ],
+                "members": {
+                    "LaunchConfigurationName": {},
+                    "ImageId": {},
+                    "KeyName": {},
+                    "SecurityGroups": {
+                        "shape": "S1x"
+                    },
+                    "ClassicLinkVPCId": {},
+                    "ClassicLinkVPCSecurityGroups": {
+                        "shape": "S1y"
+                    },
+                    "UserData": {},
+                    "InstanceId": {},
+                    "InstanceType": {},
+                    "KernelId": {},
+                    "RamdiskId": {},
+                    "BlockDeviceMappings": {
+                        "shape": "S20"
+                    },
+                    "InstanceMonitoring": {
+                        "shape": "S29"
+                    },
+                    "SpotPrice": {},
+                    "IamInstanceProfile": {},
+                    "EbsOptimized": {
+                        "type": "boolean"
+                    },
+                    "AssociatePublicIpAddress": {
+                        "type": "boolean"
+                    },
+                    "PlacementTenancy": {},
+                    "MetadataOptions": {
+                        "shape": "S2e"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "CreateOrUpdateTags": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "Tags"
+                ],
+                "members": {
+                    "Tags": {
+                        "shape": "S1q"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "DeleteAutoScalingGroup": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "AutoScalingGroupName"
+                ],
+                "members": {
+                    "AutoScalingGroupName": {},
+                    "ForceDelete": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "DeleteLaunchConfiguration": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "LaunchConfigurationName"
+                ],
+                "members": {
+                    "LaunchConfigurationName": {}
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "DeleteLifecycleHook": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "LifecycleHookName",
+                    "AutoScalingGroupName"
+                ],
+                "members": {
+                    "LifecycleHookName": {},
+                    "AutoScalingGroupName": {}
+                }
+            },
+            "output": {
+                "resultWrapper": "DeleteLifecycleHookResult",
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "DeleteNotificationConfiguration": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "AutoScalingGroupName",
+                    "TopicARN"
+                ],
+                "members": {
+                    "AutoScalingGroupName": {},
+                    "TopicARN": {}
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "DeletePolicy": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "PolicyName"
+                ],
+                "members": {
+                    "AutoScalingGroupName": {},
+                    "PolicyName": {}
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "DeleteScheduledAction": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "AutoScalingGroupName",
+                    "ScheduledActionName"
+                ],
+                "members": {
+                    "AutoScalingGroupName": {},
+                    "ScheduledActionName": {}
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "DeleteTags": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "Tags"
+                ],
+                "members": {
+                    "Tags": {
+                        "shape": "S1q"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "DescribeAccountLimits": {
+            "output": {
+                "resultWrapper": "DescribeAccountLimitsResult",
+                "type": "structure",
+                "members": {
+                    "MaxNumberOfAutoScalingGroups": {
+                        "type": "integer"
+                    },
+                    "MaxNumberOfLaunchConfigurations": {
+                        "type": "integer"
+                    },
+                    "NumberOfAutoScalingGroups": {
+                        "type": "integer"
+                    },
+                    "NumberOfLaunchConfigurations": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "DescribeAdjustmentTypes": {
+            "output": {
+                "resultWrapper": "DescribeAdjustmentTypesResult",
+                "type": "structure",
+                "members": {
+                    "AdjustmentTypes": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "AdjustmentType": {}
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "DescribeAutoScalingGroups": {
+            "input": {
+                "type": "structure",
+                "members": {
+                    "AutoScalingGroupNames": {
+                        "shape": "S31"
+                    },
+                    "NextToken": {},
+                    "MaxRecords": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "resultWrapper": "DescribeAutoScalingGroupsResult",
+                "type": "structure",
+                "required": [
+                    "AutoScalingGroups"
+                ],
+                "members": {
+                    "AutoScalingGroups": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "AutoScalingGroupName",
+                                "MinSize",
+                                "MaxSize",
+                                "DesiredCapacity",
+                                "DefaultCooldown",
+                                "AvailabilityZones",
+                                "HealthCheckType",
+                                "CreatedTime"
+                            ],
+                            "members": {
+                                "AutoScalingGroupName": {},
+                                "AutoScalingGroupARN": {},
+                                "LaunchConfigurationName": {},
+                                "LaunchTemplate": {
+                                    "shape": "S10"
+                                },
+                                "MixedInstancesPolicy": {
+                                    "shape": "S12"
+                                },
+                                "MinSize": {
+                                    "type": "integer"
+                                },
+                                "MaxSize": {
+                                    "type": "integer"
+                                },
+                                "DesiredCapacity": {
+                                    "type": "integer"
+                                },
+                                "DefaultCooldown": {
+                                    "type": "integer"
+                                },
+                                "AvailabilityZones": {
+                                    "shape": "S1d"
+                                },
+                                "LoadBalancerNames": {
+                                    "shape": "Sa"
+                                },
+                                "TargetGroupARNs": {
+                                    "shape": "S6"
+                                },
+                                "HealthCheckType": {},
+                                "HealthCheckGracePeriod": {
+                                    "type": "integer"
+                                },
+                                "Instances": {
+                                    "type": "list",
+                                    "member": {
+                                        "type": "structure",
+                                        "required": [
+                                            "InstanceId",
+                                            "AvailabilityZone",
+                                            "LifecycleState",
+                                            "HealthStatus",
+                                            "ProtectedFromScaleIn"
+                                        ],
+                                        "members": {
+                                            "InstanceId": {},
+                                            "InstanceType": {},
+                                            "AvailabilityZone": {},
+                                            "LifecycleState": {},
+                                            "HealthStatus": {},
+                                            "LaunchConfigurationName": {},
+                                            "LaunchTemplate": {
+                                                "shape": "S10"
+                                            },
+                                            "ProtectedFromScaleIn": {
+                                                "type": "boolean"
+                                            },
+                                            "WeightedCapacity": {}
+                                        }
+                                    }
+                                },
+                                "CreatedTime": {
+                                    "type": "timestamp"
+                                },
+                                "SuspendedProcesses": {
+                                    "type": "list",
+                                    "member": {
+                                        "type": "structure",
+                                        "members": {
+                                            "ProcessName": {},
+                                            "SuspensionReason": {}
+                                        }
+                                    }
+                                },
+                                "PlacementGroup": {},
+                                "VPCZoneIdentifier": {},
+                                "EnabledMetrics": {
+                                    "type": "list",
+                                    "member": {
+                                        "type": "structure",
+                                        "members": {
+                                            "Metric": {},
+                                            "Granularity": {}
+                                        }
+                                    }
+                                },
+                                "Status": {},
+                                "Tags": {
+                                    "shape": "S3d"
+                                },
+                                "TerminationPolicies": {
+                                    "shape": "S1g"
+                                },
+                                "NewInstancesProtectedFromScaleIn": {
+                                    "type": "boolean"
+                                },
+                                "ServiceLinkedRoleARN": {},
+                                "MaxInstanceLifetime": {
+                                    "type": "integer"
+                                },
+                                "CapacityRebalance": {
+                                    "type": "boolean"
+                                }
+                            }
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "DescribeAutoScalingInstances": {
+            "input": {
+                "type": "structure",
+                "members": {
+                    "InstanceIds": {
+                        "shape": "S2"
+                    },
+                    "MaxRecords": {
+                        "type": "integer"
+                    },
+                    "NextToken": {}
+                }
+            },
+            "output": {
+                "resultWrapper": "DescribeAutoScalingInstancesResult",
+                "type": "structure",
+                "members": {
+                    "AutoScalingInstances": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "InstanceId",
+                                "AutoScalingGroupName",
+                                "AvailabilityZone",
+                                "LifecycleState",
+                                "HealthStatus",
+                                "ProtectedFromScaleIn"
+                            ],
+                            "members": {
+                                "InstanceId": {},
+                                "InstanceType": {},
+                                "AutoScalingGroupName": {},
+                                "AvailabilityZone": {},
+                                "LifecycleState": {},
+                                "HealthStatus": {},
+                                "LaunchConfigurationName": {},
+                                "LaunchTemplate": {
+                                    "shape": "S10"
+                                },
+                                "ProtectedFromScaleIn": {
+                                    "type": "boolean"
+                                },
+                                "WeightedCapacity": {}
+                            }
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "DescribeAutoScalingNotificationTypes": {
+            "output": {
+                "resultWrapper": "DescribeAutoScalingNotificationTypesResult",
+                "type": "structure",
+                "members": {
+                    "AutoScalingNotificationTypes": {
+                        "shape": "S3k"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "DescribeInstanceRefreshes": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "AutoScalingGroupName"
+                ],
+                "members": {
+                    "AutoScalingGroupName": {},
+                    "InstanceRefreshIds": {
+                        "type": "list",
+                        "member": {}
+                    },
+                    "NextToken": {},
+                    "MaxRecords": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "resultWrapper": "DescribeInstanceRefreshesResult",
+                "type": "structure",
+                "members": {
+                    "InstanceRefreshes": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "InstanceRefreshId": {},
+                                "AutoScalingGroupName": {},
+                                "Status": {},
+                                "StatusReason": {},
+                                "StartTime": {
+                                    "type": "timestamp"
+                                },
+                                "EndTime": {
+                                    "type": "timestamp"
+                                },
+                                "PercentageComplete": {
+                                    "type": "integer"
+                                },
+                                "InstancesToUpdate": {
+                                    "type": "integer"
+                                }
+                            }
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "DescribeLaunchConfigurations": {
+            "input": {
+                "type": "structure",
+                "members": {
+                    "LaunchConfigurationNames": {
+                        "type": "list",
+                        "member": {}
+                    },
+                    "NextToken": {},
+                    "MaxRecords": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "resultWrapper": "DescribeLaunchConfigurationsResult",
+                "type": "structure",
+                "required": [
+                    "LaunchConfigurations"
+                ],
+                "members": {
+                    "LaunchConfigurations": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "LaunchConfigurationName",
+                                "ImageId",
+                                "InstanceType",
+                                "CreatedTime"
+                            ],
+                            "members": {
+                                "LaunchConfigurationName": {},
+                                "LaunchConfigurationARN": {},
+                                "ImageId": {},
+                                "KeyName": {},
+                                "SecurityGroups": {
+                                    "shape": "S1x"
+                                },
+                                "ClassicLinkVPCId": {},
+                                "ClassicLinkVPCSecurityGroups": {
+                                    "shape": "S1y"
+                                },
+                                "UserData": {},
+                                "InstanceType": {},
+                                "KernelId": {},
+                                "RamdiskId": {},
+                                "BlockDeviceMappings": {
+                                    "shape": "S20"
+                                },
+                                "InstanceMonitoring": {
+                                    "shape": "S29"
+                                },
+                                "SpotPrice": {},
+                                "IamInstanceProfile": {},
+                                "CreatedTime": {
+                                    "type": "timestamp"
+                                },
+                                "EbsOptimized": {
+                                    "type": "boolean"
+                                },
+                                "AssociatePublicIpAddress": {
+                                    "type": "boolean"
+                                },
+                                "PlacementTenancy": {},
+                                "MetadataOptions": {
+                                    "shape": "S2e"
+                                }
+                            }
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "DescribeLifecycleHookTypes": {
+            "output": {
+                "resultWrapper": "DescribeLifecycleHookTypesResult",
+                "type": "structure",
+                "members": {
+                    "LifecycleHookTypes": {
+                        "shape": "S3k"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "DescribeLifecycleHooks": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "AutoScalingGroupName"
+                ],
+                "members": {
+                    "AutoScalingGroupName": {},
+                    "LifecycleHookNames": {
+                        "type": "list",
+                        "member": {}
+                    }
+                }
+            },
+            "output": {
+                "resultWrapper": "DescribeLifecycleHooksResult",
+                "type": "structure",
+                "members": {
+                    "LifecycleHooks": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "LifecycleHookName": {},
+                                "AutoScalingGroupName": {},
+                                "LifecycleTransition": {},
+                                "NotificationTargetARN": {},
+                                "RoleARN": {},
+                                "NotificationMetadata": {},
+                                "HeartbeatTimeout": {
+                                    "type": "integer"
+                                },
+                                "GlobalTimeout": {
+                                    "type": "integer"
+                                },
+                                "DefaultResult": {}
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "DescribeLoadBalancerTargetGroups": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "AutoScalingGroupName"
+                ],
+                "members": {
+                    "AutoScalingGroupName": {},
+                    "NextToken": {},
+                    "MaxRecords": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "resultWrapper": "DescribeLoadBalancerTargetGroupsResult",
+                "type": "structure",
+                "members": {
+                    "LoadBalancerTargetGroups": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "LoadBalancerTargetGroupARN": {},
+                                "State": {}
+                            }
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "DescribeLoadBalancers": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "AutoScalingGroupName"
+                ],
+                "members": {
+                    "AutoScalingGroupName": {},
+                    "NextToken": {},
+                    "MaxRecords": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "resultWrapper": "DescribeLoadBalancersResult",
+                "type": "structure",
+                "members": {
+                    "LoadBalancers": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "LoadBalancerName": {},
+                                "State": {}
+                            }
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "DescribeMetricCollectionTypes": {
+            "output": {
+                "resultWrapper": "DescribeMetricCollectionTypesResult",
+                "type": "structure",
+                "members": {
+                    "Metrics": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "Metric": {}
+                            }
+                        }
+                    },
+                    "Granularities": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "Granularity": {}
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "DescribeNotificationConfigurations": {
+            "input": {
+                "type": "structure",
+                "members": {
+                    "AutoScalingGroupNames": {
+                        "shape": "S31"
+                    },
+                    "NextToken": {},
+                    "MaxRecords": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "resultWrapper": "DescribeNotificationConfigurationsResult",
+                "type": "structure",
+                "required": [
+                    "NotificationConfigurations"
+                ],
+                "members": {
+                    "NotificationConfigurations": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "AutoScalingGroupName": {},
+                                "TopicARN": {},
+                                "NotificationType": {}
+                            }
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "DescribePolicies": {
+            "input": {
+                "type": "structure",
+                "members": {
+                    "AutoScalingGroupName": {},
+                    "PolicyNames": {
+                        "type": "list",
+                        "member": {}
+                    },
+                    "PolicyTypes": {
+                        "type": "list",
+                        "member": {}
+                    },
+                    "NextToken": {},
+                    "MaxRecords": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "resultWrapper": "DescribePoliciesResult",
+                "type": "structure",
+                "members": {
+                    "ScalingPolicies": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "AutoScalingGroupName": {},
+                                "PolicyName": {},
+                                "PolicyARN": {},
+                                "PolicyType": {},
+                                "AdjustmentType": {},
+                                "MinAdjustmentStep": {
+                                    "shape": "S4s"
+                                },
+                                "MinAdjustmentMagnitude": {
+                                    "type": "integer"
+                                },
+                                "ScalingAdjustment": {
+                                    "type": "integer"
+                                },
+                                "Cooldown": {
+                                    "type": "integer"
+                                },
+                                "StepAdjustments": {
+                                    "shape": "S4v"
+                                },
+                                "MetricAggregationType": {},
+                                "EstimatedInstanceWarmup": {
+                                    "type": "integer"
+                                },
+                                "Alarms": {
+                                    "shape": "S4z"
+                                },
+                                "TargetTrackingConfiguration": {
+                                    "shape": "S51"
+                                },
+                                "Enabled": {
+                                    "type": "boolean"
+                                }
+                            }
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "DescribeScalingActivities": {
+            "input": {
+                "type": "structure",
+                "members": {
+                    "ActivityIds": {
+                        "type": "list",
+                        "member": {}
+                    },
+                    "AutoScalingGroupName": {},
+                    "IncludeDeletedGroups": {
+                        "type": "boolean"
+                    },
+                    "MaxRecords": {
+                        "type": "integer"
+                    },
+                    "NextToken": {}
+                }
+            },
+            "output": {
+                "resultWrapper": "DescribeScalingActivitiesResult",
+                "type": "structure",
+                "required": [
+                    "Activities"
+                ],
+                "members": {
+                    "Activities": {
+                        "shape": "S5j"
+                    },
+                    "NextToken": {}
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "DescribeScalingProcessTypes": {
+            "output": {
+                "resultWrapper": "DescribeScalingProcessTypesResult",
+                "type": "structure",
+                "members": {
+                    "Processes": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "ProcessName"
+                            ],
+                            "members": {
+                                "ProcessName": {}
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "DescribeScheduledActions": {
+            "input": {
+                "type": "structure",
+                "members": {
+                    "AutoScalingGroupName": {},
+                    "ScheduledActionNames": {
+                        "shape": "Sd"
+                    },
+                    "StartTime": {
+                        "type": "timestamp"
+                    },
+                    "EndTime": {
+                        "type": "timestamp"
+                    },
+                    "NextToken": {},
+                    "MaxRecords": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "resultWrapper": "DescribeScheduledActionsResult",
+                "type": "structure",
+                "members": {
+                    "ScheduledUpdateGroupActions": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "AutoScalingGroupName": {},
+                                "ScheduledActionName": {},
+                                "ScheduledActionARN": {},
+                                "Time": {
+                                    "type": "timestamp"
+                                },
+                                "StartTime": {
+                                    "type": "timestamp"
+                                },
+                                "EndTime": {
+                                    "type": "timestamp"
+                                },
+                                "Recurrence": {},
+                                "MinSize": {
+                                    "type": "integer"
+                                },
+                                "MaxSize": {
+                                    "type": "integer"
+                                },
+                                "DesiredCapacity": {
+                                    "type": "integer"
+                                }
+                            }
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "DescribeTags": {
+            "input": {
+                "type": "structure",
+                "members": {
+                    "Filters": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "Name": {},
+                                "Values": {
+                                    "type": "list",
+                                    "member": {}
+                                }
+                            }
+                        }
+                    },
+                    "NextToken": {},
+                    "MaxRecords": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "resultWrapper": "DescribeTagsResult",
+                "type": "structure",
+                "members": {
+                    "Tags": {
+                        "shape": "S3d"
+                    },
+                    "NextToken": {}
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "DescribeTerminationPolicyTypes": {
+            "output": {
+                "resultWrapper": "DescribeTerminationPolicyTypesResult",
+                "type": "structure",
+                "members": {
+                    "TerminationPolicyTypes": {
+                        "shape": "S1g"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "DetachInstances": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "AutoScalingGroupName",
+                    "ShouldDecrementDesiredCapacity"
+                ],
+                "members": {
+                    "InstanceIds": {
+                        "shape": "S2"
+                    },
+                    "AutoScalingGroupName": {},
+                    "ShouldDecrementDesiredCapacity": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "output": {
+                "resultWrapper": "DetachInstancesResult",
+                "type": "structure",
+                "members": {
+                    "Activities": {
+                        "shape": "S5j"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "DetachLoadBalancerTargetGroups": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "AutoScalingGroupName",
+                    "TargetGroupARNs"
+                ],
+                "members": {
+                    "AutoScalingGroupName": {},
+                    "TargetGroupARNs": {
+                        "shape": "S6"
+                    }
+                }
+            },
+            "output": {
+                "resultWrapper": "DetachLoadBalancerTargetGroupsResult",
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "DetachLoadBalancers": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "AutoScalingGroupName",
+                    "LoadBalancerNames"
+                ],
+                "members": {
+                    "AutoScalingGroupName": {},
+                    "LoadBalancerNames": {
+                        "shape": "Sa"
+                    }
+                }
+            },
+            "output": {
+                "resultWrapper": "DetachLoadBalancersResult",
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "DisableMetricsCollection": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "AutoScalingGroupName"
+                ],
+                "members": {
+                    "AutoScalingGroupName": {},
+                    "Metrics": {
+                        "shape": "S69"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "EnableMetricsCollection": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "AutoScalingGroupName",
+                    "Granularity"
+                ],
+                "members": {
+                    "AutoScalingGroupName": {},
+                    "Metrics": {
+                        "shape": "S69"
+                    },
+                    "Granularity": {}
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "EnterStandby": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "AutoScalingGroupName",
+                    "ShouldDecrementDesiredCapacity"
+                ],
+                "members": {
+                    "InstanceIds": {
+                        "shape": "S2"
+                    },
+                    "AutoScalingGroupName": {},
+                    "ShouldDecrementDesiredCapacity": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "output": {
+                "resultWrapper": "EnterStandbyResult",
+                "type": "structure",
+                "members": {
+                    "Activities": {
+                        "shape": "S5j"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "ExecutePolicy": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "PolicyName"
+                ],
+                "members": {
+                    "AutoScalingGroupName": {},
+                    "PolicyName": {},
+                    "HonorCooldown": {
+                        "type": "boolean"
+                    },
+                    "MetricValue": {
+                        "type": "double"
+                    },
+                    "BreachThreshold": {
+                        "type": "double"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "ExitStandby": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "AutoScalingGroupName"
+                ],
+                "members": {
+                    "InstanceIds": {
+                        "shape": "S2"
+                    },
+                    "AutoScalingGroupName": {}
+                }
+            },
+            "output": {
+                "resultWrapper": "ExitStandbyResult",
+                "type": "structure",
+                "members": {
+                    "Activities": {
+                        "shape": "S5j"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "PutLifecycleHook": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "LifecycleHookName",
+                    "AutoScalingGroupName"
+                ],
+                "members": {
+                    "LifecycleHookName": {},
+                    "AutoScalingGroupName": {},
+                    "LifecycleTransition": {},
+                    "RoleARN": {},
+                    "NotificationTargetARN": {},
+                    "NotificationMetadata": {},
+                    "HeartbeatTimeout": {
+                        "type": "integer"
+                    },
+                    "DefaultResult": {}
+                }
+            },
+            "output": {
+                "resultWrapper": "PutLifecycleHookResult",
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "PutNotificationConfiguration": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "AutoScalingGroupName",
+                    "TopicARN",
+                    "NotificationTypes"
+                ],
+                "members": {
+                    "AutoScalingGroupName": {},
+                    "TopicARN": {},
+                    "NotificationTypes": {
+                        "shape": "S3k"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "PutScalingPolicy": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "AutoScalingGroupName",
+                    "PolicyName"
+                ],
+                "members": {
+                    "AutoScalingGroupName": {},
+                    "PolicyName": {},
+                    "PolicyType": {},
+                    "AdjustmentType": {},
+                    "MinAdjustmentStep": {
+                        "shape": "S4s"
+                    },
+                    "MinAdjustmentMagnitude": {
+                        "type": "integer"
+                    },
+                    "ScalingAdjustment": {
+                        "type": "integer"
+                    },
+                    "Cooldown": {
+                        "type": "integer"
+                    },
+                    "MetricAggregationType": {},
+                    "StepAdjustments": {
+                        "shape": "S4v"
+                    },
+                    "EstimatedInstanceWarmup": {
+                        "type": "integer"
+                    },
+                    "TargetTrackingConfiguration": {
+                        "shape": "S51"
+                    },
+                    "Enabled": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "output": {
+                "resultWrapper": "PutScalingPolicyResult",
+                "type": "structure",
+                "members": {
+                    "PolicyARN": {},
+                    "Alarms": {
+                        "shape": "S4z"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "PutScheduledUpdateGroupAction": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "AutoScalingGroupName",
+                    "ScheduledActionName"
+                ],
+                "members": {
+                    "AutoScalingGroupName": {},
+                    "ScheduledActionName": {},
+                    "Time": {
+                        "type": "timestamp"
+                    },
+                    "StartTime": {
+                        "type": "timestamp"
+                    },
+                    "EndTime": {
+                        "type": "timestamp"
+                    },
+                    "Recurrence": {},
+                    "MinSize": {
+                        "type": "integer"
+                    },
+                    "MaxSize": {
+                        "type": "integer"
+                    },
+                    "DesiredCapacity": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "RecordLifecycleActionHeartbeat": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "LifecycleHookName",
+                    "AutoScalingGroupName"
+                ],
+                "members": {
+                    "LifecycleHookName": {},
+                    "AutoScalingGroupName": {},
+                    "LifecycleActionToken": {},
+                    "InstanceId": {}
+                }
+            },
+            "output": {
+                "resultWrapper": "RecordLifecycleActionHeartbeatResult",
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "ResumeProcesses": {
+            "input": {
+                "shape": "S6p"
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "SetDesiredCapacity": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "AutoScalingGroupName",
+                    "DesiredCapacity"
+                ],
+                "members": {
+                    "AutoScalingGroupName": {},
+                    "DesiredCapacity": {
+                        "type": "integer"
+                    },
+                    "HonorCooldown": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "SetInstanceHealth": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "InstanceId",
+                    "HealthStatus"
+                ],
+                "members": {
+                    "InstanceId": {},
+                    "HealthStatus": {},
+                    "ShouldRespectGracePeriod": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "SetInstanceProtection": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "InstanceIds",
+                    "AutoScalingGroupName",
+                    "ProtectedFromScaleIn"
+                ],
+                "members": {
+                    "InstanceIds": {
+                        "shape": "S2"
+                    },
+                    "AutoScalingGroupName": {},
+                    "ProtectedFromScaleIn": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "output": {
+                "resultWrapper": "SetInstanceProtectionResult",
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "StartInstanceRefresh": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "AutoScalingGroupName"
+                ],
+                "members": {
+                    "AutoScalingGroupName": {},
+                    "Strategy": {},
+                    "Preferences": {
+                        "type": "structure",
+                        "members": {
+                            "MinHealthyPercentage": {
+                                "type": "integer"
+                            },
+                            "InstanceWarmup": {
+                                "type": "integer"
+                            }
+                        }
+                    }
+                }
+            },
+            "output": {
+                "resultWrapper": "StartInstanceRefreshResult",
+                "type": "structure",
+                "members": {
+                    "InstanceRefreshId": {}
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "SuspendProcesses": {
+            "input": {
+                "shape": "S6p"
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "TerminateInstanceInAutoScalingGroup": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "InstanceId",
+                    "ShouldDecrementDesiredCapacity"
+                ],
+                "members": {
+                    "InstanceId": {},
+                    "ShouldDecrementDesiredCapacity": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "output": {
+                "resultWrapper": "TerminateInstanceInAutoScalingGroupResult",
+                "type": "structure",
+                "members": {
+                    "Activity": {
+                        "shape": "S5k"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "UpdateAutoScalingGroup": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "AutoScalingGroupName"
+                ],
+                "members": {
+                    "AutoScalingGroupName": {},
+                    "LaunchConfigurationName": {},
+                    "LaunchTemplate": {
+                        "shape": "S10"
+                    },
+                    "MixedInstancesPolicy": {
+                        "shape": "S12"
+                    },
+                    "MinSize": {
+                        "type": "integer"
+                    },
+                    "MaxSize": {
+                        "type": "integer"
+                    },
+                    "DesiredCapacity": {
+                        "type": "integer"
+                    },
+                    "DefaultCooldown": {
+                        "type": "integer"
+                    },
+                    "AvailabilityZones": {
+                        "shape": "S1d"
+                    },
+                    "HealthCheckType": {},
+                    "HealthCheckGracePeriod": {
+                        "type": "integer"
+                    },
+                    "PlacementGroup": {},
+                    "VPCZoneIdentifier": {},
+                    "TerminationPolicies": {
+                        "shape": "S1g"
+                    },
+                    "NewInstancesProtectedFromScaleIn": {
+                        "type": "boolean"
+                    },
+                    "ServiceLinkedRoleARN": {},
+                    "MaxInstanceLifetime": {
+                        "type": "integer"
+                    },
+                    "CapacityRebalance": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "DeleteWarmPool": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "AutoScalingGroupName"
+                ],
+                "members": {
+                    "AutoScalingGroupName": {},
+                    "ForceDelete": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "output": {
+                "resultWrapper": "DeleteWarmPoolResult",
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://iotwireless.us-east-1.prod.console.iot.aws.dev/static/js/iotwireless.js"
+            ]
+        },
+        "DescribeWarmPool": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "AutoScalingGroupName"
+                ],
+                "members": {
+                    "AutoScalingGroupName": {},
+                    "MaxRecords": {
+                        "type": "integer"
+                    },
+                    "NextToken": {}
+                }
+            },
+            "output": {
+                "resultWrapper": "DescribeWarmPoolResult",
+                "type": "structure",
+                "members": {
+                    "WarmPoolConfiguration": {
+                        "shape": "S3k"
+                    },
+                    "Instances": {
+                        "shape": "S3b"
+                    },
+                    "NextToken": {}
+                }
+            },
+            "download_location": [
+                "https://iotwireless.us-east-1.prod.console.iot.aws.dev/static/js/iotwireless.js"
+            ]
+        },
+        "GetPredictiveScalingForecast": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "AutoScalingGroupName",
+                    "PolicyName",
+                    "StartTime",
+                    "EndTime"
+                ],
+                "members": {
+                    "AutoScalingGroupName": {},
+                    "PolicyName": {},
+                    "StartTime": {
+                        "type": "timestamp"
+                    },
+                    "EndTime": {
+                        "type": "timestamp"
+                    }
+                }
+            },
+            "output": {
+                "resultWrapper": "GetPredictiveScalingForecastResult",
+                "type": "structure",
+                "required": [
+                    "LoadForecast",
+                    "CapacityForecast",
+                    "UpdateTime"
+                ],
+                "members": {
+                    "LoadForecast": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "Timestamps",
+                                "Values",
+                                "MetricSpecification"
+                            ],
+                            "members": {
+                                "Timestamps": {
+                                    "shape": "S7l"
+                                },
+                                "Values": {
+                                    "shape": "S7m"
+                                },
+                                "MetricSpecification": {
+                                    "shape": "S62"
+                                }
+                            }
+                        }
+                    },
+                    "CapacityForecast": {
+                        "type": "structure",
+                        "required": [
+                            "Timestamps",
+                            "Values"
+                        ],
+                        "members": {
+                            "Timestamps": {
+                                "shape": "S7l"
+                            },
+                            "Values": {
+                                "shape": "S7m"
+                            }
+                        }
+                    },
+                    "UpdateTime": {
+                        "type": "timestamp"
+                    }
+                }
+            },
+            "download_location": [
+                "https://iotwireless.us-east-1.prod.console.iot.aws.dev/static/js/iotwireless.js"
+            ]
+        },
+        "PutWarmPool": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "AutoScalingGroupName"
+                ],
+                "members": {
+                    "AutoScalingGroupName": {},
+                    "MaxGroupPreparedCapacity": {
+                        "type": "integer"
+                    },
+                    "MinSize": {
+                        "type": "integer"
+                    },
+                    "PoolState": {}
+                }
+            },
+            "output": {
+                "resultWrapper": "PutWarmPoolResult",
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://iotwireless.us-east-1.prod.console.iot.aws.dev/static/js/iotwireless.js"
+            ]
+        },
+        "AttachTrafficSources": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "AutoScalingGroupName",
+                    "TrafficSources"
+                ],
+                "members": {
+                    "AutoScalingGroupName": {},
+                    "TrafficSources": {
+                        "shape": "Sd"
+                    }
+                }
+            },
+            "output": {
+                "resultWrapper": "AttachTrafficSourcesResult",
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/CGJXZR6KWK4HWILROC6UQIRVDGVSAMSF7CRFEQR2WUZWSF2VPKDQ/vendors.js"
+            ]
+        },
+        "DescribeTrafficSources": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "AutoScalingGroupName",
+                    "TrafficSourceType"
+                ],
+                "members": {
+                    "AutoScalingGroupName": {},
+                    "TrafficSourceType": {},
+                    "NextToken": {},
+                    "MaxRecords": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "resultWrapper": "DescribeTrafficSourcesResult",
+                "type": "structure",
+                "members": {
+                    "TrafficSources": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "TrafficSource": {},
+                                "State": {}
+                            }
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/CGJXZR6KWK4HWILROC6UQIRVDGVSAMSF7CRFEQR2WUZWSF2VPKDQ/vendors.js"
+            ]
+        },
+        "DetachTrafficSources": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "AutoScalingGroupName",
+                    "TrafficSources"
+                ],
+                "members": {
+                    "AutoScalingGroupName": {},
+                    "TrafficSources": {
+                        "shape": "Sd"
+                    }
+                }
+            },
+            "output": {
+                "resultWrapper": "DetachTrafficSourcesResult",
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/CGJXZR6KWK4HWILROC6UQIRVDGVSAMSF7CRFEQR2WUZWSF2VPKDQ/vendors.js"
+            ]
+        },
+        "RollbackInstanceRefresh": {
+            "input": {
+                "type": "structure",
+                "members": {
+                    "AutoScalingGroupName": {}
+                }
+            },
+            "output": {
+                "resultWrapper": "RollbackInstanceRefreshResult",
+                "type": "structure",
+                "members": {
+                    "InstanceRefreshId": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/2UB33AZXWRI5CTHDBMBLEMI6D6X2ZUVC6NGEPJPXVWL2IBDCXF4Q/main.js"
+            ]
+        }
+    },
+    "shapes": {
+        "S2": {
+            "type": "list",
+            "member": {}
+        },
+        "S6": {
+            "type": "list",
+            "member": {}
+        },
+        "Sa": {
+            "type": "list",
+            "member": {}
+        },
+        "Sd": {
+            "type": "list",
+            "member": {}
+        },
+        "Sf": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "ScheduledActionName"
+                ],
+                "members": {
+                    "ScheduledActionName": {},
+                    "ErrorCode": {},
+                    "ErrorMessage": {}
+                }
+            }
+        },
+        "S10": {
+            "type": "structure",
+            "members": {
+                "LaunchTemplateId": {},
+                "LaunchTemplateName": {},
+                "Version": {}
+            }
+        },
+        "S12": {
+            "type": "structure",
+            "members": {
+                "LaunchTemplate": {
+                    "type": "structure",
+                    "members": {
+                        "LaunchTemplateSpecification": {
+                            "shape": "S10"
+                        },
+                        "Overrides": {
+                            "type": "list",
+                            "member": {
+                                "type": "structure",
+                                "members": {
+                                    "InstanceType": {},
+                                    "WeightedCapacity": {},
+                                    "LaunchTemplateSpecification": {
+                                        "shape": "S10"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "InstancesDistribution": {
+                    "type": "structure",
+                    "members": {
+                        "OnDemandAllocationStrategy": {},
+                        "OnDemandBaseCapacity": {
+                            "type": "integer"
+                        },
+                        "OnDemandPercentageAboveBaseCapacity": {
+                            "type": "integer"
+                        },
+                        "SpotAllocationStrategy": {},
+                        "SpotInstancePools": {
+                            "type": "integer"
+                        },
+                        "SpotMaxPrice": {}
+                    }
+                }
+            }
+        },
+        "S1d": {
+            "type": "list",
+            "member": {}
+        },
+        "S1g": {
+            "type": "list",
+            "member": {}
+        },
+        "S1q": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "Key"
+                ],
+                "members": {
+                    "ResourceId": {},
+                    "ResourceType": {},
+                    "Key": {},
+                    "Value": {},
+                    "PropagateAtLaunch": {
+                        "type": "boolean"
+                    }
+                }
+            }
+        },
+        "S1x": {
+            "type": "list",
+            "member": {}
+        },
+        "S1y": {
+            "type": "list",
+            "member": {}
+        },
+        "S20": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "DeviceName"
+                ],
+                "members": {
+                    "VirtualName": {},
+                    "DeviceName": {},
+                    "Ebs": {
+                        "type": "structure",
+                        "members": {
+                            "SnapshotId": {},
+                            "VolumeSize": {
+                                "type": "integer"
+                            },
+                            "VolumeType": {},
+                            "DeleteOnTermination": {
+                                "type": "boolean"
+                            },
+                            "Iops": {
+                                "type": "integer"
+                            },
+                            "Encrypted": {
+                                "type": "boolean"
+                            }
+                        }
+                    },
+                    "NoDevice": {
+                        "type": "boolean"
+                    }
+                }
+            }
+        },
+        "S29": {
+            "type": "structure",
+            "members": {
+                "Enabled": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "S2e": {
+            "type": "structure",
+            "members": {
+                "HttpTokens": {},
+                "HttpPutResponseHopLimit": {
+                    "type": "integer"
+                },
+                "HttpEndpoint": {}
+            }
+        },
+        "S31": {
+            "type": "list",
+            "member": {}
+        },
+        "S3d": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "ResourceId": {},
+                    "ResourceType": {},
+                    "Key": {},
+                    "Value": {},
+                    "PropagateAtLaunch": {
+                        "type": "boolean"
+                    }
+                }
+            }
+        },
+        "S3k": {
+            "type": "list",
+            "member": {}
+        },
+        "S4s": {
+            "type": "integer",
+            "deprecated": true
+        },
+        "S4v": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "ScalingAdjustment"
+                ],
+                "members": {
+                    "MetricIntervalLowerBound": {
+                        "type": "double"
+                    },
+                    "MetricIntervalUpperBound": {
+                        "type": "double"
+                    },
+                    "ScalingAdjustment": {
+                        "type": "integer"
+                    }
+                }
+            }
+        },
+        "S4z": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "AlarmName": {},
+                    "AlarmARN": {}
+                }
+            }
+        },
+        "S51": {
+            "type": "structure",
+            "required": [
+                "TargetValue"
+            ],
+            "members": {
+                "PredefinedMetricSpecification": {
+                    "type": "structure",
+                    "required": [
+                        "PredefinedMetricType"
+                    ],
+                    "members": {
+                        "PredefinedMetricType": {},
+                        "ResourceLabel": {}
+                    }
+                },
+                "CustomizedMetricSpecification": {
+                    "type": "structure",
+                    "required": [
+                        "MetricName",
+                        "Namespace",
+                        "Statistic"
+                    ],
+                    "members": {
+                        "MetricName": {},
+                        "Namespace": {},
+                        "Dimensions": {
+                            "type": "list",
+                            "member": {
+                                "type": "structure",
+                                "required": [
+                                    "Name",
+                                    "Value"
+                                ],
+                                "members": {
+                                    "Name": {},
+                                    "Value": {}
+                                }
+                            }
+                        },
+                        "Statistic": {},
+                        "Unit": {}
+                    }
+                },
+                "TargetValue": {
+                    "type": "double"
+                },
+                "DisableScaleIn": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "S5j": {
+            "type": "list",
+            "member": {
+                "shape": "S5k"
+            }
+        },
+        "S5k": {
+            "type": "structure",
+            "required": [
+                "ActivityId",
+                "AutoScalingGroupName",
+                "Cause",
+                "StartTime",
+                "StatusCode"
+            ],
+            "members": {
+                "ActivityId": {},
+                "AutoScalingGroupName": {},
+                "Description": {},
+                "Cause": {},
+                "StartTime": {
+                    "type": "timestamp"
+                },
+                "EndTime": {
+                    "type": "timestamp"
+                },
+                "StatusCode": {},
+                "StatusMessage": {},
+                "Progress": {
+                    "type": "integer"
+                },
+                "Details": {},
+                "AutoScalingGroupState": {},
+                "AutoScalingGroupARN": {}
+            }
+        },
+        "S69": {
+            "type": "list",
+            "member": {}
+        },
+        "S6p": {
+            "type": "structure",
+            "required": [
+                "AutoScalingGroupName"
+            ],
+            "members": {
+                "AutoScalingGroupName": {},
+                "ScalingProcesses": {
+                    "type": "list",
+                    "member": {}
+                }
+            }
+        },
+        "Se": {
+            "type": "list",
+            "member": {}
+        },
+        "Sg": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "ScheduledActionName"
+                ],
+                "members": {
+                    "ScheduledActionName": {},
+                    "ErrorCode": {},
+                    "ErrorMessage": {}
+                }
+            }
+        },
+        "Sy": {
+            "type": "structure",
+            "members": {
+                "LaunchTemplateId": {},
+                "LaunchTemplateName": {},
+                "Version": {}
+            }
+        },
+        "S1b": {
+            "type": "list",
+            "member": {}
+        },
+        "S1e": {
+            "type": "list",
+            "member": {}
+        },
+        "S1n": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "Key"
+                ],
+                "members": {
+                    "ResourceId": {},
+                    "ResourceType": {},
+                    "Key": {},
+                    "Value": {},
+                    "PropagateAtLaunch": {
+                        "type": "boolean"
+                    }
+                }
+            }
+        },
+        "S1u": {
+            "type": "list",
+            "member": {}
+        },
+        "S1v": {
+            "type": "list",
+            "member": {}
+        },
+        "S26": {
+            "type": "structure",
+            "members": {
+                "Enabled": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "S2u": {
+            "type": "list",
+            "member": {}
+        },
+        "S36": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "ResourceId": {},
+                    "ResourceType": {},
+                    "Key": {},
+                    "Value": {},
+                    "PropagateAtLaunch": {
+                        "type": "boolean"
+                    }
+                }
+            }
+        },
+        "S4d": {
+            "type": "integer",
+            "deprecated": true
+        },
+        "S4g": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "ScalingAdjustment"
+                ],
+                "members": {
+                    "MetricIntervalLowerBound": {
+                        "type": "double"
+                    },
+                    "MetricIntervalUpperBound": {
+                        "type": "double"
+                    },
+                    "ScalingAdjustment": {
+                        "type": "integer"
+                    }
+                }
+            }
+        },
+        "S4k": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "AlarmName": {},
+                    "AlarmARN": {}
+                }
+            }
+        },
+        "S4m": {
+            "type": "structure",
+            "required": [
+                "TargetValue"
+            ],
+            "members": {
+                "PredefinedMetricSpecification": {
+                    "type": "structure",
+                    "required": [
+                        "PredefinedMetricType"
+                    ],
+                    "members": {
+                        "PredefinedMetricType": {},
+                        "ResourceLabel": {}
+                    }
+                },
+                "CustomizedMetricSpecification": {
+                    "type": "structure",
+                    "required": [
+                        "MetricName",
+                        "Namespace",
+                        "Statistic"
+                    ],
+                    "members": {
+                        "MetricName": {},
+                        "Namespace": {},
+                        "Dimensions": {
+                            "type": "list",
+                            "member": {
+                                "type": "structure",
+                                "required": [
+                                    "Name",
+                                    "Value"
+                                ],
+                                "members": {
+                                    "Name": {},
+                                    "Value": {}
+                                }
+                            }
+                        },
+                        "Statistic": {},
+                        "Unit": {}
+                    }
+                },
+                "TargetValue": {
+                    "type": "double"
+                },
+                "DisableScaleIn": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "S53": {
+            "type": "list",
+            "member": {
+                "shape": "S54"
+            }
+        },
+        "S54": {
+            "type": "structure",
+            "required": [
+                "ActivityId",
+                "AutoScalingGroupName",
+                "Cause",
+                "StartTime",
+                "StatusCode"
+            ],
+            "members": {
+                "ActivityId": {},
+                "AutoScalingGroupName": {},
+                "Description": {},
+                "Cause": {},
+                "StartTime": {
+                    "type": "timestamp"
+                },
+                "EndTime": {
+                    "type": "timestamp"
+                },
+                "StatusCode": {},
+                "StatusMessage": {},
+                "Progress": {
+                    "type": "integer"
+                },
+                "Details": {}
+            }
+        },
+        "S5s": {
+            "type": "list",
+            "member": {}
+        },
+        "S68": {
+            "type": "structure",
+            "required": [
+                "AutoScalingGroupName"
+            ],
+            "members": {
+                "AutoScalingGroupName": {},
+                "ScalingProcesses": {
+                    "type": "list",
+                    "member": {}
+                }
+            }
+        },
+        "S1z": {
+            "type": "list",
+            "member": {}
+        },
+        "S21": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "DeviceName"
+                ],
+                "members": {
+                    "VirtualName": {},
+                    "DeviceName": {},
+                    "Ebs": {
+                        "type": "structure",
+                        "members": {
+                            "SnapshotId": {},
+                            "VolumeSize": {
+                                "type": "integer"
+                            },
+                            "VolumeType": {},
+                            "DeleteOnTermination": {
+                                "type": "boolean"
+                            },
+                            "Iops": {
+                                "type": "integer"
+                            },
+                            "Encrypted": {
+                                "type": "boolean"
+                            },
+                            "Throughput": {
+                                "type": "integer"
+                            }
+                        }
+                    },
+                    "NoDevice": {
+                        "type": "boolean"
+                    }
+                }
+            }
+        },
+        "S2b": {
+            "type": "structure",
+            "members": {
+                "Enabled": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "S2g": {
+            "type": "structure",
+            "members": {
+                "HttpTokens": {},
+                "HttpPutResponseHopLimit": {
+                    "type": "integer"
+                },
+                "HttpEndpoint": {}
+            }
+        },
+        "S35": {
+            "type": "list",
+            "member": {}
+        },
+        "S3b": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "InstanceId",
+                    "AvailabilityZone",
+                    "LifecycleState",
+                    "HealthStatus",
+                    "ProtectedFromScaleIn"
+                ],
+                "members": {
+                    "InstanceId": {},
+                    "InstanceType": {},
+                    "AvailabilityZone": {},
+                    "LifecycleState": {},
+                    "HealthStatus": {},
+                    "LaunchConfigurationName": {},
+                    "LaunchTemplate": {
+                        "shape": "S10"
+                    },
+                    "ProtectedFromScaleIn": {
+                        "type": "boolean"
+                    },
+                    "WeightedCapacity": {}
+                }
+            }
+        },
+        "S3i": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "ResourceId": {},
+                    "ResourceType": {},
+                    "Key": {},
+                    "Value": {},
+                    "PropagateAtLaunch": {
+                        "type": "boolean"
+                    }
+                }
+            }
+        },
+        "S3v": {
+            "type": "list",
+            "member": {}
+        },
+        "S47": {
+            "type": "structure",
+            "members": {
+                "MinHealthyPercentage": {
+                    "type": "integer"
+                },
+                "InstanceWarmup": {
+                    "type": "integer"
+                },
+                "CheckpointPercentages": {
+                    "type": "list",
+                    "member": {
+                        "type": "integer"
+                    }
+                },
+                "CheckpointDelay": {
+                    "type": "integer"
+                },
+                "SkipMatching": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "S5d": {
+            "type": "integer",
+            "deprecated": true
+        },
+        "S5g": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "ScalingAdjustment"
+                ],
+                "members": {
+                    "MetricIntervalLowerBound": {
+                        "type": "double"
+                    },
+                    "MetricIntervalUpperBound": {
+                        "type": "double"
+                    },
+                    "ScalingAdjustment": {
+                        "type": "integer"
+                    }
+                }
+            }
+        },
+        "S5m": {
+            "type": "structure",
+            "required": [
+                "TargetValue"
+            ],
+            "members": {
+                "PredefinedMetricSpecification": {
+                    "type": "structure",
+                    "required": [
+                        "PredefinedMetricType"
+                    ],
+                    "members": {
+                        "PredefinedMetricType": {},
+                        "ResourceLabel": {}
+                    }
+                },
+                "CustomizedMetricSpecification": {
+                    "type": "structure",
+                    "required": [
+                        "MetricName",
+                        "Namespace",
+                        "Statistic"
+                    ],
+                    "members": {
+                        "MetricName": {},
+                        "Namespace": {},
+                        "Dimensions": {
+                            "type": "list",
+                            "member": {
+                                "type": "structure",
+                                "required": [
+                                    "Name",
+                                    "Value"
+                                ],
+                                "members": {
+                                    "Name": {},
+                                    "Value": {}
+                                }
+                            }
+                        },
+                        "Statistic": {},
+                        "Unit": {}
+                    }
+                },
+                "TargetValue": {
+                    "type": "double"
+                },
+                "DisableScaleIn": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "S60": {
+            "type": "structure",
+            "required": [
+                "MetricSpecifications"
+            ],
+            "members": {
+                "MetricSpecifications": {
+                    "type": "list",
+                    "member": {
+                        "shape": "S62"
+                    }
+                },
+                "Mode": {},
+                "SchedulingBufferTime": {
+                    "type": "integer"
+                },
+                "MaxCapacityBreachBehavior": {},
+                "MaxCapacityBuffer": {
+                    "type": "integer"
+                }
+            }
+        },
+        "S62": {
+            "type": "structure",
+            "required": [
+                "TargetValue"
+            ],
+            "members": {
+                "TargetValue": {
+                    "type": "double"
+                },
+                "PredefinedMetricPairSpecification": {
+                    "type": "structure",
+                    "required": [
+                        "PredefinedMetricType"
+                    ],
+                    "members": {
+                        "PredefinedMetricType": {},
+                        "ResourceLabel": {}
+                    }
+                },
+                "PredefinedScalingMetricSpecification": {
+                    "type": "structure",
+                    "required": [
+                        "PredefinedMetricType"
+                    ],
+                    "members": {
+                        "PredefinedMetricType": {},
+                        "ResourceLabel": {}
+                    }
+                },
+                "PredefinedLoadMetricSpecification": {
+                    "type": "structure",
+                    "required": [
+                        "PredefinedMetricType"
+                    ],
+                    "members": {
+                        "PredefinedMetricType": {},
+                        "ResourceLabel": {}
+                    }
+                }
+            }
+        },
+        "S6h": {
+            "type": "list",
+            "member": {
+                "shape": "S6i"
+            }
+        },
+        "S6i": {
+            "type": "structure",
+            "required": [
+                "ActivityId",
+                "AutoScalingGroupName",
+                "Cause",
+                "StartTime",
+                "StatusCode"
+            ],
+            "members": {
+                "ActivityId": {},
+                "AutoScalingGroupName": {},
+                "Description": {},
+                "Cause": {},
+                "StartTime": {
+                    "type": "timestamp"
+                },
+                "EndTime": {
+                    "type": "timestamp"
+                },
+                "StatusCode": {},
+                "StatusMessage": {},
+                "Progress": {
+                    "type": "integer"
+                },
+                "Details": {},
+                "AutoScalingGroupState": {},
+                "AutoScalingGroupARN": {}
+            }
+        },
+        "S79": {
+            "type": "list",
+            "member": {}
+        },
+        "S7l": {
+            "type": "list",
+            "member": {
+                "type": "timestamp"
+            }
+        },
+        "S7m": {
+            "type": "list",
+            "member": {
+                "type": "double"
+            }
+        },
+        "S7y": {
+            "type": "structure",
+            "required": [
+                "AutoScalingGroupName"
+            ],
+            "members": {
+                "AutoScalingGroupName": {},
+                "ScalingProcesses": {
+                    "type": "list",
+                    "member": {}
+                }
+            }
+        },
+        "S2c": {
+            "type": "list",
+            "member": {}
+        },
+        "S2m": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "Key"
+                ],
+                "members": {
+                    "ResourceId": {},
+                    "ResourceType": {},
+                    "Key": {},
+                    "Value": {},
+                    "PropagateAtLaunch": {
+                        "type": "boolean"
+                    }
+                }
+            }
+        },
+        "S2v": {
+            "type": "list",
+            "member": {}
+        },
+        "S2w": {
+            "type": "list",
+            "member": {}
+        },
+        "S2y": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "DeviceName"
+                ],
+                "members": {
+                    "VirtualName": {},
+                    "DeviceName": {},
+                    "Ebs": {
+                        "type": "structure",
+                        "members": {
+                            "SnapshotId": {},
+                            "VolumeSize": {
+                                "type": "integer"
+                            },
+                            "VolumeType": {},
+                            "DeleteOnTermination": {
+                                "type": "boolean"
+                            },
+                            "Iops": {
+                                "type": "integer"
+                            },
+                            "Encrypted": {
+                                "type": "boolean"
+                            },
+                            "Throughput": {
+                                "type": "integer"
+                            }
+                        }
+                    },
+                    "NoDevice": {
+                        "type": "boolean"
+                    }
+                }
+            }
+        },
+        "S38": {
+            "type": "structure",
+            "members": {
+                "Enabled": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "S42": {
+            "type": "list",
+            "member": {}
+        },
+        "S44": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "Name": {},
+                    "Values": {
+                        "type": "list",
+                        "member": {}
+                    }
+                }
+            }
+        },
+        "S4b": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "InstanceId",
+                    "AvailabilityZone",
+                    "LifecycleState",
+                    "HealthStatus",
+                    "ProtectedFromScaleIn"
+                ],
+                "members": {
+                    "InstanceId": {},
+                    "InstanceType": {},
+                    "AvailabilityZone": {},
+                    "LifecycleState": {},
+                    "HealthStatus": {},
+                    "LaunchConfigurationName": {},
+                    "LaunchTemplate": {
+                        "shape": "S10"
+                    },
+                    "ProtectedFromScaleIn": {
+                        "type": "boolean"
+                    },
+                    "WeightedCapacity": {}
+                }
+            }
+        },
+        "S4i": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "ResourceId": {},
+                    "ResourceType": {},
+                    "Key": {},
+                    "Value": {},
+                    "PropagateAtLaunch": {
+                        "type": "boolean"
+                    }
+                }
+            }
+        },
+        "S4p": {
+            "type": "structure",
+            "members": {
+                "ReuseOnScaleIn": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "S4x": {
+            "type": "list",
+            "member": {}
+        },
+        "S59": {
+            "type": "structure",
+            "members": {
+                "MinHealthyPercentage": {
+                    "type": "integer"
+                },
+                "InstanceWarmup": {
+                    "type": "integer"
+                },
+                "CheckpointPercentages": {
+                    "type": "list",
+                    "member": {
+                        "type": "integer"
+                    }
+                },
+                "CheckpointDelay": {
+                    "type": "integer"
+                },
+                "SkipMatching": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "S5f": {
+            "type": "structure",
+            "members": {
+                "LaunchTemplate": {
+                    "shape": "S10"
+                },
+                "MixedInstancesPolicy": {
+                    "shape": "S12"
+                }
+            }
+        },
+        "S6f": {
+            "type": "integer",
+            "deprecated": true
+        },
+        "S6m": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "AlarmName": {},
+                    "AlarmARN": {}
+                }
+            }
+        },
+        "S6o": {
+            "type": "structure",
+            "required": [
+                "TargetValue"
+            ],
+            "members": {
+                "PredefinedMetricSpecification": {
+                    "type": "structure",
+                    "required": [
+                        "PredefinedMetricType"
+                    ],
+                    "members": {
+                        "PredefinedMetricType": {},
+                        "ResourceLabel": {}
+                    }
+                },
+                "CustomizedMetricSpecification": {
+                    "type": "structure",
+                    "required": [
+                        "MetricName",
+                        "Namespace",
+                        "Statistic"
+                    ],
+                    "members": {
+                        "MetricName": {},
+                        "Namespace": {},
+                        "Dimensions": {
+                            "shape": "S6u"
+                        },
+                        "Statistic": {},
+                        "Unit": {}
+                    }
+                },
+                "TargetValue": {
+                    "type": "double"
+                },
+                "DisableScaleIn": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "S6u": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "Name",
+                    "Value"
+                ],
+                "members": {
+                    "Name": {},
+                    "Value": {}
+                }
+            }
+        },
+        "S72": {
+            "type": "structure",
+            "required": [
+                "MetricSpecifications"
+            ],
+            "members": {
+                "MetricSpecifications": {
+                    "type": "list",
+                    "member": {
+                        "shape": "S74"
+                    }
+                },
+                "Mode": {},
+                "SchedulingBufferTime": {
+                    "type": "integer"
+                },
+                "MaxCapacityBreachBehavior": {},
+                "MaxCapacityBuffer": {
+                    "type": "integer"
+                }
+            }
+        },
+        "S74": {
+            "type": "structure",
+            "required": [
+                "TargetValue"
+            ],
+            "members": {
+                "TargetValue": {
+                    "type": "double"
+                },
+                "PredefinedMetricPairSpecification": {
+                    "type": "structure",
+                    "required": [
+                        "PredefinedMetricType"
+                    ],
+                    "members": {
+                        "PredefinedMetricType": {},
+                        "ResourceLabel": {}
+                    }
+                },
+                "PredefinedScalingMetricSpecification": {
+                    "type": "structure",
+                    "required": [
+                        "PredefinedMetricType"
+                    ],
+                    "members": {
+                        "PredefinedMetricType": {},
+                        "ResourceLabel": {}
+                    }
+                },
+                "PredefinedLoadMetricSpecification": {
+                    "type": "structure",
+                    "required": [
+                        "PredefinedMetricType"
+                    ],
+                    "members": {
+                        "PredefinedMetricType": {},
+                        "ResourceLabel": {}
+                    }
+                },
+                "CustomizedScalingMetricSpecification": {
+                    "type": "structure",
+                    "required": [
+                        "MetricDataQueries"
+                    ],
+                    "members": {
+                        "MetricDataQueries": {
+                            "shape": "S7c"
+                        }
+                    }
+                },
+                "CustomizedLoadMetricSpecification": {
+                    "type": "structure",
+                    "required": [
+                        "MetricDataQueries"
+                    ],
+                    "members": {
+                        "MetricDataQueries": {
+                            "shape": "S7c"
+                        }
+                    }
+                },
+                "CustomizedCapacityMetricSpecification": {
+                    "type": "structure",
+                    "required": [
+                        "MetricDataQueries"
+                    ],
+                    "members": {
+                        "MetricDataQueries": {
+                            "shape": "S7c"
+                        }
+                    }
+                }
+            }
+        },
+        "S7c": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "Id"
+                ],
+                "members": {
+                    "Id": {},
+                    "Expression": {},
+                    "MetricStat": {
+                        "type": "structure",
+                        "required": [
+                            "Metric",
+                            "Stat"
+                        ],
+                        "members": {
+                            "Metric": {
+                                "type": "structure",
+                                "required": [
+                                    "Namespace",
+                                    "MetricName"
+                                ],
+                                "members": {
+                                    "Namespace": {},
+                                    "MetricName": {},
+                                    "Dimensions": {
+                                        "shape": "S6u"
+                                    }
+                                }
+                            },
+                            "Stat": {},
+                            "Unit": {}
+                        }
+                    },
+                    "Label": {},
+                    "ReturnData": {
+                        "type": "boolean"
+                    }
+                }
+            }
+        },
+        "S7t": {
+            "type": "list",
+            "member": {
+                "shape": "S7u"
+            }
+        },
+        "S7u": {
+            "type": "structure",
+            "required": [
+                "ActivityId",
+                "AutoScalingGroupName",
+                "Cause",
+                "StartTime",
+                "StatusCode"
+            ],
+            "members": {
+                "ActivityId": {},
+                "AutoScalingGroupName": {},
+                "Description": {},
+                "Cause": {},
+                "StartTime": {
+                    "type": "timestamp"
+                },
+                "EndTime": {
+                    "type": "timestamp"
+                },
+                "StatusCode": {},
+                "StatusMessage": {},
+                "Progress": {
+                    "type": "integer"
+                },
+                "Details": {},
+                "AutoScalingGroupState": {},
+                "AutoScalingGroupARN": {}
+            }
+        },
+        "S8i": {
+            "type": "list",
+            "member": {}
+        },
+        "S8u": {
+            "type": "list",
+            "member": {
+                "type": "timestamp"
+            }
+        },
+        "S8v": {
+            "type": "list",
+            "member": {
+                "type": "double"
+            }
+        },
+        "S97": {
+            "type": "structure",
+            "required": [
+                "AutoScalingGroupName"
+            ],
+            "members": {
+                "AutoScalingGroupName": {},
+                "ScalingProcesses": {
+                    "type": "list",
+                    "member": {}
+                }
+            }
+        },
+        "S56": {
+            "type": "integer",
+            "deprecated": true
+        },
+        "S5t": {
+            "type": "structure",
+            "required": [
+                "MetricSpecifications"
+            ],
+            "members": {
+                "MetricSpecifications": {
+                    "type": "list",
+                    "member": {
+                        "shape": "S5v"
+                    }
+                },
+                "Mode": {},
+                "SchedulingBufferTime": {
+                    "type": "integer"
+                },
+                "MaxCapacityBreachBehavior": {},
+                "MaxCapacityBuffer": {
+                    "type": "integer"
+                }
+            }
+        },
+        "S5v": {
+            "type": "structure",
+            "required": [
+                "TargetValue"
+            ],
+            "members": {
+                "TargetValue": {
+                    "type": "double"
+                },
+                "PredefinedMetricPairSpecification": {
+                    "type": "structure",
+                    "required": [
+                        "PredefinedMetricType"
+                    ],
+                    "members": {
+                        "PredefinedMetricType": {},
+                        "ResourceLabel": {}
+                    }
+                },
+                "PredefinedScalingMetricSpecification": {
+                    "type": "structure",
+                    "required": [
+                        "PredefinedMetricType"
+                    ],
+                    "members": {
+                        "PredefinedMetricType": {},
+                        "ResourceLabel": {}
+                    }
+                },
+                "PredefinedLoadMetricSpecification": {
+                    "type": "structure",
+                    "required": [
+                        "PredefinedMetricType"
+                    ],
+                    "members": {
+                        "PredefinedMetricType": {},
+                        "ResourceLabel": {}
+                    }
+                }
+            }
+        },
+        "S6a": {
+            "type": "list",
+            "member": {
+                "shape": "S6b"
+            }
+        },
+        "S6b": {
+            "type": "structure",
+            "required": [
+                "ActivityId",
+                "AutoScalingGroupName",
+                "Cause",
+                "StartTime",
+                "StatusCode"
+            ],
+            "members": {
+                "ActivityId": {},
+                "AutoScalingGroupName": {},
+                "Description": {},
+                "Cause": {},
+                "StartTime": {
+                    "type": "timestamp"
+                },
+                "EndTime": {
+                    "type": "timestamp"
+                },
+                "StatusCode": {},
+                "StatusMessage": {},
+                "Progress": {
+                    "type": "integer"
+                },
+                "Details": {},
+                "AutoScalingGroupState": {},
+                "AutoScalingGroupARN": {}
+            }
+        },
+        "S7e": {
+            "type": "list",
+            "member": {
+                "type": "timestamp"
+            }
+        },
+        "S7f": {
+            "type": "list",
+            "member": {
+                "type": "double"
+            }
+        },
+        "S7r": {
+            "type": "structure",
+            "required": [
+                "AutoScalingGroupName"
+            ],
+            "members": {
+                "AutoScalingGroupName": {},
+                "ScalingProcesses": {
+                    "type": "list",
+                    "member": {}
+                }
+            }
+        },
+        "Sh": {
+            "type": "list",
+            "member": {}
+        },
+        "Sj": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "ScheduledActionName"
+                ],
+                "members": {
+                    "ScheduledActionName": {},
+                    "ErrorCode": {},
+                    "ErrorMessage": {}
+                }
+            }
+        },
+        "S14": {
+            "type": "structure",
+            "members": {
+                "LaunchTemplateId": {},
+                "LaunchTemplateName": {},
+                "Version": {}
+            }
+        },
+        "S16": {
+            "type": "structure",
+            "members": {
+                "LaunchTemplate": {
+                    "type": "structure",
+                    "members": {
+                        "LaunchTemplateSpecification": {
+                            "shape": "S14"
+                        },
+                        "Overrides": {
+                            "type": "list",
+                            "member": {
+                                "type": "structure",
+                                "members": {
+                                    "InstanceType": {},
+                                    "WeightedCapacity": {},
+                                    "LaunchTemplateSpecification": {
+                                        "shape": "S14"
+                                    },
+                                    "InstanceRequirements": {
+                                        "type": "structure",
+                                        "required": [
+                                            "VCpuCount",
+                                            "MemoryMiB"
+                                        ],
+                                        "members": {
+                                            "VCpuCount": {
+                                                "type": "structure",
+                                                "required": [
+                                                    "Min"
+                                                ],
+                                                "members": {
+                                                    "Min": {
+                                                        "type": "integer"
+                                                    },
+                                                    "Max": {
+                                                        "type": "integer"
+                                                    }
+                                                }
+                                            },
+                                            "MemoryMiB": {
+                                                "type": "structure",
+                                                "required": [
+                                                    "Min"
+                                                ],
+                                                "members": {
+                                                    "Min": {
+                                                        "type": "integer"
+                                                    },
+                                                    "Max": {
+                                                        "type": "integer"
+                                                    }
+                                                }
+                                            },
+                                            "CpuManufacturers": {
+                                                "type": "list",
+                                                "member": {}
+                                            },
+                                            "MemoryGiBPerVCpu": {
+                                                "type": "structure",
+                                                "members": {
+                                                    "Min": {
+                                                        "type": "double"
+                                                    },
+                                                    "Max": {
+                                                        "type": "double"
+                                                    }
+                                                }
+                                            },
+                                            "ExcludedInstanceTypes": {
+                                                "type": "list",
+                                                "member": {}
+                                            },
+                                            "InstanceGenerations": {
+                                                "type": "list",
+                                                "member": {}
+                                            },
+                                            "SpotMaxPricePercentageOverLowestPrice": {
+                                                "type": "integer"
+                                            },
+                                            "OnDemandMaxPricePercentageOverLowestPrice": {
+                                                "type": "integer"
+                                            },
+                                            "BareMetal": {},
+                                            "BurstablePerformance": {},
+                                            "RequireHibernateSupport": {
+                                                "type": "boolean"
+                                            },
+                                            "NetworkInterfaceCount": {
+                                                "type": "structure",
+                                                "members": {
+                                                    "Min": {
+                                                        "type": "integer"
+                                                    },
+                                                    "Max": {
+                                                        "type": "integer"
+                                                    }
+                                                }
+                                            },
+                                            "LocalStorage": {},
+                                            "LocalStorageTypes": {
+                                                "type": "list",
+                                                "member": {}
+                                            },
+                                            "TotalLocalStorageGB": {
+                                                "type": "structure",
+                                                "members": {
+                                                    "Min": {
+                                                        "type": "double"
+                                                    },
+                                                    "Max": {
+                                                        "type": "double"
+                                                    }
+                                                }
+                                            },
+                                            "BaselineEbsBandwidthMbps": {
+                                                "type": "structure",
+                                                "members": {
+                                                    "Min": {
+                                                        "type": "integer"
+                                                    },
+                                                    "Max": {
+                                                        "type": "integer"
+                                                    }
+                                                }
+                                            },
+                                            "AcceleratorTypes": {
+                                                "type": "list",
+                                                "member": {}
+                                            },
+                                            "AcceleratorCount": {
+                                                "type": "structure",
+                                                "members": {
+                                                    "Min": {
+                                                        "type": "integer"
+                                                    },
+                                                    "Max": {
+                                                        "type": "integer"
+                                                    }
+                                                }
+                                            },
+                                            "AcceleratorManufacturers": {
+                                                "type": "list",
+                                                "member": {}
+                                            },
+                                            "AcceleratorNames": {
+                                                "type": "list",
+                                                "member": {}
+                                            },
+                                            "AcceleratorTotalMemoryMiB": {
+                                                "type": "structure",
+                                                "members": {
+                                                    "Min": {
+                                                        "type": "integer"
+                                                    },
+                                                    "Max": {
+                                                        "type": "integer"
+                                                    }
+                                                }
+                                            },
+                                            "NetworkBandwidthGbps": {
+                                                "type": "structure",
+                                                "members": {
+                                                    "Min": {
+                                                        "type": "double"
+                                                    },
+                                                    "Max": {
+                                                        "type": "double"
+                                                    }
+                                                }
+                                            },
+                                            "AllowedInstanceTypes": {
+                                                "type": "list",
+                                                "member": {}
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "InstancesDistribution": {
+                    "type": "structure",
+                    "members": {
+                        "OnDemandAllocationStrategy": {},
+                        "OnDemandBaseCapacity": {
+                            "type": "integer"
+                        },
+                        "OnDemandPercentageAboveBaseCapacity": {
+                            "type": "integer"
+                        },
+                        "SpotAllocationStrategy": {},
+                        "SpotInstancePools": {
+                            "type": "integer"
+                        },
+                        "SpotMaxPrice": {}
+                    }
+                }
+            }
+        },
+        "S2d": {
+            "type": "list",
+            "member": {}
+        },
+        "S2q": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "Key"
+                ],
+                "members": {
+                    "ResourceId": {},
+                    "ResourceType": {},
+                    "Key": {},
+                    "Value": {},
+                    "PropagateAtLaunch": {
+                        "type": "boolean"
+                    }
+                }
+            }
+        },
+        "S2z": {
+            "type": "list",
+            "member": {}
+        },
+        "S30": {
+            "type": "list",
+            "member": {}
+        },
+        "S32": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "DeviceName"
+                ],
+                "members": {
+                    "VirtualName": {},
+                    "DeviceName": {},
+                    "Ebs": {
+                        "type": "structure",
+                        "members": {
+                            "SnapshotId": {},
+                            "VolumeSize": {
+                                "type": "integer"
+                            },
+                            "VolumeType": {},
+                            "DeleteOnTermination": {
+                                "type": "boolean"
+                            },
+                            "Iops": {
+                                "type": "integer"
+                            },
+                            "Encrypted": {
+                                "type": "boolean"
+                            },
+                            "Throughput": {
+                                "type": "integer"
+                            }
+                        }
+                    },
+                    "NoDevice": {
+                        "type": "boolean"
+                    }
+                }
+            }
+        },
+        "S3c": {
+            "type": "structure",
+            "members": {
+                "Enabled": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "S3h": {
+            "type": "structure",
+            "members": {
+                "HttpTokens": {},
+                "HttpPutResponseHopLimit": {
+                    "type": "integer"
+                },
+                "HttpEndpoint": {}
+            }
+        },
+        "S46": {
+            "type": "list",
+            "member": {}
+        },
+        "S48": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "Name": {},
+                    "Values": {
+                        "type": "list",
+                        "member": {}
+                    }
+                }
+            }
+        },
+        "S4f": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "InstanceId",
+                    "AvailabilityZone",
+                    "LifecycleState",
+                    "HealthStatus",
+                    "ProtectedFromScaleIn"
+                ],
+                "members": {
+                    "InstanceId": {},
+                    "InstanceType": {},
+                    "AvailabilityZone": {},
+                    "LifecycleState": {},
+                    "HealthStatus": {},
+                    "LaunchConfigurationName": {},
+                    "LaunchTemplate": {
+                        "shape": "S14"
+                    },
+                    "ProtectedFromScaleIn": {
+                        "type": "boolean"
+                    },
+                    "WeightedCapacity": {}
+                }
+            }
+        },
+        "S4o": {
+            "type": "structure",
+            "members": {
+                "MaxGroupPreparedCapacity": {
+                    "type": "integer"
+                },
+                "MinSize": {
+                    "type": "integer"
+                },
+                "PoolState": {},
+                "Status": {},
+                "InstanceReusePolicy": {
+                    "shape": "S4t"
+                }
+            }
+        },
+        "S4t": {
+            "type": "structure",
+            "members": {
+                "ReuseOnScaleIn": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "S6j": {
+            "type": "integer",
+            "deprecated": true
+        },
+        "S6q": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "AlarmName": {},
+                    "AlarmARN": {}
+                }
+            }
+        },
+        "S6s": {
+            "type": "structure",
+            "required": [
+                "TargetValue"
+            ],
+            "members": {
+                "PredefinedMetricSpecification": {
+                    "type": "structure",
+                    "required": [
+                        "PredefinedMetricType"
+                    ],
+                    "members": {
+                        "PredefinedMetricType": {},
+                        "ResourceLabel": {}
+                    }
+                },
+                "CustomizedMetricSpecification": {
+                    "type": "structure",
+                    "members": {
+                        "MetricName": {},
+                        "Namespace": {},
+                        "Dimensions": {
+                            "shape": "S6y"
+                        },
+                        "Statistic": {},
+                        "Unit": {},
+                        "Metrics": {
+                            "type": "list",
+                            "member": {
+                                "type": "structure",
+                                "required": [
+                                    "Id"
+                                ],
+                                "members": {
+                                    "Id": {},
+                                    "Expression": {},
+                                    "MetricStat": {
+                                        "type": "structure",
+                                        "required": [
+                                            "Metric",
+                                            "Stat"
+                                        ],
+                                        "members": {
+                                            "Metric": {
+                                                "shape": "S77"
+                                            },
+                                            "Stat": {},
+                                            "Unit": {}
+                                        }
+                                    },
+                                    "Label": {},
+                                    "ReturnData": {
+                                        "type": "boolean"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "TargetValue": {
+                    "type": "double"
+                },
+                "DisableScaleIn": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "S6y": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "Name",
+                    "Value"
+                ],
+                "members": {
+                    "Name": {},
+                    "Value": {}
+                }
+            }
+        },
+        "S77": {
+            "type": "structure",
+            "required": [
+                "Namespace",
+                "MetricName"
+            ],
+            "members": {
+                "Namespace": {},
+                "MetricName": {},
+                "Dimensions": {
+                    "shape": "S6y"
+                }
+            }
+        },
+        "S7d": {
+            "type": "structure",
+            "required": [
+                "MetricSpecifications"
+            ],
+            "members": {
+                "MetricSpecifications": {
+                    "type": "list",
+                    "member": {
+                        "shape": "S7f"
+                    }
+                },
+                "Mode": {},
+                "SchedulingBufferTime": {
+                    "type": "integer"
+                },
+                "MaxCapacityBreachBehavior": {},
+                "MaxCapacityBuffer": {
+                    "type": "integer"
+                }
+            }
+        },
+        "S7n": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "Id"
+                ],
+                "members": {
+                    "Id": {},
+                    "Expression": {},
+                    "MetricStat": {
+                        "type": "structure",
+                        "required": [
+                            "Metric",
+                            "Stat"
+                        ],
+                        "members": {
+                            "Metric": {
+                                "shape": "S77"
+                            },
+                            "Stat": {},
+                            "Unit": {}
+                        }
+                    },
+                    "Label": {},
+                    "ReturnData": {
+                        "type": "boolean"
+                    }
+                }
+            }
+        },
+        "S80": {
+            "type": "list",
+            "member": {
+                "shape": "S81"
+            }
+        },
+        "S81": {
+            "type": "structure",
+            "required": [
+                "ActivityId",
+                "AutoScalingGroupName",
+                "Cause",
+                "StartTime",
+                "StatusCode"
+            ],
+            "members": {
+                "ActivityId": {},
+                "AutoScalingGroupName": {},
+                "Description": {},
+                "Cause": {},
+                "StartTime": {
+                    "type": "timestamp"
+                },
+                "EndTime": {
+                    "type": "timestamp"
+                },
+                "StatusCode": {},
+                "StatusMessage": {},
+                "Progress": {
+                    "type": "integer"
+                },
+                "Details": {},
+                "AutoScalingGroupState": {},
+                "AutoScalingGroupARN": {}
+            }
+        },
+        "S98": {
+            "type": "list",
+            "member": {
+                "type": "double"
+            }
+        },
+        "S9k": {
+            "type": "structure",
+            "required": [
+                "AutoScalingGroupName"
+            ],
+            "members": {
+                "AutoScalingGroupName": {},
+                "ScalingProcesses": {
+                    "type": "list",
+                    "member": {}
+                }
+            }
+        },
+        "S5a": {
+            "type": "structure",
+            "members": {
+                "LivePoolProgress": {
+                    "type": "structure",
+                    "members": {
+                        "PercentageComplete": {
+                            "type": "integer"
+                        },
+                        "InstancesToUpdate": {
+                            "type": "integer"
+                        }
+                    }
+                },
+                "WarmPoolProgress": {
+                    "type": "structure",
+                    "members": {
+                        "PercentageComplete": {
+                            "type": "integer"
+                        },
+                        "InstancesToUpdate": {
+                            "type": "integer"
+                        }
+                    }
+                }
+            }
+        },
+        "S6n": {
+            "type": "integer",
+            "deprecated": true
+        },
+        "S6w": {
+            "type": "structure",
+            "required": [
+                "TargetValue"
+            ],
+            "members": {
+                "PredefinedMetricSpecification": {
+                    "type": "structure",
+                    "required": [
+                        "PredefinedMetricType"
+                    ],
+                    "members": {
+                        "PredefinedMetricType": {},
+                        "ResourceLabel": {}
+                    }
+                },
+                "CustomizedMetricSpecification": {
+                    "type": "structure",
+                    "members": {
+                        "MetricName": {},
+                        "Namespace": {},
+                        "Dimensions": {
+                            "shape": "S72"
+                        },
+                        "Statistic": {},
+                        "Unit": {},
+                        "Metrics": {
+                            "type": "list",
+                            "member": {
+                                "type": "structure",
+                                "required": [
+                                    "Id"
+                                ],
+                                "members": {
+                                    "Id": {},
+                                    "Expression": {},
+                                    "MetricStat": {
+                                        "type": "structure",
+                                        "required": [
+                                            "Metric",
+                                            "Stat"
+                                        ],
+                                        "members": {
+                                            "Metric": {
+                                                "shape": "S7b"
+                                            },
+                                            "Stat": {},
+                                            "Unit": {}
+                                        }
+                                    },
+                                    "Label": {},
+                                    "ReturnData": {
+                                        "type": "boolean"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "TargetValue": {
+                    "type": "double"
+                },
+                "DisableScaleIn": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "S7b": {
+            "type": "structure",
+            "required": [
+                "Namespace",
+                "MetricName"
+            ],
+            "members": {
+                "Namespace": {},
+                "MetricName": {},
+                "Dimensions": {
+                    "shape": "S72"
+                }
+            }
+        },
+        "S7h": {
+            "type": "structure",
+            "required": [
+                "MetricSpecifications"
+            ],
+            "members": {
+                "MetricSpecifications": {
+                    "type": "list",
+                    "member": {
+                        "shape": "S7j"
+                    }
+                },
+                "Mode": {},
+                "SchedulingBufferTime": {
+                    "type": "integer"
+                },
+                "MaxCapacityBreachBehavior": {},
+                "MaxCapacityBuffer": {
+                    "type": "integer"
+                }
+            }
+        },
+        "S7j": {
+            "type": "structure",
+            "required": [
+                "TargetValue"
+            ],
+            "members": {
+                "TargetValue": {
+                    "type": "double"
+                },
+                "PredefinedMetricPairSpecification": {
+                    "type": "structure",
+                    "required": [
+                        "PredefinedMetricType"
+                    ],
+                    "members": {
+                        "PredefinedMetricType": {},
+                        "ResourceLabel": {}
+                    }
+                },
+                "PredefinedScalingMetricSpecification": {
+                    "type": "structure",
+                    "required": [
+                        "PredefinedMetricType"
+                    ],
+                    "members": {
+                        "PredefinedMetricType": {},
+                        "ResourceLabel": {}
+                    }
+                },
+                "PredefinedLoadMetricSpecification": {
+                    "type": "structure",
+                    "required": [
+                        "PredefinedMetricType"
+                    ],
+                    "members": {
+                        "PredefinedMetricType": {},
+                        "ResourceLabel": {}
+                    }
+                },
+                "CustomizedScalingMetricSpecification": {
+                    "type": "structure",
+                    "required": [
+                        "MetricDataQueries"
+                    ],
+                    "members": {
+                        "MetricDataQueries": {
+                            "shape": "S7r"
+                        }
+                    }
+                },
+                "CustomizedLoadMetricSpecification": {
+                    "type": "structure",
+                    "required": [
+                        "MetricDataQueries"
+                    ],
+                    "members": {
+                        "MetricDataQueries": {
+                            "shape": "S7r"
+                        }
+                    }
+                },
+                "CustomizedCapacityMetricSpecification": {
+                    "type": "structure",
+                    "required": [
+                        "MetricDataQueries"
+                    ],
+                    "members": {
+                        "MetricDataQueries": {
+                            "shape": "S7r"
+                        }
+                    }
+                }
+            }
+        },
+        "S84": {
+            "type": "list",
+            "member": {
+                "shape": "S85"
+            }
+        },
+        "S85": {
+            "type": "structure",
+            "required": [
+                "ActivityId",
+                "AutoScalingGroupName",
+                "Cause",
+                "StartTime",
+                "StatusCode"
+            ],
+            "members": {
+                "ActivityId": {},
+                "AutoScalingGroupName": {},
+                "Description": {},
+                "Cause": {},
+                "StartTime": {
+                    "type": "timestamp"
+                },
+                "EndTime": {
+                    "type": "timestamp"
+                },
+                "StatusCode": {},
+                "StatusMessage": {},
+                "Progress": {
+                    "type": "integer"
+                },
+                "Details": {},
+                "AutoScalingGroupState": {},
+                "AutoScalingGroupARN": {}
+            }
+        },
+        "S8z": {
+            "type": "list",
+            "member": {}
+        },
+        "S9b": {
+            "type": "list",
+            "member": {
+                "type": "timestamp"
+            }
+        },
+        "S9c": {
+            "type": "list",
+            "member": {
+                "type": "double"
+            }
+        },
+        "S9o": {
+            "type": "structure",
+            "required": [
+                "AutoScalingGroupName"
+            ],
+            "members": {
+                "AutoScalingGroupName": {},
+                "ScalingProcesses": {
+                    "type": "list",
+                    "member": {}
+                }
+            }
+        },
+        "S33": {
+            "type": "list",
+            "member": {}
+        },
+        "S39": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "InstanceId",
+                    "AvailabilityZone",
+                    "LifecycleState",
+                    "HealthStatus",
+                    "ProtectedFromScaleIn"
+                ],
+                "members": {
+                    "InstanceId": {},
+                    "InstanceType": {},
+                    "AvailabilityZone": {},
+                    "LifecycleState": {},
+                    "HealthStatus": {},
+                    "LaunchConfigurationName": {},
+                    "LaunchTemplate": {
+                        "shape": "S10"
+                    },
+                    "ProtectedFromScaleIn": {
+                        "type": "boolean"
+                    },
+                    "WeightedCapacity": {}
+                }
+            }
+        },
+        "S3g": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "ResourceId": {},
+                    "ResourceType": {},
+                    "Key": {},
+                    "Value": {},
+                    "PropagateAtLaunch": {
+                        "type": "boolean"
+                    }
+                }
+            }
+        },
+        "S3t": {
+            "type": "list",
+            "member": {}
+        },
+        "S57": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "ScalingAdjustment"
+                ],
+                "members": {
+                    "MetricIntervalLowerBound": {
+                        "type": "double"
+                    },
+                    "MetricIntervalUpperBound": {
+                        "type": "double"
+                    },
+                    "ScalingAdjustment": {
+                        "type": "integer"
+                    }
+                }
+            }
+        },
+        "S5b": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "AlarmName": {},
+                    "AlarmARN": {}
+                }
+            }
+        },
+        "S5r": {
+            "type": "structure",
+            "required": [
+                "MetricSpecifications"
+            ],
+            "members": {
+                "MetricSpecifications": {
+                    "type": "list",
+                    "member": {
+                        "shape": "S5t"
+                    }
+                },
+                "Mode": {},
+                "SchedulingBufferTime": {
+                    "type": "integer"
+                },
+                "MaxCapacityBreachBehavior": {},
+                "MaxCapacityBuffer": {
+                    "type": "integer"
+                }
+            }
+        },
+        "S70": {
+            "type": "list",
+            "member": {}
+        },
+        "S7p": {
+            "type": "structure",
+            "required": [
+                "AutoScalingGroupName"
+            ],
+            "members": {
+                "AutoScalingGroupName": {},
+                "ScalingProcesses": {
+                    "type": "list",
+                    "member": {}
+                }
+            }
+        },
+        "S37": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "Name": {},
+                    "Values": {
+                        "type": "list",
+                        "member": {}
+                    }
+                }
+            }
+        },
+        "S3e": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "InstanceId",
+                    "AvailabilityZone",
+                    "LifecycleState",
+                    "HealthStatus",
+                    "ProtectedFromScaleIn"
+                ],
+                "members": {
+                    "InstanceId": {},
+                    "InstanceType": {},
+                    "AvailabilityZone": {},
+                    "LifecycleState": {},
+                    "HealthStatus": {},
+                    "LaunchConfigurationName": {},
+                    "LaunchTemplate": {
+                        "shape": "S10"
+                    },
+                    "ProtectedFromScaleIn": {
+                        "type": "boolean"
+                    },
+                    "WeightedCapacity": {}
+                }
+            }
+        },
+        "S3l": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "ResourceId": {},
+                    "ResourceType": {},
+                    "Key": {},
+                    "Value": {},
+                    "PropagateAtLaunch": {
+                        "type": "boolean"
+                    }
+                }
+            }
+        },
+        "S3n": {
+            "type": "structure",
+            "members": {
+                "MaxGroupPreparedCapacity": {
+                    "type": "integer"
+                },
+                "MinSize": {
+                    "type": "integer"
+                },
+                "PoolState": {},
+                "Status": {}
+            }
+        },
+        "S3y": {
+            "type": "list",
+            "member": {}
+        },
+        "S4a": {
+            "type": "structure",
+            "members": {
+                "MinHealthyPercentage": {
+                    "type": "integer"
+                },
+                "InstanceWarmup": {
+                    "type": "integer"
+                },
+                "CheckpointPercentages": {
+                    "type": "list",
+                    "member": {
+                        "type": "integer"
+                    }
+                },
+                "CheckpointDelay": {
+                    "type": "integer"
+                },
+                "SkipMatching": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "S5n": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "AlarmName": {},
+                    "AlarmARN": {}
+                }
+            }
+        },
+        "S5p": {
+            "type": "structure",
+            "required": [
+                "TargetValue"
+            ],
+            "members": {
+                "PredefinedMetricSpecification": {
+                    "type": "structure",
+                    "required": [
+                        "PredefinedMetricType"
+                    ],
+                    "members": {
+                        "PredefinedMetricType": {},
+                        "ResourceLabel": {}
+                    }
+                },
+                "CustomizedMetricSpecification": {
+                    "type": "structure",
+                    "required": [
+                        "MetricName",
+                        "Namespace",
+                        "Statistic"
+                    ],
+                    "members": {
+                        "MetricName": {},
+                        "Namespace": {},
+                        "Dimensions": {
+                            "type": "list",
+                            "member": {
+                                "type": "structure",
+                                "required": [
+                                    "Name",
+                                    "Value"
+                                ],
+                                "members": {
+                                    "Name": {},
+                                    "Value": {}
+                                }
+                            }
+                        },
+                        "Statistic": {},
+                        "Unit": {}
+                    }
+                },
+                "TargetValue": {
+                    "type": "double"
+                },
+                "DisableScaleIn": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "S63": {
+            "type": "structure",
+            "required": [
+                "MetricSpecifications"
+            ],
+            "members": {
+                "MetricSpecifications": {
+                    "type": "list",
+                    "member": {
+                        "shape": "S65"
+                    }
+                },
+                "Mode": {},
+                "SchedulingBufferTime": {
+                    "type": "integer"
+                },
+                "MaxCapacityBreachBehavior": {},
+                "MaxCapacityBuffer": {
+                    "type": "integer"
+                }
+            }
+        },
+        "S65": {
+            "type": "structure",
+            "required": [
+                "TargetValue"
+            ],
+            "members": {
+                "TargetValue": {
+                    "type": "double"
+                },
+                "PredefinedMetricPairSpecification": {
+                    "type": "structure",
+                    "required": [
+                        "PredefinedMetricType"
+                    ],
+                    "members": {
+                        "PredefinedMetricType": {},
+                        "ResourceLabel": {}
+                    }
+                },
+                "PredefinedScalingMetricSpecification": {
+                    "type": "structure",
+                    "required": [
+                        "PredefinedMetricType"
+                    ],
+                    "members": {
+                        "PredefinedMetricType": {},
+                        "ResourceLabel": {}
+                    }
+                },
+                "PredefinedLoadMetricSpecification": {
+                    "type": "structure",
+                    "required": [
+                        "PredefinedMetricType"
+                    ],
+                    "members": {
+                        "PredefinedMetricType": {},
+                        "ResourceLabel": {}
+                    }
+                }
+            }
+        },
+        "S6k": {
+            "type": "list",
+            "member": {
+                "shape": "S6l"
+            }
+        },
+        "S6l": {
+            "type": "structure",
+            "required": [
+                "ActivityId",
+                "AutoScalingGroupName",
+                "Cause",
+                "StartTime",
+                "StatusCode"
+            ],
+            "members": {
+                "ActivityId": {},
+                "AutoScalingGroupName": {},
+                "Description": {},
+                "Cause": {},
+                "StartTime": {
+                    "type": "timestamp"
+                },
+                "EndTime": {
+                    "type": "timestamp"
+                },
+                "StatusCode": {},
+                "StatusMessage": {},
+                "Progress": {
+                    "type": "integer"
+                },
+                "Details": {},
+                "AutoScalingGroupState": {},
+                "AutoScalingGroupARN": {}
+            }
+        },
+        "S2j": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "Key"
+                ],
+                "members": {
+                    "ResourceId": {},
+                    "ResourceType": {},
+                    "Key": {},
+                    "Value": {},
+                    "PropagateAtLaunch": {
+                        "type": "boolean"
+                    }
+                }
+            }
+        },
+        "S2r": {
+            "type": "list",
+            "member": {}
+        },
+        "S2s": {
+            "type": "list",
+            "member": {}
+        },
+        "S34": {
+            "type": "structure",
+            "members": {
+                "Enabled": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "S40": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "Name": {},
+                    "Values": {
+                        "type": "list",
+                        "member": {}
+                    }
+                }
+            }
+        },
+        "S4e": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "ResourceId": {},
+                    "ResourceType": {},
+                    "Key": {},
+                    "Value": {},
+                    "PropagateAtLaunch": {
+                        "type": "boolean"
+                    }
+                }
+            }
+        },
+        "S4l": {
+            "type": "structure",
+            "members": {
+                "ReuseOnScaleIn": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "S55": {
+            "type": "structure",
+            "members": {
+                "MinHealthyPercentage": {
+                    "type": "integer"
+                },
+                "InstanceWarmup": {
+                    "type": "integer"
+                },
+                "CheckpointPercentages": {
+                    "type": "list",
+                    "member": {
+                        "type": "integer"
+                    }
+                },
+                "CheckpointDelay": {
+                    "type": "integer"
+                },
+                "SkipMatching": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "S6e": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "ScalingAdjustment"
+                ],
+                "members": {
+                    "MetricIntervalLowerBound": {
+                        "type": "double"
+                    },
+                    "MetricIntervalUpperBound": {
+                        "type": "double"
+                    },
+                    "ScalingAdjustment": {
+                        "type": "integer"
+                    }
+                }
+            }
+        },
+        "S78": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "Id"
+                ],
+                "members": {
+                    "Id": {},
+                    "Expression": {},
+                    "MetricStat": {
+                        "type": "structure",
+                        "required": [
+                            "Metric",
+                            "Stat"
+                        ],
+                        "members": {
+                            "Metric": {
+                                "type": "structure",
+                                "required": [
+                                    "Namespace",
+                                    "MetricName"
+                                ],
+                                "members": {
+                                    "Namespace": {},
+                                    "MetricName": {},
+                                    "Dimensions": {
+                                        "shape": "S6q"
+                                    }
+                                }
+                            },
+                            "Stat": {},
+                            "Unit": {}
+                        }
+                    },
+                    "Label": {},
+                    "ReturnData": {
+                        "type": "boolean"
+                    }
+                }
+            }
+        },
+        "S7q": {
+            "type": "structure",
+            "required": [
+                "ActivityId",
+                "AutoScalingGroupName",
+                "Cause",
+                "StartTime",
+                "StatusCode"
+            ],
+            "members": {
+                "ActivityId": {},
+                "AutoScalingGroupName": {},
+                "Description": {},
+                "Cause": {},
+                "StartTime": {
+                    "type": "timestamp"
+                },
+                "EndTime": {
+                    "type": "timestamp"
+                },
+                "StatusCode": {},
+                "StatusMessage": {},
+                "Progress": {
+                    "type": "integer"
+                },
+                "Details": {},
+                "AutoScalingGroupState": {},
+                "AutoScalingGroupARN": {}
+            }
+        },
+        "S8e": {
+            "type": "list",
+            "member": {}
+        },
+        "S8q": {
+            "type": "list",
+            "member": {
+                "type": "timestamp"
+            }
+        },
+        "S8r": {
+            "type": "list",
+            "member": {
+                "type": "double"
+            }
+        },
+        "S93": {
+            "type": "structure",
+            "required": [
+                "AutoScalingGroupName"
+            ],
+            "members": {
+                "AutoScalingGroupName": {},
+                "ScalingProcesses": {
+                    "type": "list",
+                    "member": {}
+                }
+            }
+        },
+        "S2t": {
+            "type": "list",
+            "member": {}
+        },
+        "S3a": {
+            "type": "structure",
+            "members": {
+                "HttpTokens": {},
+                "HttpPutResponseHopLimit": {
+                    "type": "integer"
+                },
+                "HttpEndpoint": {}
+            }
+        },
+        "S3z": {
+            "type": "list",
+            "member": {}
+        },
+        "S41": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "Name": {},
+                    "Values": {
+                        "type": "list",
+                        "member": {}
+                    }
+                }
+            }
+        },
+        "S4h": {
+            "type": "structure",
+            "members": {
+                "MaxGroupPreparedCapacity": {
+                    "type": "integer"
+                },
+                "MinSize": {
+                    "type": "integer"
+                },
+                "PoolState": {},
+                "Status": {},
+                "InstanceReusePolicy": {
+                    "shape": "S4m"
+                }
+            }
+        },
+        "S4u": {
+            "type": "list",
+            "member": {}
+        },
+        "S5c": {
+            "type": "structure",
+            "members": {
+                "LaunchTemplate": {
+                    "shape": "S10"
+                },
+                "MixedInstancesPolicy": {
+                    "shape": "S12"
+                }
+            }
+        },
+        "S6c": {
+            "type": "integer",
+            "deprecated": true
+        },
+        "S6r": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "Name",
+                    "Value"
+                ],
+                "members": {
+                    "Name": {},
+                    "Value": {}
+                }
+            }
+        },
+        "S6z": {
+            "type": "structure",
+            "required": [
+                "MetricSpecifications"
+            ],
+            "members": {
+                "MetricSpecifications": {
+                    "type": "list",
+                    "member": {
+                        "shape": "S71"
+                    }
+                },
+                "Mode": {},
+                "SchedulingBufferTime": {
+                    "type": "integer"
+                },
+                "MaxCapacityBreachBehavior": {},
+                "MaxCapacityBuffer": {
+                    "type": "integer"
+                }
+            }
+        },
+        "S71": {
+            "type": "structure",
+            "required": [
+                "TargetValue"
+            ],
+            "members": {
+                "TargetValue": {
+                    "type": "double"
+                },
+                "PredefinedMetricPairSpecification": {
+                    "type": "structure",
+                    "required": [
+                        "PredefinedMetricType"
+                    ],
+                    "members": {
+                        "PredefinedMetricType": {},
+                        "ResourceLabel": {}
+                    }
+                },
+                "PredefinedScalingMetricSpecification": {
+                    "type": "structure",
+                    "required": [
+                        "PredefinedMetricType"
+                    ],
+                    "members": {
+                        "PredefinedMetricType": {},
+                        "ResourceLabel": {}
+                    }
+                },
+                "PredefinedLoadMetricSpecification": {
+                    "type": "structure",
+                    "required": [
+                        "PredefinedMetricType"
+                    ],
+                    "members": {
+                        "PredefinedMetricType": {},
+                        "ResourceLabel": {}
+                    }
+                },
+                "CustomizedScalingMetricSpecification": {
+                    "type": "structure",
+                    "required": [
+                        "MetricDataQueries"
+                    ],
+                    "members": {
+                        "MetricDataQueries": {
+                            "shape": "S79"
+                        }
+                    }
+                },
+                "CustomizedLoadMetricSpecification": {
+                    "type": "structure",
+                    "required": [
+                        "MetricDataQueries"
+                    ],
+                    "members": {
+                        "MetricDataQueries": {
+                            "shape": "S79"
+                        }
+                    }
+                },
+                "CustomizedCapacityMetricSpecification": {
+                    "type": "structure",
+                    "required": [
+                        "MetricDataQueries"
+                    ],
+                    "members": {
+                        "MetricDataQueries": {
+                            "shape": "S79"
+                        }
+                    }
+                }
+            }
+        },
+        "S8f": {
+            "type": "list",
+            "member": {}
+        },
+        "S8s": {
+            "type": "list",
+            "member": {
+                "type": "double"
+            }
+        },
+        "S94": {
+            "type": "structure",
+            "required": [
+                "AutoScalingGroupName"
+            ],
+            "members": {
+                "AutoScalingGroupName": {},
+                "ScalingProcesses": {
+                    "type": "list",
+                    "member": {}
+                }
+            }
+        },
+        "S4r": {
+            "type": "list",
+            "member": {}
+        },
+        "S6g": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "AlarmName": {},
+                    "AlarmARN": {}
+                }
+            }
+        },
+        "S76": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "Id"
+                ],
+                "members": {
+                    "Id": {},
+                    "Expression": {},
+                    "MetricStat": {
+                        "type": "structure",
+                        "required": [
+                            "Metric",
+                            "Stat"
+                        ],
+                        "members": {
+                            "Metric": {
+                                "type": "structure",
+                                "required": [
+                                    "Namespace",
+                                    "MetricName"
+                                ],
+                                "members": {
+                                    "Namespace": {},
+                                    "MetricName": {},
+                                    "Dimensions": {
+                                        "shape": "S6o"
+                                    }
+                                }
+                            },
+                            "Stat": {},
+                            "Unit": {}
+                        }
+                    },
+                    "Label": {},
+                    "ReturnData": {
+                        "type": "boolean"
+                    }
+                }
+            }
+        },
+        "S7o": {
+            "type": "structure",
+            "required": [
+                "ActivityId",
+                "AutoScalingGroupName",
+                "Cause",
+                "StartTime",
+                "StatusCode"
+            ],
+            "members": {
+                "ActivityId": {},
+                "AutoScalingGroupName": {},
+                "Description": {},
+                "Cause": {},
+                "StartTime": {
+                    "type": "timestamp"
+                },
+                "EndTime": {
+                    "type": "timestamp"
+                },
+                "StatusCode": {},
+                "StatusMessage": {},
+                "Progress": {
+                    "type": "integer"
+                },
+                "Details": {},
+                "AutoScalingGroupState": {},
+                "AutoScalingGroupARN": {}
+            }
+        },
+        "S8c": {
+            "type": "list",
+            "member": {}
+        },
+        "S8o": {
+            "type": "list",
+            "member": {
+                "type": "timestamp"
+            }
+        },
+        "S8p": {
+            "type": "list",
+            "member": {
+                "type": "double"
+            }
+        },
+        "S91": {
+            "type": "structure",
+            "required": [
+                "AutoScalingGroupName"
+            ],
+            "members": {
+                "AutoScalingGroupName": {},
+                "ScalingProcesses": {
+                    "type": "list",
+                    "member": {}
+                }
+            }
+        },
+        "S82": {
+            "type": "list",
+            "member": {}
+        },
+        "S52": {
+            "type": "list",
+            "member": {
+                "shape": "S53"
+            }
+        },
+        "S67": {
+            "type": "structure",
+            "required": [
+                "AutoScalingGroupName"
+            ],
+            "members": {
+                "AutoScalingGroupName": {},
+                "ScalingProcesses": {
+                    "type": "list",
+                    "member": {}
+                }
+            }
+        },
+        "S5i": {
+            "type": "list",
+            "member": {
+                "shape": "S5j"
+            }
+        },
+        "S1p": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "Key"
+                ],
+                "members": {
+                    "ResourceId": {},
+                    "ResourceType": {},
+                    "Key": {},
+                    "Value": {},
+                    "PropagateAtLaunch": {
+                        "type": "boolean"
+                    }
+                }
+            }
+        },
+        "S1w": {
+            "type": "list",
+            "member": {}
+        },
+        "S28": {
+            "type": "structure",
+            "members": {
+                "Enabled": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "S3f": {
+            "type": "list",
+            "member": {}
+        },
+        "S4n": {
+            "type": "integer",
+            "deprecated": true
+        },
+        "S4q": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "ScalingAdjustment"
+                ],
+                "members": {
+                    "MetricIntervalLowerBound": {
+                        "type": "double"
+                    },
+                    "MetricIntervalUpperBound": {
+                        "type": "double"
+                    },
+                    "ScalingAdjustment": {
+                        "type": "integer"
+                    }
+                }
+            }
+        },
+        "S4w": {
+            "type": "structure",
+            "required": [
+                "TargetValue"
+            ],
+            "members": {
+                "PredefinedMetricSpecification": {
+                    "type": "structure",
+                    "required": [
+                        "PredefinedMetricType"
+                    ],
+                    "members": {
+                        "PredefinedMetricType": {},
+                        "ResourceLabel": {}
+                    }
+                },
+                "CustomizedMetricSpecification": {
+                    "type": "structure",
+                    "required": [
+                        "MetricName",
+                        "Namespace",
+                        "Statistic"
+                    ],
+                    "members": {
+                        "MetricName": {},
+                        "Namespace": {},
+                        "Dimensions": {
+                            "type": "list",
+                            "member": {
+                                "type": "structure",
+                                "required": [
+                                    "Name",
+                                    "Value"
+                                ],
+                                "members": {
+                                    "Name": {},
+                                    "Value": {}
+                                }
+                            }
+                        },
+                        "Statistic": {},
+                        "Unit": {}
+                    }
+                },
+                "TargetValue": {
+                    "type": "double"
+                },
+                "DisableScaleIn": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "S5e": {
+            "type": "structure",
+            "required": [
+                "ActivityId",
+                "AutoScalingGroupName",
+                "Cause",
+                "StartTime",
+                "StatusCode"
+            ],
+            "members": {
+                "ActivityId": {},
+                "AutoScalingGroupName": {},
+                "Description": {},
+                "Cause": {},
+                "StartTime": {
+                    "type": "timestamp"
+                },
+                "EndTime": {
+                    "type": "timestamp"
+                },
+                "StatusCode": {},
+                "StatusMessage": {},
+                "Progress": {
+                    "type": "integer"
+                },
+                "Details": {}
+            }
+        }
+    }
+}

@@ -1,0 +1,98 @@
+{
+    "version": "2.0",
+    "metadata": {
+        "apiVersion": "2019-05-01",
+        "endpointPrefix": "workmailmessageflow",
+        "jsonVersion": "1.1",
+        "protocol": "rest-json",
+        "serviceFullName": "Amazon WorkMail Message Flow",
+        "serviceId": "WorkMailMessageFlow",
+        "signatureVersion": "v4",
+        "uid": "workmailmessageflow-2019-05-01",
+        "download_location": [
+            "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+        ]
+    },
+    "operations": {
+        "GetRawMessageContent": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/messages/{messageId}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "messageId"
+                ],
+                "members": {
+                    "messageId": {
+                        "location": "uri",
+                        "locationName": "messageId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "messageContent"
+                ],
+                "members": {
+                    "messageContent": {
+                        "type": "blob",
+                        "streaming": true
+                    }
+                },
+                "payload": "messageContent"
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "PutRawMessageContent": {
+            "http": {
+                "requestUri": "/messages/{messageId}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "messageId",
+                    "content"
+                ],
+                "members": {
+                    "messageId": {
+                        "location": "uri",
+                        "locationName": "messageId"
+                    },
+                    "content": {
+                        "type": "structure",
+                        "required": [
+                            "s3Reference"
+                        ],
+                        "members": {
+                            "s3Reference": {
+                                "type": "structure",
+                                "required": [
+                                    "bucket",
+                                    "key"
+                                ],
+                                "members": {
+                                    "bucket": {},
+                                    "key": {},
+                                    "objectVersion": {}
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        }
+    },
+    "shapes": {}
+}

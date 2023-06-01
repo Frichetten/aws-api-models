@@ -1,0 +1,2015 @@
+{
+    "version": "2.0",
+    "metadata": {
+        "apiVersion": "2021-01-01",
+        "endpointPrefix": "memory-db",
+        "jsonVersion": "1.1",
+        "protocol": "json",
+        "serviceAbbreviation": "Amazon MemoryDB",
+        "serviceFullName": "Amazon MemoryDB",
+        "serviceId": "MemoryDB",
+        "signatureVersion": "v4",
+        "signingName": "memorydb",
+        "targetPrefix": "AmazonMemoryDB",
+        "uid": "memorydb-2021-01-01",
+        "download_location": [
+            "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+        ]
+    },
+    "operations": {
+        "BatchUpdateCluster": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ClusterNames"
+                ],
+                "members": {
+                    "ClusterNames": {
+                        "shape": "S2"
+                    },
+                    "ServiceUpdate": {
+                        "type": "structure",
+                        "members": {
+                            "ServiceUpdateNameToApply": {}
+                        }
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ProcessedClusters": {
+                        "shape": "S6"
+                    },
+                    "UnprocessedClusters": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "ClusterName": {},
+                                "ErrorType": {},
+                                "ErrorMessage": {}
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "CopySnapshot": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "SourceSnapshotName",
+                    "TargetSnapshotName"
+                ],
+                "members": {
+                    "SourceSnapshotName": {},
+                    "TargetSnapshotName": {},
+                    "TargetBucket": {},
+                    "KmsKeyId": {},
+                    "Tags": {
+                        "shape": "Sz"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Snapshot": {
+                        "shape": "S12"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "CreateACL": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ACLName"
+                ],
+                "members": {
+                    "ACLName": {},
+                    "UserNames": {
+                        "shape": "S18"
+                    },
+                    "Tags": {
+                        "shape": "Sz"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ACL": {
+                        "shape": "S1b"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "CreateCluster": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ClusterName",
+                    "NodeType",
+                    "ACLName"
+                ],
+                "members": {
+                    "ClusterName": {},
+                    "NodeType": {},
+                    "ParameterGroupName": {},
+                    "Description": {},
+                    "NumShards": {
+                        "type": "integer"
+                    },
+                    "NumReplicasPerShard": {
+                        "type": "integer"
+                    },
+                    "SubnetGroupName": {},
+                    "SecurityGroupIds": {
+                        "shape": "S1g"
+                    },
+                    "MaintenanceWindow": {},
+                    "Port": {
+                        "type": "integer"
+                    },
+                    "SnsTopicArn": {},
+                    "TLSEnabled": {
+                        "type": "boolean"
+                    },
+                    "KmsKeyId": {},
+                    "SnapshotArns": {
+                        "type": "list",
+                        "member": {}
+                    },
+                    "SnapshotName": {},
+                    "SnapshotRetentionLimit": {
+                        "type": "integer"
+                    },
+                    "Tags": {
+                        "shape": "Sz"
+                    },
+                    "SnapshotWindow": {},
+                    "ACLName": {},
+                    "EngineVersion": {},
+                    "AutoMinorVersionUpgrade": {
+                        "type": "boolean"
+                    },
+                    "DataTiering": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Cluster": {
+                        "shape": "S7"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "CreateParameterGroup": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ParameterGroupName",
+                    "Family"
+                ],
+                "members": {
+                    "ParameterGroupName": {},
+                    "Family": {},
+                    "Description": {},
+                    "Tags": {
+                        "shape": "Sz"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ParameterGroup": {
+                        "shape": "S1l"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "CreateSnapshot": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ClusterName",
+                    "SnapshotName"
+                ],
+                "members": {
+                    "ClusterName": {},
+                    "SnapshotName": {},
+                    "KmsKeyId": {},
+                    "Tags": {
+                        "shape": "Sz"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Snapshot": {
+                        "shape": "S12"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "CreateSubnetGroup": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "SubnetGroupName",
+                    "SubnetIds"
+                ],
+                "members": {
+                    "SubnetGroupName": {},
+                    "Description": {},
+                    "SubnetIds": {
+                        "shape": "S1p"
+                    },
+                    "Tags": {
+                        "shape": "Sz"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "SubnetGroup": {
+                        "shape": "S1r"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "CreateUser": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "UserName",
+                    "AuthenticationMode",
+                    "AccessString"
+                ],
+                "members": {
+                    "UserName": {},
+                    "AuthenticationMode": {
+                        "shape": "S1w"
+                    },
+                    "AccessString": {},
+                    "Tags": {
+                        "shape": "Sz"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "User": {
+                        "shape": "S21"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "DeleteACL": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ACLName"
+                ],
+                "members": {
+                    "ACLName": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ACL": {
+                        "shape": "S1b"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "DeleteCluster": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ClusterName"
+                ],
+                "members": {
+                    "ClusterName": {},
+                    "FinalSnapshotName": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Cluster": {
+                        "shape": "S7"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "DeleteParameterGroup": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ParameterGroupName"
+                ],
+                "members": {
+                    "ParameterGroupName": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ParameterGroup": {
+                        "shape": "S1l"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "DeleteSnapshot": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "SnapshotName"
+                ],
+                "members": {
+                    "SnapshotName": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Snapshot": {
+                        "shape": "S12"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "DeleteSubnetGroup": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "SubnetGroupName"
+                ],
+                "members": {
+                    "SubnetGroupName": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "SubnetGroup": {
+                        "shape": "S1r"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "DeleteUser": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "UserName"
+                ],
+                "members": {
+                    "UserName": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "User": {
+                        "shape": "S21"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "DescribeACLs": {
+            "input": {
+                "type": "structure",
+                "members": {
+                    "ACLName": {},
+                    "MaxResults": {
+                        "type": "integer"
+                    },
+                    "NextToken": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ACLs": {
+                        "type": "list",
+                        "member": {
+                            "shape": "S1b"
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "DescribeClusters": {
+            "input": {
+                "type": "structure",
+                "members": {
+                    "ClusterName": {},
+                    "MaxResults": {
+                        "type": "integer"
+                    },
+                    "NextToken": {},
+                    "ShowShardDetails": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "NextToken": {},
+                    "Clusters": {
+                        "shape": "S6"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "DescribeEngineVersions": {
+            "input": {
+                "type": "structure",
+                "members": {
+                    "EngineVersion": {},
+                    "ParameterGroupFamily": {},
+                    "MaxResults": {
+                        "type": "integer"
+                    },
+                    "NextToken": {},
+                    "DefaultOnly": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "NextToken": {},
+                    "EngineVersions": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "EngineVersion": {},
+                                "EnginePatchVersion": {},
+                                "ParameterGroupFamily": {}
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "DescribeEvents": {
+            "input": {
+                "type": "structure",
+                "members": {
+                    "SourceName": {},
+                    "SourceType": {},
+                    "StartTime": {
+                        "type": "timestamp"
+                    },
+                    "EndTime": {
+                        "type": "timestamp"
+                    },
+                    "Duration": {
+                        "type": "integer"
+                    },
+                    "MaxResults": {
+                        "type": "integer"
+                    },
+                    "NextToken": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "NextToken": {},
+                    "Events": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "SourceName": {},
+                                "SourceType": {},
+                                "Message": {},
+                                "Date": {
+                                    "type": "timestamp"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "DescribeParameterGroups": {
+            "input": {
+                "type": "structure",
+                "members": {
+                    "ParameterGroupName": {},
+                    "MaxResults": {
+                        "type": "integer"
+                    },
+                    "NextToken": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "NextToken": {},
+                    "ParameterGroups": {
+                        "type": "list",
+                        "member": {
+                            "shape": "S1l"
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "DescribeParameters": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ParameterGroupName"
+                ],
+                "members": {
+                    "ParameterGroupName": {},
+                    "MaxResults": {
+                        "type": "integer"
+                    },
+                    "NextToken": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "NextToken": {},
+                    "Parameters": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "Name": {},
+                                "Value": {},
+                                "Description": {},
+                                "DataType": {},
+                                "AllowedValues": {},
+                                "MinimumEngineVersion": {}
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "DescribeServiceUpdates": {
+            "input": {
+                "type": "structure",
+                "members": {
+                    "ServiceUpdateName": {},
+                    "ClusterNames": {
+                        "shape": "S2"
+                    },
+                    "Status": {
+                        "type": "list",
+                        "member": {}
+                    },
+                    "MaxResults": {
+                        "type": "integer"
+                    },
+                    "NextToken": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "NextToken": {},
+                    "ServiceUpdates": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "ClusterName": {},
+                                "ServiceUpdateName": {},
+                                "ReleaseDate": {
+                                    "type": "timestamp"
+                                },
+                                "Description": {},
+                                "Status": {},
+                                "Type": {},
+                                "NodesUpdated": {},
+                                "AutoUpdateStartDate": {
+                                    "type": "timestamp"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "DescribeSnapshots": {
+            "input": {
+                "type": "structure",
+                "members": {
+                    "ClusterName": {},
+                    "SnapshotName": {},
+                    "Source": {},
+                    "NextToken": {},
+                    "MaxResults": {
+                        "type": "integer"
+                    },
+                    "ShowDetail": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "NextToken": {},
+                    "Snapshots": {
+                        "type": "list",
+                        "member": {
+                            "shape": "S12"
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "DescribeSubnetGroups": {
+            "input": {
+                "type": "structure",
+                "members": {
+                    "SubnetGroupName": {},
+                    "MaxResults": {
+                        "type": "integer"
+                    },
+                    "NextToken": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "NextToken": {},
+                    "SubnetGroups": {
+                        "type": "list",
+                        "member": {
+                            "shape": "S1r"
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "DescribeUsers": {
+            "input": {
+                "type": "structure",
+                "members": {
+                    "UserName": {},
+                    "Filters": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "Name",
+                                "Values"
+                            ],
+                            "members": {
+                                "Name": {},
+                                "Values": {
+                                    "type": "list",
+                                    "member": {}
+                                }
+                            }
+                        }
+                    },
+                    "MaxResults": {
+                        "type": "integer"
+                    },
+                    "NextToken": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Users": {
+                        "type": "list",
+                        "member": {
+                            "shape": "S21"
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "FailoverShard": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ClusterName",
+                    "ShardName"
+                ],
+                "members": {
+                    "ClusterName": {},
+                    "ShardName": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Cluster": {
+                        "shape": "S7"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "ListAllowedNodeTypeUpdates": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ClusterName"
+                ],
+                "members": {
+                    "ClusterName": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ScaleUpNodeTypes": {
+                        "shape": "S3r"
+                    },
+                    "ScaleDownNodeTypes": {
+                        "shape": "S3r"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "ListTags": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ResourceArn"
+                ],
+                "members": {
+                    "ResourceArn": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "TagList": {
+                        "shape": "Sz"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "ResetParameterGroup": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ParameterGroupName"
+                ],
+                "members": {
+                    "ParameterGroupName": {},
+                    "AllParameters": {
+                        "type": "boolean"
+                    },
+                    "ParameterNames": {
+                        "type": "list",
+                        "member": {}
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ParameterGroup": {
+                        "shape": "S1l"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "TagResource": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ResourceArn",
+                    "Tags"
+                ],
+                "members": {
+                    "ResourceArn": {},
+                    "Tags": {
+                        "shape": "Sz"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "TagList": {
+                        "shape": "Sz"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "UntagResource": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ResourceArn",
+                    "TagKeys"
+                ],
+                "members": {
+                    "ResourceArn": {},
+                    "TagKeys": {
+                        "type": "list",
+                        "member": {}
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "TagList": {
+                        "shape": "Sz"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "UpdateACL": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ACLName"
+                ],
+                "members": {
+                    "ACLName": {},
+                    "UserNamesToAdd": {
+                        "shape": "S18"
+                    },
+                    "UserNamesToRemove": {
+                        "shape": "S18"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ACL": {
+                        "shape": "S1b"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "UpdateCluster": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ClusterName"
+                ],
+                "members": {
+                    "ClusterName": {},
+                    "Description": {},
+                    "SecurityGroupIds": {
+                        "shape": "S1g"
+                    },
+                    "MaintenanceWindow": {},
+                    "SnsTopicArn": {},
+                    "SnsTopicStatus": {},
+                    "ParameterGroupName": {},
+                    "SnapshotWindow": {},
+                    "SnapshotRetentionLimit": {
+                        "type": "integer"
+                    },
+                    "NodeType": {},
+                    "EngineVersion": {},
+                    "ReplicaConfiguration": {
+                        "type": "structure",
+                        "members": {
+                            "ReplicaCount": {
+                                "type": "integer"
+                            }
+                        }
+                    },
+                    "ShardConfiguration": {
+                        "type": "structure",
+                        "members": {
+                            "ShardCount": {
+                                "type": "integer"
+                            }
+                        }
+                    },
+                    "ACLName": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Cluster": {
+                        "shape": "S7"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "UpdateParameterGroup": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ParameterGroupName",
+                    "ParameterNameValues"
+                ],
+                "members": {
+                    "ParameterGroupName": {},
+                    "ParameterNameValues": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "ParameterName": {},
+                                "ParameterValue": {}
+                            }
+                        }
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ParameterGroup": {
+                        "shape": "S1l"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "UpdateSubnetGroup": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "SubnetGroupName"
+                ],
+                "members": {
+                    "SubnetGroupName": {},
+                    "Description": {},
+                    "SubnetIds": {
+                        "shape": "S1p"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "SubnetGroup": {
+                        "shape": "S1r"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "UpdateUser": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "UserName"
+                ],
+                "members": {
+                    "UserName": {},
+                    "AuthenticationMode": {
+                        "shape": "S1w"
+                    },
+                    "AccessString": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "User": {
+                        "shape": "S21"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "DescribeReservedNodes": {
+            "input": {
+                "type": "structure",
+                "members": {
+                    "ReservationId": {},
+                    "ReservedNodesOfferingId": {},
+                    "NodeType": {},
+                    "Duration": {},
+                    "OfferingType": {},
+                    "MaxResults": {
+                        "type": "integer"
+                    },
+                    "NextToken": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "NextToken": {},
+                    "ReservedNodes": {
+                        "type": "list",
+                        "member": {
+                            "shape": "S36"
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/LNBIP3SSBJJEGTSEE5VZUJHYSBHMHROVHKM6HOKQMPW54VG5DQUQ/vendors.js"
+            ]
+        },
+        "DescribeReservedNodesOfferings": {
+            "input": {
+                "type": "structure",
+                "members": {
+                    "ReservedNodesOfferingId": {},
+                    "NodeType": {},
+                    "Duration": {},
+                    "OfferingType": {},
+                    "MaxResults": {
+                        "type": "integer"
+                    },
+                    "NextToken": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "NextToken": {},
+                    "ReservedNodesOfferings": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "ReservedNodesOfferingId": {},
+                                "NodeType": {},
+                                "Duration": {
+                                    "type": "integer"
+                                },
+                                "FixedPrice": {
+                                    "type": "double"
+                                },
+                                "OfferingType": {},
+                                "RecurringCharges": {
+                                    "shape": "S37"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/LNBIP3SSBJJEGTSEE5VZUJHYSBHMHROVHKM6HOKQMPW54VG5DQUQ/vendors.js"
+            ]
+        },
+        "PurchaseReservedNodesOffering": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ReservedNodesOfferingId"
+                ],
+                "members": {
+                    "ReservedNodesOfferingId": {},
+                    "ReservationId": {},
+                    "NodeCount": {
+                        "type": "integer"
+                    },
+                    "Tags": {
+                        "shape": "Sz"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ReservedNode": {
+                        "shape": "S36"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/LNBIP3SSBJJEGTSEE5VZUJHYSBHMHROVHKM6HOKQMPW54VG5DQUQ/vendors.js"
+            ]
+        },
+        "CreateInternalOffBoxCluster": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ClusterName",
+                    "NodeType",
+                    "NumShards",
+                    "SourceClusterId"
+                ],
+                "members": {
+                    "ClusterName": {},
+                    "NodeType": {},
+                    "Description": {},
+                    "NumShards": {
+                        "type": "integer"
+                    },
+                    "SourceClusterId": {
+                        "type": "long"
+                    },
+                    "TLSEnabled": {
+                        "type": "boolean"
+                    },
+                    "EngineVersion": {},
+                    "DataTiering": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Cluster": {
+                        "shape": "S7"
+                    }
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/P6R66IF6WG5PZ2AWEBD6LM7ZZQ7DDJKRP44RIO5T7EJXJ6R2V27Q/main.js"
+            ]
+        },
+        "DeleteInternalOffBoxCluster": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ClusterName"
+                ],
+                "members": {
+                    "ClusterName": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Cluster": {
+                        "shape": "S7"
+                    }
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/P6R66IF6WG5PZ2AWEBD6LM7ZZQ7DDJKRP44RIO5T7EJXJ6R2V27Q/main.js"
+            ]
+        },
+        "DescribeServiceUpdatesInternal": {
+            "input": {
+                "type": "structure",
+                "members": {
+                    "ServiceUpdateName": {},
+                    "Status": {
+                        "type": "list",
+                        "member": {}
+                    },
+                    "MaxRecords": {
+                        "type": "integer"
+                    },
+                    "Marker": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Marker": {},
+                    "ServiceUpdates": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "Name": {},
+                                "ReleaseDate": {
+                                    "type": "timestamp"
+                                },
+                                "EndDate": {
+                                    "type": "timestamp"
+                                },
+                                "Severity": {},
+                                "RecommendedApplyByDate": {
+                                    "type": "timestamp"
+                                },
+                                "Status": {},
+                                "Description": {},
+                                "Type": {},
+                                "EngineVersion": {},
+                                "AutoUpdateAfterRecommendedApplyByDate": {
+                                    "type": "boolean"
+                                },
+                                "EstimatedUpdateTime": {}
+                            }
+                        }
+                    }
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/P6R66IF6WG5PZ2AWEBD6LM7ZZQ7DDJKRP44RIO5T7EJXJ6R2V27Q/main.js"
+            ]
+        },
+        "LockServiceLinkedRole": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "RoleArn",
+                    "Timeout"
+                ],
+                "members": {
+                    "RoleArn": {},
+                    "Timeout": {
+                        "type": "long"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "CanBeDeleted"
+                ],
+                "members": {
+                    "CanBeDeleted": {
+                        "type": "boolean"
+                    },
+                    "ReasonOfFailure": {},
+                    "RelatedResources": {
+                        "type": "list",
+                        "member": {}
+                    }
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/P6R66IF6WG5PZ2AWEBD6LM7ZZQ7DDJKRP44RIO5T7EJXJ6R2V27Q/main.js"
+            ]
+        },
+        "UnlockServiceLinkedRole": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "RoleArn"
+                ],
+                "members": {
+                    "RoleArn": {},
+                    "DeletionStatus": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/P6R66IF6WG5PZ2AWEBD6LM7ZZQ7DDJKRP44RIO5T7EJXJ6R2V27Q/main.js"
+            ]
+        }
+    },
+    "shapes": {
+        "S2": {
+            "type": "list",
+            "member": {}
+        },
+        "S6": {
+            "type": "list",
+            "member": {
+                "shape": "S7"
+            }
+        },
+        "S7": {
+            "type": "structure",
+            "members": {
+                "Name": {},
+                "Description": {},
+                "Status": {},
+                "PendingUpdates": {
+                    "type": "structure",
+                    "members": {
+                        "Resharding": {
+                            "type": "structure",
+                            "members": {
+                                "SlotMigration": {
+                                    "type": "structure",
+                                    "members": {
+                                        "ProgressPercentage": {
+                                            "type": "double"
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "ACLs": {
+                            "type": "structure",
+                            "members": {
+                                "ACLToApply": {}
+                            }
+                        },
+                        "ServiceUpdates": {
+                            "type": "list",
+                            "member": {
+                                "type": "structure",
+                                "members": {
+                                    "ServiceUpdateName": {},
+                                    "Status": {}
+                                }
+                            }
+                        }
+                    }
+                },
+                "NumberOfShards": {
+                    "type": "integer"
+                },
+                "Shards": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "members": {
+                            "Name": {},
+                            "Status": {},
+                            "Slots": {},
+                            "Nodes": {
+                                "type": "list",
+                                "member": {
+                                    "type": "structure",
+                                    "members": {
+                                        "Name": {},
+                                        "Status": {},
+                                        "AvailabilityZone": {},
+                                        "CreateTime": {
+                                            "type": "timestamp"
+                                        },
+                                        "Endpoint": {
+                                            "shape": "Sn"
+                                        }
+                                    }
+                                }
+                            },
+                            "NumberOfNodes": {
+                                "type": "integer"
+                            }
+                        }
+                    }
+                },
+                "AvailabilityMode": {},
+                "ClusterEndpoint": {
+                    "shape": "Sn"
+                },
+                "NodeType": {},
+                "EngineVersion": {},
+                "EnginePatchVersion": {},
+                "ParameterGroupName": {},
+                "ParameterGroupStatus": {},
+                "SecurityGroups": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "members": {
+                            "SecurityGroupId": {},
+                            "Status": {}
+                        }
+                    }
+                },
+                "SubnetGroupName": {},
+                "TLSEnabled": {
+                    "type": "boolean"
+                },
+                "KmsKeyId": {},
+                "ARN": {},
+                "SnsTopicArn": {},
+                "SnsTopicStatus": {},
+                "SnapshotRetentionLimit": {
+                    "type": "integer"
+                },
+                "MaintenanceWindow": {},
+                "SnapshotWindow": {},
+                "ACLName": {},
+                "AutoMinorVersionUpgrade": {
+                    "type": "boolean"
+                },
+                "DataTiering": {}
+            }
+        },
+        "Sn": {
+            "type": "structure",
+            "members": {
+                "Address": {},
+                "Port": {
+                    "type": "integer"
+                }
+            }
+        },
+        "Sz": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "Key": {},
+                    "Value": {}
+                }
+            }
+        },
+        "S12": {
+            "type": "structure",
+            "members": {
+                "Name": {},
+                "Status": {},
+                "Source": {},
+                "KmsKeyId": {},
+                "ARN": {},
+                "ClusterConfiguration": {
+                    "type": "structure",
+                    "members": {
+                        "Name": {},
+                        "Description": {},
+                        "NodeType": {},
+                        "EngineVersion": {},
+                        "MaintenanceWindow": {},
+                        "TopicArn": {},
+                        "Port": {
+                            "type": "integer"
+                        },
+                        "ParameterGroupName": {},
+                        "SubnetGroupName": {},
+                        "VpcId": {},
+                        "SnapshotRetentionLimit": {
+                            "type": "integer"
+                        },
+                        "SnapshotWindow": {},
+                        "NumShards": {
+                            "type": "integer"
+                        },
+                        "Shards": {
+                            "type": "list",
+                            "member": {
+                                "type": "structure",
+                                "members": {
+                                    "Name": {},
+                                    "Configuration": {
+                                        "type": "structure",
+                                        "members": {
+                                            "Slots": {},
+                                            "ReplicaCount": {
+                                                "type": "integer"
+                                            }
+                                        }
+                                    },
+                                    "Size": {},
+                                    "SnapshotCreationTime": {
+                                        "type": "timestamp"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "DataTiering": {}
+            }
+        },
+        "S18": {
+            "type": "list",
+            "member": {}
+        },
+        "S1b": {
+            "type": "structure",
+            "members": {
+                "Name": {},
+                "Status": {},
+                "UserNames": {
+                    "shape": "S1c"
+                },
+                "MinimumEngineVersion": {},
+                "PendingChanges": {
+                    "type": "structure",
+                    "members": {
+                        "UserNamesToRemove": {
+                            "shape": "S1c"
+                        },
+                        "UserNamesToAdd": {
+                            "shape": "S1c"
+                        }
+                    }
+                },
+                "Clusters": {
+                    "type": "list",
+                    "member": {}
+                },
+                "ARN": {}
+            }
+        },
+        "S1c": {
+            "type": "list",
+            "member": {}
+        },
+        "S1g": {
+            "type": "list",
+            "member": {}
+        },
+        "S1l": {
+            "type": "structure",
+            "members": {
+                "Name": {},
+                "Family": {},
+                "Description": {},
+                "ARN": {}
+            }
+        },
+        "S1p": {
+            "type": "list",
+            "member": {}
+        },
+        "S1r": {
+            "type": "structure",
+            "members": {
+                "Name": {},
+                "Description": {},
+                "VpcId": {},
+                "Subnets": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "members": {
+                            "Identifier": {},
+                            "AvailabilityZone": {
+                                "type": "structure",
+                                "members": {
+                                    "Name": {}
+                                }
+                            }
+                        }
+                    }
+                },
+                "ARN": {}
+            }
+        },
+        "S1w": {
+            "type": "structure",
+            "members": {
+                "Type": {},
+                "Passwords": {
+                    "type": "list",
+                    "member": {}
+                }
+            }
+        },
+        "S21": {
+            "type": "structure",
+            "members": {
+                "Name": {},
+                "Status": {},
+                "AccessString": {},
+                "ACLNames": {
+                    "type": "list",
+                    "member": {}
+                },
+                "MinimumEngineVersion": {},
+                "Authentication": {
+                    "type": "structure",
+                    "members": {
+                        "Type": {},
+                        "PasswordCount": {
+                            "type": "integer"
+                        }
+                    }
+                },
+                "ARN": {}
+            }
+        },
+        "S3r": {
+            "type": "list",
+            "member": {}
+        },
+        "S36": {
+            "type": "structure",
+            "members": {
+                "ReservationId": {},
+                "ReservedNodesOfferingId": {},
+                "NodeType": {},
+                "StartTime": {
+                    "type": "timestamp"
+                },
+                "Duration": {
+                    "type": "integer"
+                },
+                "FixedPrice": {
+                    "type": "double"
+                },
+                "NodeCount": {
+                    "type": "integer"
+                },
+                "OfferingType": {},
+                "State": {},
+                "RecurringCharges": {
+                    "shape": "S37"
+                },
+                "ARN": {}
+            }
+        },
+        "S37": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "RecurringChargeAmount": {
+                        "type": "double"
+                    },
+                    "RecurringChargeFrequency": {}
+                }
+            }
+        },
+        "S41": {
+            "type": "list",
+            "member": {}
+        },
+        "Sy": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "Key": {},
+                    "Value": {}
+                }
+            }
+        },
+        "S11": {
+            "type": "structure",
+            "members": {
+                "Name": {},
+                "Status": {},
+                "Source": {},
+                "KmsKeyId": {},
+                "ARN": {},
+                "ClusterConfiguration": {
+                    "type": "structure",
+                    "members": {
+                        "Name": {},
+                        "Description": {},
+                        "NodeType": {},
+                        "EngineVersion": {},
+                        "MaintenanceWindow": {},
+                        "TopicArn": {},
+                        "Port": {
+                            "type": "integer"
+                        },
+                        "ParameterGroupName": {},
+                        "SubnetGroupName": {},
+                        "VpcId": {},
+                        "SnapshotRetentionLimit": {
+                            "type": "integer"
+                        },
+                        "SnapshotWindow": {},
+                        "NumShards": {
+                            "type": "integer"
+                        },
+                        "Shards": {
+                            "type": "list",
+                            "member": {
+                                "type": "structure",
+                                "members": {
+                                    "Name": {},
+                                    "Configuration": {
+                                        "type": "structure",
+                                        "members": {
+                                            "Slots": {},
+                                            "ReplicaCount": {
+                                                "type": "integer"
+                                            }
+                                        }
+                                    },
+                                    "Size": {},
+                                    "SnapshotCreationTime": {
+                                        "type": "timestamp"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "S17": {
+            "type": "list",
+            "member": {}
+        },
+        "S1a": {
+            "type": "structure",
+            "members": {
+                "Name": {},
+                "Status": {},
+                "UserNames": {
+                    "shape": "S1b"
+                },
+                "MinimumEngineVersion": {},
+                "PendingChanges": {
+                    "type": "structure",
+                    "members": {
+                        "UserNamesToRemove": {
+                            "shape": "S1b"
+                        },
+                        "UserNamesToAdd": {
+                            "shape": "S1b"
+                        }
+                    }
+                },
+                "Clusters": {
+                    "type": "list",
+                    "member": {}
+                },
+                "ARN": {}
+            }
+        },
+        "S1f": {
+            "type": "list",
+            "member": {}
+        },
+        "S1k": {
+            "type": "structure",
+            "members": {
+                "Name": {},
+                "Family": {},
+                "Description": {},
+                "ARN": {}
+            }
+        },
+        "S1o": {
+            "type": "list",
+            "member": {}
+        },
+        "S1q": {
+            "type": "structure",
+            "members": {
+                "Name": {},
+                "Description": {},
+                "VpcId": {},
+                "Subnets": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "members": {
+                            "Identifier": {},
+                            "AvailabilityZone": {
+                                "type": "structure",
+                                "members": {
+                                    "Name": {}
+                                }
+                            }
+                        }
+                    }
+                },
+                "ARN": {}
+            }
+        },
+        "S1v": {
+            "type": "structure",
+            "members": {
+                "Type": {},
+                "Passwords": {
+                    "type": "list",
+                    "member": {}
+                }
+            }
+        },
+        "S20": {
+            "type": "structure",
+            "members": {
+                "Name": {},
+                "Status": {},
+                "AccessString": {},
+                "ACLNames": {
+                    "type": "list",
+                    "member": {}
+                },
+                "MinimumEngineVersion": {},
+                "Authentication": {
+                    "type": "structure",
+                    "members": {
+                        "Type": {},
+                        "PasswordCount": {
+                            "type": "integer"
+                        }
+                    }
+                },
+                "ARN": {}
+            }
+        },
+        "S3q": {
+            "type": "list",
+            "member": {}
+        },
+        "S1s": {
+            "type": "list",
+            "member": {}
+        },
+        "S1u": {
+            "type": "structure",
+            "members": {
+                "Name": {},
+                "Description": {},
+                "VpcId": {},
+                "Subnets": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "members": {
+                            "Identifier": {},
+                            "AvailabilityZone": {
+                                "type": "structure",
+                                "members": {
+                                    "Name": {}
+                                }
+                            }
+                        }
+                    }
+                },
+                "ARN": {}
+            }
+        },
+        "S1z": {
+            "type": "structure",
+            "members": {
+                "Type": {},
+                "Passwords": {
+                    "type": "list",
+                    "member": {}
+                }
+            }
+        },
+        "S24": {
+            "type": "structure",
+            "members": {
+                "Name": {},
+                "Status": {},
+                "AccessString": {},
+                "ACLNames": {
+                    "type": "list",
+                    "member": {}
+                },
+                "MinimumEngineVersion": {},
+                "Authentication": {
+                    "type": "structure",
+                    "members": {
+                        "Type": {},
+                        "PasswordCount": {
+                            "type": "integer"
+                        }
+                    }
+                },
+                "ARN": {}
+            }
+        },
+        "S3b": {
+            "type": "structure",
+            "members": {
+                "ReservationId": {},
+                "ReservedNodesOfferingId": {},
+                "NodeType": {},
+                "StartTime": {
+                    "type": "timestamp"
+                },
+                "Duration": {
+                    "type": "integer"
+                },
+                "FixedPrice": {
+                    "type": "double"
+                },
+                "NodeCount": {
+                    "type": "integer"
+                },
+                "OfferingType": {},
+                "State": {},
+                "RecurringCharges": {
+                    "shape": "S3c"
+                },
+                "ARN": {}
+            }
+        },
+        "S3c": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "RecurringChargeAmount": {
+                        "type": "double"
+                    },
+                    "RecurringChargeFrequency": {}
+                }
+            }
+        },
+        "S4d": {
+            "type": "list",
+            "member": {}
+        }
+    }
+}

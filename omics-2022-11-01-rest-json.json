@@ -1,0 +1,1014 @@
+{
+    "version": "2.0",
+    "metadata": {
+        "apiVersion": "2022-11-01",
+        "endpointPrefix": "omics",
+        "jsonVersion": "1.1",
+        "protocol": "rest-json",
+        "ripServiceName": "omics",
+        "serviceFullName": "Amazon Omics",
+        "serviceId": "Omics",
+        "signatureVersion": "v4",
+        "signingName": "omics",
+        "uid": "omics-2022-11-01",
+        "download_location": [
+            "https://a.b.cdn.console.awsstatic.com/a/v1/7WXYPGWFR4DZO4SDWQYLPIMAEGPCYM4TBYFLWHZECNEPWY45XXTQ/vendors.js"
+        ]
+    },
+    "operations": {
+        "CancelRun": {
+            "http": {
+                "requestUri": "/run/{id}/cancel",
+                "responseCode": 202
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "id"
+                ],
+                "members": {
+                    "id": {
+                        "location": "uri",
+                        "locationName": "id"
+                    }
+                }
+            },
+            "endpoint": {
+                "hostPrefix": "workflows-"
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/7WXYPGWFR4DZO4SDWQYLPIMAEGPCYM4TBYFLWHZECNEPWY45XXTQ/vendors.js"
+            ]
+        },
+        "CreateRunGroup": {
+            "http": {
+                "requestUri": "/runGroup",
+                "responseCode": 201
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "requestId"
+                ],
+                "members": {
+                    "name": {},
+                    "maxCpus": {
+                        "type": "integer"
+                    },
+                    "maxGpus": {
+                        "type": "integer"
+                    },
+                    "maxRuns": {
+                        "type": "integer"
+                    },
+                    "maxDuration": {
+                        "type": "integer"
+                    },
+                    "tags": {
+                        "shape": "S9"
+                    },
+                    "requestId": {
+                        "idempotencyToken": true
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "arn": {},
+                    "id": {},
+                    "tags": {
+                        "shape": "S9"
+                    }
+                }
+            },
+            "endpoint": {
+                "hostPrefix": "workflows-"
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/7WXYPGWFR4DZO4SDWQYLPIMAEGPCYM4TBYFLWHZECNEPWY45XXTQ/vendors.js"
+            ]
+        },
+        "CreateWorkflow": {
+            "http": {
+                "requestUri": "/workflow",
+                "responseCode": 201
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "requestId"
+                ],
+                "members": {
+                    "name": {},
+                    "description": {},
+                    "engine": {},
+                    "definitionZip": {
+                        "type": "blob"
+                    },
+                    "definitionUri": {},
+                    "main": {},
+                    "parameterTemplate": {
+                        "shape": "Sn"
+                    },
+                    "storageCapacity": {
+                        "type": "integer"
+                    },
+                    "accelerators": {},
+                    "tags": {
+                        "shape": "S9"
+                    },
+                    "requestId": {
+                        "idempotencyToken": true
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "arn": {},
+                    "id": {},
+                    "status": {},
+                    "tags": {
+                        "shape": "S9"
+                    }
+                }
+            },
+            "endpoint": {
+                "hostPrefix": "workflows-"
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/7WXYPGWFR4DZO4SDWQYLPIMAEGPCYM4TBYFLWHZECNEPWY45XXTQ/vendors.js"
+            ]
+        },
+        "DeleteRun": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/run/{id}",
+                "responseCode": 202
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "id"
+                ],
+                "members": {
+                    "id": {
+                        "location": "uri",
+                        "locationName": "id"
+                    }
+                }
+            },
+            "endpoint": {
+                "hostPrefix": "workflows-"
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/7WXYPGWFR4DZO4SDWQYLPIMAEGPCYM4TBYFLWHZECNEPWY45XXTQ/vendors.js"
+            ]
+        },
+        "DeleteRunGroup": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/runGroup/{id}",
+                "responseCode": 202
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "id"
+                ],
+                "members": {
+                    "id": {
+                        "location": "uri",
+                        "locationName": "id"
+                    }
+                }
+            },
+            "endpoint": {
+                "hostPrefix": "workflows-"
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/7WXYPGWFR4DZO4SDWQYLPIMAEGPCYM4TBYFLWHZECNEPWY45XXTQ/vendors.js"
+            ]
+        },
+        "DeleteWorkflow": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/workflow/{id}",
+                "responseCode": 202
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "id"
+                ],
+                "members": {
+                    "id": {
+                        "location": "uri",
+                        "locationName": "id"
+                    }
+                }
+            },
+            "endpoint": {
+                "hostPrefix": "workflows-"
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/7WXYPGWFR4DZO4SDWQYLPIMAEGPCYM4TBYFLWHZECNEPWY45XXTQ/vendors.js"
+            ]
+        },
+        "GetRun": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/run/{id}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "id"
+                ],
+                "members": {
+                    "id": {
+                        "location": "uri",
+                        "locationName": "id"
+                    },
+                    "export": {
+                        "location": "querystring",
+                        "locationName": "export",
+                        "type": "list",
+                        "member": {}
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "arn": {},
+                    "id": {},
+                    "status": {},
+                    "workflowId": {},
+                    "workflowType": {},
+                    "runId": {},
+                    "roleArn": {},
+                    "name": {},
+                    "runGroupId": {},
+                    "priority": {
+                        "type": "integer"
+                    },
+                    "definition": {},
+                    "digest": {},
+                    "parameters": {
+                        "shape": "S1d"
+                    },
+                    "storageCapacity": {
+                        "type": "integer"
+                    },
+                    "accelerators": {},
+                    "outputUri": {},
+                    "logLevel": {},
+                    "resourceDigests": {
+                        "type": "map",
+                        "key": {},
+                        "value": {}
+                    },
+                    "startedBy": {},
+                    "creationTime": {
+                        "shape": "S1l"
+                    },
+                    "startTime": {
+                        "shape": "S1l"
+                    },
+                    "stopTime": {
+                        "shape": "S1l"
+                    },
+                    "statusMessage": {},
+                    "tags": {
+                        "shape": "S9"
+                    }
+                }
+            },
+            "endpoint": {
+                "hostPrefix": "workflows-"
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/7WXYPGWFR4DZO4SDWQYLPIMAEGPCYM4TBYFLWHZECNEPWY45XXTQ/vendors.js"
+            ]
+        },
+        "GetRunGroup": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/runGroup/{id}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "id"
+                ],
+                "members": {
+                    "id": {
+                        "location": "uri",
+                        "locationName": "id"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "arn": {},
+                    "id": {},
+                    "name": {},
+                    "maxCpus": {
+                        "type": "integer"
+                    },
+                    "maxGpus": {
+                        "type": "integer"
+                    },
+                    "maxRuns": {
+                        "type": "integer"
+                    },
+                    "maxDuration": {
+                        "type": "integer"
+                    },
+                    "creationTime": {
+                        "shape": "S1t"
+                    },
+                    "tags": {
+                        "shape": "S9"
+                    }
+                }
+            },
+            "endpoint": {
+                "hostPrefix": "workflows-"
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/7WXYPGWFR4DZO4SDWQYLPIMAEGPCYM4TBYFLWHZECNEPWY45XXTQ/vendors.js"
+            ]
+        },
+        "GetRunTask": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/run/{id}/task/{taskId}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "id",
+                    "taskId"
+                ],
+                "members": {
+                    "id": {
+                        "location": "uri",
+                        "locationName": "id"
+                    },
+                    "taskId": {
+                        "location": "uri",
+                        "locationName": "taskId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "taskId": {},
+                    "status": {},
+                    "name": {},
+                    "cpus": {
+                        "type": "integer"
+                    },
+                    "memory": {
+                        "type": "integer"
+                    },
+                    "gpus": {
+                        "type": "integer"
+                    },
+                    "creationTime": {
+                        "shape": "S22"
+                    },
+                    "startTime": {
+                        "shape": "S22"
+                    },
+                    "stopTime": {
+                        "shape": "S22"
+                    },
+                    "statusMessage": {},
+                    "logStream": {}
+                }
+            },
+            "endpoint": {
+                "hostPrefix": "workflows-"
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/7WXYPGWFR4DZO4SDWQYLPIMAEGPCYM4TBYFLWHZECNEPWY45XXTQ/vendors.js"
+            ]
+        },
+        "GetWorkflow": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/workflow/{id}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "id"
+                ],
+                "members": {
+                    "id": {
+                        "location": "uri",
+                        "locationName": "id"
+                    },
+                    "type": {
+                        "location": "querystring",
+                        "locationName": "type"
+                    },
+                    "export": {
+                        "location": "querystring",
+                        "locationName": "export",
+                        "type": "list",
+                        "member": {}
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "arn": {},
+                    "id": {},
+                    "status": {},
+                    "type": {},
+                    "name": {},
+                    "description": {},
+                    "engine": {},
+                    "definition": {},
+                    "main": {},
+                    "digest": {},
+                    "parameterTemplate": {
+                        "shape": "Sn"
+                    },
+                    "metadata": {
+                        "shape": "S29"
+                    },
+                    "storageCapacity": {
+                        "type": "integer"
+                    },
+                    "accelerators": {},
+                    "creationTime": {
+                        "shape": "S2d"
+                    },
+                    "statusMessage": {},
+                    "tags": {
+                        "shape": "S9"
+                    }
+                }
+            },
+            "endpoint": {
+                "hostPrefix": "workflows-"
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/7WXYPGWFR4DZO4SDWQYLPIMAEGPCYM4TBYFLWHZECNEPWY45XXTQ/vendors.js"
+            ]
+        },
+        "ListRunGroups": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/runGroup",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "name": {
+                        "location": "querystring",
+                        "locationName": "name"
+                    },
+                    "startingToken": {
+                        "location": "querystring",
+                        "locationName": "startingToken"
+                    },
+                    "maxResults": {
+                        "location": "querystring",
+                        "locationName": "maxResults",
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "items": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "arn": {},
+                                "id": {},
+                                "name": {},
+                                "maxCpus": {
+                                    "type": "integer"
+                                },
+                                "maxGpus": {
+                                    "type": "integer"
+                                },
+                                "maxRuns": {
+                                    "type": "integer"
+                                },
+                                "maxDuration": {
+                                    "type": "integer"
+                                },
+                                "creationTime": {
+                                    "shape": "S1t"
+                                }
+                            }
+                        }
+                    },
+                    "nextToken": {}
+                }
+            },
+            "endpoint": {
+                "hostPrefix": "workflows-"
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/7WXYPGWFR4DZO4SDWQYLPIMAEGPCYM4TBYFLWHZECNEPWY45XXTQ/vendors.js"
+            ]
+        },
+        "ListRunTasks": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/run/{id}/task",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "id"
+                ],
+                "members": {
+                    "id": {
+                        "location": "uri",
+                        "locationName": "id"
+                    },
+                    "status": {
+                        "location": "querystring",
+                        "locationName": "status"
+                    },
+                    "startingToken": {
+                        "location": "querystring",
+                        "locationName": "startingToken"
+                    },
+                    "maxResults": {
+                        "location": "querystring",
+                        "locationName": "maxResults",
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "items": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "taskId": {},
+                                "status": {},
+                                "name": {},
+                                "cpus": {
+                                    "type": "integer"
+                                },
+                                "gpus": {
+                                    "type": "integer"
+                                },
+                                "memory": {
+                                    "type": "integer"
+                                },
+                                "creationTime": {
+                                    "shape": "S22"
+                                },
+                                "startTime": {
+                                    "shape": "S22"
+                                },
+                                "stopTime": {
+                                    "shape": "S22"
+                                }
+                            }
+                        }
+                    },
+                    "nextToken": {}
+                }
+            },
+            "endpoint": {
+                "hostPrefix": "workflows-"
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/7WXYPGWFR4DZO4SDWQYLPIMAEGPCYM4TBYFLWHZECNEPWY45XXTQ/vendors.js"
+            ]
+        },
+        "ListRuns": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/run",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "name": {
+                        "location": "querystring",
+                        "locationName": "name"
+                    },
+                    "runGroupId": {
+                        "location": "querystring",
+                        "locationName": "runGroupId"
+                    },
+                    "startingToken": {
+                        "location": "querystring",
+                        "locationName": "startingToken"
+                    },
+                    "maxResults": {
+                        "location": "querystring",
+                        "locationName": "maxResults",
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "items": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "arn": {},
+                                "id": {},
+                                "status": {},
+                                "workflowId": {},
+                                "name": {},
+                                "priority": {
+                                    "type": "integer"
+                                },
+                                "storageCapacity": {
+                                    "type": "integer"
+                                },
+                                "creationTime": {
+                                    "shape": "S1l"
+                                },
+                                "startTime": {
+                                    "shape": "S1l"
+                                },
+                                "stopTime": {
+                                    "shape": "S1l"
+                                }
+                            }
+                        }
+                    },
+                    "nextToken": {}
+                }
+            },
+            "endpoint": {
+                "hostPrefix": "workflows-"
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/7WXYPGWFR4DZO4SDWQYLPIMAEGPCYM4TBYFLWHZECNEPWY45XXTQ/vendors.js"
+            ]
+        },
+        "ListTagsForResource": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/tags/{resourceArn}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "resourceArn"
+                ],
+                "members": {
+                    "resourceArn": {
+                        "location": "uri",
+                        "locationName": "resourceArn"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "tags"
+                ],
+                "members": {
+                    "tags": {
+                        "shape": "S9"
+                    }
+                }
+            },
+            "endpoint": {
+                "hostPrefix": "tags-"
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/7WXYPGWFR4DZO4SDWQYLPIMAEGPCYM4TBYFLWHZECNEPWY45XXTQ/vendors.js"
+            ]
+        },
+        "ListWorkflows": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/workflow",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "type": {
+                        "location": "querystring",
+                        "locationName": "type"
+                    },
+                    "name": {
+                        "location": "querystring",
+                        "locationName": "name"
+                    },
+                    "startingToken": {
+                        "location": "querystring",
+                        "locationName": "startingToken"
+                    },
+                    "maxResults": {
+                        "location": "querystring",
+                        "locationName": "maxResults",
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "items": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "arn": {},
+                                "id": {},
+                                "name": {},
+                                "status": {},
+                                "type": {},
+                                "metadata": {
+                                    "shape": "S29"
+                                },
+                                "digest": {},
+                                "creationTime": {
+                                    "shape": "S2d"
+                                }
+                            }
+                        }
+                    },
+                    "nextToken": {}
+                }
+            },
+            "endpoint": {
+                "hostPrefix": "workflows-"
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/7WXYPGWFR4DZO4SDWQYLPIMAEGPCYM4TBYFLWHZECNEPWY45XXTQ/vendors.js"
+            ]
+        },
+        "StartRun": {
+            "http": {
+                "requestUri": "/run",
+                "responseCode": 201
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "roleArn",
+                    "requestId"
+                ],
+                "members": {
+                    "workflowId": {},
+                    "workflowType": {},
+                    "runId": {},
+                    "roleArn": {},
+                    "name": {},
+                    "runGroupId": {},
+                    "priority": {
+                        "type": "integer"
+                    },
+                    "parameters": {
+                        "shape": "S1d"
+                    },
+                    "storageCapacity": {
+                        "type": "integer"
+                    },
+                    "outputUri": {},
+                    "logLevel": {},
+                    "tags": {
+                        "shape": "S9"
+                    },
+                    "requestId": {
+                        "idempotencyToken": true
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "arn": {},
+                    "id": {},
+                    "status": {},
+                    "tags": {
+                        "shape": "S9"
+                    }
+                }
+            },
+            "endpoint": {
+                "hostPrefix": "workflows-"
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/7WXYPGWFR4DZO4SDWQYLPIMAEGPCYM4TBYFLWHZECNEPWY45XXTQ/vendors.js"
+            ]
+        },
+        "TagResource": {
+            "http": {
+                "requestUri": "/tags/{resourceArn}",
+                "responseCode": 204
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "resourceArn",
+                    "tags"
+                ],
+                "members": {
+                    "resourceArn": {
+                        "location": "uri",
+                        "locationName": "resourceArn"
+                    },
+                    "tags": {
+                        "type": "map",
+                        "key": {},
+                        "value": {}
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "endpoint": {
+                "hostPrefix": "tags-"
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/7WXYPGWFR4DZO4SDWQYLPIMAEGPCYM4TBYFLWHZECNEPWY45XXTQ/vendors.js"
+            ]
+        },
+        "UntagResource": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/tags/{resourceArn}",
+                "responseCode": 204
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "resourceArn",
+                    "tagKeys"
+                ],
+                "members": {
+                    "resourceArn": {
+                        "location": "uri",
+                        "locationName": "resourceArn"
+                    },
+                    "tagKeys": {
+                        "location": "querystring",
+                        "locationName": "tagKeys",
+                        "type": "list",
+                        "member": {}
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "endpoint": {
+                "hostPrefix": "tags-"
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/7WXYPGWFR4DZO4SDWQYLPIMAEGPCYM4TBYFLWHZECNEPWY45XXTQ/vendors.js"
+            ]
+        },
+        "UpdateRunGroup": {
+            "http": {
+                "requestUri": "/runGroup/{id}",
+                "responseCode": 202
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "id"
+                ],
+                "members": {
+                    "id": {
+                        "location": "uri",
+                        "locationName": "id"
+                    },
+                    "name": {},
+                    "maxCpus": {
+                        "type": "integer"
+                    },
+                    "maxGpus": {
+                        "type": "integer"
+                    },
+                    "maxRuns": {
+                        "type": "integer"
+                    },
+                    "maxDuration": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "endpoint": {
+                "hostPrefix": "workflows-"
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/7WXYPGWFR4DZO4SDWQYLPIMAEGPCYM4TBYFLWHZECNEPWY45XXTQ/vendors.js"
+            ]
+        },
+        "UpdateWorkflow": {
+            "http": {
+                "requestUri": "/workflow/{id}",
+                "responseCode": 202
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "id"
+                ],
+                "members": {
+                    "id": {
+                        "location": "uri",
+                        "locationName": "id"
+                    },
+                    "name": {},
+                    "description": {}
+                }
+            },
+            "endpoint": {
+                "hostPrefix": "workflows-"
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/7WXYPGWFR4DZO4SDWQYLPIMAEGPCYM4TBYFLWHZECNEPWY45XXTQ/vendors.js"
+            ]
+        }
+    },
+    "shapes": {
+        "S9": {
+            "type": "map",
+            "key": {},
+            "value": {}
+        },
+        "Sn": {
+            "type": "map",
+            "key": {},
+            "value": {
+                "type": "structure",
+                "members": {
+                    "description": {},
+                    "optional": {
+                        "type": "boolean"
+                    }
+                }
+            }
+        },
+        "S1d": {
+            "type": "structure",
+            "members": {},
+            "document": true
+        },
+        "S1l": {
+            "type": "timestamp",
+            "timestampFormat": "iso8601"
+        },
+        "S1t": {
+            "type": "timestamp",
+            "timestampFormat": "iso8601"
+        },
+        "S22": {
+            "type": "timestamp",
+            "timestampFormat": "iso8601"
+        },
+        "S29": {
+            "type": "map",
+            "key": {},
+            "value": {}
+        },
+        "S2d": {
+            "type": "timestamp",
+            "timestampFormat": "iso8601"
+        }
+    }
+}

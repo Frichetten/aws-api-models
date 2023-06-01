@@ -1,0 +1,193 @@
+{
+    "version": "2.0",
+    "metadata": {
+        "apiVersion": "2022-07-27",
+        "endpointPrefix": "supportplans",
+        "jsonVersion": "1.1",
+        "protocol": "rest-json",
+        "serviceFullName": "Support Plans",
+        "serviceId": "SupportPlans",
+        "signatureVersion": "v4",
+        "signingName": "supportplans",
+        "uid": "supportplans-2022-07-27",
+        "download_location": [
+            "https://a.b.cdn.console.awsstatic.com/a/v1/6N7L62B76A3YGOYQR7LSVTREZSDIQDVKYHWGF5INBV2576A6X4BQ/vendors.js"
+        ]
+    },
+    "operations": {
+        "CreateSupportPlanSchedule": {
+            "http": {
+                "requestUri": "/v1/createSupportPlanSchedule",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "clientToken",
+                    "scheduleCreationDetails"
+                ],
+                "members": {
+                    "clientToken": {
+                        "idempotencyToken": true
+                    },
+                    "scheduleCreationDetails": {
+                        "type": "structure",
+                        "required": [
+                            "startLevel",
+                            "startOffer",
+                            "startTimestamp"
+                        ],
+                        "members": {
+                            "startLevel": {},
+                            "startOffer": {},
+                            "startTimestamp": {
+                                "shape": "S6"
+                            },
+                            "endLevel": {},
+                            "endOffer": {},
+                            "endTimestamp": {
+                                "shape": "S6"
+                            }
+                        }
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "supportPlanScheduleArn": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/6N7L62B76A3YGOYQR7LSVTREZSDIQDVKYHWGF5INBV2576A6X4BQ/vendors.js"
+            ]
+        },
+        "DeleteSupportPlanSchedule": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/v1/deleteSupportPlanSchedule",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "supportPlanScheduleArn"
+                ],
+                "members": {
+                    "supportPlanScheduleArn": {
+                        "location": "querystring",
+                        "locationName": "supportPlanScheduleArn"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/6N7L62B76A3YGOYQR7LSVTREZSDIQDVKYHWGF5INBV2576A6X4BQ/vendors.js"
+            ]
+        },
+        "GetSupportPlan": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/v1/getSupportPlan",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {}
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "supportPlan": {
+                        "type": "structure",
+                        "members": {
+                            "supportLevel": {}
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/6N7L62B76A3YGOYQR7LSVTREZSDIQDVKYHWGF5INBV2576A6X4BQ/vendors.js"
+            ]
+        },
+        "GetSupportPlanUpdateStatus": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/v1/getSupportPlanUpdateStatus",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "supportPlanUpdateArn"
+                ],
+                "members": {
+                    "supportPlanUpdateArn": {
+                        "location": "querystring",
+                        "locationName": "supportPlanUpdateArn"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "status": {},
+                    "supportPlanUpdateArn": {},
+                    "failureDetailsList": {
+                        "type": "list",
+                        "member": {}
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/6N7L62B76A3YGOYQR7LSVTREZSDIQDVKYHWGF5INBV2576A6X4BQ/vendors.js"
+            ]
+        },
+        "StartSupportPlanUpdate": {
+            "http": {
+                "requestUri": "/v1/startSupportPlanUpdate",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "clientToken",
+                    "update"
+                ],
+                "members": {
+                    "clientToken": {
+                        "idempotencyToken": true
+                    },
+                    "update": {
+                        "type": "structure",
+                        "required": [
+                            "supportLevel"
+                        ],
+                        "members": {
+                            "supportLevel": {}
+                        }
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "supportPlanUpdateArn": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/6N7L62B76A3YGOYQR7LSVTREZSDIQDVKYHWGF5INBV2576A6X4BQ/vendors.js"
+            ]
+        }
+    },
+    "shapes": {
+        "S6": {
+            "type": "timestamp",
+            "timestampFormat": "iso8601"
+        }
+    }
+}

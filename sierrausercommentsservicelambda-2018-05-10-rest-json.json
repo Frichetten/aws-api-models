@@ -1,0 +1,472 @@
+{
+    "version": "2.0",
+    "metadata": {
+        "apiVersion": "2018-05-10",
+        "endpointPrefix": "sierrausercommentsservicelambda",
+        "jsonVersion": "1.1",
+        "protocol": "rest-json",
+        "serviceFullName": "SierraUserCommentsService",
+        "serviceId": "SierraUserCommentsServiceLambda",
+        "signatureVersion": "v4",
+        "signingName": "scn",
+        "uid": "sierrausercommentsservicelambda-2018-05-10",
+        "download_location": [
+            "https://a.b.cdn.console.awsstatic.com/a/v1/TKHP6TGZH23RVCUZZP2OJ2PJJUFTMSQ666SII2V522LCUK4NBNXQ/vendors~4134d62c.js"
+        ]
+    },
+    "operations": {
+        "CreateChildComment": {
+            "http": {
+                "requestUri": "/childcomments",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "instanceId",
+                    "commentContent",
+                    "parentCommentId",
+                    "parentResourceType"
+                ],
+                "members": {
+                    "instanceId": {},
+                    "commentContent": {
+                        "shape": "S3"
+                    },
+                    "parentCommentId": {},
+                    "parentResourceType": {},
+                    "parentResourceId": {},
+                    "resourceName": {},
+                    "planningCycleId": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "childComment"
+                ],
+                "members": {
+                    "childComment": {
+                        "shape": "S6"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/TKHP6TGZH23RVCUZZP2OJ2PJJUFTMSQ666SII2V522LCUK4NBNXQ/vendors~4134d62c.js"
+            ]
+        },
+        "CreateParentComment": {
+            "http": {
+                "requestUri": "/parentcomments",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "instanceId",
+                    "resourceType",
+                    "resourceId",
+                    "parentResourceType",
+                    "commentContent"
+                ],
+                "members": {
+                    "instanceId": {},
+                    "resourceType": {},
+                    "resourceId": {},
+                    "resourceName": {},
+                    "parentResourceType": {},
+                    "parentResourceId": {},
+                    "commentContent": {
+                        "shape": "S3"
+                    },
+                    "planningCycleId": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "parentComment"
+                ],
+                "members": {
+                    "parentComment": {
+                        "shape": "Sb"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/TKHP6TGZH23RVCUZZP2OJ2PJJUFTMSQ666SII2V522LCUK4NBNXQ/vendors~4134d62c.js"
+            ]
+        },
+        "DeleteChildComment": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/childcomments/{commentId}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "commentId",
+                    "instanceId"
+                ],
+                "members": {
+                    "commentId": {
+                        "location": "uri",
+                        "locationName": "commentId"
+                    },
+                    "instanceId": {
+                        "location": "querystring",
+                        "locationName": "instanceId"
+                    },
+                    "parentResourceType": {
+                        "location": "querystring",
+                        "locationName": "parentResourceType"
+                    },
+                    "parentResourceId": {
+                        "location": "querystring",
+                        "locationName": "parentResourceId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "commentId"
+                ],
+                "members": {
+                    "commentId": {}
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/TKHP6TGZH23RVCUZZP2OJ2PJJUFTMSQ666SII2V522LCUK4NBNXQ/vendors~4134d62c.js"
+            ]
+        },
+        "DeleteParentComment": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/parentcomments/{commentId}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "commentId",
+                    "instanceId"
+                ],
+                "members": {
+                    "commentId": {
+                        "location": "uri",
+                        "locationName": "commentId"
+                    },
+                    "instanceId": {
+                        "location": "querystring",
+                        "locationName": "instanceId"
+                    },
+                    "parentResourceType": {
+                        "location": "querystring",
+                        "locationName": "parentResourceType"
+                    },
+                    "parentResourceId": {
+                        "location": "querystring",
+                        "locationName": "parentResourceId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "commentId"
+                ],
+                "members": {
+                    "commentId": {}
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/TKHP6TGZH23RVCUZZP2OJ2PJJUFTMSQ666SII2V522LCUK4NBNXQ/vendors~4134d62c.js"
+            ]
+        },
+        "ListChildCommentsForParentId": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/childcomments",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "instanceId",
+                    "parentCommentId"
+                ],
+                "members": {
+                    "nextToken": {
+                        "location": "querystring",
+                        "locationName": "nextToken"
+                    },
+                    "maxResults": {
+                        "location": "querystring",
+                        "locationName": "maxResults",
+                        "type": "integer"
+                    },
+                    "instanceId": {
+                        "location": "querystring",
+                        "locationName": "instanceId"
+                    },
+                    "parentResourceType": {
+                        "location": "querystring",
+                        "locationName": "parentResourceType"
+                    },
+                    "parentResourceId": {
+                        "location": "querystring",
+                        "locationName": "parentResourceId"
+                    },
+                    "parentCommentId": {
+                        "location": "querystring",
+                        "locationName": "parentCommentId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "childComments": {
+                        "type": "list",
+                        "member": {
+                            "shape": "S6"
+                        }
+                    },
+                    "nextToken": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/TKHP6TGZH23RVCUZZP2OJ2PJJUFTMSQ666SII2V522LCUK4NBNXQ/vendors~4134d62c.js"
+            ]
+        },
+        "ListParentCommentsForResource": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/parentcomments",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "instanceId",
+                    "resourceType",
+                    "resourceId"
+                ],
+                "members": {
+                    "nextToken": {
+                        "location": "querystring",
+                        "locationName": "nextToken"
+                    },
+                    "maxResults": {
+                        "location": "querystring",
+                        "locationName": "maxResults",
+                        "type": "integer"
+                    },
+                    "instanceId": {
+                        "location": "querystring",
+                        "locationName": "instanceId"
+                    },
+                    "resourceType": {
+                        "location": "querystring",
+                        "locationName": "resourceType"
+                    },
+                    "resourceId": {
+                        "location": "querystring",
+                        "locationName": "resourceId"
+                    },
+                    "parentResourceType": {
+                        "location": "querystring",
+                        "locationName": "parentResourceType"
+                    },
+                    "parentResourceId": {
+                        "location": "querystring",
+                        "locationName": "parentResourceId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "parentComments": {
+                        "type": "list",
+                        "member": {
+                            "shape": "Sb"
+                        }
+                    },
+                    "nextToken": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/TKHP6TGZH23RVCUZZP2OJ2PJJUFTMSQ666SII2V522LCUK4NBNXQ/vendors~4134d62c.js"
+            ]
+        },
+        "UpdateChildComment": {
+            "http": {
+                "requestUri": "/childcomments/{commentId}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "commentId",
+                    "instanceId",
+                    "parentCommentId",
+                    "parentResourceType"
+                ],
+                "members": {
+                    "commentId": {
+                        "location": "uri",
+                        "locationName": "commentId"
+                    },
+                    "instanceId": {},
+                    "parentCommentId": {},
+                    "parentResourceType": {},
+                    "parentResourceId": {},
+                    "commentContent": {
+                        "shape": "S3"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "childComment"
+                ],
+                "members": {
+                    "childComment": {
+                        "shape": "S6"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/TKHP6TGZH23RVCUZZP2OJ2PJJUFTMSQ666SII2V522LCUK4NBNXQ/vendors~4134d62c.js"
+            ]
+        },
+        "UpdateParentComment": {
+            "http": {
+                "requestUri": "/parentcomments/{commentId}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "commentId",
+                    "instanceId",
+                    "resourceType",
+                    "resourceId",
+                    "parentResourceType"
+                ],
+                "members": {
+                    "commentId": {
+                        "location": "uri",
+                        "locationName": "commentId"
+                    },
+                    "instanceId": {},
+                    "resourceType": {},
+                    "resourceId": {},
+                    "parentResourceType": {},
+                    "parentResourceId": {},
+                    "commentContent": {
+                        "shape": "S3"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "parentComment"
+                ],
+                "members": {
+                    "parentComment": {
+                        "shape": "Sb"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/TKHP6TGZH23RVCUZZP2OJ2PJJUFTMSQ666SII2V522LCUK4NBNXQ/vendors~4134d62c.js"
+            ]
+        }
+    },
+    "shapes": {
+        "S3": {
+            "type": "string",
+            "sensitive": true
+        },
+        "S6": {
+            "type": "structure",
+            "required": [
+                "commentId",
+                "commentContent",
+                "instanceId",
+                "resourceType",
+                "resourceId",
+                "parentResourceType",
+                "userId",
+                "parentCommentId",
+                "createdAt",
+                "lastEdited"
+            ],
+            "members": {
+                "commentId": {},
+                "commentContent": {
+                    "shape": "S3"
+                },
+                "instanceId": {},
+                "resourceType": {},
+                "resourceId": {},
+                "parentResourceType": {},
+                "parentResourceId": {},
+                "userId": {},
+                "userName": {},
+                "parentCommentId": {},
+                "createdAt": {
+                    "type": "timestamp"
+                },
+                "lastEdited": {
+                    "type": "timestamp"
+                }
+            }
+        },
+        "Sb": {
+            "type": "structure",
+            "required": [
+                "commentId",
+                "commentContent",
+                "instanceId",
+                "resourceType",
+                "resourceId",
+                "parentResourceType",
+                "userId",
+                "numChildren",
+                "createdAt",
+                "lastEdited"
+            ],
+            "members": {
+                "commentId": {},
+                "commentContent": {
+                    "shape": "S3"
+                },
+                "instanceId": {},
+                "resourceType": {},
+                "resourceId": {},
+                "parentResourceType": {},
+                "parentResourceId": {},
+                "userId": {},
+                "userName": {},
+                "numChildren": {
+                    "type": "integer"
+                },
+                "createdAt": {
+                    "type": "timestamp"
+                },
+                "lastEdited": {
+                    "type": "timestamp"
+                }
+            }
+        }
+    }
+}

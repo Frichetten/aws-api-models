@@ -1,0 +1,1935 @@
+{
+    "version": "2.0",
+    "metadata": {
+        "apiVersion": "2017-08-25",
+        "endpointPrefix": "signer",
+        "jsonVersion": "1.1",
+        "protocol": "rest-json",
+        "serviceAbbreviation": "signer",
+        "serviceFullName": "AWS Signer",
+        "serviceId": "signer",
+        "signatureVersion": "v4",
+        "signingName": "signer",
+        "uid": "signer-2017-08-25",
+        "download_location": [
+            "https://devicemanagement.us-east-1.prod.console.iot.aws.dev/static/js/devicemanagement.js"
+        ]
+    },
+    "operations": {
+        "AddProfilePermission": {
+            "http": {
+                "requestUri": "/signing-profiles/{profileName}/permissions"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "action",
+                    "principal",
+                    "statementId",
+                    "profileName"
+                ],
+                "members": {
+                    "profileName": {
+                        "location": "uri",
+                        "locationName": "profileName"
+                    },
+                    "profileVersion": {},
+                    "action": {},
+                    "principal": {},
+                    "revisionId": {},
+                    "statementId": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "revisionId": {}
+                }
+            },
+            "download_location": [
+                "https://devicemanagement.us-east-1.prod.console.iot.aws.dev/static/js/devicemanagement.js"
+            ]
+        },
+        "CancelSigningProfile": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/signing-profiles/{profileName}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "profileName"
+                ],
+                "members": {
+                    "profileName": {
+                        "location": "uri",
+                        "locationName": "profileName"
+                    }
+                }
+            },
+            "download_location": [
+                "https://devicemanagement.us-east-1.prod.console.iot.aws.dev/static/js/devicemanagement.js"
+            ]
+        },
+        "DescribeSigningJob": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/signing-jobs/{jobId}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "jobId"
+                ],
+                "members": {
+                    "jobId": {
+                        "location": "uri",
+                        "locationName": "jobId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "jobId": {},
+                    "source": {
+                        "shape": "Sa"
+                    },
+                    "signingMaterial": {
+                        "shape": "Sf"
+                    },
+                    "platformId": {},
+                    "platformDisplayName": {},
+                    "profileName": {},
+                    "profileVersion": {},
+                    "overrides": {
+                        "shape": "Sj"
+                    },
+                    "signingParameters": {
+                        "shape": "So"
+                    },
+                    "createdAt": {
+                        "type": "timestamp"
+                    },
+                    "completedAt": {
+                        "type": "timestamp"
+                    },
+                    "signatureExpiresAt": {
+                        "type": "timestamp"
+                    },
+                    "requestedBy": {},
+                    "status": {},
+                    "statusReason": {},
+                    "revocationRecord": {
+                        "type": "structure",
+                        "members": {
+                            "reason": {},
+                            "revokedAt": {
+                                "type": "timestamp"
+                            },
+                            "revokedBy": {}
+                        }
+                    },
+                    "signedObject": {
+                        "shape": "Sw"
+                    },
+                    "jobOwner": {},
+                    "jobInvoker": {}
+                }
+            },
+            "download_location": [
+                "https://devicemanagement.us-east-1.prod.console.iot.aws.dev/static/js/devicemanagement.js"
+            ]
+        },
+        "GetSigningPlatform": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/signing-platforms/{platformId}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "platformId"
+                ],
+                "members": {
+                    "platformId": {
+                        "location": "uri",
+                        "locationName": "platformId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "platformId": {},
+                    "displayName": {},
+                    "partner": {},
+                    "target": {},
+                    "category": {},
+                    "signingConfiguration": {
+                        "shape": "S12"
+                    },
+                    "signingImageFormat": {
+                        "shape": "S17"
+                    },
+                    "maxSizeInMB": {
+                        "type": "integer"
+                    },
+                    "revocationSupported": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "download_location": [
+                "https://devicemanagement.us-east-1.prod.console.iot.aws.dev/static/js/devicemanagement.js"
+            ]
+        },
+        "GetSigningProfile": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/signing-profiles/{profileName}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "profileName"
+                ],
+                "members": {
+                    "profileName": {
+                        "location": "uri",
+                        "locationName": "profileName"
+                    },
+                    "profileOwner": {
+                        "location": "querystring",
+                        "locationName": "profileOwner"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "profileName": {},
+                    "profileVersion": {},
+                    "profileVersionArn": {},
+                    "revocationRecord": {
+                        "type": "structure",
+                        "members": {
+                            "revocationEffectiveFrom": {
+                                "type": "timestamp"
+                            },
+                            "revokedAt": {
+                                "type": "timestamp"
+                            },
+                            "revokedBy": {}
+                        }
+                    },
+                    "signingMaterial": {
+                        "shape": "Sf"
+                    },
+                    "platformId": {},
+                    "platformDisplayName": {},
+                    "signatureValidityPeriod": {
+                        "shape": "S1f"
+                    },
+                    "overrides": {
+                        "shape": "Sj"
+                    },
+                    "signingParameters": {
+                        "shape": "So"
+                    },
+                    "status": {},
+                    "statusReason": {},
+                    "arn": {},
+                    "tags": {
+                        "shape": "S1k"
+                    }
+                }
+            },
+            "download_location": [
+                "https://devicemanagement.us-east-1.prod.console.iot.aws.dev/static/js/devicemanagement.js"
+            ]
+        },
+        "ListProfilePermissions": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/signing-profiles/{profileName}/permissions"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "profileName"
+                ],
+                "members": {
+                    "profileName": {
+                        "location": "uri",
+                        "locationName": "profileName"
+                    },
+                    "nextToken": {
+                        "location": "querystring",
+                        "locationName": "nextToken"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "revisionId": {},
+                    "policySizeBytes": {
+                        "type": "integer"
+                    },
+                    "permissions": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "action": {},
+                                "principal": {},
+                                "statementId": {},
+                                "profileVersion": {}
+                            }
+                        }
+                    },
+                    "nextToken": {}
+                }
+            },
+            "download_location": [
+                "https://devicemanagement.us-east-1.prod.console.iot.aws.dev/static/js/devicemanagement.js"
+            ]
+        },
+        "ListSigningJobs": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/signing-jobs"
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "status": {
+                        "location": "querystring",
+                        "locationName": "status"
+                    },
+                    "platformId": {
+                        "location": "querystring",
+                        "locationName": "platformId"
+                    },
+                    "requestedBy": {
+                        "location": "querystring",
+                        "locationName": "requestedBy"
+                    },
+                    "maxResults": {
+                        "location": "querystring",
+                        "locationName": "maxResults",
+                        "type": "integer"
+                    },
+                    "nextToken": {
+                        "location": "querystring",
+                        "locationName": "nextToken"
+                    },
+                    "isRevoked": {
+                        "location": "querystring",
+                        "locationName": "isRevoked",
+                        "type": "boolean"
+                    },
+                    "signatureExpiresBefore": {
+                        "location": "querystring",
+                        "locationName": "signatureExpiresBefore",
+                        "type": "timestamp"
+                    },
+                    "signatureExpiresAfter": {
+                        "location": "querystring",
+                        "locationName": "signatureExpiresAfter",
+                        "type": "timestamp"
+                    },
+                    "jobInvoker": {
+                        "location": "querystring",
+                        "locationName": "jobInvoker"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "jobs": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "jobId": {},
+                                "source": {
+                                    "shape": "Sa"
+                                },
+                                "signedObject": {
+                                    "shape": "Sw"
+                                },
+                                "signingMaterial": {
+                                    "shape": "Sf"
+                                },
+                                "createdAt": {
+                                    "type": "timestamp"
+                                },
+                                "status": {},
+                                "isRevoked": {
+                                    "type": "boolean"
+                                },
+                                "profileName": {},
+                                "profileVersion": {},
+                                "platformId": {},
+                                "platformDisplayName": {},
+                                "signatureExpiresAt": {
+                                    "type": "timestamp"
+                                },
+                                "jobOwner": {},
+                                "jobInvoker": {}
+                            }
+                        }
+                    },
+                    "nextToken": {}
+                }
+            },
+            "download_location": [
+                "https://devicemanagement.us-east-1.prod.console.iot.aws.dev/static/js/devicemanagement.js"
+            ]
+        },
+        "ListSigningPlatforms": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/signing-platforms"
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "category": {
+                        "location": "querystring",
+                        "locationName": "category"
+                    },
+                    "partner": {
+                        "location": "querystring",
+                        "locationName": "partner"
+                    },
+                    "target": {
+                        "location": "querystring",
+                        "locationName": "target"
+                    },
+                    "maxResults": {
+                        "location": "querystring",
+                        "locationName": "maxResults",
+                        "type": "integer"
+                    },
+                    "nextToken": {
+                        "location": "querystring",
+                        "locationName": "nextToken"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "platforms": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "platformId": {},
+                                "displayName": {},
+                                "partner": {},
+                                "target": {},
+                                "category": {},
+                                "signingConfiguration": {
+                                    "shape": "S12"
+                                },
+                                "signingImageFormat": {
+                                    "shape": "S17"
+                                },
+                                "maxSizeInMB": {
+                                    "type": "integer"
+                                },
+                                "revocationSupported": {
+                                    "type": "boolean"
+                                }
+                            }
+                        }
+                    },
+                    "nextToken": {}
+                }
+            },
+            "download_location": [
+                "https://devicemanagement.us-east-1.prod.console.iot.aws.dev/static/js/devicemanagement.js"
+            ]
+        },
+        "ListSigningProfiles": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/signing-profiles"
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "includeCanceled": {
+                        "location": "querystring",
+                        "locationName": "includeCanceled",
+                        "type": "boolean"
+                    },
+                    "maxResults": {
+                        "location": "querystring",
+                        "locationName": "maxResults",
+                        "type": "integer"
+                    },
+                    "nextToken": {
+                        "location": "querystring",
+                        "locationName": "nextToken"
+                    },
+                    "platformId": {
+                        "location": "querystring",
+                        "locationName": "platformId"
+                    },
+                    "statuses": {
+                        "location": "querystring",
+                        "locationName": "statuses",
+                        "type": "list",
+                        "member": {}
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "profiles": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "profileName": {},
+                                "profileVersion": {},
+                                "profileVersionArn": {},
+                                "signingMaterial": {
+                                    "shape": "Sf"
+                                },
+                                "signatureValidityPeriod": {
+                                    "shape": "S1f"
+                                },
+                                "platformId": {},
+                                "platformDisplayName": {},
+                                "signingParameters": {
+                                    "shape": "So"
+                                },
+                                "status": {},
+                                "arn": {},
+                                "tags": {
+                                    "shape": "S1k"
+                                }
+                            }
+                        }
+                    },
+                    "nextToken": {}
+                }
+            },
+            "download_location": [
+                "https://devicemanagement.us-east-1.prod.console.iot.aws.dev/static/js/devicemanagement.js"
+            ]
+        },
+        "ListTagsForResource": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/tags/{resourceArn}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "resourceArn"
+                ],
+                "members": {
+                    "resourceArn": {
+                        "location": "uri",
+                        "locationName": "resourceArn"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "tags": {
+                        "shape": "S1k"
+                    }
+                }
+            },
+            "download_location": [
+                "https://devicemanagement.us-east-1.prod.console.iot.aws.dev/static/js/devicemanagement.js"
+            ]
+        },
+        "PutSigningProfile": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/signing-profiles/{profileName}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "profileName",
+                    "platformId"
+                ],
+                "members": {
+                    "profileName": {
+                        "location": "uri",
+                        "locationName": "profileName"
+                    },
+                    "signingMaterial": {
+                        "shape": "Sf"
+                    },
+                    "signatureValidityPeriod": {
+                        "shape": "S1f"
+                    },
+                    "platformId": {},
+                    "overrides": {
+                        "shape": "Sj"
+                    },
+                    "signingParameters": {
+                        "shape": "So"
+                    },
+                    "tags": {
+                        "shape": "S1k"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "arn": {},
+                    "profileVersion": {},
+                    "profileVersionArn": {}
+                }
+            },
+            "download_location": [
+                "https://devicemanagement.us-east-1.prod.console.iot.aws.dev/static/js/devicemanagement.js"
+            ]
+        },
+        "RemoveProfilePermission": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/signing-profiles/{profileName}/permissions/{statementId}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "revisionId",
+                    "profileName",
+                    "statementId"
+                ],
+                "members": {
+                    "profileName": {
+                        "location": "uri",
+                        "locationName": "profileName"
+                    },
+                    "revisionId": {
+                        "location": "querystring",
+                        "locationName": "revisionId"
+                    },
+                    "statementId": {
+                        "location": "uri",
+                        "locationName": "statementId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "revisionId": {}
+                }
+            },
+            "download_location": [
+                "https://devicemanagement.us-east-1.prod.console.iot.aws.dev/static/js/devicemanagement.js"
+            ]
+        },
+        "RevokeSignature": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/signing-jobs/{jobId}/revoke"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "reason",
+                    "jobId"
+                ],
+                "members": {
+                    "jobId": {
+                        "location": "uri",
+                        "locationName": "jobId"
+                    },
+                    "jobOwner": {},
+                    "reason": {}
+                }
+            },
+            "download_location": [
+                "https://devicemanagement.us-east-1.prod.console.iot.aws.dev/static/js/devicemanagement.js"
+            ]
+        },
+        "RevokeSigningProfile": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/signing-profiles/{profileName}/revoke"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "profileVersion",
+                    "reason",
+                    "effectiveTime",
+                    "profileName"
+                ],
+                "members": {
+                    "profileName": {
+                        "location": "uri",
+                        "locationName": "profileName"
+                    },
+                    "profileVersion": {},
+                    "reason": {},
+                    "effectiveTime": {
+                        "type": "timestamp"
+                    }
+                }
+            },
+            "download_location": [
+                "https://devicemanagement.us-east-1.prod.console.iot.aws.dev/static/js/devicemanagement.js"
+            ]
+        },
+        "StartSigningJob": {
+            "http": {
+                "requestUri": "/signing-jobs"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "source",
+                    "destination",
+                    "profileName",
+                    "clientRequestToken"
+                ],
+                "members": {
+                    "source": {
+                        "shape": "Sa"
+                    },
+                    "destination": {
+                        "type": "structure",
+                        "members": {
+                            "s3": {
+                                "type": "structure",
+                                "members": {
+                                    "bucketName": {},
+                                    "prefix": {}
+                                }
+                            }
+                        }
+                    },
+                    "profileName": {},
+                    "clientRequestToken": {
+                        "idempotencyToken": true
+                    },
+                    "profileOwner": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "jobId": {},
+                    "jobOwner": {}
+                }
+            },
+            "download_location": [
+                "https://devicemanagement.us-east-1.prod.console.iot.aws.dev/static/js/devicemanagement.js"
+            ]
+        },
+        "TagResource": {
+            "http": {
+                "requestUri": "/tags/{resourceArn}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "resourceArn",
+                    "tags"
+                ],
+                "members": {
+                    "resourceArn": {
+                        "location": "uri",
+                        "locationName": "resourceArn"
+                    },
+                    "tags": {
+                        "shape": "S1k"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://devicemanagement.us-east-1.prod.console.iot.aws.dev/static/js/devicemanagement.js"
+            ]
+        },
+        "UntagResource": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/tags/{resourceArn}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "resourceArn",
+                    "tagKeys"
+                ],
+                "members": {
+                    "resourceArn": {
+                        "location": "uri",
+                        "locationName": "resourceArn"
+                    },
+                    "tagKeys": {
+                        "location": "querystring",
+                        "locationName": "tagKeys",
+                        "type": "list",
+                        "member": {}
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://devicemanagement.us-east-1.prod.console.iot.aws.dev/static/js/devicemanagement.js"
+            ]
+        },
+        "CreateSigningPlatform": {
+            "http": {
+                "requestUri": "/signing-platforms"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "displayName",
+                    "partner",
+                    "target",
+                    "category",
+                    "signingConfiguration",
+                    "signingImageFormat"
+                ],
+                "members": {
+                    "platformId": {},
+                    "displayName": {},
+                    "partner": {},
+                    "target": {},
+                    "category": {},
+                    "signingConfiguration": {
+                        "shape": "Sb"
+                    },
+                    "signingImageFormat": {
+                        "shape": "Si"
+                    },
+                    "maxSizeInMB": {
+                        "type": "integer"
+                    },
+                    "revocationSupported": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "platformId": {}
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/AETBYFXAC5U7BTEI5PSXFVCQGTCS5VJCKMP2CLXURQSTWY7TMG4A/app.js"
+            ]
+        },
+        "DeleteCertificate": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/certificates/{certificateArn}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "certificateArn"
+                ],
+                "members": {
+                    "certificateArn": {
+                        "location": "uri",
+                        "locationName": "certificateArn"
+                    }
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/AETBYFXAC5U7BTEI5PSXFVCQGTCS5VJCKMP2CLXURQSTWY7TMG4A/app.js"
+            ]
+        },
+        "DeleteSigningPlatform": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/signing-platforms/{platformId}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "platformId"
+                ],
+                "members": {
+                    "platformId": {
+                        "location": "uri",
+                        "locationName": "platformId"
+                    }
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/AETBYFXAC5U7BTEI5PSXFVCQGTCS5VJCKMP2CLXURQSTWY7TMG4A/app.js"
+            ]
+        },
+        "GetCertificate": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/certificates/{certificateArn}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "certificateArn"
+                ],
+                "members": {
+                    "certificateArn": {
+                        "location": "uri",
+                        "locationName": "certificateArn"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "certificateArn": {},
+                    "certificate": {},
+                    "certificateChain": {},
+                    "csr": {},
+                    "rotationAvailable": {
+                        "type": "boolean"
+                    },
+                    "autorotateBinding": {},
+                    "status": {},
+                    "createdAt": {
+                        "type": "timestamp"
+                    },
+                    "issuedAt": {
+                        "type": "timestamp"
+                    },
+                    "expiresAt": {
+                        "type": "timestamp"
+                    },
+                    "keySpec": {},
+                    "signingSpec": {},
+                    "commonName": {},
+                    "issuerName": {},
+                    "description": {}
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/AETBYFXAC5U7BTEI5PSXFVCQGTCS5VJCKMP2CLXURQSTWY7TMG4A/app.js"
+            ]
+        },
+        "GetPendingCertificate": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/certificates/{certificateArn}/pending"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "certificateArn"
+                ],
+                "members": {
+                    "certificateArn": {
+                        "location": "uri",
+                        "locationName": "certificateArn"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "certificateArn": {},
+                    "csr": {},
+                    "status": {},
+                    "keySpec": {}
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/AETBYFXAC5U7BTEI5PSXFVCQGTCS5VJCKMP2CLXURQSTWY7TMG4A/app.js"
+            ]
+        },
+        "GetRevocationStatus": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/revocations"
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "signatureTimestamp": {
+                        "location": "querystring",
+                        "locationName": "signatureTimestamp",
+                        "type": "timestamp"
+                    },
+                    "platformId": {
+                        "location": "querystring",
+                        "locationName": "platformId"
+                    },
+                    "profileVersionArn": {
+                        "location": "querystring",
+                        "locationName": "profileVersionArn"
+                    },
+                    "jobArn": {
+                        "location": "querystring",
+                        "locationName": "jobArn"
+                    },
+                    "certificateHashes": {
+                        "location": "querystring",
+                        "locationName": "certificateHashes",
+                        "type": "list",
+                        "member": {}
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "revokedEntities": {
+                        "type": "list",
+                        "member": {}
+                    }
+                }
+            },
+            "endpoint": {
+                "hostPrefix": "verification."
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/AETBYFXAC5U7BTEI5PSXFVCQGTCS5VJCKMP2CLXURQSTWY7TMG4A/app.js"
+            ]
+        },
+        "ListCertificates": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/certificates"
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "maxResults": {
+                        "location": "querystring",
+                        "locationName": "maxResults",
+                        "type": "integer"
+                    },
+                    "nextToken": {
+                        "location": "querystring",
+                        "locationName": "nextToken"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "certificates": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "certificateArn": {},
+                                "rotationAvailable": {
+                                    "type": "boolean"
+                                },
+                                "autorotateBinding": {},
+                                "status": {},
+                                "createdAt": {
+                                    "type": "timestamp"
+                                },
+                                "issuedAt": {
+                                    "type": "timestamp"
+                                },
+                                "expiresAt": {
+                                    "type": "timestamp"
+                                },
+                                "description": {}
+                            }
+                        }
+                    },
+                    "nextToken": {}
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/AETBYFXAC5U7BTEI5PSXFVCQGTCS5VJCKMP2CLXURQSTWY7TMG4A/app.js"
+            ]
+        },
+        "ListExpiringCertificates": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/certificates/expiring"
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "daysWithin": {
+                        "location": "querystring",
+                        "locationName": "daysWithin",
+                        "type": "integer"
+                    },
+                    "productCode": {
+                        "location": "querystring",
+                        "locationName": "productCode"
+                    },
+                    "maxResults": {
+                        "location": "querystring",
+                        "locationName": "maxResults",
+                        "type": "integer"
+                    },
+                    "nextToken": {
+                        "location": "querystring",
+                        "locationName": "nextToken"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "certificates": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "certificateArn": {},
+                                "owner": {},
+                                "productCode": {},
+                                "issuerName": {},
+                                "expiresAt": {
+                                    "type": "timestamp"
+                                },
+                                "status": {},
+                                "pendingBindingStatus": {},
+                                "pendingBindingCsr": {}
+                            }
+                        }
+                    },
+                    "nextToken": {}
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/AETBYFXAC5U7BTEI5PSXFVCQGTCS5VJCKMP2CLXURQSTWY7TMG4A/app.js"
+            ]
+        },
+        "ListProfileVersions": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/signing-profiles/{profileName}/versions"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "profileName"
+                ],
+                "members": {
+                    "profileName": {
+                        "location": "uri",
+                        "locationName": "profileName"
+                    },
+                    "maxResults": {
+                        "location": "querystring",
+                        "locationName": "maxResults",
+                        "type": "integer"
+                    },
+                    "nextToken": {
+                        "location": "querystring",
+                        "locationName": "nextToken"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "profileVersions": {
+                        "shape": "S2v"
+                    },
+                    "nextToken": {}
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/AETBYFXAC5U7BTEI5PSXFVCQGTCS5VJCKMP2CLXURQSTWY7TMG4A/app.js"
+            ]
+        },
+        "ListSigningJobsV2": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/signing-jobs-v2"
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "status": {
+                        "location": "querystring",
+                        "locationName": "status"
+                    },
+                    "platformId": {
+                        "location": "querystring",
+                        "locationName": "platformId"
+                    },
+                    "requestedBy": {
+                        "location": "querystring",
+                        "locationName": "requestedBy"
+                    },
+                    "maxResults": {
+                        "location": "querystring",
+                        "locationName": "maxResults",
+                        "type": "integer"
+                    },
+                    "nextToken": {
+                        "location": "querystring",
+                        "locationName": "nextToken"
+                    },
+                    "isRevoked": {
+                        "location": "querystring",
+                        "locationName": "isRevoked",
+                        "type": "boolean"
+                    },
+                    "signatureExpiresBefore": {
+                        "location": "querystring",
+                        "locationName": "signatureExpiresBefore",
+                        "type": "timestamp"
+                    },
+                    "signatureExpiresAfter": {
+                        "location": "querystring",
+                        "locationName": "signatureExpiresAfter",
+                        "type": "timestamp"
+                    },
+                    "jobInvoker": {
+                        "location": "querystring",
+                        "locationName": "jobInvoker"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "jobs": {
+                        "shape": "S2z"
+                    },
+                    "nextToken": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/AETBYFXAC5U7BTEI5PSXFVCQGTCS5VJCKMP2CLXURQSTWY7TMG4A/app.js"
+            ]
+        },
+        "ListSigningProfilesV2": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/signing-profiles-v2"
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "includeCanceled": {
+                        "location": "querystring",
+                        "locationName": "includeCanceled",
+                        "type": "boolean"
+                    },
+                    "maxResults": {
+                        "location": "querystring",
+                        "locationName": "maxResults",
+                        "type": "integer"
+                    },
+                    "nextToken": {
+                        "location": "querystring",
+                        "locationName": "nextToken"
+                    },
+                    "statuses": {
+                        "shape": "S38",
+                        "location": "querystring",
+                        "locationName": "statuses"
+                    },
+                    "platformId": {
+                        "location": "querystring",
+                        "locationName": "platformId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "profiles": {
+                        "shape": "S2v"
+                    },
+                    "nextToken": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/AETBYFXAC5U7BTEI5PSXFVCQGTCS5VJCKMP2CLXURQSTWY7TMG4A/app.js"
+            ]
+        },
+        "PutCertificateConfiguration": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/certificates/{certificateArn}/configuration"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "certificateArn",
+                    "autorotateBinding"
+                ],
+                "members": {
+                    "certificateArn": {
+                        "location": "uri",
+                        "locationName": "certificateArn"
+                    },
+                    "autorotateBinding": {}
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/AETBYFXAC5U7BTEI5PSXFVCQGTCS5VJCKMP2CLXURQSTWY7TMG4A/app.js"
+            ]
+        },
+        "PutPendingCertificate": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/certificates/{certificateArn}/pending"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "certificateArn"
+                ],
+                "members": {
+                    "certificateArn": {
+                        "location": "uri",
+                        "locationName": "certificateArn"
+                    },
+                    "keySpec": {}
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/AETBYFXAC5U7BTEI5PSXFVCQGTCS5VJCKMP2CLXURQSTWY7TMG4A/app.js"
+            ]
+        },
+        "RequestCertificate": {
+            "http": {
+                "requestUri": "/certificates"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "idempotencyToken",
+                    "keySpec",
+                    "signingSpec",
+                    "owner",
+                    "organizationName",
+                    "commonName",
+                    "countryName",
+                    "stateOrProvinceName",
+                    "localityName",
+                    "organizationalUnitName",
+                    "productCode"
+                ],
+                "members": {
+                    "idempotencyToken": {},
+                    "keySpec": {},
+                    "signingSpec": {},
+                    "owner": {},
+                    "organizationName": {},
+                    "commonName": {},
+                    "countryName": {},
+                    "stateOrProvinceName": {},
+                    "localityName": {},
+                    "organizationalUnitName": {},
+                    "emailAddress": {},
+                    "description": {},
+                    "productCode": {},
+                    "selfSigned": {
+                        "type": "boolean"
+                    },
+                    "selfSignedOptions": {
+                        "type": "structure",
+                        "members": {
+                            "validityInDays": {
+                                "type": "integer"
+                            }
+                        }
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "certificateArn": {}
+                }
+            },
+            "idempotent": true,
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/AETBYFXAC5U7BTEI5PSXFVCQGTCS5VJCKMP2CLXURQSTWY7TMG4A/app.js"
+            ]
+        },
+        "RollbackCertificate": {
+            "http": {
+                "requestUri": "/certificates/{certificateArn}/rollback"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "certificateArn"
+                ],
+                "members": {
+                    "certificateArn": {
+                        "location": "uri",
+                        "locationName": "certificateArn"
+                    }
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/AETBYFXAC5U7BTEI5PSXFVCQGTCS5VJCKMP2CLXURQSTWY7TMG4A/app.js"
+            ]
+        },
+        "RotateCertificate": {
+            "http": {
+                "requestUri": "/certificates/{certificateArn}/rotate"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "certificateArn"
+                ],
+                "members": {
+                    "certificateArn": {
+                        "location": "uri",
+                        "locationName": "certificateArn"
+                    }
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/AETBYFXAC5U7BTEI5PSXFVCQGTCS5VJCKMP2CLXURQSTWY7TMG4A/app.js"
+            ]
+        },
+        "SignDigest": {
+            "http": {
+                "requestUri": "/sign-digest"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "digest",
+                    "profileName"
+                ],
+                "members": {
+                    "digest": {
+                        "type": "blob"
+                    },
+                    "profileName": {},
+                    "profileOwner": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "jobId": {},
+                    "signature": {
+                        "type": "blob"
+                    },
+                    "signatureType": {},
+                    "certificate": {},
+                    "certificateChain": {}
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/AETBYFXAC5U7BTEI5PSXFVCQGTCS5VJCKMP2CLXURQSTWY7TMG4A/app.js"
+            ]
+        },
+        "SignPayload": {
+            "http": {
+                "requestUri": "/signing-jobs/with-payload"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "profileName",
+                    "payload",
+                    "payloadFormat"
+                ],
+                "members": {
+                    "profileName": {},
+                    "profileOwner": {},
+                    "payload": {
+                        "type": "blob"
+                    },
+                    "payloadFormat": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "jobId": {},
+                    "jobOwner": {},
+                    "metadata": {
+                        "type": "map",
+                        "key": {},
+                        "value": {}
+                    },
+                    "signature": {
+                        "type": "blob"
+                    }
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/AETBYFXAC5U7BTEI5PSXFVCQGTCS5VJCKMP2CLXURQSTWY7TMG4A/app.js"
+            ]
+        },
+        "UploadCertificate": {
+            "http": {
+                "requestUri": "/certificates/{certificateArn}/upload"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "certificateArn",
+                    "certificate",
+                    "certificateChain"
+                ],
+                "members": {
+                    "certificateArn": {
+                        "location": "uri",
+                        "locationName": "certificateArn"
+                    },
+                    "certificate": {},
+                    "certificateChain": {}
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/AETBYFXAC5U7BTEI5PSXFVCQGTCS5VJCKMP2CLXURQSTWY7TMG4A/app.js"
+            ]
+        }
+    },
+    "shapes": {
+        "Sa": {
+            "type": "structure",
+            "members": {
+                "s3": {
+                    "type": "structure",
+                    "required": [
+                        "bucketName",
+                        "key",
+                        "version"
+                    ],
+                    "members": {
+                        "bucketName": {},
+                        "key": {},
+                        "version": {}
+                    }
+                }
+            }
+        },
+        "Sf": {
+            "type": "structure",
+            "required": [
+                "certificateArn"
+            ],
+            "members": {
+                "certificateArn": {}
+            }
+        },
+        "Sj": {
+            "type": "structure",
+            "members": {
+                "signingConfiguration": {
+                    "type": "structure",
+                    "members": {
+                        "encryptionAlgorithm": {},
+                        "hashAlgorithm": {}
+                    }
+                },
+                "signingImageFormat": {}
+            }
+        },
+        "So": {
+            "type": "map",
+            "key": {},
+            "value": {}
+        },
+        "Sw": {
+            "type": "structure",
+            "members": {
+                "s3": {
+                    "type": "structure",
+                    "members": {
+                        "bucketName": {},
+                        "key": {}
+                    }
+                }
+            }
+        },
+        "S12": {
+            "type": "structure",
+            "required": [
+                "encryptionAlgorithmOptions",
+                "hashAlgorithmOptions"
+            ],
+            "members": {
+                "encryptionAlgorithmOptions": {
+                    "type": "structure",
+                    "required": [
+                        "allowedValues",
+                        "defaultValue"
+                    ],
+                    "members": {
+                        "allowedValues": {
+                            "type": "list",
+                            "member": {}
+                        },
+                        "defaultValue": {}
+                    }
+                },
+                "hashAlgorithmOptions": {
+                    "type": "structure",
+                    "required": [
+                        "allowedValues",
+                        "defaultValue"
+                    ],
+                    "members": {
+                        "allowedValues": {
+                            "type": "list",
+                            "member": {}
+                        },
+                        "defaultValue": {}
+                    }
+                }
+            }
+        },
+        "S17": {
+            "type": "structure",
+            "required": [
+                "supportedFormats",
+                "defaultFormat"
+            ],
+            "members": {
+                "supportedFormats": {
+                    "type": "list",
+                    "member": {}
+                },
+                "defaultFormat": {}
+            }
+        },
+        "S1f": {
+            "type": "structure",
+            "members": {
+                "value": {
+                    "type": "integer"
+                },
+                "type": {}
+            }
+        },
+        "S1k": {
+            "type": "map",
+            "key": {},
+            "value": {}
+        },
+        "S6": {
+            "type": "structure",
+            "members": {
+                "s3": {
+                    "type": "structure",
+                    "required": [
+                        "bucketName",
+                        "key",
+                        "version"
+                    ],
+                    "members": {
+                        "bucketName": {},
+                        "key": {},
+                        "version": {}
+                    }
+                }
+            }
+        },
+        "Sb": {
+            "type": "structure",
+            "required": [
+                "certificateArn"
+            ],
+            "members": {
+                "certificateArn": {}
+            }
+        },
+        "Se": {
+            "type": "structure",
+            "members": {
+                "signingConfiguration": {
+                    "type": "structure",
+                    "members": {
+                        "encryptionAlgorithm": {},
+                        "hashAlgorithm": {}
+                    }
+                },
+                "signingImageFormat": {}
+            }
+        },
+        "Sr": {
+            "type": "structure",
+            "members": {
+                "s3": {
+                    "type": "structure",
+                    "members": {
+                        "bucketName": {},
+                        "key": {}
+                    }
+                }
+            }
+        },
+        "Sz": {
+            "type": "structure",
+            "required": [
+                "encryptionAlgorithmOptions",
+                "hashAlgorithmOptions"
+            ],
+            "members": {
+                "encryptionAlgorithmOptions": {
+                    "type": "structure",
+                    "required": [
+                        "allowedValues",
+                        "defaultValue"
+                    ],
+                    "members": {
+                        "allowedValues": {
+                            "type": "list",
+                            "member": {}
+                        },
+                        "defaultValue": {}
+                    }
+                },
+                "hashAlgorithmOptions": {
+                    "type": "structure",
+                    "required": [
+                        "allowedValues",
+                        "defaultValue"
+                    ],
+                    "members": {
+                        "allowedValues": {
+                            "type": "list",
+                            "member": {}
+                        },
+                        "defaultValue": {}
+                    }
+                }
+            }
+        },
+        "S14": {
+            "type": "structure",
+            "required": [
+                "supportedFormats",
+                "defaultFormat"
+            ],
+            "members": {
+                "supportedFormats": {
+                    "type": "list",
+                    "member": {}
+                },
+                "defaultFormat": {}
+            }
+        },
+        "S1b": {
+            "type": "map",
+            "key": {},
+            "value": {}
+        },
+        "Si": {
+            "type": "structure",
+            "required": [
+                "supportedFormats",
+                "defaultFormat"
+            ],
+            "members": {
+                "supportedFormats": {
+                    "type": "list",
+                    "member": {}
+                },
+                "defaultFormat": {}
+            }
+        },
+        "St": {
+            "type": "structure",
+            "members": {
+                "s3": {
+                    "type": "structure",
+                    "required": [
+                        "bucketName",
+                        "key",
+                        "version"
+                    ],
+                    "members": {
+                        "bucketName": {},
+                        "key": {},
+                        "version": {},
+                        "encryptionCmkArn": {}
+                    }
+                }
+            }
+        },
+        "S11": {
+            "type": "structure",
+            "members": {
+                "signingConfiguration": {
+                    "type": "structure",
+                    "members": {
+                        "encryptionAlgorithm": {},
+                        "hashAlgorithm": {}
+                    }
+                },
+                "signingImageFormat": {}
+            }
+        },
+        "S13": {
+            "type": "map",
+            "key": {},
+            "value": {}
+        },
+        "S1c": {
+            "type": "structure",
+            "members": {
+                "s3": {
+                    "type": "structure",
+                    "members": {
+                        "bucketName": {},
+                        "key": {}
+                    }
+                }
+            }
+        },
+        "S20": {
+            "type": "structure",
+            "members": {
+                "value": {
+                    "type": "integer"
+                },
+                "type": {}
+            }
+        },
+        "S23": {
+            "type": "structure",
+            "members": {
+                "s3": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "members": {
+                            "bucketName": {}
+                        }
+                    },
+                    "internalonly": true
+                }
+            },
+            "internalonly": true
+        },
+        "S26": {
+            "type": "structure",
+            "members": {
+                "s3": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "members": {
+                            "bucketName": {}
+                        }
+                    },
+                    "internalonly": true
+                }
+            },
+            "internalonly": true
+        },
+        "S29": {
+            "type": "map",
+            "key": {},
+            "value": {}
+        },
+        "S2v": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "profileName": {},
+                    "profileVersion": {},
+                    "profileVersionArn": {},
+                    "profileToken": {},
+                    "signingMaterial": {
+                        "shape": "Sz"
+                    },
+                    "signatureValidityPeriod": {
+                        "shape": "S20"
+                    },
+                    "platformId": {},
+                    "platformDisplayName": {},
+                    "signingParameters": {
+                        "shape": "S13"
+                    },
+                    "status": {},
+                    "arn": {},
+                    "tags": {
+                        "shape": "S29"
+                    }
+                }
+            }
+        },
+        "S2z": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "jobId": {},
+                    "source": {
+                        "shape": "St"
+                    },
+                    "signedObject": {
+                        "shape": "S1c"
+                    },
+                    "signingMaterial": {
+                        "shape": "Sz"
+                    },
+                    "createdAt": {
+                        "type": "timestamp"
+                    },
+                    "status": {},
+                    "isRevoked": {
+                        "type": "boolean"
+                    },
+                    "platformId": {},
+                    "platformDisplayName": {},
+                    "profileName": {},
+                    "profileVersion": {},
+                    "signatureExpiresAt": {
+                        "type": "timestamp"
+                    },
+                    "jobOwner": {},
+                    "jobInvoker": {}
+                }
+            }
+        },
+        "S38": {
+            "type": "list",
+            "member": {}
+        }
+    }
+}

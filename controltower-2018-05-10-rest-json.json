@@ -1,0 +1,536 @@
+{
+    "version": "2.0",
+    "metadata": {
+        "apiVersion": "2018-05-10",
+        "endpointPrefix": "controltower",
+        "jsonVersion": "1.1",
+        "protocol": "rest-json",
+        "serviceFullName": "AWS Control Tower",
+        "serviceId": "ControlTower",
+        "signatureVersion": "v4",
+        "signingName": "controltower",
+        "uid": "controltower-2018-05-10",
+        "download_location": [
+            "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+        ]
+    },
+    "operations": {
+        "DisableControl": {
+            "http": {
+                "requestUri": "/disable-control",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "controlIdentifier",
+                    "targetIdentifier"
+                ],
+                "members": {
+                    "controlIdentifier": {},
+                    "targetIdentifier": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "operationIdentifier"
+                ],
+                "members": {
+                    "operationIdentifier": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "EnableControl": {
+            "http": {
+                "requestUri": "/enable-control",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "controlIdentifier",
+                    "targetIdentifier"
+                ],
+                "members": {
+                    "controlIdentifier": {},
+                    "targetIdentifier": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "operationIdentifier"
+                ],
+                "members": {
+                    "operationIdentifier": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "GetControlOperation": {
+            "http": {
+                "requestUri": "/get-control-operation",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "operationIdentifier"
+                ],
+                "members": {
+                    "operationIdentifier": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "controlOperation"
+                ],
+                "members": {
+                    "controlOperation": {
+                        "type": "structure",
+                        "members": {
+                            "endTime": {
+                                "shape": "Sb"
+                            },
+                            "operationType": {},
+                            "startTime": {
+                                "shape": "Sb"
+                            },
+                            "status": {},
+                            "statusMessage": {}
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "ListEnabledControls": {
+            "http": {
+                "requestUri": "/list-enabled-controls",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "targetIdentifier"
+                ],
+                "members": {
+                    "maxResults": {
+                        "type": "integer"
+                    },
+                    "nextToken": {},
+                    "targetIdentifier": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "enabledControls"
+                ],
+                "members": {
+                    "enabledControls": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "controlIdentifier": {}
+                            }
+                        }
+                    },
+                    "nextToken": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "AssociateControl": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/controlAssociations/{controlIdentifier}/{targetIdentifier}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "controlIdentifier",
+                    "targetIdentifier"
+                ],
+                "members": {
+                    "controlIdentifier": {
+                        "location": "uri",
+                        "locationName": "controlIdentifier"
+                    },
+                    "targetIdentifier": {
+                        "location": "uri",
+                        "locationName": "targetIdentifier"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "operationIdentifier"
+                ],
+                "members": {
+                    "operationIdentifier": {}
+                }
+            },
+            "deprecated": true,
+            "deprecatedMessage": "Replaced with EnableControl",
+            "idempotent": true,
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/YFPXGYJ4Y3G6YEU37N5NF2M7NB5LZMMTQJPJ3DHR36CM5V7P2KXA/vendors.min.js"
+            ]
+        },
+        "BatchEnableControl": {
+            "http": {
+                "requestUri": "/batch-enable-control",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "enableControls"
+                ],
+                "members": {
+                    "enableControls": {
+                        "type": "list",
+                        "member": {
+                            "shape": "S8"
+                        }
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "processedEnabledControls": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "targetIdentifier": {},
+                                "controlIdentifier": {},
+                                "operationIdentifier": {}
+                            }
+                        }
+                    },
+                    "unprocessedEnabledControls": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "errorCode": {},
+                                "errorMessage": {},
+                                "controlIdentifier": {},
+                                "targetIdentifier": {}
+                            }
+                        }
+                    }
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/YFPXGYJ4Y3G6YEU37N5NF2M7NB5LZMMTQJPJ3DHR36CM5V7P2KXA/vendors.min.js"
+            ]
+        },
+        "DisassociateControl": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/controlAssociations/{controlIdentifier}/{targetIdentifier}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "controlIdentifier",
+                    "targetIdentifier"
+                ],
+                "members": {
+                    "controlIdentifier": {
+                        "location": "uri",
+                        "locationName": "controlIdentifier"
+                    },
+                    "targetIdentifier": {
+                        "location": "uri",
+                        "locationName": "targetIdentifier"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "operationIdentifier"
+                ],
+                "members": {
+                    "operationIdentifier": {}
+                }
+            },
+            "deprecated": true,
+            "deprecatedMessage": "Replaced with DisableControl",
+            "idempotent": true,
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/YFPXGYJ4Y3G6YEU37N5NF2M7NB5LZMMTQJPJ3DHR36CM5V7P2KXA/vendors.min.js"
+            ]
+        },
+        "GetComplianceEvaluation": {
+            "http": {
+                "requestUri": "/get-compliance-evaluation",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "evaluationIdentifier"
+                ],
+                "members": {
+                    "evaluationIdentifier": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "complianceEvaluation"
+                ],
+                "members": {
+                    "complianceEvaluation": {
+                        "type": "structure",
+                        "required": [
+                            "evaluationStatus",
+                            "evaluationIdentifier"
+                        ],
+                        "members": {
+                            "evaluationStatus": {},
+                            "evaluationIdentifier": {},
+                            "complianceStatus": {}
+                        }
+                    }
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/YFPXGYJ4Y3G6YEU37N5NF2M7NB5LZMMTQJPJ3DHR36CM5V7P2KXA/vendors.min.js"
+            ]
+        },
+        "GetControlAssociationOperationStatus": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/controlAssociationOperation/status/{operationIdentifier}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "operationIdentifier"
+                ],
+                "members": {
+                    "operationIdentifier": {
+                        "location": "uri",
+                        "locationName": "operationIdentifier"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "controlAssociationOperationStatus"
+                ],
+                "members": {
+                    "controlAssociationOperationStatus": {
+                        "type": "structure",
+                        "members": {
+                            "operationType": {
+                                "type": "string",
+                                "deprecated": true
+                            },
+                            "startTime": {
+                                "shape": "Su"
+                            },
+                            "endTime": {
+                                "shape": "Su"
+                            },
+                            "status": {
+                                "type": "string",
+                                "deprecated": true
+                            },
+                            "statusMessage": {}
+                        },
+                        "deprecated": true
+                    }
+                }
+            },
+            "deprecated": true,
+            "deprecatedMessage": "Replaced with GetControlOperation",
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/YFPXGYJ4Y3G6YEU37N5NF2M7NB5LZMMTQJPJ3DHR36CM5V7P2KXA/vendors.min.js"
+            ]
+        },
+        "ListControlsForTarget": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/control/list/{targetIdentifier}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "targetIdentifier"
+                ],
+                "members": {
+                    "targetIdentifier": {
+                        "location": "uri",
+                        "locationName": "targetIdentifier"
+                    },
+                    "nextToken": {
+                        "location": "querystring",
+                        "locationName": "nextToken"
+                    },
+                    "maxResults": {
+                        "location": "querystring",
+                        "locationName": "maxResults",
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "controls"
+                ],
+                "members": {
+                    "controls": {
+                        "type": "list",
+                        "member": {
+                            "shape": "S15"
+                        }
+                    },
+                    "nextToken": {}
+                }
+            },
+            "deprecated": true,
+            "deprecatedMessage": "Replaced with ListEnabledControls",
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/YFPXGYJ4Y3G6YEU37N5NF2M7NB5LZMMTQJPJ3DHR36CM5V7P2KXA/vendors.min.js"
+            ]
+        },
+        "StartComplianceEvaluation": {
+            "http": {
+                "requestUri": "/start-compliance-evaluation",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "targetIdentifier"
+                ],
+                "members": {
+                    "targetIdentifier": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "evaluationIdentifier"
+                ],
+                "members": {
+                    "evaluationIdentifier": {}
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/YFPXGYJ4Y3G6YEU37N5NF2M7NB5LZMMTQJPJ3DHR36CM5V7P2KXA/vendors.min.js"
+            ]
+        },
+        "UpdateEnabledControl": {
+            "http": {
+                "requestUri": "/update-enabled-control",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "controlIdentifier",
+                    "targetIdentifier"
+                ],
+                "members": {
+                    "controlIdentifier": {},
+                    "targetIdentifier": {},
+                    "controlVersion": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "operationIdentifier"
+                ],
+                "members": {
+                    "operationIdentifier": {}
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/YFPXGYJ4Y3G6YEU37N5NF2M7NB5LZMMTQJPJ3DHR36CM5V7P2KXA/vendors.min.js"
+            ]
+        }
+    },
+    "shapes": {
+        "Sb": {
+            "type": "timestamp",
+            "timestampFormat": "iso8601"
+        },
+        "S8": {
+            "type": "structure",
+            "required": [
+                "controlIdentifier",
+                "targetIdentifier"
+            ],
+            "members": {
+                "controlIdentifier": {},
+                "targetIdentifier": {}
+            }
+        },
+        "Su": {
+            "type": "timestamp",
+            "timestampFormat": "iso8601"
+        },
+        "S15": {
+            "type": "structure",
+            "members": {
+                "controlIdentifier": {}
+            }
+        },
+        "S3": {
+            "type": "structure",
+            "required": [
+                "controlIdentifier",
+                "targetIdentifier"
+            ],
+            "members": {
+                "controlIdentifier": {},
+                "targetIdentifier": {}
+            }
+        },
+        "Sq": {
+            "type": "timestamp",
+            "timestampFormat": "iso8601"
+        },
+        "Si": {
+            "type": "timestamp",
+            "timestampFormat": "iso8601"
+        }
+    }
+}

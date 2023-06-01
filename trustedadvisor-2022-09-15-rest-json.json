@@ -1,0 +1,817 @@
+{
+    "version": "2.0",
+    "metadata": {
+        "apiVersion": "2022-09-15",
+        "endpointPrefix": "trustedadvisor",
+        "jsonVersion": "1.1",
+        "protocol": "rest-json",
+        "serviceFullName": "TrustedAdvisor Public API",
+        "serviceId": "trustedadvisor",
+        "signatureVersion": "v4",
+        "signingName": "trustedadvisor",
+        "uid": "trustedadvisor-2022-09-15",
+        "download_location": [
+            "https://a.b.cdn.console.awsstatic.com/a/v1/GGB4U3VFZ2RDMKQZJ6VFUGWVAEKPLZQR4ONLSPSF4P3T4DEZVAWA/ta_polaris.js"
+        ]
+    },
+    "operations": {
+        "CreateEngagement": {
+            "http": {
+                "requestUri": "/v1/engage/engagements",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "language",
+                    "title",
+                    "description",
+                    "engagementTypeId",
+                    "primaryContactEmail"
+                ],
+                "members": {
+                    "language": {},
+                    "title": {
+                        "shape": "S3"
+                    },
+                    "description": {
+                        "type": "string",
+                        "sensitive": true
+                    },
+                    "engagementTypeId": {},
+                    "primaryContactEmail": {
+                        "shape": "S6"
+                    },
+                    "attachmentUploadId": {},
+                    "idempotencyToken": {
+                        "idempotencyToken": true
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "engagementId"
+                ],
+                "members": {
+                    "engagementId": {}
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/GGB4U3VFZ2RDMKQZJ6VFUGWVAEKPLZQR4ONLSPSF4P3T4DEZVAWA/ta_polaris.js"
+            ]
+        },
+        "CreateEngagementAttachment": {
+            "http": {
+                "requestUri": "/v1/engage/attachments",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "fileName",
+                    "data"
+                ],
+                "members": {
+                    "fileName": {
+                        "shape": "Sc"
+                    },
+                    "data": {
+                        "shape": "Sd"
+                    },
+                    "idempotencyToken": {
+                        "idempotencyToken": true
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "attachmentUploadId": {}
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/GGB4U3VFZ2RDMKQZJ6VFUGWVAEKPLZQR4ONLSPSF4P3T4DEZVAWA/ta_polaris.js"
+            ]
+        },
+        "CreateEngagementCommunication": {
+            "http": {
+                "requestUri": "/v1/engage/engagements/{engagementId}/communications",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "engagementId",
+                    "content"
+                ],
+                "members": {
+                    "engagementId": {
+                        "location": "uri",
+                        "locationName": "engagementId"
+                    },
+                    "content": {
+                        "shape": "Sg"
+                    },
+                    "attachmentUploadId": {},
+                    "idempotencyToken": {
+                        "idempotencyToken": true
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "communication"
+                ],
+                "members": {
+                    "communication": {
+                        "shape": "Si"
+                    }
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/GGB4U3VFZ2RDMKQZJ6VFUGWVAEKPLZQR4ONLSPSF4P3T4DEZVAWA/ta_polaris.js"
+            ]
+        },
+        "DeleteEcho": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/v1/test/echo",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "string": {
+                        "location": "querystring",
+                        "locationName": "string"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "string": {},
+                    "originalPayload": {
+                        "shape": "St"
+                    }
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/GGB4U3VFZ2RDMKQZJ6VFUGWVAEKPLZQR4ONLSPSF4P3T4DEZVAWA/ta_polaris.js"
+            ]
+        },
+        "GetEcho": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/v1/test/echo",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "string": {
+                        "location": "querystring",
+                        "locationName": "string"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "string": {},
+                    "originalPayload": {
+                        "shape": "St"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/GGB4U3VFZ2RDMKQZJ6VFUGWVAEKPLZQR4ONLSPSF4P3T4DEZVAWA/ta_polaris.js"
+            ]
+        },
+        "GetEngagement": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/v1/engage/engagements/{engagementId}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "engagementId"
+                ],
+                "members": {
+                    "engagementId": {
+                        "location": "uri",
+                        "locationName": "engagementId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "engagement": {
+                        "shape": "Sy"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/GGB4U3VFZ2RDMKQZJ6VFUGWVAEKPLZQR4ONLSPSF4P3T4DEZVAWA/ta_polaris.js"
+            ]
+        },
+        "GetEngagementAttachment": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/v1/engage/engagements/{engagementId}/communications/{communicationId}/attachments/{attachmentId}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "engagementId",
+                    "communicationId",
+                    "attachmentId"
+                ],
+                "members": {
+                    "engagementId": {
+                        "location": "uri",
+                        "locationName": "engagementId"
+                    },
+                    "communicationId": {
+                        "location": "uri",
+                        "locationName": "communicationId"
+                    },
+                    "attachmentId": {
+                        "location": "uri",
+                        "locationName": "attachmentId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "content",
+                    "contentType"
+                ],
+                "members": {
+                    "content": {
+                        "shape": "Sd"
+                    },
+                    "contentType": {
+                        "location": "header",
+                        "locationName": "Content-Type"
+                    }
+                },
+                "payload": "content"
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/GGB4U3VFZ2RDMKQZJ6VFUGWVAEKPLZQR4ONLSPSF4P3T4DEZVAWA/ta_polaris.js"
+            ]
+        },
+        "GetEngagementType": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/v1/engage/engagement-types/{engagementTypeId}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "engagementTypeId"
+                ],
+                "members": {
+                    "engagementTypeId": {
+                        "location": "uri",
+                        "locationName": "engagementTypeId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "engagementType": {
+                        "shape": "S16"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/GGB4U3VFZ2RDMKQZJ6VFUGWVAEKPLZQR4ONLSPSF4P3T4DEZVAWA/ta_polaris.js"
+            ]
+        },
+        "ListEngagementCommunications": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/v1/engage/engagements/{engagementId}/communications",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "engagementId"
+                ],
+                "members": {
+                    "engagementId": {
+                        "location": "uri",
+                        "locationName": "engagementId"
+                    },
+                    "paginationToken": {
+                        "location": "querystring",
+                        "locationName": "paginationToken"
+                    },
+                    "pageSize": {
+                        "location": "querystring",
+                        "locationName": "pageSize",
+                        "type": "integer"
+                    },
+                    "sortDirection": {
+                        "location": "querystring",
+                        "locationName": "sortDirection"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "communications"
+                ],
+                "members": {
+                    "communications": {
+                        "type": "list",
+                        "member": {
+                            "shape": "Si"
+                        }
+                    },
+                    "paginationToken": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/GGB4U3VFZ2RDMKQZJ6VFUGWVAEKPLZQR4ONLSPSF4P3T4DEZVAWA/ta_polaris.js"
+            ]
+        },
+        "ListEngagementTypes": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/v1/engage/engagement-types",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "paginationToken": {
+                        "location": "querystring",
+                        "locationName": "paginationToken"
+                    },
+                    "pageSize": {
+                        "location": "querystring",
+                        "locationName": "pageSize",
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "total",
+                    "engagementTypes"
+                ],
+                "members": {
+                    "total": {
+                        "type": "integer"
+                    },
+                    "engagementTypes": {
+                        "shape": "S19"
+                    },
+                    "paginationToken": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/GGB4U3VFZ2RDMKQZJ6VFUGWVAEKPLZQR4ONLSPSF4P3T4DEZVAWA/ta_polaris.js"
+            ]
+        },
+        "ListEngagements": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/v1/engage/engagements",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "paginationToken": {
+                        "location": "querystring",
+                        "locationName": "paginationToken"
+                    },
+                    "pageSize": {
+                        "location": "querystring",
+                        "locationName": "pageSize",
+                        "type": "integer"
+                    },
+                    "pageStart": {
+                        "location": "querystring",
+                        "locationName": "pageStart",
+                        "type": "integer"
+                    },
+                    "sortField": {
+                        "location": "querystring",
+                        "locationName": "sortField"
+                    },
+                    "sortDirection": {
+                        "location": "querystring",
+                        "locationName": "sortDirection"
+                    },
+                    "engagementType": {
+                        "location": "querystring",
+                        "locationName": "engagementType"
+                    },
+                    "state": {
+                        "location": "querystring",
+                        "locationName": "state"
+                    },
+                    "title": {
+                        "shape": "S3",
+                        "location": "header",
+                        "locationName": "x-amzn-engagement-title"
+                    },
+                    "startDate": {
+                        "location": "querystring",
+                        "locationName": "startDate",
+                        "type": "timestamp"
+                    },
+                    "endDate": {
+                        "location": "querystring",
+                        "locationName": "endDate",
+                        "type": "timestamp"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "engagements"
+                ],
+                "members": {
+                    "total": {
+                        "type": "integer"
+                    },
+                    "engagements": {
+                        "type": "list",
+                        "member": {
+                            "shape": "Sy"
+                        }
+                    },
+                    "paginationToken": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/GGB4U3VFZ2RDMKQZJ6VFUGWVAEKPLZQR4ONLSPSF4P3T4DEZVAWA/ta_polaris.js"
+            ]
+        },
+        "MaxPayload": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/v1/test/max-payload",
+                "responseCode": 200
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "string": {},
+                    "originalPayload": {
+                        "shape": "St"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/GGB4U3VFZ2RDMKQZJ6VFUGWVAEKPLZQR4ONLSPSF4P3T4DEZVAWA/ta_polaris.js"
+            ]
+        },
+        "PatchEcho": {
+            "http": {
+                "method": "PATCH",
+                "requestUri": "/v1/test/echo",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "string": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "string": {},
+                    "originalPayload": {
+                        "shape": "St"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/GGB4U3VFZ2RDMKQZJ6VFUGWVAEKPLZQR4ONLSPSF4P3T4DEZVAWA/ta_polaris.js"
+            ]
+        },
+        "PostEcho": {
+            "http": {
+                "requestUri": "/v1/test/echo",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "string": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "string": {},
+                    "originalPayload": {
+                        "shape": "St"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/GGB4U3VFZ2RDMKQZJ6VFUGWVAEKPLZQR4ONLSPSF4P3T4DEZVAWA/ta_polaris.js"
+            ]
+        },
+        "PostEchoLimited": {
+            "http": {
+                "requestUri": "/v1/test-limited/echo",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "string": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "string": {},
+                    "originalPayload": {
+                        "shape": "St"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/GGB4U3VFZ2RDMKQZJ6VFUGWVAEKPLZQR4ONLSPSF4P3T4DEZVAWA/ta_polaris.js"
+            ]
+        },
+        "PutEcho": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/v1/test/echo",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "string": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "string": {},
+                    "originalPayload": {
+                        "shape": "St"
+                    }
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/GGB4U3VFZ2RDMKQZJ6VFUGWVAEKPLZQR4ONLSPSF4P3T4DEZVAWA/ta_polaris.js"
+            ]
+        },
+        "Throttle": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/v1/test/throttle",
+                "responseCode": 200
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/GGB4U3VFZ2RDMKQZJ6VFUGWVAEKPLZQR4ONLSPSF4P3T4DEZVAWA/ta_polaris.js"
+            ]
+        },
+        "ThrottleLimited": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/v1/test-limited/throttle",
+                "responseCode": 200
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/GGB4U3VFZ2RDMKQZJ6VFUGWVAEKPLZQR4ONLSPSF4P3T4DEZVAWA/ta_polaris.js"
+            ]
+        },
+        "Timeout": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/v1/test/timeout",
+                "responseCode": 200
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "originalPayload": {
+                        "shape": "St"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/GGB4U3VFZ2RDMKQZJ6VFUGWVAEKPLZQR4ONLSPSF4P3T4DEZVAWA/ta_polaris.js"
+            ]
+        },
+        "UpdateEngagementStatus": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/v1/engage/engagements/{engagementId}/status",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "engagementId",
+                    "engagementStatus"
+                ],
+                "members": {
+                    "engagementId": {
+                        "location": "uri",
+                        "locationName": "engagementId"
+                    },
+                    "engagementStatus": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "engagement": {
+                        "shape": "Sy"
+                    }
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/GGB4U3VFZ2RDMKQZJ6VFUGWVAEKPLZQR4ONLSPSF4P3T4DEZVAWA/ta_polaris.js"
+            ]
+        }
+    },
+    "shapes": {
+        "S3": {
+            "type": "string",
+            "sensitive": true
+        },
+        "S6": {
+            "type": "string",
+            "sensitive": true
+        },
+        "Sc": {
+            "type": "string",
+            "sensitive": true
+        },
+        "Sd": {
+            "type": "blob",
+            "sensitive": true
+        },
+        "Sg": {
+            "type": "string",
+            "sensitive": true
+        },
+        "Si": {
+            "type": "structure",
+            "required": [
+                "engagementId",
+                "communicationId",
+                "content",
+                "communicationOrigin",
+                "createdBy",
+                "createdTime",
+                "attachments"
+            ],
+            "members": {
+                "engagementId": {},
+                "communicationId": {},
+                "content": {
+                    "shape": "Sg"
+                },
+                "communicationOrigin": {},
+                "createdBy": {
+                    "type": "string",
+                    "sensitive": true
+                },
+                "createdTime": {
+                    "type": "timestamp"
+                },
+                "attachments": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "required": [
+                            "attachmentId",
+                            "fileName"
+                        ],
+                        "members": {
+                            "attachmentId": {},
+                            "fileName": {
+                                "shape": "Sc"
+                            }
+                        }
+                    }
+                },
+                "rating": {
+                    "type": "integer"
+                }
+            }
+        },
+        "St": {
+            "type": "structure",
+            "members": {},
+            "document": true
+        },
+        "Sy": {
+            "type": "structure",
+            "required": [
+                "engagementId",
+                "engagementTypeId",
+                "accountId",
+                "title"
+            ],
+            "members": {
+                "engagementId": {},
+                "engagementTypeId": {},
+                "accountId": {},
+                "title": {
+                    "shape": "S3"
+                },
+                "status": {},
+                "severity": {},
+                "creationDate": {
+                    "type": "timestamp"
+                },
+                "isCreatedByAWS": {
+                    "type": "boolean"
+                },
+                "primaryContactEmail": {
+                    "shape": "S6"
+                }
+            }
+        },
+        "S16": {
+            "type": "structure",
+            "required": [
+                "engagementTypeId",
+                "name",
+                "description",
+                "isRequestable"
+            ],
+            "members": {
+                "engagementTypeId": {},
+                "name": {},
+                "description": {
+                    "type": "string",
+                    "sensitive": true
+                },
+                "isRequestable": {
+                    "type": "boolean"
+                },
+                "children": {
+                    "shape": "S19"
+                },
+                "usageLimit": {
+                    "type": "structure",
+                    "required": [
+                        "amount",
+                        "durationMonths"
+                    ],
+                    "members": {
+                        "amount": {
+                            "type": "integer"
+                        },
+                        "durationMonths": {
+                            "type": "integer"
+                        }
+                    }
+                }
+            }
+        },
+        "S19": {
+            "type": "list",
+            "member": {
+                "shape": "S16"
+            }
+        }
+    }
+}

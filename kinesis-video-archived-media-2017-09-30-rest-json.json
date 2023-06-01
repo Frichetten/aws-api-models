@@ -1,0 +1,658 @@
+{
+    "version": "2.0",
+    "metadata": {
+        "apiVersion": "2017-09-30",
+        "endpointPrefix": "kinesisvideo",
+        "protocol": "rest-json",
+        "serviceAbbreviation": "Kinesis Video Archived Media",
+        "serviceFullName": "Amazon Kinesis Video Streams Archived Media",
+        "serviceId": "Kinesis Video Archived Media",
+        "signatureVersion": "v4",
+        "uid": "kinesis-video-archived-media-2017-09-30",
+        "download_location": [
+            "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+        ]
+    },
+    "operations": {
+        "GetClip": {
+            "http": {
+                "requestUri": "/getClip"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ClipFragmentSelector"
+                ],
+                "members": {
+                    "StreamName": {},
+                    "StreamARN": {},
+                    "ClipFragmentSelector": {
+                        "type": "structure",
+                        "required": [
+                            "FragmentSelectorType",
+                            "TimestampRange"
+                        ],
+                        "members": {
+                            "FragmentSelectorType": {},
+                            "TimestampRange": {
+                                "type": "structure",
+                                "required": [
+                                    "StartTimestamp",
+                                    "EndTimestamp"
+                                ],
+                                "members": {
+                                    "StartTimestamp": {
+                                        "type": "timestamp"
+                                    },
+                                    "EndTimestamp": {
+                                        "type": "timestamp"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ContentType": {
+                        "location": "header",
+                        "locationName": "Content-Type"
+                    },
+                    "Payload": {
+                        "shape": "Sa"
+                    }
+                },
+                "payload": "Payload"
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "GetDASHStreamingSessionURL": {
+            "http": {
+                "requestUri": "/getDASHStreamingSessionURL"
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "StreamName": {},
+                    "StreamARN": {},
+                    "PlaybackMode": {},
+                    "DisplayFragmentTimestamp": {},
+                    "DisplayFragmentNumber": {},
+                    "DASHFragmentSelector": {
+                        "type": "structure",
+                        "members": {
+                            "FragmentSelectorType": {},
+                            "TimestampRange": {
+                                "type": "structure",
+                                "members": {
+                                    "StartTimestamp": {
+                                        "type": "timestamp"
+                                    },
+                                    "EndTimestamp": {
+                                        "type": "timestamp"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "Expires": {
+                        "type": "integer"
+                    },
+                    "MaxManifestFragmentResults": {
+                        "type": "long"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "DASHStreamingSessionURL": {}
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "GetHLSStreamingSessionURL": {
+            "http": {
+                "requestUri": "/getHLSStreamingSessionURL"
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "StreamName": {},
+                    "StreamARN": {},
+                    "PlaybackMode": {},
+                    "HLSFragmentSelector": {
+                        "type": "structure",
+                        "members": {
+                            "FragmentSelectorType": {},
+                            "TimestampRange": {
+                                "type": "structure",
+                                "members": {
+                                    "StartTimestamp": {
+                                        "type": "timestamp"
+                                    },
+                                    "EndTimestamp": {
+                                        "type": "timestamp"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "ContainerFormat": {},
+                    "DiscontinuityMode": {},
+                    "DisplayFragmentTimestamp": {},
+                    "Expires": {
+                        "type": "integer"
+                    },
+                    "MaxMediaPlaylistFragmentResults": {
+                        "type": "long"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "HLSStreamingSessionURL": {}
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "GetMediaForFragmentList": {
+            "http": {
+                "requestUri": "/getMediaForFragmentList"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "Fragments"
+                ],
+                "members": {
+                    "StreamName": {},
+                    "StreamARN": {},
+                    "Fragments": {
+                        "type": "list",
+                        "member": {}
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ContentType": {
+                        "location": "header",
+                        "locationName": "Content-Type"
+                    },
+                    "Payload": {
+                        "shape": "Sa"
+                    }
+                },
+                "payload": "Payload"
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "ListFragments": {
+            "http": {
+                "requestUri": "/listFragments"
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "StreamName": {},
+                    "StreamARN": {},
+                    "MaxResults": {
+                        "type": "long"
+                    },
+                    "NextToken": {},
+                    "FragmentSelector": {
+                        "type": "structure",
+                        "required": [
+                            "FragmentSelectorType",
+                            "TimestampRange"
+                        ],
+                        "members": {
+                            "FragmentSelectorType": {},
+                            "TimestampRange": {
+                                "type": "structure",
+                                "required": [
+                                    "StartTimestamp",
+                                    "EndTimestamp"
+                                ],
+                                "members": {
+                                    "StartTimestamp": {
+                                        "type": "timestamp"
+                                    },
+                                    "EndTimestamp": {
+                                        "type": "timestamp"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Fragments": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "FragmentNumber": {},
+                                "FragmentSizeInBytes": {
+                                    "type": "long"
+                                },
+                                "ProducerTimestamp": {
+                                    "type": "timestamp"
+                                },
+                                "ServerTimestamp": {
+                                    "type": "timestamp"
+                                },
+                                "FragmentLengthInMilliseconds": {
+                                    "type": "long"
+                                }
+                            }
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "GetImages": {
+            "http": {
+                "requestUri": "/getImages"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ImageSelectorType",
+                    "StartTimestamp",
+                    "EndTimestamp",
+                    "SamplingInterval",
+                    "Format"
+                ],
+                "members": {
+                    "StreamName": {},
+                    "StreamARN": {},
+                    "ImageSelectorType": {},
+                    "StartTimestamp": {
+                        "type": "timestamp"
+                    },
+                    "EndTimestamp": {
+                        "type": "timestamp"
+                    },
+                    "SamplingInterval": {
+                        "type": "integer"
+                    },
+                    "Format": {},
+                    "FormatConfig": {
+                        "type": "map",
+                        "key": {},
+                        "value": {}
+                    },
+                    "WidthPixels": {
+                        "type": "integer"
+                    },
+                    "HeightPixels": {
+                        "type": "integer"
+                    },
+                    "MaxResults": {
+                        "type": "long"
+                    },
+                    "NextToken": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Images": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "TimeStamp": {
+                                    "type": "timestamp"
+                                },
+                                "Error": {},
+                                "ImageContent": {}
+                            }
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "GetDASHManifest": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/{protocol}/v1/getDASHManifest.mpd"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "SessionToken"
+                ],
+                "members": {
+                    "SessionToken": {
+                        "shape": "Sc",
+                        "location": "querystring",
+                        "locationName": "SessionToken"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ContentType": {
+                        "location": "header",
+                        "locationName": "Content-Type"
+                    },
+                    "Payload": {
+                        "shape": "Sa"
+                    }
+                },
+                "payload": "Payload"
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/XP7F4HRMJJOYEWQL5XVTVVTE2Y6CDCGMMTRDER57AB44PFJUDRVA/main.all.js"
+            ]
+        },
+        "GetHLSMasterPlaylist": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/{protocol}/v1/getHLSMasterPlaylist.m3u8"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "SessionToken"
+                ],
+                "members": {
+                    "SessionToken": {
+                        "shape": "Sc",
+                        "location": "querystring",
+                        "locationName": "SessionToken"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ContentType": {
+                        "location": "header",
+                        "locationName": "Content-Type"
+                    },
+                    "Payload": {
+                        "shape": "Sa"
+                    }
+                },
+                "payload": "Payload"
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/XP7F4HRMJJOYEWQL5XVTVVTE2Y6CDCGMMTRDER57AB44PFJUDRVA/main.all.js"
+            ]
+        },
+        "GetHLSMediaPlaylist": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/{protocol}/v1/getHLSMediaPlaylist.m3u8"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "SessionToken"
+                ],
+                "members": {
+                    "SessionToken": {
+                        "shape": "Sc",
+                        "location": "querystring",
+                        "locationName": "SessionToken"
+                    },
+                    "TrackNumber": {
+                        "location": "querystring",
+                        "locationName": "TrackNumber",
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ContentType": {
+                        "location": "header",
+                        "locationName": "Content-Type"
+                    },
+                    "Payload": {
+                        "shape": "Sa"
+                    }
+                },
+                "payload": "Payload"
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/XP7F4HRMJJOYEWQL5XVTVVTE2Y6CDCGMMTRDER57AB44PFJUDRVA/main.all.js"
+            ]
+        },
+        "GetMP4InitFragment": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/{protocol}/v1/getMP4InitFragment.mp4"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "SessionToken",
+                    "TrackNumber"
+                ],
+                "members": {
+                    "SessionToken": {
+                        "shape": "Sc",
+                        "location": "querystring",
+                        "locationName": "SessionToken"
+                    },
+                    "SequenceNumber": {
+                        "location": "querystring",
+                        "locationName": "SequenceNumber",
+                        "type": "integer"
+                    },
+                    "TrackNumber": {
+                        "location": "querystring",
+                        "locationName": "TrackNumber",
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ContentType": {
+                        "location": "header",
+                        "locationName": "Content-Type"
+                    },
+                    "Payload": {
+                        "shape": "Sa"
+                    }
+                },
+                "payload": "Payload"
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/XP7F4HRMJJOYEWQL5XVTVVTE2Y6CDCGMMTRDER57AB44PFJUDRVA/main.all.js"
+            ]
+        },
+        "GetMP4MediaFragment": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/{protocol}/v1/getMP4MediaFragment.mp4"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "SessionToken",
+                    "TrackNumber"
+                ],
+                "members": {
+                    "SessionToken": {
+                        "shape": "Sc",
+                        "location": "querystring",
+                        "locationName": "SessionToken"
+                    },
+                    "FragmentNumber": {
+                        "location": "querystring",
+                        "locationName": "FragmentNumber"
+                    },
+                    "SequenceNumber": {
+                        "location": "querystring",
+                        "locationName": "SequenceNumber",
+                        "type": "integer"
+                    },
+                    "TrackNumber": {
+                        "location": "querystring",
+                        "locationName": "TrackNumber",
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ContentType": {
+                        "location": "header",
+                        "locationName": "Content-Type"
+                    },
+                    "Payload": {
+                        "shape": "Sa"
+                    },
+                    "FragmentNumber": {
+                        "location": "header",
+                        "locationName": "x-amzn-FragmentNumber"
+                    }
+                },
+                "payload": "Payload"
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/XP7F4HRMJJOYEWQL5XVTVVTE2Y6CDCGMMTRDER57AB44PFJUDRVA/main.all.js"
+            ]
+        },
+        "GetReaderMediaForFragmentNumber": {
+            "http": {
+                "requestUri": "/getReaderMediaForFragmentNumber"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "StreamARN",
+                    "StreamId",
+                    "FragmentNumber",
+                    "EncryptedFASCredentials",
+                    "FASEncryptionKmsKeyId"
+                ],
+                "members": {
+                    "StreamARN": {},
+                    "StreamId": {},
+                    "FragmentNumber": {},
+                    "EncryptedFASCredentials": {
+                        "type": "string",
+                        "sensitive": true
+                    },
+                    "FASEncryptionKmsKeyId": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ContentType": {
+                        "location": "header",
+                        "locationName": "Content-Type"
+                    },
+                    "Payload": {
+                        "shape": "Sa"
+                    }
+                },
+                "payload": "Payload"
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/XP7F4HRMJJOYEWQL5XVTVVTE2Y6CDCGMMTRDER57AB44PFJUDRVA/main.all.js"
+            ]
+        },
+        "GetTSFragment": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/{protocol}/v1/getTSFragment.ts"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "SessionToken"
+                ],
+                "members": {
+                    "SessionToken": {
+                        "shape": "Sc",
+                        "location": "querystring",
+                        "locationName": "SessionToken"
+                    },
+                    "FragmentNumber": {
+                        "location": "querystring",
+                        "locationName": "FragmentNumber"
+                    },
+                    "SequenceNumber": {
+                        "location": "querystring",
+                        "locationName": "SequenceNumber",
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ContentType": {
+                        "location": "header",
+                        "locationName": "Content-Type"
+                    },
+                    "Payload": {
+                        "shape": "Sa"
+                    },
+                    "FragmentNumber": {
+                        "location": "header",
+                        "locationName": "x-amzn-FragmentNumber"
+                    }
+                },
+                "payload": "Payload"
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/XP7F4HRMJJOYEWQL5XVTVVTE2Y6CDCGMMTRDER57AB44PFJUDRVA/main.all.js"
+            ]
+        }
+    },
+    "shapes": {
+        "Sa": {
+            "type": "blob",
+            "streaming": true
+        },
+        "Sc": {
+            "type": "string",
+            "sensitive": true
+        }
+    }
+}

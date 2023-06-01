@@ -1,0 +1,3971 @@
+{
+    "version": "2.0",
+    "metadata": {
+        "apiVersion": "2020-11-19",
+        "endpointPrefix": "geo",
+        "jsonVersion": "1.1",
+        "protocol": "rest-json",
+        "serviceFullName": "Amazon Location Service",
+        "serviceId": "Location",
+        "signatureVersion": "v4",
+        "signingName": "geo",
+        "uid": "location-2020-11-19",
+        "download_location": [
+            "https://iotwireless.us-east-1.prod.console.iot.aws.dev/static/js/iotwireless.js"
+        ]
+    },
+    "operations": {
+        "AssociateTrackerConsumer": {
+            "http": {
+                "requestUri": "/tracking/v0/trackers/{TrackerName}/consumers",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ConsumerArn",
+                    "TrackerName"
+                ],
+                "members": {
+                    "ConsumerArn": {},
+                    "TrackerName": {
+                        "location": "uri",
+                        "locationName": "TrackerName"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "endpoint": {
+                "hostPrefix": "tracking."
+            },
+            "download_location": [
+                "https://iotwireless.us-east-1.prod.console.iot.aws.dev/static/js/iotwireless.js"
+            ]
+        },
+        "BatchDeleteDevicePositionHistory": {
+            "http": {
+                "requestUri": "/tracking/v0/trackers/{TrackerName}/delete-positions",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "DeviceIds",
+                    "TrackerName"
+                ],
+                "members": {
+                    "DeviceIds": {
+                        "type": "list",
+                        "member": {}
+                    },
+                    "TrackerName": {
+                        "location": "uri",
+                        "locationName": "TrackerName"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "Errors"
+                ],
+                "members": {
+                    "Errors": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "DeviceId",
+                                "Error"
+                            ],
+                            "members": {
+                                "DeviceId": {},
+                                "Error": {
+                                    "shape": "Sb"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "endpoint": {
+                "hostPrefix": "tracking."
+            },
+            "download_location": [
+                "https://iotwireless.us-east-1.prod.console.iot.aws.dev/static/js/iotwireless.js"
+            ]
+        },
+        "BatchDeleteGeofence": {
+            "http": {
+                "requestUri": "/geofencing/v0/collections/{CollectionName}/delete-geofences",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "CollectionName",
+                    "GeofenceIds"
+                ],
+                "members": {
+                    "CollectionName": {
+                        "location": "uri",
+                        "locationName": "CollectionName"
+                    },
+                    "GeofenceIds": {
+                        "type": "list",
+                        "member": {}
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "Errors"
+                ],
+                "members": {
+                    "Errors": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "Error",
+                                "GeofenceId"
+                            ],
+                            "members": {
+                                "Error": {
+                                    "shape": "Sb"
+                                },
+                                "GeofenceId": {}
+                            }
+                        }
+                    }
+                }
+            },
+            "endpoint": {
+                "hostPrefix": "geofencing."
+            },
+            "download_location": [
+                "https://iotwireless.us-east-1.prod.console.iot.aws.dev/static/js/iotwireless.js"
+            ]
+        },
+        "BatchEvaluateGeofences": {
+            "http": {
+                "requestUri": "/geofencing/v0/collections/{CollectionName}/positions",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "CollectionName",
+                    "DevicePositionUpdates"
+                ],
+                "members": {
+                    "CollectionName": {
+                        "location": "uri",
+                        "locationName": "CollectionName"
+                    },
+                    "DevicePositionUpdates": {
+                        "type": "list",
+                        "member": {
+                            "shape": "Sl"
+                        }
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "Errors"
+                ],
+                "members": {
+                    "Errors": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "DeviceId",
+                                "Error",
+                                "SampleTime"
+                            ],
+                            "members": {
+                                "DeviceId": {},
+                                "Error": {
+                                    "shape": "Sb"
+                                },
+                                "SampleTime": {
+                                    "shape": "So"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "endpoint": {
+                "hostPrefix": "geofencing."
+            },
+            "download_location": [
+                "https://iotwireless.us-east-1.prod.console.iot.aws.dev/static/js/iotwireless.js"
+            ]
+        },
+        "BatchGetDevicePosition": {
+            "http": {
+                "requestUri": "/tracking/v0/trackers/{TrackerName}/get-positions",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "DeviceIds",
+                    "TrackerName"
+                ],
+                "members": {
+                    "DeviceIds": {
+                        "type": "list",
+                        "member": {}
+                    },
+                    "TrackerName": {
+                        "location": "uri",
+                        "locationName": "TrackerName"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "DevicePositions",
+                    "Errors"
+                ],
+                "members": {
+                    "DevicePositions": {
+                        "shape": "Sw"
+                    },
+                    "Errors": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "DeviceId",
+                                "Error"
+                            ],
+                            "members": {
+                                "DeviceId": {},
+                                "Error": {
+                                    "shape": "Sb"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "endpoint": {
+                "hostPrefix": "tracking."
+            },
+            "download_location": [
+                "https://iotwireless.us-east-1.prod.console.iot.aws.dev/static/js/iotwireless.js"
+            ]
+        },
+        "BatchPutGeofence": {
+            "http": {
+                "requestUri": "/geofencing/v0/collections/{CollectionName}/put-geofences",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "CollectionName",
+                    "Entries"
+                ],
+                "members": {
+                    "CollectionName": {
+                        "location": "uri",
+                        "locationName": "CollectionName"
+                    },
+                    "Entries": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "GeofenceId",
+                                "Geometry"
+                            ],
+                            "members": {
+                                "GeofenceId": {},
+                                "Geometry": {
+                                    "shape": "S13"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "Errors",
+                    "Successes"
+                ],
+                "members": {
+                    "Errors": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "Error",
+                                "GeofenceId"
+                            ],
+                            "members": {
+                                "Error": {
+                                    "shape": "Sb"
+                                },
+                                "GeofenceId": {}
+                            }
+                        }
+                    },
+                    "Successes": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "CreateTime",
+                                "GeofenceId",
+                                "UpdateTime"
+                            ],
+                            "members": {
+                                "CreateTime": {
+                                    "shape": "So"
+                                },
+                                "GeofenceId": {},
+                                "UpdateTime": {
+                                    "shape": "So"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "endpoint": {
+                "hostPrefix": "geofencing."
+            },
+            "download_location": [
+                "https://iotwireless.us-east-1.prod.console.iot.aws.dev/static/js/iotwireless.js"
+            ]
+        },
+        "BatchUpdateDevicePosition": {
+            "http": {
+                "requestUri": "/tracking/v0/trackers/{TrackerName}/positions",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "TrackerName",
+                    "Updates"
+                ],
+                "members": {
+                    "TrackerName": {
+                        "location": "uri",
+                        "locationName": "TrackerName"
+                    },
+                    "Updates": {
+                        "type": "list",
+                        "member": {
+                            "shape": "Sl"
+                        }
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "Errors"
+                ],
+                "members": {
+                    "Errors": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "DeviceId",
+                                "Error",
+                                "SampleTime"
+                            ],
+                            "members": {
+                                "DeviceId": {},
+                                "Error": {
+                                    "shape": "Sb"
+                                },
+                                "SampleTime": {
+                                    "shape": "So"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "endpoint": {
+                "hostPrefix": "tracking."
+            },
+            "download_location": [
+                "https://iotwireless.us-east-1.prod.console.iot.aws.dev/static/js/iotwireless.js"
+            ]
+        },
+        "CalculateRoute": {
+            "http": {
+                "requestUri": "/routes/v0/calculators/{CalculatorName}/calculate/route",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "CalculatorName",
+                    "DeparturePosition",
+                    "DestinationPosition"
+                ],
+                "members": {
+                    "CalculatorName": {
+                        "location": "uri",
+                        "locationName": "CalculatorName"
+                    },
+                    "CarModeOptions": {
+                        "type": "structure",
+                        "members": {
+                            "AvoidFerries": {
+                                "type": "boolean"
+                            },
+                            "AvoidTolls": {
+                                "type": "boolean"
+                            }
+                        }
+                    },
+                    "DepartNow": {
+                        "type": "boolean"
+                    },
+                    "DeparturePosition": {
+                        "shape": "Sm"
+                    },
+                    "DepartureTime": {
+                        "shape": "So"
+                    },
+                    "DestinationPosition": {
+                        "shape": "Sm"
+                    },
+                    "DistanceUnit": {},
+                    "IncludeLegGeometry": {
+                        "type": "boolean"
+                    },
+                    "TravelMode": {},
+                    "TruckModeOptions": {
+                        "type": "structure",
+                        "members": {
+                            "AvoidFerries": {
+                                "type": "boolean"
+                            },
+                            "AvoidTolls": {
+                                "type": "boolean"
+                            },
+                            "Dimensions": {
+                                "type": "structure",
+                                "members": {
+                                    "Height": {
+                                        "type": "double"
+                                    },
+                                    "Length": {
+                                        "type": "double"
+                                    },
+                                    "Unit": {},
+                                    "Width": {
+                                        "type": "double"
+                                    }
+                                }
+                            },
+                            "Weight": {
+                                "type": "structure",
+                                "members": {
+                                    "Total": {
+                                        "type": "double"
+                                    },
+                                    "Unit": {}
+                                }
+                            }
+                        }
+                    },
+                    "WaypointPositions": {
+                        "type": "list",
+                        "member": {
+                            "shape": "Sm"
+                        }
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "Legs",
+                    "Summary"
+                ],
+                "members": {
+                    "Legs": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "Distance",
+                                "DurationSeconds",
+                                "EndPosition",
+                                "StartPosition",
+                                "Steps"
+                            ],
+                            "members": {
+                                "Distance": {
+                                    "type": "double"
+                                },
+                                "DurationSeconds": {
+                                    "type": "double"
+                                },
+                                "EndPosition": {
+                                    "shape": "Sm"
+                                },
+                                "Geometry": {
+                                    "type": "structure",
+                                    "members": {
+                                        "LineString": {
+                                            "type": "list",
+                                            "member": {
+                                                "shape": "Sm"
+                                            }
+                                        }
+                                    }
+                                },
+                                "StartPosition": {
+                                    "shape": "Sm"
+                                },
+                                "Steps": {
+                                    "type": "list",
+                                    "member": {
+                                        "type": "structure",
+                                        "required": [
+                                            "Distance",
+                                            "DurationSeconds",
+                                            "EndPosition",
+                                            "StartPosition"
+                                        ],
+                                        "members": {
+                                            "Distance": {
+                                                "type": "double"
+                                            },
+                                            "DurationSeconds": {
+                                                "type": "double"
+                                            },
+                                            "EndPosition": {
+                                                "shape": "Sm"
+                                            },
+                                            "GeometryOffset": {
+                                                "type": "integer"
+                                            },
+                                            "StartPosition": {
+                                                "shape": "Sm"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "Summary": {
+                        "type": "structure",
+                        "required": [
+                            "DataSource",
+                            "Distance",
+                            "DistanceUnit",
+                            "DurationSeconds",
+                            "RouteBBox"
+                        ],
+                        "members": {
+                            "DataSource": {},
+                            "Distance": {
+                                "type": "double"
+                            },
+                            "DistanceUnit": {},
+                            "DurationSeconds": {
+                                "type": "double"
+                            },
+                            "RouteBBox": {
+                                "shape": "S2a"
+                            }
+                        }
+                    }
+                }
+            },
+            "endpoint": {
+                "hostPrefix": "routes."
+            },
+            "download_location": [
+                "https://iotwireless.us-east-1.prod.console.iot.aws.dev/static/js/iotwireless.js"
+            ]
+        },
+        "CreateGeofenceCollection": {
+            "http": {
+                "requestUri": "/geofencing/v0/collections",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "CollectionName",
+                    "PricingPlan"
+                ],
+                "members": {
+                    "CollectionName": {},
+                    "Description": {},
+                    "KmsKeyId": {},
+                    "PricingPlan": {},
+                    "PricingPlanDataSource": {},
+                    "Tags": {
+                        "shape": "S2f"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "CollectionArn",
+                    "CollectionName",
+                    "CreateTime"
+                ],
+                "members": {
+                    "CollectionArn": {},
+                    "CollectionName": {},
+                    "CreateTime": {
+                        "shape": "So"
+                    }
+                }
+            },
+            "endpoint": {
+                "hostPrefix": "geofencing."
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://iotwireless.us-east-1.prod.console.iot.aws.dev/static/js/iotwireless.js"
+            ]
+        },
+        "CreateMap": {
+            "http": {
+                "requestUri": "/maps/v0/maps",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "Configuration",
+                    "MapName",
+                    "PricingPlan"
+                ],
+                "members": {
+                    "Configuration": {
+                        "shape": "S2k"
+                    },
+                    "Description": {},
+                    "MapName": {},
+                    "PricingPlan": {},
+                    "Tags": {
+                        "shape": "S2f"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "CreateTime",
+                    "MapArn",
+                    "MapName"
+                ],
+                "members": {
+                    "CreateTime": {
+                        "shape": "So"
+                    },
+                    "MapArn": {},
+                    "MapName": {}
+                }
+            },
+            "endpoint": {
+                "hostPrefix": "maps."
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://iotwireless.us-east-1.prod.console.iot.aws.dev/static/js/iotwireless.js"
+            ]
+        },
+        "CreatePlaceIndex": {
+            "http": {
+                "requestUri": "/places/v0/indexes",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "DataSource",
+                    "IndexName",
+                    "PricingPlan"
+                ],
+                "members": {
+                    "DataSource": {},
+                    "DataSourceConfiguration": {
+                        "shape": "S2o"
+                    },
+                    "Description": {},
+                    "IndexName": {},
+                    "PricingPlan": {},
+                    "Tags": {
+                        "shape": "S2f"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "CreateTime",
+                    "IndexArn",
+                    "IndexName"
+                ],
+                "members": {
+                    "CreateTime": {
+                        "shape": "So"
+                    },
+                    "IndexArn": {},
+                    "IndexName": {}
+                }
+            },
+            "endpoint": {
+                "hostPrefix": "places."
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://iotwireless.us-east-1.prod.console.iot.aws.dev/static/js/iotwireless.js"
+            ]
+        },
+        "CreateRouteCalculator": {
+            "http": {
+                "requestUri": "/routes/v0/calculators",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "CalculatorName",
+                    "DataSource",
+                    "PricingPlan"
+                ],
+                "members": {
+                    "CalculatorName": {},
+                    "DataSource": {},
+                    "Description": {},
+                    "PricingPlan": {},
+                    "Tags": {
+                        "shape": "S2f"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "CalculatorArn",
+                    "CalculatorName",
+                    "CreateTime"
+                ],
+                "members": {
+                    "CalculatorArn": {},
+                    "CalculatorName": {},
+                    "CreateTime": {
+                        "shape": "So"
+                    }
+                }
+            },
+            "endpoint": {
+                "hostPrefix": "routes."
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://iotwireless.us-east-1.prod.console.iot.aws.dev/static/js/iotwireless.js"
+            ]
+        },
+        "CreateTracker": {
+            "http": {
+                "requestUri": "/tracking/v0/trackers",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "PricingPlan",
+                    "TrackerName"
+                ],
+                "members": {
+                    "Description": {},
+                    "KmsKeyId": {},
+                    "PricingPlan": {},
+                    "PricingPlanDataSource": {},
+                    "Tags": {
+                        "shape": "S2f"
+                    },
+                    "TrackerName": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "CreateTime",
+                    "TrackerArn",
+                    "TrackerName"
+                ],
+                "members": {
+                    "CreateTime": {
+                        "shape": "So"
+                    },
+                    "TrackerArn": {},
+                    "TrackerName": {}
+                }
+            },
+            "endpoint": {
+                "hostPrefix": "tracking."
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://iotwireless.us-east-1.prod.console.iot.aws.dev/static/js/iotwireless.js"
+            ]
+        },
+        "DeleteGeofenceCollection": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/geofencing/v0/collections/{CollectionName}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "CollectionName"
+                ],
+                "members": {
+                    "CollectionName": {
+                        "location": "uri",
+                        "locationName": "CollectionName"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "endpoint": {
+                "hostPrefix": "geofencing."
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://iotwireless.us-east-1.prod.console.iot.aws.dev/static/js/iotwireless.js"
+            ]
+        },
+        "DeleteMap": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/maps/v0/maps/{MapName}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "MapName"
+                ],
+                "members": {
+                    "MapName": {
+                        "location": "uri",
+                        "locationName": "MapName"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "endpoint": {
+                "hostPrefix": "maps."
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://iotwireless.us-east-1.prod.console.iot.aws.dev/static/js/iotwireless.js"
+            ]
+        },
+        "DeletePlaceIndex": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/places/v0/indexes/{IndexName}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "IndexName"
+                ],
+                "members": {
+                    "IndexName": {
+                        "location": "uri",
+                        "locationName": "IndexName"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "endpoint": {
+                "hostPrefix": "places."
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://iotwireless.us-east-1.prod.console.iot.aws.dev/static/js/iotwireless.js"
+            ]
+        },
+        "DeleteRouteCalculator": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/routes/v0/calculators/{CalculatorName}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "CalculatorName"
+                ],
+                "members": {
+                    "CalculatorName": {
+                        "location": "uri",
+                        "locationName": "CalculatorName"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "endpoint": {
+                "hostPrefix": "routes."
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://iotwireless.us-east-1.prod.console.iot.aws.dev/static/js/iotwireless.js"
+            ]
+        },
+        "DeleteTracker": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/tracking/v0/trackers/{TrackerName}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "TrackerName"
+                ],
+                "members": {
+                    "TrackerName": {
+                        "location": "uri",
+                        "locationName": "TrackerName"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "endpoint": {
+                "hostPrefix": "tracking."
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://iotwireless.us-east-1.prod.console.iot.aws.dev/static/js/iotwireless.js"
+            ]
+        },
+        "DescribeGeofenceCollection": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/geofencing/v0/collections/{CollectionName}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "CollectionName"
+                ],
+                "members": {
+                    "CollectionName": {
+                        "location": "uri",
+                        "locationName": "CollectionName"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "CollectionArn",
+                    "CollectionName",
+                    "CreateTime",
+                    "Description",
+                    "PricingPlan",
+                    "UpdateTime"
+                ],
+                "members": {
+                    "CollectionArn": {},
+                    "CollectionName": {},
+                    "CreateTime": {
+                        "shape": "So"
+                    },
+                    "Description": {},
+                    "KmsKeyId": {},
+                    "PricingPlan": {},
+                    "PricingPlanDataSource": {},
+                    "Tags": {
+                        "shape": "S2f"
+                    },
+                    "UpdateTime": {
+                        "shape": "So"
+                    }
+                }
+            },
+            "endpoint": {
+                "hostPrefix": "geofencing."
+            },
+            "download_location": [
+                "https://iotwireless.us-east-1.prod.console.iot.aws.dev/static/js/iotwireless.js"
+            ]
+        },
+        "DescribeMap": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/maps/v0/maps/{MapName}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "MapName"
+                ],
+                "members": {
+                    "MapName": {
+                        "location": "uri",
+                        "locationName": "MapName"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "Configuration",
+                    "CreateTime",
+                    "DataSource",
+                    "Description",
+                    "MapArn",
+                    "MapName",
+                    "PricingPlan",
+                    "UpdateTime"
+                ],
+                "members": {
+                    "Configuration": {
+                        "shape": "S2k"
+                    },
+                    "CreateTime": {
+                        "shape": "So"
+                    },
+                    "DataSource": {},
+                    "Description": {},
+                    "MapArn": {},
+                    "MapName": {},
+                    "PricingPlan": {},
+                    "Tags": {
+                        "shape": "S2f"
+                    },
+                    "UpdateTime": {
+                        "shape": "So"
+                    }
+                }
+            },
+            "endpoint": {
+                "hostPrefix": "maps."
+            },
+            "download_location": [
+                "https://iotwireless.us-east-1.prod.console.iot.aws.dev/static/js/iotwireless.js"
+            ]
+        },
+        "DescribePlaceIndex": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/places/v0/indexes/{IndexName}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "IndexName"
+                ],
+                "members": {
+                    "IndexName": {
+                        "location": "uri",
+                        "locationName": "IndexName"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "CreateTime",
+                    "DataSource",
+                    "DataSourceConfiguration",
+                    "Description",
+                    "IndexArn",
+                    "IndexName",
+                    "PricingPlan",
+                    "UpdateTime"
+                ],
+                "members": {
+                    "CreateTime": {
+                        "shape": "So"
+                    },
+                    "DataSource": {},
+                    "DataSourceConfiguration": {
+                        "shape": "S2o"
+                    },
+                    "Description": {},
+                    "IndexArn": {},
+                    "IndexName": {},
+                    "PricingPlan": {},
+                    "Tags": {
+                        "shape": "S2f"
+                    },
+                    "UpdateTime": {
+                        "shape": "So"
+                    }
+                }
+            },
+            "endpoint": {
+                "hostPrefix": "places."
+            },
+            "download_location": [
+                "https://iotwireless.us-east-1.prod.console.iot.aws.dev/static/js/iotwireless.js"
+            ]
+        },
+        "DescribeRouteCalculator": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/routes/v0/calculators/{CalculatorName}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "CalculatorName"
+                ],
+                "members": {
+                    "CalculatorName": {
+                        "location": "uri",
+                        "locationName": "CalculatorName"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "CalculatorArn",
+                    "CalculatorName",
+                    "CreateTime",
+                    "DataSource",
+                    "Description",
+                    "PricingPlan",
+                    "UpdateTime"
+                ],
+                "members": {
+                    "CalculatorArn": {},
+                    "CalculatorName": {},
+                    "CreateTime": {
+                        "shape": "So"
+                    },
+                    "DataSource": {},
+                    "Description": {},
+                    "PricingPlan": {},
+                    "Tags": {
+                        "shape": "S2f"
+                    },
+                    "UpdateTime": {
+                        "shape": "So"
+                    }
+                }
+            },
+            "endpoint": {
+                "hostPrefix": "routes."
+            },
+            "download_location": [
+                "https://iotwireless.us-east-1.prod.console.iot.aws.dev/static/js/iotwireless.js"
+            ]
+        },
+        "DescribeTracker": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/tracking/v0/trackers/{TrackerName}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "TrackerName"
+                ],
+                "members": {
+                    "TrackerName": {
+                        "location": "uri",
+                        "locationName": "TrackerName"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "CreateTime",
+                    "Description",
+                    "PricingPlan",
+                    "TrackerArn",
+                    "TrackerName",
+                    "UpdateTime"
+                ],
+                "members": {
+                    "CreateTime": {
+                        "shape": "So"
+                    },
+                    "Description": {},
+                    "KmsKeyId": {},
+                    "PricingPlan": {},
+                    "PricingPlanDataSource": {},
+                    "Tags": {
+                        "shape": "S2f"
+                    },
+                    "TrackerArn": {},
+                    "TrackerName": {},
+                    "UpdateTime": {
+                        "shape": "So"
+                    }
+                }
+            },
+            "endpoint": {
+                "hostPrefix": "tracking."
+            },
+            "download_location": [
+                "https://iotwireless.us-east-1.prod.console.iot.aws.dev/static/js/iotwireless.js"
+            ]
+        },
+        "DisassociateTrackerConsumer": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/tracking/v0/trackers/{TrackerName}/consumers/{ConsumerArn}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ConsumerArn",
+                    "TrackerName"
+                ],
+                "members": {
+                    "ConsumerArn": {
+                        "location": "uri",
+                        "locationName": "ConsumerArn"
+                    },
+                    "TrackerName": {
+                        "location": "uri",
+                        "locationName": "TrackerName"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "endpoint": {
+                "hostPrefix": "tracking."
+            },
+            "download_location": [
+                "https://iotwireless.us-east-1.prod.console.iot.aws.dev/static/js/iotwireless.js"
+            ]
+        },
+        "GetDevicePosition": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/tracking/v0/trackers/{TrackerName}/devices/{DeviceId}/positions/latest",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "DeviceId",
+                    "TrackerName"
+                ],
+                "members": {
+                    "DeviceId": {
+                        "location": "uri",
+                        "locationName": "DeviceId"
+                    },
+                    "TrackerName": {
+                        "location": "uri",
+                        "locationName": "TrackerName"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "Position",
+                    "ReceivedTime",
+                    "SampleTime"
+                ],
+                "members": {
+                    "DeviceId": {},
+                    "Position": {
+                        "shape": "Sm"
+                    },
+                    "ReceivedTime": {
+                        "shape": "So"
+                    },
+                    "SampleTime": {
+                        "shape": "So"
+                    }
+                }
+            },
+            "endpoint": {
+                "hostPrefix": "tracking."
+            },
+            "download_location": [
+                "https://iotwireless.us-east-1.prod.console.iot.aws.dev/static/js/iotwireless.js"
+            ]
+        },
+        "GetDevicePositionHistory": {
+            "http": {
+                "requestUri": "/tracking/v0/trackers/{TrackerName}/devices/{DeviceId}/list-positions",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "DeviceId",
+                    "TrackerName"
+                ],
+                "members": {
+                    "DeviceId": {
+                        "location": "uri",
+                        "locationName": "DeviceId"
+                    },
+                    "EndTimeExclusive": {
+                        "shape": "So"
+                    },
+                    "NextToken": {},
+                    "StartTimeInclusive": {
+                        "shape": "So"
+                    },
+                    "TrackerName": {
+                        "location": "uri",
+                        "locationName": "TrackerName"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "DevicePositions"
+                ],
+                "members": {
+                    "DevicePositions": {
+                        "shape": "Sw"
+                    },
+                    "NextToken": {}
+                }
+            },
+            "endpoint": {
+                "hostPrefix": "tracking."
+            },
+            "download_location": [
+                "https://iotwireless.us-east-1.prod.console.iot.aws.dev/static/js/iotwireless.js"
+            ]
+        },
+        "GetGeofence": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/geofencing/v0/collections/{CollectionName}/geofences/{GeofenceId}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "CollectionName",
+                    "GeofenceId"
+                ],
+                "members": {
+                    "CollectionName": {
+                        "location": "uri",
+                        "locationName": "CollectionName"
+                    },
+                    "GeofenceId": {
+                        "location": "uri",
+                        "locationName": "GeofenceId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "CreateTime",
+                    "GeofenceId",
+                    "Geometry",
+                    "Status",
+                    "UpdateTime"
+                ],
+                "members": {
+                    "CreateTime": {
+                        "shape": "So"
+                    },
+                    "GeofenceId": {},
+                    "Geometry": {
+                        "shape": "S13"
+                    },
+                    "Status": {},
+                    "UpdateTime": {
+                        "shape": "So"
+                    }
+                }
+            },
+            "endpoint": {
+                "hostPrefix": "geofencing."
+            },
+            "download_location": [
+                "https://iotwireless.us-east-1.prod.console.iot.aws.dev/static/js/iotwireless.js"
+            ]
+        },
+        "GetMapGlyphs": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/maps/v0/maps/{MapName}/glyphs/{FontStack}/{FontUnicodeRange}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "FontStack",
+                    "FontUnicodeRange",
+                    "MapName"
+                ],
+                "members": {
+                    "FontStack": {
+                        "location": "uri",
+                        "locationName": "FontStack"
+                    },
+                    "FontUnicodeRange": {
+                        "location": "uri",
+                        "locationName": "FontUnicodeRange"
+                    },
+                    "MapName": {
+                        "location": "uri",
+                        "locationName": "MapName"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Blob": {
+                        "type": "blob"
+                    },
+                    "ContentType": {
+                        "location": "header",
+                        "locationName": "Content-Type"
+                    }
+                },
+                "payload": "Blob"
+            },
+            "endpoint": {
+                "hostPrefix": "maps."
+            },
+            "download_location": [
+                "https://iotwireless.us-east-1.prod.console.iot.aws.dev/static/js/iotwireless.js"
+            ]
+        },
+        "GetMapSprites": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/maps/v0/maps/{MapName}/sprites/{FileName}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "FileName",
+                    "MapName"
+                ],
+                "members": {
+                    "FileName": {
+                        "location": "uri",
+                        "locationName": "FileName"
+                    },
+                    "MapName": {
+                        "location": "uri",
+                        "locationName": "MapName"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Blob": {
+                        "type": "blob"
+                    },
+                    "ContentType": {
+                        "location": "header",
+                        "locationName": "Content-Type"
+                    }
+                },
+                "payload": "Blob"
+            },
+            "endpoint": {
+                "hostPrefix": "maps."
+            },
+            "download_location": [
+                "https://iotwireless.us-east-1.prod.console.iot.aws.dev/static/js/iotwireless.js"
+            ]
+        },
+        "GetMapStyleDescriptor": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/maps/v0/maps/{MapName}/style-descriptor",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "MapName"
+                ],
+                "members": {
+                    "MapName": {
+                        "location": "uri",
+                        "locationName": "MapName"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Blob": {
+                        "type": "blob"
+                    },
+                    "ContentType": {
+                        "location": "header",
+                        "locationName": "Content-Type"
+                    }
+                },
+                "payload": "Blob"
+            },
+            "endpoint": {
+                "hostPrefix": "maps."
+            },
+            "download_location": [
+                "https://iotwireless.us-east-1.prod.console.iot.aws.dev/static/js/iotwireless.js"
+            ]
+        },
+        "GetMapTile": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/maps/v0/maps/{MapName}/tiles/{Z}/{X}/{Y}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "MapName",
+                    "X",
+                    "Y",
+                    "Z"
+                ],
+                "members": {
+                    "MapName": {
+                        "location": "uri",
+                        "locationName": "MapName"
+                    },
+                    "X": {
+                        "location": "uri",
+                        "locationName": "X"
+                    },
+                    "Y": {
+                        "location": "uri",
+                        "locationName": "Y"
+                    },
+                    "Z": {
+                        "location": "uri",
+                        "locationName": "Z"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Blob": {
+                        "type": "blob"
+                    },
+                    "ContentType": {
+                        "location": "header",
+                        "locationName": "Content-Type"
+                    }
+                },
+                "payload": "Blob"
+            },
+            "endpoint": {
+                "hostPrefix": "maps."
+            },
+            "download_location": [
+                "https://iotwireless.us-east-1.prod.console.iot.aws.dev/static/js/iotwireless.js"
+            ]
+        },
+        "ListDevicePositions": {
+            "http": {
+                "requestUri": "/tracking/v0/trackers/{TrackerName}/list-positions",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "TrackerName"
+                ],
+                "members": {
+                    "MaxResults": {
+                        "type": "integer"
+                    },
+                    "NextToken": {},
+                    "TrackerName": {
+                        "location": "uri",
+                        "locationName": "TrackerName"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "Entries"
+                ],
+                "members": {
+                    "Entries": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "DeviceId",
+                                "Position",
+                                "SampleTime"
+                            ],
+                            "members": {
+                                "DeviceId": {},
+                                "Position": {
+                                    "shape": "Sm"
+                                },
+                                "SampleTime": {
+                                    "shape": "So"
+                                }
+                            }
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "endpoint": {
+                "hostPrefix": "tracking."
+            },
+            "download_location": [
+                "https://iotwireless.us-east-1.prod.console.iot.aws.dev/static/js/iotwireless.js"
+            ]
+        },
+        "ListGeofenceCollections": {
+            "http": {
+                "requestUri": "/geofencing/v0/list-collections",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "MaxResults": {
+                        "type": "integer"
+                    },
+                    "NextToken": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "Entries"
+                ],
+                "members": {
+                    "Entries": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "CollectionName",
+                                "CreateTime",
+                                "Description",
+                                "PricingPlan",
+                                "UpdateTime"
+                            ],
+                            "members": {
+                                "CollectionName": {},
+                                "CreateTime": {
+                                    "shape": "So"
+                                },
+                                "Description": {},
+                                "PricingPlan": {},
+                                "PricingPlanDataSource": {},
+                                "UpdateTime": {
+                                    "shape": "So"
+                                }
+                            }
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "endpoint": {
+                "hostPrefix": "geofencing."
+            },
+            "download_location": [
+                "https://iotwireless.us-east-1.prod.console.iot.aws.dev/static/js/iotwireless.js"
+            ]
+        },
+        "ListGeofences": {
+            "http": {
+                "requestUri": "/geofencing/v0/collections/{CollectionName}/list-geofences",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "CollectionName"
+                ],
+                "members": {
+                    "CollectionName": {
+                        "location": "uri",
+                        "locationName": "CollectionName"
+                    },
+                    "NextToken": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "Entries"
+                ],
+                "members": {
+                    "Entries": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "CreateTime",
+                                "GeofenceId",
+                                "Geometry",
+                                "Status",
+                                "UpdateTime"
+                            ],
+                            "members": {
+                                "CreateTime": {
+                                    "shape": "So"
+                                },
+                                "GeofenceId": {},
+                                "Geometry": {
+                                    "shape": "S13"
+                                },
+                                "Status": {},
+                                "UpdateTime": {
+                                    "shape": "So"
+                                }
+                            }
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "endpoint": {
+                "hostPrefix": "geofencing."
+            },
+            "download_location": [
+                "https://iotwireless.us-east-1.prod.console.iot.aws.dev/static/js/iotwireless.js"
+            ]
+        },
+        "ListMaps": {
+            "http": {
+                "requestUri": "/maps/v0/list-maps",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "MaxResults": {
+                        "type": "integer"
+                    },
+                    "NextToken": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "Entries"
+                ],
+                "members": {
+                    "Entries": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "CreateTime",
+                                "DataSource",
+                                "Description",
+                                "MapName",
+                                "PricingPlan",
+                                "UpdateTime"
+                            ],
+                            "members": {
+                                "CreateTime": {
+                                    "shape": "So"
+                                },
+                                "DataSource": {},
+                                "Description": {},
+                                "MapName": {},
+                                "PricingPlan": {},
+                                "UpdateTime": {
+                                    "shape": "So"
+                                }
+                            }
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "endpoint": {
+                "hostPrefix": "maps."
+            },
+            "download_location": [
+                "https://iotwireless.us-east-1.prod.console.iot.aws.dev/static/js/iotwireless.js"
+            ]
+        },
+        "ListPlaceIndexes": {
+            "http": {
+                "requestUri": "/places/v0/list-indexes",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "MaxResults": {
+                        "type": "integer"
+                    },
+                    "NextToken": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "Entries"
+                ],
+                "members": {
+                    "Entries": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "CreateTime",
+                                "DataSource",
+                                "Description",
+                                "IndexName",
+                                "PricingPlan",
+                                "UpdateTime"
+                            ],
+                            "members": {
+                                "CreateTime": {
+                                    "shape": "So"
+                                },
+                                "DataSource": {},
+                                "Description": {},
+                                "IndexName": {},
+                                "PricingPlan": {},
+                                "UpdateTime": {
+                                    "shape": "So"
+                                }
+                            }
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "endpoint": {
+                "hostPrefix": "places."
+            },
+            "download_location": [
+                "https://iotwireless.us-east-1.prod.console.iot.aws.dev/static/js/iotwireless.js"
+            ]
+        },
+        "ListRouteCalculators": {
+            "http": {
+                "requestUri": "/routes/v0/list-calculators",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "MaxResults": {
+                        "type": "integer"
+                    },
+                    "NextToken": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "Entries"
+                ],
+                "members": {
+                    "Entries": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "CalculatorName",
+                                "CreateTime",
+                                "DataSource",
+                                "Description",
+                                "PricingPlan",
+                                "UpdateTime"
+                            ],
+                            "members": {
+                                "CalculatorName": {},
+                                "CreateTime": {
+                                    "shape": "So"
+                                },
+                                "DataSource": {},
+                                "Description": {},
+                                "PricingPlan": {},
+                                "UpdateTime": {
+                                    "shape": "So"
+                                }
+                            }
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "endpoint": {
+                "hostPrefix": "routes."
+            },
+            "download_location": [
+                "https://iotwireless.us-east-1.prod.console.iot.aws.dev/static/js/iotwireless.js"
+            ]
+        },
+        "ListTagsForResource": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/tags/{ResourceArn}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ResourceArn"
+                ],
+                "members": {
+                    "ResourceArn": {
+                        "location": "uri",
+                        "locationName": "ResourceArn"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Tags": {
+                        "shape": "S2f"
+                    }
+                }
+            },
+            "endpoint": {
+                "hostPrefix": "metadata."
+            },
+            "download_location": [
+                "https://iotwireless.us-east-1.prod.console.iot.aws.dev/static/js/iotwireless.js"
+            ]
+        },
+        "ListTrackerConsumers": {
+            "http": {
+                "requestUri": "/tracking/v0/trackers/{TrackerName}/list-consumers",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "TrackerName"
+                ],
+                "members": {
+                    "MaxResults": {
+                        "type": "integer"
+                    },
+                    "NextToken": {},
+                    "TrackerName": {
+                        "location": "uri",
+                        "locationName": "TrackerName"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "ConsumerArns"
+                ],
+                "members": {
+                    "ConsumerArns": {
+                        "type": "list",
+                        "member": {}
+                    },
+                    "NextToken": {}
+                }
+            },
+            "endpoint": {
+                "hostPrefix": "tracking."
+            },
+            "download_location": [
+                "https://iotwireless.us-east-1.prod.console.iot.aws.dev/static/js/iotwireless.js"
+            ]
+        },
+        "ListTrackers": {
+            "http": {
+                "requestUri": "/tracking/v0/list-trackers",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "MaxResults": {
+                        "type": "integer"
+                    },
+                    "NextToken": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "Entries"
+                ],
+                "members": {
+                    "Entries": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "CreateTime",
+                                "Description",
+                                "PricingPlan",
+                                "TrackerName",
+                                "UpdateTime"
+                            ],
+                            "members": {
+                                "CreateTime": {
+                                    "shape": "So"
+                                },
+                                "Description": {},
+                                "PricingPlan": {},
+                                "PricingPlanDataSource": {},
+                                "TrackerName": {},
+                                "UpdateTime": {
+                                    "shape": "So"
+                                }
+                            }
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "endpoint": {
+                "hostPrefix": "tracking."
+            },
+            "download_location": [
+                "https://iotwireless.us-east-1.prod.console.iot.aws.dev/static/js/iotwireless.js"
+            ]
+        },
+        "PutGeofence": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/geofencing/v0/collections/{CollectionName}/geofences/{GeofenceId}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "CollectionName",
+                    "GeofenceId",
+                    "Geometry"
+                ],
+                "members": {
+                    "CollectionName": {
+                        "location": "uri",
+                        "locationName": "CollectionName"
+                    },
+                    "GeofenceId": {
+                        "location": "uri",
+                        "locationName": "GeofenceId"
+                    },
+                    "Geometry": {
+                        "shape": "S13"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "CreateTime",
+                    "GeofenceId",
+                    "UpdateTime"
+                ],
+                "members": {
+                    "CreateTime": {
+                        "shape": "So"
+                    },
+                    "GeofenceId": {},
+                    "UpdateTime": {
+                        "shape": "So"
+                    }
+                }
+            },
+            "endpoint": {
+                "hostPrefix": "geofencing."
+            },
+            "download_location": [
+                "https://iotwireless.us-east-1.prod.console.iot.aws.dev/static/js/iotwireless.js"
+            ]
+        },
+        "SearchPlaceIndexForPosition": {
+            "http": {
+                "requestUri": "/places/v0/indexes/{IndexName}/search/position",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "IndexName",
+                    "Position"
+                ],
+                "members": {
+                    "IndexName": {
+                        "location": "uri",
+                        "locationName": "IndexName"
+                    },
+                    "MaxResults": {
+                        "type": "integer"
+                    },
+                    "Position": {
+                        "shape": "Sm"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "Results",
+                    "Summary"
+                ],
+                "members": {
+                    "Results": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "Place"
+                            ],
+                            "members": {
+                                "Place": {
+                                    "shape": "S5d"
+                                }
+                            }
+                        }
+                    },
+                    "Summary": {
+                        "type": "structure",
+                        "required": [
+                            "DataSource",
+                            "Position"
+                        ],
+                        "members": {
+                            "DataSource": {},
+                            "MaxResults": {
+                                "type": "integer"
+                            },
+                            "Position": {
+                                "shape": "Sm"
+                            }
+                        }
+                    }
+                }
+            },
+            "endpoint": {
+                "hostPrefix": "places."
+            },
+            "download_location": [
+                "https://iotwireless.us-east-1.prod.console.iot.aws.dev/static/js/iotwireless.js"
+            ]
+        },
+        "SearchPlaceIndexForText": {
+            "http": {
+                "requestUri": "/places/v0/indexes/{IndexName}/search/text",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "IndexName",
+                    "Text"
+                ],
+                "members": {
+                    "BiasPosition": {
+                        "shape": "Sm"
+                    },
+                    "FilterBBox": {
+                        "shape": "S2a"
+                    },
+                    "FilterCountries": {
+                        "shape": "S5h"
+                    },
+                    "IndexName": {
+                        "location": "uri",
+                        "locationName": "IndexName"
+                    },
+                    "MaxResults": {
+                        "type": "integer"
+                    },
+                    "Text": {
+                        "type": "string",
+                        "sensitive": true
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "Results",
+                    "Summary"
+                ],
+                "members": {
+                    "Results": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "Place"
+                            ],
+                            "members": {
+                                "Place": {
+                                    "shape": "S5d"
+                                }
+                            }
+                        }
+                    },
+                    "Summary": {
+                        "type": "structure",
+                        "required": [
+                            "DataSource",
+                            "Text"
+                        ],
+                        "members": {
+                            "BiasPosition": {
+                                "shape": "Sm"
+                            },
+                            "DataSource": {},
+                            "FilterBBox": {
+                                "shape": "S2a"
+                            },
+                            "FilterCountries": {
+                                "shape": "S5h"
+                            },
+                            "MaxResults": {
+                                "type": "integer"
+                            },
+                            "ResultBBox": {
+                                "shape": "S2a"
+                            },
+                            "Text": {
+                                "type": "string",
+                                "sensitive": true
+                            }
+                        }
+                    }
+                }
+            },
+            "endpoint": {
+                "hostPrefix": "places."
+            },
+            "download_location": [
+                "https://iotwireless.us-east-1.prod.console.iot.aws.dev/static/js/iotwireless.js"
+            ]
+        },
+        "TagResource": {
+            "http": {
+                "requestUri": "/tags/{ResourceArn}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ResourceArn",
+                    "Tags"
+                ],
+                "members": {
+                    "ResourceArn": {
+                        "location": "uri",
+                        "locationName": "ResourceArn"
+                    },
+                    "Tags": {
+                        "shape": "S2f"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "endpoint": {
+                "hostPrefix": "metadata."
+            },
+            "download_location": [
+                "https://iotwireless.us-east-1.prod.console.iot.aws.dev/static/js/iotwireless.js"
+            ]
+        },
+        "UntagResource": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/tags/{ResourceArn}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ResourceArn",
+                    "TagKeys"
+                ],
+                "members": {
+                    "ResourceArn": {
+                        "location": "uri",
+                        "locationName": "ResourceArn"
+                    },
+                    "TagKeys": {
+                        "location": "querystring",
+                        "locationName": "tagKeys",
+                        "type": "list",
+                        "member": {}
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "endpoint": {
+                "hostPrefix": "metadata."
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://iotwireless.us-east-1.prod.console.iot.aws.dev/static/js/iotwireless.js"
+            ]
+        },
+        "UpdateGeofenceCollection": {
+            "http": {
+                "method": "PATCH",
+                "requestUri": "/geofencing/v0/collections/{CollectionName}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "CollectionName"
+                ],
+                "members": {
+                    "CollectionName": {
+                        "location": "uri",
+                        "locationName": "CollectionName"
+                    },
+                    "Description": {},
+                    "PricingPlan": {},
+                    "PricingPlanDataSource": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "CollectionArn",
+                    "CollectionName",
+                    "UpdateTime"
+                ],
+                "members": {
+                    "CollectionArn": {},
+                    "CollectionName": {},
+                    "UpdateTime": {
+                        "shape": "So"
+                    }
+                }
+            },
+            "endpoint": {
+                "hostPrefix": "geofencing."
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://iotwireless.us-east-1.prod.console.iot.aws.dev/static/js/iotwireless.js"
+            ]
+        },
+        "UpdateMap": {
+            "http": {
+                "method": "PATCH",
+                "requestUri": "/maps/v0/maps/{MapName}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "MapName"
+                ],
+                "members": {
+                    "Description": {},
+                    "MapName": {
+                        "location": "uri",
+                        "locationName": "MapName"
+                    },
+                    "PricingPlan": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "MapArn",
+                    "MapName",
+                    "UpdateTime"
+                ],
+                "members": {
+                    "MapArn": {},
+                    "MapName": {},
+                    "UpdateTime": {
+                        "shape": "So"
+                    }
+                }
+            },
+            "endpoint": {
+                "hostPrefix": "maps."
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://iotwireless.us-east-1.prod.console.iot.aws.dev/static/js/iotwireless.js"
+            ]
+        },
+        "UpdatePlaceIndex": {
+            "http": {
+                "method": "PATCH",
+                "requestUri": "/places/v0/indexes/{IndexName}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "IndexName"
+                ],
+                "members": {
+                    "DataSourceConfiguration": {
+                        "shape": "S2o"
+                    },
+                    "Description": {},
+                    "IndexName": {
+                        "location": "uri",
+                        "locationName": "IndexName"
+                    },
+                    "PricingPlan": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "IndexArn",
+                    "IndexName",
+                    "UpdateTime"
+                ],
+                "members": {
+                    "IndexArn": {},
+                    "IndexName": {},
+                    "UpdateTime": {
+                        "shape": "So"
+                    }
+                }
+            },
+            "endpoint": {
+                "hostPrefix": "places."
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://iotwireless.us-east-1.prod.console.iot.aws.dev/static/js/iotwireless.js"
+            ]
+        },
+        "UpdateRouteCalculator": {
+            "http": {
+                "method": "PATCH",
+                "requestUri": "/routes/v0/calculators/{CalculatorName}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "CalculatorName"
+                ],
+                "members": {
+                    "CalculatorName": {
+                        "location": "uri",
+                        "locationName": "CalculatorName"
+                    },
+                    "Description": {},
+                    "PricingPlan": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "CalculatorArn",
+                    "CalculatorName",
+                    "UpdateTime"
+                ],
+                "members": {
+                    "CalculatorArn": {},
+                    "CalculatorName": {},
+                    "UpdateTime": {
+                        "shape": "So"
+                    }
+                }
+            },
+            "endpoint": {
+                "hostPrefix": "routes."
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://iotwireless.us-east-1.prod.console.iot.aws.dev/static/js/iotwireless.js"
+            ]
+        },
+        "UpdateTracker": {
+            "http": {
+                "method": "PATCH",
+                "requestUri": "/tracking/v0/trackers/{TrackerName}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "TrackerName"
+                ],
+                "members": {
+                    "Description": {},
+                    "PricingPlan": {},
+                    "PricingPlanDataSource": {},
+                    "TrackerName": {
+                        "location": "uri",
+                        "locationName": "TrackerName"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "TrackerArn",
+                    "TrackerName",
+                    "UpdateTime"
+                ],
+                "members": {
+                    "TrackerArn": {},
+                    "TrackerName": {},
+                    "UpdateTime": {
+                        "shape": "So"
+                    }
+                }
+            },
+            "endpoint": {
+                "hostPrefix": "tracking."
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://iotwireless.us-east-1.prod.console.iot.aws.dev/static/js/iotwireless.js"
+            ]
+        },
+        "CalculateRouteMatrix": {
+            "http": {
+                "requestUri": "/routes/v0/calculators/{CalculatorName}/calculate/route-matrix",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "CalculatorName",
+                    "DeparturePositions",
+                    "DestinationPositions"
+                ],
+                "members": {
+                    "CalculatorName": {
+                        "location": "uri",
+                        "locationName": "CalculatorName"
+                    },
+                    "CarModeOptions": {
+                        "shape": "S1n"
+                    },
+                    "DepartNow": {
+                        "type": "boolean"
+                    },
+                    "DeparturePositions": {
+                        "type": "list",
+                        "member": {
+                            "shape": "So"
+                        }
+                    },
+                    "DepartureTime": {
+                        "shape": "St"
+                    },
+                    "DestinationPositions": {
+                        "type": "list",
+                        "member": {
+                            "shape": "So"
+                        }
+                    },
+                    "DistanceUnit": {},
+                    "TravelMode": {},
+                    "TruckModeOptions": {
+                        "shape": "S1r"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "RouteMatrix",
+                    "Summary"
+                ],
+                "members": {
+                    "RouteMatrix": {
+                        "type": "list",
+                        "member": {
+                            "type": "list",
+                            "member": {
+                                "type": "structure",
+                                "members": {
+                                    "Distance": {
+                                        "type": "double"
+                                    },
+                                    "DurationSeconds": {
+                                        "type": "double"
+                                    },
+                                    "Error": {
+                                        "type": "structure",
+                                        "required": [
+                                            "Code"
+                                        ],
+                                        "members": {
+                                            "Code": {},
+                                            "Message": {}
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "SnappedDeparturePositions": {
+                        "type": "list",
+                        "member": {
+                            "shape": "So"
+                        }
+                    },
+                    "SnappedDestinationPositions": {
+                        "type": "list",
+                        "member": {
+                            "shape": "So"
+                        }
+                    },
+                    "Summary": {
+                        "type": "structure",
+                        "required": [
+                            "DataSource",
+                            "DistanceUnit",
+                            "ErrorCount",
+                            "RouteCount"
+                        ],
+                        "members": {
+                            "DataSource": {},
+                            "DistanceUnit": {},
+                            "ErrorCount": {
+                                "type": "integer"
+                            },
+                            "RouteCount": {
+                                "type": "integer"
+                            }
+                        }
+                    }
+                }
+            },
+            "endpoint": {
+                "hostPrefix": "routes."
+            },
+            "download_location": [
+                "https://iotcore.us-east-1.prod.console.iot.aws.dev/static/js/iotcore.js"
+            ]
+        },
+        "GetPlace": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/places/v0/indexes/{IndexName}/places/{PlaceId}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "IndexName",
+                    "PlaceId"
+                ],
+                "members": {
+                    "IndexName": {
+                        "location": "uri",
+                        "locationName": "IndexName"
+                    },
+                    "Language": {
+                        "location": "querystring",
+                        "locationName": "language"
+                    },
+                    "PlaceId": {
+                        "location": "uri",
+                        "locationName": "PlaceId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "Place"
+                ],
+                "members": {
+                    "Place": {
+                        "shape": "S4v"
+                    }
+                }
+            },
+            "endpoint": {
+                "hostPrefix": "places."
+            },
+            "download_location": [
+                "https://iotcore.us-east-1.prod.console.iot.aws.dev/static/js/iotcore.js"
+            ]
+        },
+        "SearchPlaceIndexForSuggestions": {
+            "http": {
+                "requestUri": "/places/v0/indexes/{IndexName}/search/suggestions",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "IndexName",
+                    "Text"
+                ],
+                "members": {
+                    "BiasPosition": {
+                        "shape": "So"
+                    },
+                    "FilterBBox": {
+                        "shape": "S2g"
+                    },
+                    "FilterCountries": {
+                        "shape": "S6e"
+                    },
+                    "IndexName": {
+                        "location": "uri",
+                        "locationName": "IndexName"
+                    },
+                    "Language": {},
+                    "MaxResults": {
+                        "type": "integer"
+                    },
+                    "Text": {
+                        "type": "string",
+                        "sensitive": true
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "Results",
+                    "Summary"
+                ],
+                "members": {
+                    "Results": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "Text"
+                            ],
+                            "members": {
+                                "PlaceId": {},
+                                "Text": {}
+                            }
+                        }
+                    },
+                    "Summary": {
+                        "type": "structure",
+                        "required": [
+                            "DataSource",
+                            "Text"
+                        ],
+                        "members": {
+                            "BiasPosition": {
+                                "shape": "So"
+                            },
+                            "DataSource": {},
+                            "FilterBBox": {
+                                "shape": "S2g"
+                            },
+                            "FilterCountries": {
+                                "shape": "S6e"
+                            },
+                            "Language": {},
+                            "MaxResults": {
+                                "type": "integer"
+                            },
+                            "Text": {
+                                "shape": "S6m"
+                            }
+                        }
+                    }
+                }
+            },
+            "endpoint": {
+                "hostPrefix": "places."
+            },
+            "download_location": [
+                "https://iotcore.us-east-1.prod.console.iot.aws.dev/static/js/iotcore.js"
+            ]
+        },
+        "CreateKey": {
+            "http": {
+                "requestUri": "/metadata/v0/keys",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "KeyName",
+                    "Restrictions"
+                ],
+                "members": {
+                    "Description": {},
+                    "ExpireTime": {
+                        "shape": "St"
+                    },
+                    "KeyName": {},
+                    "NoExpiry": {
+                        "type": "boolean"
+                    },
+                    "Restrictions": {
+                        "shape": "S36"
+                    },
+                    "Tags": {
+                        "shape": "S31"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "CreateTime",
+                    "Key",
+                    "KeyArn",
+                    "KeyName"
+                ],
+                "members": {
+                    "CreateTime": {
+                        "shape": "St"
+                    },
+                    "Key": {
+                        "shape": "S3e"
+                    },
+                    "KeyArn": {},
+                    "KeyName": {}
+                }
+            },
+            "endpoint": {
+                "hostPrefix": "metadata."
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/2UB33AZXWRI5CTHDBMBLEMI6D6X2ZUVC6NGEPJPXVWL2IBDCXF4Q/main.js"
+            ]
+        },
+        "DeleteKey": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/metadata/v0/keys/{KeyName}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "KeyName"
+                ],
+                "members": {
+                    "KeyName": {
+                        "location": "uri",
+                        "locationName": "KeyName"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "endpoint": {
+                "hostPrefix": "metadata."
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/2UB33AZXWRI5CTHDBMBLEMI6D6X2ZUVC6NGEPJPXVWL2IBDCXF4Q/main.js"
+            ]
+        },
+        "DescribeKey": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/metadata/v0/keys/{KeyName}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "KeyName"
+                ],
+                "members": {
+                    "KeyName": {
+                        "location": "uri",
+                        "locationName": "KeyName"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "CreateTime",
+                    "ExpireTime",
+                    "Key",
+                    "KeyArn",
+                    "KeyName",
+                    "Restrictions",
+                    "UpdateTime"
+                ],
+                "members": {
+                    "CreateTime": {
+                        "shape": "St"
+                    },
+                    "Description": {},
+                    "ExpireTime": {
+                        "shape": "St"
+                    },
+                    "Key": {
+                        "shape": "S3e"
+                    },
+                    "KeyArn": {},
+                    "KeyName": {},
+                    "Restrictions": {
+                        "shape": "S36"
+                    },
+                    "Tags": {
+                        "shape": "S31"
+                    },
+                    "UpdateTime": {
+                        "shape": "St"
+                    }
+                }
+            },
+            "endpoint": {
+                "hostPrefix": "metadata."
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/2UB33AZXWRI5CTHDBMBLEMI6D6X2ZUVC6NGEPJPXVWL2IBDCXF4Q/main.js"
+            ]
+        },
+        "ListKeys": {
+            "http": {
+                "requestUri": "/metadata/v0/list-keys",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "Filter": {
+                        "type": "structure",
+                        "members": {
+                            "KeyStatus": {}
+                        }
+                    },
+                    "MaxResults": {
+                        "type": "integer"
+                    },
+                    "NextToken": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "Entries"
+                ],
+                "members": {
+                    "Entries": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "CreateTime",
+                                "ExpireTime",
+                                "KeyName",
+                                "Restrictions",
+                                "UpdateTime"
+                            ],
+                            "members": {
+                                "CreateTime": {
+                                    "shape": "St"
+                                },
+                                "Description": {},
+                                "ExpireTime": {
+                                    "shape": "St"
+                                },
+                                "KeyName": {},
+                                "Restrictions": {
+                                    "shape": "S36"
+                                },
+                                "UpdateTime": {
+                                    "shape": "St"
+                                }
+                            }
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "endpoint": {
+                "hostPrefix": "metadata."
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/2UB33AZXWRI5CTHDBMBLEMI6D6X2ZUVC6NGEPJPXVWL2IBDCXF4Q/main.js"
+            ]
+        },
+        "UpdateKey": {
+            "http": {
+                "method": "PATCH",
+                "requestUri": "/metadata/v0/keys/{KeyName}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "KeyName"
+                ],
+                "members": {
+                    "Description": {},
+                    "ExpireTime": {
+                        "shape": "St"
+                    },
+                    "ForceUpdate": {
+                        "type": "boolean"
+                    },
+                    "KeyName": {
+                        "location": "uri",
+                        "locationName": "KeyName"
+                    },
+                    "NoExpiry": {
+                        "type": "boolean"
+                    },
+                    "Restrictions": {
+                        "shape": "S36"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "KeyArn",
+                    "KeyName",
+                    "UpdateTime"
+                ],
+                "members": {
+                    "KeyArn": {},
+                    "KeyName": {},
+                    "UpdateTime": {
+                        "shape": "St"
+                    }
+                }
+            },
+            "endpoint": {
+                "hostPrefix": "metadata."
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/2UB33AZXWRI5CTHDBMBLEMI6D6X2ZUVC6NGEPJPXVWL2IBDCXF4Q/main.js"
+            ]
+        }
+    },
+    "shapes": {
+        "Sb": {
+            "type": "structure",
+            "members": {
+                "Code": {},
+                "Message": {}
+            }
+        },
+        "Sl": {
+            "type": "structure",
+            "required": [
+                "DeviceId",
+                "Position",
+                "SampleTime"
+            ],
+            "members": {
+                "DeviceId": {},
+                "Position": {
+                    "shape": "Sm"
+                },
+                "SampleTime": {
+                    "shape": "So"
+                }
+            }
+        },
+        "Sm": {
+            "type": "list",
+            "member": {
+                "type": "double"
+            },
+            "sensitive": true
+        },
+        "So": {
+            "type": "timestamp",
+            "timestampFormat": "iso8601"
+        },
+        "Sw": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "Position",
+                    "ReceivedTime",
+                    "SampleTime"
+                ],
+                "members": {
+                    "DeviceId": {},
+                    "Position": {
+                        "shape": "Sm"
+                    },
+                    "ReceivedTime": {
+                        "shape": "So"
+                    },
+                    "SampleTime": {
+                        "shape": "So"
+                    }
+                }
+            }
+        },
+        "S13": {
+            "type": "structure",
+            "members": {
+                "Polygon": {
+                    "type": "list",
+                    "member": {
+                        "type": "list",
+                        "member": {
+                            "shape": "Sm"
+                        }
+                    }
+                }
+            }
+        },
+        "S2a": {
+            "type": "list",
+            "member": {
+                "type": "double"
+            },
+            "sensitive": true
+        },
+        "S2f": {
+            "type": "map",
+            "key": {},
+            "value": {}
+        },
+        "S2k": {
+            "type": "structure",
+            "required": [
+                "Style"
+            ],
+            "members": {
+                "Style": {}
+            }
+        },
+        "S2o": {
+            "type": "structure",
+            "members": {
+                "IntendedUse": {}
+            }
+        },
+        "S5d": {
+            "type": "structure",
+            "required": [
+                "Geometry"
+            ],
+            "members": {
+                "AddressNumber": {},
+                "Country": {},
+                "Geometry": {
+                    "type": "structure",
+                    "members": {
+                        "Point": {
+                            "shape": "Sm"
+                        }
+                    }
+                },
+                "Label": {},
+                "Municipality": {},
+                "Neighborhood": {},
+                "PostalCode": {},
+                "Region": {},
+                "Street": {},
+                "SubRegion": {}
+            }
+        },
+        "S5h": {
+            "type": "list",
+            "member": {}
+        },
+        "Sq": {
+            "type": "map",
+            "key": {},
+            "value": {},
+            "sensitive": true
+        },
+        "St": {
+            "type": "timestamp",
+            "timestampFormat": "iso8601"
+        },
+        "S11": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "Position",
+                    "ReceivedTime",
+                    "SampleTime"
+                ],
+                "members": {
+                    "Accuracy": {
+                        "shape": "Sm"
+                    },
+                    "DeviceId": {},
+                    "Position": {
+                        "shape": "So"
+                    },
+                    "PositionProperties": {
+                        "shape": "Sq"
+                    },
+                    "ReceivedTime": {
+                        "shape": "St"
+                    },
+                    "SampleTime": {
+                        "shape": "St"
+                    }
+                }
+            }
+        },
+        "S18": {
+            "type": "structure",
+            "members": {
+                "Circle": {
+                    "type": "structure",
+                    "required": [
+                        "Center",
+                        "Radius"
+                    ],
+                    "members": {
+                        "Center": {
+                            "shape": "So"
+                        },
+                        "Radius": {
+                            "type": "double"
+                        }
+                    },
+                    "sensitive": true
+                },
+                "Polygon": {
+                    "type": "list",
+                    "member": {
+                        "type": "list",
+                        "member": {
+                            "shape": "So"
+                        }
+                    }
+                }
+            }
+        },
+        "S1n": {
+            "type": "structure",
+            "members": {
+                "AvoidFerries": {
+                    "type": "boolean"
+                },
+                "AvoidTolls": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "S1r": {
+            "type": "structure",
+            "members": {
+                "AvoidFerries": {
+                    "type": "boolean"
+                },
+                "AvoidTolls": {
+                    "type": "boolean"
+                },
+                "Dimensions": {
+                    "type": "structure",
+                    "members": {
+                        "Height": {
+                            "type": "double"
+                        },
+                        "Length": {
+                            "type": "double"
+                        },
+                        "Unit": {},
+                        "Width": {
+                            "type": "double"
+                        }
+                    }
+                },
+                "Weight": {
+                    "type": "structure",
+                    "members": {
+                        "Total": {
+                            "type": "double"
+                        },
+                        "Unit": {}
+                    }
+                }
+            }
+        },
+        "S2g": {
+            "type": "list",
+            "member": {
+                "type": "double"
+            },
+            "sensitive": true
+        },
+        "S31": {
+            "type": "map",
+            "key": {},
+            "value": {}
+        },
+        "S36": {
+            "type": "structure",
+            "required": [
+                "Style"
+            ],
+            "members": {
+                "Style": {}
+            }
+        },
+        "S3b": {
+            "type": "structure",
+            "members": {
+                "IntendedUse": {}
+            }
+        },
+        "S4v": {
+            "type": "structure",
+            "required": [
+                "Geometry"
+            ],
+            "members": {
+                "AddressNumber": {},
+                "Country": {},
+                "Geometry": {
+                    "type": "structure",
+                    "members": {
+                        "Point": {
+                            "shape": "So"
+                        }
+                    }
+                },
+                "Interpolated": {
+                    "type": "boolean"
+                },
+                "Label": {},
+                "Municipality": {},
+                "Neighborhood": {},
+                "PostalCode": {},
+                "Region": {},
+                "Street": {},
+                "SubRegion": {},
+                "TimeZone": {
+                    "type": "structure",
+                    "required": [
+                        "Name"
+                    ],
+                    "members": {
+                        "Name": {},
+                        "Offset": {
+                            "type": "integer"
+                        }
+                    }
+                },
+                "UnitNumber": {},
+                "UnitType": {}
+            }
+        },
+        "S6e": {
+            "type": "list",
+            "member": {}
+        },
+        "S6m": {
+            "type": "string",
+            "sensitive": true
+        },
+        "S3e": {
+            "type": "string",
+            "sensitive": true
+        },
+        "S3g": {
+            "type": "structure",
+            "required": [
+                "Style"
+            ],
+            "members": {
+                "Style": {}
+            }
+        },
+        "S3k": {
+            "type": "structure",
+            "members": {
+                "IntendedUse": {}
+            }
+        },
+        "S58": {
+            "type": "structure",
+            "required": [
+                "Geometry"
+            ],
+            "members": {
+                "AddressNumber": {},
+                "Country": {},
+                "Geometry": {
+                    "type": "structure",
+                    "members": {
+                        "Point": {
+                            "shape": "So"
+                        }
+                    }
+                },
+                "Interpolated": {
+                    "type": "boolean"
+                },
+                "Label": {},
+                "Municipality": {},
+                "Neighborhood": {},
+                "PostalCode": {},
+                "Region": {},
+                "Street": {},
+                "SubRegion": {},
+                "TimeZone": {
+                    "type": "structure",
+                    "required": [
+                        "Name"
+                    ],
+                    "members": {
+                        "Name": {},
+                        "Offset": {
+                            "type": "integer"
+                        }
+                    }
+                },
+                "UnitNumber": {},
+                "UnitType": {}
+            }
+        },
+        "S6y": {
+            "type": "list",
+            "member": {}
+        },
+        "S76": {
+            "type": "string",
+            "sensitive": true
+        },
+        "S5e": {
+            "type": "structure",
+            "required": [
+                "Geometry"
+            ],
+            "members": {
+                "AddressNumber": {},
+                "Country": {},
+                "Geometry": {
+                    "type": "structure",
+                    "members": {
+                        "Point": {
+                            "shape": "Sm"
+                        }
+                    }
+                },
+                "Label": {},
+                "Municipality": {},
+                "Neighborhood": {},
+                "PostalCode": {},
+                "Region": {},
+                "Street": {},
+                "SubRegion": {}
+            }
+        },
+        "S5i": {
+            "type": "list",
+            "member": {}
+        },
+        "S1m": {
+            "type": "structure",
+            "members": {
+                "AvoidFerries": {
+                    "type": "boolean"
+                },
+                "AvoidTolls": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "S1q": {
+            "type": "structure",
+            "members": {
+                "AvoidFerries": {
+                    "type": "boolean"
+                },
+                "AvoidTolls": {
+                    "type": "boolean"
+                },
+                "Dimensions": {
+                    "type": "structure",
+                    "members": {
+                        "Height": {
+                            "type": "double"
+                        },
+                        "Length": {
+                            "type": "double"
+                        },
+                        "Unit": {},
+                        "Width": {
+                            "type": "double"
+                        }
+                    }
+                },
+                "Weight": {
+                    "type": "structure",
+                    "members": {
+                        "Total": {
+                            "type": "double"
+                        },
+                        "Unit": {}
+                    }
+                }
+            }
+        },
+        "S30": {
+            "type": "map",
+            "key": {},
+            "value": {}
+        },
+        "S35": {
+            "type": "structure",
+            "required": [
+                "Style"
+            ],
+            "members": {
+                "Style": {}
+            }
+        },
+        "S39": {
+            "type": "structure",
+            "members": {
+                "IntendedUse": {}
+            }
+        },
+        "S62": {
+            "type": "structure",
+            "required": [
+                "Geometry"
+            ],
+            "members": {
+                "AddressNumber": {},
+                "Country": {},
+                "Geometry": {
+                    "type": "structure",
+                    "members": {
+                        "Point": {
+                            "shape": "So"
+                        }
+                    }
+                },
+                "Interpolated": {
+                    "type": "boolean"
+                },
+                "Label": {},
+                "Municipality": {},
+                "Neighborhood": {},
+                "PostalCode": {},
+                "Region": {},
+                "Street": {},
+                "SubRegion": {},
+                "TimeZone": {
+                    "type": "structure",
+                    "required": [
+                        "Name"
+                    ],
+                    "members": {
+                        "Name": {},
+                        "Offset": {
+                            "type": "integer"
+                        }
+                    }
+                }
+            }
+        },
+        "S68": {
+            "type": "list",
+            "member": {}
+        },
+        "S3a": {
+            "type": "structure",
+            "members": {
+                "IntendedUse": {}
+            }
+        },
+        "S64": {
+            "type": "structure",
+            "required": [
+                "Geometry"
+            ],
+            "members": {
+                "AddressNumber": {},
+                "Country": {},
+                "Geometry": {
+                    "type": "structure",
+                    "members": {
+                        "Point": {
+                            "shape": "So"
+                        }
+                    }
+                },
+                "Interpolated": {
+                    "type": "boolean"
+                },
+                "Label": {},
+                "Municipality": {},
+                "Neighborhood": {},
+                "PostalCode": {},
+                "Region": {},
+                "Street": {},
+                "SubRegion": {},
+                "TimeZone": {
+                    "type": "structure",
+                    "required": [
+                        "Name"
+                    ],
+                    "members": {
+                        "Name": {},
+                        "Offset": {
+                            "type": "integer"
+                        }
+                    }
+                }
+            }
+        },
+        "S6a": {
+            "type": "list",
+            "member": {}
+        },
+        "S6i": {
+            "type": "string",
+            "sensitive": true
+        },
+        "S63": {
+            "type": "structure",
+            "required": [
+                "Geometry"
+            ],
+            "members": {
+                "AddressNumber": {},
+                "Country": {},
+                "Geometry": {
+                    "type": "structure",
+                    "members": {
+                        "Point": {
+                            "shape": "So"
+                        }
+                    }
+                },
+                "Interpolated": {
+                    "type": "boolean"
+                },
+                "Label": {},
+                "Municipality": {},
+                "Neighborhood": {},
+                "PostalCode": {},
+                "Region": {},
+                "Street": {},
+                "SubRegion": {},
+                "TimeZone": {
+                    "type": "structure",
+                    "required": [
+                        "Name"
+                    ],
+                    "members": {
+                        "Name": {},
+                        "Offset": {
+                            "type": "integer"
+                        }
+                    }
+                }
+            }
+        },
+        "S69": {
+            "type": "list",
+            "member": {}
+        },
+        "S6h": {
+            "type": "string",
+            "sensitive": true
+        },
+        "Sg": {
+            "type": "structure",
+            "required": [
+                "DeviceId",
+                "Position",
+                "SampleTime"
+            ],
+            "members": {
+                "DeviceId": {},
+                "Position": {
+                    "shape": "Sh"
+                },
+                "SampleTime": {
+                    "shape": "Sj"
+                }
+            }
+        },
+        "Sh": {
+            "type": "list",
+            "member": {
+                "type": "double"
+            },
+            "sensitive": true
+        },
+        "Sj": {
+            "type": "timestamp",
+            "timestampFormat": "iso8601"
+        },
+        "Sr": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "Position",
+                    "ReceivedTime",
+                    "SampleTime"
+                ],
+                "members": {
+                    "DeviceId": {},
+                    "Position": {
+                        "shape": "Sh"
+                    },
+                    "ReceivedTime": {
+                        "shape": "Sj"
+                    },
+                    "SampleTime": {
+                        "shape": "Sj"
+                    }
+                }
+            }
+        },
+        "Sy": {
+            "type": "structure",
+            "members": {
+                "Polygon": {
+                    "type": "list",
+                    "member": {
+                        "type": "list",
+                        "member": {
+                            "shape": "Sh"
+                        }
+                    }
+                }
+            }
+        },
+        "S1g": {
+            "type": "structure",
+            "required": [
+                "Style"
+            ],
+            "members": {
+                "Style": {}
+            }
+        },
+        "S1k": {
+            "type": "structure",
+            "members": {
+                "IntendedUse": {}
+            }
+        },
+        "S3r": {
+            "type": "structure",
+            "required": [
+                "Geometry"
+            ],
+            "members": {
+                "AddressNumber": {},
+                "Country": {},
+                "Geometry": {
+                    "type": "structure",
+                    "members": {
+                        "Point": {
+                            "shape": "Sh"
+                        }
+                    }
+                },
+                "Label": {},
+                "Municipality": {},
+                "Neighborhood": {},
+                "PostalCode": {},
+                "Region": {},
+                "Street": {},
+                "SubRegion": {}
+            }
+        },
+        "S3v": {
+            "type": "list",
+            "member": {
+                "type": "double"
+            },
+            "sensitive": true
+        },
+        "S3w": {
+            "type": "list",
+            "member": {}
+        },
+        "S2p": {
+            "type": "structure",
+            "required": [
+                "Style"
+            ],
+            "members": {
+                "Style": {}
+            }
+        },
+        "S2t": {
+            "type": "structure",
+            "members": {
+                "IntendedUse": {}
+            }
+        },
+        "S5l": {
+            "type": "structure",
+            "required": [
+                "Geometry"
+            ],
+            "members": {
+                "AddressNumber": {},
+                "Country": {},
+                "Geometry": {
+                    "type": "structure",
+                    "members": {
+                        "Point": {
+                            "shape": "So"
+                        }
+                    }
+                },
+                "Interpolated": {
+                    "type": "boolean"
+                },
+                "Label": {},
+                "Municipality": {},
+                "Neighborhood": {},
+                "PostalCode": {},
+                "Region": {},
+                "Street": {},
+                "SubRegion": {},
+                "TimeZone": {
+                    "type": "structure",
+                    "required": [
+                        "Name"
+                    ],
+                    "members": {
+                        "Name": {},
+                        "Offset": {
+                            "type": "integer"
+                        }
+                    }
+                }
+            }
+        },
+        "S5r": {
+            "type": "list",
+            "member": {}
+        },
+        "S61": {
+            "type": "structure",
+            "required": [
+                "Geometry"
+            ],
+            "members": {
+                "AddressNumber": {},
+                "Country": {},
+                "Geometry": {
+                    "type": "structure",
+                    "members": {
+                        "Point": {
+                            "shape": "So"
+                        }
+                    }
+                },
+                "Interpolated": {
+                    "type": "boolean"
+                },
+                "Label": {},
+                "Municipality": {},
+                "Neighborhood": {},
+                "PostalCode": {},
+                "Region": {},
+                "Street": {},
+                "SubRegion": {},
+                "TimeZone": {
+                    "type": "structure",
+                    "required": [
+                        "Name"
+                    ],
+                    "members": {
+                        "Name": {},
+                        "Offset": {
+                            "type": "integer"
+                        }
+                    }
+                }
+            }
+        },
+        "S67": {
+            "type": "list",
+            "member": {}
+        }
+    }
+}

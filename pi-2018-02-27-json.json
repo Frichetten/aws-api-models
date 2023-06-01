@@ -1,0 +1,1467 @@
+{
+    "version": "2.0",
+    "metadata": {
+        "apiVersion": "2018-02-27",
+        "endpointPrefix": "pi",
+        "jsonVersion": "1.1",
+        "protocol": "json",
+        "serviceAbbreviation": "AWS PI",
+        "serviceFullName": "AWS Performance Insights",
+        "serviceId": "PI",
+        "signatureVersion": "v4",
+        "signingName": "pi",
+        "targetPrefix": "PerformanceInsightsv20180227",
+        "uid": "pi-2018-02-27",
+        "download_location": [
+            "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+        ]
+    },
+    "operations": {
+        "CreatePerformanceAnalysisReport": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ServiceType",
+                    "Identifier",
+                    "StartTime",
+                    "EndTime"
+                ],
+                "members": {
+                    "ServiceType": {},
+                    "Identifier": {},
+                    "StartTime": {
+                        "type": "timestamp"
+                    },
+                    "EndTime": {
+                        "type": "timestamp"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "AnalysisReportId": {}
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "DescribeDimensionKeys": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ServiceType",
+                    "Identifier",
+                    "StartTime",
+                    "EndTime",
+                    "Metric",
+                    "GroupBy"
+                ],
+                "members": {
+                    "ServiceType": {},
+                    "Identifier": {},
+                    "StartTime": {
+                        "type": "timestamp"
+                    },
+                    "EndTime": {
+                        "type": "timestamp"
+                    },
+                    "Metric": {},
+                    "PeriodInSeconds": {
+                        "type": "integer"
+                    },
+                    "GroupBy": {
+                        "shape": "S9"
+                    },
+                    "AdditionalMetrics": {
+                        "type": "list",
+                        "member": {}
+                    },
+                    "PartitionBy": {
+                        "shape": "S9"
+                    },
+                    "Filter": {
+                        "shape": "Sd"
+                    },
+                    "MaxResults": {
+                        "type": "integer"
+                    },
+                    "NextToken": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "AlignedStartTime": {
+                        "type": "timestamp"
+                    },
+                    "AlignedEndTime": {
+                        "type": "timestamp"
+                    },
+                    "PartitionKeys": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "Dimensions"
+                            ],
+                            "members": {
+                                "Dimensions": {
+                                    "shape": "Sj"
+                                }
+                            }
+                        }
+                    },
+                    "Keys": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "Dimensions": {
+                                    "shape": "Sj"
+                                },
+                                "Total": {
+                                    "type": "double"
+                                },
+                                "AdditionalMetrics": {
+                                    "type": "map",
+                                    "key": {},
+                                    "value": {
+                                        "type": "double"
+                                    }
+                                },
+                                "Partitions": {
+                                    "type": "list",
+                                    "member": {
+                                        "type": "double"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "GetDimensionKeyDetails": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ServiceType",
+                    "Identifier",
+                    "Group",
+                    "GroupIdentifier"
+                ],
+                "members": {
+                    "ServiceType": {},
+                    "Identifier": {},
+                    "Group": {},
+                    "GroupIdentifier": {},
+                    "RequestedDimensions": {
+                        "type": "list",
+                        "member": {}
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Dimensions": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "Value": {},
+                                "Dimension": {},
+                                "Status": {}
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "GetPerformanceAnalysisReport": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ServiceType",
+                    "Identifier",
+                    "AnalysisReportId"
+                ],
+                "members": {
+                    "ServiceType": {},
+                    "Identifier": {},
+                    "AnalysisReportId": {},
+                    "TextFormat": {},
+                    "AcceptLanguage": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "AnalysisReport": {
+                        "type": "structure",
+                        "required": [
+                            "AnalysisReportId"
+                        ],
+                        "members": {
+                            "AnalysisReportId": {},
+                            "Identifier": {},
+                            "ServiceType": {},
+                            "CreateTime": {
+                                "type": "timestamp"
+                            },
+                            "StartTime": {
+                                "type": "timestamp"
+                            },
+                            "EndTime": {
+                                "type": "timestamp"
+                            },
+                            "Status": {},
+                            "Insights": {
+                                "shape": "S12"
+                            }
+                        }
+                    }
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "GetResourceMetadata": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ServiceType",
+                    "Identifier"
+                ],
+                "members": {
+                    "ServiceType": {},
+                    "Identifier": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Identifier": {},
+                    "Features": {
+                        "type": "map",
+                        "key": {},
+                        "value": {
+                            "type": "structure",
+                            "members": {
+                                "Status": {}
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "GetResourceMetrics": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ServiceType",
+                    "Identifier",
+                    "MetricQueries",
+                    "StartTime",
+                    "EndTime"
+                ],
+                "members": {
+                    "ServiceType": {},
+                    "Identifier": {},
+                    "MetricQueries": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "Metric"
+                            ],
+                            "members": {
+                                "Metric": {},
+                                "GroupBy": {
+                                    "shape": "S9"
+                                },
+                                "Filter": {
+                                    "shape": "Sd"
+                                }
+                            }
+                        }
+                    },
+                    "StartTime": {
+                        "type": "timestamp"
+                    },
+                    "EndTime": {
+                        "type": "timestamp"
+                    },
+                    "PeriodInSeconds": {
+                        "type": "integer"
+                    },
+                    "MaxResults": {
+                        "type": "integer"
+                    },
+                    "NextToken": {},
+                    "PeriodAlignment": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "AlignedStartTime": {
+                        "type": "timestamp"
+                    },
+                    "AlignedEndTime": {
+                        "type": "timestamp"
+                    },
+                    "Identifier": {},
+                    "MetricList": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "Key": {
+                                    "type": "structure",
+                                    "required": [
+                                        "Metric"
+                                    ],
+                                    "members": {
+                                        "Metric": {},
+                                        "Dimensions": {
+                                            "shape": "Sj"
+                                        }
+                                    }
+                                },
+                                "DataPoints": {
+                                    "type": "list",
+                                    "member": {
+                                        "type": "structure",
+                                        "required": [
+                                            "Timestamp",
+                                            "Value"
+                                        ],
+                                        "members": {
+                                            "Timestamp": {
+                                                "type": "timestamp"
+                                            },
+                                            "Value": {
+                                                "type": "double"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "ListAvailableResourceDimensions": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ServiceType",
+                    "Identifier",
+                    "Metrics"
+                ],
+                "members": {
+                    "ServiceType": {},
+                    "Identifier": {},
+                    "Metrics": {
+                        "type": "list",
+                        "member": {}
+                    },
+                    "MaxResults": {
+                        "type": "integer"
+                    },
+                    "NextToken": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "MetricDimensions": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "Metric": {},
+                                "Groups": {
+                                    "type": "list",
+                                    "member": {
+                                        "type": "structure",
+                                        "members": {
+                                            "Group": {},
+                                            "Dimensions": {
+                                                "type": "list",
+                                                "member": {
+                                                    "type": "structure",
+                                                    "members": {
+                                                        "Identifier": {}
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "ListAvailableResourceMetrics": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ServiceType",
+                    "Identifier",
+                    "MetricTypes"
+                ],
+                "members": {
+                    "ServiceType": {},
+                    "Identifier": {},
+                    "MetricTypes": {
+                        "type": "list",
+                        "member": {}
+                    },
+                    "NextToken": {},
+                    "MaxResults": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Metrics": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "Metric": {},
+                                "Description": {},
+                                "Unit": {}
+                            }
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "ListPerformanceAnalysisReports": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ServiceType",
+                    "Identifier"
+                ],
+                "members": {
+                    "ServiceType": {},
+                    "Identifier": {},
+                    "NextToken": {},
+                    "MaxResults": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "AnalysisReports": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "AnalysisReportId": {},
+                                "CreationTime": {
+                                    "type": "timestamp"
+                                },
+                                "StartTime": {
+                                    "type": "timestamp"
+                                },
+                                "EndTime": {
+                                    "type": "timestamp"
+                                },
+                                "Status": {}
+                            }
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "BatchGetResourceMetrics": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ServiceType",
+                    "Identifiers",
+                    "MetricQueries",
+                    "StartTime",
+                    "EndTime"
+                ],
+                "members": {
+                    "ServiceType": {},
+                    "Identifiers": {
+                        "shape": "S3"
+                    },
+                    "MetricQueries": {
+                        "shape": "S5"
+                    },
+                    "StartTime": {
+                        "type": "timestamp"
+                    },
+                    "EndTime": {
+                        "type": "timestamp"
+                    },
+                    "PeriodInSeconds": {
+                        "type": "integer"
+                    },
+                    "MaxResults": {
+                        "type": "integer"
+                    },
+                    "NextToken": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "AlignedStartTime": {
+                        "type": "timestamp"
+                    },
+                    "AlignedEndTime": {
+                        "type": "timestamp"
+                    },
+                    "Identifiers": {
+                        "shape": "S3"
+                    },
+                    "MetricList": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "Key": {
+                                    "shape": "Sh"
+                                },
+                                "DataPoints": {
+                                    "type": "list",
+                                    "member": {
+                                        "type": "structure",
+                                        "required": [
+                                            "Timestamp",
+                                            "Values"
+                                        ],
+                                        "members": {
+                                            "Timestamp": {
+                                                "type": "timestamp"
+                                            },
+                                            "Values": {
+                                                "shape": "Sm"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "Errors": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "Identifier": {},
+                                "Code": {},
+                                "Message": {}
+                            }
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/2UB33AZXWRI5CTHDBMBLEMI6D6X2ZUVC6NGEPJPXVWL2IBDCXF4Q/main.js"
+            ]
+        },
+        "CheckUserPermission": {
+            "input": {
+                "type": "structure",
+                "members": {
+                    "ServiceType": {},
+                    "Identifier": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Result": {},
+                    "Details": {}
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/2UB33AZXWRI5CTHDBMBLEMI6D6X2ZUVC6NGEPJPXVWL2IBDCXF4Q/main.js"
+            ]
+        },
+        "DescribeCounterMetrics": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ServiceType"
+                ],
+                "members": {
+                    "ServiceType": {},
+                    "Identifier": {},
+                    "Engine": {
+                        "type": "structure",
+                        "required": [
+                            "Name"
+                        ],
+                        "members": {
+                            "Name": {},
+                            "Version": {}
+                        }
+                    },
+                    "Metrics": {
+                        "type": "list",
+                        "member": {}
+                    },
+                    "NextToken": {},
+                    "MaxResults": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Metrics": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "Metric": {},
+                                "Description": {},
+                                "Unit": {}
+                            }
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/2UB33AZXWRI5CTHDBMBLEMI6D6X2ZUVC6NGEPJPXVWL2IBDCXF4Q/main.js"
+            ]
+        },
+        "DescribeDimensions": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ServiceType"
+                ],
+                "members": {
+                    "ServiceType": {},
+                    "Identifier": {},
+                    "ResourceType": {
+                        "type": "structure",
+                        "required": [
+                            "Name"
+                        ],
+                        "members": {
+                            "Name": {},
+                            "Version": {}
+                        }
+                    },
+                    "NextToken": {},
+                    "MaxResults": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Dimensions": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "Description": {},
+                                "Dimension": {},
+                                "Group": {},
+                                "Name": {}
+                            }
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/2UB33AZXWRI5CTHDBMBLEMI6D6X2ZUVC6NGEPJPXVWL2IBDCXF4Q/main.js"
+            ]
+        },
+        "DescribeInsights": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ServiceType"
+                ],
+                "members": {
+                    "ServiceType": {},
+                    "StartTimeRange": {
+                        "type": "structure",
+                        "members": {
+                            "StartTime": {
+                                "type": "timestamp"
+                            },
+                            "EndTime": {
+                                "type": "timestamp"
+                            }
+                        }
+                    },
+                    "Identifier": {},
+                    "InsightIds": {
+                        "type": "list",
+                        "member": {}
+                    },
+                    "Status": {},
+                    "SeverityList": {
+                        "type": "list",
+                        "member": {}
+                    },
+                    "Archived": {
+                        "type": "boolean"
+                    },
+                    "NextToken": {},
+                    "MaxResults": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Insights": {
+                        "type": "list",
+                        "member": {
+                            "shape": "S1s"
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/2UB33AZXWRI5CTHDBMBLEMI6D6X2ZUVC6NGEPJPXVWL2IBDCXF4Q/main.js"
+            ]
+        },
+        "DescribeRecommendation": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ServiceType",
+                    "Identifier",
+                    "ExecutionPlanId"
+                ],
+                "members": {
+                    "ServiceType": {},
+                    "Identifier": {},
+                    "ExecutionPlanId": {},
+                    "NextToken": {},
+                    "MaxResults": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Recommendations": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "RecommendationType": {},
+                                "DatabaseName": {},
+                                "TableName": {},
+                                "ColumnNames": {
+                                    "shape": "S3"
+                                },
+                                "IndexNames": {
+                                    "shape": "S3"
+                                },
+                                "NumRowsFilter": {
+                                    "type": "long"
+                                },
+                                "NumRowsTotal": {
+                                    "type": "long"
+                                },
+                                "RawLineNumbers": {
+                                    "shape": "S2p"
+                                },
+                                "StructuredLineNumbers": {
+                                    "shape": "S2p"
+                                },
+                                "CostPercentage": {
+                                    "type": "double"
+                                }
+                            }
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/2UB33AZXWRI5CTHDBMBLEMI6D6X2ZUVC6NGEPJPXVWL2IBDCXF4Q/main.js"
+            ]
+        },
+        "DescribeResourceMetrics": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ServiceType",
+                    "MetricTypes"
+                ],
+                "members": {
+                    "ServiceType": {},
+                    "Identifier": {},
+                    "Engine": {
+                        "type": "structure",
+                        "required": [
+                            "Name"
+                        ],
+                        "members": {
+                            "Name": {},
+                            "Version": {}
+                        }
+                    },
+                    "MetricTypes": {
+                        "shape": "S2s"
+                    },
+                    "NextToken": {},
+                    "MaxResults": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Metrics": {
+                        "shape": "S2u"
+                    },
+                    "NextToken": {}
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/2UB33AZXWRI5CTHDBMBLEMI6D6X2ZUVC6NGEPJPXVWL2IBDCXF4Q/main.js"
+            ]
+        },
+        "DescribeTable": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ServiceType",
+                    "Tables"
+                ],
+                "members": {
+                    "ServiceType": {},
+                    "Identifier": {},
+                    "Tables": {
+                        "type": "list",
+                        "member": {}
+                    },
+                    "NextToken": {},
+                    "MaxResults": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Identifier": {},
+                    "Tables": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "TableName": {},
+                                "Status": {},
+                                "Details": {}
+                            }
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/2UB33AZXWRI5CTHDBMBLEMI6D6X2ZUVC6NGEPJPXVWL2IBDCXF4Q/main.js"
+            ]
+        },
+        "ListKeyDetails": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ServiceType",
+                    "Identifier",
+                    "StartTime",
+                    "EndTime"
+                ],
+                "members": {
+                    "ServiceType": {},
+                    "Identifier": {},
+                    "SqlId": {},
+                    "DigestId": {},
+                    "StartTime": {
+                        "type": "timestamp"
+                    },
+                    "EndTime": {
+                        "type": "timestamp"
+                    },
+                    "PeriodInSeconds": {
+                        "type": "integer"
+                    },
+                    "MaxResults": {
+                        "type": "integer"
+                    },
+                    "NextToken": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "AlignedStartTime": {
+                        "type": "timestamp"
+                    },
+                    "AlignedEndTime": {
+                        "type": "timestamp"
+                    },
+                    "Details": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "SqlId": {},
+                                "DetailList": {
+                                    "type": "list",
+                                    "member": {
+                                        "type": "structure",
+                                        "required": [
+                                            "DetailKeyId",
+                                            "DetailType",
+                                            "Timestamp"
+                                        ],
+                                        "members": {
+                                            "DetailKeyId": {},
+                                            "DetailType": {},
+                                            "Timestamp": {
+                                                "type": "timestamp"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/2UB33AZXWRI5CTHDBMBLEMI6D6X2ZUVC6NGEPJPXVWL2IBDCXF4Q/main.js"
+            ]
+        },
+        "ModifyInsight": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ServiceType",
+                    "InsightId",
+                    "Archived"
+                ],
+                "members": {
+                    "ServiceType": {},
+                    "InsightId": {},
+                    "Archived": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Insight": {
+                        "shape": "S1s"
+                    }
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/2UB33AZXWRI5CTHDBMBLEMI6D6X2ZUVC6NGEPJPXVWL2IBDCXF4Q/main.js"
+            ]
+        },
+        "PutInsightFeedback": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ServiceType",
+                    "FeedbackType"
+                ],
+                "members": {
+                    "ServiceType": {},
+                    "InsightId": {},
+                    "FeedbackType": {},
+                    "ArchiveInsightDetails": {
+                        "type": "structure",
+                        "members": {
+                            "ArchiveReason": {},
+                            "Comments": {
+                                "shape": "S46"
+                            }
+                        }
+                    },
+                    "SeverityUpdateDetails": {
+                        "type": "structure",
+                        "required": [
+                            "From",
+                            "To"
+                        ],
+                        "members": {
+                            "From": {},
+                            "To": {},
+                            "Comments": {
+                                "shape": "S46"
+                            }
+                        }
+                    },
+                    "VoteDetails": {
+                        "type": "structure",
+                        "required": [
+                            "VoteTarget",
+                            "Vote"
+                        ],
+                        "members": {
+                            "VoteTarget": {},
+                            "VoteTargetIdentifier": {},
+                            "Vote": {},
+                            "Comments": {
+                                "shape": "S46"
+                            }
+                        }
+                    },
+                    "MissingInsightDetails": {
+                        "type": "structure",
+                        "required": [
+                            "Identifier"
+                        ],
+                        "members": {
+                            "Identifier": {},
+                            "StartTime": {
+                                "type": "timestamp"
+                            },
+                            "EndTime": {
+                                "type": "timestamp"
+                            },
+                            "RelatedMetrics": {
+                                "type": "list",
+                                "member": {}
+                            },
+                            "Comments": {
+                                "shape": "S46"
+                            }
+                        }
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/2UB33AZXWRI5CTHDBMBLEMI6D6X2ZUVC6NGEPJPXVWL2IBDCXF4Q/main.js"
+            ]
+        }
+    },
+    "shapes": {
+        "S9": {
+            "type": "structure",
+            "required": [
+                "Group"
+            ],
+            "members": {
+                "Group": {},
+                "Dimensions": {
+                    "type": "list",
+                    "member": {}
+                },
+                "Limit": {
+                    "type": "integer"
+                }
+            }
+        },
+        "Sd": {
+            "type": "map",
+            "key": {},
+            "value": {}
+        },
+        "Sj": {
+            "type": "map",
+            "key": {},
+            "value": {}
+        },
+        "S12": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "InsightId"
+                ],
+                "members": {
+                    "InsightId": {},
+                    "InsightType": {},
+                    "Context": {},
+                    "StartTime": {
+                        "type": "timestamp"
+                    },
+                    "EndTime": {
+                        "type": "timestamp"
+                    },
+                    "Severity": {},
+                    "SupportingInsights": {
+                        "shape": "S12"
+                    },
+                    "Description": {
+                        "shape": "S17"
+                    },
+                    "Recommendations": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "RecommendationId": {},
+                                "RecommendationDescription": {
+                                    "shape": "S17"
+                                }
+                            }
+                        }
+                    },
+                    "InsightData": {
+                        "shape": "S1a"
+                    },
+                    "BaselineData": {
+                        "shape": "S1a"
+                    }
+                }
+            }
+        },
+        "S17": {
+            "type": "string",
+            "sensitive": true
+        },
+        "S1a": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "PerformanceInsightsMetric": {
+                        "type": "structure",
+                        "members": {
+                            "Metric": {},
+                            "DisplayName": {},
+                            "Dimensions": {
+                                "type": "map",
+                                "key": {},
+                                "value": {}
+                            },
+                            "Value": {
+                                "type": "double"
+                            }
+                        }
+                    },
+                    "ReferenceDatum": {
+                        "type": "structure",
+                        "members": {
+                            "Name": {},
+                            "Value": {
+                                "type": "double"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "S3": {
+            "type": "list",
+            "member": {}
+        },
+        "S5": {
+            "type": "list",
+            "member": {
+                "shape": "S6"
+            }
+        },
+        "S6": {
+            "type": "structure",
+            "required": [
+                "Metric"
+            ],
+            "members": {
+                "Metric": {},
+                "GroupBy": {
+                    "shape": "S7"
+                },
+                "Filter": {
+                    "shape": "S9"
+                }
+            }
+        },
+        "S7": {
+            "type": "structure",
+            "required": [
+                "Group"
+            ],
+            "members": {
+                "Group": {},
+                "Dimensions": {
+                    "shape": "S3"
+                },
+                "Limit": {
+                    "type": "integer"
+                }
+            }
+        },
+        "Sh": {
+            "type": "structure",
+            "required": [
+                "Metric"
+            ],
+            "members": {
+                "Metric": {},
+                "Dimensions": {
+                    "shape": "Sj"
+                }
+            }
+        },
+        "Sm": {
+            "type": "list",
+            "member": {
+                "type": "double"
+            }
+        },
+        "S1s": {
+            "type": "structure",
+            "members": {
+                "ServiceType": {},
+                "Identifier": {},
+                "InsightId": {},
+                "StartTime": {
+                    "type": "timestamp"
+                },
+                "EndTime": {
+                    "type": "timestamp"
+                },
+                "Status": {},
+                "Severity": {},
+                "Archived": {
+                    "type": "boolean"
+                },
+                "Anomalies": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "members": {
+                            "AnomalyId": {},
+                            "IsPrimaryAnomaly": {
+                                "type": "boolean"
+                            },
+                            "LatestFeedbackVote": {},
+                            "Type": {},
+                            "RelatedMetrics": {
+                                "shape": "S1y"
+                            },
+                            "ContributorGroups": {
+                                "type": "list",
+                                "member": {
+                                    "type": "structure",
+                                    "members": {
+                                        "Type": {},
+                                        "MetricName": {},
+                                        "Contributors": {
+                                            "type": "list",
+                                            "member": {
+                                                "type": "structure",
+                                                "members": {
+                                                    "ContributorId": {},
+                                                    "ImpactPercentage": {
+                                                        "type": "double"
+                                                    },
+                                                    "RelatedMetrics": {
+                                                        "shape": "S1y"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "LatestFeedbackVote": {}
+            }
+        },
+        "S1y": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "Name": {},
+                    "RelatedMetricId": {},
+                    "LatestFeedbackVote": {},
+                    "Type": {},
+                    "Unit": {},
+                    "Source": {
+                        "shape": "S24"
+                    },
+                    "Thresholds": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "Name": {},
+                                "Type": {},
+                                "StaticThresholdSummary": {
+                                    "type": "structure",
+                                    "members": {
+                                        "Value": {
+                                            "type": "double"
+                                        }
+                                    }
+                                },
+                                "ResourceMetricThresholdSummary": {
+                                    "type": "structure",
+                                    "members": {
+                                        "Source": {
+                                            "shape": "S24"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "AnomalyStatistics": {
+                        "shape": "S2b"
+                    },
+                    "BaselineStatistics": {
+                        "shape": "S2b"
+                    }
+                }
+            }
+        },
+        "S24": {
+            "type": "structure",
+            "members": {
+                "PerformanceInsightsMetric": {
+                    "type": "structure",
+                    "members": {
+                        "ResourceMetricQuery": {
+                            "shape": "S6"
+                        }
+                    }
+                }
+            }
+        },
+        "S2b": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "Type": {},
+                    "Value": {
+                        "type": "double"
+                    },
+                    "Unit": {}
+                }
+            }
+        },
+        "S2p": {
+            "type": "list",
+            "member": {
+                "type": "long"
+            }
+        },
+        "S2s": {
+            "type": "list",
+            "member": {}
+        },
+        "S2u": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "Metric": {},
+                    "Description": {},
+                    "Unit": {}
+                }
+            }
+        },
+        "S46": {
+            "type": "string",
+            "sensitive": true
+        },
+        "Se": {
+            "type": "map",
+            "key": {},
+            "value": {}
+        },
+        "Sa": {
+            "type": "map",
+            "key": {},
+            "value": {}
+        },
+        "Sg": {
+            "type": "map",
+            "key": {},
+            "value": {}
+        },
+        "Sf": {
+            "type": "map",
+            "key": {},
+            "value": {}
+        }
+    }
+}

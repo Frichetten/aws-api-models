@@ -1,0 +1,182 @@
+{
+    "version": "2.0",
+    "metadata": {
+        "apiVersion": "2018-05-22",
+        "endpointPrefix": "personalize-runtime",
+        "jsonVersion": "1.1",
+        "protocol": "rest-json",
+        "serviceFullName": "Amazon Personalize Runtime",
+        "serviceId": "Personalize Runtime",
+        "signatureVersion": "v4",
+        "signingName": "personalize",
+        "uid": "personalize-runtime-2018-05-22",
+        "download_location": [
+            "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+        ]
+    },
+    "operations": {
+        "GetPersonalizedRanking": {
+            "http": {
+                "requestUri": "/personalize-ranking"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "campaignArn",
+                    "inputList",
+                    "userId"
+                ],
+                "members": {
+                    "campaignArn": {},
+                    "inputList": {
+                        "type": "list",
+                        "member": {}
+                    },
+                    "userId": {},
+                    "context": {
+                        "shape": "S6"
+                    },
+                    "filterArn": {},
+                    "filterValues": {
+                        "shape": "S9"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "personalizedRanking": {
+                        "shape": "Sd"
+                    },
+                    "recommendationId": {}
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "GetRecommendations": {
+            "http": {
+                "requestUri": "/recommendations"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "campaignArn"
+                ],
+                "members": {
+                    "campaignArn": {},
+                    "itemId": {},
+                    "userId": {},
+                    "numResults": {
+                        "type": "integer"
+                    },
+                    "context": {
+                        "shape": "S6"
+                    },
+                    "filterArn": {},
+                    "filterValues": {
+                        "shape": "S9"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "itemList": {
+                        "shape": "Sd"
+                    },
+                    "recommendationId": {}
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "ConsumeResourceEvent": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "accountId",
+                    "resourceId",
+                    "resourceType",
+                    "eventType"
+                ],
+                "members": {
+                    "accountId": {},
+                    "resourceId": {},
+                    "resourceType": {},
+                    "eventType": {},
+                    "resourceData": {},
+                    "idempotencyToken": {}
+                }
+            },
+            "idempotent": true,
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/NCHRNB4QD5WKWLFHUPUWOAZN7AZV2BTGJUXLPUPA5DO2KMQL5ZGQ/main.js"
+            ]
+        }
+    },
+    "shapes": {
+        "S6": {
+            "type": "map",
+            "key": {},
+            "value": {
+                "type": "string",
+                "sensitive": true
+            }
+        },
+        "S9": {
+            "type": "map",
+            "key": {},
+            "value": {
+                "type": "string",
+                "sensitive": true
+            }
+        },
+        "Sd": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "itemId": {},
+                    "score": {
+                        "type": "double"
+                    }
+                }
+            }
+        },
+        "Sa": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "itemId": {},
+                    "score": {
+                        "type": "double"
+                    }
+                }
+            }
+        },
+        "Sh": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "itemId": {},
+                    "score": {
+                        "type": "double"
+                    },
+                    "promotionName": {},
+                    "latentScore": {
+                        "internalonly": true,
+                        "type": "double"
+                    }
+                }
+            }
+        }
+    }
+}

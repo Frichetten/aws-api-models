@@ -1,0 +1,602 @@
+{
+    "version": "2.0",
+    "metadata": {
+        "apiVersion": "2019-07-24",
+        "endpointPrefix": "panoramamarketplace",
+        "jsonVersion": "1.1",
+        "protocol": "rest-json",
+        "serviceFullName": "OmniMarketplaceServiceLambda",
+        "serviceId": "OmniMarketplaceServiceLambda",
+        "signatureVersion": "v4",
+        "signingName": "panorama",
+        "uid": "panoramamarketplace-2019-07-24",
+        "download_location": [
+            "https://a.b.cdn.console.awsstatic.com/a/v1/PIBVIFNF323A46H3GGD62YEZ4ZDD4KNJL4HCIOGJLVXDQMXVUG6Q/main.js"
+        ]
+    },
+    "operations": {
+        "CreateEntitlement": {
+            "http": {
+                "requestUri": "/entitlements",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "buyerAccountId",
+                    "productCode",
+                    "sellerAccountId"
+                ],
+                "members": {
+                    "buyerAccountId": {},
+                    "productCode": {},
+                    "sellerAccountId": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "buyerAccountId",
+                    "productCode"
+                ],
+                "members": {
+                    "buyerAccountId": {},
+                    "productCode": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/PIBVIFNF323A46H3GGD62YEZ4ZDD4KNJL4HCIOGJLVXDQMXVUG6Q/main.js"
+            ]
+        },
+        "CreateProduct": {
+            "http": {
+                "requestUri": "/products",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "authorName",
+                    "productName",
+                    "sellerAccountId"
+                ],
+                "members": {
+                    "authorName": {},
+                    "image": {},
+                    "longDescription": {},
+                    "productName": {},
+                    "sellerAccountId": {},
+                    "shortDescription": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "productCode": {},
+                    "productId": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/PIBVIFNF323A46H3GGD62YEZ4ZDD4KNJL4HCIOGJLVXDQMXVUG6Q/main.js"
+            ]
+        },
+        "CreateProductVersion": {
+            "http": {
+                "requestUri": "/products/{productCode}/versions",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "packageS3Uri",
+                    "productCode",
+                    "releaseNote",
+                    "sampleApplicationTemplate",
+                    "sellerAccountId",
+                    "version"
+                ],
+                "members": {
+                    "packageS3Uri": {},
+                    "permissions": {
+                        "shape": "S7"
+                    },
+                    "productCode": {
+                        "location": "uri",
+                        "locationName": "productCode"
+                    },
+                    "releaseNote": {},
+                    "sampleApplicationTemplate": {},
+                    "sellerAccountId": {},
+                    "version": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "productCode": {},
+                    "version": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/PIBVIFNF323A46H3GGD62YEZ4ZDD4KNJL4HCIOGJLVXDQMXVUG6Q/main.js"
+            ]
+        },
+        "DeleteEntitlement": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/entitlements/products/{productCode}/sellers/{sellerAccountId}/buyers/{buyerAccountId}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "buyerAccountId",
+                    "productCode",
+                    "sellerAccountId"
+                ],
+                "members": {
+                    "buyerAccountId": {
+                        "location": "uri",
+                        "locationName": "buyerAccountId"
+                    },
+                    "productCode": {
+                        "location": "uri",
+                        "locationName": "productCode"
+                    },
+                    "sellerAccountId": {
+                        "location": "uri",
+                        "locationName": "sellerAccountId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "active": {
+                        "type": "boolean"
+                    },
+                    "buyerAccountId": {},
+                    "productCode": {}
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/PIBVIFNF323A46H3GGD62YEZ4ZDD4KNJL4HCIOGJLVXDQMXVUG6Q/main.js"
+            ]
+        },
+        "DeleteProduct": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/products/{productCode}/sellers/{sellerAccountId}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "productCode",
+                    "sellerAccountId"
+                ],
+                "members": {
+                    "productCode": {
+                        "location": "uri",
+                        "locationName": "productCode"
+                    },
+                    "sellerAccountId": {
+                        "location": "uri",
+                        "locationName": "sellerAccountId"
+                    }
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/PIBVIFNF323A46H3GGD62YEZ4ZDD4KNJL4HCIOGJLVXDQMXVUG6Q/main.js"
+            ]
+        },
+        "DeleteProductVersion": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/products/{productCode}/versions/{version}/sellers/{sellerAccountId}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "productCode",
+                    "sellerAccountId",
+                    "version"
+                ],
+                "members": {
+                    "productCode": {
+                        "location": "uri",
+                        "locationName": "productCode"
+                    },
+                    "sellerAccountId": {
+                        "location": "uri",
+                        "locationName": "sellerAccountId"
+                    },
+                    "version": {
+                        "location": "uri",
+                        "locationName": "version"
+                    }
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/PIBVIFNF323A46H3GGD62YEZ4ZDD4KNJL4HCIOGJLVXDQMXVUG6Q/main.js"
+            ]
+        },
+        "DescribeEntitlement": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/entitlements/products/{productCode}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "productCode"
+                ],
+                "members": {
+                    "productCode": {
+                        "location": "uri",
+                        "locationName": "productCode"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "active": {
+                        "type": "boolean"
+                    },
+                    "buyerAccountId": {},
+                    "createdTime": {
+                        "type": "timestamp"
+                    },
+                    "lastUpdatedTime": {
+                        "type": "timestamp"
+                    },
+                    "productCode": {},
+                    "sellerAccountId": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/PIBVIFNF323A46H3GGD62YEZ4ZDD4KNJL4HCIOGJLVXDQMXVUG6Q/main.js"
+            ]
+        },
+        "DescribeProduct": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/products/{productCode}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "productCode"
+                ],
+                "members": {
+                    "productCode": {
+                        "location": "uri",
+                        "locationName": "productCode"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "authorName": {},
+                    "createdTime": {
+                        "type": "timestamp"
+                    },
+                    "lastUpdatedTime": {
+                        "type": "timestamp"
+                    },
+                    "latestProductVersion": {},
+                    "longDescription": {},
+                    "panoramaProductImageUrl": {},
+                    "productCode": {},
+                    "productName": {},
+                    "shortDescription": {},
+                    "status": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/PIBVIFNF323A46H3GGD62YEZ4ZDD4KNJL4HCIOGJLVXDQMXVUG6Q/main.js"
+            ]
+        },
+        "DescribeProductIdMapping": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/product-id-mappings/{productId}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "productId"
+                ],
+                "members": {
+                    "productId": {
+                        "location": "uri",
+                        "locationName": "productId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "productCode",
+                    "productId"
+                ],
+                "members": {
+                    "createdTime": {
+                        "type": "timestamp"
+                    },
+                    "productCode": {},
+                    "productId": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/PIBVIFNF323A46H3GGD62YEZ4ZDD4KNJL4HCIOGJLVXDQMXVUG6Q/main.js"
+            ]
+        },
+        "DescribeProductVersion": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/products/{productCode}/versions/{version}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "productCode",
+                    "version"
+                ],
+                "members": {
+                    "productCode": {
+                        "location": "uri",
+                        "locationName": "productCode"
+                    },
+                    "version": {
+                        "location": "uri",
+                        "locationName": "version"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "createdTime": {
+                        "type": "timestamp"
+                    },
+                    "lastUpdatedTime": {
+                        "type": "timestamp"
+                    },
+                    "panoramaSampleAppTemplate": {},
+                    "panoramaSampleAppTemplateUrl": {},
+                    "permissions": {
+                        "shape": "S7"
+                    },
+                    "productCode": {},
+                    "releaseNote": {},
+                    "status": {},
+                    "version": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/PIBVIFNF323A46H3GGD62YEZ4ZDD4KNJL4HCIOGJLVXDQMXVUG6Q/main.js"
+            ]
+        },
+        "ListProductVersions": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/products/{productCode}/versions",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "productCode"
+                ],
+                "members": {
+                    "maxResults": {
+                        "location": "querystring",
+                        "locationName": "maxResults",
+                        "type": "integer"
+                    },
+                    "nextToken": {
+                        "location": "querystring",
+                        "locationName": "nextToken"
+                    },
+                    "productCode": {
+                        "location": "uri",
+                        "locationName": "productCode"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "versions"
+                ],
+                "members": {
+                    "nextToken": {},
+                    "versions": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "createdTime": {
+                                    "type": "timestamp"
+                                },
+                                "productCode": {},
+                                "version": {}
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/PIBVIFNF323A46H3GGD62YEZ4ZDD4KNJL4HCIOGJLVXDQMXVUG6Q/main.js"
+            ]
+        },
+        "ListProducts": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/products",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "maxResults": {
+                        "location": "querystring",
+                        "locationName": "maxResults",
+                        "type": "integer"
+                    },
+                    "nextToken": {
+                        "location": "querystring",
+                        "locationName": "nextToken"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "nextToken": {},
+                    "productList": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "authorName": {},
+                                "createdTime": {
+                                    "type": "timestamp"
+                                },
+                                "isEntitled": {
+                                    "type": "boolean"
+                                },
+                                "latestProductVersion": {},
+                                "panoramaProductImageUrl": {},
+                                "productCode": {},
+                                "productName": {},
+                                "productShortDescription": {}
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/PIBVIFNF323A46H3GGD62YEZ4ZDD4KNJL4HCIOGJLVXDQMXVUG6Q/main.js"
+            ]
+        },
+        "UpdateProduct": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/products/{productCode}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "productCode",
+                    "sellerAccountId"
+                ],
+                "members": {
+                    "image": {},
+                    "longDescription": {},
+                    "productCode": {
+                        "location": "uri",
+                        "locationName": "productCode"
+                    },
+                    "sellerAccountId": {},
+                    "shortDescription": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "productCode": {}
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/PIBVIFNF323A46H3GGD62YEZ4ZDD4KNJL4HCIOGJLVXDQMXVUG6Q/main.js"
+            ]
+        },
+        "UpdateProductVersion": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/products/{productCode}/versions/{version}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "productCode",
+                    "sellerAccountId",
+                    "version"
+                ],
+                "members": {
+                    "permissions": {
+                        "shape": "S7"
+                    },
+                    "productCode": {
+                        "location": "uri",
+                        "locationName": "productCode"
+                    },
+                    "releaseNote": {},
+                    "sellerAccountId": {},
+                    "version": {
+                        "location": "uri",
+                        "locationName": "version"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "productCode": {},
+                    "version": {}
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/PIBVIFNF323A46H3GGD62YEZ4ZDD4KNJL4HCIOGJLVXDQMXVUG6Q/main.js"
+            ]
+        }
+    },
+    "shapes": {
+        "S7": {
+            "type": "structure",
+            "members": {
+                "cfnTemplateName": {},
+                "cfnTemplateUri": {},
+                "permissions": {
+                    "type": "map",
+                    "key": {},
+                    "value": {
+                        "type": "structure",
+                        "members": {
+                            "accessLevel": {
+                                "type": "list",
+                                "member": {
+                                    "type": "map",
+                                    "key": {},
+                                    "value": {
+                                        "type": "list",
+                                        "member": {}
+                                    }
+                                }
+                            },
+                            "description": {},
+                            "resource": {}
+                        }
+                    }
+                },
+                "roleName": {}
+            }
+        }
+    }
+}

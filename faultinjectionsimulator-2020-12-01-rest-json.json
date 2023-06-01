@@ -1,0 +1,1114 @@
+{
+    "version": "2.0",
+    "metadata": {
+        "apiVersion": "2020-12-01",
+        "endpointPrefix": "fis",
+        "jsonVersion": "1.1",
+        "protocol": "rest-json",
+        "serviceAbbreviation": "FIS",
+        "serviceFullName": "AWS Fault Injection Simulator",
+        "serviceId": "FaultInjectionSimulator",
+        "signatureVersion": "v4",
+        "signingName": "fis",
+        "uid": "faultinjectionsimulator-2020-12-01",
+        "download_location": [
+            "https://a.b.cdn.console.awsstatic.com/a/v1/XKUNL4YDVBDU4YGKI7HJVQ753SP45PTFBNDAG5GEIPZ3SJITW23Q/vendors.js"
+        ]
+    },
+    "operations": {
+        "CreateExperimentTemplate": {
+            "http": {
+                "requestUri": "/experimentTemplates",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "clientToken",
+                    "description",
+                    "stopConditions",
+                    "actions",
+                    "roleArn"
+                ],
+                "members": {
+                    "clientToken": {
+                        "idempotencyToken": true
+                    },
+                    "description": {},
+                    "stopConditions": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "source"
+                            ],
+                            "members": {
+                                "source": {},
+                                "value": {}
+                            }
+                        }
+                    },
+                    "targets": {
+                        "type": "map",
+                        "key": {},
+                        "value": {
+                            "type": "structure",
+                            "required": [
+                                "resourceType",
+                                "selectionMode"
+                            ],
+                            "members": {
+                                "resourceType": {},
+                                "resourceArns": {
+                                    "shape": "Sc"
+                                },
+                                "resourceTags": {
+                                    "shape": "Se"
+                                },
+                                "parameters": {
+                                    "shape": "Sh"
+                                },
+                                "filters": {
+                                    "shape": "Sk"
+                                },
+                                "selectionMode": {}
+                            }
+                        }
+                    },
+                    "actions": {
+                        "type": "map",
+                        "key": {},
+                        "value": {
+                            "type": "structure",
+                            "required": [
+                                "actionId"
+                            ],
+                            "members": {
+                                "actionId": {},
+                                "description": {},
+                                "parameters": {
+                                    "shape": "Sv"
+                                },
+                                "targets": {
+                                    "shape": "Sy"
+                                },
+                                "startAfter": {
+                                    "shape": "S10"
+                                }
+                            }
+                        }
+                    },
+                    "roleArn": {},
+                    "logConfiguration": {
+                        "type": "structure",
+                        "required": [
+                            "logSchemaVersion"
+                        ],
+                        "members": {
+                            "cloudWatchLogsConfiguration": {
+                                "shape": "S14"
+                            },
+                            "s3Configuration": {
+                                "shape": "S16"
+                            },
+                            "kinesisFirehoseConfiguration": {
+                                "shape": "S19"
+                            },
+                            "logSchemaVersion": {
+                                "type": "integer"
+                            }
+                        }
+                    },
+                    "tags": {
+                        "shape": "Se"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "experimentTemplate": {
+                        "shape": "S1d"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/XKUNL4YDVBDU4YGKI7HJVQ753SP45PTFBNDAG5GEIPZ3SJITW23Q/vendors.js"
+            ]
+        },
+        "DeleteExperimentTemplate": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/experimentTemplates/{id}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "id"
+                ],
+                "members": {
+                    "id": {
+                        "location": "uri",
+                        "locationName": "id"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "experimentTemplate": {
+                        "shape": "S1d"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/XKUNL4YDVBDU4YGKI7HJVQ753SP45PTFBNDAG5GEIPZ3SJITW23Q/vendors.js"
+            ]
+        },
+        "GetAction": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/actions/{id}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "id"
+                ],
+                "members": {
+                    "id": {
+                        "location": "uri",
+                        "locationName": "id"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "action": {
+                        "type": "structure",
+                        "members": {
+                            "id": {},
+                            "description": {},
+                            "parameters": {
+                                "type": "map",
+                                "key": {},
+                                "value": {
+                                    "type": "structure",
+                                    "members": {
+                                        "description": {},
+                                        "required": {
+                                            "type": "boolean"
+                                        }
+                                    }
+                                }
+                            },
+                            "targets": {
+                                "shape": "S24"
+                            },
+                            "tags": {
+                                "shape": "Se"
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/XKUNL4YDVBDU4YGKI7HJVQ753SP45PTFBNDAG5GEIPZ3SJITW23Q/vendors.js"
+            ]
+        },
+        "GetExperiment": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/experiments/{id}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "id"
+                ],
+                "members": {
+                    "id": {
+                        "location": "uri",
+                        "locationName": "id"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "experiment": {
+                        "shape": "S2a"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/XKUNL4YDVBDU4YGKI7HJVQ753SP45PTFBNDAG5GEIPZ3SJITW23Q/vendors.js"
+            ]
+        },
+        "GetExperimentTemplate": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/experimentTemplates/{id}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "id"
+                ],
+                "members": {
+                    "id": {
+                        "location": "uri",
+                        "locationName": "id"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "experimentTemplate": {
+                        "shape": "S1d"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/XKUNL4YDVBDU4YGKI7HJVQ753SP45PTFBNDAG5GEIPZ3SJITW23Q/vendors.js"
+            ]
+        },
+        "GetTargetResourceType": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/targetResourceTypes/{resourceType}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "resourceType"
+                ],
+                "members": {
+                    "id": {},
+                    "resourceType": {
+                        "location": "uri",
+                        "locationName": "resourceType"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "targetResourceType": {
+                        "type": "structure",
+                        "members": {
+                            "id": {},
+                            "resourceType": {},
+                            "description": {},
+                            "parameters": {
+                                "type": "map",
+                                "key": {},
+                                "value": {
+                                    "type": "structure",
+                                    "members": {
+                                        "description": {},
+                                        "required": {
+                                            "type": "boolean"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/XKUNL4YDVBDU4YGKI7HJVQ753SP45PTFBNDAG5GEIPZ3SJITW23Q/vendors.js"
+            ]
+        },
+        "ListActions": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/actions",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "maxResults": {
+                        "location": "querystring",
+                        "locationName": "maxResults",
+                        "type": "integer"
+                    },
+                    "nextToken": {
+                        "location": "querystring",
+                        "locationName": "nextToken"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "actions": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "id": {},
+                                "description": {},
+                                "targets": {
+                                    "shape": "S24"
+                                },
+                                "tags": {
+                                    "shape": "Se"
+                                }
+                            }
+                        }
+                    },
+                    "nextToken": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/XKUNL4YDVBDU4YGKI7HJVQ753SP45PTFBNDAG5GEIPZ3SJITW23Q/vendors.js"
+            ]
+        },
+        "ListExperimentTemplates": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/experimentTemplates",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "maxResults": {
+                        "location": "querystring",
+                        "locationName": "maxResults",
+                        "type": "integer"
+                    },
+                    "nextToken": {
+                        "location": "querystring",
+                        "locationName": "nextToken"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "experimentTemplates": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "id": {},
+                                "description": {},
+                                "creationTime": {
+                                    "type": "timestamp"
+                                },
+                                "lastUpdateTime": {
+                                    "type": "timestamp"
+                                },
+                                "tags": {
+                                    "shape": "Se"
+                                }
+                            }
+                        }
+                    },
+                    "nextToken": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/XKUNL4YDVBDU4YGKI7HJVQ753SP45PTFBNDAG5GEIPZ3SJITW23Q/vendors.js"
+            ]
+        },
+        "ListExperiments": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/experiments",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "maxResults": {
+                        "location": "querystring",
+                        "locationName": "maxResults",
+                        "type": "integer"
+                    },
+                    "nextToken": {
+                        "location": "querystring",
+                        "locationName": "nextToken"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "experiments": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "id": {},
+                                "experimentTemplateId": {},
+                                "state": {
+                                    "shape": "S2b"
+                                },
+                                "creationTime": {
+                                    "type": "timestamp"
+                                },
+                                "tags": {
+                                    "shape": "Se"
+                                }
+                            }
+                        }
+                    },
+                    "nextToken": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/XKUNL4YDVBDU4YGKI7HJVQ753SP45PTFBNDAG5GEIPZ3SJITW23Q/vendors.js"
+            ]
+        },
+        "ListTagsForResource": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/tags/{resourceArn}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "resourceArn"
+                ],
+                "members": {
+                    "resourceArn": {
+                        "location": "uri",
+                        "locationName": "resourceArn"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "tags": {
+                        "shape": "Se"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/XKUNL4YDVBDU4YGKI7HJVQ753SP45PTFBNDAG5GEIPZ3SJITW23Q/vendors.js"
+            ]
+        },
+        "ListTargetResourceTypes": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/targetResourceTypes",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "maxResults": {
+                        "location": "querystring",
+                        "locationName": "maxResults",
+                        "type": "integer"
+                    },
+                    "nextToken": {
+                        "location": "querystring",
+                        "locationName": "nextToken"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "targetResourceTypes": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "id": {},
+                                "resourceType": {},
+                                "description": {}
+                            }
+                        }
+                    },
+                    "nextToken": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/XKUNL4YDVBDU4YGKI7HJVQ753SP45PTFBNDAG5GEIPZ3SJITW23Q/vendors.js"
+            ]
+        },
+        "StartExperiment": {
+            "http": {
+                "requestUri": "/experiments",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "clientToken",
+                    "experimentTemplateId"
+                ],
+                "members": {
+                    "clientToken": {
+                        "idempotencyToken": true
+                    },
+                    "experimentTemplateId": {},
+                    "tags": {
+                        "shape": "Se"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "experiment": {
+                        "shape": "S2a"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/XKUNL4YDVBDU4YGKI7HJVQ753SP45PTFBNDAG5GEIPZ3SJITW23Q/vendors.js"
+            ]
+        },
+        "StopExperiment": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/experiments/{id}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "id"
+                ],
+                "members": {
+                    "id": {
+                        "location": "uri",
+                        "locationName": "id"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "experiment": {
+                        "shape": "S2a"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/XKUNL4YDVBDU4YGKI7HJVQ753SP45PTFBNDAG5GEIPZ3SJITW23Q/vendors.js"
+            ]
+        },
+        "TagResource": {
+            "http": {
+                "requestUri": "/tags/{resourceArn}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "resourceArn",
+                    "tags"
+                ],
+                "members": {
+                    "resourceArn": {
+                        "location": "uri",
+                        "locationName": "resourceArn"
+                    },
+                    "tags": {
+                        "shape": "Se"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/XKUNL4YDVBDU4YGKI7HJVQ753SP45PTFBNDAG5GEIPZ3SJITW23Q/vendors.js"
+            ]
+        },
+        "UntagResource": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/tags/{resourceArn}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "resourceArn"
+                ],
+                "members": {
+                    "resourceArn": {
+                        "location": "uri",
+                        "locationName": "resourceArn"
+                    },
+                    "tagKeys": {
+                        "location": "querystring",
+                        "locationName": "tagKeys",
+                        "type": "list",
+                        "member": {}
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/XKUNL4YDVBDU4YGKI7HJVQ753SP45PTFBNDAG5GEIPZ3SJITW23Q/vendors.js"
+            ]
+        },
+        "UpdateExperimentTemplate": {
+            "http": {
+                "method": "PATCH",
+                "requestUri": "/experimentTemplates/{id}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "id"
+                ],
+                "members": {
+                    "id": {
+                        "location": "uri",
+                        "locationName": "id"
+                    },
+                    "description": {},
+                    "stopConditions": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "source"
+                            ],
+                            "members": {
+                                "source": {},
+                                "value": {}
+                            }
+                        }
+                    },
+                    "targets": {
+                        "type": "map",
+                        "key": {},
+                        "value": {
+                            "type": "structure",
+                            "required": [
+                                "resourceType",
+                                "selectionMode"
+                            ],
+                            "members": {
+                                "resourceType": {},
+                                "resourceArns": {
+                                    "shape": "Sc"
+                                },
+                                "resourceTags": {
+                                    "shape": "Se"
+                                },
+                                "parameters": {
+                                    "shape": "Sh"
+                                },
+                                "filters": {
+                                    "shape": "Sk"
+                                },
+                                "selectionMode": {}
+                            }
+                        }
+                    },
+                    "actions": {
+                        "type": "map",
+                        "key": {},
+                        "value": {
+                            "type": "structure",
+                            "members": {
+                                "actionId": {},
+                                "description": {},
+                                "parameters": {
+                                    "shape": "Sv"
+                                },
+                                "targets": {
+                                    "shape": "Sy"
+                                },
+                                "startAfter": {
+                                    "shape": "S10"
+                                }
+                            }
+                        }
+                    },
+                    "roleArn": {},
+                    "logConfiguration": {
+                        "type": "structure",
+                        "members": {
+                            "cloudWatchLogsConfiguration": {
+                                "shape": "S14"
+                            },
+                            "s3Configuration": {
+                                "shape": "S16"
+                            },
+                            "kinesisFirehoseConfiguration": {
+                                "shape": "S19"
+                            },
+                            "logSchemaVersion": {
+                                "type": "integer"
+                            }
+                        }
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "experimentTemplate": {
+                        "shape": "S1d"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/XKUNL4YDVBDU4YGKI7HJVQ753SP45PTFBNDAG5GEIPZ3SJITW23Q/vendors.js"
+            ]
+        }
+    },
+    "shapes": {
+        "Sc": {
+            "type": "list",
+            "member": {}
+        },
+        "Se": {
+            "type": "map",
+            "key": {},
+            "value": {}
+        },
+        "Sh": {
+            "type": "map",
+            "key": {},
+            "value": {}
+        },
+        "Sk": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "path",
+                    "values"
+                ],
+                "members": {
+                    "path": {},
+                    "values": {
+                        "shape": "Sn"
+                    }
+                }
+            }
+        },
+        "Sn": {
+            "type": "list",
+            "member": {}
+        },
+        "Sv": {
+            "type": "map",
+            "key": {},
+            "value": {}
+        },
+        "Sy": {
+            "type": "map",
+            "key": {},
+            "value": {}
+        },
+        "S10": {
+            "type": "list",
+            "member": {}
+        },
+        "S14": {
+            "type": "structure",
+            "required": [
+                "logGroupArn"
+            ],
+            "members": {
+                "logGroupArn": {}
+            }
+        },
+        "S16": {
+            "type": "structure",
+            "required": [
+                "bucketName"
+            ],
+            "members": {
+                "bucketName": {},
+                "prefix": {}
+            }
+        },
+        "S19": {
+            "type": "structure",
+            "required": [
+                "firehoseStreamArn"
+            ],
+            "members": {
+                "firehoseStreamArn": {}
+            }
+        },
+        "S1d": {
+            "type": "structure",
+            "members": {
+                "id": {},
+                "description": {},
+                "targets": {
+                    "type": "map",
+                    "key": {},
+                    "value": {
+                        "type": "structure",
+                        "members": {
+                            "resourceType": {},
+                            "resourceArns": {
+                                "shape": "Sc"
+                            },
+                            "resourceTags": {
+                                "shape": "Se"
+                            },
+                            "parameters": {
+                                "shape": "Sh"
+                            },
+                            "filters": {
+                                "type": "list",
+                                "member": {
+                                    "type": "structure",
+                                    "members": {
+                                        "path": {},
+                                        "values": {
+                                            "shape": "Sn"
+                                        }
+                                    }
+                                }
+                            },
+                            "selectionMode": {}
+                        }
+                    }
+                },
+                "actions": {
+                    "type": "map",
+                    "key": {},
+                    "value": {
+                        "type": "structure",
+                        "members": {
+                            "actionId": {},
+                            "description": {},
+                            "parameters": {
+                                "shape": "Sv"
+                            },
+                            "targets": {
+                                "shape": "Sy"
+                            },
+                            "startAfter": {
+                                "shape": "S10"
+                            }
+                        }
+                    }
+                },
+                "stopConditions": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "members": {
+                            "source": {},
+                            "value": {}
+                        }
+                    }
+                },
+                "creationTime": {
+                    "type": "timestamp"
+                },
+                "lastUpdateTime": {
+                    "type": "timestamp"
+                },
+                "roleArn": {},
+                "logConfiguration": {
+                    "type": "structure",
+                    "members": {
+                        "cloudWatchLogsConfiguration": {
+                            "type": "structure",
+                            "members": {
+                                "logGroupArn": {}
+                            }
+                        },
+                        "s3Configuration": {
+                            "type": "structure",
+                            "members": {
+                                "bucketName": {},
+                                "prefix": {}
+                            }
+                        },
+                        "kinesisFirehoseConfiguration": {
+                            "type": "structure",
+                            "members": {
+                                "firehoseStreamArn": {}
+                            }
+                        },
+                        "logSchemaVersion": {
+                            "type": "integer"
+                        }
+                    }
+                },
+                "tags": {
+                    "shape": "Se"
+                }
+            }
+        },
+        "S24": {
+            "type": "map",
+            "key": {},
+            "value": {
+                "type": "structure",
+                "members": {
+                    "resourceType": {}
+                }
+            }
+        },
+        "S2a": {
+            "type": "structure",
+            "members": {
+                "id": {},
+                "experimentTemplateId": {},
+                "roleArn": {},
+                "state": {
+                    "shape": "S2b"
+                },
+                "targets": {
+                    "type": "map",
+                    "key": {},
+                    "value": {
+                        "type": "structure",
+                        "members": {
+                            "resourceType": {},
+                            "resourceArns": {
+                                "shape": "Sc"
+                            },
+                            "resourceTags": {
+                                "shape": "Se"
+                            },
+                            "parameters": {
+                                "type": "map",
+                                "key": {},
+                                "value": {}
+                            },
+                            "filters": {
+                                "type": "list",
+                                "member": {
+                                    "type": "structure",
+                                    "members": {
+                                        "path": {},
+                                        "values": {
+                                            "type": "list",
+                                            "member": {}
+                                        }
+                                    }
+                                }
+                            },
+                            "selectionMode": {}
+                        }
+                    }
+                },
+                "actions": {
+                    "type": "map",
+                    "key": {},
+                    "value": {
+                        "type": "structure",
+                        "members": {
+                            "actionId": {},
+                            "description": {},
+                            "parameters": {
+                                "type": "map",
+                                "key": {},
+                                "value": {}
+                            },
+                            "targets": {
+                                "type": "map",
+                                "key": {},
+                                "value": {}
+                            },
+                            "startAfter": {
+                                "type": "list",
+                                "member": {}
+                            },
+                            "state": {
+                                "type": "structure",
+                                "members": {
+                                    "status": {},
+                                    "reason": {}
+                                }
+                            },
+                            "startTime": {
+                                "type": "timestamp"
+                            },
+                            "endTime": {
+                                "type": "timestamp"
+                            }
+                        }
+                    }
+                },
+                "stopConditions": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "members": {
+                            "source": {},
+                            "value": {}
+                        }
+                    }
+                },
+                "creationTime": {
+                    "type": "timestamp"
+                },
+                "startTime": {
+                    "type": "timestamp"
+                },
+                "endTime": {
+                    "type": "timestamp"
+                },
+                "logConfiguration": {
+                    "type": "structure",
+                    "members": {
+                        "cloudWatchLogsConfiguration": {
+                            "type": "structure",
+                            "members": {
+                                "logGroupArn": {}
+                            }
+                        },
+                        "s3Configuration": {
+                            "type": "structure",
+                            "members": {
+                                "bucketName": {},
+                                "prefix": {}
+                            }
+                        },
+                        "kinesisFirehoseConfiguration": {
+                            "type": "structure",
+                            "members": {
+                                "firehoseStreamArn": {}
+                            }
+                        },
+                        "logSchemaVersion": {
+                            "type": "integer"
+                        }
+                    }
+                },
+                "tags": {
+                    "shape": "Se"
+                }
+            }
+        },
+        "S2b": {
+            "type": "structure",
+            "members": {
+                "status": {},
+                "reason": {}
+            }
+        }
+    }
+}

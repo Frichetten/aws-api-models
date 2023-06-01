@@ -1,0 +1,1378 @@
+{
+    "version": "2.0",
+    "metadata": {
+        "apiVersion": "2018-01-06",
+        "endpointPrefix": "autoscaling-plans",
+        "jsonVersion": "1.1",
+        "protocol": "json",
+        "serviceFullName": "AWS Auto Scaling Plans",
+        "serviceId": "Auto Scaling Plans",
+        "signatureVersion": "v4",
+        "signingName": "autoscaling-plans",
+        "targetPrefix": "AnyScaleScalingPlannerFrontendService",
+        "uid": "autoscaling-plans-2018-01-06",
+        "download_location": [
+            "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+        ]
+    },
+    "operations": {
+        "CreateScalingPlan": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ScalingPlanName",
+                    "ApplicationSource",
+                    "ScalingInstructions"
+                ],
+                "members": {
+                    "ScalingPlanName": {},
+                    "ApplicationSource": {
+                        "shape": "S3"
+                    },
+                    "ScalingInstructions": {
+                        "shape": "Sa"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "ScalingPlanVersion"
+                ],
+                "members": {
+                    "ScalingPlanVersion": {
+                        "type": "long"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "DeleteScalingPlan": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ScalingPlanName",
+                    "ScalingPlanVersion"
+                ],
+                "members": {
+                    "ScalingPlanName": {},
+                    "ScalingPlanVersion": {
+                        "type": "long"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "DescribeScalingPlanResources": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ScalingPlanName",
+                    "ScalingPlanVersion"
+                ],
+                "members": {
+                    "ScalingPlanName": {},
+                    "ScalingPlanVersion": {
+                        "type": "long"
+                    },
+                    "MaxResults": {
+                        "type": "integer"
+                    },
+                    "NextToken": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ScalingPlanResources": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "ScalingPlanName",
+                                "ScalingPlanVersion",
+                                "ServiceNamespace",
+                                "ResourceId",
+                                "ScalableDimension",
+                                "ScalingStatusCode"
+                            ],
+                            "members": {
+                                "ScalingPlanName": {},
+                                "ScalingPlanVersion": {
+                                    "type": "long"
+                                },
+                                "ServiceNamespace": {},
+                                "ResourceId": {},
+                                "ScalableDimension": {},
+                                "ScalingPolicies": {
+                                    "type": "list",
+                                    "member": {
+                                        "type": "structure",
+                                        "required": [
+                                            "PolicyName",
+                                            "PolicyType"
+                                        ],
+                                        "members": {
+                                            "PolicyName": {},
+                                            "PolicyType": {},
+                                            "TargetTrackingConfiguration": {
+                                                "shape": "Sh"
+                                            }
+                                        }
+                                    }
+                                },
+                                "ScalingStatusCode": {},
+                                "ScalingStatusMessage": {}
+                            }
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "DescribeScalingPlans": {
+            "input": {
+                "type": "structure",
+                "members": {
+                    "ScalingPlanNames": {
+                        "type": "list",
+                        "member": {}
+                    },
+                    "ScalingPlanVersion": {
+                        "type": "long"
+                    },
+                    "ApplicationSources": {
+                        "type": "list",
+                        "member": {
+                            "shape": "S3"
+                        }
+                    },
+                    "MaxResults": {
+                        "type": "integer"
+                    },
+                    "NextToken": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ScalingPlans": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "ScalingPlanName",
+                                "ScalingPlanVersion",
+                                "ApplicationSource",
+                                "ScalingInstructions",
+                                "StatusCode"
+                            ],
+                            "members": {
+                                "ScalingPlanName": {},
+                                "ScalingPlanVersion": {
+                                    "type": "long"
+                                },
+                                "ApplicationSource": {
+                                    "shape": "S3"
+                                },
+                                "ScalingInstructions": {
+                                    "shape": "Sa"
+                                },
+                                "StatusCode": {},
+                                "StatusMessage": {},
+                                "StatusStartTime": {
+                                    "type": "timestamp"
+                                },
+                                "CreationTime": {
+                                    "type": "timestamp"
+                                }
+                            }
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "GetScalingPlanResourceForecastData": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ScalingPlanName",
+                    "ScalingPlanVersion",
+                    "ServiceNamespace",
+                    "ResourceId",
+                    "ScalableDimension",
+                    "ForecastDataType",
+                    "StartTime",
+                    "EndTime"
+                ],
+                "members": {
+                    "ScalingPlanName": {},
+                    "ScalingPlanVersion": {
+                        "type": "long"
+                    },
+                    "ServiceNamespace": {},
+                    "ResourceId": {},
+                    "ScalableDimension": {},
+                    "ForecastDataType": {},
+                    "StartTime": {
+                        "type": "timestamp"
+                    },
+                    "EndTime": {
+                        "type": "timestamp"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "Datapoints"
+                ],
+                "members": {
+                    "Datapoints": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "Timestamp": {
+                                    "type": "timestamp"
+                                },
+                                "Value": {
+                                    "type": "double"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "UpdateScalingPlan": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ScalingPlanName",
+                    "ScalingPlanVersion"
+                ],
+                "members": {
+                    "ScalingPlanName": {},
+                    "ScalingPlanVersion": {
+                        "type": "long"
+                    },
+                    "ApplicationSource": {
+                        "shape": "S3"
+                    },
+                    "ScalingInstructions": {
+                        "shape": "Sa"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "BatchDeleteCapacityOverride": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ScalingPlanName",
+                    "ScalingPlanVersion",
+                    "ServiceNamespace",
+                    "ResourceId",
+                    "ScalableDimension",
+                    "CapacityOverrideNames"
+                ],
+                "members": {
+                    "ScalingPlanName": {},
+                    "ScalingPlanVersion": {
+                        "type": "long"
+                    },
+                    "ServiceNamespace": {},
+                    "ResourceId": {},
+                    "ScalableDimension": {},
+                    "CapacityOverrideNames": {
+                        "shape": "S7"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "FailedCapacityOverrides"
+                ],
+                "members": {
+                    "FailedCapacityOverrides": {
+                        "shape": "Sa"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/5T6YPTUGIKEGC5GZRP4QJYJATIVGDBCL2CFPXXMHQW57CIDNT6AQ/vendors.js"
+            ]
+        },
+        "BatchPutCapacityOverride": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ScalingPlanName",
+                    "ScalingPlanVersion",
+                    "ServiceNamespace",
+                    "ResourceId",
+                    "ScalableDimension",
+                    "CapacityOverrides"
+                ],
+                "members": {
+                    "ScalingPlanName": {},
+                    "ScalingPlanVersion": {
+                        "type": "long"
+                    },
+                    "ServiceNamespace": {},
+                    "ResourceId": {},
+                    "ScalableDimension": {},
+                    "CapacityOverrides": {
+                        "type": "list",
+                        "member": {
+                            "shape": "Sg"
+                        }
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "FailedCapacityOverrides"
+                ],
+                "members": {
+                    "FailedCapacityOverrides": {
+                        "shape": "Sa"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/5T6YPTUGIKEGC5GZRP4QJYJATIVGDBCL2CFPXXMHQW57CIDNT6AQ/vendors.js"
+            ]
+        },
+        "DeleteDeploymentHistoryRecord": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ServiceNamespace",
+                    "ResourceId",
+                    "ScalableDimension"
+                ],
+                "members": {
+                    "ServiceNamespace": {},
+                    "ResourceId": {},
+                    "ScalableDimension": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/5T6YPTUGIKEGC5GZRP4QJYJATIVGDBCL2CFPXXMHQW57CIDNT6AQ/vendors.js"
+            ]
+        },
+        "DeleteForecastInstructionCollection": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ForecastInstructionCollectionIdentifier"
+                ],
+                "members": {
+                    "ForecastInstructionCollectionIdentifier": {
+                        "shape": "S1u"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/5T6YPTUGIKEGC5GZRP4QJYJATIVGDBCL2CFPXXMHQW57CIDNT6AQ/vendors.js"
+            ]
+        },
+        "DescribeCapacityOverrides": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ScalingPlanName",
+                    "ScalingPlanVersion",
+                    "ServiceNamespace",
+                    "ResourceId",
+                    "ScalableDimension"
+                ],
+                "members": {
+                    "ScalingPlanName": {},
+                    "ScalingPlanVersion": {
+                        "type": "long"
+                    },
+                    "ServiceNamespace": {},
+                    "ResourceId": {},
+                    "ScalableDimension": {},
+                    "CapacityOverrideNames": {
+                        "shape": "S7"
+                    },
+                    "CapacityOverrideEffectiveStartTime": {
+                        "type": "timestamp"
+                    },
+                    "CapacityOverrideEffectiveEndTime": {
+                        "type": "timestamp"
+                    },
+                    "MaxResults": {
+                        "type": "integer"
+                    },
+                    "NextToken": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "CapacityOverrides"
+                ],
+                "members": {
+                    "CapacityOverrides": {
+                        "type": "list",
+                        "member": {
+                            "shape": "Sg"
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/5T6YPTUGIKEGC5GZRP4QJYJATIVGDBCL2CFPXXMHQW57CIDNT6AQ/vendors.js"
+            ]
+        },
+        "DescribeDeploymentHistoryRecords": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ServiceNamespace"
+                ],
+                "members": {
+                    "DeploymentHistoryName": {},
+                    "ServiceNamespace": {},
+                    "ResourceId": {},
+                    "ScalableDimension": {},
+                    "MaxResults": {
+                        "type": "integer"
+                    },
+                    "NextToken": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "DeploymentHistoryRecords": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "DeploymentHistoryName",
+                                "ServiceNamespace",
+                                "ResourceId",
+                                "ScalableDimension",
+                                "ResourceEffectiveTime"
+                            ],
+                            "members": {
+                                "DeploymentHistoryName": {},
+                                "ServiceNamespace": {},
+                                "ResourceId": {},
+                                "ScalableDimension": {},
+                                "ResourceEffectiveTime": {
+                                    "type": "timestamp"
+                                }
+                            }
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/5T6YPTUGIKEGC5GZRP4QJYJATIVGDBCL2CFPXXMHQW57CIDNT6AQ/vendors.js"
+            ]
+        },
+        "GetForecastInstructionCollection": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ForecastInstructionCollectionIdentifier"
+                ],
+                "members": {
+                    "ForecastInstructionCollectionIdentifier": {
+                        "shape": "S1u"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ForecastInstructionCollectionJsonContent": {
+                        "shape": "S2v"
+                    }
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/5T6YPTUGIKEGC5GZRP4QJYJATIVGDBCL2CFPXXMHQW57CIDNT6AQ/vendors.js"
+            ]
+        },
+        "GetScalingPlanResourceForecastDataInternal": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ScalingPlanName",
+                    "ScalingPlanVersion",
+                    "ServiceNamespace",
+                    "ResourceId",
+                    "ScalableDimension",
+                    "ForecastDataType",
+                    "StartTime",
+                    "EndTime"
+                ],
+                "members": {
+                    "ScalingPlanName": {},
+                    "ScalingPlanVersion": {
+                        "type": "long"
+                    },
+                    "ServiceNamespace": {},
+                    "ResourceId": {},
+                    "ScalableDimension": {},
+                    "MetricSpecification": {
+                        "type": "structure",
+                        "required": [
+                            "MetricName",
+                            "Namespace",
+                            "Dimensions",
+                            "Statistic"
+                        ],
+                        "members": {
+                            "MetricName": {},
+                            "Namespace": {},
+                            "Dimensions": {
+                                "shape": "S16"
+                            },
+                            "Statistic": {},
+                            "Unit": {}
+                        },
+                        "internalonly": true
+                    },
+                    "ForecastDataType": {
+                        "type": "string",
+                        "internalonly": true
+                    },
+                    "StartTime": {
+                        "type": "timestamp"
+                    },
+                    "EndTime": {
+                        "type": "timestamp"
+                    },
+                    "Period": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "Datapoints"
+                ],
+                "members": {
+                    "Datapoints": {
+                        "shape": "S2z"
+                    }
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/5T6YPTUGIKEGC5GZRP4QJYJATIVGDBCL2CFPXXMHQW57CIDNT6AQ/vendors.js"
+            ]
+        },
+        "ListApplicationResourceScalableTargets": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ApplicationResources"
+                ],
+                "members": {
+                    "ApplicationResources": {
+                        "shape": "S37"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "ApplicationResourceScalableTargets"
+                ],
+                "members": {
+                    "ApplicationResourceScalableTargets": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "ServiceNamespace",
+                                "ResourceId",
+                                "ScalableDimension",
+                                "DesiredCapacity",
+                                "ProposedMinCapacity",
+                                "ProposedMaxCapacity"
+                            ],
+                            "members": {
+                                "ServiceNamespace": {},
+                                "ResourceId": {},
+                                "ScalableDimension": {},
+                                "DesiredCapacity": {
+                                    "type": "integer"
+                                },
+                                "ProposedMinCapacity": {
+                                    "type": "integer"
+                                },
+                                "ProposedMaxCapacity": {
+                                    "type": "integer"
+                                },
+                                "ResourceIdForCloudFormation": {}
+                            }
+                        },
+                        "internalonly": true
+                    }
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/5T6YPTUGIKEGC5GZRP4QJYJATIVGDBCL2CFPXXMHQW57CIDNT6AQ/vendors.js"
+            ]
+        },
+        "ListApplicationResources": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ServiceNamespaces"
+                ],
+                "members": {
+                    "TagFilters": {
+                        "shape": "Sq"
+                    },
+                    "CloudFormationStackARN": {},
+                    "ServiceNamespaces": {
+                        "type": "list",
+                        "member": {}
+                    },
+                    "NextToken": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "ApplicationResources"
+                ],
+                "members": {
+                    "ApplicationResources": {
+                        "shape": "S37"
+                    },
+                    "NextToken": {}
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/5T6YPTUGIKEGC5GZRP4QJYJATIVGDBCL2CFPXXMHQW57CIDNT6AQ/vendors.js"
+            ]
+        },
+        "ListDeploymentHistories": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ServiceNamespace"
+                ],
+                "members": {
+                    "ServiceNamespace": {},
+                    "ScalableDimension": {},
+                    "MaxResults": {
+                        "type": "integer"
+                    },
+                    "NextToken": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "DeploymentHistorySummaries": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "DeploymentHistoryName",
+                                "ServiceNamespace",
+                                "ScalableDimension"
+                            ],
+                            "members": {
+                                "DeploymentHistoryName": {},
+                                "ServiceNamespace": {},
+                                "ScalableDimension": {}
+                            }
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/5T6YPTUGIKEGC5GZRP4QJYJATIVGDBCL2CFPXXMHQW57CIDNT6AQ/vendors.js"
+            ]
+        },
+        "ListForecastInstructionCollections": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "AccountId",
+                    "ScalingPlanName"
+                ],
+                "members": {
+                    "AccountId": {
+                        "shape": "S1x"
+                    },
+                    "ScalingPlanName": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ForecastInstructionCollections": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "ForecastInstructionCollectionIdentifier": {
+                                    "shape": "S1u"
+                                },
+                                "ForecastInstructionCollectionJsonContent": {
+                                    "shape": "S2v"
+                                }
+                            },
+                            "internalonly": true
+                        },
+                        "internalonly": true
+                    }
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/5T6YPTUGIKEGC5GZRP4QJYJATIVGDBCL2CFPXXMHQW57CIDNT6AQ/vendors.js"
+            ]
+        },
+        "LockServiceLinkedRole": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "RoleArn",
+                    "Timeout"
+                ],
+                "members": {
+                    "RoleArn": {},
+                    "Timeout": {
+                        "type": "long"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "CanBeDeleted"
+                ],
+                "members": {
+                    "CanBeDeleted": {
+                        "type": "boolean"
+                    },
+                    "ReasonOfFailure": {},
+                    "RelatedResources": {
+                        "type": "list",
+                        "member": {}
+                    }
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/5T6YPTUGIKEGC5GZRP4QJYJATIVGDBCL2CFPXXMHQW57CIDNT6AQ/vendors.js"
+            ]
+        },
+        "PutDeploymentHistoryRecord": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "DeploymentHistoryName",
+                    "ServiceNamespace",
+                    "ResourceId",
+                    "ScalableDimension",
+                    "ResourceEffectiveTime"
+                ],
+                "members": {
+                    "DeploymentHistoryName": {},
+                    "ServiceNamespace": {},
+                    "ResourceId": {},
+                    "ScalableDimension": {},
+                    "ResourceEffectiveTime": {
+                        "type": "timestamp"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/5T6YPTUGIKEGC5GZRP4QJYJATIVGDBCL2CFPXXMHQW57CIDNT6AQ/vendors.js"
+            ]
+        },
+        "PutForecastInstructionCollection": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ForecastInstructionCollectionJsonContent",
+                    "ForecastInstructionCollectionIdentifier"
+                ],
+                "members": {
+                    "ForecastInstructionCollectionJsonContent": {
+                        "shape": "S2v"
+                    },
+                    "ForecastInstructionCollectionIdentifier": {
+                        "shape": "S1u"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/5T6YPTUGIKEGC5GZRP4QJYJATIVGDBCL2CFPXXMHQW57CIDNT6AQ/vendors.js"
+            ]
+        },
+        "ResolveForecastInstructionCollection": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ServiceNamespace",
+                    "AccountId",
+                    "ScalingPlanName",
+                    "ScalingPlanVersion"
+                ],
+                "members": {
+                    "ServiceNamespace": {},
+                    "AccountId": {
+                        "shape": "S1x"
+                    },
+                    "ScalingPlanName": {},
+                    "ScalingPlanVersion": {
+                        "type": "long"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ForecastInstructionCollectionJsonContent": {
+                        "shape": "S2v"
+                    }
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/5T6YPTUGIKEGC5GZRP4QJYJATIVGDBCL2CFPXXMHQW57CIDNT6AQ/vendors.js"
+            ]
+        },
+        "UnlockServiceLinkedRole": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "RoleArn"
+                ],
+                "members": {
+                    "RoleArn": {},
+                    "DeletionStatus": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/5T6YPTUGIKEGC5GZRP4QJYJATIVGDBCL2CFPXXMHQW57CIDNT6AQ/vendors.js"
+            ]
+        }
+    },
+    "shapes": {
+        "S3": {
+            "type": "structure",
+            "members": {
+                "CloudFormationStackARN": {},
+                "TagFilters": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "members": {
+                            "Key": {},
+                            "Values": {
+                                "type": "list",
+                                "member": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "Sa": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "ServiceNamespace",
+                    "ResourceId",
+                    "ScalableDimension",
+                    "MinCapacity",
+                    "MaxCapacity",
+                    "TargetTrackingConfigurations"
+                ],
+                "members": {
+                    "ServiceNamespace": {},
+                    "ResourceId": {},
+                    "ScalableDimension": {},
+                    "MinCapacity": {
+                        "type": "integer"
+                    },
+                    "MaxCapacity": {
+                        "type": "integer"
+                    },
+                    "TargetTrackingConfigurations": {
+                        "type": "list",
+                        "member": {
+                            "shape": "Sh"
+                        }
+                    },
+                    "PredefinedLoadMetricSpecification": {
+                        "type": "structure",
+                        "required": [
+                            "PredefinedLoadMetricType"
+                        ],
+                        "members": {
+                            "PredefinedLoadMetricType": {},
+                            "ResourceLabel": {}
+                        }
+                    },
+                    "CustomizedLoadMetricSpecification": {
+                        "type": "structure",
+                        "required": [
+                            "MetricName",
+                            "Namespace",
+                            "Statistic"
+                        ],
+                        "members": {
+                            "MetricName": {},
+                            "Namespace": {},
+                            "Dimensions": {
+                                "shape": "So"
+                            },
+                            "Statistic": {},
+                            "Unit": {}
+                        }
+                    },
+                    "ScheduledActionBufferTime": {
+                        "type": "integer"
+                    },
+                    "PredictiveScalingMaxCapacityBehavior": {},
+                    "PredictiveScalingMaxCapacityBuffer": {
+                        "type": "integer"
+                    },
+                    "PredictiveScalingMode": {},
+                    "ScalingPolicyUpdateBehavior": {},
+                    "DisableDynamicScaling": {
+                        "type": "boolean"
+                    }
+                }
+            }
+        },
+        "Sh": {
+            "type": "structure",
+            "required": [
+                "TargetValue"
+            ],
+            "members": {
+                "PredefinedScalingMetricSpecification": {
+                    "type": "structure",
+                    "required": [
+                        "PredefinedScalingMetricType"
+                    ],
+                    "members": {
+                        "PredefinedScalingMetricType": {},
+                        "ResourceLabel": {}
+                    }
+                },
+                "CustomizedScalingMetricSpecification": {
+                    "type": "structure",
+                    "required": [
+                        "MetricName",
+                        "Namespace",
+                        "Statistic"
+                    ],
+                    "members": {
+                        "MetricName": {},
+                        "Namespace": {},
+                        "Dimensions": {
+                            "shape": "So"
+                        },
+                        "Statistic": {},
+                        "Unit": {}
+                    }
+                },
+                "TargetValue": {
+                    "type": "double"
+                },
+                "DisableScaleIn": {
+                    "type": "boolean"
+                },
+                "ScaleOutCooldown": {
+                    "type": "integer"
+                },
+                "ScaleInCooldown": {
+                    "type": "integer"
+                },
+                "EstimatedInstanceWarmup": {
+                    "type": "integer"
+                }
+            }
+        },
+        "So": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "Name",
+                    "Value"
+                ],
+                "members": {
+                    "Name": {},
+                    "Value": {}
+                }
+            }
+        },
+        "S7": {
+            "type": "list",
+            "member": {}
+        },
+        "Sg": {
+            "type": "structure",
+            "required": [
+                "CapacityOverrideName",
+                "CapacityOverrideType",
+                "StartTime",
+                "Duration",
+                "CapacityOverrideValue"
+            ],
+            "members": {
+                "CapacityOverrideName": {},
+                "CapacityOverrideType": {},
+                "StartTime": {
+                    "type": "timestamp"
+                },
+                "Duration": {
+                    "type": "integer"
+                },
+                "CapacityOverrideValue": {
+                    "type": "integer"
+                },
+                "DeleteOnExpiry": {
+                    "internalonly": true,
+                    "type": "boolean"
+                },
+                "Ttl": {
+                    "internalonly": true,
+                    "type": "timestamp"
+                }
+            }
+        },
+        "Sq": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "Key": {},
+                    "Values": {
+                        "type": "list",
+                        "member": {}
+                    }
+                }
+            }
+        },
+        "Sv": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "ServiceNamespace",
+                    "ResourceId",
+                    "ScalableDimension",
+                    "MinCapacity",
+                    "MaxCapacity",
+                    "TargetTrackingConfigurations"
+                ],
+                "members": {
+                    "ServiceNamespace": {},
+                    "ResourceId": {},
+                    "ScalableDimension": {},
+                    "MinCapacity": {
+                        "type": "integer"
+                    },
+                    "MaxCapacity": {
+                        "type": "integer"
+                    },
+                    "TargetTrackingConfigurations": {
+                        "type": "list",
+                        "member": {
+                            "shape": "Sz"
+                        }
+                    },
+                    "PredefinedLoadMetricSpecification": {
+                        "type": "structure",
+                        "required": [
+                            "PredefinedLoadMetricType"
+                        ],
+                        "members": {
+                            "PredefinedLoadMetricType": {},
+                            "ResourceLabel": {}
+                        }
+                    },
+                    "CustomizedLoadMetricSpecification": {
+                        "type": "structure",
+                        "required": [
+                            "MetricName",
+                            "Namespace",
+                            "Statistic"
+                        ],
+                        "members": {
+                            "MetricName": {},
+                            "Namespace": {},
+                            "Dimensions": {
+                                "shape": "S16"
+                            },
+                            "Statistic": {},
+                            "Unit": {}
+                        }
+                    },
+                    "ForecastFrequency": {
+                        "internalonly": true,
+                        "type": "integer"
+                    },
+                    "ForecastGranularity": {
+                        "internalonly": true,
+                        "type": "integer"
+                    },
+                    "ScheduledActionBufferTime": {
+                        "type": "integer"
+                    },
+                    "PredictiveScalingMaxCapacityBehavior": {},
+                    "PredictiveScalingMaxCapacityBuffer": {
+                        "type": "integer"
+                    },
+                    "PredictiveScalingMode": {},
+                    "ScalingPolicyUpdateBehavior": {},
+                    "DisableDynamicScaling": {
+                        "type": "boolean"
+                    }
+                }
+            }
+        },
+        "Sz": {
+            "type": "structure",
+            "required": [
+                "TargetValue"
+            ],
+            "members": {
+                "PredefinedScalingMetricSpecification": {
+                    "type": "structure",
+                    "required": [
+                        "PredefinedScalingMetricType"
+                    ],
+                    "members": {
+                        "PredefinedScalingMetricType": {},
+                        "ResourceLabel": {}
+                    }
+                },
+                "CustomizedScalingMetricSpecification": {
+                    "type": "structure",
+                    "required": [
+                        "MetricName",
+                        "Namespace",
+                        "Statistic"
+                    ],
+                    "members": {
+                        "MetricName": {},
+                        "Namespace": {},
+                        "Dimensions": {
+                            "shape": "S16"
+                        },
+                        "Statistic": {},
+                        "Unit": {}
+                    }
+                },
+                "TargetValue": {
+                    "type": "double"
+                },
+                "DisableScaleIn": {
+                    "type": "boolean"
+                },
+                "ScaleOutCooldown": {
+                    "type": "integer"
+                },
+                "ScaleInCooldown": {
+                    "type": "integer"
+                },
+                "EstimatedInstanceWarmup": {
+                    "type": "integer"
+                }
+            }
+        },
+        "S16": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "Name",
+                    "Value"
+                ],
+                "members": {
+                    "Name": {},
+                    "Value": {}
+                }
+            }
+        },
+        "S1u": {
+            "type": "structure",
+            "members": {
+                "GlobalForecastInstructionCollectionIdentifier": {
+                    "type": "structure",
+                    "required": [
+                        "ServiceNamespace"
+                    ],
+                    "members": {
+                        "ServiceNamespace": {}
+                    },
+                    "internalonly": true
+                },
+                "AccountLevelForecastInstructionCollectionIdentifier": {
+                    "type": "structure",
+                    "required": [
+                        "ServiceNamespace",
+                        "AccountId"
+                    ],
+                    "members": {
+                        "ServiceNamespace": {},
+                        "AccountId": {
+                            "shape": "S1x"
+                        }
+                    },
+                    "internalonly": true
+                },
+                "ScalingPlanLevelForecastInstructionCollectionIdentifier": {
+                    "type": "structure",
+                    "required": [
+                        "ServiceNamespace",
+                        "AccountId",
+                        "ScalingPlanName",
+                        "ScalingPlanVersion",
+                        "ForecastInstructionCollectionPriorityLevel"
+                    ],
+                    "members": {
+                        "ServiceNamespace": {},
+                        "AccountId": {
+                            "shape": "S1x"
+                        },
+                        "ScalingPlanName": {},
+                        "ScalingPlanVersion": {
+                            "type": "long"
+                        },
+                        "ForecastInstructionCollectionPriorityLevel": {
+                            "type": "string",
+                            "internalonly": true
+                        }
+                    },
+                    "internalonly": true
+                }
+            },
+            "internalonly": true
+        },
+        "S1x": {
+            "type": "string",
+            "internalonly": true
+        },
+        "S2v": {
+            "type": "string",
+            "internalonly": true
+        },
+        "S2z": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "Timestamp": {
+                        "type": "timestamp"
+                    },
+                    "Value": {
+                        "type": "double"
+                    }
+                }
+            }
+        },
+        "S37": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "ServiceNamespace"
+                ],
+                "members": {
+                    "ServiceNamespace": {},
+                    "ResourceIdentifier": {},
+                    "CloudFormationStackResource": {
+                        "type": "structure",
+                        "required": [
+                            "CloudFormationResourceType",
+                            "CloudFormationPhysicalResourceId",
+                            "CloudFormationLogicalResourceId"
+                        ],
+                        "members": {
+                            "CloudFormationResourceType": {},
+                            "CloudFormationPhysicalResourceId": {},
+                            "CloudFormationLogicalResourceId": {}
+                        },
+                        "internalonly": true
+                    }
+                }
+            },
+            "internalonly": true
+        }
+    }
+}

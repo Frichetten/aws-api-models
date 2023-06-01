@@ -1,0 +1,3920 @@
+{
+    "version": "2.0",
+    "metadata": {
+        "apiVersion": "2020-03-31",
+        "endpointPrefix": "wellarchitected",
+        "jsonVersion": "1.1",
+        "protocol": "rest-json",
+        "serviceAbbreviation": "Well-Architected",
+        "serviceFullName": "AWS Well-Architected Tool",
+        "serviceId": "WellArchitected",
+        "signatureVersion": "v4",
+        "signingName": "wellarchitected",
+        "uid": "wellarchitected-2020-03-31",
+        "download_location": [
+            "https://a.b.cdn.console.awsstatic.com/a/v1/RTRSHM3VRXOQHPNKPCC2NPOYQ4RPMJ6ZRELTNXEARI54JB2USMRQ/vendors.js"
+        ]
+    },
+    "operations": {
+        "AssociateLenses": {
+            "http": {
+                "method": "PATCH",
+                "requestUri": "/workloads/{WorkloadId}/associateLenses"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "WorkloadId",
+                    "LensAliases"
+                ],
+                "members": {
+                    "WorkloadId": {
+                        "location": "uri",
+                        "locationName": "WorkloadId"
+                    },
+                    "LensAliases": {
+                        "shape": "S3"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/RTRSHM3VRXOQHPNKPCC2NPOYQ4RPMJ6ZRELTNXEARI54JB2USMRQ/vendors.js"
+            ]
+        },
+        "AssociateProfiles": {
+            "http": {
+                "method": "PATCH",
+                "requestUri": "/workloads/{WorkloadId}/associateProfiles"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "WorkloadId",
+                    "ProfileArns"
+                ],
+                "members": {
+                    "WorkloadId": {
+                        "location": "uri",
+                        "locationName": "WorkloadId"
+                    },
+                    "ProfileArns": {
+                        "shape": "S6"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/RTRSHM3VRXOQHPNKPCC2NPOYQ4RPMJ6ZRELTNXEARI54JB2USMRQ/vendors.js"
+            ]
+        },
+        "CreateLensShare": {
+            "http": {
+                "requestUri": "/lenses/{LensAlias}/shares"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "LensAlias",
+                    "SharedWith",
+                    "ClientRequestToken"
+                ],
+                "members": {
+                    "LensAlias": {
+                        "location": "uri",
+                        "locationName": "LensAlias"
+                    },
+                    "SharedWith": {},
+                    "ClientRequestToken": {
+                        "idempotencyToken": true
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ShareId": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/RTRSHM3VRXOQHPNKPCC2NPOYQ4RPMJ6ZRELTNXEARI54JB2USMRQ/vendors.js"
+            ]
+        },
+        "CreateLensVersion": {
+            "http": {
+                "requestUri": "/lenses/{LensAlias}/versions"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "LensAlias",
+                    "LensVersion",
+                    "ClientRequestToken"
+                ],
+                "members": {
+                    "LensAlias": {
+                        "location": "uri",
+                        "locationName": "LensAlias"
+                    },
+                    "LensVersion": {},
+                    "IsMajorVersion": {
+                        "type": "boolean"
+                    },
+                    "ClientRequestToken": {
+                        "idempotencyToken": true
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "LensArn": {},
+                    "LensVersion": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/RTRSHM3VRXOQHPNKPCC2NPOYQ4RPMJ6ZRELTNXEARI54JB2USMRQ/vendors.js"
+            ]
+        },
+        "CreateMilestone": {
+            "http": {
+                "requestUri": "/workloads/{WorkloadId}/milestones"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "WorkloadId",
+                    "MilestoneName",
+                    "ClientRequestToken"
+                ],
+                "members": {
+                    "WorkloadId": {
+                        "location": "uri",
+                        "locationName": "WorkloadId"
+                    },
+                    "MilestoneName": {},
+                    "ClientRequestToken": {
+                        "idempotencyToken": true
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "WorkloadId": {},
+                    "MilestoneNumber": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/RTRSHM3VRXOQHPNKPCC2NPOYQ4RPMJ6ZRELTNXEARI54JB2USMRQ/vendors.js"
+            ]
+        },
+        "CreateProfile": {
+            "http": {
+                "requestUri": "/profiles"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ProfileName",
+                    "ProfileDescription",
+                    "ProfileQuestions",
+                    "ClientRequestToken"
+                ],
+                "members": {
+                    "ProfileName": {},
+                    "ProfileDescription": {},
+                    "ProfileQuestions": {
+                        "shape": "Sp"
+                    },
+                    "ClientRequestToken": {
+                        "idempotencyToken": true
+                    },
+                    "Tags": {
+                        "shape": "Su"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ProfileArn": {},
+                    "ProfileVersion": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/RTRSHM3VRXOQHPNKPCC2NPOYQ4RPMJ6ZRELTNXEARI54JB2USMRQ/vendors.js"
+            ]
+        },
+        "CreateProfileShare": {
+            "http": {
+                "requestUri": "/profiles/{ProfileArn}/shares"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ProfileArn",
+                    "SharedWith",
+                    "ClientRequestToken"
+                ],
+                "members": {
+                    "ProfileArn": {
+                        "location": "uri",
+                        "locationName": "ProfileArn"
+                    },
+                    "SharedWith": {},
+                    "ClientRequestToken": {
+                        "idempotencyToken": true
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ShareId": {},
+                    "ProfileArn": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/RTRSHM3VRXOQHPNKPCC2NPOYQ4RPMJ6ZRELTNXEARI54JB2USMRQ/vendors.js"
+            ]
+        },
+        "CreateWorkload": {
+            "http": {
+                "requestUri": "/workloads"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "WorkloadName",
+                    "Description",
+                    "Environment",
+                    "Lenses",
+                    "ClientRequestToken"
+                ],
+                "members": {
+                    "WorkloadName": {},
+                    "Description": {},
+                    "Environment": {},
+                    "AccountIds": {
+                        "shape": "S15"
+                    },
+                    "AwsRegions": {
+                        "shape": "S17"
+                    },
+                    "NonAwsRegions": {
+                        "shape": "S19"
+                    },
+                    "PillarPriorities": {
+                        "shape": "S1b"
+                    },
+                    "ArchitecturalDesign": {},
+                    "Applications": {
+                        "shape": "S1e"
+                    },
+                    "ReviewOwner": {},
+                    "IndustryType": {},
+                    "Industry": {},
+                    "Lenses": {
+                        "shape": "S1j"
+                    },
+                    "Notes": {},
+                    "ClientRequestToken": {
+                        "idempotencyToken": true
+                    },
+                    "Tags": {
+                        "shape": "Su"
+                    },
+                    "TemplateVersions": {
+                        "type": "map",
+                        "key": {},
+                        "value": {
+                            "type": "integer"
+                        }
+                    },
+                    "DiscoveryConfig": {
+                        "shape": "S1o"
+                    },
+                    "ProfileArns": {
+                        "shape": "S1s"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "WorkloadId": {},
+                    "WorkloadArn": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/RTRSHM3VRXOQHPNKPCC2NPOYQ4RPMJ6ZRELTNXEARI54JB2USMRQ/vendors.js"
+            ]
+        },
+        "CreateWorkloadShare": {
+            "http": {
+                "requestUri": "/workloads/{WorkloadId}/shares"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "WorkloadId",
+                    "SharedWith",
+                    "PermissionType",
+                    "ClientRequestToken"
+                ],
+                "members": {
+                    "WorkloadId": {
+                        "location": "uri",
+                        "locationName": "WorkloadId"
+                    },
+                    "SharedWith": {},
+                    "PermissionType": {},
+                    "ClientRequestToken": {
+                        "idempotencyToken": true
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "WorkloadId": {},
+                    "ShareId": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/RTRSHM3VRXOQHPNKPCC2NPOYQ4RPMJ6ZRELTNXEARI54JB2USMRQ/vendors.js"
+            ]
+        },
+        "DeleteLens": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/lenses/{LensAlias}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "LensAlias",
+                    "ClientRequestToken",
+                    "LensStatus"
+                ],
+                "members": {
+                    "LensAlias": {
+                        "location": "uri",
+                        "locationName": "LensAlias"
+                    },
+                    "ClientRequestToken": {
+                        "idempotencyToken": true,
+                        "location": "querystring",
+                        "locationName": "ClientRequestToken"
+                    },
+                    "LensStatus": {
+                        "location": "querystring",
+                        "locationName": "LensStatus"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/RTRSHM3VRXOQHPNKPCC2NPOYQ4RPMJ6ZRELTNXEARI54JB2USMRQ/vendors.js"
+            ]
+        },
+        "DeleteLensShare": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/lenses/{LensAlias}/shares/{ShareId}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ShareId",
+                    "LensAlias",
+                    "ClientRequestToken"
+                ],
+                "members": {
+                    "ShareId": {
+                        "location": "uri",
+                        "locationName": "ShareId"
+                    },
+                    "LensAlias": {
+                        "location": "uri",
+                        "locationName": "LensAlias"
+                    },
+                    "ClientRequestToken": {
+                        "idempotencyToken": true,
+                        "location": "querystring",
+                        "locationName": "ClientRequestToken"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/RTRSHM3VRXOQHPNKPCC2NPOYQ4RPMJ6ZRELTNXEARI54JB2USMRQ/vendors.js"
+            ]
+        },
+        "DeleteProfile": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/profiles/{ProfileArn}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ProfileArn",
+                    "ClientRequestToken"
+                ],
+                "members": {
+                    "ProfileArn": {
+                        "location": "uri",
+                        "locationName": "ProfileArn"
+                    },
+                    "ClientRequestToken": {
+                        "idempotencyToken": true,
+                        "location": "querystring",
+                        "locationName": "ClientRequestToken"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/RTRSHM3VRXOQHPNKPCC2NPOYQ4RPMJ6ZRELTNXEARI54JB2USMRQ/vendors.js"
+            ]
+        },
+        "DeleteProfileShare": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/profiles/{ProfileArn}/shares/{ShareId}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ShareId",
+                    "ProfileArn",
+                    "ClientRequestToken"
+                ],
+                "members": {
+                    "ShareId": {
+                        "location": "uri",
+                        "locationName": "ShareId"
+                    },
+                    "ProfileArn": {
+                        "location": "uri",
+                        "locationName": "ProfileArn"
+                    },
+                    "ClientRequestToken": {
+                        "idempotencyToken": true,
+                        "location": "querystring",
+                        "locationName": "ClientRequestToken"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/RTRSHM3VRXOQHPNKPCC2NPOYQ4RPMJ6ZRELTNXEARI54JB2USMRQ/vendors.js"
+            ]
+        },
+        "DeleteWorkload": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/workloads/{WorkloadId}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "WorkloadId",
+                    "ClientRequestToken"
+                ],
+                "members": {
+                    "WorkloadId": {
+                        "location": "uri",
+                        "locationName": "WorkloadId"
+                    },
+                    "ClientRequestToken": {
+                        "idempotencyToken": true,
+                        "location": "querystring",
+                        "locationName": "ClientRequestToken"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/RTRSHM3VRXOQHPNKPCC2NPOYQ4RPMJ6ZRELTNXEARI54JB2USMRQ/vendors.js"
+            ]
+        },
+        "DeleteWorkloadShare": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/workloads/{WorkloadId}/shares/{ShareId}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ShareId",
+                    "WorkloadId",
+                    "ClientRequestToken"
+                ],
+                "members": {
+                    "ShareId": {
+                        "location": "uri",
+                        "locationName": "ShareId"
+                    },
+                    "WorkloadId": {
+                        "location": "uri",
+                        "locationName": "WorkloadId"
+                    },
+                    "ClientRequestToken": {
+                        "idempotencyToken": true,
+                        "location": "querystring",
+                        "locationName": "ClientRequestToken"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/RTRSHM3VRXOQHPNKPCC2NPOYQ4RPMJ6ZRELTNXEARI54JB2USMRQ/vendors.js"
+            ]
+        },
+        "DisassociateLenses": {
+            "http": {
+                "method": "PATCH",
+                "requestUri": "/workloads/{WorkloadId}/disassociateLenses"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "WorkloadId",
+                    "LensAliases"
+                ],
+                "members": {
+                    "WorkloadId": {
+                        "location": "uri",
+                        "locationName": "WorkloadId"
+                    },
+                    "LensAliases": {
+                        "shape": "S3"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/RTRSHM3VRXOQHPNKPCC2NPOYQ4RPMJ6ZRELTNXEARI54JB2USMRQ/vendors.js"
+            ]
+        },
+        "DisassociateProfiles": {
+            "http": {
+                "method": "PATCH",
+                "requestUri": "/workloads/{WorkloadId}/disassociateProfiles"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "WorkloadId",
+                    "ProfileArns"
+                ],
+                "members": {
+                    "WorkloadId": {
+                        "location": "uri",
+                        "locationName": "WorkloadId"
+                    },
+                    "ProfileArns": {
+                        "shape": "S6"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/RTRSHM3VRXOQHPNKPCC2NPOYQ4RPMJ6ZRELTNXEARI54JB2USMRQ/vendors.js"
+            ]
+        },
+        "ExportLens": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/lenses/{LensAlias}/export"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "LensAlias"
+                ],
+                "members": {
+                    "LensAlias": {
+                        "location": "uri",
+                        "locationName": "LensAlias"
+                    },
+                    "LensVersion": {
+                        "location": "querystring",
+                        "locationName": "LensVersion"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "LensJSON": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/RTRSHM3VRXOQHPNKPCC2NPOYQ4RPMJ6ZRELTNXEARI54JB2USMRQ/vendors.js"
+            ]
+        },
+        "GetAnswer": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/workloads/{WorkloadId}/lensReviews/{LensAlias}/answers/{QuestionId}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "WorkloadId",
+                    "LensAlias",
+                    "QuestionId"
+                ],
+                "members": {
+                    "WorkloadId": {
+                        "location": "uri",
+                        "locationName": "WorkloadId"
+                    },
+                    "LensAlias": {
+                        "location": "uri",
+                        "locationName": "LensAlias"
+                    },
+                    "QuestionId": {
+                        "location": "uri",
+                        "locationName": "QuestionId"
+                    },
+                    "MilestoneNumber": {
+                        "location": "querystring",
+                        "locationName": "MilestoneNumber",
+                        "type": "integer"
+                    },
+                    "Locale": {
+                        "location": "querystring",
+                        "locationName": "Locale"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "WorkloadId": {},
+                    "MilestoneNumber": {
+                        "type": "integer"
+                    },
+                    "LensAlias": {},
+                    "LensArn": {},
+                    "Answer": {
+                        "shape": "S2d"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/RTRSHM3VRXOQHPNKPCC2NPOYQ4RPMJ6ZRELTNXEARI54JB2USMRQ/vendors.js"
+            ]
+        },
+        "GetConsolidatedReport": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/consolidatedReport"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "Format"
+                ],
+                "members": {
+                    "Format": {
+                        "location": "querystring",
+                        "locationName": "Format"
+                    },
+                    "IncludeSharedResources": {
+                        "location": "querystring",
+                        "locationName": "IncludeSharedResources",
+                        "type": "boolean"
+                    },
+                    "MaxResults": {
+                        "location": "querystring",
+                        "locationName": "MaxResults",
+                        "type": "integer"
+                    },
+                    "NextToken": {
+                        "location": "querystring",
+                        "locationName": "NextToken"
+                    },
+                    "Locale": {
+                        "location": "querystring",
+                        "locationName": "Locale"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Metrics": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "MetricType": {},
+                                "RiskCounts": {
+                                    "shape": "S3d"
+                                },
+                                "WorkloadId": {},
+                                "WorkloadName": {},
+                                "WorkloadArn": {},
+                                "UpdatedAt": {
+                                    "type": "timestamp"
+                                },
+                                "LensesAppliedCount": {
+                                    "type": "integer"
+                                },
+                                "Lenses": {
+                                    "type": "list",
+                                    "member": {
+                                        "type": "structure",
+                                        "members": {
+                                            "LensVersion": {},
+                                            "LensArn": {},
+                                            "Pillars": {
+                                                "type": "list",
+                                                "member": {
+                                                    "type": "structure",
+                                                    "members": {
+                                                        "PillarId": {},
+                                                        "RiskCounts": {
+                                                            "shape": "S3d"
+                                                        },
+                                                        "Questions": {
+                                                            "type": "list",
+                                                            "member": {
+                                                                "type": "structure",
+                                                                "members": {
+                                                                    "QuestionId": {},
+                                                                    "QuestionLabel": {},
+                                                                    "Risk": {},
+                                                                    "BestPractices": {
+                                                                        "type": "list",
+                                                                        "member": {
+                                                                            "type": "structure",
+                                                                            "members": {
+                                                                                "ChoiceId": {},
+                                                                                "ChoiceTitle": {}
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "RiskCounts": {
+                                                "shape": "S3d"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "NextToken": {},
+                    "Base64String": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/RTRSHM3VRXOQHPNKPCC2NPOYQ4RPMJ6ZRELTNXEARI54JB2USMRQ/vendors.js"
+            ]
+        },
+        "GetLens": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/lenses/{LensAlias}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "LensAlias"
+                ],
+                "members": {
+                    "LensAlias": {
+                        "location": "uri",
+                        "locationName": "LensAlias"
+                    },
+                    "LensVersion": {
+                        "location": "querystring",
+                        "locationName": "LensVersion"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Lens": {
+                        "type": "structure",
+                        "members": {
+                            "LensArn": {},
+                            "LensVersion": {},
+                            "Name": {},
+                            "Description": {},
+                            "Owner": {},
+                            "ShareInvitationId": {},
+                            "Tags": {
+                                "shape": "Su"
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/RTRSHM3VRXOQHPNKPCC2NPOYQ4RPMJ6ZRELTNXEARI54JB2USMRQ/vendors.js"
+            ]
+        },
+        "GetLensReview": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/workloads/{WorkloadId}/lensReviews/{LensAlias}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "WorkloadId",
+                    "LensAlias"
+                ],
+                "members": {
+                    "WorkloadId": {
+                        "location": "uri",
+                        "locationName": "WorkloadId"
+                    },
+                    "LensAlias": {
+                        "location": "uri",
+                        "locationName": "LensAlias"
+                    },
+                    "MilestoneNumber": {
+                        "location": "querystring",
+                        "locationName": "MilestoneNumber",
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "WorkloadId": {},
+                    "MilestoneNumber": {
+                        "type": "integer"
+                    },
+                    "LensReview": {
+                        "shape": "S40"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/RTRSHM3VRXOQHPNKPCC2NPOYQ4RPMJ6ZRELTNXEARI54JB2USMRQ/vendors.js"
+            ]
+        },
+        "GetLensReviewReport": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/workloads/{WorkloadId}/lensReviews/{LensAlias}/report"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "WorkloadId",
+                    "LensAlias"
+                ],
+                "members": {
+                    "WorkloadId": {
+                        "location": "uri",
+                        "locationName": "WorkloadId"
+                    },
+                    "LensAlias": {
+                        "location": "uri",
+                        "locationName": "LensAlias"
+                    },
+                    "MilestoneNumber": {
+                        "location": "querystring",
+                        "locationName": "MilestoneNumber",
+                        "type": "integer"
+                    },
+                    "Locale": {
+                        "location": "querystring",
+                        "locationName": "Locale"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "WorkloadId": {},
+                    "MilestoneNumber": {
+                        "type": "integer"
+                    },
+                    "LensReviewReport": {
+                        "type": "structure",
+                        "members": {
+                            "LensAlias": {},
+                            "LensArn": {},
+                            "Base64String": {}
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/RTRSHM3VRXOQHPNKPCC2NPOYQ4RPMJ6ZRELTNXEARI54JB2USMRQ/vendors.js"
+            ]
+        },
+        "GetLensVersionDifference": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/lenses/{LensAlias}/versionDifference"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "LensAlias"
+                ],
+                "members": {
+                    "LensAlias": {
+                        "location": "uri",
+                        "locationName": "LensAlias"
+                    },
+                    "BaseLensVersion": {
+                        "location": "querystring",
+                        "locationName": "BaseLensVersion"
+                    },
+                    "TargetLensVersion": {
+                        "location": "querystring",
+                        "locationName": "TargetLensVersion"
+                    },
+                    "Locale": {
+                        "location": "querystring",
+                        "locationName": "Locale"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "LensAlias": {},
+                    "LensArn": {},
+                    "BaseLensVersion": {},
+                    "TargetLensVersion": {},
+                    "LatestLensVersion": {},
+                    "VersionDifferences": {
+                        "type": "structure",
+                        "members": {
+                            "PillarDifferences": {
+                                "type": "list",
+                                "member": {
+                                    "type": "structure",
+                                    "members": {
+                                        "PillarId": {},
+                                        "PillarName": {},
+                                        "DifferenceStatus": {},
+                                        "QuestionDifferences": {
+                                            "type": "list",
+                                            "member": {
+                                                "type": "structure",
+                                                "members": {
+                                                    "QuestionId": {},
+                                                    "QuestionTitle": {},
+                                                    "DifferenceStatus": {}
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/RTRSHM3VRXOQHPNKPCC2NPOYQ4RPMJ6ZRELTNXEARI54JB2USMRQ/vendors.js"
+            ]
+        },
+        "GetMilestone": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/workloads/{WorkloadId}/milestones/{MilestoneNumber}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "WorkloadId",
+                    "MilestoneNumber"
+                ],
+                "members": {
+                    "WorkloadId": {
+                        "location": "uri",
+                        "locationName": "WorkloadId"
+                    },
+                    "MilestoneNumber": {
+                        "location": "uri",
+                        "locationName": "MilestoneNumber",
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "WorkloadId": {},
+                    "Milestone": {
+                        "type": "structure",
+                        "members": {
+                            "MilestoneNumber": {
+                                "type": "integer"
+                            },
+                            "MilestoneName": {},
+                            "RecordedAt": {
+                                "type": "timestamp"
+                            },
+                            "Workload": {
+                                "shape": "S4j"
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/RTRSHM3VRXOQHPNKPCC2NPOYQ4RPMJ6ZRELTNXEARI54JB2USMRQ/vendors.js"
+            ]
+        },
+        "GetProfile": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/profiles/{ProfileArn}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ProfileArn"
+                ],
+                "members": {
+                    "ProfileArn": {
+                        "location": "uri",
+                        "locationName": "ProfileArn"
+                    },
+                    "ProfileVersion": {
+                        "location": "querystring",
+                        "locationName": "ProfileVersion"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Profile": {
+                        "shape": "S4r"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/RTRSHM3VRXOQHPNKPCC2NPOYQ4RPMJ6ZRELTNXEARI54JB2USMRQ/vendors.js"
+            ]
+        },
+        "GetWorkload": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/workloads/{WorkloadId}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "WorkloadId"
+                ],
+                "members": {
+                    "WorkloadId": {
+                        "location": "uri",
+                        "locationName": "WorkloadId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Workload": {
+                        "shape": "S4j"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/RTRSHM3VRXOQHPNKPCC2NPOYQ4RPMJ6ZRELTNXEARI54JB2USMRQ/vendors.js"
+            ]
+        },
+        "ImportLens": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/importLens"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "JSONString",
+                    "ClientRequestToken"
+                ],
+                "members": {
+                    "LensAlias": {},
+                    "JSONString": {},
+                    "ClientRequestToken": {
+                        "idempotencyToken": true
+                    },
+                    "Tags": {
+                        "shape": "Su"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "LensArn": {},
+                    "Status": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/RTRSHM3VRXOQHPNKPCC2NPOYQ4RPMJ6ZRELTNXEARI54JB2USMRQ/vendors.js"
+            ]
+        },
+        "ListAnswers": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/workloads/{WorkloadId}/lensReviews/{LensAlias}/answers"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "WorkloadId",
+                    "LensAlias"
+                ],
+                "members": {
+                    "WorkloadId": {
+                        "location": "uri",
+                        "locationName": "WorkloadId"
+                    },
+                    "LensAlias": {
+                        "location": "uri",
+                        "locationName": "LensAlias"
+                    },
+                    "PillarId": {
+                        "location": "querystring",
+                        "locationName": "PillarId"
+                    },
+                    "MilestoneNumber": {
+                        "location": "querystring",
+                        "locationName": "MilestoneNumber",
+                        "type": "integer"
+                    },
+                    "NextToken": {
+                        "location": "querystring",
+                        "locationName": "NextToken"
+                    },
+                    "MaxResults": {
+                        "location": "querystring",
+                        "locationName": "MaxResults",
+                        "type": "integer"
+                    },
+                    "QuestionPriority": {
+                        "location": "querystring",
+                        "locationName": "QuestionPriority"
+                    },
+                    "Locale": {
+                        "location": "querystring",
+                        "locationName": "Locale"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "WorkloadId": {},
+                    "MilestoneNumber": {
+                        "type": "integer"
+                    },
+                    "LensAlias": {},
+                    "LensArn": {},
+                    "AnswerSummaries": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "QuestionId": {},
+                                "PillarId": {},
+                                "QuestionTitle": {},
+                                "Choices": {
+                                    "shape": "S2j"
+                                },
+                                "SelectedChoices": {
+                                    "shape": "S2u"
+                                },
+                                "ChoiceAnswerSummaries": {
+                                    "type": "list",
+                                    "member": {
+                                        "type": "structure",
+                                        "members": {
+                                            "ChoiceId": {},
+                                            "Status": {},
+                                            "Reason": {}
+                                        }
+                                    }
+                                },
+                                "Status": {},
+                                "IsApplicable": {
+                                    "type": "boolean"
+                                },
+                                "Risk": {},
+                                "Reason": {}
+                            }
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/RTRSHM3VRXOQHPNKPCC2NPOYQ4RPMJ6ZRELTNXEARI54JB2USMRQ/vendors.js"
+            ]
+        },
+        "ListCheckDetails": {
+            "http": {
+                "requestUri": "/workloads/{WorkloadId}/checks"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "WorkloadId",
+                    "LensArn",
+                    "PillarId",
+                    "QuestionId",
+                    "ChoiceId"
+                ],
+                "members": {
+                    "WorkloadId": {
+                        "location": "uri",
+                        "locationName": "WorkloadId"
+                    },
+                    "NextToken": {},
+                    "MaxResults": {
+                        "type": "integer"
+                    },
+                    "LensArn": {},
+                    "PillarId": {},
+                    "QuestionId": {},
+                    "ChoiceId": {},
+                    "Locale": {
+                        "location": "querystring",
+                        "locationName": "Locale"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "CheckDetails": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "Id": {},
+                                "Name": {},
+                                "Description": {},
+                                "Provider": {},
+                                "LensArn": {},
+                                "PillarId": {},
+                                "QuestionId": {},
+                                "ChoiceId": {},
+                                "Status": {},
+                                "AccountId": {},
+                                "FlaggedResources": {
+                                    "type": "integer"
+                                },
+                                "Reason": {},
+                                "UpdatedAt": {
+                                    "type": "timestamp"
+                                }
+                            }
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/RTRSHM3VRXOQHPNKPCC2NPOYQ4RPMJ6ZRELTNXEARI54JB2USMRQ/vendors.js"
+            ]
+        },
+        "ListCheckSummaries": {
+            "http": {
+                "requestUri": "/workloads/{WorkloadId}/checkSummaries"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "WorkloadId",
+                    "LensArn",
+                    "PillarId",
+                    "QuestionId",
+                    "ChoiceId"
+                ],
+                "members": {
+                    "WorkloadId": {
+                        "location": "uri",
+                        "locationName": "WorkloadId"
+                    },
+                    "NextToken": {},
+                    "MaxResults": {
+                        "type": "integer"
+                    },
+                    "LensArn": {},
+                    "PillarId": {},
+                    "QuestionId": {},
+                    "ChoiceId": {},
+                    "Locale": {
+                        "location": "querystring",
+                        "locationName": "Locale"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "CheckSummaries": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "Id": {},
+                                "Name": {},
+                                "Provider": {},
+                                "Description": {},
+                                "UpdatedAt": {
+                                    "type": "timestamp"
+                                },
+                                "LensArn": {},
+                                "PillarId": {},
+                                "QuestionId": {},
+                                "ChoiceId": {},
+                                "Status": {},
+                                "AccountSummary": {
+                                    "type": "map",
+                                    "key": {},
+                                    "value": {
+                                        "type": "integer"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/RTRSHM3VRXOQHPNKPCC2NPOYQ4RPMJ6ZRELTNXEARI54JB2USMRQ/vendors.js"
+            ]
+        },
+        "ListLensReviewImprovements": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/workloads/{WorkloadId}/lensReviews/{LensAlias}/improvements"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "WorkloadId",
+                    "LensAlias"
+                ],
+                "members": {
+                    "WorkloadId": {
+                        "location": "uri",
+                        "locationName": "WorkloadId"
+                    },
+                    "LensAlias": {
+                        "location": "uri",
+                        "locationName": "LensAlias"
+                    },
+                    "PillarId": {
+                        "location": "querystring",
+                        "locationName": "PillarId"
+                    },
+                    "MilestoneNumber": {
+                        "location": "querystring",
+                        "locationName": "MilestoneNumber",
+                        "type": "integer"
+                    },
+                    "NextToken": {
+                        "location": "querystring",
+                        "locationName": "NextToken"
+                    },
+                    "MaxResults": {
+                        "location": "querystring",
+                        "locationName": "MaxResults",
+                        "type": "integer"
+                    },
+                    "QuestionPriority": {
+                        "location": "querystring",
+                        "locationName": "QuestionPriority"
+                    },
+                    "Locale": {
+                        "location": "querystring",
+                        "locationName": "Locale"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "WorkloadId": {},
+                    "MilestoneNumber": {
+                        "type": "integer"
+                    },
+                    "LensAlias": {},
+                    "LensArn": {},
+                    "ImprovementSummaries": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "QuestionId": {},
+                                "PillarId": {},
+                                "QuestionTitle": {},
+                                "Risk": {},
+                                "ImprovementPlanUrl": {},
+                                "ImprovementPlans": {
+                                    "type": "list",
+                                    "member": {
+                                        "type": "structure",
+                                        "members": {
+                                            "ChoiceId": {},
+                                            "DisplayText": {},
+                                            "ImprovementPlanUrl": {}
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/RTRSHM3VRXOQHPNKPCC2NPOYQ4RPMJ6ZRELTNXEARI54JB2USMRQ/vendors.js"
+            ]
+        },
+        "ListLensReviews": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/workloads/{WorkloadId}/lensReviews"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "WorkloadId"
+                ],
+                "members": {
+                    "WorkloadId": {
+                        "location": "uri",
+                        "locationName": "WorkloadId"
+                    },
+                    "MilestoneNumber": {
+                        "location": "querystring",
+                        "locationName": "MilestoneNumber",
+                        "type": "integer"
+                    },
+                    "NextToken": {
+                        "location": "querystring",
+                        "locationName": "NextToken"
+                    },
+                    "MaxResults": {
+                        "location": "querystring",
+                        "locationName": "MaxResults",
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "WorkloadId": {},
+                    "MilestoneNumber": {
+                        "type": "integer"
+                    },
+                    "LensReviewSummaries": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "LensAlias": {},
+                                "LensArn": {},
+                                "LensVersion": {},
+                                "LensName": {},
+                                "LensStatus": {},
+                                "UpdatedAt": {
+                                    "type": "timestamp"
+                                },
+                                "RiskCounts": {
+                                    "shape": "S3d"
+                                },
+                                "ProfileArns": {
+                                    "shape": "S1s"
+                                },
+                                "PrioritizedRiskCounts": {
+                                    "shape": "S3d"
+                                }
+                            }
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/RTRSHM3VRXOQHPNKPCC2NPOYQ4RPMJ6ZRELTNXEARI54JB2USMRQ/vendors.js"
+            ]
+        },
+        "ListLensShares": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/lenses/{LensAlias}/shares"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "LensAlias"
+                ],
+                "members": {
+                    "LensAlias": {
+                        "location": "uri",
+                        "locationName": "LensAlias"
+                    },
+                    "SharedWithPrefix": {
+                        "location": "querystring",
+                        "locationName": "SharedWithPrefix"
+                    },
+                    "NextToken": {
+                        "location": "querystring",
+                        "locationName": "NextToken"
+                    },
+                    "MaxResults": {
+                        "location": "querystring",
+                        "locationName": "MaxResults",
+                        "type": "integer"
+                    },
+                    "Status": {
+                        "location": "querystring",
+                        "locationName": "Status"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "LensShareSummaries": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "ShareId": {},
+                                "SharedWith": {},
+                                "Status": {},
+                                "StatusMessage": {}
+                            }
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/RTRSHM3VRXOQHPNKPCC2NPOYQ4RPMJ6ZRELTNXEARI54JB2USMRQ/vendors.js"
+            ]
+        },
+        "ListLenses": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/lenses"
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "NextToken": {
+                        "location": "querystring",
+                        "locationName": "NextToken"
+                    },
+                    "MaxResults": {
+                        "location": "querystring",
+                        "locationName": "MaxResults",
+                        "type": "integer"
+                    },
+                    "LensType": {
+                        "location": "querystring",
+                        "locationName": "LensType"
+                    },
+                    "LensStatus": {
+                        "location": "querystring",
+                        "locationName": "LensStatus"
+                    },
+                    "LensName": {
+                        "location": "querystring",
+                        "locationName": "LensName"
+                    },
+                    "Locale": {
+                        "location": "querystring",
+                        "locationName": "Locale"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "LensSummaries": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "LensArn": {},
+                                "LensAlias": {},
+                                "LensName": {},
+                                "LensType": {},
+                                "Description": {},
+                                "CreatedAt": {
+                                    "type": "timestamp"
+                                },
+                                "UpdatedAt": {
+                                    "type": "timestamp"
+                                },
+                                "LensVersion": {},
+                                "Owner": {},
+                                "LensStatus": {}
+                            }
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/RTRSHM3VRXOQHPNKPCC2NPOYQ4RPMJ6ZRELTNXEARI54JB2USMRQ/vendors.js"
+            ]
+        },
+        "ListMilestones": {
+            "http": {
+                "requestUri": "/workloads/{WorkloadId}/milestonesSummaries"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "WorkloadId"
+                ],
+                "members": {
+                    "WorkloadId": {
+                        "location": "uri",
+                        "locationName": "WorkloadId"
+                    },
+                    "NextToken": {},
+                    "MaxResults": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "WorkloadId": {},
+                    "MilestoneSummaries": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "MilestoneNumber": {
+                                    "type": "integer"
+                                },
+                                "MilestoneName": {},
+                                "RecordedAt": {
+                                    "type": "timestamp"
+                                },
+                                "WorkloadSummary": {
+                                    "shape": "S6m"
+                                }
+                            }
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/RTRSHM3VRXOQHPNKPCC2NPOYQ4RPMJ6ZRELTNXEARI54JB2USMRQ/vendors.js"
+            ]
+        },
+        "ListNotifications": {
+            "http": {
+                "requestUri": "/notifications"
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "WorkloadId": {},
+                    "NextToken": {},
+                    "MaxResults": {
+                        "type": "integer"
+                    },
+                    "WorkloadNamePrefix": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "NotificationSummaries": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "Type": {},
+                                "LensUpgradeSummary": {
+                                    "type": "structure",
+                                    "members": {
+                                        "WorkloadId": {},
+                                        "WorkloadName": {},
+                                        "LensAlias": {},
+                                        "LensArn": {},
+                                        "LensName": {},
+                                        "CurrentLensVersion": {},
+                                        "LatestLensVersion": {}
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/RTRSHM3VRXOQHPNKPCC2NPOYQ4RPMJ6ZRELTNXEARI54JB2USMRQ/vendors.js"
+            ]
+        },
+        "ListProfileNotifications": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/profileNotifications"
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "WorkloadId": {
+                        "location": "querystring",
+                        "locationName": "WorkloadId"
+                    },
+                    "NextToken": {
+                        "location": "querystring",
+                        "locationName": "NextToken"
+                    },
+                    "MaxResults": {
+                        "location": "querystring",
+                        "locationName": "MaxResults",
+                        "type": "integer"
+                    },
+                    "WorkloadNamePrefix": {
+                        "location": "querystring",
+                        "locationName": "WorkloadNamePrefix"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "NotificationSummaries": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "CurrentProfileVersion": {},
+                                "LatestProfileVersion": {},
+                                "Type": {},
+                                "ProfileArn": {},
+                                "ProfileName": {},
+                                "WorkloadId": {},
+                                "WorkloadName": {}
+                            }
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/RTRSHM3VRXOQHPNKPCC2NPOYQ4RPMJ6ZRELTNXEARI54JB2USMRQ/vendors.js"
+            ]
+        },
+        "ListProfileShares": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/profiles/{ProfileArn}/shares"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ProfileArn"
+                ],
+                "members": {
+                    "ProfileArn": {
+                        "location": "uri",
+                        "locationName": "ProfileArn"
+                    },
+                    "SharedWithPrefix": {
+                        "location": "querystring",
+                        "locationName": "SharedWithPrefix"
+                    },
+                    "NextToken": {
+                        "location": "querystring",
+                        "locationName": "NextToken"
+                    },
+                    "MaxResults": {
+                        "location": "querystring",
+                        "locationName": "MaxResults",
+                        "type": "integer"
+                    },
+                    "Status": {
+                        "location": "querystring",
+                        "locationName": "Status"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ProfileShareSummaries": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "ShareId": {},
+                                "SharedWith": {},
+                                "Status": {},
+                                "StatusMessage": {}
+                            }
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/RTRSHM3VRXOQHPNKPCC2NPOYQ4RPMJ6ZRELTNXEARI54JB2USMRQ/vendors.js"
+            ]
+        },
+        "ListProfiles": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/profileSummaries"
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "ProfileNamePrefix": {
+                        "location": "querystring",
+                        "locationName": "ProfileNamePrefix"
+                    },
+                    "ProfileOwnerType": {
+                        "location": "querystring",
+                        "locationName": "ProfileOwnerType"
+                    },
+                    "NextToken": {
+                        "location": "querystring",
+                        "locationName": "NextToken"
+                    },
+                    "MaxResults": {
+                        "location": "querystring",
+                        "locationName": "MaxResults",
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ProfileSummaries": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "ProfileArn": {},
+                                "ProfileVersion": {},
+                                "ProfileName": {},
+                                "ProfileDescription": {},
+                                "Owner": {},
+                                "CreatedAt": {
+                                    "type": "timestamp"
+                                },
+                                "UpdatedAt": {
+                                    "type": "timestamp"
+                                }
+                            }
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/RTRSHM3VRXOQHPNKPCC2NPOYQ4RPMJ6ZRELTNXEARI54JB2USMRQ/vendors.js"
+            ]
+        },
+        "ListShareInvitations": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/shareInvitations"
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "WorkloadNamePrefix": {
+                        "location": "querystring",
+                        "locationName": "WorkloadNamePrefix"
+                    },
+                    "LensNamePrefix": {
+                        "location": "querystring",
+                        "locationName": "LensNamePrefix"
+                    },
+                    "ShareResourceType": {
+                        "location": "querystring",
+                        "locationName": "ShareResourceType"
+                    },
+                    "NextToken": {
+                        "location": "querystring",
+                        "locationName": "NextToken"
+                    },
+                    "MaxResults": {
+                        "location": "querystring",
+                        "locationName": "MaxResults",
+                        "type": "integer"
+                    },
+                    "ProfileNamePrefix": {
+                        "location": "querystring",
+                        "locationName": "ProfileNamePrefix"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ShareInvitationSummaries": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "ShareInvitationId": {},
+                                "SharedBy": {},
+                                "SharedWith": {},
+                                "PermissionType": {},
+                                "ShareResourceType": {},
+                                "WorkloadName": {},
+                                "WorkloadId": {},
+                                "LensName": {},
+                                "LensArn": {},
+                                "ProfileName": {},
+                                "ProfileArn": {}
+                            }
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/RTRSHM3VRXOQHPNKPCC2NPOYQ4RPMJ6ZRELTNXEARI54JB2USMRQ/vendors.js"
+            ]
+        },
+        "ListTagsForResource": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/tags/{WorkloadArn}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "WorkloadArn"
+                ],
+                "members": {
+                    "WorkloadArn": {
+                        "location": "uri",
+                        "locationName": "WorkloadArn"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Tags": {
+                        "shape": "Su"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/RTRSHM3VRXOQHPNKPCC2NPOYQ4RPMJ6ZRELTNXEARI54JB2USMRQ/vendors.js"
+            ]
+        },
+        "ListWorkloadShares": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/workloads/{WorkloadId}/shares"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "WorkloadId"
+                ],
+                "members": {
+                    "WorkloadId": {
+                        "location": "uri",
+                        "locationName": "WorkloadId"
+                    },
+                    "SharedWithPrefix": {
+                        "location": "querystring",
+                        "locationName": "SharedWithPrefix"
+                    },
+                    "NextToken": {
+                        "location": "querystring",
+                        "locationName": "NextToken"
+                    },
+                    "MaxResults": {
+                        "location": "querystring",
+                        "locationName": "MaxResults",
+                        "type": "integer"
+                    },
+                    "Status": {
+                        "location": "querystring",
+                        "locationName": "Status"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "WorkloadId": {},
+                    "WorkloadShareSummaries": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "ShareId": {},
+                                "SharedWith": {},
+                                "PermissionType": {},
+                                "Status": {},
+                                "StatusMessage": {}
+                            }
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/RTRSHM3VRXOQHPNKPCC2NPOYQ4RPMJ6ZRELTNXEARI54JB2USMRQ/vendors.js"
+            ]
+        },
+        "ListWorkloads": {
+            "http": {
+                "requestUri": "/workloadsSummaries"
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "WorkloadNamePrefix": {},
+                    "NextToken": {},
+                    "MaxResults": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "WorkloadSummaries": {
+                        "type": "list",
+                        "member": {
+                            "shape": "S6m"
+                        }
+                    },
+                    "NextToken": {},
+                    "IsDiscoveryEnabled": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/RTRSHM3VRXOQHPNKPCC2NPOYQ4RPMJ6ZRELTNXEARI54JB2USMRQ/vendors.js"
+            ]
+        },
+        "TagResource": {
+            "http": {
+                "requestUri": "/tags/{WorkloadArn}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "WorkloadArn",
+                    "Tags"
+                ],
+                "members": {
+                    "WorkloadArn": {
+                        "location": "uri",
+                        "locationName": "WorkloadArn"
+                    },
+                    "Tags": {
+                        "shape": "Su"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/RTRSHM3VRXOQHPNKPCC2NPOYQ4RPMJ6ZRELTNXEARI54JB2USMRQ/vendors.js"
+            ]
+        },
+        "UntagResource": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/tags/{WorkloadArn}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "WorkloadArn",
+                    "TagKeys"
+                ],
+                "members": {
+                    "WorkloadArn": {
+                        "location": "uri",
+                        "locationName": "WorkloadArn"
+                    },
+                    "TagKeys": {
+                        "location": "querystring",
+                        "locationName": "tagKeys",
+                        "type": "list",
+                        "member": {}
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/RTRSHM3VRXOQHPNKPCC2NPOYQ4RPMJ6ZRELTNXEARI54JB2USMRQ/vendors.js"
+            ]
+        },
+        "UpdateAnswer": {
+            "http": {
+                "method": "PATCH",
+                "requestUri": "/workloads/{WorkloadId}/lensReviews/{LensAlias}/answers/{QuestionId}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "WorkloadId",
+                    "LensAlias",
+                    "QuestionId"
+                ],
+                "members": {
+                    "WorkloadId": {
+                        "location": "uri",
+                        "locationName": "WorkloadId"
+                    },
+                    "LensAlias": {
+                        "location": "uri",
+                        "locationName": "LensAlias"
+                    },
+                    "QuestionId": {
+                        "location": "uri",
+                        "locationName": "QuestionId"
+                    },
+                    "SelectedChoices": {
+                        "shape": "S2u"
+                    },
+                    "ChoiceUpdates": {
+                        "type": "map",
+                        "key": {},
+                        "value": {
+                            "type": "structure",
+                            "required": [
+                                "Status"
+                            ],
+                            "members": {
+                                "Status": {},
+                                "Reason": {},
+                                "Notes": {}
+                            }
+                        }
+                    },
+                    "Status": {},
+                    "Notes": {},
+                    "IsApplicable": {
+                        "type": "boolean"
+                    },
+                    "Reason": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "WorkloadId": {},
+                    "LensAlias": {},
+                    "LensArn": {},
+                    "Answer": {
+                        "shape": "S2d"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/RTRSHM3VRXOQHPNKPCC2NPOYQ4RPMJ6ZRELTNXEARI54JB2USMRQ/vendors.js"
+            ]
+        },
+        "UpdateGlobalSettings": {
+            "http": {
+                "method": "PATCH",
+                "requestUri": "/global-settings"
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "OrganizationSharingStatus": {},
+                    "DiscoveryIntegrationStatus": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/RTRSHM3VRXOQHPNKPCC2NPOYQ4RPMJ6ZRELTNXEARI54JB2USMRQ/vendors.js"
+            ]
+        },
+        "UpdateLensReview": {
+            "http": {
+                "method": "PATCH",
+                "requestUri": "/workloads/{WorkloadId}/lensReviews/{LensAlias}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "WorkloadId",
+                    "LensAlias"
+                ],
+                "members": {
+                    "WorkloadId": {
+                        "location": "uri",
+                        "locationName": "WorkloadId"
+                    },
+                    "LensAlias": {
+                        "location": "uri",
+                        "locationName": "LensAlias"
+                    },
+                    "LensNotes": {},
+                    "PillarNotes": {
+                        "type": "map",
+                        "key": {},
+                        "value": {}
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "WorkloadId": {},
+                    "LensReview": {
+                        "shape": "S40"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/RTRSHM3VRXOQHPNKPCC2NPOYQ4RPMJ6ZRELTNXEARI54JB2USMRQ/vendors.js"
+            ]
+        },
+        "UpdateProfile": {
+            "http": {
+                "method": "PATCH",
+                "requestUri": "/profiles/{ProfileArn}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ProfileArn"
+                ],
+                "members": {
+                    "ProfileArn": {
+                        "location": "uri",
+                        "locationName": "ProfileArn"
+                    },
+                    "ProfileName": {},
+                    "ProfileDescription": {},
+                    "ProfileQuestions": {
+                        "shape": "Sp"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Profile": {
+                        "shape": "S4r"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/RTRSHM3VRXOQHPNKPCC2NPOYQ4RPMJ6ZRELTNXEARI54JB2USMRQ/vendors.js"
+            ]
+        },
+        "UpdateShareInvitation": {
+            "http": {
+                "method": "PATCH",
+                "requestUri": "/shareInvitations/{ShareInvitationId}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ShareInvitationId",
+                    "ShareInvitationAction"
+                ],
+                "members": {
+                    "ShareInvitationId": {
+                        "location": "uri",
+                        "locationName": "ShareInvitationId"
+                    },
+                    "ShareInvitationAction": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ShareInvitation": {
+                        "type": "structure",
+                        "members": {
+                            "ShareInvitationId": {},
+                            "ShareResourceType": {},
+                            "WorkloadId": {},
+                            "LensAlias": {},
+                            "LensArn": {},
+                            "ProfileArn": {}
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/RTRSHM3VRXOQHPNKPCC2NPOYQ4RPMJ6ZRELTNXEARI54JB2USMRQ/vendors.js"
+            ]
+        },
+        "UpdateWorkload": {
+            "http": {
+                "method": "PATCH",
+                "requestUri": "/workloads/{WorkloadId}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "WorkloadId"
+                ],
+                "members": {
+                    "WorkloadId": {
+                        "location": "uri",
+                        "locationName": "WorkloadId"
+                    },
+                    "WorkloadName": {},
+                    "Description": {},
+                    "Environment": {},
+                    "AccountIds": {
+                        "shape": "S15"
+                    },
+                    "AwsRegions": {
+                        "shape": "S17"
+                    },
+                    "NonAwsRegions": {
+                        "shape": "S19"
+                    },
+                    "PillarPriorities": {
+                        "shape": "S1b"
+                    },
+                    "ArchitecturalDesign": {},
+                    "ReviewOwner": {},
+                    "IsReviewOwnerUpdateAcknowledged": {
+                        "type": "boolean"
+                    },
+                    "IndustryType": {},
+                    "Industry": {},
+                    "Notes": {},
+                    "ImprovementStatus": {},
+                    "DiscoveryConfig": {
+                        "shape": "S1o"
+                    },
+                    "Applications": {
+                        "shape": "S1e"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Workload": {
+                        "type": "structure",
+                        "members": {
+                            "WorkloadId": {},
+                            "WorkloadArn": {},
+                            "WorkloadName": {},
+                            "Description": {},
+                            "Environment": {},
+                            "UpdatedAt": {
+                                "type": "timestamp"
+                            },
+                            "AccountIds": {
+                                "shape": "S15"
+                            },
+                            "AwsRegions": {
+                                "shape": "S17"
+                            },
+                            "NonAwsRegions": {
+                                "shape": "S19"
+                            },
+                            "ArchitecturalDesign": {},
+                            "ReviewOwner": {},
+                            "ReviewRestrictionDate": {
+                                "type": "timestamp"
+                            },
+                            "IsReviewOwnerUpdateAcknowledged": {
+                                "type": "boolean"
+                            },
+                            "IndustryType": {},
+                            "Industry": {},
+                            "Notes": {},
+                            "ImprovementStatus": {},
+                            "RiskCounts": {
+                                "shape": "S3d"
+                            },
+                            "PillarPriorities": {
+                                "shape": "S1b"
+                            },
+                            "Lenses": {
+                                "shape": "S1j"
+                            },
+                            "Owner": {},
+                            "ShareInvitationId": {},
+                            "Tags": {
+                                "shape": "Su"
+                            },
+                            "DiscoveryConfig": {
+                                "shape": "S1o"
+                            },
+                            "Applications": {
+                                "shape": "S1e"
+                            },
+                            "Profiles": {
+                                "shape": "S6n"
+                            },
+                            "PrioritizedRiskCounts": {
+                                "shape": "S3d"
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/RTRSHM3VRXOQHPNKPCC2NPOYQ4RPMJ6ZRELTNXEARI54JB2USMRQ/vendors.js"
+            ]
+        },
+        "UpdateWorkloadShare": {
+            "http": {
+                "method": "PATCH",
+                "requestUri": "/workloads/{WorkloadId}/shares/{ShareId}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ShareId",
+                    "WorkloadId",
+                    "PermissionType"
+                ],
+                "members": {
+                    "ShareId": {
+                        "location": "uri",
+                        "locationName": "ShareId"
+                    },
+                    "WorkloadId": {
+                        "location": "uri",
+                        "locationName": "WorkloadId"
+                    },
+                    "PermissionType": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "WorkloadId": {},
+                    "WorkloadShare": {
+                        "type": "structure",
+                        "members": {
+                            "ShareId": {},
+                            "SharedBy": {},
+                            "SharedWith": {},
+                            "PermissionType": {},
+                            "Status": {},
+                            "WorkloadName": {},
+                            "WorkloadId": {}
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/RTRSHM3VRXOQHPNKPCC2NPOYQ4RPMJ6ZRELTNXEARI54JB2USMRQ/vendors.js"
+            ]
+        },
+        "UpgradeLensReview": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/workloads/{WorkloadId}/lensReviews/{LensAlias}/upgrade"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "WorkloadId",
+                    "LensAlias",
+                    "MilestoneName"
+                ],
+                "members": {
+                    "WorkloadId": {
+                        "location": "uri",
+                        "locationName": "WorkloadId"
+                    },
+                    "LensAlias": {
+                        "location": "uri",
+                        "locationName": "LensAlias"
+                    },
+                    "MilestoneName": {},
+                    "ClientRequestToken": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/RTRSHM3VRXOQHPNKPCC2NPOYQ4RPMJ6ZRELTNXEARI54JB2USMRQ/vendors.js"
+            ]
+        },
+        "UpgradeProfileVersion": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/workloads/{WorkloadId}/profiles/{ProfileArn}/upgrade"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "WorkloadId",
+                    "ProfileArn"
+                ],
+                "members": {
+                    "WorkloadId": {
+                        "location": "uri",
+                        "locationName": "WorkloadId"
+                    },
+                    "ProfileArn": {
+                        "location": "uri",
+                        "locationName": "ProfileArn"
+                    },
+                    "MilestoneName": {},
+                    "ClientRequestToken": {
+                        "idempotencyToken": true
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/RTRSHM3VRXOQHPNKPCC2NPOYQ4RPMJ6ZRELTNXEARI54JB2USMRQ/vendors.js"
+            ]
+        },
+        "GetProfileTemplate": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/profileTemplate"
+            },
+            "input": {
+                "type": "structure",
+                "members": {}
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ProfileTemplate": {
+                        "type": "structure",
+                        "members": {
+                            "TemplateName": {},
+                            "TemplateQuestions": {
+                                "type": "list",
+                                "member": {
+                                    "type": "structure",
+                                    "members": {
+                                        "QuestionId": {},
+                                        "QuestionTitle": {},
+                                        "QuestionDescription": {},
+                                        "QuestionChoices": {
+                                            "type": "list",
+                                            "member": {
+                                                "type": "structure",
+                                                "members": {
+                                                    "ChoiceId": {},
+                                                    "ChoiceTitle": {}
+                                                }
+                                            }
+                                        },
+                                        "MinSelectedChoices": {
+                                            "type": "integer"
+                                        },
+                                        "MaxSelectedChoices": {
+                                            "type": "integer"
+                                        }
+                                    }
+                                }
+                            },
+                            "CreatedAt": {
+                                "type": "timestamp"
+                            },
+                            "UpdatedAt": {
+                                "type": "timestamp"
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/XCHQFD7ODPQ777WCA4ILK4VZSK7AH3YKVJY2SBWZOQGBSR6UWI2A/vendors.js"
+            ]
+        }
+    },
+    "shapes": {
+        "S3": {
+            "type": "list",
+            "member": {}
+        },
+        "S6": {
+            "type": "list",
+            "member": {}
+        },
+        "Sp": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "QuestionId": {},
+                    "SelectedChoiceIds": {
+                        "type": "list",
+                        "member": {}
+                    }
+                }
+            }
+        },
+        "Su": {
+            "type": "map",
+            "key": {},
+            "value": {}
+        },
+        "S15": {
+            "type": "list",
+            "member": {}
+        },
+        "S17": {
+            "type": "list",
+            "member": {}
+        },
+        "S19": {
+            "type": "list",
+            "member": {}
+        },
+        "S1b": {
+            "type": "list",
+            "member": {}
+        },
+        "S1e": {
+            "type": "list",
+            "member": {}
+        },
+        "S1j": {
+            "type": "list",
+            "member": {}
+        },
+        "S1o": {
+            "type": "structure",
+            "members": {
+                "TrustedAdvisorIntegrationStatus": {},
+                "WorkloadResourceDefinition": {
+                    "type": "list",
+                    "member": {}
+                }
+            }
+        },
+        "S1s": {
+            "type": "list",
+            "member": {}
+        },
+        "S2d": {
+            "type": "structure",
+            "members": {
+                "QuestionId": {},
+                "PillarId": {},
+                "QuestionTitle": {},
+                "QuestionDescription": {},
+                "ImprovementPlanUrl": {},
+                "HelpfulResourceUrl": {},
+                "HelpfulResourceDisplayText": {},
+                "Choices": {
+                    "shape": "S2j"
+                },
+                "SelectedChoices": {
+                    "shape": "S2u"
+                },
+                "ChoiceAnswers": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "members": {
+                            "ChoiceId": {},
+                            "Status": {},
+                            "Reason": {},
+                            "Notes": {}
+                        }
+                    }
+                },
+                "IsApplicable": {
+                    "type": "boolean"
+                },
+                "Status": {},
+                "Risk": {},
+                "Notes": {},
+                "Reason": {}
+            }
+        },
+        "S2j": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "ChoiceId": {},
+                    "Title": {},
+                    "Description": {},
+                    "HelpfulResource": {
+                        "shape": "S2n"
+                    },
+                    "ImprovementPlan": {
+                        "shape": "S2n"
+                    },
+                    "AdditionalResources": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "Type": {},
+                                "Content": {
+                                    "type": "list",
+                                    "member": {
+                                        "shape": "S2n"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "S2n": {
+            "type": "structure",
+            "members": {
+                "DisplayText": {},
+                "Url": {}
+            }
+        },
+        "S2u": {
+            "type": "list",
+            "member": {}
+        },
+        "S3d": {
+            "type": "map",
+            "key": {},
+            "value": {
+                "type": "integer"
+            }
+        },
+        "S40": {
+            "type": "structure",
+            "members": {
+                "LensAlias": {},
+                "LensArn": {},
+                "LensVersion": {},
+                "LensName": {},
+                "LensStatus": {},
+                "PillarReviewSummaries": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "members": {
+                            "PillarId": {},
+                            "PillarName": {},
+                            "Notes": {},
+                            "RiskCounts": {
+                                "shape": "S3d"
+                            },
+                            "PrioritizedRiskCounts": {
+                                "shape": "S3d"
+                            }
+                        }
+                    }
+                },
+                "UpdatedAt": {
+                    "type": "timestamp"
+                },
+                "Notes": {},
+                "RiskCounts": {
+                    "shape": "S3d"
+                },
+                "NextToken": {},
+                "ProfileArns": {
+                    "shape": "S1s"
+                },
+                "PrioritizedRiskCounts": {
+                    "shape": "S3d"
+                }
+            }
+        },
+        "S4j": {
+            "type": "structure",
+            "members": {
+                "WorkloadId": {},
+                "WorkloadArn": {},
+                "WorkloadName": {},
+                "Description": {},
+                "Environment": {},
+                "UpdatedAt": {
+                    "type": "timestamp"
+                },
+                "AccountIds": {
+                    "shape": "S15"
+                },
+                "AwsRegions": {
+                    "shape": "S17"
+                },
+                "NonAwsRegions": {
+                    "shape": "S19"
+                },
+                "ArchitecturalDesign": {},
+                "Applications": {
+                    "shape": "S1e"
+                },
+                "ReviewOwner": {},
+                "ReviewRestrictionDate": {
+                    "type": "timestamp"
+                },
+                "IsReviewOwnerUpdateAcknowledged": {
+                    "type": "boolean"
+                },
+                "IndustryType": {},
+                "Industry": {},
+                "Notes": {},
+                "ImprovementStatus": {},
+                "RiskCounts": {
+                    "shape": "S3d"
+                },
+                "PillarPriorities": {
+                    "shape": "S1b"
+                },
+                "Lenses": {
+                    "shape": "S1j"
+                },
+                "Owner": {},
+                "ShareInvitationId": {},
+                "Tags": {
+                    "shape": "Su"
+                },
+                "DiscoveryConfig": {
+                    "shape": "S1o"
+                },
+                "FTRSupported": {
+                    "type": "boolean"
+                },
+                "Profiles": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "members": {
+                            "ProfileArn": {},
+                            "ProfileVersion": {},
+                            "ProfileName": {},
+                            "ProfileDescription": {}
+                        }
+                    }
+                },
+                "PrioritizedRiskCounts": {
+                    "shape": "S3d"
+                }
+            }
+        },
+        "S4r": {
+            "type": "structure",
+            "members": {
+                "ProfileArn": {},
+                "ProfileVersion": {},
+                "ProfileName": {},
+                "ProfileDescription": {},
+                "ProfileQuestions": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "members": {
+                            "QuestionId": {},
+                            "QuestionTitle": {},
+                            "QuestionDescription": {},
+                            "QuestionChoices": {
+                                "type": "list",
+                                "member": {
+                                    "type": "structure",
+                                    "members": {
+                                        "ChoiceId": {},
+                                        "ChoiceTitle": {},
+                                        "ChoiceDescription": {}
+                                    }
+                                }
+                            },
+                            "SelectedChoiceIds": {
+                                "type": "list",
+                                "member": {}
+                            },
+                            "MinSelectedChoices": {
+                                "type": "integer"
+                            },
+                            "MaxSelectedChoices": {
+                                "type": "integer"
+                            }
+                        }
+                    }
+                },
+                "Owner": {},
+                "CreatedAt": {
+                    "type": "timestamp"
+                },
+                "UpdatedAt": {
+                    "type": "timestamp"
+                },
+                "ShareInvitationId": {},
+                "Tags": {
+                    "shape": "Su"
+                }
+            }
+        },
+        "S6m": {
+            "type": "structure",
+            "members": {
+                "WorkloadId": {},
+                "WorkloadArn": {},
+                "WorkloadName": {},
+                "Owner": {},
+                "UpdatedAt": {
+                    "type": "timestamp"
+                },
+                "Lenses": {
+                    "shape": "S1j"
+                },
+                "RiskCounts": {
+                    "shape": "S3d"
+                },
+                "ImprovementStatus": {},
+                "Profiles": {
+                    "shape": "S6n"
+                },
+                "PrioritizedRiskCounts": {
+                    "shape": "S3d"
+                }
+            }
+        },
+        "S6n": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "ProfileArn": {},
+                    "ProfileVersion": {}
+                }
+            }
+        },
+        "Sn": {
+            "type": "list",
+            "member": {}
+        },
+        "Sr": {
+            "type": "list",
+            "member": {}
+        },
+        "St": {
+            "type": "list",
+            "member": {}
+        },
+        "Sz": {
+            "type": "list",
+            "member": {}
+        },
+        "S11": {
+            "type": "map",
+            "key": {},
+            "value": {}
+        },
+        "S14": {
+            "type": "structure",
+            "members": {
+                "TrustedAdvisorIntegrationStatus": {}
+            }
+        },
+        "S16": {
+            "type": "list",
+            "member": {}
+        },
+        "S1p": {
+            "type": "structure",
+            "members": {
+                "QuestionId": {},
+                "PillarId": {},
+                "QuestionTitle": {},
+                "QuestionDescription": {},
+                "ImprovementPlanUrl": {},
+                "HelpfulResourceUrl": {},
+                "HelpfulResourceDisplayText": {},
+                "Choices": {
+                    "shape": "S1v"
+                },
+                "SelectedChoices": {
+                    "shape": "S27"
+                },
+                "ChoiceAnswers": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "members": {
+                            "ChoiceId": {},
+                            "Status": {},
+                            "Reason": {},
+                            "Notes": {}
+                        }
+                    }
+                },
+                "IsApplicable": {
+                    "type": "boolean"
+                },
+                "Risk": {},
+                "Notes": {},
+                "Reason": {}
+            }
+        },
+        "S1v": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "ChoiceId": {},
+                    "Title": {},
+                    "Description": {},
+                    "HelpfulResource": {
+                        "shape": "S20"
+                    },
+                    "ImprovementPlan": {
+                        "shape": "S20"
+                    },
+                    "AdditionalResources": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "Type": {},
+                                "Content": {
+                                    "type": "list",
+                                    "member": {
+                                        "shape": "S20"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "S20": {
+            "type": "structure",
+            "members": {
+                "DisplayText": {},
+                "Url": {}
+            }
+        },
+        "S27": {
+            "type": "list",
+            "member": {}
+        },
+        "S2p": {
+            "type": "structure",
+            "members": {
+                "LensAlias": {},
+                "LensArn": {},
+                "LensVersion": {},
+                "LensName": {},
+                "LensStatus": {},
+                "PillarReviewSummaries": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "members": {
+                            "PillarId": {},
+                            "PillarName": {},
+                            "Notes": {},
+                            "RiskCounts": {
+                                "shape": "S2u"
+                            }
+                        }
+                    }
+                },
+                "UpdatedAt": {
+                    "type": "timestamp"
+                },
+                "Notes": {},
+                "RiskCounts": {
+                    "shape": "S2u"
+                },
+                "NextToken": {}
+            }
+        },
+        "S52": {
+            "type": "structure",
+            "members": {
+                "WorkloadId": {},
+                "WorkloadArn": {},
+                "WorkloadName": {},
+                "Owner": {},
+                "UpdatedAt": {
+                    "type": "timestamp"
+                },
+                "Lenses": {
+                    "shape": "Sz"
+                },
+                "RiskCounts": {
+                    "shape": "S2u"
+                },
+                "ImprovementStatus": {}
+            }
+        },
+        "Se": {
+            "type": "list",
+            "member": {}
+        },
+        "Sg": {
+            "type": "list",
+            "member": {}
+        },
+        "Si": {
+            "type": "list",
+            "member": {}
+        },
+        "Sk": {
+            "type": "list",
+            "member": {}
+        },
+        "Sq": {
+            "type": "list",
+            "member": {}
+        },
+        "S1a": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "ChoiceId": {},
+                    "Title": {},
+                    "Description": {}
+                }
+            }
+        },
+        "S1f": {
+            "type": "list",
+            "member": {}
+        },
+        "S1k": {
+            "type": "structure",
+            "members": {
+                "LensAlias": {},
+                "LensVersion": {},
+                "LensName": {},
+                "LensStatus": {},
+                "PillarReviewSummaries": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "members": {
+                            "PillarId": {},
+                            "PillarName": {},
+                            "Notes": {},
+                            "RiskCounts": {
+                                "shape": "S1r"
+                            }
+                        }
+                    }
+                },
+                "UpdatedAt": {
+                    "type": "timestamp"
+                },
+                "Notes": {},
+                "RiskCounts": {
+                    "shape": "S1r"
+                },
+                "NextToken": {}
+            }
+        },
+        "S1r": {
+            "type": "map",
+            "key": {},
+            "value": {
+                "type": "integer"
+            }
+        },
+        "S2a": {
+            "type": "structure",
+            "members": {
+                "WorkloadId": {},
+                "WorkloadArn": {},
+                "WorkloadName": {},
+                "Description": {},
+                "Environment": {},
+                "UpdatedAt": {
+                    "type": "timestamp"
+                },
+                "AccountIds": {
+                    "shape": "Se"
+                },
+                "AwsRegions": {
+                    "shape": "Sg"
+                },
+                "NonAwsRegions": {
+                    "shape": "Si"
+                },
+                "ArchitecturalDesign": {},
+                "ReviewOwner": {},
+                "ReviewRestrictionDate": {
+                    "type": "timestamp"
+                },
+                "IsReviewOwnerUpdateAcknowledged": {
+                    "type": "boolean"
+                },
+                "IndustryType": {},
+                "Industry": {},
+                "Notes": {},
+                "ImprovementStatus": {},
+                "RiskCounts": {
+                    "shape": "S1r"
+                },
+                "PillarPriorities": {
+                    "shape": "Sk"
+                },
+                "Lenses": {
+                    "shape": "Sq"
+                },
+                "Owner": {},
+                "ShareInvitationId": {}
+            }
+        },
+        "S34": {
+            "type": "structure",
+            "members": {
+                "WorkloadId": {},
+                "WorkloadArn": {},
+                "WorkloadName": {},
+                "Owner": {},
+                "UpdatedAt": {
+                    "type": "timestamp"
+                },
+                "Lenses": {
+                    "shape": "Sq"
+                },
+                "RiskCounts": {
+                    "shape": "S1r"
+                },
+                "ImprovementStatus": {}
+            }
+        },
+        "S3b": {
+            "type": "structure",
+            "members": {
+                "LensAlias": {},
+                "LensArn": {},
+                "LensVersion": {},
+                "LensName": {},
+                "LensStatus": {},
+                "PillarReviewSummaries": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "members": {
+                            "PillarId": {},
+                            "PillarName": {},
+                            "Notes": {},
+                            "RiskCounts": {
+                                "shape": "S2p"
+                            }
+                        }
+                    }
+                },
+                "UpdatedAt": {
+                    "type": "timestamp"
+                },
+                "Notes": {},
+                "RiskCounts": {
+                    "shape": "S2p"
+                },
+                "NextToken": {}
+            }
+        },
+        "S3u": {
+            "type": "structure",
+            "members": {
+                "WorkloadId": {},
+                "WorkloadArn": {},
+                "WorkloadName": {},
+                "Description": {},
+                "Environment": {},
+                "UpdatedAt": {
+                    "type": "timestamp"
+                },
+                "AccountIds": {
+                    "shape": "Sn"
+                },
+                "AwsRegions": {
+                    "shape": "Sp"
+                },
+                "NonAwsRegions": {
+                    "shape": "Sr"
+                },
+                "ArchitecturalDesign": {},
+                "ReviewOwner": {},
+                "ReviewRestrictionDate": {
+                    "type": "timestamp"
+                },
+                "IsReviewOwnerUpdateAcknowledged": {
+                    "type": "boolean"
+                },
+                "IndustryType": {},
+                "Industry": {},
+                "Notes": {},
+                "ImprovementStatus": {},
+                "RiskCounts": {
+                    "shape": "S2p"
+                },
+                "PillarPriorities": {
+                    "shape": "St"
+                },
+                "Lenses": {
+                    "shape": "Sz"
+                },
+                "Owner": {},
+                "ShareInvitationId": {},
+                "Tags": {
+                    "shape": "S11"
+                },
+                "DiscoveryConfig": {
+                    "shape": "S14"
+                },
+                "Applications": {
+                    "shape": "S16"
+                }
+            }
+        },
+        "S5j": {
+            "type": "structure",
+            "members": {
+                "WorkloadId": {},
+                "WorkloadArn": {},
+                "WorkloadName": {},
+                "Owner": {},
+                "UpdatedAt": {
+                    "type": "timestamp"
+                },
+                "Lenses": {
+                    "shape": "Sz"
+                },
+                "RiskCounts": {
+                    "shape": "S2p"
+                },
+                "ImprovementStatus": {}
+            }
+        },
+        "S1l": {
+            "type": "structure",
+            "members": {
+                "QuestionId": {},
+                "PillarId": {},
+                "QuestionTitle": {},
+                "QuestionDescription": {},
+                "ImprovementPlanUrl": {},
+                "HelpfulResourceUrl": {},
+                "HelpfulResourceDisplayText": {},
+                "Choices": {
+                    "shape": "S1r"
+                },
+                "SelectedChoices": {
+                    "shape": "S1z"
+                },
+                "ChoiceAnswers": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "members": {
+                            "ChoiceId": {},
+                            "Status": {},
+                            "Reason": {},
+                            "Notes": {}
+                        }
+                    }
+                },
+                "IsApplicable": {
+                    "type": "boolean"
+                },
+                "Risk": {},
+                "Notes": {},
+                "Reason": {}
+            }
+        },
+        "S1w": {
+            "type": "structure",
+            "members": {
+                "DisplayText": {},
+                "Url": {}
+            }
+        },
+        "S1z": {
+            "type": "list",
+            "member": {}
+        },
+        "S2h": {
+            "type": "structure",
+            "members": {
+                "LensAlias": {},
+                "LensArn": {},
+                "LensVersion": {},
+                "LensName": {},
+                "LensStatus": {},
+                "PillarReviewSummaries": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "members": {
+                            "PillarId": {},
+                            "PillarName": {},
+                            "Notes": {},
+                            "RiskCounts": {
+                                "shape": "S2m"
+                            }
+                        }
+                    }
+                },
+                "UpdatedAt": {
+                    "type": "timestamp"
+                },
+                "Notes": {},
+                "RiskCounts": {
+                    "shape": "S2m"
+                },
+                "NextToken": {}
+            }
+        },
+        "S2m": {
+            "type": "map",
+            "key": {},
+            "value": {
+                "type": "integer"
+            }
+        },
+        "S35": {
+            "type": "structure",
+            "members": {
+                "WorkloadId": {},
+                "WorkloadArn": {},
+                "WorkloadName": {},
+                "Description": {},
+                "Environment": {},
+                "UpdatedAt": {
+                    "type": "timestamp"
+                },
+                "AccountIds": {
+                    "shape": "Sn"
+                },
+                "AwsRegions": {
+                    "shape": "Sp"
+                },
+                "NonAwsRegions": {
+                    "shape": "Sr"
+                },
+                "ArchitecturalDesign": {},
+                "ReviewOwner": {},
+                "ReviewRestrictionDate": {
+                    "type": "timestamp"
+                },
+                "IsReviewOwnerUpdateAcknowledged": {
+                    "type": "boolean"
+                },
+                "IndustryType": {},
+                "Industry": {},
+                "Notes": {},
+                "ImprovementStatus": {},
+                "RiskCounts": {
+                    "shape": "S2m"
+                },
+                "PillarPriorities": {
+                    "shape": "St"
+                },
+                "Lenses": {
+                    "shape": "Sz"
+                },
+                "Owner": {},
+                "ShareInvitationId": {},
+                "Tags": {
+                    "shape": "S11"
+                }
+            }
+        },
+        "S4c": {
+            "type": "structure",
+            "members": {
+                "WorkloadId": {},
+                "WorkloadArn": {},
+                "WorkloadName": {},
+                "Owner": {},
+                "UpdatedAt": {
+                    "type": "timestamp"
+                },
+                "Lenses": {
+                    "shape": "Sz"
+                },
+                "RiskCounts": {
+                    "shape": "S2m"
+                },
+                "ImprovementStatus": {}
+            }
+        },
+        "Ss": {
+            "type": "map",
+            "key": {},
+            "value": {}
+        },
+        "S18": {
+            "type": "structure",
+            "members": {
+                "QuestionId": {},
+                "PillarId": {},
+                "QuestionTitle": {},
+                "QuestionDescription": {},
+                "ImprovementPlanUrl": {},
+                "HelpfulResourceUrl": {},
+                "Choices": {
+                    "shape": "S1d"
+                },
+                "SelectedChoices": {
+                    "shape": "S1i"
+                },
+                "ChoiceAnswers": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "members": {
+                            "ChoiceId": {},
+                            "Status": {},
+                            "Reason": {},
+                            "Notes": {}
+                        }
+                    }
+                },
+                "IsApplicable": {
+                    "type": "boolean"
+                },
+                "Risk": {},
+                "Notes": {},
+                "Reason": {}
+            }
+        },
+        "S1d": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "ChoiceId": {},
+                    "Title": {},
+                    "Description": {}
+                }
+            }
+        },
+        "S1i": {
+            "type": "list",
+            "member": {}
+        },
+        "S1t": {
+            "type": "structure",
+            "members": {
+                "LensAlias": {},
+                "LensVersion": {},
+                "LensName": {},
+                "LensStatus": {},
+                "PillarReviewSummaries": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "members": {
+                            "PillarId": {},
+                            "PillarName": {},
+                            "Notes": {},
+                            "RiskCounts": {
+                                "shape": "S20"
+                            }
+                        }
+                    }
+                },
+                "UpdatedAt": {
+                    "type": "timestamp"
+                },
+                "Notes": {},
+                "RiskCounts": {
+                    "shape": "S20"
+                },
+                "NextToken": {}
+            }
+        },
+        "S3f": {
+            "type": "structure",
+            "members": {
+                "WorkloadId": {},
+                "WorkloadArn": {},
+                "WorkloadName": {},
+                "Owner": {},
+                "UpdatedAt": {
+                    "type": "timestamp"
+                },
+                "Lenses": {
+                    "shape": "Sq"
+                },
+                "RiskCounts": {
+                    "shape": "S20"
+                },
+                "ImprovementStatus": {}
+            }
+        },
+        "S1x": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "ChoiceId": {},
+                    "Title": {},
+                    "Description": {},
+                    "HelpfulResource": {
+                        "shape": "S22"
+                    },
+                    "ImprovementPlan": {
+                        "shape": "S22"
+                    },
+                    "AdditionalResources": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "Type": {},
+                                "Content": {
+                                    "type": "list",
+                                    "member": {
+                                        "shape": "S22"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "S22": {
+            "type": "structure",
+            "members": {
+                "DisplayText": {},
+                "Url": {}
+            }
+        },
+        "S29": {
+            "type": "list",
+            "member": {}
+        },
+        "S2r": {
+            "type": "map",
+            "key": {},
+            "value": {
+                "type": "integer"
+            }
+        },
+        "S3w": {
+            "type": "structure",
+            "members": {
+                "WorkloadId": {},
+                "WorkloadArn": {},
+                "WorkloadName": {},
+                "Description": {},
+                "Environment": {},
+                "UpdatedAt": {
+                    "type": "timestamp"
+                },
+                "AccountIds": {
+                    "shape": "Sn"
+                },
+                "AwsRegions": {
+                    "shape": "Sp"
+                },
+                "NonAwsRegions": {
+                    "shape": "Sr"
+                },
+                "ArchitecturalDesign": {},
+                "ReviewOwner": {},
+                "ReviewRestrictionDate": {
+                    "type": "timestamp"
+                },
+                "IsReviewOwnerUpdateAcknowledged": {
+                    "type": "boolean"
+                },
+                "IndustryType": {},
+                "Industry": {},
+                "Notes": {},
+                "ImprovementStatus": {},
+                "RiskCounts": {
+                    "shape": "S2r"
+                },
+                "PillarPriorities": {
+                    "shape": "St"
+                },
+                "Lenses": {
+                    "shape": "Sz"
+                },
+                "Owner": {},
+                "ShareInvitationId": {},
+                "Tags": {
+                    "shape": "S11"
+                },
+                "DiscoveryConfig": {
+                    "shape": "S14"
+                },
+                "Applications": {
+                    "shape": "S18"
+                }
+            }
+        },
+        "S5l": {
+            "type": "structure",
+            "members": {
+                "WorkloadId": {},
+                "WorkloadArn": {},
+                "WorkloadName": {},
+                "Owner": {},
+                "UpdatedAt": {
+                    "type": "timestamp"
+                },
+                "Lenses": {
+                    "shape": "Sz"
+                },
+                "RiskCounts": {
+                    "shape": "S2r"
+                },
+                "ImprovementStatus": {}
+            }
+        },
+        "S45": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "ProfileArn": {},
+                    "ProfileVersion": {}
+                }
+            }
+        },
+        "S4l": {
+            "type": "structure",
+            "members": {
+                "WorkloadId": {},
+                "WorkloadArn": {},
+                "WorkloadName": {},
+                "Description": {},
+                "Environment": {},
+                "UpdatedAt": {
+                    "type": "timestamp"
+                },
+                "AccountIds": {
+                    "shape": "S15"
+                },
+                "AwsRegions": {
+                    "shape": "S17"
+                },
+                "NonAwsRegions": {
+                    "shape": "S19"
+                },
+                "ArchitecturalDesign": {},
+                "Applications": {
+                    "shape": "S1e"
+                },
+                "ReviewOwner": {},
+                "ReviewRestrictionDate": {
+                    "type": "timestamp"
+                },
+                "IsReviewOwnerUpdateAcknowledged": {
+                    "type": "boolean"
+                },
+                "IndustryType": {},
+                "Industry": {},
+                "Notes": {},
+                "ImprovementStatus": {},
+                "RiskCounts": {
+                    "shape": "S3d"
+                },
+                "PillarPriorities": {
+                    "shape": "S1b"
+                },
+                "Lenses": {
+                    "shape": "S1j"
+                },
+                "Owner": {},
+                "ShareInvitationId": {},
+                "Tags": {
+                    "shape": "Su"
+                },
+                "DiscoveryConfig": {
+                    "shape": "S1o"
+                },
+                "FTRSupported": {
+                    "type": "boolean"
+                },
+                "Profiles": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "members": {
+                            "ProfileArn": {},
+                            "ProfileVersion": {},
+                            "ProfileName": {},
+                            "ProfileDescription": {}
+                        }
+                    }
+                },
+                "PrioritizedRiskCounts": {
+                    "shape": "S3d"
+                }
+            }
+        },
+        "S4t": {
+            "type": "structure",
+            "members": {
+                "ProfileArn": {},
+                "ProfileVersion": {},
+                "ProfileName": {},
+                "ProfileDescription": {},
+                "ProfileQuestions": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "members": {
+                            "QuestionId": {},
+                            "QuestionTitle": {},
+                            "QuestionDescription": {},
+                            "QuestionChoices": {
+                                "type": "list",
+                                "member": {
+                                    "type": "structure",
+                                    "members": {
+                                        "ChoiceId": {},
+                                        "ChoiceTitle": {},
+                                        "ChoiceDescription": {}
+                                    }
+                                }
+                            },
+                            "SelectedChoiceIds": {
+                                "type": "list",
+                                "member": {}
+                            },
+                            "MinSelectedChoices": {
+                                "type": "integer"
+                            },
+                            "MaxSelectedChoices": {
+                                "type": "integer"
+                            }
+                        }
+                    }
+                },
+                "Owner": {},
+                "CreatedAt": {
+                    "type": "timestamp"
+                },
+                "UpdatedAt": {
+                    "type": "timestamp"
+                },
+                "ShareInvitationId": {},
+                "Tags": {
+                    "shape": "Su"
+                }
+            }
+        },
+        "S6v": {
+            "type": "structure",
+            "members": {
+                "WorkloadId": {},
+                "WorkloadArn": {},
+                "WorkloadName": {},
+                "Owner": {},
+                "UpdatedAt": {
+                    "type": "timestamp"
+                },
+                "Lenses": {
+                    "shape": "S1j"
+                },
+                "RiskCounts": {
+                    "shape": "S3d"
+                },
+                "ImprovementStatus": {},
+                "Profiles": {
+                    "shape": "S45"
+                },
+                "PrioritizedRiskCounts": {
+                    "shape": "S3d"
+                }
+            }
+        }
+    }
+}

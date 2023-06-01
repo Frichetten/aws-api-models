@@ -1,0 +1,3783 @@
+{
+    "version": "2.0",
+    "metadata": {
+        "apiVersion": "2021-11-29",
+        "endpointPrefix": "iottwinmaker",
+        "jsonVersion": "1.1",
+        "protocol": "rest-json",
+        "serviceFullName": "AWS IoT TwinMaker",
+        "serviceId": "IoTTwinMaker",
+        "signatureVersion": "v4",
+        "signingName": "iottwinmaker",
+        "uid": "iottwinmaker-2021-11-29",
+        "download_location": [
+            "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+        ]
+    },
+    "operations": {
+        "BatchPutPropertyValues": {
+            "http": {
+                "requestUri": "/workspaces/{workspaceId}/entity-properties",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "workspaceId",
+                    "entries"
+                ],
+                "members": {
+                    "workspaceId": {
+                        "location": "uri",
+                        "locationName": "workspaceId"
+                    },
+                    "entries": {
+                        "type": "list",
+                        "member": {
+                            "shape": "S4"
+                        }
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "errorEntries"
+                ],
+                "members": {
+                    "errorEntries": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "errors"
+                            ],
+                            "members": {
+                                "errors": {
+                                    "type": "list",
+                                    "member": {
+                                        "type": "structure",
+                                        "required": [
+                                            "errorCode",
+                                            "errorMessage",
+                                            "entry"
+                                        ],
+                                        "members": {
+                                            "errorCode": {},
+                                            "errorMessage": {},
+                                            "entry": {
+                                                "shape": "S4"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "endpoint": {
+                "hostPrefix": "data."
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "CreateComponentType": {
+            "http": {
+                "requestUri": "/workspaces/{workspaceId}/component-types/{componentTypeId}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "workspaceId",
+                    "componentTypeId"
+                ],
+                "members": {
+                    "workspaceId": {
+                        "location": "uri",
+                        "locationName": "workspaceId"
+                    },
+                    "isSingleton": {
+                        "type": "boolean"
+                    },
+                    "componentTypeId": {
+                        "location": "uri",
+                        "locationName": "componentTypeId"
+                    },
+                    "description": {},
+                    "propertyDefinitions": {
+                        "shape": "Sv"
+                    },
+                    "extendsFrom": {
+                        "shape": "S12"
+                    },
+                    "functions": {
+                        "shape": "S13"
+                    },
+                    "tags": {
+                        "shape": "S1a"
+                    },
+                    "propertyGroups": {
+                        "shape": "S1d"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "arn",
+                    "creationDateTime",
+                    "state"
+                ],
+                "members": {
+                    "arn": {},
+                    "creationDateTime": {
+                        "type": "timestamp"
+                    },
+                    "state": {}
+                }
+            },
+            "endpoint": {
+                "hostPrefix": "api."
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "CreateEntity": {
+            "http": {
+                "requestUri": "/workspaces/{workspaceId}/entities",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "workspaceId",
+                    "entityName"
+                ],
+                "members": {
+                    "workspaceId": {
+                        "location": "uri",
+                        "locationName": "workspaceId"
+                    },
+                    "entityId": {},
+                    "entityName": {},
+                    "description": {},
+                    "components": {
+                        "type": "map",
+                        "key": {},
+                        "value": {
+                            "type": "structure",
+                            "members": {
+                                "description": {},
+                                "componentTypeId": {},
+                                "properties": {
+                                    "shape": "S1o"
+                                },
+                                "propertyGroups": {
+                                    "shape": "S1r"
+                                }
+                            }
+                        }
+                    },
+                    "parentEntityId": {},
+                    "tags": {
+                        "shape": "S1a"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "entityId",
+                    "arn",
+                    "creationDateTime",
+                    "state"
+                ],
+                "members": {
+                    "entityId": {},
+                    "arn": {},
+                    "creationDateTime": {
+                        "type": "timestamp"
+                    },
+                    "state": {}
+                }
+            },
+            "endpoint": {
+                "hostPrefix": "api."
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "CreateScene": {
+            "http": {
+                "requestUri": "/workspaces/{workspaceId}/scenes",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "workspaceId",
+                    "sceneId",
+                    "contentLocation"
+                ],
+                "members": {
+                    "workspaceId": {
+                        "location": "uri",
+                        "locationName": "workspaceId"
+                    },
+                    "sceneId": {},
+                    "contentLocation": {},
+                    "description": {},
+                    "capabilities": {
+                        "shape": "S1y"
+                    },
+                    "tags": {
+                        "shape": "S1a"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "arn",
+                    "creationDateTime"
+                ],
+                "members": {
+                    "arn": {},
+                    "creationDateTime": {
+                        "type": "timestamp"
+                    }
+                }
+            },
+            "endpoint": {
+                "hostPrefix": "api."
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "CreateWorkspace": {
+            "http": {
+                "requestUri": "/workspaces/{workspaceId}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "workspaceId",
+                    "s3Location",
+                    "role"
+                ],
+                "members": {
+                    "workspaceId": {
+                        "location": "uri",
+                        "locationName": "workspaceId"
+                    },
+                    "description": {},
+                    "s3Location": {},
+                    "role": {},
+                    "tags": {
+                        "shape": "S1a"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "arn",
+                    "creationDateTime"
+                ],
+                "members": {
+                    "arn": {},
+                    "creationDateTime": {
+                        "type": "timestamp"
+                    }
+                }
+            },
+            "endpoint": {
+                "hostPrefix": "api."
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "DeleteComponentType": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/workspaces/{workspaceId}/component-types/{componentTypeId}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "workspaceId",
+                    "componentTypeId"
+                ],
+                "members": {
+                    "workspaceId": {
+                        "location": "uri",
+                        "locationName": "workspaceId"
+                    },
+                    "componentTypeId": {
+                        "location": "uri",
+                        "locationName": "componentTypeId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "state"
+                ],
+                "members": {
+                    "state": {}
+                }
+            },
+            "endpoint": {
+                "hostPrefix": "api."
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "DeleteEntity": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/workspaces/{workspaceId}/entities/{entityId}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "workspaceId",
+                    "entityId"
+                ],
+                "members": {
+                    "workspaceId": {
+                        "location": "uri",
+                        "locationName": "workspaceId"
+                    },
+                    "entityId": {
+                        "location": "uri",
+                        "locationName": "entityId"
+                    },
+                    "isRecursive": {
+                        "location": "querystring",
+                        "locationName": "isRecursive",
+                        "type": "boolean"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "state"
+                ],
+                "members": {
+                    "state": {}
+                }
+            },
+            "endpoint": {
+                "hostPrefix": "api."
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "DeleteScene": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/workspaces/{workspaceId}/scenes/{sceneId}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "workspaceId",
+                    "sceneId"
+                ],
+                "members": {
+                    "workspaceId": {
+                        "location": "uri",
+                        "locationName": "workspaceId"
+                    },
+                    "sceneId": {
+                        "location": "uri",
+                        "locationName": "sceneId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "endpoint": {
+                "hostPrefix": "api."
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "DeleteWorkspace": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/workspaces/{workspaceId}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "workspaceId"
+                ],
+                "members": {
+                    "workspaceId": {
+                        "location": "uri",
+                        "locationName": "workspaceId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "endpoint": {
+                "hostPrefix": "api."
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "ExecuteQuery": {
+            "http": {
+                "requestUri": "/queries/execution",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "workspaceId",
+                    "queryStatement"
+                ],
+                "members": {
+                    "workspaceId": {},
+                    "queryStatement": {},
+                    "maxResults": {
+                        "type": "integer"
+                    },
+                    "nextToken": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "columnDescriptions": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "name": {},
+                                "type": {}
+                            }
+                        }
+                    },
+                    "rows": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "rowData": {
+                                    "type": "list",
+                                    "member": {
+                                        "type": "structure",
+                                        "members": {},
+                                        "document": true
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "nextToken": {}
+                }
+            },
+            "endpoint": {
+                "hostPrefix": "api."
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "GetComponentType": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/workspaces/{workspaceId}/component-types/{componentTypeId}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "workspaceId",
+                    "componentTypeId"
+                ],
+                "members": {
+                    "workspaceId": {
+                        "location": "uri",
+                        "locationName": "workspaceId"
+                    },
+                    "componentTypeId": {
+                        "location": "uri",
+                        "locationName": "componentTypeId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "workspaceId",
+                    "componentTypeId",
+                    "creationDateTime",
+                    "updateDateTime",
+                    "arn"
+                ],
+                "members": {
+                    "workspaceId": {},
+                    "isSingleton": {
+                        "type": "boolean"
+                    },
+                    "componentTypeId": {},
+                    "description": {},
+                    "propertyDefinitions": {
+                        "type": "map",
+                        "key": {},
+                        "value": {
+                            "shape": "S2t"
+                        }
+                    },
+                    "extendsFrom": {
+                        "shape": "S12"
+                    },
+                    "functions": {
+                        "type": "map",
+                        "key": {},
+                        "value": {
+                            "type": "structure",
+                            "members": {
+                                "requiredProperties": {
+                                    "shape": "S15"
+                                },
+                                "scope": {},
+                                "implementedBy": {
+                                    "shape": "S17"
+                                },
+                                "isInherited": {
+                                    "type": "boolean"
+                                }
+                            }
+                        }
+                    },
+                    "creationDateTime": {
+                        "type": "timestamp"
+                    },
+                    "updateDateTime": {
+                        "type": "timestamp"
+                    },
+                    "arn": {},
+                    "isAbstract": {
+                        "type": "boolean"
+                    },
+                    "isSchemaInitialized": {
+                        "type": "boolean"
+                    },
+                    "status": {
+                        "shape": "S2w"
+                    },
+                    "propertyGroups": {
+                        "type": "map",
+                        "key": {},
+                        "value": {
+                            "type": "structure",
+                            "required": [
+                                "groupType",
+                                "propertyNames",
+                                "isInherited"
+                            ],
+                            "members": {
+                                "groupType": {},
+                                "propertyNames": {
+                                    "shape": "S1g"
+                                },
+                                "isInherited": {
+                                    "type": "boolean"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "endpoint": {
+                "hostPrefix": "api."
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "GetEntity": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/workspaces/{workspaceId}/entities/{entityId}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "workspaceId",
+                    "entityId"
+                ],
+                "members": {
+                    "workspaceId": {
+                        "location": "uri",
+                        "locationName": "workspaceId"
+                    },
+                    "entityId": {
+                        "location": "uri",
+                        "locationName": "entityId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "entityId",
+                    "entityName",
+                    "arn",
+                    "status",
+                    "workspaceId",
+                    "parentEntityId",
+                    "hasChildEntities",
+                    "creationDateTime",
+                    "updateDateTime"
+                ],
+                "members": {
+                    "entityId": {},
+                    "entityName": {},
+                    "arn": {},
+                    "status": {
+                        "shape": "S2w"
+                    },
+                    "workspaceId": {},
+                    "description": {},
+                    "components": {
+                        "type": "map",
+                        "key": {},
+                        "value": {
+                            "type": "structure",
+                            "members": {
+                                "componentName": {},
+                                "description": {},
+                                "componentTypeId": {},
+                                "status": {
+                                    "shape": "S2w"
+                                },
+                                "definedIn": {},
+                                "properties": {
+                                    "type": "map",
+                                    "key": {},
+                                    "value": {
+                                        "type": "structure",
+                                        "members": {
+                                            "definition": {
+                                                "shape": "S2t"
+                                            },
+                                            "value": {
+                                                "shape": "Sd"
+                                            }
+                                        }
+                                    }
+                                },
+                                "propertyGroups": {
+                                    "type": "map",
+                                    "key": {},
+                                    "value": {
+                                        "type": "structure",
+                                        "required": [
+                                            "groupType",
+                                            "propertyNames",
+                                            "isInherited"
+                                        ],
+                                        "members": {
+                                            "groupType": {},
+                                            "propertyNames": {
+                                                "shape": "S1g"
+                                            },
+                                            "isInherited": {
+                                                "type": "boolean"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "parentEntityId": {},
+                    "hasChildEntities": {
+                        "type": "boolean"
+                    },
+                    "creationDateTime": {
+                        "type": "timestamp"
+                    },
+                    "updateDateTime": {
+                        "type": "timestamp"
+                    }
+                }
+            },
+            "endpoint": {
+                "hostPrefix": "api."
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "GetPricingPlan": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/pricingplan",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {}
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "currentPricingPlan"
+                ],
+                "members": {
+                    "currentPricingPlan": {
+                        "shape": "S3c"
+                    },
+                    "pendingPricingPlan": {
+                        "shape": "S3c"
+                    }
+                }
+            },
+            "endpoint": {
+                "hostPrefix": "api."
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "GetPropertyValue": {
+            "http": {
+                "requestUri": "/workspaces/{workspaceId}/entity-properties/value",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "selectedProperties",
+                    "workspaceId"
+                ],
+                "members": {
+                    "componentName": {},
+                    "componentTypeId": {},
+                    "entityId": {},
+                    "selectedProperties": {
+                        "shape": "S3k"
+                    },
+                    "workspaceId": {
+                        "location": "uri",
+                        "locationName": "workspaceId"
+                    },
+                    "maxResults": {
+                        "type": "integer"
+                    },
+                    "nextToken": {},
+                    "propertyGroupName": {},
+                    "tabularConditions": {
+                        "type": "structure",
+                        "members": {
+                            "orderBy": {
+                                "type": "list",
+                                "member": {
+                                    "type": "structure",
+                                    "required": [
+                                        "propertyName"
+                                    ],
+                                    "members": {
+                                        "order": {},
+                                        "propertyName": {}
+                                    }
+                                }
+                            },
+                            "propertyFilters": {
+                                "shape": "S3q"
+                            }
+                        }
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "propertyValues": {
+                        "type": "map",
+                        "key": {},
+                        "value": {
+                            "type": "structure",
+                            "required": [
+                                "propertyReference"
+                            ],
+                            "members": {
+                                "propertyReference": {
+                                    "shape": "S5"
+                                },
+                                "propertyValue": {
+                                    "shape": "Sd"
+                                }
+                            }
+                        }
+                    },
+                    "nextToken": {},
+                    "tabularPropertyValues": {
+                        "type": "list",
+                        "member": {
+                            "type": "list",
+                            "member": {
+                                "type": "map",
+                                "key": {},
+                                "value": {
+                                    "shape": "Sd"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "endpoint": {
+                "hostPrefix": "data."
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "GetPropertyValueHistory": {
+            "http": {
+                "requestUri": "/workspaces/{workspaceId}/entity-properties/history",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "workspaceId",
+                    "selectedProperties"
+                ],
+                "members": {
+                    "workspaceId": {
+                        "location": "uri",
+                        "locationName": "workspaceId"
+                    },
+                    "entityId": {},
+                    "componentName": {},
+                    "componentTypeId": {},
+                    "selectedProperties": {
+                        "shape": "S3k"
+                    },
+                    "propertyFilters": {
+                        "shape": "S3q"
+                    },
+                    "startDateTime": {
+                        "deprecated": true,
+                        "deprecatedMessage": "This field is deprecated and will throw an error in the future. Use startTime instead.",
+                        "type": "timestamp"
+                    },
+                    "endDateTime": {
+                        "deprecated": true,
+                        "deprecatedMessage": "This field is deprecated and will throw an error in the future. Use endTime instead.",
+                        "type": "timestamp"
+                    },
+                    "interpolation": {
+                        "type": "structure",
+                        "members": {
+                            "interpolationType": {},
+                            "intervalInSeconds": {
+                                "type": "long"
+                            }
+                        }
+                    },
+                    "nextToken": {},
+                    "maxResults": {
+                        "type": "integer"
+                    },
+                    "orderByTime": {},
+                    "startTime": {},
+                    "endTime": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "propertyValues"
+                ],
+                "members": {
+                    "propertyValues": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "entityPropertyReference"
+                            ],
+                            "members": {
+                                "entityPropertyReference": {
+                                    "shape": "S5"
+                                },
+                                "values": {
+                                    "type": "list",
+                                    "member": {
+                                        "shape": "Sb"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "nextToken": {}
+                }
+            },
+            "endpoint": {
+                "hostPrefix": "data."
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "GetScene": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/workspaces/{workspaceId}/scenes/{sceneId}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "workspaceId",
+                    "sceneId"
+                ],
+                "members": {
+                    "workspaceId": {
+                        "location": "uri",
+                        "locationName": "workspaceId"
+                    },
+                    "sceneId": {
+                        "location": "uri",
+                        "locationName": "sceneId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "workspaceId",
+                    "sceneId",
+                    "contentLocation",
+                    "arn",
+                    "creationDateTime",
+                    "updateDateTime"
+                ],
+                "members": {
+                    "workspaceId": {},
+                    "sceneId": {},
+                    "contentLocation": {},
+                    "arn": {},
+                    "creationDateTime": {
+                        "type": "timestamp"
+                    },
+                    "updateDateTime": {
+                        "type": "timestamp"
+                    },
+                    "description": {},
+                    "capabilities": {
+                        "shape": "S1y"
+                    }
+                }
+            },
+            "endpoint": {
+                "hostPrefix": "api."
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "GetWorkspace": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/workspaces/{workspaceId}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "workspaceId"
+                ],
+                "members": {
+                    "workspaceId": {
+                        "location": "uri",
+                        "locationName": "workspaceId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "workspaceId",
+                    "arn",
+                    "s3Location",
+                    "role",
+                    "creationDateTime",
+                    "updateDateTime"
+                ],
+                "members": {
+                    "workspaceId": {},
+                    "arn": {},
+                    "description": {},
+                    "s3Location": {},
+                    "role": {},
+                    "creationDateTime": {
+                        "type": "timestamp"
+                    },
+                    "updateDateTime": {
+                        "type": "timestamp"
+                    }
+                }
+            },
+            "endpoint": {
+                "hostPrefix": "api."
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "ListComponentTypes": {
+            "http": {
+                "requestUri": "/workspaces/{workspaceId}/component-types-list",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "workspaceId"
+                ],
+                "members": {
+                    "workspaceId": {
+                        "location": "uri",
+                        "locationName": "workspaceId"
+                    },
+                    "filters": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "extendsFrom": {},
+                                "namespace": {},
+                                "isAbstract": {
+                                    "type": "boolean"
+                                }
+                            },
+                            "union": true
+                        }
+                    },
+                    "nextToken": {},
+                    "maxResults": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "workspaceId",
+                    "componentTypeSummaries"
+                ],
+                "members": {
+                    "workspaceId": {},
+                    "componentTypeSummaries": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "arn",
+                                "componentTypeId",
+                                "creationDateTime",
+                                "updateDateTime"
+                            ],
+                            "members": {
+                                "arn": {},
+                                "componentTypeId": {},
+                                "creationDateTime": {
+                                    "type": "timestamp"
+                                },
+                                "updateDateTime": {
+                                    "type": "timestamp"
+                                },
+                                "description": {},
+                                "status": {
+                                    "shape": "S2w"
+                                }
+                            }
+                        }
+                    },
+                    "nextToken": {},
+                    "maxResults": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "endpoint": {
+                "hostPrefix": "api."
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "ListEntities": {
+            "http": {
+                "requestUri": "/workspaces/{workspaceId}/entities-list",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "workspaceId"
+                ],
+                "members": {
+                    "workspaceId": {
+                        "location": "uri",
+                        "locationName": "workspaceId"
+                    },
+                    "filters": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "parentEntityId": {},
+                                "componentTypeId": {},
+                                "externalId": {}
+                            },
+                            "union": true
+                        }
+                    },
+                    "maxResults": {
+                        "type": "integer"
+                    },
+                    "nextToken": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "entitySummaries": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "entityId",
+                                "entityName",
+                                "arn",
+                                "status",
+                                "creationDateTime",
+                                "updateDateTime"
+                            ],
+                            "members": {
+                                "entityId": {},
+                                "entityName": {},
+                                "arn": {},
+                                "parentEntityId": {},
+                                "status": {
+                                    "shape": "S2w"
+                                },
+                                "description": {},
+                                "hasChildEntities": {
+                                    "type": "boolean"
+                                },
+                                "creationDateTime": {
+                                    "type": "timestamp"
+                                },
+                                "updateDateTime": {
+                                    "type": "timestamp"
+                                }
+                            }
+                        }
+                    },
+                    "nextToken": {}
+                }
+            },
+            "endpoint": {
+                "hostPrefix": "api."
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "ListScenes": {
+            "http": {
+                "requestUri": "/workspaces/{workspaceId}/scenes-list",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "workspaceId"
+                ],
+                "members": {
+                    "workspaceId": {
+                        "location": "uri",
+                        "locationName": "workspaceId"
+                    },
+                    "maxResults": {
+                        "type": "integer"
+                    },
+                    "nextToken": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "sceneSummaries": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "sceneId",
+                                "contentLocation",
+                                "arn",
+                                "creationDateTime",
+                                "updateDateTime"
+                            ],
+                            "members": {
+                                "sceneId": {},
+                                "contentLocation": {},
+                                "arn": {},
+                                "creationDateTime": {
+                                    "type": "timestamp"
+                                },
+                                "updateDateTime": {
+                                    "type": "timestamp"
+                                },
+                                "description": {}
+                            }
+                        }
+                    },
+                    "nextToken": {}
+                }
+            },
+            "endpoint": {
+                "hostPrefix": "api."
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "ListTagsForResource": {
+            "http": {
+                "requestUri": "/tags-list",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "resourceARN"
+                ],
+                "members": {
+                    "resourceARN": {},
+                    "maxResults": {
+                        "type": "integer"
+                    },
+                    "nextToken": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "tags": {
+                        "shape": "S1a"
+                    },
+                    "nextToken": {}
+                }
+            },
+            "endpoint": {
+                "hostPrefix": "api."
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "ListWorkspaces": {
+            "http": {
+                "requestUri": "/workspaces-list",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "maxResults": {
+                        "type": "integer"
+                    },
+                    "nextToken": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "workspaceSummaries": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "workspaceId",
+                                "arn",
+                                "creationDateTime",
+                                "updateDateTime"
+                            ],
+                            "members": {
+                                "workspaceId": {},
+                                "arn": {},
+                                "description": {},
+                                "creationDateTime": {
+                                    "type": "timestamp"
+                                },
+                                "updateDateTime": {
+                                    "type": "timestamp"
+                                }
+                            }
+                        }
+                    },
+                    "nextToken": {}
+                }
+            },
+            "endpoint": {
+                "hostPrefix": "api."
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "TagResource": {
+            "http": {
+                "requestUri": "/tags",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "resourceARN",
+                    "tags"
+                ],
+                "members": {
+                    "resourceARN": {},
+                    "tags": {
+                        "shape": "S1a"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "endpoint": {
+                "hostPrefix": "api."
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "UntagResource": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/tags",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "resourceARN",
+                    "tagKeys"
+                ],
+                "members": {
+                    "resourceARN": {
+                        "location": "querystring",
+                        "locationName": "resourceARN"
+                    },
+                    "tagKeys": {
+                        "location": "querystring",
+                        "locationName": "tagKeys",
+                        "type": "list",
+                        "member": {}
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "endpoint": {
+                "hostPrefix": "api."
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "UpdateComponentType": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/workspaces/{workspaceId}/component-types/{componentTypeId}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "workspaceId",
+                    "componentTypeId"
+                ],
+                "members": {
+                    "workspaceId": {
+                        "location": "uri",
+                        "locationName": "workspaceId"
+                    },
+                    "isSingleton": {
+                        "type": "boolean"
+                    },
+                    "componentTypeId": {
+                        "location": "uri",
+                        "locationName": "componentTypeId"
+                    },
+                    "description": {},
+                    "propertyDefinitions": {
+                        "shape": "Sv"
+                    },
+                    "extendsFrom": {
+                        "shape": "S12"
+                    },
+                    "functions": {
+                        "shape": "S13"
+                    },
+                    "propertyGroups": {
+                        "shape": "S1d"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "workspaceId",
+                    "arn",
+                    "componentTypeId",
+                    "state"
+                ],
+                "members": {
+                    "workspaceId": {},
+                    "arn": {},
+                    "componentTypeId": {},
+                    "state": {}
+                }
+            },
+            "endpoint": {
+                "hostPrefix": "api."
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "UpdateEntity": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/workspaces/{workspaceId}/entities/{entityId}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "workspaceId",
+                    "entityId"
+                ],
+                "members": {
+                    "workspaceId": {
+                        "location": "uri",
+                        "locationName": "workspaceId"
+                    },
+                    "entityId": {
+                        "location": "uri",
+                        "locationName": "entityId"
+                    },
+                    "entityName": {},
+                    "description": {},
+                    "componentUpdates": {
+                        "type": "map",
+                        "key": {},
+                        "value": {
+                            "type": "structure",
+                            "members": {
+                                "updateType": {},
+                                "description": {},
+                                "componentTypeId": {},
+                                "propertyUpdates": {
+                                    "shape": "S1o"
+                                },
+                                "propertyGroupUpdates": {
+                                    "shape": "S1r"
+                                }
+                            }
+                        }
+                    },
+                    "parentEntityUpdate": {
+                        "type": "structure",
+                        "required": [
+                            "updateType"
+                        ],
+                        "members": {
+                            "updateType": {},
+                            "parentEntityId": {}
+                        }
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "updateDateTime",
+                    "state"
+                ],
+                "members": {
+                    "updateDateTime": {
+                        "type": "timestamp"
+                    },
+                    "state": {}
+                }
+            },
+            "endpoint": {
+                "hostPrefix": "api."
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "UpdatePricingPlan": {
+            "http": {
+                "requestUri": "/pricingplan",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "pricingMode"
+                ],
+                "members": {
+                    "pricingMode": {},
+                    "bundleNames": {
+                        "shape": "S3e"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "currentPricingPlan"
+                ],
+                "members": {
+                    "currentPricingPlan": {
+                        "shape": "S3c"
+                    },
+                    "pendingPricingPlan": {
+                        "shape": "S3c"
+                    }
+                }
+            },
+            "endpoint": {
+                "hostPrefix": "api."
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "UpdateScene": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/workspaces/{workspaceId}/scenes/{sceneId}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "workspaceId",
+                    "sceneId"
+                ],
+                "members": {
+                    "workspaceId": {
+                        "location": "uri",
+                        "locationName": "workspaceId"
+                    },
+                    "sceneId": {
+                        "location": "uri",
+                        "locationName": "sceneId"
+                    },
+                    "contentLocation": {},
+                    "description": {},
+                    "capabilities": {
+                        "shape": "S1y"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "updateDateTime"
+                ],
+                "members": {
+                    "updateDateTime": {
+                        "type": "timestamp"
+                    }
+                }
+            },
+            "endpoint": {
+                "hostPrefix": "api."
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "UpdateWorkspace": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/workspaces/{workspaceId}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "workspaceId"
+                ],
+                "members": {
+                    "workspaceId": {
+                        "location": "uri",
+                        "locationName": "workspaceId"
+                    },
+                    "description": {},
+                    "role": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "updateDateTime"
+                ],
+                "members": {
+                    "updateDateTime": {
+                        "type": "timestamp"
+                    }
+                }
+            },
+            "endpoint": {
+                "hostPrefix": "api."
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "CreateSyncJob": {
+            "http": {
+                "requestUri": "/workspaces/{workspaceId}/sync-jobs/{syncSource}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "workspaceId",
+                    "syncSource",
+                    "syncRole"
+                ],
+                "members": {
+                    "workspaceId": {
+                        "location": "uri",
+                        "locationName": "workspaceId"
+                    },
+                    "syncSource": {
+                        "location": "uri",
+                        "locationName": "syncSource"
+                    },
+                    "syncRole": {},
+                    "tags": {
+                        "shape": "S1b"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "arn",
+                    "creationDateTime",
+                    "state"
+                ],
+                "members": {
+                    "arn": {},
+                    "creationDateTime": {
+                        "type": "timestamp"
+                    },
+                    "state": {}
+                }
+            },
+            "endpoint": {
+                "hostPrefix": "api."
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/LNBIP3SSBJJEGTSEE5VZUJHYSBHMHROVHKM6HOKQMPW54VG5DQUQ/vendors.js"
+            ]
+        },
+        "DeleteSyncJob": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/workspaces/{workspaceId}/sync-jobs/{syncSource}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "workspaceId",
+                    "syncSource"
+                ],
+                "members": {
+                    "workspaceId": {
+                        "location": "uri",
+                        "locationName": "workspaceId"
+                    },
+                    "syncSource": {
+                        "location": "uri",
+                        "locationName": "syncSource"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "state"
+                ],
+                "members": {
+                    "state": {}
+                }
+            },
+            "endpoint": {
+                "hostPrefix": "api."
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/LNBIP3SSBJJEGTSEE5VZUJHYSBHMHROVHKM6HOKQMPW54VG5DQUQ/vendors.js"
+            ]
+        },
+        "GetSyncJob": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/sync-jobs/{syncSource}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "syncSource"
+                ],
+                "members": {
+                    "syncSource": {
+                        "location": "uri",
+                        "locationName": "syncSource"
+                    },
+                    "workspaceId": {
+                        "location": "querystring",
+                        "locationName": "workspace"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "arn",
+                    "workspaceId",
+                    "syncSource",
+                    "syncRole",
+                    "status",
+                    "creationDateTime",
+                    "updateDateTime"
+                ],
+                "members": {
+                    "arn": {},
+                    "workspaceId": {},
+                    "syncSource": {},
+                    "syncRole": {},
+                    "status": {
+                        "shape": "S4m"
+                    },
+                    "creationDateTime": {
+                        "type": "timestamp"
+                    },
+                    "updateDateTime": {
+                        "type": "timestamp"
+                    }
+                }
+            },
+            "endpoint": {
+                "hostPrefix": "api."
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/LNBIP3SSBJJEGTSEE5VZUJHYSBHMHROVHKM6HOKQMPW54VG5DQUQ/vendors.js"
+            ]
+        },
+        "ListSyncJobs": {
+            "http": {
+                "requestUri": "/workspaces/{workspaceId}/sync-jobs-list",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "workspaceId"
+                ],
+                "members": {
+                    "workspaceId": {
+                        "location": "uri",
+                        "locationName": "workspaceId"
+                    },
+                    "maxResults": {
+                        "type": "integer"
+                    },
+                    "nextToken": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "syncJobSummaries": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "arn": {},
+                                "workspaceId": {},
+                                "syncSource": {},
+                                "status": {
+                                    "shape": "S4m"
+                                },
+                                "creationDateTime": {
+                                    "type": "timestamp"
+                                },
+                                "updateDateTime": {
+                                    "type": "timestamp"
+                                }
+                            }
+                        }
+                    },
+                    "nextToken": {}
+                }
+            },
+            "endpoint": {
+                "hostPrefix": "api."
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/LNBIP3SSBJJEGTSEE5VZUJHYSBHMHROVHKM6HOKQMPW54VG5DQUQ/vendors.js"
+            ]
+        },
+        "ListSyncResources": {
+            "http": {
+                "requestUri": "/workspaces/{workspaceId}/sync-jobs/{syncSource}/resources-list",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "workspaceId",
+                    "syncSource"
+                ],
+                "members": {
+                    "workspaceId": {
+                        "location": "uri",
+                        "locationName": "workspaceId"
+                    },
+                    "syncSource": {
+                        "location": "uri",
+                        "locationName": "syncSource"
+                    },
+                    "filters": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "state": {},
+                                "resourceType": {},
+                                "resourceId": {},
+                                "externalId": {}
+                            },
+                            "union": true
+                        }
+                    },
+                    "maxResults": {
+                        "type": "integer"
+                    },
+                    "nextToken": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "syncResources": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "resourceType": {},
+                                "externalId": {},
+                                "resourceId": {},
+                                "status": {
+                                    "type": "structure",
+                                    "members": {
+                                        "state": {},
+                                        "error": {
+                                            "shape": "S37"
+                                        }
+                                    }
+                                },
+                                "updateDateTime": {
+                                    "type": "timestamp"
+                                }
+                            }
+                        }
+                    },
+                    "nextToken": {}
+                }
+            },
+            "endpoint": {
+                "hostPrefix": "api."
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/LNBIP3SSBJJEGTSEE5VZUJHYSBHMHROVHKM6HOKQMPW54VG5DQUQ/vendors.js"
+            ]
+        },
+        "CreateEntityTemplate": {
+            "http": {
+                "requestUri": "/workspaces/{workspaceId}/templates/{templateId}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "workspaceId",
+                    "templateId"
+                ],
+                "members": {
+                    "workspaceId": {
+                        "location": "uri",
+                        "locationName": "workspaceId"
+                    },
+                    "templateId": {
+                        "location": "uri",
+                        "locationName": "templateId"
+                    },
+                    "description": {},
+                    "components": {
+                        "shape": "S1o"
+                    },
+                    "tags": {
+                        "shape": "S1b"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "arn",
+                    "creationDateTime",
+                    "state"
+                ],
+                "members": {
+                    "arn": {},
+                    "creationDateTime": {
+                        "type": "timestamp"
+                    },
+                    "state": {}
+                }
+            },
+            "endpoint": {
+                "hostPrefix": "api."
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/MTAR26QQFH75O4WID7IROXQ6HL7MDBCDXICYMH5CXAQKLIEZGXNQ/vendors_amzn.js"
+            ]
+        },
+        "CreateLogicApplication": {
+            "http": {
+                "requestUri": "/workspaces/{workspaceId}/logicApplications/{logicApplicationName}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "workspaceId",
+                    "logicApplicationName",
+                    "logicInputs",
+                    "logicOutputs",
+                    "kdaNotebookConfiguration"
+                ],
+                "members": {
+                    "workspaceId": {
+                        "location": "uri",
+                        "locationName": "workspaceId"
+                    },
+                    "logicApplicationName": {
+                        "location": "uri",
+                        "locationName": "logicApplicationName"
+                    },
+                    "description": {},
+                    "rociArtifactsVersion": {},
+                    "logicInputs": {
+                        "shape": "S23"
+                    },
+                    "logicOutputs": {
+                        "shape": "S2a"
+                    },
+                    "kdaNotebookConfiguration": {
+                        "type": "structure",
+                        "members": {
+                            "kdaNotebookRole": {},
+                            "kdaDeployS3Location": {
+                                "type": "structure",
+                                "members": {
+                                    "s3BucketArn": {},
+                                    "s3FilePath": {}
+                                }
+                            },
+                            "kdaOptionalConfigs": {
+                                "type": "map",
+                                "key": {},
+                                "value": {}
+                            }
+                        }
+                    },
+                    "clientToken": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "logicApplicationArn": {},
+                    "logicApplicationStatus": {}
+                }
+            },
+            "endpoint": {
+                "hostPrefix": "api."
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/MTAR26QQFH75O4WID7IROXQ6HL7MDBCDXICYMH5CXAQKLIEZGXNQ/vendors_amzn.js"
+            ]
+        },
+        "CreateQueryDefinition": {
+            "http": {
+                "requestUri": "/workspaces/{workspaceId}/query-definitions",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "workspaceId",
+                    "queryStatement"
+                ],
+                "members": {
+                    "workspaceId": {
+                        "location": "uri",
+                        "locationName": "workspaceId"
+                    },
+                    "queryDefinitionId": {},
+                    "description": {},
+                    "queryStatement": {},
+                    "parameterDefinitions": {
+                        "shape": "S2m"
+                    },
+                    "tags": {
+                        "shape": "S1b"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "arn",
+                    "queryDefinitionId",
+                    "creationDateTime"
+                ],
+                "members": {
+                    "arn": {},
+                    "queryDefinitionId": {},
+                    "creationDateTime": {
+                        "type": "timestamp"
+                    }
+                }
+            },
+            "endpoint": {
+                "hostPrefix": "api."
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/MTAR26QQFH75O4WID7IROXQ6HL7MDBCDXICYMH5CXAQKLIEZGXNQ/vendors_amzn.js"
+            ]
+        },
+        "DeleteEntityTemplate": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/workspaces/{workspaceId}/templates/{templateId}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "workspaceId",
+                    "templateId"
+                ],
+                "members": {
+                    "workspaceId": {
+                        "location": "uri",
+                        "locationName": "workspaceId"
+                    },
+                    "templateId": {
+                        "location": "uri",
+                        "locationName": "templateId"
+                    },
+                    "skipDeleteEntities": {
+                        "location": "querystring",
+                        "locationName": "skipDeleteEntities",
+                        "type": "boolean"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "state": {}
+                }
+            },
+            "endpoint": {
+                "hostPrefix": "api."
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/MTAR26QQFH75O4WID7IROXQ6HL7MDBCDXICYMH5CXAQKLIEZGXNQ/vendors_amzn.js"
+            ]
+        },
+        "DeleteLogicApplication": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/workspaces/{workspaceId}/logicApplications/{logicApplicationName}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "workspaceId",
+                    "logicApplicationName"
+                ],
+                "members": {
+                    "workspaceId": {
+                        "location": "uri",
+                        "locationName": "workspaceId"
+                    },
+                    "logicApplicationName": {
+                        "location": "uri",
+                        "locationName": "logicApplicationName"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "endpoint": {
+                "hostPrefix": "api."
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/MTAR26QQFH75O4WID7IROXQ6HL7MDBCDXICYMH5CXAQKLIEZGXNQ/vendors_amzn.js"
+            ]
+        },
+        "DeleteQueryDefinition": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/workspaces/{workspaceId}/query-definitions/{queryDefinitionId}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "workspaceId",
+                    "queryDefinitionId"
+                ],
+                "members": {
+                    "workspaceId": {
+                        "location": "uri",
+                        "locationName": "workspaceId"
+                    },
+                    "queryDefinitionId": {
+                        "location": "uri",
+                        "locationName": "queryDefinitionId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "endpoint": {
+                "hostPrefix": "api."
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/MTAR26QQFH75O4WID7IROXQ6HL7MDBCDXICYMH5CXAQKLIEZGXNQ/vendors_amzn.js"
+            ]
+        },
+        "GetEntityTemplate": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/workspaces/{workspaceId}/templates/{templateId}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "workspaceId",
+                    "templateId"
+                ],
+                "members": {
+                    "workspaceId": {
+                        "location": "uri",
+                        "locationName": "workspaceId"
+                    },
+                    "templateId": {
+                        "location": "uri",
+                        "locationName": "templateId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "workspaceId",
+                    "templateId",
+                    "arn",
+                    "creationDateTime",
+                    "updateDateTime",
+                    "status"
+                ],
+                "members": {
+                    "workspaceId": {},
+                    "templateId": {},
+                    "arn": {},
+                    "description": {},
+                    "creationDateTime": {
+                        "type": "timestamp"
+                    },
+                    "updateDateTime": {
+                        "type": "timestamp"
+                    },
+                    "components": {
+                        "shape": "S4j"
+                    },
+                    "status": {
+                        "shape": "S4r"
+                    },
+                    "entitiesUpdateStatus": {
+                        "type": "structure",
+                        "members": {
+                            "state": {},
+                            "errors": {
+                                "type": "list",
+                                "member": {}
+                            }
+                        }
+                    }
+                }
+            },
+            "endpoint": {
+                "hostPrefix": "api."
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/MTAR26QQFH75O4WID7IROXQ6HL7MDBCDXICYMH5CXAQKLIEZGXNQ/vendors_amzn.js"
+            ]
+        },
+        "GetLogicApplication": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/workspaces/{workspaceId}/logicApplications/{logicApplicationName}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "workspaceId",
+                    "logicApplicationName"
+                ],
+                "members": {
+                    "workspaceId": {
+                        "location": "uri",
+                        "locationName": "workspaceId"
+                    },
+                    "logicApplicationName": {
+                        "location": "uri",
+                        "locationName": "logicApplicationName"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "logicApplicationDetails": {
+                        "type": "structure",
+                        "members": {
+                            "workspaceId": {},
+                            "logicApplicationName": {},
+                            "logicApplicationArn": {},
+                            "description": {},
+                            "rociArtifactsVersion": {},
+                            "logicInputs": {
+                                "shape": "S23"
+                            },
+                            "logicOutputs": {
+                                "shape": "S2a"
+                            },
+                            "kdaStudioNotebook": {
+                                "type": "structure",
+                                "members": {
+                                    "notebookName": {},
+                                    "notebookArn": {},
+                                    "glueDatabaseName": {},
+                                    "glueDatabaseArn": {},
+                                    "notebookStatus": {}
+                                }
+                            },
+                            "kdaApplications": {
+                                "type": "list",
+                                "member": {
+                                    "type": "structure",
+                                    "members": {
+                                        "kdaApplicationName": {},
+                                        "kdaApplicationArn": {},
+                                        "kdaApplicationStatus": {}
+                                    }
+                                }
+                            },
+                            "logicApplicationStatus": {},
+                            "failureReason": {},
+                            "creationTime": {
+                                "type": "timestamp"
+                            },
+                            "lastUpdateTime": {
+                                "type": "timestamp"
+                            }
+                        }
+                    }
+                }
+            },
+            "endpoint": {
+                "hostPrefix": "api."
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/MTAR26QQFH75O4WID7IROXQ6HL7MDBCDXICYMH5CXAQKLIEZGXNQ/vendors_amzn.js"
+            ]
+        },
+        "GetQueryDefinition": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/workspaces/{workspaceId}/query-definitions/{queryDefinitionId}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "workspaceId",
+                    "queryDefinitionId"
+                ],
+                "members": {
+                    "workspaceId": {
+                        "location": "uri",
+                        "locationName": "workspaceId"
+                    },
+                    "queryDefinitionId": {
+                        "location": "uri",
+                        "locationName": "queryDefinitionId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "workspaceId",
+                    "arn",
+                    "queryDefinitionId",
+                    "queryStatement",
+                    "creationDateTime",
+                    "updateDateTime"
+                ],
+                "members": {
+                    "workspaceId": {},
+                    "arn": {},
+                    "queryDefinitionId": {},
+                    "description": {},
+                    "queryStatement": {},
+                    "creationDateTime": {
+                        "type": "timestamp"
+                    },
+                    "updateDateTime": {
+                        "type": "timestamp"
+                    },
+                    "parameterDefinitions": {
+                        "shape": "S2m"
+                    }
+                }
+            },
+            "endpoint": {
+                "hostPrefix": "api."
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/MTAR26QQFH75O4WID7IROXQ6HL7MDBCDXICYMH5CXAQKLIEZGXNQ/vendors_amzn.js"
+            ]
+        },
+        "ListEntityTemplates": {
+            "http": {
+                "requestUri": "/workspaces/{workspaceId}/templates-list",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "workspaceId"
+                ],
+                "members": {
+                    "workspaceId": {
+                        "location": "uri",
+                        "locationName": "workspaceId"
+                    },
+                    "maxResults": {
+                        "type": "integer"
+                    },
+                    "nextToken": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "templateSummaries": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "id": {},
+                                "arn": {},
+                                "status": {
+                                    "shape": "S4r"
+                                },
+                                "entitiesUpdateState": {},
+                                "description": {},
+                                "creationDateTime": {
+                                    "type": "timestamp"
+                                },
+                                "updateDateTime": {
+                                    "type": "timestamp"
+                                }
+                            }
+                        }
+                    },
+                    "nextToken": {}
+                }
+            },
+            "endpoint": {
+                "hostPrefix": "api."
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/MTAR26QQFH75O4WID7IROXQ6HL7MDBCDXICYMH5CXAQKLIEZGXNQ/vendors_amzn.js"
+            ]
+        },
+        "ListLogicApplications": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/logic-applications",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "workspaceId": {
+                        "location": "querystring",
+                        "locationName": "workspaceId"
+                    },
+                    "maxResults": {
+                        "location": "querystring",
+                        "locationName": "maxResults",
+                        "type": "integer"
+                    },
+                    "nextToken": {
+                        "location": "querystring",
+                        "locationName": "nextToken"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "logicApplicationSummaries": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "workspaceId": {},
+                                "logicApplicationName": {},
+                                "logicApplicationArn": {},
+                                "logicApplicationStatus": {}
+                            }
+                        }
+                    },
+                    "nextToken": {}
+                }
+            },
+            "endpoint": {
+                "hostPrefix": "api."
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/MTAR26QQFH75O4WID7IROXQ6HL7MDBCDXICYMH5CXAQKLIEZGXNQ/vendors_amzn.js"
+            ]
+        },
+        "ListQueryDefinitions": {
+            "http": {
+                "requestUri": "/workspaces/{workspaceId}/query-definitions-list",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "workspaceId"
+                ],
+                "members": {
+                    "workspaceId": {
+                        "location": "uri",
+                        "locationName": "workspaceId"
+                    },
+                    "maxResults": {
+                        "type": "integer"
+                    },
+                    "nextToken": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "queryDefinitionSummaries": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "arn",
+                                "queryDefinitionId",
+                                "queryStatement",
+                                "creationDateTime",
+                                "updateDateTime"
+                            ],
+                            "members": {
+                                "arn": {},
+                                "queryDefinitionId": {},
+                                "queryStatement": {},
+                                "description": {},
+                                "creationDateTime": {
+                                    "type": "timestamp"
+                                },
+                                "updateDateTime": {
+                                    "type": "timestamp"
+                                }
+                            }
+                        }
+                    },
+                    "nextToken": {}
+                }
+            },
+            "endpoint": {
+                "hostPrefix": "api."
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/MTAR26QQFH75O4WID7IROXQ6HL7MDBCDXICYMH5CXAQKLIEZGXNQ/vendors_amzn.js"
+            ]
+        },
+        "UpdateEntityTemplate": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/workspaces/{workspaceId}/templates/{templateId}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "workspaceId",
+                    "templateId"
+                ],
+                "members": {
+                    "workspaceId": {
+                        "location": "uri",
+                        "locationName": "workspaceId"
+                    },
+                    "templateId": {
+                        "location": "uri",
+                        "locationName": "templateId"
+                    },
+                    "description": {},
+                    "componentUpdates": {
+                        "shape": "S7v"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "state": {},
+                    "updateDateTime": {
+                        "type": "timestamp"
+                    }
+                }
+            },
+            "endpoint": {
+                "hostPrefix": "api."
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/MTAR26QQFH75O4WID7IROXQ6HL7MDBCDXICYMH5CXAQKLIEZGXNQ/vendors_amzn.js"
+            ]
+        },
+        "UpdateLogicApplication": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/workspaces/{workspaceId}/logicApplications/{logicApplicationName}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "workspaceId",
+                    "logicApplicationName"
+                ],
+                "members": {
+                    "workspaceId": {
+                        "location": "uri",
+                        "locationName": "workspaceId"
+                    },
+                    "logicApplicationName": {
+                        "location": "uri",
+                        "locationName": "logicApplicationName"
+                    },
+                    "description": {},
+                    "rociArtifactsVersion": {},
+                    "logicInputs": {
+                        "shape": "S23"
+                    },
+                    "logicOutputs": {
+                        "shape": "S2a"
+                    },
+                    "clientToken": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "logicApplicationArn": {},
+                    "logicApplicationStatus": {}
+                }
+            },
+            "endpoint": {
+                "hostPrefix": "api."
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/MTAR26QQFH75O4WID7IROXQ6HL7MDBCDXICYMH5CXAQKLIEZGXNQ/vendors_amzn.js"
+            ]
+        },
+        "UpdateQueryDefinition": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/workspaces/{workspaceId}/query-definitions/{queryDefinitionId}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "workspaceId",
+                    "queryDefinitionId"
+                ],
+                "members": {
+                    "workspaceId": {
+                        "location": "uri",
+                        "locationName": "workspaceId"
+                    },
+                    "queryDefinitionId": {
+                        "location": "uri",
+                        "locationName": "queryDefinitionId"
+                    },
+                    "description": {},
+                    "queryStatement": {},
+                    "parameterDefinitionUpdate": {
+                        "shape": "S2m"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "updateDateTime"
+                ],
+                "members": {
+                    "updateDateTime": {
+                        "type": "timestamp"
+                    }
+                }
+            },
+            "endpoint": {
+                "hostPrefix": "api."
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/MTAR26QQFH75O4WID7IROXQ6HL7MDBCDXICYMH5CXAQKLIEZGXNQ/vendors_amzn.js"
+            ]
+        }
+    },
+    "shapes": {
+        "S4": {
+            "type": "structure",
+            "required": [
+                "entityPropertyReference"
+            ],
+            "members": {
+                "entityPropertyReference": {
+                    "shape": "S5"
+                },
+                "propertyValues": {
+                    "type": "list",
+                    "member": {
+                        "shape": "Sb"
+                    }
+                }
+            }
+        },
+        "S5": {
+            "type": "structure",
+            "required": [
+                "propertyName"
+            ],
+            "members": {
+                "componentName": {},
+                "externalIdProperty": {
+                    "type": "map",
+                    "key": {},
+                    "value": {}
+                },
+                "entityId": {},
+                "propertyName": {}
+            }
+        },
+        "Sb": {
+            "type": "structure",
+            "required": [
+                "value"
+            ],
+            "members": {
+                "timestamp": {
+                    "deprecated": true,
+                    "deprecatedMessage": "This field is deprecated and will throw an error in the future. Use time instead.",
+                    "type": "timestamp"
+                },
+                "value": {
+                    "shape": "Sd"
+                },
+                "time": {}
+            }
+        },
+        "Sd": {
+            "type": "structure",
+            "members": {
+                "booleanValue": {
+                    "type": "boolean"
+                },
+                "doubleValue": {
+                    "type": "double"
+                },
+                "integerValue": {
+                    "type": "integer"
+                },
+                "longValue": {
+                    "type": "long"
+                },
+                "stringValue": {},
+                "listValue": {
+                    "shape": "Si"
+                },
+                "mapValue": {
+                    "type": "map",
+                    "key": {},
+                    "value": {
+                        "shape": "Sd"
+                    }
+                },
+                "relationshipValue": {
+                    "type": "structure",
+                    "members": {
+                        "targetEntityId": {},
+                        "targetComponentName": {}
+                    }
+                },
+                "expression": {}
+            }
+        },
+        "Si": {
+            "type": "list",
+            "member": {
+                "shape": "Sd"
+            }
+        },
+        "Sv": {
+            "type": "map",
+            "key": {},
+            "value": {
+                "shape": "Sw"
+            }
+        },
+        "Sw": {
+            "type": "structure",
+            "members": {
+                "dataType": {
+                    "shape": "Sx"
+                },
+                "isRequiredInEntity": {
+                    "type": "boolean"
+                },
+                "isExternalId": {
+                    "type": "boolean"
+                },
+                "isStoredExternally": {
+                    "type": "boolean"
+                },
+                "isTimeSeries": {
+                    "type": "boolean"
+                },
+                "defaultValue": {
+                    "shape": "Sd"
+                },
+                "configuration": {
+                    "shape": "S10"
+                }
+            }
+        },
+        "Sx": {
+            "type": "structure",
+            "required": [
+                "type"
+            ],
+            "members": {
+                "type": {},
+                "nestedType": {
+                    "shape": "Sx"
+                },
+                "allowedValues": {
+                    "shape": "Si"
+                },
+                "unitOfMeasure": {},
+                "relationship": {
+                    "type": "structure",
+                    "members": {
+                        "targetComponentTypeId": {},
+                        "relationshipType": {}
+                    }
+                }
+            }
+        },
+        "S10": {
+            "type": "map",
+            "key": {},
+            "value": {}
+        },
+        "S12": {
+            "type": "list",
+            "member": {}
+        },
+        "S13": {
+            "type": "map",
+            "key": {},
+            "value": {
+                "type": "structure",
+                "members": {
+                    "requiredProperties": {
+                        "shape": "S15"
+                    },
+                    "scope": {},
+                    "implementedBy": {
+                        "shape": "S17"
+                    }
+                }
+            }
+        },
+        "S15": {
+            "type": "list",
+            "member": {}
+        },
+        "S17": {
+            "type": "structure",
+            "members": {
+                "lambda": {
+                    "type": "structure",
+                    "required": [
+                        "arn"
+                    ],
+                    "members": {
+                        "arn": {}
+                    }
+                },
+                "isNative": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "S1a": {
+            "type": "map",
+            "key": {},
+            "value": {}
+        },
+        "S1d": {
+            "type": "map",
+            "key": {},
+            "value": {
+                "type": "structure",
+                "members": {
+                    "groupType": {},
+                    "propertyNames": {
+                        "shape": "S1g"
+                    }
+                }
+            }
+        },
+        "S1g": {
+            "type": "list",
+            "member": {}
+        },
+        "S1o": {
+            "type": "map",
+            "key": {},
+            "value": {
+                "type": "structure",
+                "members": {
+                    "definition": {
+                        "shape": "Sw"
+                    },
+                    "value": {
+                        "shape": "Sd"
+                    },
+                    "updateType": {}
+                }
+            }
+        },
+        "S1r": {
+            "type": "map",
+            "key": {},
+            "value": {
+                "type": "structure",
+                "members": {
+                    "groupType": {},
+                    "propertyNames": {
+                        "shape": "S1g"
+                    },
+                    "updateType": {}
+                }
+            }
+        },
+        "S1y": {
+            "type": "list",
+            "member": {}
+        },
+        "S2t": {
+            "type": "structure",
+            "required": [
+                "dataType",
+                "isTimeSeries",
+                "isRequiredInEntity",
+                "isExternalId",
+                "isStoredExternally",
+                "isImported",
+                "isFinal",
+                "isInherited"
+            ],
+            "members": {
+                "dataType": {
+                    "shape": "Sx"
+                },
+                "isTimeSeries": {
+                    "type": "boolean"
+                },
+                "isRequiredInEntity": {
+                    "type": "boolean"
+                },
+                "isExternalId": {
+                    "type": "boolean"
+                },
+                "isStoredExternally": {
+                    "type": "boolean"
+                },
+                "isImported": {
+                    "type": "boolean"
+                },
+                "isFinal": {
+                    "type": "boolean"
+                },
+                "isInherited": {
+                    "type": "boolean"
+                },
+                "defaultValue": {
+                    "shape": "Sd"
+                },
+                "configuration": {
+                    "shape": "S10"
+                }
+            }
+        },
+        "S2w": {
+            "type": "structure",
+            "members": {
+                "state": {},
+                "error": {
+                    "type": "structure",
+                    "members": {
+                        "code": {},
+                        "message": {}
+                    }
+                }
+            }
+        },
+        "S3c": {
+            "type": "structure",
+            "required": [
+                "effectiveDateTime",
+                "pricingMode",
+                "updateDateTime",
+                "updateReason"
+            ],
+            "members": {
+                "billableEntityCount": {
+                    "type": "long"
+                },
+                "bundleInformation": {
+                    "type": "structure",
+                    "required": [
+                        "bundleNames"
+                    ],
+                    "members": {
+                        "bundleNames": {
+                            "shape": "S3e"
+                        },
+                        "pricingTier": {}
+                    }
+                },
+                "effectiveDateTime": {
+                    "type": "timestamp"
+                },
+                "pricingMode": {},
+                "updateDateTime": {
+                    "type": "timestamp"
+                },
+                "updateReason": {}
+            }
+        },
+        "S3e": {
+            "type": "list",
+            "member": {}
+        },
+        "S3k": {
+            "type": "list",
+            "member": {}
+        },
+        "S3q": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "propertyName": {},
+                    "operator": {},
+                    "value": {
+                        "shape": "Sd"
+                    }
+                }
+            }
+        },
+        "S14": {
+            "type": "map",
+            "key": {},
+            "value": {
+                "type": "structure",
+                "members": {
+                    "requiredProperties": {
+                        "shape": "S16"
+                    },
+                    "scope": {},
+                    "implementedBy": {
+                        "shape": "S18"
+                    }
+                }
+            }
+        },
+        "S16": {
+            "type": "list",
+            "member": {}
+        },
+        "S18": {
+            "type": "structure",
+            "members": {
+                "lambda": {
+                    "type": "structure",
+                    "required": [
+                        "arn"
+                    ],
+                    "members": {
+                        "arn": {}
+                    }
+                },
+                "isNative": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "S1b": {
+            "type": "map",
+            "key": {},
+            "value": {}
+        },
+        "S1e": {
+            "type": "map",
+            "key": {},
+            "value": {
+                "type": "structure",
+                "members": {
+                    "groupType": {},
+                    "propertyNames": {
+                        "shape": "S1h"
+                    }
+                }
+            }
+        },
+        "S1h": {
+            "type": "list",
+            "member": {}
+        },
+        "S1q": {
+            "type": "map",
+            "key": {},
+            "value": {
+                "type": "structure",
+                "members": {
+                    "definition": {
+                        "shape": "Sw"
+                    },
+                    "value": {
+                        "shape": "Sd"
+                    },
+                    "updateType": {}
+                }
+            }
+        },
+        "S1t": {
+            "type": "map",
+            "key": {},
+            "value": {
+                "type": "structure",
+                "members": {
+                    "groupType": {},
+                    "propertyNames": {
+                        "shape": "S1h"
+                    },
+                    "updateType": {}
+                }
+            }
+        },
+        "S20": {
+            "type": "list",
+            "member": {}
+        },
+        "S22": {
+            "type": "map",
+            "key": {},
+            "value": {}
+        },
+        "S33": {
+            "type": "structure",
+            "required": [
+                "dataType",
+                "isTimeSeries",
+                "isRequiredInEntity",
+                "isExternalId",
+                "isStoredExternally",
+                "isImported",
+                "isFinal",
+                "isInherited"
+            ],
+            "members": {
+                "dataType": {
+                    "shape": "Sx"
+                },
+                "isTimeSeries": {
+                    "type": "boolean"
+                },
+                "isRequiredInEntity": {
+                    "type": "boolean"
+                },
+                "isExternalId": {
+                    "type": "boolean"
+                },
+                "isStoredExternally": {
+                    "type": "boolean"
+                },
+                "isImported": {
+                    "type": "boolean"
+                },
+                "isFinal": {
+                    "type": "boolean"
+                },
+                "isInherited": {
+                    "type": "boolean"
+                },
+                "defaultValue": {
+                    "shape": "Sd"
+                },
+                "configuration": {
+                    "shape": "S10"
+                },
+                "displayName": {}
+            }
+        },
+        "S36": {
+            "type": "structure",
+            "members": {
+                "state": {},
+                "error": {
+                    "shape": "S37"
+                }
+            }
+        },
+        "S37": {
+            "type": "structure",
+            "members": {
+                "code": {},
+                "message": {}
+            }
+        },
+        "S3m": {
+            "type": "structure",
+            "required": [
+                "effectiveDateTime",
+                "pricingMode",
+                "updateDateTime",
+                "updateReason"
+            ],
+            "members": {
+                "billableEntityCount": {
+                    "type": "long"
+                },
+                "bundleInformation": {
+                    "type": "structure",
+                    "required": [
+                        "bundleNames"
+                    ],
+                    "members": {
+                        "bundleNames": {
+                            "shape": "S3o"
+                        },
+                        "pricingTier": {}
+                    }
+                },
+                "effectiveDateTime": {
+                    "type": "timestamp"
+                },
+                "pricingMode": {},
+                "updateDateTime": {
+                    "type": "timestamp"
+                },
+                "updateReason": {}
+            }
+        },
+        "S3o": {
+            "type": "list",
+            "member": {}
+        },
+        "S3u": {
+            "type": "list",
+            "member": {}
+        },
+        "S40": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "propertyName": {},
+                    "operator": {},
+                    "value": {
+                        "shape": "Sd"
+                    }
+                }
+            }
+        },
+        "S4m": {
+            "type": "structure",
+            "members": {
+                "state": {},
+                "error": {
+                    "shape": "S37"
+                }
+            }
+        },
+        "S3": {
+            "type": "structure",
+            "required": [
+                "entityPropertyReference"
+            ],
+            "members": {
+                "entityPropertyReference": {
+                    "shape": "S4"
+                },
+                "propertyValues": {
+                    "type": "list",
+                    "member": {
+                        "shape": "Sa"
+                    }
+                }
+            }
+        },
+        "Sa": {
+            "type": "structure",
+            "required": [
+                "timestamp",
+                "value"
+            ],
+            "members": {
+                "timestamp": {
+                    "type": "timestamp"
+                },
+                "value": {
+                    "shape": "Sc"
+                }
+            }
+        },
+        "Sc": {
+            "type": "structure",
+            "members": {
+                "booleanValue": {
+                    "type": "boolean"
+                },
+                "doubleValue": {
+                    "type": "double"
+                },
+                "expression": {},
+                "integerValue": {
+                    "type": "integer"
+                },
+                "listValue": {
+                    "shape": "Sh"
+                },
+                "longValue": {
+                    "type": "long"
+                },
+                "mapValue": {
+                    "type": "map",
+                    "key": {},
+                    "value": {
+                        "shape": "Sc"
+                    }
+                },
+                "relationshipValue": {
+                    "type": "structure",
+                    "members": {
+                        "targetComponentName": {},
+                        "targetEntityId": {}
+                    }
+                },
+                "stringValue": {}
+            }
+        },
+        "Sh": {
+            "type": "list",
+            "member": {
+                "shape": "Sc"
+            }
+        },
+        "Su": {
+            "type": "list",
+            "member": {}
+        },
+        "S19": {
+            "type": "map",
+            "key": {},
+            "value": {}
+        },
+        "S1i": {
+            "type": "map",
+            "key": {},
+            "value": {
+                "type": "structure",
+                "members": {
+                    "definition": {
+                        "shape": "S13"
+                    },
+                    "updateType": {},
+                    "value": {
+                        "shape": "Sc"
+                    }
+                }
+            }
+        },
+        "S1p": {
+            "type": "list",
+            "member": {}
+        },
+        "S2a": {
+            "type": "structure",
+            "required": [
+                "dataType",
+                "isExternalId",
+                "isFinal",
+                "isImported",
+                "isInherited",
+                "isRequiredInEntity",
+                "isStoredExternally",
+                "isTimeSeries"
+            ],
+            "members": {
+                "configuration": {
+                    "shape": "S14"
+                },
+                "dataType": {
+                    "shape": "S16"
+                },
+                "defaultValue": {
+                    "shape": "Sc"
+                },
+                "isExternalId": {
+                    "type": "boolean"
+                },
+                "isFinal": {
+                    "type": "boolean"
+                },
+                "isImported": {
+                    "type": "boolean"
+                },
+                "isInherited": {
+                    "type": "boolean"
+                },
+                "isRequiredInEntity": {
+                    "type": "boolean"
+                },
+                "isStoredExternally": {
+                    "type": "boolean"
+                },
+                "isTimeSeries": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "S2b": {
+            "type": "structure",
+            "members": {
+                "error": {
+                    "type": "structure",
+                    "members": {
+                        "code": {},
+                        "message": {}
+                    }
+                },
+                "state": {}
+            }
+        },
+        "S2m": {
+            "type": "list",
+            "member": {}
+        },
+        "S23": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "logicInputName": {},
+                    "dataReference": {
+                        "shape": "S25"
+                    },
+                    "dataConfigs": {
+                        "shape": "S28"
+                    }
+                }
+            }
+        },
+        "S25": {
+            "type": "structure",
+            "members": {
+                "templateId": {},
+                "parentEntityId": {},
+                "entityId": {},
+                "componentName": {},
+                "propertyNames": {
+                    "type": "list",
+                    "member": {}
+                }
+            }
+        },
+        "S28": {
+            "type": "map",
+            "key": {},
+            "value": {}
+        },
+        "S2p": {
+            "type": "structure",
+            "required": [
+                "type"
+            ],
+            "members": {
+                "type": {},
+                "nestedType": {
+                    "shape": "S2p"
+                }
+            }
+        },
+        "S2u": {
+            "type": "list",
+            "member": {}
+        },
+        "S3s": {
+            "type": "structure",
+            "members": {
+                "booleanValue": {
+                    "type": "boolean"
+                },
+                "doubleValue": {
+                    "type": "double"
+                },
+                "integerValue": {
+                    "type": "integer"
+                },
+                "longValue": {
+                    "type": "long"
+                },
+                "stringValue": {},
+                "listValue": {
+                    "type": "list",
+                    "member": {
+                        "shape": "S3s"
+                    }
+                }
+            }
+        },
+        "S48": {
+            "type": "structure",
+            "required": [
+                "dataType",
+                "isTimeSeries",
+                "isRequiredInEntity",
+                "isExternalId",
+                "isStoredExternally",
+                "isImported",
+                "isFinal",
+                "isInherited"
+            ],
+            "members": {
+                "dataType": {
+                    "shape": "Sx"
+                },
+                "isTimeSeries": {
+                    "type": "boolean"
+                },
+                "isRequiredInEntity": {
+                    "type": "boolean"
+                },
+                "isExternalId": {
+                    "type": "boolean"
+                },
+                "isStoredExternally": {
+                    "type": "boolean"
+                },
+                "isImported": {
+                    "type": "boolean"
+                },
+                "isFinal": {
+                    "type": "boolean"
+                },
+                "isInherited": {
+                    "type": "boolean"
+                },
+                "defaultValue": {
+                    "shape": "Sc"
+                },
+                "configuration": {
+                    "shape": "S10"
+                },
+                "displayName": {}
+            }
+        },
+        "S4b": {
+            "type": "structure",
+            "members": {
+                "state": {},
+                "error": {
+                    "shape": "S4c"
+                }
+            }
+        },
+        "S4c": {
+            "type": "structure",
+            "members": {
+                "code": {},
+                "message": {}
+            }
+        },
+        "S4j": {
+            "type": "map",
+            "key": {},
+            "value": {
+                "type": "structure",
+                "members": {
+                    "componentName": {},
+                    "description": {},
+                    "componentTypeId": {},
+                    "status": {
+                        "shape": "S4b"
+                    },
+                    "definedIn": {},
+                    "properties": {
+                        "type": "map",
+                        "key": {},
+                        "value": {
+                            "type": "structure",
+                            "members": {
+                                "definition": {
+                                    "shape": "S48"
+                                },
+                                "value": {
+                                    "shape": "Sc"
+                                }
+                            }
+                        }
+                    },
+                    "propertyGroups": {
+                        "type": "map",
+                        "key": {},
+                        "value": {
+                            "type": "structure",
+                            "required": [
+                                "groupType",
+                                "propertyNames",
+                                "isInherited"
+                            ],
+                            "members": {
+                                "groupType": {},
+                                "propertyNames": {
+                                    "shape": "S1h"
+                                },
+                                "isInherited": {
+                                    "type": "boolean"
+                                }
+                            }
+                        }
+                    },
+                    "syncSource": {}
+                }
+            }
+        },
+        "S4r": {
+            "type": "structure",
+            "members": {
+                "state": {},
+                "error": {
+                    "shape": "S4c"
+                }
+            }
+        },
+        "S54": {
+            "type": "structure",
+            "required": [
+                "effectiveDateTime",
+                "pricingMode",
+                "updateDateTime",
+                "updateReason"
+            ],
+            "members": {
+                "billableEntityCount": {
+                    "type": "long"
+                },
+                "bundleInformation": {
+                    "type": "structure",
+                    "required": [
+                        "bundleNames"
+                    ],
+                    "members": {
+                        "bundleNames": {
+                            "shape": "S56"
+                        },
+                        "pricingTier": {}
+                    }
+                },
+                "effectiveDateTime": {
+                    "type": "timestamp"
+                },
+                "pricingMode": {},
+                "updateDateTime": {
+                    "type": "timestamp"
+                },
+                "updateReason": {}
+            }
+        },
+        "S56": {
+            "type": "list",
+            "member": {}
+        },
+        "S5c": {
+            "type": "list",
+            "member": {}
+        },
+        "S5i": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "propertyName": {},
+                    "operator": {},
+                    "value": {
+                        "shape": "Sc"
+                    }
+                }
+            }
+        },
+        "S68": {
+            "type": "structure",
+            "members": {
+                "state": {},
+                "error": {
+                    "shape": "S4c"
+                }
+            }
+        },
+        "S7v": {
+            "type": "map",
+            "key": {},
+            "value": {
+                "type": "structure",
+                "members": {
+                    "updateType": {},
+                    "description": {},
+                    "componentTypeId": {},
+                    "propertyUpdates": {
+                        "shape": "S1q"
+                    },
+                    "propertyGroupUpdates": {
+                        "shape": "S1t"
+                    }
+                }
+            }
+        },
+        "S4o": {
+            "type": "structure",
+            "members": {
+                "state": {},
+                "error": {
+                    "shape": "S37"
+                }
+            }
+        }
+    }
+}

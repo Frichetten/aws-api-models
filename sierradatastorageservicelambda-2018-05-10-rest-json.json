@@ -1,0 +1,837 @@
+{
+    "version": "2.0",
+    "metadata": {
+        "apiVersion": "2018-05-10",
+        "endpointPrefix": "sierradatastorageservicelambda",
+        "jsonVersion": "1.1",
+        "protocol": "rest-json",
+        "ripServiceName": "scn",
+        "serviceFullName": "SierraDataStorageService",
+        "serviceId": "SierraDataStorageServiceLambda",
+        "signatureVersion": "v4",
+        "signingName": "scn",
+        "uid": "sierradatastorageservicelambda-2018-05-10",
+        "download_location": [
+            "https://a.b.cdn.console.awsstatic.com/a/v1/TKHP6TGZH23RVCUZZP2OJ2PJJUFTMSQ666SII2V522LCUK4NBNXQ/vendors~4134d62c.js"
+        ]
+    },
+    "operations": {
+        "associateDatasetVersionWithDatasetGroup": {
+            "http": {
+                "requestUri": "/instance/{instanceId}/groups/{datasetGroupId}/datasets",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "datasetGroupId",
+                    "datasets",
+                    "instanceId"
+                ],
+                "members": {
+                    "datasetGroupId": {
+                        "location": "uri",
+                        "locationName": "datasetGroupId"
+                    },
+                    "datasets": {
+                        "shape": "S3"
+                    },
+                    "instanceId": {
+                        "location": "uri",
+                        "locationName": "instanceId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "datasetGroupId",
+                    "instanceId"
+                ],
+                "members": {
+                    "datasetGroupId": {},
+                    "instanceId": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/TKHP6TGZH23RVCUZZP2OJ2PJJUFTMSQ666SII2V522LCUK4NBNXQ/vendors~4134d62c.js"
+            ]
+        },
+        "batchShareDataset": {
+            "http": {
+                "requestUri": "/instance/{instanceId}/batch-share-dataset",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "datasets",
+                    "instanceId",
+                    "resourcePrincipals"
+                ],
+                "members": {
+                    "datasets": {
+                        "shape": "Sb"
+                    },
+                    "instanceId": {
+                        "location": "uri",
+                        "locationName": "instanceId"
+                    },
+                    "resourcePrincipals": {
+                        "shape": "Sc"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "datasets",
+                    "errors",
+                    "instanceId"
+                ],
+                "members": {
+                    "datasets": {
+                        "shape": "Sb"
+                    },
+                    "errors": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "code",
+                                "datasetId",
+                                "message"
+                            ],
+                            "members": {
+                                "code": {},
+                                "datasetId": {},
+                                "message": {}
+                            }
+                        }
+                    },
+                    "instanceId": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/TKHP6TGZH23RVCUZZP2OJ2PJJUFTMSQ666SII2V522LCUK4NBNXQ/vendors~4134d62c.js"
+            ]
+        },
+        "createApplicationDataset": {
+            "http": {
+                "requestUri": "/instance/{instanceId}/workbook/{workbookId}/dataset",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "instanceId",
+                    "workbookId"
+                ],
+                "members": {
+                    "clientToken": {
+                        "idempotencyToken": true
+                    },
+                    "entity": {
+                        "shape": "Sn"
+                    },
+                    "granularityType": {},
+                    "instanceId": {
+                        "location": "uri",
+                        "locationName": "instanceId"
+                    },
+                    "type": {},
+                    "workbookId": {
+                        "location": "uri",
+                        "locationName": "workbookId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "datasetId",
+                    "instanceId",
+                    "workbookId"
+                ],
+                "members": {
+                    "datasetId": {},
+                    "granularityType": {},
+                    "instanceId": {},
+                    "workbookId": {}
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/TKHP6TGZH23RVCUZZP2OJ2PJJUFTMSQ666SII2V522LCUK4NBNXQ/vendors~4134d62c.js"
+            ]
+        },
+        "createDataset": {
+            "http": {
+                "requestUri": "/instance/{instanceId}/datasets",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "description",
+                    "instanceId",
+                    "name"
+                ],
+                "members": {
+                    "author": {},
+                    "description": {},
+                    "entity": {
+                        "shape": "Sn"
+                    },
+                    "granularityType": {},
+                    "icebergRequest": {
+                        "type": "boolean"
+                    },
+                    "instanceId": {
+                        "location": "uri",
+                        "locationName": "instanceId"
+                    },
+                    "name": {},
+                    "resourcePrincipals": {
+                        "shape": "Sc"
+                    },
+                    "type": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "datasetId",
+                    "instanceId"
+                ],
+                "members": {
+                    "datasetId": {},
+                    "granularityType": {},
+                    "instanceId": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/TKHP6TGZH23RVCUZZP2OJ2PJJUFTMSQ666SII2V522LCUK4NBNXQ/vendors~4134d62c.js"
+            ]
+        },
+        "createDatasetGroup": {
+            "http": {
+                "requestUri": "/instance/{instanceId}/groups",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "author",
+                    "datasets",
+                    "instanceId",
+                    "name"
+                ],
+                "members": {
+                    "author": {},
+                    "creator": {
+                        "shape": "S10"
+                    },
+                    "datasets": {
+                        "shape": "S3"
+                    },
+                    "instanceId": {
+                        "location": "uri",
+                        "locationName": "instanceId"
+                    },
+                    "name": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "datasetGroupId",
+                    "instanceId"
+                ],
+                "members": {
+                    "datasetGroupId": {},
+                    "instanceId": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/TKHP6TGZH23RVCUZZP2OJ2PJJUFTMSQ666SII2V522LCUK4NBNXQ/vendors~4134d62c.js"
+            ]
+        },
+        "createDatasetWithCreator": {
+            "http": {
+                "requestUri": "/instance/{instanceId}/system/datasets",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "creator",
+                    "description",
+                    "instanceAccountId",
+                    "instanceId",
+                    "name"
+                ],
+                "members": {
+                    "creator": {
+                        "shape": "S10"
+                    },
+                    "description": {},
+                    "entity": {
+                        "shape": "Sn"
+                    },
+                    "granularityType": {},
+                    "instanceAccountId": {},
+                    "instanceId": {
+                        "location": "uri",
+                        "locationName": "instanceId"
+                    },
+                    "name": {},
+                    "resourcePrincipals": {
+                        "shape": "Sc"
+                    },
+                    "type": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "creator",
+                    "datasetId",
+                    "instanceId"
+                ],
+                "members": {
+                    "creator": {
+                        "shape": "S10"
+                    },
+                    "datasetId": {},
+                    "granularityType": {},
+                    "instanceId": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/TKHP6TGZH23RVCUZZP2OJ2PJJUFTMSQ666SII2V522LCUK4NBNXQ/vendors~4134d62c.js"
+            ]
+        },
+        "createInstance": {
+            "http": {
+                "requestUri": "/instance",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "accountId",
+                    "instanceId"
+                ],
+                "members": {
+                    "accountId": {},
+                    "instanceId": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "instanceId"
+                ],
+                "members": {
+                    "instanceId": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/TKHP6TGZH23RVCUZZP2OJ2PJJUFTMSQ666SII2V522LCUK4NBNXQ/vendors~4134d62c.js"
+            ]
+        },
+        "deleteDataset": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/instance/{instanceId}/datasets/{datasetId}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "datasetId",
+                    "instanceId"
+                ],
+                "members": {
+                    "datasetId": {
+                        "location": "uri",
+                        "locationName": "datasetId"
+                    },
+                    "instanceId": {
+                        "location": "uri",
+                        "locationName": "instanceId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "datasetId",
+                    "instanceId"
+                ],
+                "members": {
+                    "datasetId": {},
+                    "instanceId": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/TKHP6TGZH23RVCUZZP2OJ2PJJUFTMSQ666SII2V522LCUK4NBNXQ/vendors~4134d62c.js"
+            ]
+        },
+        "deleteInstance": {
+            "http": {
+                "requestUri": "/instance/{instanceId}/delete",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "instanceId"
+                ],
+                "members": {
+                    "instanceId": {
+                        "location": "uri",
+                        "locationName": "instanceId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "instanceId"
+                ],
+                "members": {
+                    "instanceId": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/TKHP6TGZH23RVCUZZP2OJ2PJJUFTMSQ666SII2V522LCUK4NBNXQ/vendors~4134d62c.js"
+            ]
+        },
+        "describeDataset": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/instance/{instanceId}/datasets/{datasetId}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "datasetId",
+                    "instanceId"
+                ],
+                "members": {
+                    "datasetId": {
+                        "location": "uri",
+                        "locationName": "datasetId"
+                    },
+                    "instanceId": {
+                        "location": "uri",
+                        "locationName": "instanceId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "datasetSummary"
+                ],
+                "members": {
+                    "datasetSummary": {
+                        "shape": "S1f"
+                    },
+                    "datasetVersionSummary": {
+                        "type": "structure",
+                        "required": [
+                            "datasetId",
+                            "instanceId"
+                        ],
+                        "members": {
+                            "columns": {
+                                "type": "map",
+                                "key": {},
+                                "value": {
+                                    "type": "structure",
+                                    "members": {
+                                        "count": {
+                                            "type": "long"
+                                        },
+                                        "type": {}
+                                    }
+                                }
+                            },
+                            "datasetId": {},
+                            "instanceId": {},
+                            "jobId": {},
+                            "version": {},
+                            "versionId": {
+                                "type": "long"
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/TKHP6TGZH23RVCUZZP2OJ2PJJUFTMSQ666SII2V522LCUK4NBNXQ/vendors~4134d62c.js"
+            ]
+        },
+        "describeDatasetGroup": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/instance/{instanceId}/groups/{datasetGroupId}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "datasetGroupId",
+                    "instanceId"
+                ],
+                "members": {
+                    "datasetGroupId": {
+                        "location": "uri",
+                        "locationName": "datasetGroupId"
+                    },
+                    "instanceId": {
+                        "location": "uri",
+                        "locationName": "instanceId"
+                    },
+                    "maxResults": {
+                        "location": "querystring",
+                        "locationName": "maxResults",
+                        "type": "integer"
+                    },
+                    "nextToken": {
+                        "location": "querystring",
+                        "locationName": "nextToken"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "active",
+                    "author",
+                    "createdAt",
+                    "datasetGroupId",
+                    "datasets",
+                    "instanceId",
+                    "name"
+                ],
+                "members": {
+                    "active": {
+                        "type": "boolean"
+                    },
+                    "author": {},
+                    "createdAt": {
+                        "type": "long"
+                    },
+                    "creator": {
+                        "shape": "S10"
+                    },
+                    "datasetGroupId": {},
+                    "datasets": {
+                        "shape": "S3"
+                    },
+                    "instanceId": {},
+                    "name": {},
+                    "nextToken": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/TKHP6TGZH23RVCUZZP2OJ2PJJUFTMSQ666SII2V522LCUK4NBNXQ/vendors~4134d62c.js"
+            ]
+        },
+        "describeInstance": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/instance/{instanceId}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "instanceId"
+                ],
+                "members": {
+                    "instanceId": {
+                        "location": "uri",
+                        "locationName": "instanceId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "instanceSummary"
+                ],
+                "members": {
+                    "instanceSummary": {
+                        "type": "structure",
+                        "required": [
+                            "accountId",
+                            "active",
+                            "createdAt",
+                            "instanceId"
+                        ],
+                        "members": {
+                            "accountId": {},
+                            "active": {
+                                "type": "boolean"
+                            },
+                            "createdAt": {
+                                "type": "long"
+                            },
+                            "instanceId": {}
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/TKHP6TGZH23RVCUZZP2OJ2PJJUFTMSQ666SII2V522LCUK4NBNXQ/vendors~4134d62c.js"
+            ]
+        },
+        "getDatasetAuthorizationPolicy": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/instance/{instanceId}/datasets/{datasetId}/authorization-policy",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "datasetId",
+                    "instanceId"
+                ],
+                "members": {
+                    "datasetId": {
+                        "location": "uri",
+                        "locationName": "datasetId"
+                    },
+                    "instanceId": {
+                        "location": "uri",
+                        "locationName": "instanceId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "datasetPolicy": {},
+                    "instanceAccountId": {},
+                    "workbookId": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/TKHP6TGZH23RVCUZZP2OJ2PJJUFTMSQ666SII2V522LCUK4NBNXQ/vendors~4134d62c.js"
+            ]
+        },
+        "listDatasets": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/instance/{instanceId}/datasets",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "instanceId"
+                ],
+                "members": {
+                    "author": {
+                        "location": "querystring",
+                        "locationName": "author"
+                    },
+                    "creatorId": {
+                        "location": "querystring",
+                        "locationName": "creatorId"
+                    },
+                    "creatorType": {
+                        "location": "querystring",
+                        "locationName": "creatorType"
+                    },
+                    "instanceId": {
+                        "location": "uri",
+                        "locationName": "instanceId"
+                    },
+                    "maxResults": {
+                        "location": "querystring",
+                        "locationName": "maxResults",
+                        "type": "integer"
+                    },
+                    "name": {
+                        "location": "querystring",
+                        "locationName": "name"
+                    },
+                    "nextToken": {
+                        "location": "querystring",
+                        "locationName": "nextToken"
+                    },
+                    "rootEntityId": {
+                        "location": "querystring",
+                        "locationName": "rootEntityId"
+                    },
+                    "type": {
+                        "location": "querystring",
+                        "locationName": "type"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "datasets"
+                ],
+                "members": {
+                    "datasets": {
+                        "type": "list",
+                        "member": {
+                            "shape": "S1f"
+                        }
+                    },
+                    "nextToken": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/TKHP6TGZH23RVCUZZP2OJ2PJJUFTMSQ666SII2V522LCUK4NBNXQ/vendors~4134d62c.js"
+            ]
+        },
+        "updateDataset": {
+            "http": {
+                "requestUri": "/instance/{instanceId}/datasets/{datasetId}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "datasetId",
+                    "instanceId"
+                ],
+                "members": {
+                    "datasetId": {
+                        "location": "uri",
+                        "locationName": "datasetId"
+                    },
+                    "description": {},
+                    "granularityType": {},
+                    "instanceId": {
+                        "location": "uri",
+                        "locationName": "instanceId"
+                    },
+                    "name": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "datasetSummary"
+                ],
+                "members": {
+                    "datasetSummary": {
+                        "shape": "S1f"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/TKHP6TGZH23RVCUZZP2OJ2PJJUFTMSQ666SII2V522LCUK4NBNXQ/vendors~4134d62c.js"
+            ]
+        }
+    },
+    "shapes": {
+        "S3": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "datasetId"
+                ],
+                "members": {
+                    "datasetId": {},
+                    "version": {},
+                    "versionId": {
+                        "type": "long"
+                    }
+                }
+            }
+        },
+        "Sb": {
+            "type": "list",
+            "member": {}
+        },
+        "Sc": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "isGroup",
+                    "principalId",
+                    "roleType"
+                ],
+                "members": {
+                    "isGroup": {
+                        "type": "boolean"
+                    },
+                    "principalId": {},
+                    "roleType": {}
+                }
+            }
+        },
+        "Sn": {
+            "type": "structure",
+            "required": [
+                "id"
+            ],
+            "members": {
+                "id": {},
+                "instanceId": {}
+            }
+        },
+        "S10": {
+            "type": "structure",
+            "required": [
+                "id",
+                "type"
+            ],
+            "members": {
+                "id": {},
+                "type": {}
+            }
+        },
+        "S1f": {
+            "type": "structure",
+            "required": [
+                "active",
+                "createdAt",
+                "datasetId",
+                "instanceId"
+            ],
+            "members": {
+                "active": {
+                    "type": "boolean"
+                },
+                "author": {},
+                "createdAt": {
+                    "type": "long"
+                },
+                "creator": {
+                    "shape": "S10"
+                },
+                "datasetId": {},
+                "description": {},
+                "entity": {
+                    "shape": "Sn"
+                },
+                "granularityType": {},
+                "instanceId": {},
+                "name": {},
+                "rootEntity": {
+                    "shape": "Sn"
+                },
+                "schema": {},
+                "type": {},
+                "workbookId": {}
+            }
+        }
+    }
+}

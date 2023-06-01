@@ -1,0 +1,1495 @@
+{
+    "version": "2.0",
+    "metadata": {
+        "apiVersion": "2018-10-25",
+        "endpointPrefix": "appsauth",
+        "jsonVersion": "1.0",
+        "protocol": "json",
+        "serviceFullName": "AppsAuthControl Service",
+        "serviceId": "appsauth",
+        "signatureVersion": "v4",
+        "targetPrefix": "AppsAuthControlPlaneService",
+        "uid": "appsauth-control-2018-10-25",
+        "download_location": [
+            "https://a.b.cdn.console.awsstatic.com/a/v1/6YGC45JG67XODRS46XPJI7RP7ARJHPGW7SCNENQW7NWV5RVCJYUQ/main.js"
+        ]
+    },
+    "operations": {
+        "BatchDeleteSession": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "SessionIds"
+                ],
+                "members": {
+                    "SessionIds": {
+                        "shape": "S2"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "SessionsDeleted"
+                ],
+                "members": {
+                    "SessionsDeleted": {
+                        "shape": "S2"
+                    },
+                    "Errors": {
+                        "shape": "S5"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/6YGC45JG67XODRS46XPJI7RP7ARJHPGW7SCNENQW7NWV5RVCJYUQ/main.js"
+            ]
+        },
+        "BatchGetSession": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "SessionIds"
+                ],
+                "members": {
+                    "SessionIds": {
+                        "type": "list",
+                        "member": {}
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "SessionList"
+                ],
+                "members": {
+                    "SessionList": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "userId": {},
+                                "sessionId": {},
+                                "ipAddress": {
+                                    "shape": "Sf"
+                                },
+                                "creationTime": {
+                                    "type": "timestamp"
+                                },
+                                "sessionNotValidAfter": {
+                                    "type": "timestamp"
+                                },
+                                "userAgent": {}
+                            }
+                        }
+                    },
+                    "Errors": {
+                        "shape": "S5"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/6YGC45JG67XODRS46XPJI7RP7ARJHPGW7SCNENQW7NWV5RVCJYUQ/main.js"
+            ]
+        },
+        "BatchListMfaDevicesForUser": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "userList"
+                ],
+                "members": {
+                    "userList": {
+                        "type": "list",
+                        "member": {
+                            "shape": "Sj"
+                        }
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "userMfaDevicesEntryList"
+                ],
+                "members": {
+                    "userMfaDevicesEntryList": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "user": {
+                                    "shape": "Sj"
+                                },
+                                "mfaDevices": {
+                                    "shape": "Sq"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/6YGC45JG67XODRS46XPJI7RP7ARJHPGW7SCNENQW7NWV5RVCJYUQ/main.js"
+            ]
+        },
+        "CompleteVirtualMfaDeviceRegistration": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "user",
+                    "authenticationCode1"
+                ],
+                "members": {
+                    "user": {
+                        "shape": "Sj"
+                    },
+                    "deviceName": {},
+                    "deviceId": {},
+                    "authenticationCode1": {
+                        "type": "string",
+                        "sensitive": true
+                    },
+                    "cloudTrailAdditionalMetadata": {
+                        "shape": "Sz"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "mfaDevice": {
+                        "shape": "Sr"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/6YGC45JG67XODRS46XPJI7RP7ARJHPGW7SCNENQW7NWV5RVCJYUQ/main.js"
+            ]
+        },
+        "CompleteWebAuthnDeviceRegistration": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "user",
+                    "deviceId",
+                    "publicKeyCredentialJSON"
+                ],
+                "members": {
+                    "user": {
+                        "shape": "Sj"
+                    },
+                    "deviceId": {},
+                    "publicKeyCredentialJSON": {},
+                    "cloudTrailAdditionalMetadata": {
+                        "shape": "Sz"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "mfaDevice": {
+                        "shape": "Sr"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/6YGC45JG67XODRS46XPJI7RP7ARJHPGW7SCNENQW7NWV5RVCJYUQ/main.js"
+            ]
+        },
+        "CreateAuthenticationConfiguration": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "instanceId",
+                    "accessType",
+                    "directoryId",
+                    "authenticationConfigurations"
+                ],
+                "members": {
+                    "instanceId": {
+                        "shape": "S17"
+                    },
+                    "accessType": {},
+                    "directoryId": {},
+                    "authenticationConfigurations": {
+                        "shape": "S19"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/6YGC45JG67XODRS46XPJI7RP7ARJHPGW7SCNENQW7NWV5RVCJYUQ/main.js"
+            ]
+        },
+        "CreateExternalIdPConfigurationForDirectory": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "directoryId"
+                ],
+                "members": {
+                    "directoryId": {},
+                    "samlConfiguration": {
+                        "type": "structure",
+                        "members": {
+                            "idpConfig": {
+                                "shape": "S1e"
+                            },
+                            "idpMetadata": {
+                                "shape": "S1i"
+                            },
+                            "idpCertificate": {}
+                        }
+                    },
+                    "oidcConfiguration": {
+                        "type": "structure",
+                        "required": [
+                            "idpConfig"
+                        ],
+                        "members": {
+                            "idpConfig": {
+                                "shape": "S1l"
+                            },
+                            "clientSecret": {
+                                "type": "string",
+                                "sensitive": true
+                            }
+                        }
+                    },
+                    "idpSAMLConfig": {
+                        "shape": "S1e"
+                    },
+                    "idpSAMLMetadata": {
+                        "shape": "S1i"
+                    },
+                    "idpCertificate": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "idpId"
+                ],
+                "members": {
+                    "idpId": {},
+                    "idpCertificateId": {},
+                    "idpCertificateIds": {
+                        "shape": "S1w"
+                    },
+                    "awsSPSAMLConfig": {
+                        "shape": "S1x"
+                    },
+                    "awsSPCertificateId": {},
+                    "awsSPOIDCConfig": {
+                        "shape": "S20"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/6YGC45JG67XODRS46XPJI7RP7ARJHPGW7SCNENQW7NWV5RVCJYUQ/main.js"
+            ]
+        },
+        "CreateTrustedTokenIssuerConfig": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "idCInstanceId",
+                    "maxTrustedTokenIssuer",
+                    "idempotencyToken",
+                    "trustedTokenIssuerName",
+                    "trustedTokenIssuerType",
+                    "trustedTokenIssuerConfiguration"
+                ],
+                "members": {
+                    "idCInstanceId": {},
+                    "maxTrustedTokenIssuer": {
+                        "type": "integer"
+                    },
+                    "idempotencyToken": {},
+                    "trustedTokenIssuerName": {},
+                    "trustedTokenIssuerType": {},
+                    "trustedTokenIssuerConfiguration": {
+                        "shape": "S27"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "trustedTokenIssuerConfigId"
+                ],
+                "members": {
+                    "trustedTokenIssuerConfigId": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/6YGC45JG67XODRS46XPJI7RP7ARJHPGW7SCNENQW7NWV5RVCJYUQ/main.js"
+            ]
+        },
+        "DeleteAuthenticationConfiguration": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "instanceId",
+                    "accessType"
+                ],
+                "members": {
+                    "instanceId": {
+                        "shape": "S17"
+                    },
+                    "accessType": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/6YGC45JG67XODRS46XPJI7RP7ARJHPGW7SCNENQW7NWV5RVCJYUQ/main.js"
+            ]
+        },
+        "DeleteExternalIdPCertificate": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "idpId",
+                    "directoryId",
+                    "certificateId"
+                ],
+                "members": {
+                    "idpId": {},
+                    "directoryId": {},
+                    "certificateId": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/6YGC45JG67XODRS46XPJI7RP7ARJHPGW7SCNENQW7NWV5RVCJYUQ/main.js"
+            ]
+        },
+        "DeleteExternalIdPConfigurationForDirectory": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "idpId",
+                    "directoryId"
+                ],
+                "members": {
+                    "idpId": {},
+                    "directoryId": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/6YGC45JG67XODRS46XPJI7RP7ARJHPGW7SCNENQW7NWV5RVCJYUQ/main.js"
+            ]
+        },
+        "DeleteMfaDeviceForUser": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "user"
+                ],
+                "members": {
+                    "user": {
+                        "shape": "Sj"
+                    },
+                    "deviceId": {},
+                    "deviceName": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/6YGC45JG67XODRS46XPJI7RP7ARJHPGW7SCNENQW7NWV5RVCJYUQ/main.js"
+            ]
+        },
+        "DeleteTrustedTokenIssuerConfig": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "trustedTokenIssuerConfigId",
+                    "idCInstanceId"
+                ],
+                "members": {
+                    "trustedTokenIssuerConfigId": {},
+                    "idCInstanceId": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/6YGC45JG67XODRS46XPJI7RP7ARJHPGW7SCNENQW7NWV5RVCJYUQ/main.js"
+            ]
+        },
+        "DisableExternalIdPConfigurationForDirectory": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "idpId",
+                    "directoryId"
+                ],
+                "members": {
+                    "idpId": {},
+                    "directoryId": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/6YGC45JG67XODRS46XPJI7RP7ARJHPGW7SCNENQW7NWV5RVCJYUQ/main.js"
+            ]
+        },
+        "EnableExternalIdPConfigurationForDirectory": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "idpId",
+                    "directoryId"
+                ],
+                "members": {
+                    "idpId": {},
+                    "directoryId": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/6YGC45JG67XODRS46XPJI7RP7ARJHPGW7SCNENQW7NWV5RVCJYUQ/main.js"
+            ]
+        },
+        "GetAWSSPConfigurationForDirectory": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "directoryId"
+                ],
+                "members": {
+                    "directoryId": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "awsSPSAMLConfig",
+                    "awsSPCertificateIds",
+                    "awsSPOIDCConfig"
+                ],
+                "members": {
+                    "awsSPSAMLConfig": {
+                        "shape": "S1x"
+                    },
+                    "awsSPCertificateIds": {
+                        "shape": "S1w"
+                    },
+                    "awsSPOIDCConfig": {
+                        "shape": "S20"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/6YGC45JG67XODRS46XPJI7RP7ARJHPGW7SCNENQW7NWV5RVCJYUQ/main.js"
+            ]
+        },
+        "GetAppAuthenticationConfig": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "accountId"
+                ],
+                "members": {
+                    "accountId": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "AuthenticationMode"
+                ],
+                "members": {
+                    "AuthenticationMode": {},
+                    "noMFASignInBehavior": {},
+                    "noPasswordSignInBehavior": {},
+                    "allowedMfaTypes": {
+                        "shape": "S2z"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/6YGC45JG67XODRS46XPJI7RP7ARJHPGW7SCNENQW7NWV5RVCJYUQ/main.js"
+            ]
+        },
+        "GetAuthenticationConfiguration": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "instanceId",
+                    "accessType"
+                ],
+                "members": {
+                    "instanceId": {
+                        "shape": "S17"
+                    },
+                    "accessType": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "authenticationConfigurations": {
+                        "shape": "S19"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/6YGC45JG67XODRS46XPJI7RP7ARJHPGW7SCNENQW7NWV5RVCJYUQ/main.js"
+            ]
+        },
+        "GetAuthenticationTypeForDirectoryPrivate": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "directoryId"
+                ],
+                "members": {
+                    "directoryId": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "authenticationType"
+                ],
+                "members": {
+                    "authenticationType": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/6YGC45JG67XODRS46XPJI7RP7ARJHPGW7SCNENQW7NWV5RVCJYUQ/main.js"
+            ]
+        },
+        "GetMfaDeviceManagementForDirectory": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "directoryId"
+                ],
+                "members": {
+                    "directoryId": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "userPermission"
+                ],
+                "members": {
+                    "userPermission": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/6YGC45JG67XODRS46XPJI7RP7ARJHPGW7SCNENQW7NWV5RVCJYUQ/main.js"
+            ]
+        },
+        "GetSessionConfiguration": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "accountId"
+                ],
+                "members": {
+                    "accountId": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "sessionConfiguration": {
+                        "shape": "S3a"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/6YGC45JG67XODRS46XPJI7RP7ARJHPGW7SCNENQW7NWV5RVCJYUQ/main.js"
+            ]
+        },
+        "GetTrustedTokenIssuerConfig": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "trustedTokenIssuerConfigId",
+                    "idCInstanceId"
+                ],
+                "members": {
+                    "trustedTokenIssuerConfigId": {},
+                    "idCInstanceId": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "idCInstanceId",
+                    "trustedTokenIssuerName",
+                    "trustedTokenIssuerConfiguration"
+                ],
+                "members": {
+                    "idCInstanceId": {},
+                    "trustedTokenIssuerName": {},
+                    "trustedTokenIssuerConfiguration": {
+                        "shape": "S27"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/6YGC45JG67XODRS46XPJI7RP7ARJHPGW7SCNENQW7NWV5RVCJYUQ/main.js"
+            ]
+        },
+        "GetUserCapabilities": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "directoryId"
+                ],
+                "members": {
+                    "directoryId": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "allowedMfaTypes",
+                    "userPermission"
+                ],
+                "members": {
+                    "allowedMfaTypes": {
+                        "shape": "S2z"
+                    },
+                    "userPermission": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/6YGC45JG67XODRS46XPJI7RP7ARJHPGW7SCNENQW7NWV5RVCJYUQ/main.js"
+            ]
+        },
+        "ImportExternalIdPCertificate": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "idpId",
+                    "directoryId",
+                    "x509CertificateInPEM",
+                    "certificateUse"
+                ],
+                "members": {
+                    "idpId": {},
+                    "directoryId": {},
+                    "x509CertificateInPEM": {},
+                    "certificateUse": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "certificateId"
+                ],
+                "members": {
+                    "certificateId": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/6YGC45JG67XODRS46XPJI7RP7ARJHPGW7SCNENQW7NWV5RVCJYUQ/main.js"
+            ]
+        },
+        "ListExternalIdPCertificates": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "idpId",
+                    "directoryId"
+                ],
+                "members": {
+                    "idpId": {},
+                    "directoryId": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "idPCertificates"
+                ],
+                "members": {
+                    "idPCertificates": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "certificateId",
+                                "serialNumber",
+                                "subjectName",
+                                "issuerName",
+                                "signatureAlgorithmName",
+                                "publicKey",
+                                "notBefore",
+                                "notAfter",
+                                "version",
+                                "x509CertificateInPEM"
+                            ],
+                            "members": {
+                                "certificateId": {},
+                                "serialNumber": {
+                                    "type": "biginteger"
+                                },
+                                "serialNumberString": {},
+                                "subjectName": {},
+                                "issuerName": {},
+                                "signatureAlgorithmName": {},
+                                "publicKey": {
+                                    "type": "string",
+                                    "sensitive": true
+                                },
+                                "notBefore": {
+                                    "type": "timestamp"
+                                },
+                                "notAfter": {
+                                    "type": "timestamp"
+                                },
+                                "version": {
+                                    "type": "integer"
+                                },
+                                "x509CertificateInPEM": {}
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/6YGC45JG67XODRS46XPJI7RP7ARJHPGW7SCNENQW7NWV5RVCJYUQ/main.js"
+            ]
+        },
+        "ListExternalIdPConfigurationsForDirectory": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "directoryId"
+                ],
+                "members": {
+                    "directoryId": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "associations"
+                ],
+                "members": {
+                    "associations": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "idpId",
+                                "isEnabled"
+                            ],
+                            "members": {
+                                "idpId": {},
+                                "isEnabled": {
+                                    "type": "boolean"
+                                },
+                                "idpSAMLAssociationValue": {
+                                    "type": "structure",
+                                    "required": [
+                                        "idpSAMLConfig",
+                                        "idpCertificateIds"
+                                    ],
+                                    "members": {
+                                        "idpSAMLConfig": {
+                                            "shape": "S1e"
+                                        },
+                                        "idpCertificateIds": {
+                                            "shape": "S40"
+                                        }
+                                    }
+                                },
+                                "idpOIDCAssociationValue": {
+                                    "type": "structure",
+                                    "required": [
+                                        "idpOIDCConfig"
+                                    ],
+                                    "members": {
+                                        "idpOIDCConfig": {
+                                            "shape": "S1l"
+                                        }
+                                    }
+                                },
+                                "idpSAMLConfig": {
+                                    "shape": "S1e"
+                                },
+                                "idpCertificateIds": {
+                                    "shape": "S40"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/6YGC45JG67XODRS46XPJI7RP7ARJHPGW7SCNENQW7NWV5RVCJYUQ/main.js"
+            ]
+        },
+        "ListMfaDevicesForDirectory": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "directoryId"
+                ],
+                "members": {
+                    "directoryId": {},
+                    "NextToken": {},
+                    "MaxResults": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "userMfaDeviceList"
+                ],
+                "members": {
+                    "userMfaDeviceList": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "user": {
+                                    "shape": "Sj"
+                                },
+                                "mfaDevice": {
+                                    "shape": "Sr"
+                                }
+                            }
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/6YGC45JG67XODRS46XPJI7RP7ARJHPGW7SCNENQW7NWV5RVCJYUQ/main.js"
+            ]
+        },
+        "ListMfaDevicesForUser": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "user"
+                ],
+                "members": {
+                    "user": {
+                        "shape": "Sj"
+                    },
+                    "cloudTrailAdditionalMetadata": {
+                        "shape": "Sz"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "mfaDevices"
+                ],
+                "members": {
+                    "mfaDevices": {
+                        "shape": "Sq"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/6YGC45JG67XODRS46XPJI7RP7ARJHPGW7SCNENQW7NWV5RVCJYUQ/main.js"
+            ]
+        },
+        "ListSessions": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "UserId"
+                ],
+                "members": {
+                    "UserId": {},
+                    "IdentityStoreId": {},
+                    "NextToken": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "UserId": {},
+                    "SessionIds": {
+                        "type": "list",
+                        "member": {}
+                    },
+                    "NextToken": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/6YGC45JG67XODRS46XPJI7RP7ARJHPGW7SCNENQW7NWV5RVCJYUQ/main.js"
+            ]
+        },
+        "ListTrustedTokenIssuerConfigs": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "idCInstanceId"
+                ],
+                "members": {
+                    "idCInstanceId": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "trustedTokenIssuerConfigIdList"
+                ],
+                "members": {
+                    "trustedTokenIssuerConfigIdList": {
+                        "type": "list",
+                        "member": {}
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/6YGC45JG67XODRS46XPJI7RP7ARJHPGW7SCNENQW7NWV5RVCJYUQ/main.js"
+            ]
+        },
+        "PutAppAuthenticationConfig": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "accountId",
+                    "authenticationMode"
+                ],
+                "members": {
+                    "accountId": {},
+                    "authenticationMode": {},
+                    "noMFASignInBehavior": {},
+                    "noPasswordSignInBehavior": {},
+                    "allowedMfaTypes": {
+                        "shape": "S2z"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/6YGC45JG67XODRS46XPJI7RP7ARJHPGW7SCNENQW7NWV5RVCJYUQ/main.js"
+            ]
+        },
+        "PutDirectoryAccountMapping": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "directoryId",
+                    "accountId"
+                ],
+                "members": {
+                    "directoryId": {},
+                    "accountId": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/6YGC45JG67XODRS46XPJI7RP7ARJHPGW7SCNENQW7NWV5RVCJYUQ/main.js"
+            ]
+        },
+        "PutMfaDeviceManagementForDirectory": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "directoryId",
+                    "userPermission"
+                ],
+                "members": {
+                    "directoryId": {},
+                    "userPermission": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/6YGC45JG67XODRS46XPJI7RP7ARJHPGW7SCNENQW7NWV5RVCJYUQ/main.js"
+            ]
+        },
+        "PutSessionConfiguration": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "accountId",
+                    "sessionConfiguration"
+                ],
+                "members": {
+                    "accountId": {},
+                    "sessionConfiguration": {
+                        "shape": "S3a"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/6YGC45JG67XODRS46XPJI7RP7ARJHPGW7SCNENQW7NWV5RVCJYUQ/main.js"
+            ]
+        },
+        "StartVirtualMfaDeviceRegistration": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "user"
+                ],
+                "members": {
+                    "user": {
+                        "shape": "Sj"
+                    },
+                    "deviceName": {},
+                    "displayName": {},
+                    "cloudTrailAdditionalMetadata": {
+                        "shape": "Sz"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "base32StringSeed",
+                    "deviceId"
+                ],
+                "members": {
+                    "base32StringSeed": {},
+                    "deviceId": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/6YGC45JG67XODRS46XPJI7RP7ARJHPGW7SCNENQW7NWV5RVCJYUQ/main.js"
+            ]
+        },
+        "StartWebAuthnDeviceRegistration": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "user",
+                    "displayName"
+                ],
+                "members": {
+                    "user": {
+                        "shape": "Sj"
+                    },
+                    "displayName": {},
+                    "cloudTrailAdditionalMetadata": {
+                        "shape": "Sz"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "deviceId": {},
+                    "publicKeyCredentialCreationOptionsJSON": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/6YGC45JG67XODRS46XPJI7RP7ARJHPGW7SCNENQW7NWV5RVCJYUQ/main.js"
+            ]
+        },
+        "UpdateAuthenticationConfiguration": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "instanceId",
+                    "accessType",
+                    "authenticationConfigurations",
+                    "directoryId"
+                ],
+                "members": {
+                    "instanceId": {
+                        "shape": "S17"
+                    },
+                    "accessType": {},
+                    "authenticationConfigurations": {
+                        "shape": "S19"
+                    },
+                    "directoryId": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/6YGC45JG67XODRS46XPJI7RP7ARJHPGW7SCNENQW7NWV5RVCJYUQ/main.js"
+            ]
+        },
+        "UpdateExternalIdPConfigurationForDirectory": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "idpId",
+                    "directoryId"
+                ],
+                "members": {
+                    "idpId": {},
+                    "directoryId": {},
+                    "idpSAMLConfig": {
+                        "shape": "S1e"
+                    },
+                    "idpOIDCConfig": {
+                        "shape": "S1l"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/6YGC45JG67XODRS46XPJI7RP7ARJHPGW7SCNENQW7NWV5RVCJYUQ/main.js"
+            ]
+        },
+        "UpdateMfaDeviceForUser": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "user",
+                    "deviceId",
+                    "displayName"
+                ],
+                "members": {
+                    "user": {
+                        "shape": "Sj"
+                    },
+                    "deviceId": {},
+                    "displayName": {},
+                    "cloudTrailAdditionalMetadata": {
+                        "shape": "Sz"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/6YGC45JG67XODRS46XPJI7RP7ARJHPGW7SCNENQW7NWV5RVCJYUQ/main.js"
+            ]
+        },
+        "UpdateTrustedTokenIssuerConfig": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "trustedTokenIssuerConfigId",
+                    "idCInstanceId",
+                    "trustedTokenIssuerName",
+                    "trustedTokenIssuerUpdateConfiguration"
+                ],
+                "members": {
+                    "trustedTokenIssuerConfigId": {},
+                    "idCInstanceId": {},
+                    "trustedTokenIssuerName": {},
+                    "trustedTokenIssuerUpdateConfiguration": {
+                        "type": "structure",
+                        "members": {
+                            "oidcJWTConfigurationUpdate": {
+                                "type": "structure",
+                                "required": [
+                                    "claimAttributePath",
+                                    "identityStoreAttributePath",
+                                    "jwksRetrievalOption"
+                                ],
+                                "members": {
+                                    "claimAttributePath": {},
+                                    "identityStoreAttributePath": {},
+                                    "jwksRetrievalOption": {}
+                                }
+                            }
+                        },
+                        "union": true
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/6YGC45JG67XODRS46XPJI7RP7ARJHPGW7SCNENQW7NWV5RVCJYUQ/main.js"
+            ]
+        }
+    },
+    "shapes": {
+        "S2": {
+            "type": "list",
+            "member": {}
+        },
+        "S5": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "sessionId",
+                    "code",
+                    "message"
+                ],
+                "members": {
+                    "sessionId": {},
+                    "code": {},
+                    "message": {}
+                }
+            }
+        },
+        "Sf": {
+            "type": "string",
+            "sensitive": true
+        },
+        "Sj": {
+            "type": "structure",
+            "required": [
+                "directoryId",
+                "userId"
+            ],
+            "members": {
+                "directoryId": {},
+                "directoryShortName": {},
+                "userId": {}
+            }
+        },
+        "Sq": {
+            "type": "list",
+            "member": {
+                "shape": "Sr"
+            }
+        },
+        "Sr": {
+            "type": "structure",
+            "members": {
+                "deviceName": {},
+                "mfaType": {},
+                "registeredDate": {
+                    "type": "timestamp"
+                },
+                "deviceId": {},
+                "displayName": {},
+                "deviceDescription": {}
+            }
+        },
+        "Sz": {
+            "type": "structure",
+            "required": [
+                "userName",
+                "userAccountId",
+                "sourceIPAddress"
+            ],
+            "members": {
+                "userName": {},
+                "userAccountId": {},
+                "sourceIPAddress": {
+                    "shape": "Sf"
+                },
+                "userAgent": {}
+            }
+        },
+        "S17": {
+            "type": "structure",
+            "members": {}
+        },
+        "S19": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {}
+            }
+        },
+        "S1e": {
+            "type": "structure",
+            "required": [
+                "entityId",
+                "loginURL"
+            ],
+            "members": {
+                "entityId": {},
+                "loginURL": {},
+                "wantRequestSigned": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "S1i": {
+            "type": "string",
+            "sensitive": true
+        },
+        "S1l": {
+            "type": "structure",
+            "required": [
+                "issuerURL",
+                "audience",
+                "userIdentityClaimDefinition"
+            ],
+            "members": {
+                "issuerURL": {},
+                "authorizationEndpoint": {},
+                "tokenEndpoint": {},
+                "scopes": {
+                    "type": "list",
+                    "member": {}
+                },
+                "audience": {},
+                "jwksUri": {},
+                "clientId": {},
+                "userIdentityClaimDefinition": {
+                    "type": "structure",
+                    "required": [
+                        "tokenClaim",
+                        "userAttributeName"
+                    ],
+                    "members": {
+                        "tokenClaim": {},
+                        "userAttributeName": {}
+                    }
+                }
+            }
+        },
+        "S1w": {
+            "type": "list",
+            "member": {}
+        },
+        "S1x": {
+            "type": "structure",
+            "required": [
+                "issuer",
+                "acsURL",
+                "metadata"
+            ],
+            "members": {
+                "issuer": {},
+                "acsURL": {},
+                "metadata": {
+                    "type": "string",
+                    "sensitive": true
+                }
+            }
+        },
+        "S20": {
+            "type": "structure",
+            "required": [
+                "redirectURL"
+            ],
+            "members": {
+                "redirectURL": {}
+            }
+        },
+        "S27": {
+            "type": "structure",
+            "members": {
+                "oidcJWTConfiguration": {
+                    "type": "structure",
+                    "required": [
+                        "issuerURL",
+                        "claimAttributePath",
+                        "identityStoreAttributePath",
+                        "jwksRetrievalOption"
+                    ],
+                    "members": {
+                        "issuerURL": {},
+                        "claimAttributePath": {},
+                        "identityStoreAttributePath": {},
+                        "jwksRetrievalOption": {}
+                    }
+                }
+            },
+            "union": true
+        },
+        "S2z": {
+            "type": "list",
+            "member": {}
+        },
+        "S3a": {
+            "type": "structure",
+            "required": [
+                "maxAuthAgeMinutes"
+            ],
+            "members": {
+                "maxAuthAgeMinutes": {
+                    "type": "long"
+                }
+            }
+        },
+        "S40": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "certificateId",
+                    "status"
+                ],
+                "members": {
+                    "certificateId": {},
+                    "status": {}
+                }
+            }
+        },
+        "S30": {
+            "type": "list",
+            "member": {}
+        },
+        "S3b": {
+            "type": "structure",
+            "required": [
+                "maxAuthAgeMinutes"
+            ],
+            "members": {
+                "maxAuthAgeMinutes": {
+                    "type": "long"
+                }
+            }
+        },
+        "S41": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "certificateId",
+                    "status"
+                ],
+                "members": {
+                    "certificateId": {},
+                    "status": {}
+                }
+            }
+        }
+    }
+}

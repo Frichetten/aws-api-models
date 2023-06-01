@@ -1,0 +1,206 @@
+{
+    "version": "2.0",
+    "metadata": {
+        "apiVersion": "2017-10-15",
+        "endpointPrefix": "api.pricing",
+        "jsonVersion": "1.1",
+        "protocol": "json",
+        "serviceAbbreviation": "AWS Pricing",
+        "serviceFullName": "AWS Price List Service",
+        "serviceId": "Pricing",
+        "signatureVersion": "v4",
+        "signingName": "pricing",
+        "targetPrefix": "AWSPriceListService",
+        "uid": "pricing-2017-10-15",
+        "download_location": [
+            "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+        ]
+    },
+    "operations": {
+        "DescribeServices": {
+            "input": {
+                "type": "structure",
+                "members": {
+                    "ServiceCode": {},
+                    "FormatVersion": {},
+                    "NextToken": {},
+                    "MaxResults": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Services": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "ServiceCode": {},
+                                "AttributeNames": {
+                                    "type": "list",
+                                    "member": {}
+                                }
+                            }
+                        }
+                    },
+                    "FormatVersion": {},
+                    "NextToken": {}
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "GetAttributeValues": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ServiceCode",
+                    "AttributeName"
+                ],
+                "members": {
+                    "ServiceCode": {},
+                    "AttributeName": {},
+                    "NextToken": {},
+                    "MaxResults": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "AttributeValues": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "Value": {}
+                            }
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "GetProducts": {
+            "input": {
+                "type": "structure",
+                "members": {
+                    "ServiceCode": {},
+                    "Filters": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "Type",
+                                "Field",
+                                "Value"
+                            ],
+                            "members": {
+                                "Type": {},
+                                "Field": {},
+                                "Value": {}
+                            }
+                        }
+                    },
+                    "FormatVersion": {},
+                    "NextToken": {},
+                    "MaxResults": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "FormatVersion": {},
+                    "PriceList": {
+                        "type": "list",
+                        "member": {
+                            "jsonvalue": true
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "GetPriceListFileUrl": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "PriceListArn",
+                    "FileFormat"
+                ],
+                "members": {
+                    "PriceListArn": {},
+                    "FileFormat": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Url": {}
+                }
+            },
+            "download_location": [
+                "https://greengrass.us-east-1.prod.console.iot.aws.dev/static/js/greengrass.js"
+            ]
+        },
+        "ListPriceLists": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ServiceCode",
+                    "EffectiveDate",
+                    "CurrencyCode"
+                ],
+                "members": {
+                    "ServiceCode": {},
+                    "EffectiveDate": {
+                        "type": "timestamp"
+                    },
+                    "RegionCode": {},
+                    "CurrencyCode": {},
+                    "NextToken": {},
+                    "MaxResults": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "PriceLists": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "PriceListArn": {},
+                                "RegionCode": {},
+                                "CurrencyCode": {},
+                                "FileFormats": {
+                                    "type": "list",
+                                    "member": {}
+                                }
+                            }
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "download_location": [
+                "https://greengrass.us-east-1.prod.console.iot.aws.dev/static/js/greengrass.js"
+            ]
+        }
+    },
+    "shapes": {}
+}

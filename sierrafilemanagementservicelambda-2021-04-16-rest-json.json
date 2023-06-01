@@ -1,0 +1,283 @@
+{
+    "version": "2.0",
+    "metadata": {
+        "apiVersion": "2021-04-16",
+        "endpointPrefix": "sierrafilemanagementservicelambda",
+        "jsonVersion": "1.1",
+        "protocol": "rest-json",
+        "serviceFullName": "SierraFileManagementService",
+        "serviceId": "SierraFileManagementServiceLambda",
+        "signatureVersion": "v4",
+        "signingName": "scn",
+        "uid": "sierrafilemanagementservicelambda-2021-04-16",
+        "download_location": [
+            "https://a.b.cdn.console.awsstatic.com/a/v1/TKHP6TGZH23RVCUZZP2OJ2PJJUFTMSQ666SII2V522LCUK4NBNXQ/vendors~4134d62c.js"
+        ]
+    },
+    "operations": {
+        "AddFileToFileset": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/instance/{instanceId}/files/{filesetId}/file/{name}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "filesetId",
+                    "instanceId",
+                    "name"
+                ],
+                "members": {
+                    "filesetId": {
+                        "location": "uri",
+                        "locationName": "filesetId"
+                    },
+                    "instanceId": {
+                        "location": "uri",
+                        "locationName": "instanceId"
+                    },
+                    "name": {
+                        "location": "uri",
+                        "locationName": "name"
+                    },
+                    "refreshToken": {
+                        "location": "querystring",
+                        "locationName": "refreshToken",
+                        "type": "boolean"
+                    },
+                    "urlExpirationSecs": {
+                        "type": "long"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "fileId",
+                    "destination",
+                    "key",
+                    "s3PresignedUrl"
+                ],
+                "members": {
+                    "fileId": {},
+                    "destination": {},
+                    "key": {},
+                    "s3PresignedUrl": {}
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/TKHP6TGZH23RVCUZZP2OJ2PJJUFTMSQ666SII2V522LCUK4NBNXQ/vendors~4134d62c.js"
+            ]
+        },
+        "CreateFileset": {
+            "http": {
+                "requestUri": "/instance/{instanceId}/files",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "instanceId",
+                    "datasetId",
+                    "template"
+                ],
+                "members": {
+                    "instanceId": {
+                        "location": "uri",
+                        "locationName": "instanceId"
+                    },
+                    "datasetId": {},
+                    "template": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "filesetId"
+                ],
+                "members": {
+                    "filesetId": {}
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/TKHP6TGZH23RVCUZZP2OJ2PJJUFTMSQ666SII2V522LCUK4NBNXQ/vendors~4134d62c.js"
+            ]
+        },
+        "DeleteFileset": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/instance/{instanceId}/files/{filesetId}",
+                "responseCode": 204
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "instanceId",
+                    "filesetId"
+                ],
+                "members": {
+                    "instanceId": {
+                        "location": "uri",
+                        "locationName": "instanceId"
+                    },
+                    "filesetId": {
+                        "location": "uri",
+                        "locationName": "filesetId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "response": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/TKHP6TGZH23RVCUZZP2OJ2PJJUFTMSQ666SII2V522LCUK4NBNXQ/vendors~4134d62c.js"
+            ]
+        },
+        "GetFilesetByDatasetId": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/instance/{instanceId}/files",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "instanceId",
+                    "datasetId"
+                ],
+                "members": {
+                    "instanceId": {
+                        "location": "uri",
+                        "locationName": "instanceId"
+                    },
+                    "datasetId": {
+                        "location": "querystring",
+                        "locationName": "datasetId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "filesetId": {},
+                    "files": {
+                        "shape": "Sh"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/TKHP6TGZH23RVCUZZP2OJ2PJJUFTMSQ666SII2V522LCUK4NBNXQ/vendors~4134d62c.js"
+            ]
+        },
+        "GetFilesetById": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/instance/{instanceId}/files/{filesetId}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "instanceId",
+                    "filesetId"
+                ],
+                "members": {
+                    "instanceId": {
+                        "location": "uri",
+                        "locationName": "instanceId"
+                    },
+                    "filesetId": {
+                        "location": "uri",
+                        "locationName": "filesetId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "files": {
+                        "shape": "Sh"
+                    },
+                    "status": {},
+                    "template": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/TKHP6TGZH23RVCUZZP2OJ2PJJUFTMSQ666SII2V522LCUK4NBNXQ/vendors~4134d62c.js"
+            ]
+        },
+        "RemoveFileFromFileset": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/instance/{instanceId}/files/{filesetId}/fileId/{fileId}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "instanceId",
+                    "fileId",
+                    "filesetId"
+                ],
+                "members": {
+                    "instanceId": {
+                        "location": "uri",
+                        "locationName": "instanceId"
+                    },
+                    "fileId": {
+                        "location": "uri",
+                        "locationName": "fileId"
+                    },
+                    "filesetId": {
+                        "location": "uri",
+                        "locationName": "filesetId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "response"
+                ],
+                "members": {
+                    "response": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/TKHP6TGZH23RVCUZZP2OJ2PJJUFTMSQ666SII2V522LCUK4NBNXQ/vendors~4134d62c.js"
+            ]
+        }
+    },
+    "shapes": {
+        "Sh": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "fileName",
+                    "fileId",
+                    "uploadStatus",
+                    "locationURI"
+                ],
+                "members": {
+                    "fileName": {},
+                    "fileId": {},
+                    "uploadStatus": {},
+                    "locationURI": {}
+                }
+            }
+        }
+    }
+}

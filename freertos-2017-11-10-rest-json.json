@@ -1,0 +1,1146 @@
+{
+    "version": "2.0",
+    "metadata": {
+        "apiVersion": "2017-11-10",
+        "endpointPrefix": "freertos",
+        "protocol": "rest-json",
+        "serviceAbbreviation": "FreeRTOS",
+        "serviceFullName": "FreeRTOS Control Plane",
+        "signatureVersion": "v4",
+        "signingName": "execute-api",
+        "uid": "freertos-2017-11-10",
+        "download_location": [
+            "https://freertos.us-east-1.prod.console.iot.aws.dev/static/js/freertos.js"
+        ]
+    },
+    "operations": {
+        "CancelSubscription": {
+            "http": {
+                "requestUri": "/cancel-subscription"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "subscriptionId"
+                ],
+                "members": {
+                    "subscriptionId": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://freertos.us-east-1.prod.console.iot.aws.dev/static/js/freertos.js"
+            ]
+        },
+        "CreateSoftwareConfiguration": {
+            "http": {
+                "requestUri": "/create-software-config"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "softwareConfigurationName",
+                    "softwareConfiguration"
+                ],
+                "members": {
+                    "softwareConfigurationName": {},
+                    "description": {},
+                    "softwareConfiguration": {
+                        "shape": "S7"
+                    },
+                    "tags": {
+                        "shape": "Sj"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "softwareConfigurationName": {},
+                    "softwareConfigurationArn": {}
+                }
+            },
+            "download_location": [
+                "https://freertos.us-east-1.prod.console.iot.aws.dev/static/js/freertos.js"
+            ]
+        },
+        "CreateSubscription": {
+            "http": {
+                "requestUri": "/create-subscription"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ltsVersion",
+                    "licenseType"
+                ],
+                "members": {
+                    "ltsVersion": {},
+                    "licenseType": {},
+                    "productName": {},
+                    "patchDeliveryNotificationIds": {
+                        "shape": "St"
+                    },
+                    "billingNotificationIds": {
+                        "shape": "Sv"
+                    },
+                    "tags": {
+                        "shape": "Sj"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "subscriptionId": {},
+                    "subscriptionArn": {}
+                }
+            },
+            "download_location": [
+                "https://freertos.us-east-1.prod.console.iot.aws.dev/static/js/freertos.js"
+            ]
+        },
+        "DeleteSoftwareConfiguration": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/delete-software-configuration"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "softwareConfigurationName"
+                ],
+                "members": {
+                    "softwareConfigurationName": {
+                        "location": "querystring",
+                        "locationName": "softwareConfigurationName"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "softwareConfigurationName": {}
+                }
+            },
+            "download_location": [
+                "https://freertos.us-east-1.prod.console.iot.aws.dev/static/js/freertos.js"
+            ]
+        },
+        "DescribeFreeRTOSVersion": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/describe-freertos-version/{freeRTOSVersionId}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "freeRTOSVersionId"
+                ],
+                "members": {
+                    "freeRTOSVersionId": {
+                        "location": "uri",
+                        "locationName": "freeRTOSVersionId"
+                    },
+                    "contentType": {
+                        "location": "querystring",
+                        "locationName": "contentType"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "releaseDate": {
+                        "type": "timestamp"
+                    },
+                    "releaseNotes": {},
+                    "freeRTOSVersionId": {}
+                }
+            },
+            "download_location": [
+                "https://freertos.us-east-1.prod.console.iot.aws.dev/static/js/freertos.js"
+            ]
+        },
+        "DescribeHardwarePlatform": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/describe-hardware-platform/{hardwarePlatformId}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "hardwarePlatformId"
+                ],
+                "members": {
+                    "hardwarePlatformId": {
+                        "location": "uri",
+                        "locationName": "hardwarePlatformId"
+                    },
+                    "freeRTOSVersionId": {
+                        "location": "querystring",
+                        "locationName": "freeRTOSVersionId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "hardwarePlatformId": {},
+                    "hardwareVendor": {},
+                    "codeSigner": {
+                        "type": "structure",
+                        "members": {
+                            "name": {}
+                        }
+                    },
+                    "hardwarePlatformName": {},
+                    "description": {},
+                    "freeRTOSVersionId": {},
+                    "libraries": {
+                        "type": "structure",
+                        "members": {
+                            "list": {
+                                "type": "list",
+                                "member": {
+                                    "type": "structure",
+                                    "members": {
+                                        "id": {},
+                                        "name": {},
+                                        "category": {},
+                                        "description": {},
+                                        "dependencies": {
+                                            "shape": "S1e"
+                                        },
+                                        "visible": {
+                                            "type": "boolean"
+                                        },
+                                        "memorySize": {
+                                            "shape": "S1g"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "developmentEnvironments": {
+                        "type": "structure",
+                        "members": {
+                            "list": {
+                                "type": "list",
+                                "member": {
+                                    "type": "structure",
+                                    "members": {
+                                        "ideName": {},
+                                        "compilerName": {},
+                                        "defaultDevelopmentEnvironment": {
+                                            "type": "boolean"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "demos": {
+                        "type": "structure",
+                        "members": {
+                            "list": {
+                                "type": "list",
+                                "member": {
+                                    "type": "structure",
+                                    "members": {
+                                        "id": {},
+                                        "name": {},
+                                        "description": {},
+                                        "requiredLibraries": {
+                                            "shape": "S1e"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "memorySize": {
+                        "shape": "S1g"
+                    },
+                    "hasKeyImportProvisioning": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "download_location": [
+                "https://freertos.us-east-1.prod.console.iot.aws.dev/static/js/freertos.js"
+            ]
+        },
+        "DescribeSoftwareConfiguration": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/describe-software-configuration"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "softwareConfigurationName"
+                ],
+                "members": {
+                    "softwareConfigurationName": {
+                        "location": "querystring",
+                        "locationName": "softwareConfigurationName"
+                    },
+                    "type": {
+                        "location": "querystring",
+                        "locationName": "type"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "softwareConfigurationName": {},
+                    "softwareConfigurationArn": {},
+                    "description": {},
+                    "type": {},
+                    "softwareConfiguration": {
+                        "shape": "S7"
+                    },
+                    "creationDate": {
+                        "type": "timestamp"
+                    },
+                    "lastModifiedDate": {
+                        "type": "timestamp"
+                    }
+                }
+            },
+            "download_location": [
+                "https://freertos.us-east-1.prod.console.iot.aws.dev/static/js/freertos.js"
+            ]
+        },
+        "DescribeSubscription": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/describe-subscription"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "subscriptionId"
+                ],
+                "members": {
+                    "subscriptionId": {
+                        "location": "querystring",
+                        "locationName": "subscriptionId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "subscription": {
+                        "shape": "S1w"
+                    }
+                }
+            },
+            "download_location": [
+                "https://freertos.us-east-1.prod.console.iot.aws.dev/static/js/freertos.js"
+            ]
+        },
+        "GenerateSoftwareURL": {
+            "http": {
+                "requestUri": "/generate-software-url"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "softwareConfiguration"
+                ],
+                "members": {
+                    "softwareConfiguration": {
+                        "shape": "S7"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "softwareURL": {}
+                }
+            },
+            "download_location": [
+                "https://freertos.us-east-1.prod.console.iot.aws.dev/static/js/freertos.js"
+            ]
+        },
+        "GetEmpPatchUrl": {
+            "http": {
+                "requestUri": "/generate-download-url"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "subscriptionId"
+                ],
+                "members": {
+                    "subscriptionId": {
+                        "location": "querystring",
+                        "locationName": "subscriptionId"
+                    },
+                    "patchNumber": {
+                        "location": "querystring",
+                        "locationName": "patchNumber"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "patchURL": {},
+                    "releaseNotesURL": {}
+                }
+            },
+            "download_location": [
+                "https://freertos.us-east-1.prod.console.iot.aws.dev/static/js/freertos.js"
+            ]
+        },
+        "GetSoftwareURL": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/get-software-url"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "softwareConfiguration"
+                ],
+                "members": {
+                    "softwareConfiguration": {
+                        "shape": "S7"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "softwareURL": {}
+                }
+            },
+            "download_location": [
+                "https://freertos.us-east-1.prod.console.iot.aws.dev/static/js/freertos.js"
+            ]
+        },
+        "GetSoftwareURLForConfiguration": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/software-url-for-configuration"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "softwareConfigurationName",
+                    "type"
+                ],
+                "members": {
+                    "softwareConfigurationName": {
+                        "location": "querystring",
+                        "locationName": "softwareConfigurationName"
+                    },
+                    "type": {
+                        "location": "querystring",
+                        "locationName": "type"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "softwareURL": {}
+                }
+            },
+            "download_location": [
+                "https://freertos.us-east-1.prod.console.iot.aws.dev/static/js/freertos.js"
+            ]
+        },
+        "GetSubscriptionBillingAmount": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/get-subscription-billing-amount"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ltsVersion",
+                    "licenseType"
+                ],
+                "members": {
+                    "ltsVersion": {
+                        "location": "querystring",
+                        "locationName": "ltsVersion"
+                    },
+                    "licenseType": {
+                        "location": "querystring",
+                        "locationName": "licenseType"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "subscriptionBillingAmount": {
+                        "type": "structure",
+                        "members": {
+                            "standardSubscriptionFee": {
+                                "type": "integer"
+                            },
+                            "supplementalFee": {
+                                "type": "integer"
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://freertos.us-east-1.prod.console.iot.aws.dev/static/js/freertos.js"
+            ]
+        },
+        "ListFreeRTOSVersions": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/list-freertos-versions"
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "nextToken": {
+                        "location": "querystring",
+                        "locationName": "nextToken"
+                    },
+                    "maxResults": {
+                        "location": "querystring",
+                        "locationName": "maxResults",
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "freeRtosVersionList": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "freeRTOSVersionId": {}
+                            }
+                        }
+                    },
+                    "nextToken": {}
+                }
+            },
+            "download_location": [
+                "https://freertos.us-east-1.prod.console.iot.aws.dev/static/js/freertos.js"
+            ]
+        },
+        "ListHardwarePlatforms": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/hardware-platforms"
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "nextToken": {
+                        "location": "querystring",
+                        "locationName": "nextToken"
+                    },
+                    "maxResults": {
+                        "location": "querystring",
+                        "locationName": "maxResults",
+                        "type": "integer"
+                    },
+                    "hardwareVendor": {
+                        "location": "querystring",
+                        "locationName": "hardwareVendor"
+                    },
+                    "freeRTOSVersionId": {
+                        "location": "querystring",
+                        "locationName": "freeRTOSVersionId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "hardwarePlatformList": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "hardwarePlatformId": {},
+                                "hardwareVendor": {},
+                                "hardwarePlatformName": {},
+                                "description": {}
+                            }
+                        }
+                    },
+                    "nextToken": {}
+                }
+            },
+            "download_location": [
+                "https://freertos.us-east-1.prod.console.iot.aws.dev/static/js/freertos.js"
+            ]
+        },
+        "ListHardwareVendors": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/hardwareVendors"
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "freeRTOSVersionId": {
+                        "location": "querystring",
+                        "locationName": "freeRTOSVersionId"
+                    },
+                    "nextToken": {
+                        "location": "querystring",
+                        "locationName": "nextToken"
+                    },
+                    "maxResults": {
+                        "location": "querystring",
+                        "locationName": "maxResults",
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "hardwareVendorList": {
+                        "type": "list",
+                        "member": {}
+                    },
+                    "nextToken": {}
+                }
+            },
+            "download_location": [
+                "https://freertos.us-east-1.prod.console.iot.aws.dev/static/js/freertos.js"
+            ]
+        },
+        "ListSoftwareConfigurations": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/list-software-configurations"
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "nextToken": {
+                        "location": "querystring",
+                        "locationName": "nextToken"
+                    },
+                    "maxResults": {
+                        "location": "querystring",
+                        "locationName": "maxResults",
+                        "type": "integer"
+                    },
+                    "type": {
+                        "location": "querystring",
+                        "locationName": "type"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "softwareConfigurationDetailsList": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "softwareConfigurationName": {},
+                                "softwareConfigurationArn": {},
+                                "description": {},
+                                "type": {},
+                                "hardwarePlatformId": {},
+                                "freeRTOSVersionId": {},
+                                "creationDate": {
+                                    "type": "timestamp"
+                                },
+                                "lastModifiedDate": {
+                                    "type": "timestamp"
+                                }
+                            }
+                        }
+                    },
+                    "nextToken": {}
+                }
+            },
+            "download_location": [
+                "https://freertos.us-east-1.prod.console.iot.aws.dev/static/js/freertos.js"
+            ]
+        },
+        "ListSoftwarePatches": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/list-patches"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "subscriptionId"
+                ],
+                "members": {
+                    "subscriptionId": {
+                        "location": "querystring",
+                        "locationName": "subscriptionId"
+                    },
+                    "nextToken": {
+                        "location": "querystring",
+                        "locationName": "nextToken"
+                    },
+                    "maxResults": {
+                        "location": "querystring",
+                        "locationName": "maxResults",
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ltsPatchRecordList": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "ltsVersion": {},
+                                "patchNumber": {},
+                                "description": {},
+                                "releaseTimestamp": {
+                                    "type": "long"
+                                }
+                            }
+                        }
+                    },
+                    "nextToken": {}
+                }
+            },
+            "download_location": [
+                "https://freertos.us-east-1.prod.console.iot.aws.dev/static/js/freertos.js"
+            ]
+        },
+        "ListSubscriptionEmails": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/list-subscription-emails"
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "subscriptionId": {
+                        "location": "querystring",
+                        "locationName": "subscriptionId"
+                    },
+                    "nextToken": {
+                        "location": "querystring",
+                        "locationName": "nextToken"
+                    },
+                    "maxResults": {
+                        "location": "querystring",
+                        "locationName": "maxResults",
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "subscriptionEmailAddressList": {
+                        "shape": "S22"
+                    },
+                    "nextToken": {}
+                }
+            },
+            "download_location": [
+                "https://freertos.us-east-1.prod.console.iot.aws.dev/static/js/freertos.js"
+            ]
+        },
+        "ListSubscriptions": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/list-subscriptions"
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "nextToken": {
+                        "location": "querystring",
+                        "locationName": "nextToken"
+                    },
+                    "maxResults": {
+                        "location": "querystring",
+                        "locationName": "maxResults",
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "subscriptionList": {
+                        "type": "list",
+                        "member": {
+                            "shape": "S1w"
+                        }
+                    },
+                    "nextToken": {}
+                }
+            },
+            "download_location": [
+                "https://freertos.us-east-1.prod.console.iot.aws.dev/static/js/freertos.js"
+            ]
+        },
+        "ListTagsForResource": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/list-tags"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "resourceArn"
+                ],
+                "members": {
+                    "resourceArn": {
+                        "location": "querystring",
+                        "locationName": "resourceArn"
+                    },
+                    "nextToken": {
+                        "location": "querystring",
+                        "locationName": "nextToken"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "tags": {
+                        "shape": "Sj"
+                    },
+                    "nextToken": {}
+                }
+            },
+            "download_location": [
+                "https://freertos.us-east-1.prod.console.iot.aws.dev/static/js/freertos.js"
+            ]
+        },
+        "TagResource": {
+            "http": {
+                "requestUri": "/tag"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "resourceArn",
+                    "tags"
+                ],
+                "members": {
+                    "resourceArn": {},
+                    "tags": {
+                        "shape": "Sj"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://freertos.us-east-1.prod.console.iot.aws.dev/static/js/freertos.js"
+            ]
+        },
+        "UntagResource": {
+            "http": {
+                "requestUri": "/untag"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "resourceArn",
+                    "tagKeys"
+                ],
+                "members": {
+                    "resourceArn": {},
+                    "tagKeys": {
+                        "type": "list",
+                        "member": {}
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://freertos.us-east-1.prod.console.iot.aws.dev/static/js/freertos.js"
+            ]
+        },
+        "UpdateEmailRecipients": {
+            "http": {
+                "requestUri": "/update-subscription"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "subscriptionId"
+                ],
+                "members": {
+                    "subscriptionId": {},
+                    "patchDeliveryNotificationIds": {
+                        "shape": "St"
+                    },
+                    "billingNotificationIds": {
+                        "shape": "Sv"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "subscriptionId": {},
+                    "billingNotificationEmailAddressList": {
+                        "shape": "S3o"
+                    },
+                    "patchNotificationEmailAddressList": {
+                        "shape": "S3o"
+                    }
+                }
+            },
+            "download_location": [
+                "https://freertos.us-east-1.prod.console.iot.aws.dev/static/js/freertos.js"
+            ]
+        },
+        "UpdateSoftwareConfiguration": {
+            "http": {
+                "requestUri": "/update-software-config"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "softwareConfigurationName"
+                ],
+                "members": {
+                    "softwareConfigurationName": {},
+                    "description": {},
+                    "softwareConfiguration": {
+                        "shape": "S7"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "softwareConfigurationName": {},
+                    "description": {},
+                    "softwareConfigurationArn": {}
+                }
+            },
+            "download_location": [
+                "https://freertos.us-east-1.prod.console.iot.aws.dev/static/js/freertos.js"
+            ]
+        },
+        "VerifyEmailAddress": {
+            "http": {
+                "requestUri": "/verify-email-address"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "emailAddress"
+                ],
+                "members": {
+                    "emailAddress": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "subscriptionEmailAddress": {
+                        "shape": "S23"
+                    }
+                }
+            },
+            "download_location": [
+                "https://freertos.us-east-1.prod.console.iot.aws.dev/static/js/freertos.js"
+            ]
+        }
+    },
+    "shapes": {
+        "S7": {
+            "type": "structure",
+            "required": [
+                "hardwarePlatformId",
+                "ideName",
+                "compilerName"
+            ],
+            "members": {
+                "hardwarePlatformId": {},
+                "freeRTOSVersionId": {},
+                "ideName": {},
+                "compilerName": {},
+                "libraries": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "members": {
+                            "libraryId": {
+                                "shape": "Se"
+                            },
+                            "userSelected": {
+                                "type": "boolean"
+                            }
+                        }
+                    }
+                },
+                "enabledDemo": {
+                    "type": "structure",
+                    "members": {
+                        "id": {}
+                    }
+                }
+            }
+        },
+        "Se": {
+            "type": "structure",
+            "members": {
+                "id": {}
+            }
+        },
+        "Sj": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "Key"
+                ],
+                "members": {
+                    "Key": {},
+                    "Value": {}
+                }
+            }
+        },
+        "St": {
+            "type": "list",
+            "member": {}
+        },
+        "Sv": {
+            "type": "list",
+            "member": {}
+        },
+        "S1e": {
+            "type": "list",
+            "member": {
+                "shape": "Se"
+            }
+        },
+        "S1g": {
+            "type": "structure",
+            "members": {
+                "dataRam": {
+                    "type": "integer"
+                },
+                "programMemory": {
+                    "type": "integer"
+                }
+            }
+        },
+        "S1w": {
+            "type": "structure",
+            "members": {
+                "subscriptionArn": {},
+                "subscriptionId": {},
+                "ltsVersion": {},
+                "licenseType": {},
+                "startTime": {
+                    "type": "long"
+                },
+                "endTime": {
+                    "type": "long"
+                },
+                "autoRenew": {
+                    "type": "boolean"
+                },
+                "subscriptionStatus": {},
+                "productName": {},
+                "escalationsRemaining": {
+                    "type": "integer"
+                },
+                "billingNotification": {
+                    "shape": "S22"
+                },
+                "patchDeliveryNotification": {
+                    "shape": "S22"
+                },
+                "latestPatchNumber": {}
+            }
+        },
+        "S22": {
+            "type": "list",
+            "member": {
+                "shape": "S23"
+            }
+        },
+        "S23": {
+            "type": "structure",
+            "members": {
+                "notificationId": {},
+                "emailAddress": {},
+                "emailVerificationStatus": {}
+            }
+        },
+        "S3o": {
+            "type": "list",
+            "member": {}
+        },
+        "S8": {
+            "type": "list",
+            "member": {}
+        },
+        "Sa": {
+            "type": "list",
+            "member": {}
+        },
+        "Sb": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "Key"
+                ],
+                "members": {
+                    "Key": {},
+                    "Value": {}
+                }
+            }
+        },
+        "Sp": {
+            "type": "list",
+            "member": {
+                "shape": "Sq"
+            }
+        },
+        "Sq": {
+            "type": "structure",
+            "members": {
+                "notificationId": {},
+                "emailAddress": {},
+                "emailVerificationStatus": {}
+            }
+        },
+        "S1q": {
+            "type": "list",
+            "member": {}
+        }
+    }
+}

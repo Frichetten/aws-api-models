@@ -1,0 +1,4298 @@
+{
+    "version": "2.0",
+    "metadata": {
+        "apiVersion": "2013-04-01",
+        "endpointPrefix": "route53",
+        "globalEndpoint": "route53.amazonaws.com",
+        "protocol": "rest-xml",
+        "serviceAbbreviation": "Route 53",
+        "serviceFullName": "Amazon Route 53",
+        "serviceId": "Route 53",
+        "signatureVersion": "v4",
+        "uid": "route53-2013-04-01",
+        "download_location": [
+            "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+        ]
+    },
+    "operations": {
+        "ActivateKeySigningKey": {
+            "http": {
+                "requestUri": "/2013-04-01/keysigningkey/{HostedZoneId}/{Name}/activate"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "HostedZoneId",
+                    "Name"
+                ],
+                "members": {
+                    "HostedZoneId": {
+                        "location": "uri",
+                        "locationName": "HostedZoneId"
+                    },
+                    "Name": {
+                        "location": "uri",
+                        "locationName": "Name"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "ChangeInfo"
+                ],
+                "members": {
+                    "ChangeInfo": {
+                        "shape": "S5"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "AssociateVPCWithHostedZone": {
+            "http": {
+                "requestUri": "/2013-04-01/hostedzone/{Id}/associatevpc"
+            },
+            "input": {
+                "locationName": "AssociateVPCWithHostedZoneRequest",
+                "xmlNamespace": {
+                    "uri": "https://route53.amazonaws.com/doc/2013-04-01/"
+                },
+                "type": "structure",
+                "required": [
+                    "HostedZoneId",
+                    "VPC"
+                ],
+                "members": {
+                    "HostedZoneId": {
+                        "location": "uri",
+                        "locationName": "Id"
+                    },
+                    "VPC": {
+                        "shape": "Sa"
+                    },
+                    "Comment": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "ChangeInfo"
+                ],
+                "members": {
+                    "ChangeInfo": {
+                        "shape": "S5"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "ChangeResourceRecordSets": {
+            "http": {
+                "requestUri": "/2013-04-01/hostedzone/{Id}/rrset/"
+            },
+            "input": {
+                "locationName": "ChangeResourceRecordSetsRequest",
+                "xmlNamespace": {
+                    "uri": "https://route53.amazonaws.com/doc/2013-04-01/"
+                },
+                "type": "structure",
+                "required": [
+                    "HostedZoneId",
+                    "ChangeBatch"
+                ],
+                "members": {
+                    "HostedZoneId": {
+                        "location": "uri",
+                        "locationName": "Id"
+                    },
+                    "ChangeBatch": {
+                        "type": "structure",
+                        "required": [
+                            "Changes"
+                        ],
+                        "members": {
+                            "Comment": {},
+                            "Changes": {
+                                "type": "list",
+                                "member": {
+                                    "locationName": "Change",
+                                    "type": "structure",
+                                    "required": [
+                                        "Action",
+                                        "ResourceRecordSet"
+                                    ],
+                                    "members": {
+                                        "Action": {},
+                                        "ResourceRecordSet": {
+                                            "shape": "Sk"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "ChangeInfo"
+                ],
+                "members": {
+                    "ChangeInfo": {
+                        "shape": "S5"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "ChangeTagsForResource": {
+            "http": {
+                "requestUri": "/2013-04-01/tags/{ResourceType}/{ResourceId}"
+            },
+            "input": {
+                "locationName": "ChangeTagsForResourceRequest",
+                "xmlNamespace": {
+                    "uri": "https://route53.amazonaws.com/doc/2013-04-01/"
+                },
+                "type": "structure",
+                "required": [
+                    "ResourceType",
+                    "ResourceId"
+                ],
+                "members": {
+                    "ResourceType": {
+                        "location": "uri",
+                        "locationName": "ResourceType"
+                    },
+                    "ResourceId": {
+                        "location": "uri",
+                        "locationName": "ResourceId"
+                    },
+                    "AddTags": {
+                        "shape": "S18"
+                    },
+                    "RemoveTagKeys": {
+                        "type": "list",
+                        "member": {
+                            "locationName": "Key"
+                        }
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "CreateHealthCheck": {
+            "http": {
+                "requestUri": "/2013-04-01/healthcheck",
+                "responseCode": 201
+            },
+            "input": {
+                "locationName": "CreateHealthCheckRequest",
+                "xmlNamespace": {
+                    "uri": "https://route53.amazonaws.com/doc/2013-04-01/"
+                },
+                "type": "structure",
+                "required": [
+                    "CallerReference",
+                    "HealthCheckConfig"
+                ],
+                "members": {
+                    "CallerReference": {},
+                    "HealthCheckConfig": {
+                        "shape": "S1g"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "HealthCheck",
+                    "Location"
+                ],
+                "members": {
+                    "HealthCheck": {
+                        "shape": "S22"
+                    },
+                    "Location": {
+                        "location": "header",
+                        "locationName": "Location"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "CreateHostedZone": {
+            "http": {
+                "requestUri": "/2013-04-01/hostedzone",
+                "responseCode": 201
+            },
+            "input": {
+                "locationName": "CreateHostedZoneRequest",
+                "xmlNamespace": {
+                    "uri": "https://route53.amazonaws.com/doc/2013-04-01/"
+                },
+                "type": "structure",
+                "required": [
+                    "Name",
+                    "CallerReference"
+                ],
+                "members": {
+                    "Name": {},
+                    "VPC": {
+                        "shape": "Sa"
+                    },
+                    "CallerReference": {},
+                    "HostedZoneConfig": {
+                        "shape": "S2k"
+                    },
+                    "DelegationSetId": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "HostedZone",
+                    "ChangeInfo",
+                    "DelegationSet",
+                    "Location"
+                ],
+                "members": {
+                    "HostedZone": {
+                        "shape": "S2n"
+                    },
+                    "ChangeInfo": {
+                        "shape": "S5"
+                    },
+                    "DelegationSet": {
+                        "shape": "S2p"
+                    },
+                    "VPC": {
+                        "shape": "Sa"
+                    },
+                    "Location": {
+                        "location": "header",
+                        "locationName": "Location"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "CreateKeySigningKey": {
+            "http": {
+                "requestUri": "/2013-04-01/keysigningkey",
+                "responseCode": 201
+            },
+            "input": {
+                "locationName": "CreateKeySigningKeyRequest",
+                "xmlNamespace": {
+                    "uri": "https://route53.amazonaws.com/doc/2013-04-01/"
+                },
+                "type": "structure",
+                "required": [
+                    "CallerReference",
+                    "HostedZoneId",
+                    "KeyManagementServiceArn",
+                    "Name",
+                    "Status"
+                ],
+                "members": {
+                    "CallerReference": {},
+                    "HostedZoneId": {},
+                    "KeyManagementServiceArn": {},
+                    "Name": {},
+                    "Status": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "ChangeInfo",
+                    "KeySigningKey",
+                    "Location"
+                ],
+                "members": {
+                    "ChangeInfo": {
+                        "shape": "S5"
+                    },
+                    "KeySigningKey": {
+                        "shape": "S2v"
+                    },
+                    "Location": {
+                        "location": "header",
+                        "locationName": "Location"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "CreateQueryLoggingConfig": {
+            "http": {
+                "requestUri": "/2013-04-01/queryloggingconfig",
+                "responseCode": 201
+            },
+            "input": {
+                "locationName": "CreateQueryLoggingConfigRequest",
+                "xmlNamespace": {
+                    "uri": "https://route53.amazonaws.com/doc/2013-04-01/"
+                },
+                "type": "structure",
+                "required": [
+                    "HostedZoneId",
+                    "CloudWatchLogsLogGroupArn"
+                ],
+                "members": {
+                    "HostedZoneId": {},
+                    "CloudWatchLogsLogGroupArn": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "QueryLoggingConfig",
+                    "Location"
+                ],
+                "members": {
+                    "QueryLoggingConfig": {
+                        "shape": "S32"
+                    },
+                    "Location": {
+                        "location": "header",
+                        "locationName": "Location"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "CreateReusableDelegationSet": {
+            "http": {
+                "requestUri": "/2013-04-01/delegationset",
+                "responseCode": 201
+            },
+            "input": {
+                "locationName": "CreateReusableDelegationSetRequest",
+                "xmlNamespace": {
+                    "uri": "https://route53.amazonaws.com/doc/2013-04-01/"
+                },
+                "type": "structure",
+                "required": [
+                    "CallerReference"
+                ],
+                "members": {
+                    "CallerReference": {},
+                    "HostedZoneId": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "DelegationSet",
+                    "Location"
+                ],
+                "members": {
+                    "DelegationSet": {
+                        "shape": "S2p"
+                    },
+                    "Location": {
+                        "location": "header",
+                        "locationName": "Location"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "CreateTrafficPolicy": {
+            "http": {
+                "requestUri": "/2013-04-01/trafficpolicy",
+                "responseCode": 201
+            },
+            "input": {
+                "locationName": "CreateTrafficPolicyRequest",
+                "xmlNamespace": {
+                    "uri": "https://route53.amazonaws.com/doc/2013-04-01/"
+                },
+                "type": "structure",
+                "required": [
+                    "Name",
+                    "Document"
+                ],
+                "members": {
+                    "Name": {},
+                    "Document": {},
+                    "Comment": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "TrafficPolicy",
+                    "Location"
+                ],
+                "members": {
+                    "TrafficPolicy": {
+                        "shape": "S3b"
+                    },
+                    "Location": {
+                        "location": "header",
+                        "locationName": "Location"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "CreateTrafficPolicyInstance": {
+            "http": {
+                "requestUri": "/2013-04-01/trafficpolicyinstance",
+                "responseCode": 201
+            },
+            "input": {
+                "locationName": "CreateTrafficPolicyInstanceRequest",
+                "xmlNamespace": {
+                    "uri": "https://route53.amazonaws.com/doc/2013-04-01/"
+                },
+                "type": "structure",
+                "required": [
+                    "HostedZoneId",
+                    "Name",
+                    "TTL",
+                    "TrafficPolicyId",
+                    "TrafficPolicyVersion"
+                ],
+                "members": {
+                    "HostedZoneId": {},
+                    "Name": {},
+                    "TTL": {
+                        "type": "long"
+                    },
+                    "TrafficPolicyId": {},
+                    "TrafficPolicyVersion": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "TrafficPolicyInstance",
+                    "Location"
+                ],
+                "members": {
+                    "TrafficPolicyInstance": {
+                        "shape": "S3g"
+                    },
+                    "Location": {
+                        "location": "header",
+                        "locationName": "Location"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "CreateTrafficPolicyVersion": {
+            "http": {
+                "requestUri": "/2013-04-01/trafficpolicy/{Id}",
+                "responseCode": 201
+            },
+            "input": {
+                "locationName": "CreateTrafficPolicyVersionRequest",
+                "xmlNamespace": {
+                    "uri": "https://route53.amazonaws.com/doc/2013-04-01/"
+                },
+                "type": "structure",
+                "required": [
+                    "Id",
+                    "Document"
+                ],
+                "members": {
+                    "Id": {
+                        "location": "uri",
+                        "locationName": "Id"
+                    },
+                    "Document": {},
+                    "Comment": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "TrafficPolicy",
+                    "Location"
+                ],
+                "members": {
+                    "TrafficPolicy": {
+                        "shape": "S3b"
+                    },
+                    "Location": {
+                        "location": "header",
+                        "locationName": "Location"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "CreateVPCAssociationAuthorization": {
+            "http": {
+                "requestUri": "/2013-04-01/hostedzone/{Id}/authorizevpcassociation"
+            },
+            "input": {
+                "locationName": "CreateVPCAssociationAuthorizationRequest",
+                "xmlNamespace": {
+                    "uri": "https://route53.amazonaws.com/doc/2013-04-01/"
+                },
+                "type": "structure",
+                "required": [
+                    "HostedZoneId",
+                    "VPC"
+                ],
+                "members": {
+                    "HostedZoneId": {
+                        "location": "uri",
+                        "locationName": "Id"
+                    },
+                    "VPC": {
+                        "shape": "Sa"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "HostedZoneId",
+                    "VPC"
+                ],
+                "members": {
+                    "HostedZoneId": {},
+                    "VPC": {
+                        "shape": "Sa"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "DeactivateKeySigningKey": {
+            "http": {
+                "requestUri": "/2013-04-01/keysigningkey/{HostedZoneId}/{Name}/deactivate"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "HostedZoneId",
+                    "Name"
+                ],
+                "members": {
+                    "HostedZoneId": {
+                        "location": "uri",
+                        "locationName": "HostedZoneId"
+                    },
+                    "Name": {
+                        "location": "uri",
+                        "locationName": "Name"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "ChangeInfo"
+                ],
+                "members": {
+                    "ChangeInfo": {
+                        "shape": "S5"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "DeleteHealthCheck": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/2013-04-01/healthcheck/{HealthCheckId}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "HealthCheckId"
+                ],
+                "members": {
+                    "HealthCheckId": {
+                        "location": "uri",
+                        "locationName": "HealthCheckId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "DeleteHostedZone": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/2013-04-01/hostedzone/{Id}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "Id"
+                ],
+                "members": {
+                    "Id": {
+                        "location": "uri",
+                        "locationName": "Id"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "ChangeInfo"
+                ],
+                "members": {
+                    "ChangeInfo": {
+                        "shape": "S5"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "DeleteKeySigningKey": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/2013-04-01/keysigningkey/{HostedZoneId}/{Name}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "HostedZoneId",
+                    "Name"
+                ],
+                "members": {
+                    "HostedZoneId": {
+                        "location": "uri",
+                        "locationName": "HostedZoneId"
+                    },
+                    "Name": {
+                        "location": "uri",
+                        "locationName": "Name"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "ChangeInfo"
+                ],
+                "members": {
+                    "ChangeInfo": {
+                        "shape": "S5"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "DeleteQueryLoggingConfig": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/2013-04-01/queryloggingconfig/{Id}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "Id"
+                ],
+                "members": {
+                    "Id": {
+                        "location": "uri",
+                        "locationName": "Id"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "DeleteReusableDelegationSet": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/2013-04-01/delegationset/{Id}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "Id"
+                ],
+                "members": {
+                    "Id": {
+                        "location": "uri",
+                        "locationName": "Id"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "DeleteTrafficPolicy": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/2013-04-01/trafficpolicy/{Id}/{Version}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "Id",
+                    "Version"
+                ],
+                "members": {
+                    "Id": {
+                        "location": "uri",
+                        "locationName": "Id"
+                    },
+                    "Version": {
+                        "location": "uri",
+                        "locationName": "Version",
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "DeleteTrafficPolicyInstance": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/2013-04-01/trafficpolicyinstance/{Id}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "Id"
+                ],
+                "members": {
+                    "Id": {
+                        "location": "uri",
+                        "locationName": "Id"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "DeleteVPCAssociationAuthorization": {
+            "http": {
+                "requestUri": "/2013-04-01/hostedzone/{Id}/deauthorizevpcassociation"
+            },
+            "input": {
+                "locationName": "DeleteVPCAssociationAuthorizationRequest",
+                "xmlNamespace": {
+                    "uri": "https://route53.amazonaws.com/doc/2013-04-01/"
+                },
+                "type": "structure",
+                "required": [
+                    "HostedZoneId",
+                    "VPC"
+                ],
+                "members": {
+                    "HostedZoneId": {
+                        "location": "uri",
+                        "locationName": "Id"
+                    },
+                    "VPC": {
+                        "shape": "Sa"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "DisableHostedZoneDNSSEC": {
+            "http": {
+                "requestUri": "/2013-04-01/hostedzone/{Id}/disable-dnssec"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "HostedZoneId"
+                ],
+                "members": {
+                    "HostedZoneId": {
+                        "location": "uri",
+                        "locationName": "Id"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "ChangeInfo"
+                ],
+                "members": {
+                    "ChangeInfo": {
+                        "shape": "S5"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "DisassociateVPCFromHostedZone": {
+            "http": {
+                "requestUri": "/2013-04-01/hostedzone/{Id}/disassociatevpc"
+            },
+            "input": {
+                "locationName": "DisassociateVPCFromHostedZoneRequest",
+                "xmlNamespace": {
+                    "uri": "https://route53.amazonaws.com/doc/2013-04-01/"
+                },
+                "type": "structure",
+                "required": [
+                    "HostedZoneId",
+                    "VPC"
+                ],
+                "members": {
+                    "HostedZoneId": {
+                        "location": "uri",
+                        "locationName": "Id"
+                    },
+                    "VPC": {
+                        "shape": "Sa"
+                    },
+                    "Comment": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "ChangeInfo"
+                ],
+                "members": {
+                    "ChangeInfo": {
+                        "shape": "S5"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "EnableHostedZoneDNSSEC": {
+            "http": {
+                "requestUri": "/2013-04-01/hostedzone/{Id}/enable-dnssec"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "HostedZoneId"
+                ],
+                "members": {
+                    "HostedZoneId": {
+                        "location": "uri",
+                        "locationName": "Id"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "ChangeInfo"
+                ],
+                "members": {
+                    "ChangeInfo": {
+                        "shape": "S5"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "GetAccountLimit": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/2013-04-01/accountlimit/{Type}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "Type"
+                ],
+                "members": {
+                    "Type": {
+                        "location": "uri",
+                        "locationName": "Type"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "Limit",
+                    "Count"
+                ],
+                "members": {
+                    "Limit": {
+                        "type": "structure",
+                        "required": [
+                            "Type",
+                            "Value"
+                        ],
+                        "members": {
+                            "Type": {},
+                            "Value": {
+                                "type": "long"
+                            }
+                        }
+                    },
+                    "Count": {
+                        "type": "long"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "GetChange": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/2013-04-01/change/{Id}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "Id"
+                ],
+                "members": {
+                    "Id": {
+                        "location": "uri",
+                        "locationName": "Id"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "ChangeInfo"
+                ],
+                "members": {
+                    "ChangeInfo": {
+                        "shape": "S5"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "GetCheckerIpRanges": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/2013-04-01/checkeripranges"
+            },
+            "input": {
+                "type": "structure",
+                "members": {}
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "CheckerIpRanges"
+                ],
+                "members": {
+                    "CheckerIpRanges": {
+                        "type": "list",
+                        "member": {}
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "GetDNSSEC": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/2013-04-01/hostedzone/{Id}/dnssec"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "HostedZoneId"
+                ],
+                "members": {
+                    "HostedZoneId": {
+                        "location": "uri",
+                        "locationName": "Id"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "Status",
+                    "KeySigningKeys"
+                ],
+                "members": {
+                    "Status": {
+                        "type": "structure",
+                        "members": {
+                            "ServeSignature": {},
+                            "StatusMessage": {}
+                        }
+                    },
+                    "KeySigningKeys": {
+                        "type": "list",
+                        "member": {
+                            "shape": "S2v"
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "GetGeoLocation": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/2013-04-01/geolocation"
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "ContinentCode": {
+                        "location": "querystring",
+                        "locationName": "continentcode"
+                    },
+                    "CountryCode": {
+                        "location": "querystring",
+                        "locationName": "countrycode"
+                    },
+                    "SubdivisionCode": {
+                        "location": "querystring",
+                        "locationName": "subdivisioncode"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "GeoLocationDetails"
+                ],
+                "members": {
+                    "GeoLocationDetails": {
+                        "shape": "S4v"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "GetHealthCheck": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/2013-04-01/healthcheck/{HealthCheckId}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "HealthCheckId"
+                ],
+                "members": {
+                    "HealthCheckId": {
+                        "location": "uri",
+                        "locationName": "HealthCheckId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "HealthCheck"
+                ],
+                "members": {
+                    "HealthCheck": {
+                        "shape": "S22"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "GetHealthCheckCount": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/2013-04-01/healthcheckcount"
+            },
+            "input": {
+                "type": "structure",
+                "members": {}
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "HealthCheckCount"
+                ],
+                "members": {
+                    "HealthCheckCount": {
+                        "type": "long"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "GetHealthCheckLastFailureReason": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/2013-04-01/healthcheck/{HealthCheckId}/lastfailurereason"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "HealthCheckId"
+                ],
+                "members": {
+                    "HealthCheckId": {
+                        "location": "uri",
+                        "locationName": "HealthCheckId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "HealthCheckObservations"
+                ],
+                "members": {
+                    "HealthCheckObservations": {
+                        "shape": "S56"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "GetHealthCheckStatus": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/2013-04-01/healthcheck/{HealthCheckId}/status"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "HealthCheckId"
+                ],
+                "members": {
+                    "HealthCheckId": {
+                        "location": "uri",
+                        "locationName": "HealthCheckId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "HealthCheckObservations"
+                ],
+                "members": {
+                    "HealthCheckObservations": {
+                        "shape": "S56"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "GetHostedZone": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/2013-04-01/hostedzone/{Id}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "Id"
+                ],
+                "members": {
+                    "Id": {
+                        "location": "uri",
+                        "locationName": "Id"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "HostedZone"
+                ],
+                "members": {
+                    "HostedZone": {
+                        "shape": "S2n"
+                    },
+                    "DelegationSet": {
+                        "shape": "S2p"
+                    },
+                    "VPCs": {
+                        "shape": "S5e"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "GetHostedZoneCount": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/2013-04-01/hostedzonecount"
+            },
+            "input": {
+                "type": "structure",
+                "members": {}
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "HostedZoneCount"
+                ],
+                "members": {
+                    "HostedZoneCount": {
+                        "type": "long"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "GetHostedZoneLimit": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/2013-04-01/hostedzonelimit/{Id}/{Type}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "Type",
+                    "HostedZoneId"
+                ],
+                "members": {
+                    "Type": {
+                        "location": "uri",
+                        "locationName": "Type"
+                    },
+                    "HostedZoneId": {
+                        "location": "uri",
+                        "locationName": "Id"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "Limit",
+                    "Count"
+                ],
+                "members": {
+                    "Limit": {
+                        "type": "structure",
+                        "required": [
+                            "Type",
+                            "Value"
+                        ],
+                        "members": {
+                            "Type": {},
+                            "Value": {
+                                "type": "long"
+                            }
+                        }
+                    },
+                    "Count": {
+                        "type": "long"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "GetQueryLoggingConfig": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/2013-04-01/queryloggingconfig/{Id}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "Id"
+                ],
+                "members": {
+                    "Id": {
+                        "location": "uri",
+                        "locationName": "Id"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "QueryLoggingConfig"
+                ],
+                "members": {
+                    "QueryLoggingConfig": {
+                        "shape": "S32"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "GetReusableDelegationSet": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/2013-04-01/delegationset/{Id}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "Id"
+                ],
+                "members": {
+                    "Id": {
+                        "location": "uri",
+                        "locationName": "Id"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "DelegationSet"
+                ],
+                "members": {
+                    "DelegationSet": {
+                        "shape": "S2p"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "GetReusableDelegationSetLimit": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/2013-04-01/reusabledelegationsetlimit/{Id}/{Type}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "Type",
+                    "DelegationSetId"
+                ],
+                "members": {
+                    "Type": {
+                        "location": "uri",
+                        "locationName": "Type"
+                    },
+                    "DelegationSetId": {
+                        "location": "uri",
+                        "locationName": "Id"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "Limit",
+                    "Count"
+                ],
+                "members": {
+                    "Limit": {
+                        "type": "structure",
+                        "required": [
+                            "Type",
+                            "Value"
+                        ],
+                        "members": {
+                            "Type": {},
+                            "Value": {
+                                "type": "long"
+                            }
+                        }
+                    },
+                    "Count": {
+                        "type": "long"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "GetTrafficPolicy": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/2013-04-01/trafficpolicy/{Id}/{Version}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "Id",
+                    "Version"
+                ],
+                "members": {
+                    "Id": {
+                        "location": "uri",
+                        "locationName": "Id"
+                    },
+                    "Version": {
+                        "location": "uri",
+                        "locationName": "Version",
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "TrafficPolicy"
+                ],
+                "members": {
+                    "TrafficPolicy": {
+                        "shape": "S3b"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "GetTrafficPolicyInstance": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/2013-04-01/trafficpolicyinstance/{Id}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "Id"
+                ],
+                "members": {
+                    "Id": {
+                        "location": "uri",
+                        "locationName": "Id"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "TrafficPolicyInstance"
+                ],
+                "members": {
+                    "TrafficPolicyInstance": {
+                        "shape": "S3g"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "GetTrafficPolicyInstanceCount": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/2013-04-01/trafficpolicyinstancecount"
+            },
+            "input": {
+                "type": "structure",
+                "members": {}
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "TrafficPolicyInstanceCount"
+                ],
+                "members": {
+                    "TrafficPolicyInstanceCount": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "ListGeoLocations": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/2013-04-01/geolocations"
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "StartContinentCode": {
+                        "location": "querystring",
+                        "locationName": "startcontinentcode"
+                    },
+                    "StartCountryCode": {
+                        "location": "querystring",
+                        "locationName": "startcountrycode"
+                    },
+                    "StartSubdivisionCode": {
+                        "location": "querystring",
+                        "locationName": "startsubdivisioncode"
+                    },
+                    "MaxItems": {
+                        "location": "querystring",
+                        "locationName": "maxitems"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "GeoLocationDetailsList",
+                    "IsTruncated",
+                    "MaxItems"
+                ],
+                "members": {
+                    "GeoLocationDetailsList": {
+                        "type": "list",
+                        "member": {
+                            "shape": "S4v",
+                            "locationName": "GeoLocationDetails"
+                        }
+                    },
+                    "IsTruncated": {
+                        "type": "boolean"
+                    },
+                    "NextContinentCode": {},
+                    "NextCountryCode": {},
+                    "NextSubdivisionCode": {},
+                    "MaxItems": {}
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "ListHealthChecks": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/2013-04-01/healthcheck"
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "Marker": {
+                        "location": "querystring",
+                        "locationName": "marker"
+                    },
+                    "MaxItems": {
+                        "location": "querystring",
+                        "locationName": "maxitems"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "HealthChecks",
+                    "Marker",
+                    "IsTruncated",
+                    "MaxItems"
+                ],
+                "members": {
+                    "HealthChecks": {
+                        "type": "list",
+                        "member": {
+                            "shape": "S22",
+                            "locationName": "HealthCheck"
+                        }
+                    },
+                    "Marker": {},
+                    "IsTruncated": {
+                        "type": "boolean"
+                    },
+                    "NextMarker": {},
+                    "MaxItems": {}
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "ListHostedZones": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/2013-04-01/hostedzone"
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "Marker": {
+                        "location": "querystring",
+                        "locationName": "marker"
+                    },
+                    "MaxItems": {
+                        "location": "querystring",
+                        "locationName": "maxitems"
+                    },
+                    "DelegationSetId": {
+                        "location": "querystring",
+                        "locationName": "delegationsetid"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "HostedZones",
+                    "Marker",
+                    "IsTruncated",
+                    "MaxItems"
+                ],
+                "members": {
+                    "HostedZones": {
+                        "shape": "S6c"
+                    },
+                    "Marker": {},
+                    "IsTruncated": {
+                        "type": "boolean"
+                    },
+                    "NextMarker": {},
+                    "MaxItems": {}
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "ListHostedZonesByName": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/2013-04-01/hostedzonesbyname"
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "DNSName": {
+                        "location": "querystring",
+                        "locationName": "dnsname"
+                    },
+                    "HostedZoneId": {
+                        "location": "querystring",
+                        "locationName": "hostedzoneid"
+                    },
+                    "MaxItems": {
+                        "location": "querystring",
+                        "locationName": "maxitems"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "HostedZones",
+                    "IsTruncated",
+                    "MaxItems"
+                ],
+                "members": {
+                    "HostedZones": {
+                        "shape": "S6c"
+                    },
+                    "DNSName": {},
+                    "HostedZoneId": {},
+                    "IsTruncated": {
+                        "type": "boolean"
+                    },
+                    "NextDNSName": {},
+                    "NextHostedZoneId": {},
+                    "MaxItems": {}
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "ListHostedZonesByVPC": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/2013-04-01/hostedzonesbyvpc"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "VPCId",
+                    "VPCRegion"
+                ],
+                "members": {
+                    "VPCId": {
+                        "location": "querystring",
+                        "locationName": "vpcid"
+                    },
+                    "VPCRegion": {
+                        "location": "querystring",
+                        "locationName": "vpcregion"
+                    },
+                    "MaxItems": {
+                        "location": "querystring",
+                        "locationName": "maxitems"
+                    },
+                    "NextToken": {
+                        "location": "querystring",
+                        "locationName": "nexttoken"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "HostedZoneSummaries",
+                    "MaxItems"
+                ],
+                "members": {
+                    "HostedZoneSummaries": {
+                        "type": "list",
+                        "member": {
+                            "locationName": "HostedZoneSummary",
+                            "type": "structure",
+                            "required": [
+                                "HostedZoneId",
+                                "Name",
+                                "Owner"
+                            ],
+                            "members": {
+                                "HostedZoneId": {},
+                                "Name": {},
+                                "Owner": {
+                                    "type": "structure",
+                                    "members": {
+                                        "OwningAccount": {},
+                                        "OwningService": {}
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "MaxItems": {},
+                    "NextToken": {}
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "ListQueryLoggingConfigs": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/2013-04-01/queryloggingconfig"
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "HostedZoneId": {
+                        "location": "querystring",
+                        "locationName": "hostedzoneid"
+                    },
+                    "NextToken": {
+                        "location": "querystring",
+                        "locationName": "nexttoken"
+                    },
+                    "MaxResults": {
+                        "location": "querystring",
+                        "locationName": "maxresults"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "QueryLoggingConfigs"
+                ],
+                "members": {
+                    "QueryLoggingConfigs": {
+                        "type": "list",
+                        "member": {
+                            "shape": "S32",
+                            "locationName": "QueryLoggingConfig"
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "ListResourceRecordSets": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/2013-04-01/hostedzone/{Id}/rrset"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "HostedZoneId"
+                ],
+                "members": {
+                    "HostedZoneId": {
+                        "location": "uri",
+                        "locationName": "Id"
+                    },
+                    "StartRecordName": {
+                        "location": "querystring",
+                        "locationName": "name"
+                    },
+                    "StartRecordType": {
+                        "location": "querystring",
+                        "locationName": "type"
+                    },
+                    "StartRecordIdentifier": {
+                        "location": "querystring",
+                        "locationName": "identifier"
+                    },
+                    "MaxItems": {
+                        "location": "querystring",
+                        "locationName": "maxitems"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "ResourceRecordSets",
+                    "IsTruncated",
+                    "MaxItems"
+                ],
+                "members": {
+                    "ResourceRecordSets": {
+                        "type": "list",
+                        "member": {
+                            "shape": "Sk",
+                            "locationName": "ResourceRecordSet"
+                        }
+                    },
+                    "IsTruncated": {
+                        "type": "boolean"
+                    },
+                    "NextRecordName": {},
+                    "NextRecordType": {},
+                    "NextRecordIdentifier": {},
+                    "MaxItems": {}
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "ListReusableDelegationSets": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/2013-04-01/delegationset"
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "Marker": {
+                        "location": "querystring",
+                        "locationName": "marker"
+                    },
+                    "MaxItems": {
+                        "location": "querystring",
+                        "locationName": "maxitems"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "DelegationSets",
+                    "Marker",
+                    "IsTruncated",
+                    "MaxItems"
+                ],
+                "members": {
+                    "DelegationSets": {
+                        "type": "list",
+                        "member": {
+                            "shape": "S2p",
+                            "locationName": "DelegationSet"
+                        }
+                    },
+                    "Marker": {},
+                    "IsTruncated": {
+                        "type": "boolean"
+                    },
+                    "NextMarker": {},
+                    "MaxItems": {}
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "ListTagsForResource": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/2013-04-01/tags/{ResourceType}/{ResourceId}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ResourceType",
+                    "ResourceId"
+                ],
+                "members": {
+                    "ResourceType": {
+                        "location": "uri",
+                        "locationName": "ResourceType"
+                    },
+                    "ResourceId": {
+                        "location": "uri",
+                        "locationName": "ResourceId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "ResourceTagSet"
+                ],
+                "members": {
+                    "ResourceTagSet": {
+                        "shape": "S6z"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "ListTagsForResources": {
+            "http": {
+                "requestUri": "/2013-04-01/tags/{ResourceType}"
+            },
+            "input": {
+                "locationName": "ListTagsForResourcesRequest",
+                "xmlNamespace": {
+                    "uri": "https://route53.amazonaws.com/doc/2013-04-01/"
+                },
+                "type": "structure",
+                "required": [
+                    "ResourceType",
+                    "ResourceIds"
+                ],
+                "members": {
+                    "ResourceType": {
+                        "location": "uri",
+                        "locationName": "ResourceType"
+                    },
+                    "ResourceIds": {
+                        "type": "list",
+                        "member": {
+                            "locationName": "ResourceId"
+                        }
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "ResourceTagSets"
+                ],
+                "members": {
+                    "ResourceTagSets": {
+                        "type": "list",
+                        "member": {
+                            "shape": "S6z",
+                            "locationName": "ResourceTagSet"
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "ListTrafficPolicies": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/2013-04-01/trafficpolicies"
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "TrafficPolicyIdMarker": {
+                        "location": "querystring",
+                        "locationName": "trafficpolicyid"
+                    },
+                    "MaxItems": {
+                        "location": "querystring",
+                        "locationName": "maxitems"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "TrafficPolicySummaries",
+                    "IsTruncated",
+                    "TrafficPolicyIdMarker",
+                    "MaxItems"
+                ],
+                "members": {
+                    "TrafficPolicySummaries": {
+                        "type": "list",
+                        "member": {
+                            "locationName": "TrafficPolicySummary",
+                            "type": "structure",
+                            "required": [
+                                "Id",
+                                "Name",
+                                "Type",
+                                "LatestVersion",
+                                "TrafficPolicyCount"
+                            ],
+                            "members": {
+                                "Id": {},
+                                "Name": {},
+                                "Type": {},
+                                "LatestVersion": {
+                                    "type": "integer"
+                                },
+                                "TrafficPolicyCount": {
+                                    "type": "integer"
+                                }
+                            }
+                        }
+                    },
+                    "IsTruncated": {
+                        "type": "boolean"
+                    },
+                    "TrafficPolicyIdMarker": {},
+                    "MaxItems": {}
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "ListTrafficPolicyInstances": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/2013-04-01/trafficpolicyinstances"
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "HostedZoneIdMarker": {
+                        "location": "querystring",
+                        "locationName": "hostedzoneid"
+                    },
+                    "TrafficPolicyInstanceNameMarker": {
+                        "location": "querystring",
+                        "locationName": "trafficpolicyinstancename"
+                    },
+                    "TrafficPolicyInstanceTypeMarker": {
+                        "location": "querystring",
+                        "locationName": "trafficpolicyinstancetype"
+                    },
+                    "MaxItems": {
+                        "location": "querystring",
+                        "locationName": "maxitems"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "TrafficPolicyInstances",
+                    "IsTruncated",
+                    "MaxItems"
+                ],
+                "members": {
+                    "TrafficPolicyInstances": {
+                        "shape": "S7a"
+                    },
+                    "HostedZoneIdMarker": {},
+                    "TrafficPolicyInstanceNameMarker": {},
+                    "TrafficPolicyInstanceTypeMarker": {},
+                    "IsTruncated": {
+                        "type": "boolean"
+                    },
+                    "MaxItems": {}
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "ListTrafficPolicyInstancesByHostedZone": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/2013-04-01/trafficpolicyinstances/hostedzone"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "HostedZoneId"
+                ],
+                "members": {
+                    "HostedZoneId": {
+                        "location": "querystring",
+                        "locationName": "id"
+                    },
+                    "TrafficPolicyInstanceNameMarker": {
+                        "location": "querystring",
+                        "locationName": "trafficpolicyinstancename"
+                    },
+                    "TrafficPolicyInstanceTypeMarker": {
+                        "location": "querystring",
+                        "locationName": "trafficpolicyinstancetype"
+                    },
+                    "MaxItems": {
+                        "location": "querystring",
+                        "locationName": "maxitems"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "TrafficPolicyInstances",
+                    "IsTruncated",
+                    "MaxItems"
+                ],
+                "members": {
+                    "TrafficPolicyInstances": {
+                        "shape": "S7a"
+                    },
+                    "TrafficPolicyInstanceNameMarker": {},
+                    "TrafficPolicyInstanceTypeMarker": {},
+                    "IsTruncated": {
+                        "type": "boolean"
+                    },
+                    "MaxItems": {}
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "ListTrafficPolicyInstancesByPolicy": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/2013-04-01/trafficpolicyinstances/trafficpolicy"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "TrafficPolicyId",
+                    "TrafficPolicyVersion"
+                ],
+                "members": {
+                    "TrafficPolicyId": {
+                        "location": "querystring",
+                        "locationName": "id"
+                    },
+                    "TrafficPolicyVersion": {
+                        "location": "querystring",
+                        "locationName": "version",
+                        "type": "integer"
+                    },
+                    "HostedZoneIdMarker": {
+                        "location": "querystring",
+                        "locationName": "hostedzoneid"
+                    },
+                    "TrafficPolicyInstanceNameMarker": {
+                        "location": "querystring",
+                        "locationName": "trafficpolicyinstancename"
+                    },
+                    "TrafficPolicyInstanceTypeMarker": {
+                        "location": "querystring",
+                        "locationName": "trafficpolicyinstancetype"
+                    },
+                    "MaxItems": {
+                        "location": "querystring",
+                        "locationName": "maxitems"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "TrafficPolicyInstances",
+                    "IsTruncated",
+                    "MaxItems"
+                ],
+                "members": {
+                    "TrafficPolicyInstances": {
+                        "shape": "S7a"
+                    },
+                    "HostedZoneIdMarker": {},
+                    "TrafficPolicyInstanceNameMarker": {},
+                    "TrafficPolicyInstanceTypeMarker": {},
+                    "IsTruncated": {
+                        "type": "boolean"
+                    },
+                    "MaxItems": {}
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "ListTrafficPolicyVersions": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/2013-04-01/trafficpolicies/{Id}/versions"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "Id"
+                ],
+                "members": {
+                    "Id": {
+                        "location": "uri",
+                        "locationName": "Id"
+                    },
+                    "TrafficPolicyVersionMarker": {
+                        "location": "querystring",
+                        "locationName": "trafficpolicyversion"
+                    },
+                    "MaxItems": {
+                        "location": "querystring",
+                        "locationName": "maxitems"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "TrafficPolicies",
+                    "IsTruncated",
+                    "TrafficPolicyVersionMarker",
+                    "MaxItems"
+                ],
+                "members": {
+                    "TrafficPolicies": {
+                        "type": "list",
+                        "member": {
+                            "shape": "S3b",
+                            "locationName": "TrafficPolicy"
+                        }
+                    },
+                    "IsTruncated": {
+                        "type": "boolean"
+                    },
+                    "TrafficPolicyVersionMarker": {},
+                    "MaxItems": {}
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "ListVPCAssociationAuthorizations": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/2013-04-01/hostedzone/{Id}/authorizevpcassociation"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "HostedZoneId"
+                ],
+                "members": {
+                    "HostedZoneId": {
+                        "location": "uri",
+                        "locationName": "Id"
+                    },
+                    "NextToken": {
+                        "location": "querystring",
+                        "locationName": "nexttoken"
+                    },
+                    "MaxResults": {
+                        "location": "querystring",
+                        "locationName": "maxresults"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "HostedZoneId",
+                    "VPCs"
+                ],
+                "members": {
+                    "HostedZoneId": {},
+                    "NextToken": {},
+                    "VPCs": {
+                        "shape": "S5e"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "TestDNSAnswer": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/2013-04-01/testdnsanswer"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "HostedZoneId",
+                    "RecordName",
+                    "RecordType"
+                ],
+                "members": {
+                    "HostedZoneId": {
+                        "location": "querystring",
+                        "locationName": "hostedzoneid"
+                    },
+                    "RecordName": {
+                        "location": "querystring",
+                        "locationName": "recordname"
+                    },
+                    "RecordType": {
+                        "location": "querystring",
+                        "locationName": "recordtype"
+                    },
+                    "ResolverIP": {
+                        "location": "querystring",
+                        "locationName": "resolverip"
+                    },
+                    "EDNS0ClientSubnetIP": {
+                        "location": "querystring",
+                        "locationName": "edns0clientsubnetip"
+                    },
+                    "EDNS0ClientSubnetMask": {
+                        "location": "querystring",
+                        "locationName": "edns0clientsubnetmask"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "Nameserver",
+                    "RecordName",
+                    "RecordType",
+                    "RecordData",
+                    "ResponseCode",
+                    "Protocol"
+                ],
+                "members": {
+                    "Nameserver": {},
+                    "RecordName": {},
+                    "RecordType": {},
+                    "RecordData": {
+                        "type": "list",
+                        "member": {
+                            "locationName": "RecordDataEntry"
+                        }
+                    },
+                    "ResponseCode": {},
+                    "Protocol": {}
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "UpdateHealthCheck": {
+            "http": {
+                "requestUri": "/2013-04-01/healthcheck/{HealthCheckId}"
+            },
+            "input": {
+                "locationName": "UpdateHealthCheckRequest",
+                "xmlNamespace": {
+                    "uri": "https://route53.amazonaws.com/doc/2013-04-01/"
+                },
+                "type": "structure",
+                "required": [
+                    "HealthCheckId"
+                ],
+                "members": {
+                    "HealthCheckId": {
+                        "location": "uri",
+                        "locationName": "HealthCheckId"
+                    },
+                    "HealthCheckVersion": {
+                        "type": "long"
+                    },
+                    "IPAddress": {},
+                    "Port": {
+                        "type": "integer"
+                    },
+                    "ResourcePath": {},
+                    "FullyQualifiedDomainName": {},
+                    "SearchString": {},
+                    "FailureThreshold": {
+                        "type": "integer"
+                    },
+                    "Inverted": {
+                        "type": "boolean"
+                    },
+                    "Disabled": {
+                        "type": "boolean"
+                    },
+                    "HealthThreshold": {
+                        "type": "integer"
+                    },
+                    "ChildHealthChecks": {
+                        "shape": "S1t"
+                    },
+                    "EnableSNI": {
+                        "type": "boolean"
+                    },
+                    "Regions": {
+                        "shape": "S1v"
+                    },
+                    "AlarmIdentifier": {
+                        "shape": "S1x"
+                    },
+                    "InsufficientDataHealthStatus": {},
+                    "ResetElements": {
+                        "type": "list",
+                        "member": {
+                            "locationName": "ResettableElementName"
+                        }
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "HealthCheck"
+                ],
+                "members": {
+                    "HealthCheck": {
+                        "shape": "S22"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "UpdateHostedZoneComment": {
+            "http": {
+                "requestUri": "/2013-04-01/hostedzone/{Id}"
+            },
+            "input": {
+                "locationName": "UpdateHostedZoneCommentRequest",
+                "xmlNamespace": {
+                    "uri": "https://route53.amazonaws.com/doc/2013-04-01/"
+                },
+                "type": "structure",
+                "required": [
+                    "Id"
+                ],
+                "members": {
+                    "Id": {
+                        "location": "uri",
+                        "locationName": "Id"
+                    },
+                    "Comment": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "HostedZone"
+                ],
+                "members": {
+                    "HostedZone": {
+                        "shape": "S2n"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "UpdateTrafficPolicyComment": {
+            "http": {
+                "requestUri": "/2013-04-01/trafficpolicy/{Id}/{Version}"
+            },
+            "input": {
+                "locationName": "UpdateTrafficPolicyCommentRequest",
+                "xmlNamespace": {
+                    "uri": "https://route53.amazonaws.com/doc/2013-04-01/"
+                },
+                "type": "structure",
+                "required": [
+                    "Id",
+                    "Version",
+                    "Comment"
+                ],
+                "members": {
+                    "Id": {
+                        "location": "uri",
+                        "locationName": "Id"
+                    },
+                    "Version": {
+                        "location": "uri",
+                        "locationName": "Version",
+                        "type": "integer"
+                    },
+                    "Comment": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "TrafficPolicy"
+                ],
+                "members": {
+                    "TrafficPolicy": {
+                        "shape": "S3b"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "UpdateTrafficPolicyInstance": {
+            "http": {
+                "requestUri": "/2013-04-01/trafficpolicyinstance/{Id}"
+            },
+            "input": {
+                "locationName": "UpdateTrafficPolicyInstanceRequest",
+                "xmlNamespace": {
+                    "uri": "https://route53.amazonaws.com/doc/2013-04-01/"
+                },
+                "type": "structure",
+                "required": [
+                    "Id",
+                    "TTL",
+                    "TrafficPolicyId",
+                    "TrafficPolicyVersion"
+                ],
+                "members": {
+                    "Id": {
+                        "location": "uri",
+                        "locationName": "Id"
+                    },
+                    "TTL": {
+                        "type": "long"
+                    },
+                    "TrafficPolicyId": {},
+                    "TrafficPolicyVersion": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "TrafficPolicyInstance"
+                ],
+                "members": {
+                    "TrafficPolicyInstance": {
+                        "shape": "S3g"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "ChangeCidrCollection": {
+            "http": {
+                "requestUri": "/2013-04-01/cidrcollection/{CidrCollectionId}"
+            },
+            "input": {
+                "locationName": "ChangeCidrCollectionRequest",
+                "xmlNamespace": {
+                    "uri": "https://route53.amazonaws.com/doc/2013-04-01/"
+                },
+                "type": "structure",
+                "required": [
+                    "Id",
+                    "Changes"
+                ],
+                "members": {
+                    "Id": {
+                        "location": "uri",
+                        "locationName": "CidrCollectionId"
+                    },
+                    "CollectionVersion": {
+                        "type": "long"
+                    },
+                    "Changes": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "LocationName",
+                                "Action",
+                                "CidrList"
+                            ],
+                            "members": {
+                                "LocationName": {},
+                                "Action": {},
+                                "CidrList": {
+                                    "type": "list",
+                                    "member": {
+                                        "locationName": "Cidr"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "Id"
+                ],
+                "members": {
+                    "Id": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "CreateCidrCollection": {
+            "http": {
+                "requestUri": "/2013-04-01/cidrcollection",
+                "responseCode": 201
+            },
+            "input": {
+                "locationName": "CreateCidrCollectionRequest",
+                "xmlNamespace": {
+                    "uri": "https://route53.amazonaws.com/doc/2013-04-01/"
+                },
+                "type": "structure",
+                "required": [
+                    "Name",
+                    "CallerReference"
+                ],
+                "members": {
+                    "Name": {},
+                    "CallerReference": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Collection": {
+                        "type": "structure",
+                        "members": {
+                            "Arn": {},
+                            "Id": {},
+                            "Name": {},
+                            "Version": {
+                                "type": "long"
+                            }
+                        }
+                    },
+                    "Location": {
+                        "location": "header",
+                        "locationName": "Location"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "DeleteCidrCollection": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/2013-04-01/cidrcollection/{CidrCollectionId}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "Id"
+                ],
+                "members": {
+                    "Id": {
+                        "location": "uri",
+                        "locationName": "CidrCollectionId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "ListCidrBlocks": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/2013-04-01/cidrcollection/{CidrCollectionId}/cidrblocks"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "CollectionId"
+                ],
+                "members": {
+                    "CollectionId": {
+                        "location": "uri",
+                        "locationName": "CidrCollectionId"
+                    },
+                    "LocationName": {
+                        "location": "querystring",
+                        "locationName": "location"
+                    },
+                    "NextToken": {
+                        "location": "querystring",
+                        "locationName": "nexttoken"
+                    },
+                    "MaxResults": {
+                        "location": "querystring",
+                        "locationName": "maxresults"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "NextToken": {},
+                    "CidrBlocks": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "CidrBlock": {},
+                                "LocationName": {}
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "ListCidrCollections": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/2013-04-01/cidrcollection"
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "NextToken": {
+                        "location": "querystring",
+                        "locationName": "nexttoken"
+                    },
+                    "MaxResults": {
+                        "location": "querystring",
+                        "locationName": "maxresults"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "NextToken": {},
+                    "CidrCollections": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "Arn": {},
+                                "Id": {},
+                                "Name": {},
+                                "Version": {
+                                    "type": "long"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "ListCidrLocations": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/2013-04-01/cidrcollection/{CidrCollectionId}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "CollectionId"
+                ],
+                "members": {
+                    "CollectionId": {
+                        "location": "uri",
+                        "locationName": "CidrCollectionId"
+                    },
+                    "NextToken": {
+                        "location": "querystring",
+                        "locationName": "nexttoken"
+                    },
+                    "MaxResults": {
+                        "location": "querystring",
+                        "locationName": "maxresults"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "NextToken": {},
+                    "CidrLocations": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "LocationName": {}
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        }
+    },
+    "shapes": {
+        "S5": {
+            "type": "structure",
+            "required": [
+                "Id",
+                "Status",
+                "SubmittedAt"
+            ],
+            "members": {
+                "Id": {},
+                "Status": {},
+                "SubmittedAt": {
+                    "type": "timestamp"
+                },
+                "Comment": {}
+            }
+        },
+        "Sa": {
+            "type": "structure",
+            "members": {
+                "VPCRegion": {},
+                "VPCId": {}
+            }
+        },
+        "Sk": {
+            "type": "structure",
+            "required": [
+                "Name",
+                "Type"
+            ],
+            "members": {
+                "Name": {},
+                "Type": {},
+                "SetIdentifier": {},
+                "Weight": {
+                    "type": "long"
+                },
+                "Region": {},
+                "GeoLocation": {
+                    "type": "structure",
+                    "members": {
+                        "ContinentCode": {},
+                        "CountryCode": {},
+                        "SubdivisionCode": {}
+                    }
+                },
+                "Failover": {},
+                "MultiValueAnswer": {
+                    "type": "boolean"
+                },
+                "TTL": {
+                    "type": "long"
+                },
+                "ResourceRecords": {
+                    "type": "list",
+                    "member": {
+                        "locationName": "ResourceRecord",
+                        "type": "structure",
+                        "required": [
+                            "Value"
+                        ],
+                        "members": {
+                            "Value": {}
+                        }
+                    }
+                },
+                "AliasTarget": {
+                    "type": "structure",
+                    "required": [
+                        "HostedZoneId",
+                        "DNSName",
+                        "EvaluateTargetHealth"
+                    ],
+                    "members": {
+                        "HostedZoneId": {},
+                        "DNSName": {},
+                        "EvaluateTargetHealth": {
+                            "type": "boolean"
+                        }
+                    }
+                },
+                "HealthCheckId": {},
+                "TrafficPolicyInstanceId": {}
+            }
+        },
+        "S18": {
+            "type": "list",
+            "member": {
+                "locationName": "Tag",
+                "type": "structure",
+                "members": {
+                    "Key": {},
+                    "Value": {}
+                }
+            }
+        },
+        "S1g": {
+            "type": "structure",
+            "required": [
+                "Type"
+            ],
+            "members": {
+                "IPAddress": {},
+                "Port": {
+                    "type": "integer"
+                },
+                "Type": {},
+                "ResourcePath": {},
+                "FullyQualifiedDomainName": {},
+                "SearchString": {},
+                "RequestInterval": {
+                    "type": "integer"
+                },
+                "FailureThreshold": {
+                    "type": "integer"
+                },
+                "MeasureLatency": {
+                    "type": "boolean"
+                },
+                "Inverted": {
+                    "type": "boolean"
+                },
+                "Disabled": {
+                    "type": "boolean"
+                },
+                "HealthThreshold": {
+                    "type": "integer"
+                },
+                "ChildHealthChecks": {
+                    "shape": "S1t"
+                },
+                "EnableSNI": {
+                    "type": "boolean"
+                },
+                "Regions": {
+                    "shape": "S1v"
+                },
+                "AlarmIdentifier": {
+                    "shape": "S1x"
+                },
+                "InsufficientDataHealthStatus": {}
+            }
+        },
+        "S1t": {
+            "type": "list",
+            "member": {
+                "locationName": "ChildHealthCheck"
+            }
+        },
+        "S1v": {
+            "type": "list",
+            "member": {
+                "locationName": "Region"
+            }
+        },
+        "S1x": {
+            "type": "structure",
+            "required": [
+                "Region",
+                "Name"
+            ],
+            "members": {
+                "Region": {},
+                "Name": {}
+            }
+        },
+        "S22": {
+            "type": "structure",
+            "required": [
+                "Id",
+                "CallerReference",
+                "HealthCheckConfig",
+                "HealthCheckVersion"
+            ],
+            "members": {
+                "Id": {},
+                "CallerReference": {},
+                "LinkedService": {
+                    "shape": "S23"
+                },
+                "HealthCheckConfig": {
+                    "shape": "S1g"
+                },
+                "HealthCheckVersion": {
+                    "type": "long"
+                },
+                "CloudWatchAlarmConfiguration": {
+                    "type": "structure",
+                    "required": [
+                        "EvaluationPeriods",
+                        "Threshold",
+                        "ComparisonOperator",
+                        "Period",
+                        "MetricName",
+                        "Namespace",
+                        "Statistic"
+                    ],
+                    "members": {
+                        "EvaluationPeriods": {
+                            "type": "integer"
+                        },
+                        "Threshold": {
+                            "type": "double"
+                        },
+                        "ComparisonOperator": {},
+                        "Period": {
+                            "type": "integer"
+                        },
+                        "MetricName": {},
+                        "Namespace": {},
+                        "Statistic": {},
+                        "Dimensions": {
+                            "type": "list",
+                            "member": {
+                                "locationName": "Dimension",
+                                "type": "structure",
+                                "required": [
+                                    "Name",
+                                    "Value"
+                                ],
+                                "members": {
+                                    "Name": {},
+                                    "Value": {}
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "S23": {
+            "type": "structure",
+            "members": {
+                "ServicePrincipal": {},
+                "Description": {}
+            }
+        },
+        "S2k": {
+            "type": "structure",
+            "members": {
+                "Comment": {},
+                "PrivateZone": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "S2n": {
+            "type": "structure",
+            "required": [
+                "Id",
+                "Name",
+                "CallerReference"
+            ],
+            "members": {
+                "Id": {},
+                "Name": {},
+                "CallerReference": {},
+                "Config": {
+                    "shape": "S2k"
+                },
+                "ResourceRecordSetCount": {
+                    "type": "long"
+                },
+                "LinkedService": {
+                    "shape": "S23"
+                }
+            }
+        },
+        "S2p": {
+            "type": "structure",
+            "required": [
+                "NameServers"
+            ],
+            "members": {
+                "Id": {},
+                "CallerReference": {},
+                "NameServers": {
+                    "type": "list",
+                    "member": {
+                        "locationName": "NameServer"
+                    }
+                }
+            }
+        },
+        "S2v": {
+            "type": "structure",
+            "members": {
+                "Name": {},
+                "KmsArn": {},
+                "Flag": {
+                    "type": "integer"
+                },
+                "SigningAlgorithmMnemonic": {},
+                "SigningAlgorithmType": {
+                    "type": "integer"
+                },
+                "DigestAlgorithmMnemonic": {},
+                "DigestAlgorithmType": {
+                    "type": "integer"
+                },
+                "KeyTag": {
+                    "type": "integer"
+                },
+                "DigestValue": {},
+                "PublicKey": {},
+                "DSRecord": {},
+                "DNSKEYRecord": {},
+                "Status": {},
+                "StatusMessage": {},
+                "CreatedDate": {
+                    "type": "timestamp"
+                },
+                "LastModifiedDate": {
+                    "type": "timestamp"
+                }
+            }
+        },
+        "S32": {
+            "type": "structure",
+            "required": [
+                "Id",
+                "HostedZoneId",
+                "CloudWatchLogsLogGroupArn"
+            ],
+            "members": {
+                "Id": {},
+                "HostedZoneId": {},
+                "CloudWatchLogsLogGroupArn": {}
+            }
+        },
+        "S3b": {
+            "type": "structure",
+            "required": [
+                "Id",
+                "Version",
+                "Name",
+                "Type",
+                "Document"
+            ],
+            "members": {
+                "Id": {},
+                "Version": {
+                    "type": "integer"
+                },
+                "Name": {},
+                "Type": {},
+                "Document": {},
+                "Comment": {}
+            }
+        },
+        "S3g": {
+            "type": "structure",
+            "required": [
+                "Id",
+                "HostedZoneId",
+                "Name",
+                "TTL",
+                "State",
+                "Message",
+                "TrafficPolicyId",
+                "TrafficPolicyVersion",
+                "TrafficPolicyType"
+            ],
+            "members": {
+                "Id": {},
+                "HostedZoneId": {},
+                "Name": {},
+                "TTL": {
+                    "type": "long"
+                },
+                "State": {},
+                "Message": {},
+                "TrafficPolicyId": {},
+                "TrafficPolicyVersion": {
+                    "type": "integer"
+                },
+                "TrafficPolicyType": {}
+            }
+        },
+        "S4v": {
+            "type": "structure",
+            "members": {
+                "ContinentCode": {},
+                "ContinentName": {},
+                "CountryCode": {},
+                "CountryName": {},
+                "SubdivisionCode": {},
+                "SubdivisionName": {}
+            }
+        },
+        "S56": {
+            "type": "list",
+            "member": {
+                "locationName": "HealthCheckObservation",
+                "type": "structure",
+                "members": {
+                    "Region": {},
+                    "IPAddress": {},
+                    "StatusReport": {
+                        "type": "structure",
+                        "members": {
+                            "Status": {},
+                            "CheckedTime": {
+                                "type": "timestamp"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "S5e": {
+            "type": "list",
+            "member": {
+                "shape": "Sa",
+                "locationName": "VPC"
+            }
+        },
+        "S6c": {
+            "type": "list",
+            "member": {
+                "shape": "S2n",
+                "locationName": "HostedZone"
+            }
+        },
+        "S6z": {
+            "type": "structure",
+            "members": {
+                "ResourceType": {},
+                "ResourceId": {},
+                "Tags": {
+                    "shape": "S18"
+                }
+            }
+        },
+        "S7a": {
+            "type": "list",
+            "member": {
+                "shape": "S3g",
+                "locationName": "TrafficPolicyInstance"
+            }
+        },
+        "S3": {
+            "type": "structure",
+            "members": {
+                "VPCRegion": {},
+                "VPCId": {}
+            }
+        },
+        "S8": {
+            "type": "structure",
+            "required": [
+                "Id",
+                "Status",
+                "SubmittedAt"
+            ],
+            "members": {
+                "Id": {},
+                "Status": {},
+                "SubmittedAt": {
+                    "type": "timestamp"
+                },
+                "Comment": {}
+            }
+        },
+        "Sh": {
+            "type": "structure",
+            "required": [
+                "Name",
+                "Type"
+            ],
+            "members": {
+                "Name": {},
+                "Type": {},
+                "SetIdentifier": {},
+                "Weight": {
+                    "type": "long"
+                },
+                "Region": {},
+                "GeoLocation": {
+                    "type": "structure",
+                    "members": {
+                        "ContinentCode": {},
+                        "CountryCode": {},
+                        "SubdivisionCode": {}
+                    }
+                },
+                "Failover": {},
+                "MultiValueAnswer": {
+                    "type": "boolean"
+                },
+                "TTL": {
+                    "type": "long"
+                },
+                "ResourceRecords": {
+                    "type": "list",
+                    "member": {
+                        "locationName": "ResourceRecord",
+                        "type": "structure",
+                        "required": [
+                            "Value"
+                        ],
+                        "members": {
+                            "Value": {}
+                        }
+                    }
+                },
+                "AliasTarget": {
+                    "type": "structure",
+                    "required": [
+                        "HostedZoneId",
+                        "DNSName",
+                        "EvaluateTargetHealth"
+                    ],
+                    "members": {
+                        "HostedZoneId": {},
+                        "DNSName": {},
+                        "EvaluateTargetHealth": {
+                            "type": "boolean"
+                        }
+                    }
+                },
+                "HealthCheckId": {},
+                "TrafficPolicyInstanceId": {}
+            }
+        },
+        "S15": {
+            "type": "list",
+            "member": {
+                "locationName": "Tag",
+                "type": "structure",
+                "members": {
+                    "Key": {},
+                    "Value": {}
+                }
+            }
+        },
+        "S1d": {
+            "type": "structure",
+            "required": [
+                "Type"
+            ],
+            "members": {
+                "IPAddress": {},
+                "Port": {
+                    "type": "integer"
+                },
+                "Type": {},
+                "ResourcePath": {},
+                "FullyQualifiedDomainName": {},
+                "SearchString": {},
+                "RequestInterval": {
+                    "type": "integer"
+                },
+                "FailureThreshold": {
+                    "type": "integer"
+                },
+                "MeasureLatency": {
+                    "type": "boolean"
+                },
+                "Inverted": {
+                    "type": "boolean"
+                },
+                "Disabled": {
+                    "type": "boolean"
+                },
+                "HealthThreshold": {
+                    "type": "integer"
+                },
+                "ChildHealthChecks": {
+                    "shape": "S1q"
+                },
+                "EnableSNI": {
+                    "type": "boolean"
+                },
+                "Regions": {
+                    "shape": "S1s"
+                },
+                "AlarmIdentifier": {
+                    "shape": "S1u"
+                },
+                "InsufficientDataHealthStatus": {}
+            }
+        },
+        "S1q": {
+            "type": "list",
+            "member": {
+                "locationName": "ChildHealthCheck"
+            }
+        },
+        "S1s": {
+            "type": "list",
+            "member": {
+                "locationName": "Region"
+            }
+        },
+        "S1u": {
+            "type": "structure",
+            "required": [
+                "Region",
+                "Name"
+            ],
+            "members": {
+                "Region": {},
+                "Name": {}
+            }
+        },
+        "S1z": {
+            "type": "structure",
+            "required": [
+                "Id",
+                "CallerReference",
+                "HealthCheckConfig",
+                "HealthCheckVersion"
+            ],
+            "members": {
+                "Id": {},
+                "CallerReference": {},
+                "LinkedService": {
+                    "shape": "S20"
+                },
+                "HealthCheckConfig": {
+                    "shape": "S1d"
+                },
+                "HealthCheckVersion": {
+                    "type": "long"
+                },
+                "CloudWatchAlarmConfiguration": {
+                    "type": "structure",
+                    "required": [
+                        "EvaluationPeriods",
+                        "Threshold",
+                        "ComparisonOperator",
+                        "Period",
+                        "MetricName",
+                        "Namespace",
+                        "Statistic"
+                    ],
+                    "members": {
+                        "EvaluationPeriods": {
+                            "type": "integer"
+                        },
+                        "Threshold": {
+                            "type": "double"
+                        },
+                        "ComparisonOperator": {},
+                        "Period": {
+                            "type": "integer"
+                        },
+                        "MetricName": {},
+                        "Namespace": {},
+                        "Statistic": {},
+                        "Dimensions": {
+                            "type": "list",
+                            "member": {
+                                "locationName": "Dimension",
+                                "type": "structure",
+                                "required": [
+                                    "Name",
+                                    "Value"
+                                ],
+                                "members": {
+                                    "Name": {},
+                                    "Value": {}
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "S20": {
+            "type": "structure",
+            "members": {
+                "ServicePrincipal": {},
+                "Description": {}
+            }
+        },
+        "S2h": {
+            "type": "structure",
+            "members": {
+                "Comment": {},
+                "PrivateZone": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "S2m": {
+            "type": "structure",
+            "required": [
+                "NameServers"
+            ],
+            "members": {
+                "Id": {},
+                "CallerReference": {},
+                "NameServers": {
+                    "type": "list",
+                    "member": {
+                        "locationName": "NameServer"
+                    }
+                }
+            }
+        },
+        "S2r": {
+            "type": "structure",
+            "required": [
+                "Id",
+                "HostedZoneId",
+                "CloudWatchLogsLogGroupArn"
+            ],
+            "members": {
+                "Id": {},
+                "HostedZoneId": {},
+                "CloudWatchLogsLogGroupArn": {}
+            }
+        },
+        "S30": {
+            "type": "structure",
+            "required": [
+                "Id",
+                "Version",
+                "Name",
+                "Type",
+                "Document"
+            ],
+            "members": {
+                "Id": {},
+                "Version": {
+                    "type": "integer"
+                },
+                "Name": {},
+                "Type": {},
+                "Document": {},
+                "Comment": {}
+            }
+        },
+        "S35": {
+            "type": "structure",
+            "required": [
+                "Id",
+                "HostedZoneId",
+                "Name",
+                "TTL",
+                "State",
+                "Message",
+                "TrafficPolicyId",
+                "TrafficPolicyVersion",
+                "TrafficPolicyType"
+            ],
+            "members": {
+                "Id": {},
+                "HostedZoneId": {},
+                "Name": {},
+                "TTL": {
+                    "type": "long"
+                },
+                "State": {},
+                "Message": {},
+                "TrafficPolicyId": {},
+                "TrafficPolicyVersion": {
+                    "type": "integer"
+                },
+                "TrafficPolicyType": {}
+            }
+        },
+        "S47": {
+            "type": "structure",
+            "members": {
+                "ContinentCode": {},
+                "ContinentName": {},
+                "CountryCode": {},
+                "CountryName": {},
+                "SubdivisionCode": {},
+                "SubdivisionName": {}
+            }
+        },
+        "S4i": {
+            "type": "list",
+            "member": {
+                "locationName": "HealthCheckObservation",
+                "type": "structure",
+                "members": {
+                    "Region": {},
+                    "IPAddress": {},
+                    "StatusReport": {
+                        "type": "structure",
+                        "members": {
+                            "Status": {},
+                            "CheckedTime": {
+                                "type": "timestamp"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "S4q": {
+            "type": "list",
+            "member": {
+                "shape": "S3",
+                "locationName": "VPC"
+            }
+        },
+        "S5o": {
+            "type": "list",
+            "member": {
+                "shape": "S2k",
+                "locationName": "HostedZone"
+            }
+        },
+        "S64": {
+            "type": "structure",
+            "members": {
+                "ResourceType": {},
+                "ResourceId": {},
+                "Tags": {
+                    "shape": "S15"
+                }
+            }
+        },
+        "S6f": {
+            "type": "list",
+            "member": {
+                "shape": "S35",
+                "locationName": "TrafficPolicyInstance"
+            }
+        },
+        "S24": {
+            "type": "structure",
+            "members": {
+                "ServicePrincipal": {},
+                "Description": {}
+            }
+        },
+        "S2l": {
+            "type": "structure",
+            "members": {
+                "Comment": {},
+                "PrivateZone": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "S2o": {
+            "type": "structure",
+            "required": [
+                "Id",
+                "Name",
+                "CallerReference"
+            ],
+            "members": {
+                "Id": {},
+                "Name": {},
+                "CallerReference": {},
+                "Config": {
+                    "shape": "S2l"
+                },
+                "ResourceRecordSetCount": {
+                    "type": "long"
+                },
+                "LinkedService": {
+                    "shape": "S24"
+                }
+            }
+        },
+        "S2q": {
+            "type": "structure",
+            "required": [
+                "NameServers"
+            ],
+            "members": {
+                "Id": {},
+                "CallerReference": {},
+                "NameServers": {
+                    "type": "list",
+                    "member": {
+                        "locationName": "NameServer"
+                    }
+                }
+            }
+        },
+        "S2w": {
+            "type": "structure",
+            "members": {
+                "Name": {},
+                "KmsArn": {},
+                "Flag": {
+                    "type": "integer"
+                },
+                "SigningAlgorithmMnemonic": {},
+                "SigningAlgorithmType": {
+                    "type": "integer"
+                },
+                "DigestAlgorithmMnemonic": {},
+                "DigestAlgorithmType": {
+                    "type": "integer"
+                },
+                "KeyTag": {
+                    "type": "integer"
+                },
+                "DigestValue": {},
+                "PublicKey": {},
+                "DSRecord": {},
+                "DNSKEYRecord": {},
+                "Status": {},
+                "StatusMessage": {},
+                "CreatedDate": {
+                    "type": "timestamp"
+                },
+                "LastModifiedDate": {
+                    "type": "timestamp"
+                }
+            }
+        },
+        "S33": {
+            "type": "structure",
+            "required": [
+                "Id",
+                "HostedZoneId",
+                "CloudWatchLogsLogGroupArn"
+            ],
+            "members": {
+                "Id": {},
+                "HostedZoneId": {},
+                "CloudWatchLogsLogGroupArn": {}
+            }
+        },
+        "S3c": {
+            "type": "structure",
+            "required": [
+                "Id",
+                "Version",
+                "Name",
+                "Type",
+                "Document"
+            ],
+            "members": {
+                "Id": {},
+                "Version": {
+                    "type": "integer"
+                },
+                "Name": {},
+                "Type": {},
+                "Document": {},
+                "Comment": {}
+            }
+        },
+        "S3h": {
+            "type": "structure",
+            "required": [
+                "Id",
+                "HostedZoneId",
+                "Name",
+                "TTL",
+                "State",
+                "Message",
+                "TrafficPolicyId",
+                "TrafficPolicyVersion",
+                "TrafficPolicyType"
+            ],
+            "members": {
+                "Id": {},
+                "HostedZoneId": {},
+                "Name": {},
+                "TTL": {
+                    "type": "long"
+                },
+                "State": {},
+                "Message": {},
+                "TrafficPolicyId": {},
+                "TrafficPolicyVersion": {
+                    "type": "integer"
+                },
+                "TrafficPolicyType": {}
+            }
+        },
+        "S4w": {
+            "type": "structure",
+            "members": {
+                "ContinentCode": {},
+                "ContinentName": {},
+                "CountryCode": {},
+                "CountryName": {},
+                "SubdivisionCode": {},
+                "SubdivisionName": {}
+            }
+        },
+        "S57": {
+            "type": "list",
+            "member": {
+                "locationName": "HealthCheckObservation",
+                "type": "structure",
+                "members": {
+                    "Region": {},
+                    "IPAddress": {},
+                    "StatusReport": {
+                        "type": "structure",
+                        "members": {
+                            "Status": {},
+                            "CheckedTime": {
+                                "type": "timestamp"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "S5f": {
+            "type": "list",
+            "member": {
+                "shape": "Sa",
+                "locationName": "VPC"
+            }
+        },
+        "S6d": {
+            "type": "list",
+            "member": {
+                "shape": "S2o",
+                "locationName": "HostedZone"
+            }
+        },
+        "S70": {
+            "type": "structure",
+            "members": {
+                "ResourceType": {},
+                "ResourceId": {},
+                "Tags": {
+                    "shape": "S18"
+                }
+            }
+        },
+        "S7b": {
+            "type": "list",
+            "member": {
+                "shape": "S3h",
+                "locationName": "TrafficPolicyInstance"
+            }
+        },
+        "Sv": {
+            "type": "structure",
+            "required": [
+                "Name",
+                "Type"
+            ],
+            "members": {
+                "Name": {},
+                "Type": {},
+                "SetIdentifier": {},
+                "Weight": {
+                    "type": "long"
+                },
+                "Region": {},
+                "GeoLocation": {
+                    "type": "structure",
+                    "members": {
+                        "ContinentCode": {},
+                        "CountryCode": {},
+                        "SubdivisionCode": {}
+                    }
+                },
+                "Failover": {},
+                "MultiValueAnswer": {
+                    "type": "boolean"
+                },
+                "TTL": {
+                    "type": "long"
+                },
+                "ResourceRecords": {
+                    "type": "list",
+                    "member": {
+                        "locationName": "ResourceRecord",
+                        "type": "structure",
+                        "required": [
+                            "Value"
+                        ],
+                        "members": {
+                            "Value": {}
+                        }
+                    }
+                },
+                "AliasTarget": {
+                    "type": "structure",
+                    "required": [
+                        "HostedZoneId",
+                        "DNSName",
+                        "EvaluateTargetHealth"
+                    ],
+                    "members": {
+                        "HostedZoneId": {},
+                        "DNSName": {},
+                        "EvaluateTargetHealth": {
+                            "type": "boolean"
+                        }
+                    }
+                },
+                "HealthCheckId": {},
+                "TrafficPolicyInstanceId": {},
+                "CidrRoutingConfig": {
+                    "type": "structure",
+                    "required": [
+                        "CollectionId",
+                        "LocationName"
+                    ],
+                    "members": {
+                        "CollectionId": {},
+                        "LocationName": {}
+                    }
+                }
+            }
+        },
+        "S1l": {
+            "type": "list",
+            "member": {
+                "locationName": "Tag",
+                "type": "structure",
+                "members": {
+                    "Key": {},
+                    "Value": {}
+                }
+            }
+        },
+        "S2d": {
+            "type": "list",
+            "member": {
+                "locationName": "ChildHealthCheck"
+            }
+        },
+        "S2f": {
+            "type": "list",
+            "member": {
+                "locationName": "Region"
+            }
+        },
+        "S34": {
+            "type": "structure",
+            "members": {
+                "Comment": {},
+                "PrivateZone": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "S37": {
+            "type": "structure",
+            "required": [
+                "Id",
+                "Name",
+                "CallerReference"
+            ],
+            "members": {
+                "Id": {},
+                "Name": {},
+                "CallerReference": {},
+                "Config": {
+                    "shape": "S34"
+                },
+                "ResourceRecordSetCount": {
+                    "type": "long"
+                },
+                "LinkedService": {
+                    "shape": "S2o"
+                }
+            }
+        },
+        "S39": {
+            "type": "structure",
+            "required": [
+                "NameServers"
+            ],
+            "members": {
+                "Id": {},
+                "CallerReference": {},
+                "NameServers": {
+                    "type": "list",
+                    "member": {
+                        "locationName": "NameServer"
+                    }
+                }
+            }
+        },
+        "S3f": {
+            "type": "structure",
+            "members": {
+                "Name": {},
+                "KmsArn": {},
+                "Flag": {
+                    "type": "integer"
+                },
+                "SigningAlgorithmMnemonic": {},
+                "SigningAlgorithmType": {
+                    "type": "integer"
+                },
+                "DigestAlgorithmMnemonic": {},
+                "DigestAlgorithmType": {
+                    "type": "integer"
+                },
+                "KeyTag": {
+                    "type": "integer"
+                },
+                "DigestValue": {},
+                "PublicKey": {},
+                "DSRecord": {},
+                "DNSKEYRecord": {},
+                "Status": {},
+                "StatusMessage": {},
+                "CreatedDate": {
+                    "type": "timestamp"
+                },
+                "LastModifiedDate": {
+                    "type": "timestamp"
+                }
+            }
+        },
+        "S3m": {
+            "type": "structure",
+            "required": [
+                "Id",
+                "HostedZoneId",
+                "CloudWatchLogsLogGroupArn"
+            ],
+            "members": {
+                "Id": {},
+                "HostedZoneId": {},
+                "CloudWatchLogsLogGroupArn": {}
+            }
+        },
+        "S3v": {
+            "type": "structure",
+            "required": [
+                "Id",
+                "Version",
+                "Name",
+                "Type",
+                "Document"
+            ],
+            "members": {
+                "Id": {},
+                "Version": {
+                    "type": "integer"
+                },
+                "Name": {},
+                "Type": {},
+                "Document": {},
+                "Comment": {}
+            }
+        },
+        "S40": {
+            "type": "structure",
+            "required": [
+                "Id",
+                "HostedZoneId",
+                "Name",
+                "TTL",
+                "State",
+                "Message",
+                "TrafficPolicyId",
+                "TrafficPolicyVersion",
+                "TrafficPolicyType"
+            ],
+            "members": {
+                "Id": {},
+                "HostedZoneId": {},
+                "Name": {},
+                "TTL": {
+                    "type": "long"
+                },
+                "State": {},
+                "Message": {},
+                "TrafficPolicyId": {},
+                "TrafficPolicyVersion": {
+                    "type": "integer"
+                },
+                "TrafficPolicyType": {}
+            }
+        },
+        "S5h": {
+            "type": "structure",
+            "members": {
+                "ContinentCode": {},
+                "ContinentName": {},
+                "CountryCode": {},
+                "CountryName": {},
+                "SubdivisionCode": {},
+                "SubdivisionName": {}
+            }
+        },
+        "S5s": {
+            "type": "list",
+            "member": {
+                "locationName": "HealthCheckObservation",
+                "type": "structure",
+                "members": {
+                    "Region": {},
+                    "IPAddress": {},
+                    "StatusReport": {
+                        "type": "structure",
+                        "members": {
+                            "Status": {},
+                            "CheckedTime": {
+                                "type": "timestamp"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "S60": {
+            "type": "list",
+            "member": {
+                "shape": "Sa",
+                "locationName": "VPC"
+            }
+        },
+        "S7c": {
+            "type": "list",
+            "member": {
+                "shape": "S37",
+                "locationName": "HostedZone"
+            }
+        },
+        "S7x": {
+            "type": "structure",
+            "members": {
+                "ResourceType": {},
+                "ResourceId": {},
+                "Tags": {
+                    "shape": "S1l"
+                }
+            }
+        },
+        "S88": {
+            "type": "list",
+            "member": {
+                "shape": "S40",
+                "locationName": "TrafficPolicyInstance"
+            }
+        },
+        "S6b": {
+            "type": "structure",
+            "members": {
+                "ResourceType": {},
+                "ResourceId": {},
+                "Tags": {
+                    "shape": "S15"
+                }
+            }
+        },
+        "S6m": {
+            "type": "list",
+            "member": {
+                "shape": "S35",
+                "locationName": "TrafficPolicyInstance"
+            }
+        }
+    }
+}

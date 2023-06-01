@@ -1,0 +1,3482 @@
+{
+    "version": "2.0",
+    "metadata": {
+        "apiVersion": "2020-12-01",
+        "endpointPrefix": "devops-guru",
+        "jsonVersion": "1.1",
+        "protocol": "rest-json",
+        "serviceFullName": "Amazon DevOps Guru",
+        "serviceId": "DevOps Guru",
+        "signatureVersion": "v4",
+        "signingName": "devops-guru",
+        "uid": "devops-guru-2020-12-01",
+        "download_location": [
+            "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+        ]
+    },
+    "operations": {
+        "AddNotificationChannel": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/channels",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "Config"
+                ],
+                "members": {
+                    "Config": {
+                        "shape": "S2"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "Id"
+                ],
+                "members": {
+                    "Id": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "DeleteInsight": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/insights/{Id}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "Id"
+                ],
+                "members": {
+                    "Id": {
+                        "location": "uri",
+                        "locationName": "Id"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "DescribeAccountHealth": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/accounts/health",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {}
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "OpenReactiveInsights",
+                    "OpenProactiveInsights",
+                    "MetricsAnalyzed",
+                    "ResourceHours"
+                ],
+                "members": {
+                    "OpenReactiveInsights": {
+                        "type": "integer"
+                    },
+                    "OpenProactiveInsights": {
+                        "type": "integer"
+                    },
+                    "MetricsAnalyzed": {
+                        "type": "integer"
+                    },
+                    "ResourceHours": {
+                        "type": "long"
+                    },
+                    "AnalyzedResourceCount": {
+                        "type": "long"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "DescribeAccountOverview": {
+            "http": {
+                "requestUri": "/accounts/overview",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "FromTime"
+                ],
+                "members": {
+                    "FromTime": {
+                        "type": "timestamp"
+                    },
+                    "ToTime": {
+                        "type": "timestamp"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "ReactiveInsights",
+                    "ProactiveInsights",
+                    "MeanTimeToRecoverInMilliseconds"
+                ],
+                "members": {
+                    "ReactiveInsights": {
+                        "type": "integer"
+                    },
+                    "ProactiveInsights": {
+                        "type": "integer"
+                    },
+                    "MeanTimeToRecoverInMilliseconds": {
+                        "type": "long"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "DescribeAnomaly": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/anomalies/{Id}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "Id"
+                ],
+                "members": {
+                    "Id": {
+                        "location": "uri",
+                        "locationName": "Id"
+                    },
+                    "AccountId": {
+                        "location": "querystring",
+                        "locationName": "AccountId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ProactiveAnomaly": {
+                        "type": "structure",
+                        "members": {
+                            "Id": {},
+                            "Severity": {},
+                            "Status": {},
+                            "UpdateTime": {
+                                "type": "timestamp"
+                            },
+                            "AnomalyTimeRange": {
+                                "shape": "Sz"
+                            },
+                            "AnomalyReportedTimeRange": {
+                                "shape": "S10"
+                            },
+                            "PredictionTimeRange": {
+                                "shape": "S11"
+                            },
+                            "SourceDetails": {
+                                "shape": "S12"
+                            },
+                            "AssociatedInsightId": {},
+                            "ResourceCollection": {
+                                "shape": "S2o"
+                            },
+                            "Limit": {
+                                "type": "double"
+                            },
+                            "SourceMetadata": {
+                                "shape": "S2y"
+                            },
+                            "AnomalyResources": {
+                                "shape": "S32"
+                            },
+                            "Description": {}
+                        }
+                    },
+                    "ReactiveAnomaly": {
+                        "type": "structure",
+                        "members": {
+                            "Id": {},
+                            "Severity": {},
+                            "Status": {},
+                            "AnomalyTimeRange": {
+                                "shape": "Sz"
+                            },
+                            "AnomalyReportedTimeRange": {
+                                "shape": "S10"
+                            },
+                            "SourceDetails": {
+                                "shape": "S12"
+                            },
+                            "AssociatedInsightId": {},
+                            "ResourceCollection": {
+                                "shape": "S2o"
+                            },
+                            "Type": {},
+                            "Name": {},
+                            "Description": {},
+                            "CausalAnomalyId": {},
+                            "SourceMetadata": {
+                                "shape": "S2y"
+                            },
+                            "AnomalyResources": {
+                                "shape": "S32"
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "DescribeEventSourcesConfig": {
+            "http": {
+                "requestUri": "/event-sources",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {}
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "EventSources": {
+                        "shape": "S3a"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "DescribeFeedback": {
+            "http": {
+                "requestUri": "/feedback",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "InsightId": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "InsightFeedback": {
+                        "shape": "S3g"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "DescribeInsight": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/insights/{Id}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "Id"
+                ],
+                "members": {
+                    "Id": {
+                        "location": "uri",
+                        "locationName": "Id"
+                    },
+                    "AccountId": {
+                        "location": "querystring",
+                        "locationName": "AccountId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ProactiveInsight": {
+                        "type": "structure",
+                        "members": {
+                            "Id": {},
+                            "Name": {},
+                            "Severity": {},
+                            "Status": {},
+                            "InsightTimeRange": {
+                                "shape": "S3n"
+                            },
+                            "PredictionTimeRange": {
+                                "shape": "S11"
+                            },
+                            "ResourceCollection": {
+                                "shape": "S2o"
+                            },
+                            "SsmOpsItemId": {},
+                            "Description": {}
+                        }
+                    },
+                    "ReactiveInsight": {
+                        "type": "structure",
+                        "members": {
+                            "Id": {},
+                            "Name": {},
+                            "Severity": {},
+                            "Status": {},
+                            "InsightTimeRange": {
+                                "shape": "S3n"
+                            },
+                            "ResourceCollection": {
+                                "shape": "S2o"
+                            },
+                            "SsmOpsItemId": {},
+                            "Description": {}
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "DescribeOrganizationHealth": {
+            "http": {
+                "requestUri": "/organization/health",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "AccountIds": {
+                        "shape": "S3s"
+                    },
+                    "OrganizationalUnitIds": {
+                        "shape": "S3t"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "OpenReactiveInsights",
+                    "OpenProactiveInsights",
+                    "MetricsAnalyzed",
+                    "ResourceHours"
+                ],
+                "members": {
+                    "OpenReactiveInsights": {
+                        "type": "integer"
+                    },
+                    "OpenProactiveInsights": {
+                        "type": "integer"
+                    },
+                    "MetricsAnalyzed": {
+                        "type": "integer"
+                    },
+                    "ResourceHours": {
+                        "type": "long"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "DescribeOrganizationOverview": {
+            "http": {
+                "requestUri": "/organization/overview",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "FromTime"
+                ],
+                "members": {
+                    "FromTime": {
+                        "type": "timestamp"
+                    },
+                    "ToTime": {
+                        "type": "timestamp"
+                    },
+                    "AccountIds": {
+                        "shape": "S3s"
+                    },
+                    "OrganizationalUnitIds": {
+                        "shape": "S3t"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "ReactiveInsights",
+                    "ProactiveInsights"
+                ],
+                "members": {
+                    "ReactiveInsights": {
+                        "type": "integer"
+                    },
+                    "ProactiveInsights": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "DescribeOrganizationResourceCollectionHealth": {
+            "http": {
+                "requestUri": "/organization/health/resource-collection",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "OrganizationResourceCollectionType"
+                ],
+                "members": {
+                    "OrganizationResourceCollectionType": {},
+                    "AccountIds": {
+                        "shape": "S3s"
+                    },
+                    "OrganizationalUnitIds": {
+                        "shape": "S3t"
+                    },
+                    "NextToken": {},
+                    "MaxResults": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "CloudFormation": {
+                        "shape": "S43"
+                    },
+                    "Service": {
+                        "shape": "S46"
+                    },
+                    "Account": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "AccountId": {},
+                                "Insight": {
+                                    "type": "structure",
+                                    "members": {
+                                        "OpenProactiveInsights": {
+                                            "type": "integer"
+                                        },
+                                        "OpenReactiveInsights": {
+                                            "type": "integer"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "NextToken": {},
+                    "Tags": {
+                        "shape": "S4d"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "DescribeResourceCollectionHealth": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/accounts/health/resource-collection/{ResourceCollectionType}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ResourceCollectionType"
+                ],
+                "members": {
+                    "ResourceCollectionType": {
+                        "location": "uri",
+                        "locationName": "ResourceCollectionType"
+                    },
+                    "NextToken": {
+                        "location": "querystring",
+                        "locationName": "NextToken"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "CloudFormation": {
+                        "shape": "S43"
+                    },
+                    "Service": {
+                        "shape": "S46"
+                    },
+                    "NextToken": {},
+                    "Tags": {
+                        "shape": "S4d"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "DescribeServiceIntegration": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/service-integrations",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {}
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ServiceIntegration": {
+                        "type": "structure",
+                        "members": {
+                            "OpsCenter": {
+                                "type": "structure",
+                                "members": {
+                                    "OptInStatus": {}
+                                }
+                            },
+                            "LogsAnomalyDetection": {
+                                "type": "structure",
+                                "members": {
+                                    "OptInStatus": {}
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "GetCostEstimation": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/cost-estimation",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "NextToken": {
+                        "location": "querystring",
+                        "locationName": "NextToken"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ResourceCollection": {
+                        "shape": "S4q"
+                    },
+                    "Status": {},
+                    "Costs": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "Type": {},
+                                "State": {},
+                                "Count": {
+                                    "type": "integer"
+                                },
+                                "UnitCost": {
+                                    "type": "double"
+                                },
+                                "Cost": {
+                                    "type": "double"
+                                }
+                            }
+                        }
+                    },
+                    "TimeRange": {
+                        "type": "structure",
+                        "members": {
+                            "StartTime": {
+                                "type": "timestamp"
+                            },
+                            "EndTime": {
+                                "type": "timestamp"
+                            }
+                        }
+                    },
+                    "TotalCost": {
+                        "type": "double"
+                    },
+                    "NextToken": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "GetEventSourceCoverage": {
+            "http": {
+                "requestUri": "/event-source-coverage",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "EventSourceFilter"
+                ],
+                "members": {
+                    "EventSourceFilter": {
+                        "type": "structure",
+                        "members": {
+                            "AmazonCloudWatch": {
+                                "type": "structure",
+                                "members": {
+                                    "ResourceType": {}
+                                }
+                            }
+                        }
+                    },
+                    "EventSourceResourceCollection": {
+                        "shape": "S57"
+                    },
+                    "NextToken": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Coverage": {
+                        "type": "structure",
+                        "members": {
+                            "AmazonCloudWatch": {
+                                "type": "structure",
+                                "members": {
+                                    "MetricAlarms": {
+                                        "type": "list",
+                                        "member": {
+                                            "type": "structure",
+                                            "required": [
+                                                "Name",
+                                                "State"
+                                            ],
+                                            "members": {
+                                                "Name": {},
+                                                "State": {},
+                                                "StateReason": {},
+                                                "ResourceCollection": {
+                                                    "shape": "S57"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "GetResourceCollection": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/resource-collections/{ResourceCollectionType}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ResourceCollectionType"
+                ],
+                "members": {
+                    "ResourceCollectionType": {
+                        "location": "uri",
+                        "locationName": "ResourceCollectionType"
+                    },
+                    "NextToken": {
+                        "location": "querystring",
+                        "locationName": "NextToken"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ResourceCollection": {
+                        "type": "structure",
+                        "members": {
+                            "CloudFormation": {
+                                "type": "structure",
+                                "members": {
+                                    "StackNames": {
+                                        "shape": "S2q"
+                                    }
+                                }
+                            },
+                            "Tags": {
+                                "type": "list",
+                                "member": {
+                                    "type": "structure",
+                                    "required": [
+                                        "AppBoundaryKey",
+                                        "TagValues"
+                                    ],
+                                    "members": {
+                                        "AppBoundaryKey": {},
+                                        "TagValues": {
+                                            "shape": "S2v"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "ListAnomaliesForInsight": {
+            "http": {
+                "requestUri": "/anomalies/insight/{InsightId}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "InsightId"
+                ],
+                "members": {
+                    "InsightId": {
+                        "location": "uri",
+                        "locationName": "InsightId"
+                    },
+                    "StartTimeRange": {
+                        "shape": "S5s"
+                    },
+                    "MaxResults": {
+                        "type": "integer"
+                    },
+                    "NextToken": {},
+                    "AccountId": {},
+                    "Filters": {
+                        "type": "structure",
+                        "members": {
+                            "ServiceCollection": {
+                                "shape": "S5v"
+                            }
+                        }
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ProactiveAnomalies": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "Id": {},
+                                "Severity": {},
+                                "Status": {},
+                                "UpdateTime": {
+                                    "type": "timestamp"
+                                },
+                                "AnomalyTimeRange": {
+                                    "shape": "Sz"
+                                },
+                                "AnomalyReportedTimeRange": {
+                                    "shape": "S10"
+                                },
+                                "PredictionTimeRange": {
+                                    "shape": "S11"
+                                },
+                                "SourceDetails": {
+                                    "shape": "S12"
+                                },
+                                "AssociatedInsightId": {},
+                                "ResourceCollection": {
+                                    "shape": "S2o"
+                                },
+                                "Limit": {
+                                    "type": "double"
+                                },
+                                "SourceMetadata": {
+                                    "shape": "S2y"
+                                },
+                                "AnomalyResources": {
+                                    "shape": "S32"
+                                },
+                                "Description": {}
+                            }
+                        }
+                    },
+                    "ReactiveAnomalies": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "Id": {},
+                                "Severity": {},
+                                "Status": {},
+                                "AnomalyTimeRange": {
+                                    "shape": "Sz"
+                                },
+                                "AnomalyReportedTimeRange": {
+                                    "shape": "S10"
+                                },
+                                "SourceDetails": {
+                                    "shape": "S12"
+                                },
+                                "AssociatedInsightId": {},
+                                "ResourceCollection": {
+                                    "shape": "S2o"
+                                },
+                                "Type": {},
+                                "Name": {},
+                                "Description": {},
+                                "CausalAnomalyId": {},
+                                "SourceMetadata": {
+                                    "shape": "S2y"
+                                },
+                                "AnomalyResources": {
+                                    "shape": "S32"
+                                }
+                            }
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "ListAnomalousLogGroups": {
+            "http": {
+                "requestUri": "/list-log-anomalies",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "InsightId"
+                ],
+                "members": {
+                    "InsightId": {},
+                    "MaxResults": {
+                        "type": "integer"
+                    },
+                    "NextToken": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "InsightId",
+                    "AnomalousLogGroups"
+                ],
+                "members": {
+                    "InsightId": {},
+                    "AnomalousLogGroups": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "LogGroupName": {},
+                                "ImpactStartTime": {
+                                    "type": "timestamp"
+                                },
+                                "ImpactEndTime": {
+                                    "type": "timestamp"
+                                },
+                                "NumberOfLogLinesScanned": {
+                                    "type": "integer"
+                                },
+                                "LogAnomalyShowcases": {
+                                    "type": "list",
+                                    "member": {
+                                        "type": "structure",
+                                        "members": {
+                                            "LogAnomalyClasses": {
+                                                "type": "list",
+                                                "member": {
+                                                    "type": "structure",
+                                                    "members": {
+                                                        "LogStreamName": {},
+                                                        "LogAnomalyType": {},
+                                                        "LogAnomalyToken": {},
+                                                        "LogEventId": {},
+                                                        "Explanation": {},
+                                                        "NumberOfLogLinesOccurrences": {
+                                                            "type": "integer"
+                                                        },
+                                                        "LogEventTimestamp": {
+                                                            "type": "timestamp"
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "ListEvents": {
+            "http": {
+                "requestUri": "/events",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "Filters"
+                ],
+                "members": {
+                    "Filters": {
+                        "type": "structure",
+                        "members": {
+                            "InsightId": {},
+                            "EventTimeRange": {
+                                "type": "structure",
+                                "required": [
+                                    "FromTime",
+                                    "ToTime"
+                                ],
+                                "members": {
+                                    "FromTime": {
+                                        "type": "timestamp"
+                                    },
+                                    "ToTime": {
+                                        "type": "timestamp"
+                                    }
+                                }
+                            },
+                            "EventClass": {},
+                            "EventSource": {},
+                            "DataSource": {},
+                            "ResourceCollection": {
+                                "shape": "S2o"
+                            }
+                        }
+                    },
+                    "MaxResults": {
+                        "type": "integer"
+                    },
+                    "NextToken": {},
+                    "AccountId": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "Events"
+                ],
+                "members": {
+                    "Events": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "ResourceCollection": {
+                                    "shape": "S2o"
+                                },
+                                "Id": {},
+                                "Time": {
+                                    "type": "timestamp"
+                                },
+                                "EventSource": {},
+                                "Name": {},
+                                "DataSource": {},
+                                "EventClass": {},
+                                "Resources": {
+                                    "type": "list",
+                                    "member": {
+                                        "type": "structure",
+                                        "members": {
+                                            "Type": {},
+                                            "Name": {},
+                                            "Arn": {}
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "ListInsights": {
+            "http": {
+                "requestUri": "/insights",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "StatusFilter"
+                ],
+                "members": {
+                    "StatusFilter": {
+                        "shape": "S71"
+                    },
+                    "MaxResults": {
+                        "type": "integer"
+                    },
+                    "NextToken": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ProactiveInsights": {
+                        "shape": "S79"
+                    },
+                    "ReactiveInsights": {
+                        "shape": "S7d"
+                    },
+                    "NextToken": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "ListMonitoredResources": {
+            "http": {
+                "requestUri": "/monitoredResources",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "Filters": {
+                        "type": "structure",
+                        "required": [
+                            "ResourcePermission",
+                            "ResourceTypeFilters"
+                        ],
+                        "members": {
+                            "ResourcePermission": {},
+                            "ResourceTypeFilters": {
+                                "type": "list",
+                                "member": {}
+                            }
+                        }
+                    },
+                    "MaxResults": {
+                        "type": "integer"
+                    },
+                    "NextToken": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "MonitoredResourceIdentifiers"
+                ],
+                "members": {
+                    "MonitoredResourceIdentifiers": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "MonitoredResourceName": {},
+                                "Type": {},
+                                "ResourcePermission": {},
+                                "LastUpdated": {
+                                    "type": "timestamp"
+                                },
+                                "ResourceCollection": {
+                                    "shape": "S2o"
+                                }
+                            }
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "ListNotificationChannels": {
+            "http": {
+                "requestUri": "/channels",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "NextToken": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Channels": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "Id": {},
+                                "Config": {
+                                    "shape": "S2"
+                                }
+                            }
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "ListOrganizationInsights": {
+            "http": {
+                "requestUri": "/organization/insights",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "StatusFilter"
+                ],
+                "members": {
+                    "StatusFilter": {
+                        "shape": "S71"
+                    },
+                    "MaxResults": {
+                        "type": "integer"
+                    },
+                    "AccountIds": {
+                        "type": "list",
+                        "member": {}
+                    },
+                    "OrganizationalUnitIds": {
+                        "type": "list",
+                        "member": {}
+                    },
+                    "NextToken": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ProactiveInsights": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "Id": {},
+                                "AccountId": {},
+                                "OrganizationalUnitId": {},
+                                "Name": {},
+                                "Severity": {},
+                                "Status": {},
+                                "InsightTimeRange": {
+                                    "shape": "S3n"
+                                },
+                                "PredictionTimeRange": {
+                                    "shape": "S11"
+                                },
+                                "ResourceCollection": {
+                                    "shape": "S2o"
+                                },
+                                "ServiceCollection": {
+                                    "shape": "S5v"
+                                }
+                            }
+                        }
+                    },
+                    "ReactiveInsights": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "Id": {},
+                                "AccountId": {},
+                                "OrganizationalUnitId": {},
+                                "Name": {},
+                                "Severity": {},
+                                "Status": {},
+                                "InsightTimeRange": {
+                                    "shape": "S3n"
+                                },
+                                "ResourceCollection": {
+                                    "shape": "S2o"
+                                },
+                                "ServiceCollection": {
+                                    "shape": "S5v"
+                                }
+                            }
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "ListRecommendations": {
+            "http": {
+                "requestUri": "/recommendations",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "InsightId"
+                ],
+                "members": {
+                    "InsightId": {},
+                    "NextToken": {},
+                    "Locale": {},
+                    "AccountId": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Recommendations": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "Description": {},
+                                "Link": {},
+                                "Name": {},
+                                "Reason": {},
+                                "RelatedEvents": {
+                                    "type": "list",
+                                    "member": {
+                                        "type": "structure",
+                                        "members": {
+                                            "Name": {},
+                                            "Resources": {
+                                                "type": "list",
+                                                "member": {
+                                                    "type": "structure",
+                                                    "members": {
+                                                        "Name": {},
+                                                        "Type": {}
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "RelatedAnomalies": {
+                                    "type": "list",
+                                    "member": {
+                                        "type": "structure",
+                                        "members": {
+                                            "Resources": {
+                                                "type": "list",
+                                                "member": {
+                                                    "type": "structure",
+                                                    "members": {
+                                                        "Name": {},
+                                                        "Type": {}
+                                                    }
+                                                }
+                                            },
+                                            "SourceDetails": {
+                                                "type": "list",
+                                                "member": {
+                                                    "type": "structure",
+                                                    "members": {
+                                                        "CloudWatchMetrics": {
+                                                            "type": "list",
+                                                            "member": {
+                                                                "type": "structure",
+                                                                "members": {
+                                                                    "MetricName": {},
+                                                                    "Namespace": {}
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "AnomalyId": {}
+                                        }
+                                    }
+                                },
+                                "Category": {}
+                            }
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "PutFeedback": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/feedback",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "InsightFeedback": {
+                        "shape": "S3g"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "RemoveNotificationChannel": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/channels/{Id}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "Id"
+                ],
+                "members": {
+                    "Id": {
+                        "location": "uri",
+                        "locationName": "Id"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "SearchInsights": {
+            "http": {
+                "requestUri": "/insights/search",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "StartTimeRange",
+                    "Type"
+                ],
+                "members": {
+                    "StartTimeRange": {
+                        "shape": "S5s"
+                    },
+                    "Filters": {
+                        "type": "structure",
+                        "members": {
+                            "Severities": {
+                                "shape": "S6"
+                            },
+                            "Statuses": {
+                                "shape": "S92"
+                            },
+                            "ResourceCollection": {
+                                "shape": "S2o"
+                            },
+                            "ServiceCollection": {
+                                "shape": "S5v"
+                            }
+                        }
+                    },
+                    "MaxResults": {
+                        "type": "integer"
+                    },
+                    "NextToken": {},
+                    "Type": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ProactiveInsights": {
+                        "shape": "S79"
+                    },
+                    "ReactiveInsights": {
+                        "shape": "S7d"
+                    },
+                    "NextToken": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "SearchOrganizationInsights": {
+            "http": {
+                "requestUri": "/organization/insights/search",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "AccountIds",
+                    "StartTimeRange",
+                    "Type"
+                ],
+                "members": {
+                    "AccountIds": {
+                        "type": "list",
+                        "member": {}
+                    },
+                    "StartTimeRange": {
+                        "shape": "S5s"
+                    },
+                    "Filters": {
+                        "type": "structure",
+                        "members": {
+                            "Severities": {
+                                "shape": "S6"
+                            },
+                            "Statuses": {
+                                "shape": "S92"
+                            },
+                            "ResourceCollection": {
+                                "shape": "S2o"
+                            },
+                            "ServiceCollection": {
+                                "shape": "S5v"
+                            }
+                        }
+                    },
+                    "MaxResults": {
+                        "type": "integer"
+                    },
+                    "NextToken": {},
+                    "Type": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ProactiveInsights": {
+                        "shape": "S79"
+                    },
+                    "ReactiveInsights": {
+                        "shape": "S7d"
+                    },
+                    "NextToken": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "StartCostEstimation": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/cost-estimation",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ResourceCollection"
+                ],
+                "members": {
+                    "ResourceCollection": {
+                        "shape": "S4q"
+                    },
+                    "ClientToken": {
+                        "idempotencyToken": true
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "UpdateEventSourceCoverage": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/event-source-coverage",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "Action",
+                    "EventSourceResourceCollection",
+                    "Coverage"
+                ],
+                "members": {
+                    "Action": {},
+                    "EventSourceResourceCollection": {
+                        "shape": "S57"
+                    },
+                    "Coverage": {
+                        "type": "structure",
+                        "members": {
+                            "AmazonCloudWatch": {
+                                "type": "structure",
+                                "members": {
+                                    "MetricAlarmNames": {
+                                        "type": "list",
+                                        "member": {}
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "FailedResources": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "ResourceName": {},
+                                "FailureReason": {}
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "UpdateEventSourcesConfig": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/event-sources",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "EventSources": {
+                        "shape": "S3a"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "UpdateResourceCollection": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/resource-collections",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "Action",
+                    "ResourceCollection"
+                ],
+                "members": {
+                    "Action": {},
+                    "ResourceCollection": {
+                        "type": "structure",
+                        "members": {
+                            "CloudFormation": {
+                                "type": "structure",
+                                "members": {
+                                    "StackNames": {
+                                        "type": "list",
+                                        "member": {}
+                                    }
+                                }
+                            },
+                            "Tags": {
+                                "type": "list",
+                                "member": {
+                                    "type": "structure",
+                                    "required": [
+                                        "AppBoundaryKey",
+                                        "TagValues"
+                                    ],
+                                    "members": {
+                                        "AppBoundaryKey": {},
+                                        "TagValues": {
+                                            "type": "list",
+                                            "member": {}
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "UpdateServiceIntegration": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/service-integrations",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ServiceIntegration"
+                ],
+                "members": {
+                    "ServiceIntegration": {
+                        "type": "structure",
+                        "members": {
+                            "OpsCenter": {
+                                "type": "structure",
+                                "members": {
+                                    "OptInStatus": {}
+                                }
+                            },
+                            "LogsAnomalyDetection": {
+                                "type": "structure",
+                                "members": {
+                                    "OptInStatus": {}
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "UpdateInsight": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/insights/{Id}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "Id"
+                ],
+                "members": {
+                    "Id": {
+                        "location": "uri",
+                        "locationName": "Id"
+                    },
+                    "Severity": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/ZY2ASRPDJRZTPO2A2F4EM7FSSXVBDS2MQ3WNMKH7XW3EVMSXZBDA/vendors.js"
+            ]
+        }
+    },
+    "shapes": {
+        "S2": {
+            "type": "structure",
+            "required": [
+                "Sns"
+            ],
+            "members": {
+                "Sns": {
+                    "type": "structure",
+                    "members": {
+                        "TopicArn": {}
+                    }
+                },
+                "Filters": {
+                    "type": "structure",
+                    "members": {
+                        "Severities": {
+                            "shape": "S6"
+                        },
+                        "MessageTypes": {
+                            "type": "list",
+                            "member": {}
+                        }
+                    }
+                }
+            }
+        },
+        "S6": {
+            "type": "list",
+            "member": {}
+        },
+        "Sz": {
+            "type": "structure",
+            "required": [
+                "StartTime"
+            ],
+            "members": {
+                "StartTime": {
+                    "type": "timestamp"
+                },
+                "EndTime": {
+                    "type": "timestamp"
+                }
+            }
+        },
+        "S10": {
+            "type": "structure",
+            "required": [
+                "OpenTime"
+            ],
+            "members": {
+                "OpenTime": {
+                    "type": "timestamp"
+                },
+                "CloseTime": {
+                    "type": "timestamp"
+                }
+            }
+        },
+        "S11": {
+            "type": "structure",
+            "required": [
+                "StartTime"
+            ],
+            "members": {
+                "StartTime": {
+                    "type": "timestamp"
+                },
+                "EndTime": {
+                    "type": "timestamp"
+                }
+            }
+        },
+        "S12": {
+            "type": "structure",
+            "members": {
+                "CloudWatchMetrics": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "members": {
+                            "MetricName": {},
+                            "Namespace": {},
+                            "Dimensions": {
+                                "shape": "S17"
+                            },
+                            "Stat": {},
+                            "Unit": {},
+                            "Period": {
+                                "type": "integer"
+                            },
+                            "Condition": {
+                                "shape": "S1e"
+                            },
+                            "MetricDataSummary": {
+                                "type": "structure",
+                                "members": {
+                                    "TimestampMetricValuePairList": {
+                                        "type": "list",
+                                        "member": {
+                                            "type": "structure",
+                                            "members": {
+                                                "Timestamp": {
+                                                    "type": "timestamp"
+                                                },
+                                                "MetricValue": {
+                                                    "type": "double"
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "StatusCode": {}
+                                }
+                            }
+                        }
+                    }
+                },
+                "CloudWatchMetricExpressions": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "members": {
+                            "MainExpression": {},
+                            "Label": {},
+                            "Period": {
+                                "type": "integer"
+                            },
+                            "SupportingMetrics": {
+                                "type": "list",
+                                "member": {
+                                    "type": "structure",
+                                    "members": {
+                                        "Id": {},
+                                        "MetricName": {},
+                                        "Namespace": {},
+                                        "Dimensions": {
+                                            "shape": "S17"
+                                        },
+                                        "Stat": {},
+                                        "Unit": {}
+                                    }
+                                }
+                            },
+                            "SupportingExpressions": {
+                                "type": "list",
+                                "member": {
+                                    "type": "structure",
+                                    "members": {
+                                        "Id": {},
+                                        "Expression": {}
+                                    }
+                                }
+                            },
+                            "Condition": {
+                                "shape": "S1e"
+                            }
+                        }
+                    }
+                },
+                "PerformanceInsightsMetrics": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "members": {
+                            "MetricDisplayName": {},
+                            "Unit": {},
+                            "MetricQuery": {
+                                "shape": "S24"
+                            },
+                            "ReferenceData": {
+                                "type": "list",
+                                "member": {
+                                    "type": "structure",
+                                    "members": {
+                                        "Name": {},
+                                        "ComparisonValues": {
+                                            "type": "structure",
+                                            "members": {
+                                                "ReferenceScalar": {
+                                                    "type": "structure",
+                                                    "members": {
+                                                        "Value": {
+                                                            "type": "double"
+                                                        }
+                                                    }
+                                                },
+                                                "ReferenceMetric": {
+                                                    "type": "structure",
+                                                    "members": {
+                                                        "MetricQuery": {
+                                                            "shape": "S24"
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            "StatsAtAnomaly": {
+                                "shape": "S2l"
+                            },
+                            "StatsAtBaseline": {
+                                "shape": "S2l"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "S17": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "Name": {},
+                    "Value": {}
+                }
+            }
+        },
+        "S1e": {
+            "type": "structure",
+            "members": {
+                "DetectionBand": {},
+                "ReferenceValue": {
+                    "type": "structure",
+                    "members": {
+                        "Threshold": {
+                            "type": "integer"
+                        },
+                        "ComparisonOperator": {},
+                        "DatapointsToAlarm": {
+                            "type": "integer"
+                        },
+                        "EvaluationPeriod": {
+                            "type": "integer"
+                        }
+                    }
+                }
+            }
+        },
+        "S24": {
+            "type": "structure",
+            "members": {
+                "Metric": {},
+                "GroupBy": {
+                    "type": "structure",
+                    "members": {
+                        "Group": {},
+                        "Dimensions": {
+                            "type": "list",
+                            "member": {}
+                        },
+                        "Limit": {
+                            "type": "integer"
+                        }
+                    }
+                },
+                "Filter": {
+                    "type": "map",
+                    "key": {},
+                    "value": {}
+                }
+            }
+        },
+        "S2l": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "Type": {},
+                    "Value": {
+                        "type": "double"
+                    }
+                }
+            }
+        },
+        "S2o": {
+            "type": "structure",
+            "members": {
+                "CloudFormation": {
+                    "type": "structure",
+                    "members": {
+                        "StackNames": {
+                            "shape": "S2q"
+                        }
+                    }
+                },
+                "Tags": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "required": [
+                            "AppBoundaryKey",
+                            "TagValues"
+                        ],
+                        "members": {
+                            "AppBoundaryKey": {},
+                            "TagValues": {
+                                "shape": "S2v"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "S2q": {
+            "type": "list",
+            "member": {}
+        },
+        "S2v": {
+            "type": "list",
+            "member": {}
+        },
+        "S2y": {
+            "type": "structure",
+            "members": {
+                "Source": {},
+                "SourceResourceName": {},
+                "SourceResourceType": {}
+            }
+        },
+        "S32": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "Name": {},
+                    "Type": {}
+                }
+            }
+        },
+        "S3a": {
+            "type": "structure",
+            "members": {
+                "AmazonCodeGuruProfiler": {
+                    "type": "structure",
+                    "members": {
+                        "Status": {}
+                    }
+                },
+                "AmazonCloudWatch": {
+                    "type": "structure",
+                    "members": {
+                        "Status": {}
+                    }
+                }
+            }
+        },
+        "S3g": {
+            "type": "structure",
+            "members": {
+                "Id": {},
+                "Feedback": {}
+            }
+        },
+        "S3n": {
+            "type": "structure",
+            "required": [
+                "StartTime"
+            ],
+            "members": {
+                "StartTime": {
+                    "type": "timestamp"
+                },
+                "EndTime": {
+                    "type": "timestamp"
+                }
+            }
+        },
+        "S3s": {
+            "type": "list",
+            "member": {}
+        },
+        "S3t": {
+            "type": "list",
+            "member": {}
+        },
+        "S43": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "StackName": {},
+                    "Insight": {
+                        "shape": "S45"
+                    },
+                    "AnalyzedResourceCount": {
+                        "type": "long"
+                    }
+                }
+            }
+        },
+        "S45": {
+            "type": "structure",
+            "members": {
+                "OpenProactiveInsights": {
+                    "type": "integer"
+                },
+                "OpenReactiveInsights": {
+                    "type": "integer"
+                },
+                "MeanTimeToRecoverInMilliseconds": {
+                    "type": "long"
+                }
+            }
+        },
+        "S46": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "ServiceName": {},
+                    "Insight": {
+                        "type": "structure",
+                        "members": {
+                            "OpenProactiveInsights": {
+                                "type": "integer"
+                            },
+                            "OpenReactiveInsights": {
+                                "type": "integer"
+                            }
+                        }
+                    },
+                    "AnalyzedResourceCount": {
+                        "type": "long"
+                    }
+                }
+            }
+        },
+        "S4d": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "AppBoundaryKey": {},
+                    "TagValue": {},
+                    "Insight": {
+                        "shape": "S45"
+                    },
+                    "AnalyzedResourceCount": {
+                        "type": "long"
+                    }
+                }
+            }
+        },
+        "S4q": {
+            "type": "structure",
+            "members": {
+                "CloudFormation": {
+                    "type": "structure",
+                    "members": {
+                        "StackNames": {
+                            "type": "list",
+                            "member": {}
+                        }
+                    }
+                },
+                "Tags": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "required": [
+                            "AppBoundaryKey",
+                            "TagValues"
+                        ],
+                        "members": {
+                            "AppBoundaryKey": {},
+                            "TagValues": {
+                                "type": "list",
+                                "member": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "S57": {
+            "type": "structure",
+            "members": {
+                "CloudFormation": {
+                    "type": "structure",
+                    "members": {
+                        "StackNames": {
+                            "type": "list",
+                            "member": {}
+                        }
+                    }
+                },
+                "Tags": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "required": [
+                            "AppBoundaryKey",
+                            "TagValues"
+                        ],
+                        "members": {
+                            "AppBoundaryKey": {},
+                            "TagValues": {
+                                "type": "list",
+                                "member": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "S5s": {
+            "type": "structure",
+            "members": {
+                "FromTime": {
+                    "type": "timestamp"
+                },
+                "ToTime": {
+                    "type": "timestamp"
+                }
+            }
+        },
+        "S5v": {
+            "type": "structure",
+            "members": {
+                "ServiceNames": {
+                    "type": "list",
+                    "member": {}
+                }
+            }
+        },
+        "S71": {
+            "type": "structure",
+            "members": {
+                "Ongoing": {
+                    "type": "structure",
+                    "required": [
+                        "Type"
+                    ],
+                    "members": {
+                        "Type": {}
+                    }
+                },
+                "Closed": {
+                    "type": "structure",
+                    "required": [
+                        "Type",
+                        "EndTimeRange"
+                    ],
+                    "members": {
+                        "Type": {},
+                        "EndTimeRange": {
+                            "type": "structure",
+                            "members": {
+                                "FromTime": {
+                                    "type": "timestamp"
+                                },
+                                "ToTime": {
+                                    "type": "timestamp"
+                                }
+                            }
+                        }
+                    }
+                },
+                "Any": {
+                    "type": "structure",
+                    "required": [
+                        "Type",
+                        "StartTimeRange"
+                    ],
+                    "members": {
+                        "Type": {},
+                        "StartTimeRange": {
+                            "shape": "S5s"
+                        }
+                    }
+                }
+            }
+        },
+        "S79": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "Id": {},
+                    "Name": {},
+                    "Severity": {},
+                    "Status": {},
+                    "InsightTimeRange": {
+                        "shape": "S3n"
+                    },
+                    "PredictionTimeRange": {
+                        "shape": "S11"
+                    },
+                    "ResourceCollection": {
+                        "shape": "S2o"
+                    },
+                    "ServiceCollection": {
+                        "shape": "S5v"
+                    },
+                    "AssociatedResourceArns": {
+                        "shape": "S7b"
+                    }
+                }
+            }
+        },
+        "S7b": {
+            "type": "list",
+            "member": {}
+        },
+        "S7d": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "Id": {},
+                    "Name": {},
+                    "Severity": {},
+                    "Status": {},
+                    "InsightTimeRange": {
+                        "shape": "S3n"
+                    },
+                    "ResourceCollection": {
+                        "shape": "S2o"
+                    },
+                    "ServiceCollection": {
+                        "shape": "S5v"
+                    },
+                    "AssociatedEventSources": {
+                        "type": "list",
+                        "member": {}
+                    },
+                    "AssociatedResourceArns": {
+                        "shape": "S7b"
+                    }
+                }
+            }
+        },
+        "S92": {
+            "type": "list",
+            "member": {}
+        },
+        "Sp": {
+            "type": "structure",
+            "required": [
+                "StartTime"
+            ],
+            "members": {
+                "StartTime": {
+                    "type": "timestamp"
+                },
+                "EndTime": {
+                    "type": "timestamp"
+                }
+            }
+        },
+        "Sq": {
+            "type": "structure",
+            "required": [
+                "StartTime"
+            ],
+            "members": {
+                "StartTime": {
+                    "type": "timestamp"
+                },
+                "EndTime": {
+                    "type": "timestamp"
+                }
+            }
+        },
+        "Sr": {
+            "type": "structure",
+            "members": {
+                "CloudWatchMetrics": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "members": {
+                            "MetricName": {},
+                            "Namespace": {},
+                            "Dimensions": {
+                                "type": "list",
+                                "member": {
+                                    "type": "structure",
+                                    "members": {
+                                        "Name": {},
+                                        "Value": {}
+                                    }
+                                }
+                            },
+                            "Stat": {},
+                            "Unit": {},
+                            "Period": {
+                                "type": "integer"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "S14": {
+            "type": "structure",
+            "members": {
+                "CloudFormation": {
+                    "type": "structure",
+                    "members": {
+                        "StackNames": {
+                            "shape": "S16"
+                        }
+                    }
+                }
+            }
+        },
+        "S16": {
+            "type": "list",
+            "member": {}
+        },
+        "S1c": {
+            "type": "structure",
+            "members": {
+                "Id": {},
+                "Feedback": {}
+            }
+        },
+        "S1k": {
+            "type": "structure",
+            "required": [
+                "StartTime"
+            ],
+            "members": {
+                "StartTime": {
+                    "type": "timestamp"
+                },
+                "EndTime": {
+                    "type": "timestamp"
+                }
+            }
+        },
+        "S31": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "Id": {},
+                    "Name": {},
+                    "Severity": {},
+                    "Status": {},
+                    "InsightTimeRange": {
+                        "shape": "S1k"
+                    },
+                    "PredictionTimeRange": {
+                        "shape": "Sq"
+                    },
+                    "ResourceCollection": {
+                        "shape": "S14"
+                    }
+                }
+            }
+        },
+        "S33": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "Id": {},
+                    "Name": {},
+                    "Severity": {},
+                    "Status": {},
+                    "InsightTimeRange": {
+                        "shape": "S1k"
+                    },
+                    "ResourceCollection": {
+                        "shape": "S14"
+                    }
+                }
+            }
+        },
+        "S1n": {
+            "type": "structure",
+            "members": {
+                "Metric": {},
+                "GroupBy": {
+                    "type": "structure",
+                    "members": {
+                        "Group": {},
+                        "Dimensions": {
+                            "type": "list",
+                            "member": {}
+                        },
+                        "Limit": {
+                            "type": "integer"
+                        }
+                    }
+                },
+                "Filter": {
+                    "type": "map",
+                    "key": {},
+                    "value": {}
+                }
+            }
+        },
+        "S27": {
+            "type": "structure",
+            "members": {
+                "CloudFormation": {
+                    "type": "structure",
+                    "members": {
+                        "StackNames": {
+                            "shape": "S29"
+                        }
+                    }
+                },
+                "Tags": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "required": [
+                            "AppBoundaryKey",
+                            "TagValues"
+                        ],
+                        "members": {
+                            "AppBoundaryKey": {},
+                            "TagValues": {
+                                "shape": "S2e"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "S29": {
+            "type": "list",
+            "member": {}
+        },
+        "S2e": {
+            "type": "list",
+            "member": {}
+        },
+        "S2h": {
+            "type": "structure",
+            "members": {
+                "Source": {},
+                "SourceResourceName": {},
+                "SourceResourceType": {}
+            }
+        },
+        "S2t": {
+            "type": "structure",
+            "members": {
+                "AmazonCodeGuruProfiler": {
+                    "type": "structure",
+                    "members": {
+                        "Status": {}
+                    }
+                }
+            }
+        },
+        "S35": {
+            "type": "structure",
+            "required": [
+                "StartTime"
+            ],
+            "members": {
+                "StartTime": {
+                    "type": "timestamp"
+                },
+                "EndTime": {
+                    "type": "timestamp"
+                }
+            }
+        },
+        "S3b": {
+            "type": "list",
+            "member": {}
+        },
+        "S3l": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "StackName": {},
+                    "Insight": {
+                        "shape": "S3n"
+                    },
+                    "AnalyzedResourceCount": {
+                        "type": "long"
+                    }
+                }
+            }
+        },
+        "S3o": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "ServiceName": {},
+                    "Insight": {
+                        "type": "structure",
+                        "members": {
+                            "OpenProactiveInsights": {
+                                "type": "integer"
+                            },
+                            "OpenReactiveInsights": {
+                                "type": "integer"
+                            }
+                        }
+                    },
+                    "AnalyzedResourceCount": {
+                        "type": "long"
+                    }
+                }
+            }
+        },
+        "S3v": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "AppBoundaryKey": {},
+                    "TagValue": {},
+                    "Insight": {
+                        "shape": "S3n"
+                    },
+                    "AnalyzedResourceCount": {
+                        "type": "long"
+                    }
+                }
+            }
+        },
+        "S48": {
+            "type": "structure",
+            "members": {
+                "CloudFormation": {
+                    "type": "structure",
+                    "members": {
+                        "StackNames": {
+                            "type": "list",
+                            "member": {}
+                        }
+                    }
+                },
+                "Tags": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "required": [
+                            "AppBoundaryKey",
+                            "TagValues"
+                        ],
+                        "members": {
+                            "AppBoundaryKey": {},
+                            "TagValues": {
+                                "type": "list",
+                                "member": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "S4s": {
+            "type": "structure",
+            "members": {
+                "FromTime": {
+                    "type": "timestamp"
+                },
+                "ToTime": {
+                    "type": "timestamp"
+                }
+            }
+        },
+        "S4v": {
+            "type": "structure",
+            "members": {
+                "ServiceNames": {
+                    "type": "list",
+                    "member": {}
+                }
+            }
+        },
+        "S61": {
+            "type": "structure",
+            "members": {
+                "Ongoing": {
+                    "type": "structure",
+                    "required": [
+                        "Type"
+                    ],
+                    "members": {
+                        "Type": {}
+                    }
+                },
+                "Closed": {
+                    "type": "structure",
+                    "required": [
+                        "Type",
+                        "EndTimeRange"
+                    ],
+                    "members": {
+                        "Type": {},
+                        "EndTimeRange": {
+                            "type": "structure",
+                            "members": {
+                                "FromTime": {
+                                    "type": "timestamp"
+                                },
+                                "ToTime": {
+                                    "type": "timestamp"
+                                }
+                            }
+                        }
+                    }
+                },
+                "Any": {
+                    "type": "structure",
+                    "required": [
+                        "Type",
+                        "StartTimeRange"
+                    ],
+                    "members": {
+                        "Type": {},
+                        "StartTimeRange": {
+                            "shape": "S4s"
+                        }
+                    }
+                }
+            }
+        },
+        "S69": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "Id": {},
+                    "Name": {},
+                    "Severity": {},
+                    "Status": {},
+                    "InsightTimeRange": {
+                        "shape": "S35"
+                    },
+                    "PredictionTimeRange": {
+                        "shape": "S11"
+                    },
+                    "ResourceCollection": {
+                        "shape": "S27"
+                    },
+                    "ServiceCollection": {
+                        "shape": "S4v"
+                    },
+                    "AssociatedResourceArns": {
+                        "shape": "S6b"
+                    }
+                }
+            }
+        },
+        "S6b": {
+            "type": "list",
+            "member": {}
+        },
+        "S6d": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "Id": {},
+                    "Name": {},
+                    "Severity": {},
+                    "Status": {},
+                    "InsightTimeRange": {
+                        "shape": "S35"
+                    },
+                    "ResourceCollection": {
+                        "shape": "S27"
+                    },
+                    "ServiceCollection": {
+                        "shape": "S4v"
+                    },
+                    "AssociatedResourceArns": {
+                        "shape": "S6b"
+                    }
+                }
+            }
+        },
+        "S80": {
+            "type": "list",
+            "member": {}
+        },
+        "Ss": {
+            "type": "structure",
+            "required": [
+                "StartTime"
+            ],
+            "members": {
+                "StartTime": {
+                    "type": "timestamp"
+                },
+                "EndTime": {
+                    "type": "timestamp"
+                }
+            }
+        },
+        "St": {
+            "type": "structure",
+            "members": {
+                "CloudWatchMetrics": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "members": {
+                            "MetricName": {},
+                            "Namespace": {},
+                            "Dimensions": {
+                                "type": "list",
+                                "member": {
+                                    "type": "structure",
+                                    "members": {
+                                        "Name": {},
+                                        "Value": {}
+                                    }
+                                }
+                            },
+                            "Stat": {},
+                            "Unit": {},
+                            "Period": {
+                                "type": "integer"
+                            },
+                            "MetricDataSummary": {
+                                "type": "structure",
+                                "members": {
+                                    "TimestampMetricValuePairList": {
+                                        "type": "list",
+                                        "member": {
+                                            "type": "structure",
+                                            "members": {
+                                                "Timestamp": {
+                                                    "type": "timestamp"
+                                                },
+                                                "MetricValue": {
+                                                    "type": "double"
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "StatusCode": {}
+                                }
+                            }
+                        }
+                    }
+                },
+                "PerformanceInsightsMetrics": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "members": {
+                            "MetricDisplayName": {},
+                            "Unit": {},
+                            "MetricQuery": {
+                                "shape": "S1e"
+                            },
+                            "ReferenceData": {
+                                "type": "list",
+                                "member": {
+                                    "type": "structure",
+                                    "members": {
+                                        "Name": {},
+                                        "ComparisonValues": {
+                                            "type": "structure",
+                                            "members": {
+                                                "ReferenceScalar": {
+                                                    "type": "structure",
+                                                    "members": {
+                                                        "Value": {
+                                                            "type": "double"
+                                                        }
+                                                    }
+                                                },
+                                                "ReferenceMetric": {
+                                                    "type": "structure",
+                                                    "members": {
+                                                        "MetricQuery": {
+                                                            "shape": "S1e"
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            "StatsAtAnomaly": {
+                                "shape": "S1v"
+                            },
+                            "StatsAtBaseline": {
+                                "shape": "S1v"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "S1v": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "Type": {},
+                    "Value": {
+                        "type": "double"
+                    }
+                }
+            }
+        },
+        "S1z": {
+            "type": "structure",
+            "members": {
+                "CloudFormation": {
+                    "type": "structure",
+                    "members": {
+                        "StackNames": {
+                            "shape": "S21"
+                        }
+                    }
+                },
+                "Tags": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "required": [
+                            "AppBoundaryKey",
+                            "TagValues"
+                        ],
+                        "members": {
+                            "AppBoundaryKey": {},
+                            "TagValues": {
+                                "shape": "S26"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "S21": {
+            "type": "list",
+            "member": {}
+        },
+        "S26": {
+            "type": "list",
+            "member": {}
+        },
+        "S2d": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "Name": {},
+                    "Type": {}
+                }
+            }
+        },
+        "S2j": {
+            "type": "structure",
+            "members": {
+                "Id": {},
+                "Feedback": {}
+            }
+        },
+        "S2r": {
+            "type": "structure",
+            "required": [
+                "StartTime"
+            ],
+            "members": {
+                "StartTime": {
+                    "type": "timestamp"
+                },
+                "EndTime": {
+                    "type": "timestamp"
+                }
+            }
+        },
+        "S2w": {
+            "type": "list",
+            "member": {}
+        },
+        "S36": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "StackName": {},
+                    "Insight": {
+                        "shape": "S38"
+                    }
+                }
+            }
+        },
+        "S38": {
+            "type": "structure",
+            "members": {
+                "OpenProactiveInsights": {
+                    "type": "integer"
+                },
+                "OpenReactiveInsights": {
+                    "type": "integer"
+                },
+                "MeanTimeToRecoverInMilliseconds": {
+                    "type": "long"
+                }
+            }
+        },
+        "S39": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "ServiceName": {},
+                    "Insight": {
+                        "type": "structure",
+                        "members": {
+                            "OpenProactiveInsights": {
+                                "type": "integer"
+                            },
+                            "OpenReactiveInsights": {
+                                "type": "integer"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "S4c": {
+            "type": "structure",
+            "members": {
+                "FromTime": {
+                    "type": "timestamp"
+                },
+                "ToTime": {
+                    "type": "timestamp"
+                }
+            }
+        },
+        "S51": {
+            "type": "structure",
+            "members": {
+                "Ongoing": {
+                    "type": "structure",
+                    "required": [
+                        "Type"
+                    ],
+                    "members": {
+                        "Type": {}
+                    }
+                },
+                "Closed": {
+                    "type": "structure",
+                    "required": [
+                        "Type",
+                        "EndTimeRange"
+                    ],
+                    "members": {
+                        "Type": {},
+                        "EndTimeRange": {
+                            "type": "structure",
+                            "members": {
+                                "FromTime": {
+                                    "type": "timestamp"
+                                },
+                                "ToTime": {
+                                    "type": "timestamp"
+                                }
+                            }
+                        }
+                    }
+                },
+                "Any": {
+                    "type": "structure",
+                    "required": [
+                        "Type",
+                        "StartTimeRange"
+                    ],
+                    "members": {
+                        "Type": {},
+                        "StartTimeRange": {
+                            "shape": "S4c"
+                        }
+                    }
+                }
+            }
+        },
+        "S59": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "Id": {},
+                    "Name": {},
+                    "Severity": {},
+                    "Status": {},
+                    "InsightTimeRange": {
+                        "shape": "S2r"
+                    },
+                    "PredictionTimeRange": {
+                        "shape": "Ss"
+                    },
+                    "ResourceCollection": {
+                        "shape": "S1z"
+                    },
+                    "ServiceCollection": {
+                        "shape": "S5b"
+                    },
+                    "AssociatedResourceArns": {
+                        "shape": "S5d"
+                    }
+                }
+            }
+        },
+        "S5b": {
+            "type": "structure",
+            "members": {
+                "ServiceNames": {
+                    "type": "list",
+                    "member": {}
+                }
+            }
+        },
+        "S5d": {
+            "type": "list",
+            "member": {}
+        },
+        "S5f": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "Id": {},
+                    "Name": {},
+                    "Severity": {},
+                    "Status": {},
+                    "InsightTimeRange": {
+                        "shape": "S2r"
+                    },
+                    "ResourceCollection": {
+                        "shape": "S1z"
+                    },
+                    "ServiceCollection": {
+                        "shape": "S5b"
+                    },
+                    "AssociatedResourceArns": {
+                        "shape": "S5d"
+                    }
+                }
+            }
+        },
+        "S6r": {
+            "type": "list",
+            "member": {}
+        },
+        "S6s": {
+            "type": "list",
+            "member": {}
+        },
+        "S15": {
+            "type": "structure",
+            "members": {
+                "CloudFormation": {
+                    "type": "structure",
+                    "members": {
+                        "StackNames": {
+                            "shape": "S17"
+                        }
+                    }
+                }
+            }
+        },
+        "S1d": {
+            "type": "structure",
+            "members": {
+                "Id": {},
+                "Feedback": {}
+            }
+        },
+        "S1l": {
+            "type": "structure",
+            "required": [
+                "StartTime"
+            ],
+            "members": {
+                "StartTime": {
+                    "type": "timestamp"
+                },
+                "EndTime": {
+                    "type": "timestamp"
+                }
+            }
+        },
+        "S2m": {
+            "type": "structure",
+            "members": {
+                "FromTime": {
+                    "type": "timestamp"
+                },
+                "ToTime": {
+                    "type": "timestamp"
+                }
+            }
+        },
+        "S3j": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "Id": {},
+                    "Name": {},
+                    "Severity": {},
+                    "Status": {},
+                    "InsightTimeRange": {
+                        "shape": "S1l"
+                    },
+                    "PredictionTimeRange": {
+                        "shape": "Sr"
+                    },
+                    "ResourceCollection": {
+                        "shape": "S15"
+                    },
+                    "ServiceCollection": {
+                        "shape": "S3l"
+                    }
+                }
+            }
+        },
+        "S4o": {
+            "type": "structure",
+            "members": {
+                "KMSKeyId": {},
+                "OptInStatus": {},
+                "Type": {}
+            }
+        },
+        "S4t": {
+            "type": "structure",
+            "members": {
+                "CloudFormation": {
+                    "type": "structure",
+                    "members": {
+                        "StackNames": {
+                            "type": "list",
+                            "member": {}
+                        }
+                    }
+                },
+                "Tags": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "required": [
+                            "AppBoundaryKey",
+                            "TagValues"
+                        ],
+                        "members": {
+                            "AppBoundaryKey": {},
+                            "TagValues": {
+                                "type": "list",
+                                "member": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "S5a": {
+            "type": "structure",
+            "members": {
+                "CloudFormation": {
+                    "type": "structure",
+                    "members": {
+                        "StackNames": {
+                            "type": "list",
+                            "member": {}
+                        }
+                    }
+                },
+                "Tags": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "required": [
+                            "AppBoundaryKey",
+                            "TagValues"
+                        ],
+                        "members": {
+                            "AppBoundaryKey": {},
+                            "TagValues": {
+                                "type": "list",
+                                "member": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "S5y": {
+            "type": "structure",
+            "members": {
+                "ServiceNames": {
+                    "type": "list",
+                    "member": {}
+                }
+            }
+        },
+        "S74": {
+            "type": "structure",
+            "members": {
+                "Ongoing": {
+                    "type": "structure",
+                    "required": [
+                        "Type"
+                    ],
+                    "members": {
+                        "Type": {}
+                    }
+                },
+                "Closed": {
+                    "type": "structure",
+                    "required": [
+                        "Type",
+                        "EndTimeRange"
+                    ],
+                    "members": {
+                        "Type": {},
+                        "EndTimeRange": {
+                            "type": "structure",
+                            "members": {
+                                "FromTime": {
+                                    "type": "timestamp"
+                                },
+                                "ToTime": {
+                                    "type": "timestamp"
+                                }
+                            }
+                        }
+                    }
+                },
+                "Any": {
+                    "type": "structure",
+                    "required": [
+                        "Type",
+                        "StartTimeRange"
+                    ],
+                    "members": {
+                        "Type": {},
+                        "StartTimeRange": {
+                            "shape": "S5v"
+                        }
+                    }
+                }
+            }
+        },
+        "S7c": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "Id": {},
+                    "Name": {},
+                    "Severity": {},
+                    "Status": {},
+                    "InsightTimeRange": {
+                        "shape": "S3n"
+                    },
+                    "PredictionTimeRange": {
+                        "shape": "S11"
+                    },
+                    "ResourceCollection": {
+                        "shape": "S2o"
+                    },
+                    "ServiceCollection": {
+                        "shape": "S5y"
+                    },
+                    "AssociatedResourceArns": {
+                        "shape": "S7e"
+                    }
+                }
+            }
+        },
+        "S7e": {
+            "type": "list",
+            "member": {}
+        },
+        "S7g": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "Id": {},
+                    "Name": {},
+                    "Severity": {},
+                    "Status": {},
+                    "InsightTimeRange": {
+                        "shape": "S3n"
+                    },
+                    "ResourceCollection": {
+                        "shape": "S2o"
+                    },
+                    "ServiceCollection": {
+                        "shape": "S5y"
+                    },
+                    "AssociatedEventSources": {
+                        "type": "list",
+                        "member": {}
+                    },
+                    "AssociatedResourceArns": {
+                        "shape": "S7e"
+                    }
+                }
+            }
+        },
+        "S95": {
+            "type": "list",
+            "member": {}
+        }
+    }
+}

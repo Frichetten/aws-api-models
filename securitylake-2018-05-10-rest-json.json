@@ -1,0 +1,2215 @@
+{
+    "version": "2.0",
+    "metadata": {
+        "apiVersion": "2018-05-10",
+        "endpointPrefix": "securitylake",
+        "jsonVersion": "1.1",
+        "protocol": "rest-json",
+        "serviceFullName": "Amazon Security Lake",
+        "serviceId": "SecurityLake",
+        "signatureVersion": "v4",
+        "signingName": "securitylake",
+        "uid": "securitylake-2018-05-10",
+        "download_location": [
+            "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+        ]
+    },
+    "operations": {
+        "CreateAwsLogSource": {
+            "http": {
+                "requestUri": "/v1/logsources/aws",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "inputOrder"
+                ],
+                "members": {
+                    "enableAllDimensions": {
+                        "shape": "S2"
+                    },
+                    "enableSingleDimension": {
+                        "shape": "S6"
+                    },
+                    "enableTwoDimensions": {
+                        "shape": "S4"
+                    },
+                    "inputOrder": {
+                        "shape": "S8"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "failed": {
+                        "shape": "Sb"
+                    },
+                    "processing": {
+                        "shape": "Sb"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "CreateCustomLogSource": {
+            "http": {
+                "requestUri": "/v1/logsources/custom",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "customSourceName",
+                    "eventClass",
+                    "glueInvocationRoleArn",
+                    "logProviderAccountId"
+                ],
+                "members": {
+                    "customSourceName": {},
+                    "eventClass": {},
+                    "glueInvocationRoleArn": {},
+                    "logProviderAccountId": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "customDataLocation",
+                    "glueCrawlerName",
+                    "glueDatabaseName",
+                    "glueTableName",
+                    "logProviderAccessRoleArn"
+                ],
+                "members": {
+                    "customDataLocation": {},
+                    "glueCrawlerName": {},
+                    "glueDatabaseName": {},
+                    "glueTableName": {},
+                    "logProviderAccessRoleArn": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "CreateDatalake": {
+            "http": {
+                "requestUri": "/v1/datalake",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "configurations": {
+                        "shape": "Sj"
+                    },
+                    "enableAll": {
+                        "type": "boolean"
+                    },
+                    "metaStoreManagerRoleArn": {},
+                    "regions": {
+                        "shape": "Sm"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "CreateDatalakeAutoEnable": {
+            "http": {
+                "requestUri": "/v1/datalake/autoenable",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "configurationForNewAccounts"
+                ],
+                "members": {
+                    "configurationForNewAccounts": {
+                        "shape": "Sv"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "CreateDatalakeDelegatedAdmin": {
+            "http": {
+                "requestUri": "/v1/datalake/delegate",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "account"
+                ],
+                "members": {
+                    "account": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "CreateDatalakeExceptionsSubscription": {
+            "http": {
+                "requestUri": "/v1/datalake/exceptions/subscription",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "notificationEndpoint",
+                    "subscriptionProtocol"
+                ],
+                "members": {
+                    "notificationEndpoint": {},
+                    "subscriptionProtocol": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "CreateSubscriber": {
+            "http": {
+                "requestUri": "/v1/subscribers",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "accountId",
+                    "externalId",
+                    "sourceTypes",
+                    "subscriberName"
+                ],
+                "members": {
+                    "accessTypes": {
+                        "shape": "S16"
+                    },
+                    "accountId": {},
+                    "externalId": {},
+                    "sourceTypes": {
+                        "shape": "S18"
+                    },
+                    "subscriberDescription": {},
+                    "subscriberName": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "subscriptionId"
+                ],
+                "members": {
+                    "roleArn": {},
+                    "s3BucketArn": {},
+                    "snsArn": {},
+                    "subscriptionId": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "CreateSubscriptionNotificationConfiguration": {
+            "http": {
+                "requestUri": "/subscription-notifications/{subscriptionId}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "subscriptionId"
+                ],
+                "members": {
+                    "createSqs": {
+                        "type": "boolean"
+                    },
+                    "httpsApiKeyName": {},
+                    "httpsApiKeyValue": {},
+                    "httpsMethod": {},
+                    "roleArn": {},
+                    "subscriptionEndpoint": {},
+                    "subscriptionId": {
+                        "location": "uri",
+                        "locationName": "subscriptionId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "queueArn": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "DeleteAwsLogSource": {
+            "http": {
+                "requestUri": "/v1/logsources/aws/delete",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "inputOrder"
+                ],
+                "members": {
+                    "disableAllDimensions": {
+                        "shape": "S2"
+                    },
+                    "disableSingleDimension": {
+                        "shape": "S6"
+                    },
+                    "disableTwoDimensions": {
+                        "shape": "S4"
+                    },
+                    "inputOrder": {
+                        "shape": "S8"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "failed": {
+                        "shape": "Sb"
+                    },
+                    "processing": {
+                        "shape": "Sb"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "DeleteCustomLogSource": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/v1/logsources/custom",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "customSourceName"
+                ],
+                "members": {
+                    "customSourceName": {
+                        "location": "querystring",
+                        "locationName": "customSourceName"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "customDataLocation"
+                ],
+                "members": {
+                    "customDataLocation": {}
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "DeleteDatalake": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/v1/datalake",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {}
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "DeleteDatalakeAutoEnable": {
+            "http": {
+                "requestUri": "/v1/datalake/autoenable/delete",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "removeFromConfigurationForNewAccounts"
+                ],
+                "members": {
+                    "removeFromConfigurationForNewAccounts": {
+                        "shape": "Sv"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "DeleteDatalakeDelegatedAdmin": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/v1/datalake/delegate/{account}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "account"
+                ],
+                "members": {
+                    "account": {
+                        "location": "uri",
+                        "locationName": "account"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "DeleteDatalakeExceptionsSubscription": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/v1/datalake/exceptions/subscription",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {}
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "status"
+                ],
+                "members": {
+                    "status": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "DeleteSubscriber": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/v1/subscribers",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "id"
+                ],
+                "members": {
+                    "id": {
+                        "location": "querystring",
+                        "locationName": "id"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "DeleteSubscriptionNotificationConfiguration": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/subscription-notifications/{subscriptionId}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "subscriptionId"
+                ],
+                "members": {
+                    "subscriptionId": {
+                        "location": "uri",
+                        "locationName": "subscriptionId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "GetDatalake": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/v1/datalake",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {}
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "configurations"
+                ],
+                "members": {
+                    "configurations": {
+                        "type": "map",
+                        "key": {},
+                        "value": {
+                            "type": "structure",
+                            "members": {
+                                "encryptionKey": {},
+                                "replicationDestinationRegions": {
+                                    "shape": "Sm"
+                                },
+                                "replicationRoleArn": {},
+                                "retentionSettings": {
+                                    "shape": "Sn"
+                                },
+                                "s3BucketArn": {},
+                                "status": {},
+                                "tagsMap": {
+                                    "shape": "Sr"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "GetDatalakeAutoEnable": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/v1/datalake/autoenable",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {}
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "autoEnableNewAccounts"
+                ],
+                "members": {
+                    "autoEnableNewAccounts": {
+                        "shape": "Sv"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "GetDatalakeExceptionsExpiry": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/v1/datalake/exceptions/expiry",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {}
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "exceptionMessageExpiry"
+                ],
+                "members": {
+                    "exceptionMessageExpiry": {
+                        "type": "long"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "GetDatalakeExceptionsSubscription": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/v1/datalake/exceptions/subscription",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {}
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "protocolAndNotificationEndpoint"
+                ],
+                "members": {
+                    "protocolAndNotificationEndpoint": {
+                        "type": "structure",
+                        "members": {
+                            "endpoint": {},
+                            "protocol": {}
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "GetDatalakeStatus": {
+            "http": {
+                "requestUri": "/v1/datalake/status",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "accountSet": {
+                        "shape": "S6"
+                    },
+                    "maxAccountResults": {
+                        "type": "integer"
+                    },
+                    "nextToken": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "accountSourcesList"
+                ],
+                "members": {
+                    "accountSourcesList": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "account",
+                                "sourceType"
+                            ],
+                            "members": {
+                                "account": {},
+                                "eventClass": {},
+                                "logsStatus": {
+                                    "type": "list",
+                                    "member": {
+                                        "type": "structure",
+                                        "required": [
+                                            "healthStatus",
+                                            "pathToLogs"
+                                        ],
+                                        "members": {
+                                            "healthStatus": {},
+                                            "pathToLogs": {}
+                                        }
+                                    }
+                                },
+                                "sourceType": {}
+                            }
+                        }
+                    },
+                    "nextToken": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "GetSubscriber": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/v1/subscribers/{id}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "id"
+                ],
+                "members": {
+                    "id": {
+                        "location": "uri",
+                        "locationName": "id"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "subscriber": {
+                        "shape": "S2m"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "ListDatalakeExceptions": {
+            "http": {
+                "requestUri": "/v1/datalake/exceptions",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "maxFailures": {
+                        "type": "integer"
+                    },
+                    "nextToken": {},
+                    "regionSet": {
+                        "shape": "Sm"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "nonRetryableFailures"
+                ],
+                "members": {
+                    "nextToken": {},
+                    "nonRetryableFailures": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "failures": {
+                                    "type": "list",
+                                    "member": {
+                                        "type": "structure",
+                                        "required": [
+                                            "exceptionMessage",
+                                            "remediation",
+                                            "timestamp"
+                                        ],
+                                        "members": {
+                                            "exceptionMessage": {},
+                                            "remediation": {},
+                                            "timestamp": {
+                                                "shape": "S2n"
+                                            }
+                                        }
+                                    }
+                                },
+                                "region": {}
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "ListLogSources": {
+            "http": {
+                "requestUri": "/v1/logsources/list",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "inputOrder": {
+                        "shape": "S8"
+                    },
+                    "listAllDimensions": {
+                        "shape": "S2"
+                    },
+                    "listSingleDimension": {
+                        "shape": "S6"
+                    },
+                    "listTwoDimensions": {
+                        "shape": "S4"
+                    },
+                    "maxResults": {
+                        "type": "integer"
+                    },
+                    "nextToken": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "regionSourceTypesAccountsList"
+                ],
+                "members": {
+                    "nextToken": {},
+                    "regionSourceTypesAccountsList": {
+                        "type": "list",
+                        "member": {
+                            "shape": "S2"
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "ListSubscribers": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/v1/subscribers",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "maxResults": {
+                        "location": "querystring",
+                        "locationName": "maxResults",
+                        "type": "integer"
+                    },
+                    "nextToken": {
+                        "location": "querystring",
+                        "locationName": "nextToken"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "subscribers"
+                ],
+                "members": {
+                    "nextToken": {},
+                    "subscribers": {
+                        "type": "list",
+                        "member": {
+                            "shape": "S2m"
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "UpdateDatalake": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/v1/datalake",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "configurations"
+                ],
+                "members": {
+                    "configurations": {
+                        "shape": "Sj"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "UpdateDatalakeExceptionsExpiry": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/v1/datalake/exceptions/expiry",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "exceptionMessageExpiry"
+                ],
+                "members": {
+                    "exceptionMessageExpiry": {
+                        "type": "long"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "UpdateDatalakeExceptionsSubscription": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/v1/datalake/exceptions/subscription",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "notificationEndpoint",
+                    "subscriptionProtocol"
+                ],
+                "members": {
+                    "notificationEndpoint": {},
+                    "subscriptionProtocol": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "UpdateSubscriber": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/v1/subscribers/{id}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "id"
+                ],
+                "members": {
+                    "externalId": {},
+                    "id": {
+                        "location": "uri",
+                        "locationName": "id"
+                    },
+                    "sourceTypes": {
+                        "shape": "S18"
+                    },
+                    "subscriberDescription": {},
+                    "subscriberName": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "subscriber": {
+                        "shape": "S2m"
+                    }
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "UpdateSubscriptionNotificationConfiguration": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/subscription-notifications/{subscriptionId}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "subscriptionId"
+                ],
+                "members": {
+                    "createSqs": {
+                        "type": "boolean"
+                    },
+                    "httpsApiKeyName": {},
+                    "httpsApiKeyValue": {},
+                    "httpsMethod": {},
+                    "roleArn": {},
+                    "subscriptionEndpoint": {},
+                    "subscriptionId": {
+                        "location": "uri",
+                        "locationName": "subscriptionId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "queueArn": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "CreateDataLake": {
+            "http": {
+                "requestUri": "/v1/datalake",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "configurations": {
+                        "shape": "St"
+                    },
+                    "metaStoreManagerRoleArn": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "configurations": {
+                        "shape": "S16"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/OYIUVG6GUB7LKJDS4KLLGYLNBFD4C2UCMB74NJDVLIRDGYNVL2UA/vendors.js"
+            ]
+        },
+        "CreateDataLakeAutoEnable": {
+            "http": {
+                "requestUri": "/v1/datalake/autoenable",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "configurations"
+                ],
+                "members": {
+                    "configurations": {
+                        "shape": "S1d"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/OYIUVG6GUB7LKJDS4KLLGYLNBFD4C2UCMB74NJDVLIRDGYNVL2UA/vendors.js"
+            ]
+        },
+        "CreateDataLakeExceptionSubscription": {
+            "http": {
+                "requestUri": "/v1/datalake/exceptions/subscription",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "subscriptionProtocol",
+                    "notificationEndpoint"
+                ],
+                "members": {
+                    "subscriptionProtocol": {},
+                    "notificationEndpoint": {},
+                    "exceptionTimeToLive": {
+                        "type": "long"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/OYIUVG6GUB7LKJDS4KLLGYLNBFD4C2UCMB74NJDVLIRDGYNVL2UA/vendors.js"
+            ]
+        },
+        "CreateSubscriberNotification": {
+            "http": {
+                "requestUri": "/v1/subscribers/{subscriberId}/notification",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "subscriberId",
+                    "configuration"
+                ],
+                "members": {
+                    "subscriberId": {
+                        "location": "uri",
+                        "locationName": "subscriberId"
+                    },
+                    "configuration": {
+                        "shape": "S21"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "subscriberEndpoint": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/OYIUVG6GUB7LKJDS4KLLGYLNBFD4C2UCMB74NJDVLIRDGYNVL2UA/vendors.js"
+            ]
+        },
+        "DeleteDataLake": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/v1/datalake",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "regions": {
+                        "shape": "S6",
+                        "location": "querystring",
+                        "locationName": "regions"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/OYIUVG6GUB7LKJDS4KLLGYLNBFD4C2UCMB74NJDVLIRDGYNVL2UA/vendors.js"
+            ]
+        },
+        "DeleteDataLakeAutoEnable": {
+            "http": {
+                "requestUri": "/v1/datalake/autoenable/delete",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "configurations"
+                ],
+                "members": {
+                    "configurations": {
+                        "shape": "S1d"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/OYIUVG6GUB7LKJDS4KLLGYLNBFD4C2UCMB74NJDVLIRDGYNVL2UA/vendors.js"
+            ]
+        },
+        "DeleteDataLakeExceptionSubscription": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/v1/datalake/exceptions/subscription",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {}
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/OYIUVG6GUB7LKJDS4KLLGYLNBFD4C2UCMB74NJDVLIRDGYNVL2UA/vendors.js"
+            ]
+        },
+        "DeleteSubscriberNotification": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/v1/subscribers/{subscriberId}/notification",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "subscriberId"
+                ],
+                "members": {
+                    "subscriberId": {
+                        "location": "uri",
+                        "locationName": "subscriberId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/OYIUVG6GUB7LKJDS4KLLGYLNBFD4C2UCMB74NJDVLIRDGYNVL2UA/vendors.js"
+            ]
+        },
+        "DeregisterDataLakeDelegatedAdministrator": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/v1/datalake/delegate",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {}
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/OYIUVG6GUB7LKJDS4KLLGYLNBFD4C2UCMB74NJDVLIRDGYNVL2UA/vendors.js"
+            ]
+        },
+        "GetDataLake": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/v1/datalake",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "regions": {
+                        "shape": "S6",
+                        "location": "querystring",
+                        "locationName": "regions"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "configurations": {
+                        "shape": "S16"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/OYIUVG6GUB7LKJDS4KLLGYLNBFD4C2UCMB74NJDVLIRDGYNVL2UA/vendors.js"
+            ]
+        },
+        "GetDataLakeAutoEnable": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/v1/datalake/autoenable",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {}
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "configurations": {
+                        "shape": "S1d"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/OYIUVG6GUB7LKJDS4KLLGYLNBFD4C2UCMB74NJDVLIRDGYNVL2UA/vendors.js"
+            ]
+        },
+        "GetDataLakeExceptionSubscription": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/v1/datalake/exceptions/subscription",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {}
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "subscriptionProtocol": {},
+                    "notificationEndpoint": {},
+                    "exceptionTimeToLive": {
+                        "type": "long"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/OYIUVG6GUB7LKJDS4KLLGYLNBFD4C2UCMB74NJDVLIRDGYNVL2UA/vendors.js"
+            ]
+        },
+        "GetDataLakeSources": {
+            "http": {
+                "requestUri": "/v1/datalake/sources",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "accounts": {
+                        "shape": "S8"
+                    },
+                    "maxResults": {
+                        "type": "integer"
+                    },
+                    "nextToken": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "dataLakeArn": {},
+                    "dataLakeSources": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "account": {},
+                                "sourceName": {},
+                                "eventClasses": {
+                                    "shape": "Se"
+                                },
+                                "sourceStatuses": {
+                                    "type": "list",
+                                    "member": {
+                                        "type": "structure",
+                                        "members": {
+                                            "resource": {},
+                                            "status": {}
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "nextToken": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/OYIUVG6GUB7LKJDS4KLLGYLNBFD4C2UCMB74NJDVLIRDGYNVL2UA/vendors.js"
+            ]
+        },
+        "ListDataLakeExceptions": {
+            "http": {
+                "requestUri": "/v1/datalake/exceptions",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "regions": {
+                        "shape": "S6"
+                    },
+                    "maxResults": {
+                        "type": "integer"
+                    },
+                    "nextToken": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "failures": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "region": {},
+                                "failures": {
+                                    "type": "list",
+                                    "member": {
+                                        "type": "structure",
+                                        "required": [
+                                            "exception",
+                                            "remediation",
+                                            "timestamp"
+                                        ],
+                                        "members": {
+                                            "exception": {},
+                                            "remediation": {},
+                                            "timestamp": {
+                                                "shape": "S1z"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "nextToken": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/OYIUVG6GUB7LKJDS4KLLGYLNBFD4C2UCMB74NJDVLIRDGYNVL2UA/vendors.js"
+            ]
+        },
+        "RegisterDataLakeDelegatedAdministrator": {
+            "http": {
+                "requestUri": "/v1/datalake/delegate",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "accountId"
+                ],
+                "members": {
+                    "accountId": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/OYIUVG6GUB7LKJDS4KLLGYLNBFD4C2UCMB74NJDVLIRDGYNVL2UA/vendors.js"
+            ]
+        },
+        "UpdateDataLake": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/v1/datalake",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "configurations"
+                ],
+                "members": {
+                    "configurations": {
+                        "shape": "St"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "configurations": {
+                        "shape": "S16"
+                    }
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/OYIUVG6GUB7LKJDS4KLLGYLNBFD4C2UCMB74NJDVLIRDGYNVL2UA/vendors.js"
+            ]
+        },
+        "UpdateDataLakeExceptionSubscription": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/v1/datalake/exceptions/subscription",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "subscriptionProtocol",
+                    "notificationEndpoint"
+                ],
+                "members": {
+                    "subscriptionProtocol": {},
+                    "notificationEndpoint": {},
+                    "exceptionTimeToLive": {
+                        "type": "long"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/OYIUVG6GUB7LKJDS4KLLGYLNBFD4C2UCMB74NJDVLIRDGYNVL2UA/vendors.js"
+            ]
+        },
+        "UpdateSubscriberNotification": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/v1/subscribers/{subscriberId}/notification",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "subscriberId",
+                    "configuration"
+                ],
+                "members": {
+                    "subscriberId": {
+                        "location": "uri",
+                        "locationName": "subscriberId"
+                    },
+                    "configuration": {
+                        "shape": "S21"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "subscriberEndpoint": {}
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/OYIUVG6GUB7LKJDS4KLLGYLNBFD4C2UCMB74NJDVLIRDGYNVL2UA/vendors.js"
+            ]
+        },
+        "CreateDataLakeOrganizationConfiguration": {
+            "http": {
+                "requestUri": "/v1/datalake/organization/configuration",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "autoEnableNewAccount"
+                ],
+                "members": {
+                    "autoEnableNewAccount": {
+                        "shape": "S1h"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/C2HYTY2RYGQCWLFXAMPOM2LMBDZUYO2D7PITVIPSKJKERWGB6MGQ/vendors.js"
+            ]
+        },
+        "DeleteDataLakeOrganizationConfiguration": {
+            "http": {
+                "requestUri": "/v1/datalake/organization/configuration/delete",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "autoEnableNewAccount"
+                ],
+                "members": {
+                    "autoEnableNewAccount": {
+                        "shape": "S1h"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/C2HYTY2RYGQCWLFXAMPOM2LMBDZUYO2D7PITVIPSKJKERWGB6MGQ/vendors.js"
+            ]
+        },
+        "GetDataLakeOrganizationConfiguration": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/v1/datalake/organization/configuration",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {}
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "autoEnableNewAccount": {
+                        "shape": "S1h"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/C2HYTY2RYGQCWLFXAMPOM2LMBDZUYO2D7PITVIPSKJKERWGB6MGQ/vendors.js"
+            ]
+        },
+        "ListTagsForResource": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/v1/tags/{resourceArn}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "resourceArn"
+                ],
+                "members": {
+                    "resourceArn": {
+                        "location": "uri",
+                        "locationName": "resourceArn"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "tags": {
+                        "shape": "S3j"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/MARSPWXNMESEEQXS6IQFCFEPYW5WTQUAYWSAMDNL5Y2AHRVOKTJQ/vendors.js"
+            ]
+        },
+        "TagResource": {
+            "http": {
+                "requestUri": "/v1/tags/{resourceArn}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "resourceArn",
+                    "tags"
+                ],
+                "members": {
+                    "resourceArn": {
+                        "location": "uri",
+                        "locationName": "resourceArn"
+                    },
+                    "tags": {
+                        "shape": "S3j"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/MARSPWXNMESEEQXS6IQFCFEPYW5WTQUAYWSAMDNL5Y2AHRVOKTJQ/vendors.js"
+            ]
+        },
+        "UntagResource": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/v1/tags/{resourceArn}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "resourceArn",
+                    "tagKeys"
+                ],
+                "members": {
+                    "resourceArn": {
+                        "location": "uri",
+                        "locationName": "resourceArn"
+                    },
+                    "tagKeys": {
+                        "location": "querystring",
+                        "locationName": "tagKeys",
+                        "type": "list",
+                        "member": {}
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/MARSPWXNMESEEQXS6IQFCFEPYW5WTQUAYWSAMDNL5Y2AHRVOKTJQ/vendors.js"
+            ]
+        },
+        "ListDataLakes": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/v1/datalakes",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "regions": {
+                        "shape": "S6",
+                        "location": "querystring",
+                        "locationName": "regions"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "dataLakes": {
+                        "shape": "S16"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/MUR6S5HPGG6RX3XRJOUFKTITYIUSH3YJUU3TOA6UJ7XXHT5XTIUA/vendors.js"
+            ]
+        }
+    },
+    "shapes": {
+        "S2": {
+            "type": "map",
+            "key": {},
+            "value": {
+                "shape": "S4"
+            }
+        },
+        "S4": {
+            "type": "map",
+            "key": {},
+            "value": {
+                "type": "list",
+                "member": {}
+            }
+        },
+        "S6": {
+            "type": "list",
+            "member": {}
+        },
+        "S8": {
+            "type": "list",
+            "member": {}
+        },
+        "Sb": {
+            "type": "list",
+            "member": {}
+        },
+        "Sj": {
+            "type": "map",
+            "key": {},
+            "value": {
+                "type": "structure",
+                "members": {
+                    "encryptionKey": {},
+                    "replicationDestinationRegions": {
+                        "shape": "Sm"
+                    },
+                    "replicationRoleArn": {},
+                    "retentionSettings": {
+                        "shape": "Sn"
+                    },
+                    "tagsMap": {
+                        "shape": "Sr"
+                    }
+                }
+            }
+        },
+        "Sm": {
+            "type": "list",
+            "member": {}
+        },
+        "Sn": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "retentionPeriod": {
+                        "type": "integer"
+                    },
+                    "storageClass": {}
+                }
+            }
+        },
+        "Sr": {
+            "type": "map",
+            "key": {},
+            "value": {}
+        },
+        "Sv": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "region",
+                    "sources"
+                ],
+                "members": {
+                    "region": {},
+                    "sources": {
+                        "type": "list",
+                        "member": {}
+                    }
+                }
+            }
+        },
+        "S16": {
+            "type": "list",
+            "member": {}
+        },
+        "S18": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "awsSourceType": {},
+                    "customSourceType": {}
+                },
+                "union": true
+            }
+        },
+        "S2m": {
+            "type": "structure",
+            "required": [
+                "accountId",
+                "sourceTypes",
+                "subscriptionId"
+            ],
+            "members": {
+                "accessTypes": {
+                    "shape": "S16"
+                },
+                "accountId": {},
+                "createdAt": {
+                    "shape": "S2n"
+                },
+                "externalId": {},
+                "roleArn": {},
+                "s3BucketArn": {},
+                "snsArn": {},
+                "sourceTypes": {
+                    "shape": "S18"
+                },
+                "subscriberDescription": {},
+                "subscriberName": {},
+                "subscriptionEndpoint": {},
+                "subscriptionId": {},
+                "subscriptionProtocol": {},
+                "subscriptionStatus": {},
+                "updatedAt": {
+                    "shape": "S2n"
+                }
+            }
+        },
+        "S2n": {
+            "type": "timestamp",
+            "timestampFormat": "iso8601"
+        },
+        "S2r": {
+            "type": "structure",
+            "required": [
+                "accountId",
+                "sourceTypes",
+                "subscriptionId"
+            ],
+            "members": {
+                "accessTypes": {
+                    "shape": "S16"
+                },
+                "accountId": {},
+                "createdAt": {
+                    "shape": "S2s"
+                },
+                "externalId": {},
+                "resourceShareArn": {},
+                "resourceShareName": {},
+                "roleArn": {},
+                "s3BucketArn": {},
+                "snsArn": {},
+                "sourceTypes": {
+                    "shape": "S18"
+                },
+                "subscriberDescription": {},
+                "subscriberName": {},
+                "subscriptionEndpoint": {},
+                "subscriptionId": {},
+                "subscriptionProtocol": {},
+                "subscriptionStatus": {},
+                "updatedAt": {
+                    "shape": "S2s"
+                }
+            }
+        },
+        "S2s": {
+            "type": "timestamp",
+            "timestampFormat": "iso8601"
+        },
+        "Se": {
+            "type": "list",
+            "member": {}
+        },
+        "St": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "region"
+                ],
+                "members": {
+                    "region": {},
+                    "encryptionConfiguration": {
+                        "shape": "Sv"
+                    },
+                    "lifecycleConfiguration": {
+                        "shape": "Sx"
+                    },
+                    "replicationConfiguration": {
+                        "shape": "S14"
+                    }
+                }
+            }
+        },
+        "Sx": {
+            "type": "structure",
+            "members": {
+                "expiration": {
+                    "type": "structure",
+                    "members": {
+                        "days": {
+                            "type": "integer"
+                        }
+                    }
+                },
+                "transitions": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "members": {
+                            "storageClass": {},
+                            "days": {
+                                "type": "integer"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "S14": {
+            "type": "structure",
+            "members": {
+                "regions": {
+                    "shape": "S6"
+                },
+                "roleArn": {}
+            }
+        },
+        "S1d": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "region",
+                    "sources"
+                ],
+                "members": {
+                    "region": {},
+                    "sources": {
+                        "type": "list",
+                        "member": {
+                            "shape": "S1g"
+                        }
+                    }
+                }
+            }
+        },
+        "S1g": {
+            "type": "structure",
+            "members": {
+                "sourceName": {},
+                "sourceVersion": {}
+            }
+        },
+        "S1p": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "awsLogSource": {
+                        "shape": "S1g"
+                    },
+                    "customLogSource": {
+                        "shape": "Sn"
+                    }
+                },
+                "union": true
+            }
+        },
+        "S1r": {
+            "type": "list",
+            "member": {}
+        },
+        "S1u": {
+            "type": "structure",
+            "required": [
+                "subscriberId",
+                "subscriberArn",
+                "subscriberIdentity",
+                "subscriberName",
+                "sources"
+            ],
+            "members": {
+                "subscriberId": {},
+                "subscriberArn": {},
+                "subscriberIdentity": {
+                    "shape": "Sj"
+                },
+                "subscriberName": {},
+                "subscriberDescription": {},
+                "sources": {
+                    "shape": "S1p"
+                },
+                "accessTypes": {
+                    "shape": "S1r"
+                },
+                "roleArn": {},
+                "s3BucketArn": {},
+                "subscriberEndpoint": {},
+                "subscriberStatus": {},
+                "resourceShareArn": {},
+                "resourceShareName": {},
+                "createdAt": {
+                    "shape": "S1z"
+                },
+                "updatedAt": {
+                    "shape": "S1z"
+                }
+            }
+        },
+        "S1z": {
+            "type": "timestamp",
+            "timestampFormat": "iso8601"
+        },
+        "S21": {
+            "type": "structure",
+            "members": {
+                "sqsNotificationConfiguration": {
+                    "type": "structure",
+                    "members": {}
+                },
+                "httpsNotificationConfiguration": {
+                    "type": "structure",
+                    "members": {
+                        "endpoint": {},
+                        "authorizationApiKeyName": {},
+                        "authorizationApiKeyValue": {},
+                        "httpMethod": {},
+                        "targetRoleArn": {}
+                    }
+                }
+            },
+            "union": true
+        },
+        "Sl": {
+            "type": "map",
+            "key": {},
+            "value": {
+                "type": "structure",
+                "members": {
+                    "encryptionKey": {},
+                    "retentionSettings": {
+                        "shape": "Sn"
+                    },
+                    "tagsMap": {
+                        "shape": "Sr"
+                    },
+                    "replicationDestinationRegions": {
+                        "shape": "Sj"
+                    },
+                    "replicationRoleArn": {}
+                }
+            }
+        },
+        "S2u": {
+            "type": "timestamp",
+            "timestampFormat": "iso8601"
+        },
+        "S1h": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "region",
+                    "sources"
+                ],
+                "members": {
+                    "region": {},
+                    "sources": {
+                        "type": "list",
+                        "member": {
+                            "shape": "S1k"
+                        }
+                    }
+                }
+            }
+        },
+        "S1k": {
+            "type": "structure",
+            "members": {
+                "sourceName": {},
+                "sourceVersion": {}
+            }
+        },
+        "S1i": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "region",
+                    "sources"
+                ],
+                "members": {
+                    "region": {},
+                    "sources": {
+                        "type": "list",
+                        "member": {
+                            "shape": "S1l"
+                        }
+                    }
+                }
+            }
+        },
+        "S1l": {
+            "type": "structure",
+            "members": {
+                "sourceName": {},
+                "sourceVersion": {}
+            }
+        },
+        "S1q": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "awsLogSource": {
+                        "shape": "S1l"
+                    },
+                    "customLogSource": {
+                        "shape": "Sn"
+                    }
+                },
+                "union": true
+            }
+        },
+        "S1s": {
+            "type": "list",
+            "member": {}
+        },
+        "S1v": {
+            "type": "structure",
+            "required": [
+                "subscriberId",
+                "subscriberArn",
+                "subscriberIdentity",
+                "subscriberName",
+                "sources"
+            ],
+            "members": {
+                "subscriberId": {},
+                "subscriberArn": {},
+                "subscriberIdentity": {
+                    "shape": "Sj"
+                },
+                "subscriberName": {},
+                "subscriberDescription": {},
+                "sources": {
+                    "shape": "S1q"
+                },
+                "accessTypes": {
+                    "shape": "S1s"
+                },
+                "roleArn": {},
+                "s3BucketArn": {},
+                "subscriberEndpoint": {},
+                "subscriberStatus": {},
+                "resourceShareArn": {},
+                "resourceShareName": {},
+                "createdAt": {
+                    "shape": "S20"
+                },
+                "updatedAt": {
+                    "shape": "S20"
+                }
+            }
+        },
+        "S20": {
+            "type": "timestamp",
+            "timestampFormat": "iso8601"
+        },
+        "S22": {
+            "type": "structure",
+            "members": {
+                "sqsNotificationConfiguration": {
+                    "type": "structure",
+                    "members": {}
+                },
+                "httpsNotificationConfiguration": {
+                    "type": "structure",
+                    "members": {
+                        "endpoint": {},
+                        "authorizationApiKeyName": {},
+                        "authorizationApiKeyValue": {},
+                        "httpMethod": {},
+                        "targetRoleArn": {}
+                    }
+                }
+            },
+            "union": true
+        },
+        "S3j": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "Key",
+                    "Value"
+                ],
+                "members": {
+                    "Key": {},
+                    "Value": {}
+                }
+            }
+        }
+    }
+}

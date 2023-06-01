@@ -1,0 +1,1244 @@
+{
+    "version": "2.0",
+    "metadata": {
+        "apiVersion": "2019-09-01",
+        "endpointPrefix": "braket",
+        "jsonVersion": "1.1",
+        "protocol": "rest-json",
+        "serviceFullName": "Braket",
+        "serviceId": "Braket",
+        "signatureVersion": "v4",
+        "signingName": "braket",
+        "uid": "braket-2019-09-01",
+        "download_location": [
+            "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+        ]
+    },
+    "operations": {
+        "CancelJob": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/job/{jobArn}/cancel",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "jobArn"
+                ],
+                "members": {
+                    "jobArn": {
+                        "location": "uri",
+                        "locationName": "jobArn"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "cancellationStatus",
+                    "jobArn"
+                ],
+                "members": {
+                    "cancellationStatus": {},
+                    "jobArn": {}
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "CancelQuantumTask": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/quantum-task/{quantumTaskArn}/cancel",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "clientToken",
+                    "quantumTaskArn"
+                ],
+                "members": {
+                    "clientToken": {
+                        "idempotencyToken": true
+                    },
+                    "quantumTaskArn": {
+                        "location": "uri",
+                        "locationName": "quantumTaskArn"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "cancellationStatus",
+                    "quantumTaskArn"
+                ],
+                "members": {
+                    "cancellationStatus": {},
+                    "quantumTaskArn": {}
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "CreateJob": {
+            "http": {
+                "requestUri": "/job",
+                "responseCode": 201
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "algorithmSpecification",
+                    "clientToken",
+                    "deviceConfig",
+                    "instanceConfig",
+                    "jobName",
+                    "outputDataConfig",
+                    "roleArn"
+                ],
+                "members": {
+                    "algorithmSpecification": {
+                        "shape": "Sa"
+                    },
+                    "checkpointConfig": {
+                        "shape": "Sh"
+                    },
+                    "clientToken": {
+                        "idempotencyToken": true
+                    },
+                    "deviceConfig": {
+                        "shape": "Sj"
+                    },
+                    "hyperParameters": {
+                        "shape": "Sl"
+                    },
+                    "inputDataConfig": {
+                        "type": "list",
+                        "member": {
+                            "shape": "So"
+                        }
+                    },
+                    "instanceConfig": {
+                        "shape": "Ss"
+                    },
+                    "jobName": {},
+                    "outputDataConfig": {
+                        "shape": "Sx"
+                    },
+                    "roleArn": {},
+                    "stoppingCondition": {
+                        "shape": "S10"
+                    },
+                    "tags": {
+                        "shape": "S12"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "jobArn"
+                ],
+                "members": {
+                    "jobArn": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "CreateQuantumTask": {
+            "http": {
+                "requestUri": "/quantum-task",
+                "responseCode": 201
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "action",
+                    "clientToken",
+                    "deviceArn",
+                    "outputS3Bucket",
+                    "outputS3KeyPrefix",
+                    "shots"
+                ],
+                "members": {
+                    "action": {
+                        "jsonvalue": true
+                    },
+                    "clientToken": {
+                        "idempotencyToken": true
+                    },
+                    "deviceArn": {},
+                    "deviceParameters": {
+                        "jsonvalue": true
+                    },
+                    "jobToken": {},
+                    "outputS3Bucket": {},
+                    "outputS3KeyPrefix": {},
+                    "shots": {
+                        "type": "long"
+                    },
+                    "tags": {
+                        "shape": "S12"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "quantumTaskArn"
+                ],
+                "members": {
+                    "quantumTaskArn": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "GetDevice": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/device/{deviceArn}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "deviceArn"
+                ],
+                "members": {
+                    "deviceArn": {
+                        "location": "uri",
+                        "locationName": "deviceArn"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "deviceArn",
+                    "deviceCapabilities",
+                    "deviceName",
+                    "deviceStatus",
+                    "deviceType",
+                    "providerName"
+                ],
+                "members": {
+                    "deviceArn": {},
+                    "deviceCapabilities": {
+                        "jsonvalue": true
+                    },
+                    "deviceName": {},
+                    "deviceStatus": {},
+                    "deviceType": {},
+                    "providerName": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "GetJob": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/job/{jobArn}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "jobArn"
+                ],
+                "members": {
+                    "jobArn": {
+                        "location": "uri",
+                        "locationName": "jobArn"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "algorithmSpecification",
+                    "createdAt",
+                    "instanceConfig",
+                    "jobArn",
+                    "jobName",
+                    "outputDataConfig",
+                    "roleArn",
+                    "status"
+                ],
+                "members": {
+                    "algorithmSpecification": {
+                        "shape": "Sa"
+                    },
+                    "billableDuration": {
+                        "type": "integer"
+                    },
+                    "checkpointConfig": {
+                        "shape": "Sh"
+                    },
+                    "createdAt": {
+                        "shape": "S1k"
+                    },
+                    "deviceConfig": {
+                        "shape": "Sj"
+                    },
+                    "endedAt": {
+                        "shape": "S1k"
+                    },
+                    "events": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "eventType": {},
+                                "message": {},
+                                "timeOfEvent": {
+                                    "shape": "S1k"
+                                }
+                            }
+                        }
+                    },
+                    "failureReason": {},
+                    "hyperParameters": {
+                        "shape": "Sl"
+                    },
+                    "inputDataConfig": {
+                        "type": "list",
+                        "member": {
+                            "shape": "So"
+                        }
+                    },
+                    "instanceConfig": {
+                        "shape": "Ss"
+                    },
+                    "jobArn": {},
+                    "jobName": {},
+                    "outputDataConfig": {
+                        "shape": "Sx"
+                    },
+                    "roleArn": {},
+                    "startedAt": {
+                        "shape": "S1k"
+                    },
+                    "status": {},
+                    "stoppingCondition": {
+                        "shape": "S10"
+                    },
+                    "tags": {
+                        "shape": "S12"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "GetQuantumTask": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/quantum-task/{quantumTaskArn}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "quantumTaskArn"
+                ],
+                "members": {
+                    "quantumTaskArn": {
+                        "location": "uri",
+                        "locationName": "quantumTaskArn"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "createdAt",
+                    "deviceArn",
+                    "deviceParameters",
+                    "outputS3Bucket",
+                    "outputS3Directory",
+                    "quantumTaskArn",
+                    "shots",
+                    "status"
+                ],
+                "members": {
+                    "createdAt": {
+                        "shape": "S1k"
+                    },
+                    "deviceArn": {},
+                    "deviceParameters": {
+                        "jsonvalue": true
+                    },
+                    "endedAt": {
+                        "shape": "S1k"
+                    },
+                    "failureReason": {},
+                    "jobArn": {},
+                    "outputS3Bucket": {},
+                    "outputS3Directory": {},
+                    "quantumTaskArn": {},
+                    "shots": {
+                        "type": "long"
+                    },
+                    "status": {},
+                    "tags": {
+                        "shape": "S12"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "ListTagsForResource": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/tags/{resourceArn}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "resourceArn"
+                ],
+                "members": {
+                    "resourceArn": {
+                        "location": "uri",
+                        "locationName": "resourceArn"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "tags": {
+                        "shape": "S12"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "SearchDevices": {
+            "http": {
+                "requestUri": "/devices",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "filters"
+                ],
+                "members": {
+                    "filters": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "name",
+                                "values"
+                            ],
+                            "members": {
+                                "name": {},
+                                "values": {
+                                    "type": "list",
+                                    "member": {}
+                                }
+                            }
+                        }
+                    },
+                    "maxResults": {
+                        "type": "integer"
+                    },
+                    "nextToken": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "devices"
+                ],
+                "members": {
+                    "devices": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "deviceArn",
+                                "deviceName",
+                                "deviceStatus",
+                                "deviceType",
+                                "providerName"
+                            ],
+                            "members": {
+                                "deviceArn": {},
+                                "deviceName": {},
+                                "deviceStatus": {},
+                                "deviceType": {},
+                                "providerName": {}
+                            }
+                        }
+                    },
+                    "nextToken": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "SearchJobs": {
+            "http": {
+                "requestUri": "/jobs",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "filters"
+                ],
+                "members": {
+                    "filters": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "name",
+                                "operator",
+                                "values"
+                            ],
+                            "members": {
+                                "name": {},
+                                "operator": {},
+                                "values": {
+                                    "type": "list",
+                                    "member": {}
+                                }
+                            }
+                        }
+                    },
+                    "maxResults": {
+                        "type": "integer"
+                    },
+                    "nextToken": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "jobs"
+                ],
+                "members": {
+                    "jobs": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "createdAt",
+                                "device",
+                                "jobArn",
+                                "jobName",
+                                "status"
+                            ],
+                            "members": {
+                                "createdAt": {
+                                    "shape": "S1k"
+                                },
+                                "device": {},
+                                "endedAt": {
+                                    "shape": "S1k"
+                                },
+                                "jobArn": {},
+                                "jobName": {},
+                                "startedAt": {
+                                    "shape": "S1k"
+                                },
+                                "status": {},
+                                "tags": {
+                                    "shape": "S12"
+                                }
+                            }
+                        }
+                    },
+                    "nextToken": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "SearchQuantumTasks": {
+            "http": {
+                "requestUri": "/quantum-tasks",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "filters"
+                ],
+                "members": {
+                    "filters": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "name",
+                                "operator",
+                                "values"
+                            ],
+                            "members": {
+                                "name": {},
+                                "operator": {},
+                                "values": {
+                                    "type": "list",
+                                    "member": {}
+                                }
+                            }
+                        }
+                    },
+                    "maxResults": {
+                        "type": "integer"
+                    },
+                    "nextToken": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "quantumTasks"
+                ],
+                "members": {
+                    "nextToken": {},
+                    "quantumTasks": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "createdAt",
+                                "deviceArn",
+                                "outputS3Bucket",
+                                "outputS3Directory",
+                                "quantumTaskArn",
+                                "shots",
+                                "status"
+                            ],
+                            "members": {
+                                "createdAt": {
+                                    "shape": "S1k"
+                                },
+                                "deviceArn": {},
+                                "endedAt": {
+                                    "shape": "S1k"
+                                },
+                                "outputS3Bucket": {},
+                                "outputS3Directory": {},
+                                "quantumTaskArn": {},
+                                "shots": {
+                                    "type": "long"
+                                },
+                                "status": {},
+                                "tags": {
+                                    "shape": "S12"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "TagResource": {
+            "http": {
+                "requestUri": "/tags/{resourceArn}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "resourceArn",
+                    "tags"
+                ],
+                "members": {
+                    "resourceArn": {
+                        "location": "uri",
+                        "locationName": "resourceArn"
+                    },
+                    "tags": {
+                        "shape": "S12"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "UntagResource": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/tags/{resourceArn}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "resourceArn",
+                    "tagKeys"
+                ],
+                "members": {
+                    "resourceArn": {
+                        "location": "uri",
+                        "locationName": "resourceArn"
+                    },
+                    "tagKeys": {
+                        "location": "querystring",
+                        "locationName": "tagKeys",
+                        "type": "list",
+                        "member": {}
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "AcceptUserAgreement": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/user-agreement",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {}
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "idempotent": true,
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/EX2WR4LGOAIOV4GAF223RDPWYADSMOOMKAPBU352Q3CBYVTSFPPQ/main.js"
+            ]
+        },
+        "AccessBraketFeature": {
+            "http": {
+                "requestUri": "/feature",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "featureName",
+                    "accountId"
+                ],
+                "members": {
+                    "featureName": {},
+                    "accountId": {},
+                    "servicePrincipals": {
+                        "type": "list",
+                        "member": {}
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "enabled"
+                ],
+                "members": {
+                    "enabled": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/EX2WR4LGOAIOV4GAF223RDPWYADSMOOMKAPBU352Q3CBYVTSFPPQ/main.js"
+            ]
+        },
+        "CreateCompilation": {
+            "http": {
+                "requestUri": "/compilation",
+                "responseCode": 201
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "deviceArn",
+                    "action"
+                ],
+                "members": {
+                    "clientToken": {
+                        "idempotencyToken": true
+                    },
+                    "deviceArn": {},
+                    "action": {
+                        "jsonvalue": true
+                    },
+                    "tags": {
+                        "shape": "Sj"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "compilationArn"
+                ],
+                "members": {
+                    "compilationArn": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/EX2WR4LGOAIOV4GAF223RDPWYADSMOOMKAPBU352Q3CBYVTSFPPQ/main.js"
+            ]
+        },
+        "DeleteAccountResources": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/account-resources",
+                "responseCode": 200
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "deleteRequestId",
+                    "deletionStatus"
+                ],
+                "members": {
+                    "deleteRequestId": {},
+                    "deletionStatus": {}
+                }
+            },
+            "idempotent": true,
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/EX2WR4LGOAIOV4GAF223RDPWYADSMOOMKAPBU352Q3CBYVTSFPPQ/main.js"
+            ]
+        },
+        "GetCompilation": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/compilation/{compilationArn}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "compilationArn"
+                ],
+                "members": {
+                    "compilationArn": {
+                        "location": "uri",
+                        "locationName": "compilationArn"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "compilationArn",
+                    "status",
+                    "deviceArn",
+                    "createdAt"
+                ],
+                "members": {
+                    "compilationArn": {},
+                    "status": {},
+                    "deviceArn": {},
+                    "createdAt": {
+                        "shape": "S1s"
+                    },
+                    "compiledAt": {
+                        "shape": "S1s"
+                    },
+                    "failureReason": {},
+                    "tags": {
+                        "shape": "Sj"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/EX2WR4LGOAIOV4GAF223RDPWYADSMOOMKAPBU352Q3CBYVTSFPPQ/main.js"
+            ]
+        },
+        "GetServiceLinkedRoleStatus": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/service-linked-role",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {}
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "status"
+                ],
+                "members": {
+                    "status": {}
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/EX2WR4LGOAIOV4GAF223RDPWYADSMOOMKAPBU352Q3CBYVTSFPPQ/main.js"
+            ]
+        },
+        "GetUserAgreementStatus": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/user-agreement",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {}
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "status"
+                ],
+                "members": {
+                    "status": {}
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/EX2WR4LGOAIOV4GAF223RDPWYADSMOOMKAPBU352Q3CBYVTSFPPQ/main.js"
+            ]
+        },
+        "SearchCompilations": {
+            "http": {
+                "requestUri": "/compilations",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "filters"
+                ],
+                "members": {
+                    "nextToken": {},
+                    "maxResults": {
+                        "type": "integer"
+                    },
+                    "filters": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "name",
+                                "values",
+                                "operator"
+                            ],
+                            "members": {
+                                "name": {},
+                                "values": {
+                                    "type": "list",
+                                    "member": {}
+                                },
+                                "operator": {}
+                            }
+                        }
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "compilations"
+                ],
+                "members": {
+                    "compilations": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "compilationArn",
+                                "status",
+                                "deviceArn",
+                                "createdAt"
+                            ],
+                            "members": {
+                                "compilationArn": {},
+                                "status": {},
+                                "deviceArn": {},
+                                "createdAt": {
+                                    "shape": "S1s"
+                                },
+                                "compiledAt": {
+                                    "shape": "S1s"
+                                },
+                                "tags": {
+                                    "shape": "Sj"
+                                }
+                            }
+                        }
+                    },
+                    "nextToken": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/EX2WR4LGOAIOV4GAF223RDPWYADSMOOMKAPBU352Q3CBYVTSFPPQ/main.js"
+            ]
+        }
+    },
+    "shapes": {
+        "Sa": {
+            "type": "structure",
+            "members": {
+                "containerImage": {
+                    "type": "structure",
+                    "required": [
+                        "uri"
+                    ],
+                    "members": {
+                        "uri": {}
+                    }
+                },
+                "scriptModeConfig": {
+                    "type": "structure",
+                    "required": [
+                        "entryPoint",
+                        "s3Uri"
+                    ],
+                    "members": {
+                        "compressionType": {},
+                        "entryPoint": {},
+                        "s3Uri": {}
+                    }
+                }
+            }
+        },
+        "Sh": {
+            "type": "structure",
+            "required": [
+                "s3Uri"
+            ],
+            "members": {
+                "localPath": {},
+                "s3Uri": {}
+            }
+        },
+        "Sj": {
+            "type": "structure",
+            "required": [
+                "device"
+            ],
+            "members": {
+                "device": {}
+            }
+        },
+        "Sl": {
+            "type": "map",
+            "key": {},
+            "value": {}
+        },
+        "So": {
+            "type": "structure",
+            "required": [
+                "channelName",
+                "dataSource"
+            ],
+            "members": {
+                "channelName": {},
+                "contentType": {},
+                "dataSource": {
+                    "type": "structure",
+                    "required": [
+                        "s3DataSource"
+                    ],
+                    "members": {
+                        "s3DataSource": {
+                            "type": "structure",
+                            "required": [
+                                "s3Uri"
+                            ],
+                            "members": {
+                                "s3Uri": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "Ss": {
+            "type": "structure",
+            "required": [
+                "instanceType",
+                "volumeSizeInGb"
+            ],
+            "members": {
+                "instanceCount": {
+                    "type": "integer"
+                },
+                "instanceType": {},
+                "volumeSizeInGb": {
+                    "type": "integer"
+                }
+            }
+        },
+        "Sx": {
+            "type": "structure",
+            "required": [
+                "s3Path"
+            ],
+            "members": {
+                "kmsKeyId": {},
+                "s3Path": {}
+            }
+        },
+        "S10": {
+            "type": "structure",
+            "members": {
+                "maxRuntimeInSeconds": {
+                    "type": "integer"
+                }
+            }
+        },
+        "S12": {
+            "type": "map",
+            "key": {},
+            "value": {}
+        },
+        "S1k": {
+            "type": "timestamp",
+            "timestampFormat": "iso8601"
+        },
+        "Sd": {
+            "type": "map",
+            "key": {},
+            "value": {}
+        },
+        "Sm": {
+            "type": "timestamp",
+            "timestampFormat": "iso8601"
+        },
+        "Sw": {
+            "type": "structure",
+            "required": [
+                "s3Path"
+            ],
+            "members": {
+                "kmsKeyId": {},
+                "s3Path": {}
+            }
+        },
+        "Sz": {
+            "type": "structure",
+            "members": {
+                "maxRuntimeInSeconds": {
+                    "type": "integer"
+                }
+            }
+        },
+        "S11": {
+            "type": "map",
+            "key": {},
+            "value": {}
+        },
+        "S1j": {
+            "type": "timestamp",
+            "timestampFormat": "iso8601"
+        },
+        "Sv": {
+            "type": "structure",
+            "required": [
+                "channelName",
+                "dataSource"
+            ],
+            "members": {
+                "channelName": {},
+                "contentType": {},
+                "dataSource": {
+                    "type": "structure",
+                    "required": [
+                        "s3DataSource"
+                    ],
+                    "members": {
+                        "s3DataSource": {
+                            "type": "structure",
+                            "required": [
+                                "s3Uri"
+                            ],
+                            "members": {
+                                "s3Uri": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "S16": {
+            "type": "structure",
+            "members": {
+                "maxRuntimeInSeconds": {
+                    "type": "integer"
+                }
+            }
+        },
+        "S18": {
+            "type": "structure",
+            "required": [
+                "instanceType",
+                "volumeSizeInGb"
+            ],
+            "members": {
+                "instanceType": {},
+                "volumeSizeInGb": {
+                    "type": "integer"
+                },
+                "instanceCount": {
+                    "type": "integer"
+                }
+            }
+        },
+        "S1c": {
+            "type": "map",
+            "key": {},
+            "value": {}
+        },
+        "S1e": {
+            "type": "structure",
+            "required": [
+                "device"
+            ],
+            "members": {
+                "device": {}
+            }
+        },
+        "S1s": {
+            "type": "timestamp",
+            "timestampFormat": "iso8601"
+        }
+    }
+}

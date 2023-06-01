@@ -1,0 +1,1863 @@
+{
+    "version": "2.0",
+    "metadata": {
+        "apiVersion": "2018-11-01",
+        "endpointPrefix": "ingest.timestream",
+        "jsonVersion": "1.0",
+        "protocol": "json",
+        "serviceAbbreviation": "Timestream Write",
+        "serviceFullName": "Amazon Timestream Write",
+        "serviceId": "Timestream Write",
+        "signatureVersion": "v4",
+        "signingName": "timestream",
+        "targetPrefix": "Timestream_20181101",
+        "uid": "timestream-write-2018-11-01",
+        "download_location": [
+            "https://iotcore.us-east-1.prod.console.iot.aws.dev/static/js/iotcore.js"
+        ]
+    },
+    "operations": {
+        "CreateDatabase": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "DatabaseName"
+                ],
+                "members": {
+                    "DatabaseName": {},
+                    "KmsKeyId": {},
+                    "Tags": {
+                        "shape": "S4"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Database": {
+                        "shape": "S9"
+                    }
+                }
+            },
+            "endpointdiscovery": {
+                "required": true
+            },
+            "download_location": [
+                "https://iotcore.us-east-1.prod.console.iot.aws.dev/static/js/iotcore.js"
+            ]
+        },
+        "CreateTable": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "DatabaseName",
+                    "TableName"
+                ],
+                "members": {
+                    "DatabaseName": {},
+                    "TableName": {},
+                    "RetentionProperties": {
+                        "shape": "Sf"
+                    },
+                    "Tags": {
+                        "shape": "S4"
+                    },
+                    "MagneticStoreWriteProperties": {
+                        "shape": "Si"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Table": {
+                        "shape": "Sq"
+                    }
+                }
+            },
+            "endpointdiscovery": {
+                "required": true
+            },
+            "download_location": [
+                "https://iotcore.us-east-1.prod.console.iot.aws.dev/static/js/iotcore.js"
+            ]
+        },
+        "DeleteDatabase": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "DatabaseName"
+                ],
+                "members": {
+                    "DatabaseName": {}
+                }
+            },
+            "endpointdiscovery": {
+                "required": true
+            },
+            "download_location": [
+                "https://iotcore.us-east-1.prod.console.iot.aws.dev/static/js/iotcore.js"
+            ]
+        },
+        "DeleteTable": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "DatabaseName",
+                    "TableName"
+                ],
+                "members": {
+                    "DatabaseName": {},
+                    "TableName": {}
+                }
+            },
+            "endpointdiscovery": {
+                "required": true
+            },
+            "download_location": [
+                "https://iotcore.us-east-1.prod.console.iot.aws.dev/static/js/iotcore.js"
+            ]
+        },
+        "DescribeDatabase": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "DatabaseName"
+                ],
+                "members": {
+                    "DatabaseName": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Database": {
+                        "shape": "S9"
+                    }
+                }
+            },
+            "endpointdiscovery": {
+                "required": true
+            },
+            "download_location": [
+                "https://iotcore.us-east-1.prod.console.iot.aws.dev/static/js/iotcore.js"
+            ]
+        },
+        "DescribeEndpoints": {
+            "input": {
+                "type": "structure",
+                "members": {}
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "Endpoints"
+                ],
+                "members": {
+                    "Endpoints": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "Address",
+                                "CachePeriodInMinutes"
+                            ],
+                            "members": {
+                                "Address": {},
+                                "CachePeriodInMinutes": {
+                                    "type": "long"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "endpointoperation": true,
+            "download_location": [
+                "https://iotcore.us-east-1.prod.console.iot.aws.dev/static/js/iotcore.js"
+            ]
+        },
+        "DescribeTable": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "DatabaseName",
+                    "TableName"
+                ],
+                "members": {
+                    "DatabaseName": {},
+                    "TableName": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Table": {
+                        "shape": "Sq"
+                    }
+                }
+            },
+            "endpointdiscovery": {
+                "required": true
+            },
+            "download_location": [
+                "https://iotcore.us-east-1.prod.console.iot.aws.dev/static/js/iotcore.js"
+            ]
+        },
+        "ListDatabases": {
+            "input": {
+                "type": "structure",
+                "members": {
+                    "NextToken": {},
+                    "MaxResults": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Databases": {
+                        "type": "list",
+                        "member": {
+                            "shape": "S9"
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "endpointdiscovery": {
+                "required": true
+            },
+            "download_location": [
+                "https://iotcore.us-east-1.prod.console.iot.aws.dev/static/js/iotcore.js"
+            ]
+        },
+        "ListTables": {
+            "input": {
+                "type": "structure",
+                "members": {
+                    "DatabaseName": {},
+                    "NextToken": {},
+                    "MaxResults": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Tables": {
+                        "type": "list",
+                        "member": {
+                            "shape": "Sq"
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "endpointdiscovery": {
+                "required": true
+            },
+            "download_location": [
+                "https://iotcore.us-east-1.prod.console.iot.aws.dev/static/js/iotcore.js"
+            ]
+        },
+        "ListTagsForResource": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ResourceARN"
+                ],
+                "members": {
+                    "ResourceARN": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Tags": {
+                        "shape": "S4"
+                    }
+                }
+            },
+            "endpointdiscovery": {
+                "required": true
+            },
+            "download_location": [
+                "https://iotcore.us-east-1.prod.console.iot.aws.dev/static/js/iotcore.js"
+            ]
+        },
+        "TagResource": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ResourceARN",
+                    "Tags"
+                ],
+                "members": {
+                    "ResourceARN": {},
+                    "Tags": {
+                        "shape": "S4"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "endpointdiscovery": {
+                "required": true
+            },
+            "download_location": [
+                "https://iotcore.us-east-1.prod.console.iot.aws.dev/static/js/iotcore.js"
+            ]
+        },
+        "UntagResource": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ResourceARN",
+                    "TagKeys"
+                ],
+                "members": {
+                    "ResourceARN": {},
+                    "TagKeys": {
+                        "type": "list",
+                        "member": {}
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "endpointdiscovery": {
+                "required": true
+            },
+            "download_location": [
+                "https://iotcore.us-east-1.prod.console.iot.aws.dev/static/js/iotcore.js"
+            ]
+        },
+        "UpdateDatabase": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "DatabaseName",
+                    "KmsKeyId"
+                ],
+                "members": {
+                    "DatabaseName": {},
+                    "KmsKeyId": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Database": {
+                        "shape": "S9"
+                    }
+                }
+            },
+            "endpointdiscovery": {
+                "required": true
+            },
+            "download_location": [
+                "https://iotcore.us-east-1.prod.console.iot.aws.dev/static/js/iotcore.js"
+            ]
+        },
+        "UpdateTable": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "DatabaseName",
+                    "TableName"
+                ],
+                "members": {
+                    "DatabaseName": {},
+                    "TableName": {},
+                    "RetentionProperties": {
+                        "shape": "Sf"
+                    },
+                    "MagneticStoreWriteProperties": {
+                        "shape": "Si"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Table": {
+                        "shape": "Sq"
+                    }
+                }
+            },
+            "endpointdiscovery": {
+                "required": true
+            },
+            "download_location": [
+                "https://iotcore.us-east-1.prod.console.iot.aws.dev/static/js/iotcore.js"
+            ]
+        },
+        "WriteRecords": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "DatabaseName",
+                    "TableName",
+                    "Records"
+                ],
+                "members": {
+                    "DatabaseName": {},
+                    "TableName": {},
+                    "CommonAttributes": {
+                        "shape": "S1m"
+                    },
+                    "Records": {
+                        "type": "list",
+                        "member": {
+                            "shape": "S1m"
+                        }
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "RecordsIngested": {
+                        "type": "structure",
+                        "members": {
+                            "Total": {
+                                "type": "integer"
+                            },
+                            "MemoryStore": {
+                                "type": "integer"
+                            },
+                            "MagneticStore": {
+                                "type": "integer"
+                            }
+                        }
+                    }
+                }
+            },
+            "endpointdiscovery": {
+                "required": true
+            },
+            "download_location": [
+                "https://iotcore.us-east-1.prod.console.iot.aws.dev/static/js/iotcore.js"
+            ]
+        },
+        "CreateBatchLoadTask": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "DataSourceConfiguration",
+                    "ReportConfiguration",
+                    "TargetDatabaseName",
+                    "TargetTableName"
+                ],
+                "members": {
+                    "ClientToken": {
+                        "idempotencyToken": true,
+                        "type": "string",
+                        "sensitive": true
+                    },
+                    "DataModelConfiguration": {
+                        "shape": "S3"
+                    },
+                    "DataSourceConfiguration": {
+                        "shape": "Sk"
+                    },
+                    "ReportConfiguration": {
+                        "shape": "Sq"
+                    },
+                    "TargetDatabaseName": {},
+                    "TargetTableName": {},
+                    "RecordVersion": {
+                        "type": "long"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "TaskId"
+                ],
+                "members": {
+                    "TaskId": {}
+                }
+            },
+            "endpointdiscovery": {
+                "required": true
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/LNBIP3SSBJJEGTSEE5VZUJHYSBHMHROVHKM6HOKQMPW54VG5DQUQ/vendors.js"
+            ]
+        },
+        "DescribeBatchLoadTask": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "TaskId"
+                ],
+                "members": {
+                    "TaskId": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "BatchLoadTaskDescription"
+                ],
+                "members": {
+                    "BatchLoadTaskDescription": {
+                        "type": "structure",
+                        "members": {
+                            "TaskId": {},
+                            "ErrorMessage": {},
+                            "DataSourceConfiguration": {
+                                "shape": "Sk"
+                            },
+                            "ProgressReport": {
+                                "type": "structure",
+                                "members": {
+                                    "RecordsProcessed": {
+                                        "type": "long"
+                                    },
+                                    "RecordsIngested": {
+                                        "type": "long"
+                                    },
+                                    "ParseFailures": {
+                                        "type": "long"
+                                    },
+                                    "RecordIngestionFailures": {
+                                        "type": "long"
+                                    },
+                                    "FileFailures": {
+                                        "type": "long"
+                                    },
+                                    "BytesMetered": {
+                                        "type": "long"
+                                    }
+                                }
+                            },
+                            "ReportConfiguration": {
+                                "shape": "Sq"
+                            },
+                            "DataModelConfiguration": {
+                                "shape": "S3"
+                            },
+                            "TargetDatabaseName": {},
+                            "TargetTableName": {},
+                            "TaskStatus": {},
+                            "RecordVersion": {
+                                "type": "long"
+                            },
+                            "CreationTime": {
+                                "type": "timestamp"
+                            },
+                            "LastUpdatedTime": {
+                                "type": "timestamp"
+                            },
+                            "ResumableUntil": {
+                                "type": "timestamp"
+                            }
+                        }
+                    }
+                }
+            },
+            "endpointdiscovery": {
+                "required": true
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/LNBIP3SSBJJEGTSEE5VZUJHYSBHMHROVHKM6HOKQMPW54VG5DQUQ/vendors.js"
+            ]
+        },
+        "ListBatchLoadTasks": {
+            "input": {
+                "type": "structure",
+                "members": {
+                    "NextToken": {},
+                    "MaxResults": {
+                        "type": "integer"
+                    },
+                    "TaskStatus": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "NextToken": {},
+                    "BatchLoadTasks": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "TaskId": {},
+                                "TaskStatus": {},
+                                "DatabaseName": {},
+                                "TableName": {},
+                                "CreationTime": {
+                                    "type": "timestamp"
+                                },
+                                "LastUpdatedTime": {
+                                    "type": "timestamp"
+                                },
+                                "ResumableUntil": {
+                                    "type": "timestamp"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "endpointdiscovery": {
+                "required": true
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/LNBIP3SSBJJEGTSEE5VZUJHYSBHMHROVHKM6HOKQMPW54VG5DQUQ/vendors.js"
+            ]
+        },
+        "ResumeBatchLoadTask": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "TaskId"
+                ],
+                "members": {
+                    "TaskId": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "endpointdiscovery": {
+                "required": true
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/LNBIP3SSBJJEGTSEE5VZUJHYSBHMHROVHKM6HOKQMPW54VG5DQUQ/vendors.js"
+            ]
+        },
+        "CreateBulkImportTask": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "InputConfiguration",
+                    "ReportConfiguration",
+                    "TargetDatabaseName",
+                    "TargetTableName"
+                ],
+                "members": {
+                    "ClientToken": {
+                        "shape": "S2",
+                        "idempotencyToken": true
+                    },
+                    "DataModelConfiguration": {
+                        "shape": "S3"
+                    },
+                    "InputConfiguration": {
+                        "shape": "S14"
+                    },
+                    "NotificationConfiguration": {
+                        "shape": "Ss"
+                    },
+                    "ReportConfiguration": {
+                        "shape": "Su"
+                    },
+                    "TargetDatabaseName": {},
+                    "TargetTableName": {},
+                    "RecordVersion": {
+                        "type": "long"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "TaskId"
+                ],
+                "members": {
+                    "TaskId": {},
+                    "BulkImportTask": {
+                        "shape": "S19",
+                        "deprecated": true
+                    }
+                }
+            },
+            "endpointdiscovery": {
+                "required": true
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/JYYA4QRICDJQUFYMASIDHJEI2HGXAQTSDSV7RRTZMX4RBKDM24WQ/main.js"
+            ]
+        },
+        "CreateBulkImportTaskInternal": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "InternalInputConfiguration",
+                    "ReportConfiguration",
+                    "TargetDatabaseName",
+                    "TargetTableName"
+                ],
+                "members": {
+                    "ClientToken": {
+                        "shape": "S2",
+                        "idempotencyToken": true
+                    },
+                    "DataModelConfiguration": {
+                        "shape": "S3"
+                    },
+                    "InternalInputConfiguration": {
+                        "shape": "S1h"
+                    },
+                    "NotificationConfiguration": {
+                        "shape": "Ss"
+                    },
+                    "ReportConfiguration": {
+                        "shape": "Su"
+                    },
+                    "TargetDatabaseName": {},
+                    "TargetTableName": {},
+                    "RecordVersion": {
+                        "type": "long"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "InternalBulkImportTask": {
+                        "shape": "S1k"
+                    }
+                }
+            },
+            "endpointdiscovery": {
+                "required": true
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/JYYA4QRICDJQUFYMASIDHJEI2HGXAQTSDSV7RRTZMX4RBKDM24WQ/main.js"
+            ]
+        },
+        "DescribeBulkImportTask": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "TaskId"
+                ],
+                "members": {
+                    "TaskId": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "BulkImportTask"
+                ],
+                "members": {
+                    "BulkImportTask": {
+                        "shape": "S19"
+                    }
+                }
+            },
+            "endpointdiscovery": {
+                "required": true
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/JYYA4QRICDJQUFYMASIDHJEI2HGXAQTSDSV7RRTZMX4RBKDM24WQ/main.js"
+            ]
+        },
+        "DescribeBulkImportTaskInternal": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "TaskId"
+                ],
+                "members": {
+                    "TaskId": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "InternalBulkImportTask"
+                ],
+                "members": {
+                    "InternalBulkImportTask": {
+                        "shape": "S1k"
+                    }
+                }
+            },
+            "endpointdiscovery": {
+                "required": true
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/JYYA4QRICDJQUFYMASIDHJEI2HGXAQTSDSV7RRTZMX4RBKDM24WQ/main.js"
+            ]
+        },
+        "GetBackupJobStatusInternal": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "AccountId",
+                    "BackupJobId",
+                    "ResourceClientJobId"
+                ],
+                "members": {
+                    "AccountId": {},
+                    "BackupJobId": {},
+                    "ResourceClientJobId": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "BackupJobState": {},
+                    "PercentComplete": {
+                        "type": "double"
+                    },
+                    "EstimatedTimeToCompleteMinutes": {
+                        "type": "long"
+                    },
+                    "Message": {},
+                    "BytesTransferred": {
+                        "type": "long"
+                    },
+                    "RestoreMetadata": {
+                        "shape": "S2v"
+                    }
+                }
+            },
+            "endpointdiscovery": {
+                "required": true
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/JYYA4QRICDJQUFYMASIDHJEI2HGXAQTSDSV7RRTZMX4RBKDM24WQ/main.js"
+            ]
+        },
+        "GetRestoreJobStatusInternal": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "AccountId",
+                    "ResourceClientJobId"
+                ],
+                "members": {
+                    "AccountId": {},
+                    "ResourceClientJobId": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "RestoreJobState": {},
+                    "PercentComplete": {
+                        "type": "double"
+                    },
+                    "EstimatedTimeToCompleteMinutes": {
+                        "type": "long"
+                    },
+                    "Message": {},
+                    "BytesTransferred": {
+                        "type": "long"
+                    }
+                }
+            },
+            "endpointdiscovery": {
+                "required": true
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/JYYA4QRICDJQUFYMASIDHJEI2HGXAQTSDSV7RRTZMX4RBKDM24WQ/main.js"
+            ]
+        },
+        "GetTilesInternal": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "DatabaseName",
+                    "TableName"
+                ],
+                "members": {
+                    "DatabaseName": {},
+                    "TableName": {},
+                    "CacheMode": {},
+                    "MinTs": {
+                        "type": "long"
+                    },
+                    "MaxTs": {
+                        "type": "long"
+                    },
+                    "MinHash": {
+                        "type": "long"
+                    },
+                    "MaxHash": {
+                        "type": "long"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Tiles": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "DatabaseName": {},
+                                "TableId": {},
+                                "TileId": {},
+                                "ParentTiles": {
+                                    "type": "list",
+                                    "member": {}
+                                },
+                                "MinTs": {
+                                    "type": "long"
+                                },
+                                "MaxTs": {
+                                    "type": "long"
+                                },
+                                "MinHash": {
+                                    "type": "long"
+                                },
+                                "MaxHash": {
+                                    "type": "long"
+                                },
+                                "Version": {
+                                    "type": "long"
+                                },
+                                "IsCT": {
+                                    "type": "boolean"
+                                },
+                                "IsHT": {
+                                    "type": "boolean"
+                                },
+                                "IsSST": {
+                                    "type": "boolean"
+                                },
+                                "HTClusterId": {}
+                            }
+                        }
+                    }
+                }
+            },
+            "endpointdiscovery": {
+                "required": true
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/JYYA4QRICDJQUFYMASIDHJEI2HGXAQTSDSV7RRTZMX4RBKDM24WQ/main.js"
+            ]
+        },
+        "StartBackupJobInternal": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "AccountId",
+                    "BackupJobId",
+                    "ResourceArn"
+                ],
+                "members": {
+                    "AccountId": {},
+                    "BackupJobId": {},
+                    "ResourceArn": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ResourceClientJobId": {}
+                }
+            },
+            "endpointdiscovery": {
+                "required": true
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/JYYA4QRICDJQUFYMASIDHJEI2HGXAQTSDSV7RRTZMX4RBKDM24WQ/main.js"
+            ]
+        },
+        "StartRestoreJobInternal": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "AccountId",
+                    "RestoreJobId",
+                    "StorageJobId",
+                    "RestoreMetadata"
+                ],
+                "members": {
+                    "AccountId": {},
+                    "RestoreJobId": {},
+                    "StorageJobId": {},
+                    "RestoreMetadata": {
+                        "shape": "S2v"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ResourceClientJobId": {}
+                }
+            },
+            "endpointdiscovery": {
+                "required": true
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/JYYA4QRICDJQUFYMASIDHJEI2HGXAQTSDSV7RRTZMX4RBKDM24WQ/main.js"
+            ]
+        },
+        "StopBackupJobInternal": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "AccountId",
+                    "BackupJobId",
+                    "ResourceClientJobId"
+                ],
+                "members": {
+                    "AccountId": {},
+                    "BackupJobId": {},
+                    "ResourceClientJobId": {}
+                }
+            },
+            "endpointdiscovery": {
+                "required": true
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/JYYA4QRICDJQUFYMASIDHJEI2HGXAQTSDSV7RRTZMX4RBKDM24WQ/main.js"
+            ]
+        },
+        "StopRestoreJobInternal": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "AccountId",
+                    "ResourceClientJobId"
+                ],
+                "members": {
+                    "AccountId": {},
+                    "ResourceClientJobId": {}
+                }
+            },
+            "endpointdiscovery": {
+                "required": true
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/JYYA4QRICDJQUFYMASIDHJEI2HGXAQTSDSV7RRTZMX4RBKDM24WQ/main.js"
+            ]
+        },
+        "SuggestTileSplitInternal": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "DatabaseName",
+                    "TableName",
+                    "TileId",
+                    "SplitType"
+                ],
+                "members": {
+                    "DatabaseName": {},
+                    "TableName": {},
+                    "TileId": {},
+                    "SplitType": {},
+                    "SplitTimestamp": {
+                        "type": "long"
+                    },
+                    "SplitHashkey": {
+                        "type": "long"
+                    },
+                    "SiblingId": {},
+                    "ClusterId": {}
+                }
+            },
+            "endpointdiscovery": {
+                "required": true
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/JYYA4QRICDJQUFYMASIDHJEI2HGXAQTSDSV7RRTZMX4RBKDM24WQ/main.js"
+            ]
+        }
+    },
+    "shapes": {
+        "S4": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "Key",
+                    "Value"
+                ],
+                "members": {
+                    "Key": {},
+                    "Value": {}
+                }
+            }
+        },
+        "S9": {
+            "type": "structure",
+            "members": {
+                "Arn": {},
+                "DatabaseName": {},
+                "TableCount": {
+                    "type": "long"
+                },
+                "KmsKeyId": {},
+                "CreationTime": {
+                    "type": "timestamp"
+                },
+                "LastUpdatedTime": {
+                    "type": "timestamp"
+                }
+            }
+        },
+        "Sf": {
+            "type": "structure",
+            "required": [
+                "MemoryStoreRetentionPeriodInHours",
+                "MagneticStoreRetentionPeriodInDays"
+            ],
+            "members": {
+                "MemoryStoreRetentionPeriodInHours": {
+                    "type": "long"
+                },
+                "MagneticStoreRetentionPeriodInDays": {
+                    "type": "long"
+                }
+            }
+        },
+        "Si": {
+            "type": "structure",
+            "required": [
+                "EnableMagneticStoreWrites"
+            ],
+            "members": {
+                "EnableMagneticStoreWrites": {
+                    "type": "boolean"
+                },
+                "MagneticStoreRejectedDataLocation": {
+                    "type": "structure",
+                    "members": {
+                        "S3Configuration": {
+                            "type": "structure",
+                            "members": {
+                                "BucketName": {},
+                                "ObjectKeyPrefix": {},
+                                "EncryptionOption": {},
+                                "KmsKeyId": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "Sq": {
+            "type": "structure",
+            "members": {
+                "Arn": {},
+                "TableName": {},
+                "DatabaseName": {},
+                "TableStatus": {},
+                "RetentionProperties": {
+                    "shape": "Sf"
+                },
+                "CreationTime": {
+                    "type": "timestamp"
+                },
+                "LastUpdatedTime": {
+                    "type": "timestamp"
+                },
+                "MagneticStoreWriteProperties": {
+                    "shape": "Si"
+                }
+            }
+        },
+        "S1m": {
+            "type": "structure",
+            "members": {
+                "Dimensions": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "required": [
+                            "Name",
+                            "Value"
+                        ],
+                        "members": {
+                            "Name": {},
+                            "Value": {},
+                            "DimensionValueType": {}
+                        }
+                    }
+                },
+                "MeasureName": {},
+                "MeasureValue": {},
+                "MeasureValueType": {},
+                "Time": {},
+                "TimeUnit": {},
+                "Version": {
+                    "type": "long"
+                },
+                "MeasureValues": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "required": [
+                            "Name",
+                            "Value",
+                            "Type"
+                        ],
+                        "members": {
+                            "Name": {},
+                            "Value": {},
+                            "Type": {}
+                        }
+                    }
+                }
+            }
+        },
+        "Se": {
+            "type": "structure",
+            "required": [
+                "MemoryStoreRetentionPeriodInHours",
+                "MagneticStoreRetentionPeriodInDays"
+            ],
+            "members": {
+                "MemoryStoreRetentionPeriodInHours": {
+                    "type": "long"
+                },
+                "MagneticStoreRetentionPeriodInDays": {
+                    "type": "long"
+                }
+            }
+        },
+        "S1e": {
+            "type": "structure",
+            "members": {
+                "Dimensions": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "required": [
+                            "Name",
+                            "Value"
+                        ],
+                        "members": {
+                            "Name": {},
+                            "Value": {},
+                            "DimensionValueType": {}
+                        }
+                    }
+                },
+                "MeasureName": {},
+                "MeasureValue": {},
+                "MeasureValueType": {},
+                "Time": {},
+                "TimeUnit": {},
+                "Version": {
+                    "type": "long"
+                }
+            }
+        },
+        "S3": {
+            "type": "structure",
+            "members": {
+                "DataModel": {
+                    "type": "structure",
+                    "required": [
+                        "DimensionMappings"
+                    ],
+                    "members": {
+                        "TimeColumn": {},
+                        "TimeUnit": {},
+                        "DimensionMappings": {
+                            "type": "list",
+                            "member": {
+                                "type": "structure",
+                                "members": {
+                                    "SourceColumn": {},
+                                    "DestinationColumn": {}
+                                }
+                            }
+                        },
+                        "MultiMeasureMappings": {
+                            "type": "structure",
+                            "required": [
+                                "MultiMeasureAttributeMappings"
+                            ],
+                            "members": {
+                                "TargetMultiMeasureName": {},
+                                "MultiMeasureAttributeMappings": {
+                                    "shape": "Sb"
+                                }
+                            }
+                        },
+                        "MixedMeasureMappings": {
+                            "type": "list",
+                            "member": {
+                                "type": "structure",
+                                "required": [
+                                    "MeasureValueType"
+                                ],
+                                "members": {
+                                    "MeasureName": {},
+                                    "SourceColumn": {},
+                                    "TargetMeasureName": {},
+                                    "MeasureValueType": {},
+                                    "MultiMeasureAttributeMappings": {
+                                        "shape": "Sb"
+                                    }
+                                }
+                            }
+                        },
+                        "MeasureNameColumn": {}
+                    }
+                },
+                "DataModelS3Configuration": {
+                    "type": "structure",
+                    "members": {
+                        "BucketName": {},
+                        "ObjectKey": {}
+                    }
+                }
+            }
+        },
+        "Sb": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "SourceColumn"
+                ],
+                "members": {
+                    "SourceColumn": {},
+                    "TargetMultiMeasureAttributeName": {},
+                    "MeasureValueType": {}
+                }
+            }
+        },
+        "Sk": {
+            "type": "structure",
+            "required": [
+                "DataSourceS3Configuration",
+                "DataFormat"
+            ],
+            "members": {
+                "DataSourceS3Configuration": {
+                    "type": "structure",
+                    "required": [
+                        "BucketName"
+                    ],
+                    "members": {
+                        "BucketName": {},
+                        "ObjectKeyPrefix": {}
+                    }
+                },
+                "CsvConfiguration": {
+                    "type": "structure",
+                    "members": {
+                        "ColumnSeparator": {},
+                        "EscapeChar": {},
+                        "QuoteChar": {},
+                        "NullValue": {},
+                        "TrimWhiteSpace": {
+                            "type": "boolean"
+                        }
+                    }
+                },
+                "DataFormat": {}
+            }
+        },
+        "S10": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "Key",
+                    "Value"
+                ],
+                "members": {
+                    "Key": {},
+                    "Value": {}
+                }
+            }
+        },
+        "S15": {
+            "type": "structure",
+            "members": {
+                "Arn": {},
+                "DatabaseName": {},
+                "TableCount": {
+                    "type": "long"
+                },
+                "KmsKeyId": {},
+                "CreationTime": {
+                    "type": "timestamp"
+                },
+                "LastUpdatedTime": {
+                    "type": "timestamp"
+                }
+            }
+        },
+        "S1b": {
+            "type": "structure",
+            "required": [
+                "MemoryStoreRetentionPeriodInHours",
+                "MagneticStoreRetentionPeriodInDays"
+            ],
+            "members": {
+                "MemoryStoreRetentionPeriodInHours": {
+                    "type": "long"
+                },
+                "MagneticStoreRetentionPeriodInDays": {
+                    "type": "long"
+                }
+            }
+        },
+        "S1i": {
+            "type": "structure",
+            "members": {
+                "Arn": {},
+                "TableName": {},
+                "DatabaseName": {},
+                "TableStatus": {},
+                "RetentionProperties": {
+                    "shape": "S1b"
+                },
+                "CreationTime": {
+                    "type": "timestamp"
+                },
+                "LastUpdatedTime": {
+                    "type": "timestamp"
+                },
+                "MagneticStoreWriteProperties": {
+                    "shape": "S1e"
+                }
+            }
+        },
+        "S2q": {
+            "type": "structure",
+            "members": {
+                "Dimensions": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "required": [
+                            "Name",
+                            "Value"
+                        ],
+                        "members": {
+                            "Name": {},
+                            "Value": {},
+                            "DimensionValueType": {}
+                        }
+                    }
+                },
+                "MeasureName": {},
+                "MeasureValue": {},
+                "MeasureValueType": {},
+                "Time": {},
+                "TimeUnit": {},
+                "Version": {
+                    "type": "long"
+                },
+                "MeasureValues": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "required": [
+                            "Name",
+                            "Value",
+                            "Type"
+                        ],
+                        "members": {
+                            "Name": {},
+                            "Value": {},
+                            "Type": {}
+                        }
+                    }
+                }
+            }
+        },
+        "S2": {
+            "type": "string",
+            "sensitive": true
+        },
+        "Sm": {
+            "type": "structure",
+            "required": [
+                "DataSourceS3Configuration",
+                "DataFormat"
+            ],
+            "members": {
+                "DataSourceS3Configuration": {
+                    "type": "structure",
+                    "required": [
+                        "BucketName"
+                    ],
+                    "members": {
+                        "BucketName": {},
+                        "ObjectKeyPrefix": {}
+                    }
+                },
+                "CsvConfiguration": {
+                    "shape": "So"
+                },
+                "DataFormat": {}
+            }
+        },
+        "So": {
+            "type": "structure",
+            "members": {
+                "ColumnSeparator": {},
+                "EscapeChar": {},
+                "QuoteChar": {},
+                "NullValue": {},
+                "TrimWhiteSpace": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "Ss": {
+            "type": "structure",
+            "members": {
+                "SNSConfiguration": {
+                    "type": "structure",
+                    "required": [
+                        "TopicArn"
+                    ],
+                    "members": {
+                        "TopicArn": {}
+                    }
+                }
+            },
+            "internalonly": true
+        },
+        "Su": {
+            "type": "structure",
+            "members": {
+                "ReportS3Configuration": {
+                    "type": "structure",
+                    "required": [
+                        "BucketName"
+                    ],
+                    "members": {
+                        "BucketName": {},
+                        "ObjectKeyPrefix": {},
+                        "EncryptionOption": {},
+                        "KmsKeyId": {}
+                    }
+                }
+            }
+        },
+        "S14": {
+            "type": "structure",
+            "required": [
+                "InputS3Configuration",
+                "DataFormat"
+            ],
+            "members": {
+                "InputS3Configuration": {
+                    "shape": "S15"
+                },
+                "CsvConfiguration": {
+                    "shape": "So"
+                },
+                "DataFormat": {}
+            }
+        },
+        "S19": {
+            "type": "structure",
+            "members": {
+                "TaskId": {},
+                "ErrorMessage": {},
+                "InputConfiguration": {
+                    "shape": "S14"
+                },
+                "NotificationConfiguration": {
+                    "shape": "Ss"
+                },
+                "ProgressReport": {
+                    "shape": "S1a"
+                },
+                "ReportConfiguration": {
+                    "shape": "Su"
+                },
+                "DataModelConfiguration": {
+                    "shape": "S3"
+                },
+                "TargetDatabaseName": {},
+                "TargetTableName": {},
+                "TaskStatus": {},
+                "RecordVersion": {
+                    "type": "long"
+                },
+                "CreationTime": {
+                    "type": "timestamp"
+                },
+                "LastUpdatedTime": {
+                    "type": "timestamp"
+                }
+            }
+        },
+        "S1a": {
+            "type": "structure",
+            "members": {
+                "RecordsProcessed": {
+                    "type": "long"
+                },
+                "RecordsIngested": {
+                    "type": "long"
+                },
+                "RowFailures": {
+                    "deprecated": true,
+                    "type": "long"
+                },
+                "FileParseFailures": {
+                    "type": "long"
+                },
+                "RecordFailures": {
+                    "deprecated": true,
+                    "type": "long"
+                },
+                "RecordIngestionFailures": {
+                    "type": "long"
+                },
+                "FileFailures": {
+                    "type": "long"
+                },
+                "ProgressPercentage": {
+                    "type": "double"
+                },
+                "BytesIngested": {
+                    "type": "long"
+                }
+            }
+        },
+        "S1h": {
+            "type": "structure",
+            "required": [
+                "InputS3Configuration",
+                "DataFormat"
+            ],
+            "members": {
+                "InputS3Configuration": {
+                    "shape": "S15"
+                },
+                "DataFormat": {
+                    "type": "string",
+                    "internalonly": true
+                }
+            },
+            "internalonly": true
+        },
+        "S1k": {
+            "type": "structure",
+            "members": {
+                "TaskId": {},
+                "ErrorMessage": {},
+                "InternalInputConfiguration": {
+                    "shape": "S1h"
+                },
+                "NotificationConfiguration": {
+                    "shape": "Ss"
+                },
+                "ProgressReport": {
+                    "shape": "S1a"
+                },
+                "ReportConfiguration": {
+                    "shape": "Su"
+                },
+                "DataModelConfiguration": {
+                    "shape": "S3"
+                },
+                "TargetDatabaseName": {},
+                "TargetTableName": {},
+                "TaskStatus": {},
+                "RecordVersion": {
+                    "type": "long"
+                }
+            }
+        },
+        "S1r": {
+            "type": "structure",
+            "members": {
+                "Arn": {},
+                "DatabaseName": {},
+                "TableCount": {
+                    "type": "long"
+                },
+                "KmsKeyId": {},
+                "CreationTime": {
+                    "type": "timestamp"
+                },
+                "LastUpdatedTime": {
+                    "type": "timestamp"
+                }
+            }
+        },
+        "S1u": {
+            "type": "structure",
+            "required": [
+                "MemoryStoreRetentionPeriodInHours",
+                "MagneticStoreRetentionPeriodInDays"
+            ],
+            "members": {
+                "MemoryStoreRetentionPeriodInHours": {
+                    "type": "long"
+                },
+                "MagneticStoreRetentionPeriodInDays": {
+                    "type": "long"
+                }
+            }
+        },
+        "S1x": {
+            "type": "structure",
+            "required": [
+                "EnableMagneticStoreWrites"
+            ],
+            "members": {
+                "EnableMagneticStoreWrites": {
+                    "type": "boolean"
+                },
+                "MagneticStoreRejectedDataLocation": {
+                    "type": "structure",
+                    "members": {
+                        "S3Configuration": {
+                            "type": "structure",
+                            "members": {
+                                "BucketName": {},
+                                "ObjectKeyPrefix": {},
+                                "EncryptionOption": {},
+                                "KmsKeyId": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "S20": {
+            "type": "structure",
+            "members": {
+                "CompositePartitionKey": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "required": [
+                            "Type"
+                        ],
+                        "members": {
+                            "Type": {},
+                            "Name": {},
+                            "EnforcementInRecord": {}
+                        }
+                    }
+                }
+            }
+        },
+        "S26": {
+            "type": "structure",
+            "members": {
+                "Arn": {},
+                "TableName": {},
+                "DatabaseName": {},
+                "TableStatus": {},
+                "RetentionProperties": {
+                    "shape": "S1u"
+                },
+                "CreationTime": {
+                    "type": "timestamp"
+                },
+                "LastUpdatedTime": {
+                    "type": "timestamp"
+                },
+                "MagneticStoreWriteProperties": {
+                    "shape": "S1x"
+                },
+                "Schema": {
+                    "shape": "S20"
+                }
+            }
+        },
+        "S2v": {
+            "type": "structure",
+            "required": [
+                "MemoryStoreRetentionPeriodInHours",
+                "MagneticStoreRetentionPeriodInDays",
+                "DatabaseName",
+                "TableName"
+            ],
+            "members": {
+                "MemoryStoreRetentionPeriodInHours": {
+                    "type": "long"
+                },
+                "MagneticStoreRetentionPeriodInDays": {
+                    "type": "long"
+                },
+                "DatabaseName": {},
+                "TableName": {},
+                "MagneticStoreWriteProperties": {
+                    "shape": "S1x"
+                },
+                "GlobalMinimumTimestamp": {
+                    "type": "long"
+                }
+            }
+        },
+        "S45": {
+            "type": "structure",
+            "members": {
+                "Dimensions": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "required": [
+                            "Name",
+                            "Value"
+                        ],
+                        "members": {
+                            "Name": {},
+                            "Value": {},
+                            "DimensionValueType": {}
+                        }
+                    }
+                },
+                "MeasureName": {},
+                "MeasureValue": {},
+                "MeasureValueType": {},
+                "Time": {},
+                "TimeUnit": {},
+                "Version": {
+                    "type": "long"
+                },
+                "MeasureValues": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "required": [
+                            "Name",
+                            "Value",
+                            "Type"
+                        ],
+                        "members": {
+                            "Name": {},
+                            "Value": {},
+                            "Type": {}
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

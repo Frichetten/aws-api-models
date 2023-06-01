@@ -1,0 +1,599 @@
+{
+    "version": "2.0",
+    "metadata": {
+        "apiVersion": "2018-09-17",
+        "endpointPrefix": "catalog.marketplace",
+        "jsonVersion": "1.1",
+        "protocol": "rest-json",
+        "serviceAbbreviation": "AWS Marketplace Catalog",
+        "serviceFullName": "AWS Marketplace Catalog Service",
+        "serviceId": "Marketplace Catalog",
+        "signatureVersion": "v4",
+        "signingName": "aws-marketplace",
+        "uid": "marketplace-catalog-2018-09-17",
+        "download_location": [
+            "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+        ]
+    },
+    "operations": {
+        "CancelChangeSet": {
+            "http": {
+                "method": "PATCH",
+                "requestUri": "/CancelChangeSet"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "Catalog",
+                    "ChangeSetId"
+                ],
+                "members": {
+                    "Catalog": {
+                        "location": "querystring",
+                        "locationName": "catalog"
+                    },
+                    "ChangeSetId": {
+                        "location": "querystring",
+                        "locationName": "changeSetId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ChangeSetId": {},
+                    "ChangeSetArn": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "DescribeChangeSet": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/DescribeChangeSet"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "Catalog",
+                    "ChangeSetId"
+                ],
+                "members": {
+                    "Catalog": {
+                        "location": "querystring",
+                        "locationName": "catalog"
+                    },
+                    "ChangeSetId": {
+                        "location": "querystring",
+                        "locationName": "changeSetId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ChangeSetId": {},
+                    "ChangeSetArn": {},
+                    "ChangeSetName": {},
+                    "StartTime": {},
+                    "EndTime": {},
+                    "Status": {},
+                    "FailureCode": {},
+                    "FailureDescription": {},
+                    "ChangeSet": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "ChangeType": {},
+                                "Entity": {
+                                    "shape": "Sg"
+                                },
+                                "Details": {},
+                                "ErrorDetailList": {
+                                    "type": "list",
+                                    "member": {
+                                        "type": "structure",
+                                        "members": {
+                                            "ErrorCode": {},
+                                            "ErrorMessage": {}
+                                        }
+                                    }
+                                },
+                                "ChangeName": {}
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "DescribeEntity": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/DescribeEntity"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "Catalog",
+                    "EntityId"
+                ],
+                "members": {
+                    "Catalog": {
+                        "location": "querystring",
+                        "locationName": "catalog"
+                    },
+                    "EntityId": {
+                        "location": "querystring",
+                        "locationName": "entityId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "EntityType": {},
+                    "EntityIdentifier": {},
+                    "EntityArn": {},
+                    "LastModifiedDate": {},
+                    "Details": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "ListChangeSets": {
+            "http": {
+                "requestUri": "/ListChangeSets"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "Catalog"
+                ],
+                "members": {
+                    "Catalog": {},
+                    "FilterList": {
+                        "shape": "Sr"
+                    },
+                    "Sort": {
+                        "shape": "Sw"
+                    },
+                    "MaxResults": {
+                        "type": "integer"
+                    },
+                    "NextToken": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ChangeSetSummaryList": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "ChangeSetId": {},
+                                "ChangeSetArn": {},
+                                "ChangeSetName": {},
+                                "StartTime": {},
+                                "EndTime": {},
+                                "Status": {},
+                                "EntityIdList": {
+                                    "type": "list",
+                                    "member": {}
+                                },
+                                "FailureCode": {}
+                            }
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "ListEntities": {
+            "http": {
+                "requestUri": "/ListEntities"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "Catalog",
+                    "EntityType"
+                ],
+                "members": {
+                    "Catalog": {},
+                    "EntityType": {},
+                    "FilterList": {
+                        "shape": "Sr"
+                    },
+                    "Sort": {
+                        "shape": "Sw"
+                    },
+                    "NextToken": {},
+                    "MaxResults": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "EntitySummaryList": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "Name": {},
+                                "EntityType": {},
+                                "EntityId": {},
+                                "EntityArn": {},
+                                "LastModifiedDate": {},
+                                "Visibility": {}
+                            }
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "ListTagsForResource": {
+            "http": {
+                "requestUri": "/ListTagsForResource"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ResourceArn"
+                ],
+                "members": {
+                    "ResourceArn": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ResourceArn": {},
+                    "Tags": {
+                        "shape": "S1e"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "StartChangeSet": {
+            "http": {
+                "requestUri": "/StartChangeSet"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "Catalog",
+                    "ChangeSet"
+                ],
+                "members": {
+                    "Catalog": {},
+                    "ChangeSet": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "ChangeType",
+                                "Entity",
+                                "Details"
+                            ],
+                            "members": {
+                                "ChangeType": {},
+                                "Entity": {
+                                    "shape": "Sg"
+                                },
+                                "EntityTags": {
+                                    "shape": "S1e"
+                                },
+                                "Details": {},
+                                "ChangeName": {}
+                            }
+                        }
+                    },
+                    "ChangeSetName": {},
+                    "ClientRequestToken": {
+                        "idempotencyToken": true
+                    },
+                    "ChangeSetTags": {
+                        "shape": "S1e"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ChangeSetId": {},
+                    "ChangeSetArn": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "TagResource": {
+            "http": {
+                "requestUri": "/TagResource"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ResourceArn",
+                    "Tags"
+                ],
+                "members": {
+                    "ResourceArn": {},
+                    "Tags": {
+                        "shape": "S1e"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "UntagResource": {
+            "http": {
+                "requestUri": "/UntagResource"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ResourceArn",
+                    "TagKeys"
+                ],
+                "members": {
+                    "ResourceArn": {},
+                    "TagKeys": {
+                        "type": "list",
+                        "member": {}
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "DeleteResourcePolicy": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/DeleteResourcePolicy"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ResourceArn"
+                ],
+                "members": {
+                    "ResourceArn": {
+                        "location": "querystring",
+                        "locationName": "resourceArn"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/LNBIP3SSBJJEGTSEE5VZUJHYSBHMHROVHKM6HOKQMPW54VG5DQUQ/vendors.js"
+            ]
+        },
+        "GetResourcePolicy": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/GetResourcePolicy"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ResourceArn"
+                ],
+                "members": {
+                    "ResourceArn": {
+                        "location": "querystring",
+                        "locationName": "resourceArn"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Policy": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/LNBIP3SSBJJEGTSEE5VZUJHYSBHMHROVHKM6HOKQMPW54VG5DQUQ/vendors.js"
+            ]
+        },
+        "PutResourcePolicy": {
+            "http": {
+                "requestUri": "/PutResourcePolicy"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ResourceArn",
+                    "Policy"
+                ],
+                "members": {
+                    "ResourceArn": {},
+                    "Policy": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/LNBIP3SSBJJEGTSEE5VZUJHYSBHMHROVHKM6HOKQMPW54VG5DQUQ/vendors.js"
+            ]
+        }
+    },
+    "shapes": {
+        "Sg": {
+            "type": "structure",
+            "required": [
+                "Type"
+            ],
+            "members": {
+                "Type": {},
+                "Identifier": {}
+            }
+        },
+        "Sr": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "Name": {},
+                    "ValueList": {
+                        "type": "list",
+                        "member": {}
+                    }
+                }
+            }
+        },
+        "Sw": {
+            "type": "structure",
+            "members": {
+                "SortBy": {},
+                "SortOrder": {}
+            }
+        },
+        "S1e": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "Key",
+                    "Value"
+                ],
+                "members": {
+                    "Key": {},
+                    "Value": {}
+                }
+            }
+        },
+        "Sp": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "Name": {},
+                    "ValueList": {
+                        "type": "list",
+                        "member": {}
+                    }
+                }
+            }
+        },
+        "St": {
+            "type": "structure",
+            "members": {
+                "SortBy": {},
+                "SortOrder": {}
+            }
+        },
+        "Sj": {
+            "type": "structure",
+            "required": [
+                "Type"
+            ],
+            "members": {
+                "Type": {},
+                "Identifier": {}
+            }
+        },
+        "Sx": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "Name": {},
+                    "ValueList": {
+                        "type": "list",
+                        "member": {}
+                    }
+                }
+            }
+        },
+        "S12": {
+            "type": "structure",
+            "members": {
+                "SortBy": {},
+                "SortOrder": {}
+            }
+        },
+        "S1l": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "Key",
+                    "Value"
+                ],
+                "members": {
+                    "Key": {},
+                    "Value": {}
+                }
+            }
+        },
+        "Sf": {
+            "type": "structure",
+            "required": [
+                "Type"
+            ],
+            "members": {
+                "Type": {},
+                "Identifier": {}
+            }
+        },
+        "So": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "Name": {},
+                    "ValueList": {
+                        "type": "list",
+                        "member": {}
+                    }
+                }
+            }
+        },
+        "Ss": {
+            "type": "structure",
+            "members": {
+                "SortBy": {},
+                "SortOrder": {}
+            }
+        }
+    }
+}

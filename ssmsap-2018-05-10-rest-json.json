@@ -1,0 +1,966 @@
+{
+    "version": "2.0",
+    "metadata": {
+        "apiVersion": "2018-05-10",
+        "endpointPrefix": "ssm-sap",
+        "jsonVersion": "1.1",
+        "protocol": "rest-json",
+        "serviceAbbreviation": "ssmSAP",
+        "serviceFullName": "AWS Systems Manager for SAP",
+        "serviceId": "SsmSap",
+        "signatureVersion": "v4",
+        "signingName": "ssm-sap",
+        "uid": "ssmsap-2018-05-10",
+        "download_location": [
+            "https://c.d.cdn.console.awsstatic.com/a/v1/TOYQGGJ64Y36NNYTRPIH7P42AZKMUSJ5HPJKGL7NQNTB7RRK6VCQ/vendor-sdk.js"
+        ]
+    },
+    "operations": {
+        "BackupDatabase": {
+            "http": {
+                "requestUri": "/backup-database",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "DatabaseArn",
+                    "ControllerJobId",
+                    "SuggestedBackupType"
+                ],
+                "members": {
+                    "DatabaseArn": {},
+                    "ControllerJobId": {},
+                    "SuggestedBackupType": {},
+                    "PreviousBackupInformation": {
+                        "type": "structure",
+                        "required": [
+                            "LastDataBackupHANABackupId",
+                            "LastFullBackupHANABackupId",
+                            "HANABackupEncryptionAtLastBackup",
+                            "HANAVersionAtLastBackup"
+                        ],
+                        "members": {
+                            "LastDataBackupHANABackupId": {},
+                            "LastFullBackupHANABackupId": {},
+                            "HANABackupEncryptionAtLastBackup": {
+                                "type": "boolean"
+                            },
+                            "HANAVersionAtLastBackup": {}
+                        }
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "OperationId": {}
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://c.d.cdn.console.awsstatic.com/a/v1/TOYQGGJ64Y36NNYTRPIH7P42AZKMUSJ5HPJKGL7NQNTB7RRK6VCQ/vendor-sdk.js"
+            ]
+        },
+        "DeleteResourcePermission": {
+            "http": {
+                "requestUri": "/delete-resource-permission",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ResourceArn"
+                ],
+                "members": {
+                    "ActionType": {},
+                    "SourceResourceArn": {},
+                    "ResourceArn": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Policy": {}
+                }
+            },
+            "download_location": [
+                "https://c.d.cdn.console.awsstatic.com/a/v1/TOYQGGJ64Y36NNYTRPIH7P42AZKMUSJ5HPJKGL7NQNTB7RRK6VCQ/vendor-sdk.js"
+            ]
+        },
+        "DeregisterApplication": {
+            "http": {
+                "requestUri": "/deregister-application",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ApplicationId"
+                ],
+                "members": {
+                    "ApplicationId": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://c.d.cdn.console.awsstatic.com/a/v1/TOYQGGJ64Y36NNYTRPIH7P42AZKMUSJ5HPJKGL7NQNTB7RRK6VCQ/vendor-sdk.js"
+            ]
+        },
+        "GetApplication": {
+            "http": {
+                "requestUri": "/get-application",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "ApplicationId": {},
+                    "ApplicationArn": {},
+                    "AppRegistryArn": {
+                        "internalonly": true
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Application": {
+                        "shape": "Sm"
+                    },
+                    "Tags": {
+                        "shape": "Ss"
+                    }
+                }
+            },
+            "download_location": [
+                "https://c.d.cdn.console.awsstatic.com/a/v1/TOYQGGJ64Y36NNYTRPIH7P42AZKMUSJ5HPJKGL7NQNTB7RRK6VCQ/vendor-sdk.js"
+            ]
+        },
+        "GetComponent": {
+            "http": {
+                "requestUri": "/get-component",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ApplicationId",
+                    "ComponentId"
+                ],
+                "members": {
+                    "ApplicationId": {},
+                    "ComponentId": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Component": {
+                        "type": "structure",
+                        "members": {
+                            "ComponentId": {},
+                            "ApplicationId": {},
+                            "ComponentType": {},
+                            "Status": {},
+                            "Databases": {
+                                "type": "list",
+                                "member": {}
+                            },
+                            "Hosts": {
+                                "type": "list",
+                                "member": {
+                                    "type": "structure",
+                                    "members": {
+                                        "HostName": {},
+                                        "HostRole": {},
+                                        "HostIp": {},
+                                        "InstanceId": {}
+                                    }
+                                }
+                            },
+                            "PrimaryHost": {},
+                            "LastUpdated": {
+                                "type": "timestamp"
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://c.d.cdn.console.awsstatic.com/a/v1/TOYQGGJ64Y36NNYTRPIH7P42AZKMUSJ5HPJKGL7NQNTB7RRK6VCQ/vendor-sdk.js"
+            ]
+        },
+        "GetDatabase": {
+            "http": {
+                "requestUri": "/get-database",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "ApplicationId": {},
+                    "ComponentId": {},
+                    "DatabaseId": {},
+                    "DatabaseArn": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Database": {
+                        "type": "structure",
+                        "members": {
+                            "ApplicationId": {},
+                            "ComponentId": {},
+                            "Credentials": {
+                                "shape": "S18"
+                            },
+                            "DatabaseId": {},
+                            "DatabaseName": {},
+                            "DatabaseType": {},
+                            "Arn": {},
+                            "Status": {},
+                            "PrimaryHost": {},
+                            "SQLPort": {
+                                "type": "integer"
+                            },
+                            "LastUpdated": {
+                                "type": "timestamp"
+                            }
+                        }
+                    },
+                    "Tags": {
+                        "shape": "Ss"
+                    }
+                }
+            },
+            "download_location": [
+                "https://c.d.cdn.console.awsstatic.com/a/v1/TOYQGGJ64Y36NNYTRPIH7P42AZKMUSJ5HPJKGL7NQNTB7RRK6VCQ/vendor-sdk.js"
+            ]
+        },
+        "GetOperation": {
+            "http": {
+                "requestUri": "/get-operation",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "OperationId"
+                ],
+                "members": {
+                    "OperationId": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Operation": {
+                        "shape": "S1i"
+                    }
+                }
+            },
+            "download_location": [
+                "https://c.d.cdn.console.awsstatic.com/a/v1/TOYQGGJ64Y36NNYTRPIH7P42AZKMUSJ5HPJKGL7NQNTB7RRK6VCQ/vendor-sdk.js"
+            ]
+        },
+        "GetResourcePermission": {
+            "http": {
+                "requestUri": "/get-resource-permission",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ResourceArn"
+                ],
+                "members": {
+                    "ActionType": {},
+                    "ResourceArn": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Policy": {}
+                }
+            },
+            "download_location": [
+                "https://c.d.cdn.console.awsstatic.com/a/v1/TOYQGGJ64Y36NNYTRPIH7P42AZKMUSJ5HPJKGL7NQNTB7RRK6VCQ/vendor-sdk.js"
+            ]
+        },
+        "ListApplications": {
+            "http": {
+                "requestUri": "/list-applications",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "NextToken": {},
+                    "MaxResults": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Applications": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "Id": {},
+                                "Type": {},
+                                "Arn": {},
+                                "Tags": {
+                                    "shape": "Ss"
+                                }
+                            }
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "download_location": [
+                "https://c.d.cdn.console.awsstatic.com/a/v1/TOYQGGJ64Y36NNYTRPIH7P42AZKMUSJ5HPJKGL7NQNTB7RRK6VCQ/vendor-sdk.js"
+            ]
+        },
+        "ListComponents": {
+            "http": {
+                "requestUri": "/list-components",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "ApplicationId": {},
+                    "NextToken": {},
+                    "MaxResults": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Components": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "ApplicationId": {},
+                                "ComponentId": {},
+                                "ComponentType": {},
+                                "Tags": {
+                                    "shape": "Ss"
+                                }
+                            }
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "download_location": [
+                "https://c.d.cdn.console.awsstatic.com/a/v1/TOYQGGJ64Y36NNYTRPIH7P42AZKMUSJ5HPJKGL7NQNTB7RRK6VCQ/vendor-sdk.js"
+            ]
+        },
+        "ListDatabases": {
+            "http": {
+                "requestUri": "/list-databases",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "ApplicationId": {},
+                    "ComponentId": {},
+                    "NextToken": {},
+                    "MaxResults": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Databases": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "ApplicationId": {},
+                                "ComponentId": {},
+                                "DatabaseId": {},
+                                "DatabaseType": {},
+                                "Arn": {},
+                                "Tags": {
+                                    "shape": "Ss"
+                                }
+                            }
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "download_location": [
+                "https://c.d.cdn.console.awsstatic.com/a/v1/TOYQGGJ64Y36NNYTRPIH7P42AZKMUSJ5HPJKGL7NQNTB7RRK6VCQ/vendor-sdk.js"
+            ]
+        },
+        "ListOperations": {
+            "http": {
+                "requestUri": "/list-operations",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ApplicationId"
+                ],
+                "members": {
+                    "ApplicationId": {},
+                    "MaxResults": {
+                        "type": "integer"
+                    },
+                    "NextToken": {},
+                    "Filters": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "Name",
+                                "Value",
+                                "Operator"
+                            ],
+                            "members": {
+                                "Name": {},
+                                "Value": {},
+                                "Operator": {}
+                            }
+                        }
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Operations": {
+                        "type": "list",
+                        "member": {
+                            "shape": "S1i"
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://c.d.cdn.console.awsstatic.com/a/v1/TOYQGGJ64Y36NNYTRPIH7P42AZKMUSJ5HPJKGL7NQNTB7RRK6VCQ/vendor-sdk.js"
+            ]
+        },
+        "ListTagsForResource": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/tags/{resourceArn}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "resourceArn"
+                ],
+                "members": {
+                    "resourceArn": {
+                        "location": "uri",
+                        "locationName": "resourceArn"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "tags": {
+                        "shape": "Ss"
+                    }
+                }
+            },
+            "download_location": [
+                "https://c.d.cdn.console.awsstatic.com/a/v1/TOYQGGJ64Y36NNYTRPIH7P42AZKMUSJ5HPJKGL7NQNTB7RRK6VCQ/vendor-sdk.js"
+            ]
+        },
+        "LockServiceLinkedRole": {
+            "http": {
+                "requestUri": "/slr-deletion/lock",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "RoleArn",
+                    "Timeout"
+                ],
+                "members": {
+                    "RoleArn": {},
+                    "Timeout": {
+                        "type": "long"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "CanBeDeleted": {
+                        "type": "boolean"
+                    },
+                    "ReasonOfFailure": {},
+                    "RelatedResources": {
+                        "type": "list",
+                        "member": {}
+                    }
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://c.d.cdn.console.awsstatic.com/a/v1/TOYQGGJ64Y36NNYTRPIH7P42AZKMUSJ5HPJKGL7NQNTB7RRK6VCQ/vendor-sdk.js"
+            ]
+        },
+        "PutResourcePermission": {
+            "http": {
+                "requestUri": "/put-resource-permission",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ActionType",
+                    "SourceResourceArn",
+                    "ResourceArn"
+                ],
+                "members": {
+                    "ActionType": {},
+                    "SourceResourceArn": {},
+                    "ResourceArn": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Policy": {}
+                }
+            },
+            "download_location": [
+                "https://c.d.cdn.console.awsstatic.com/a/v1/TOYQGGJ64Y36NNYTRPIH7P42AZKMUSJ5HPJKGL7NQNTB7RRK6VCQ/vendor-sdk.js"
+            ]
+        },
+        "RegisterApplication": {
+            "http": {
+                "requestUri": "/register-application",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ApplicationId",
+                    "ApplicationType",
+                    "Instances",
+                    "Credentials"
+                ],
+                "members": {
+                    "ApplicationId": {},
+                    "ApplicationType": {},
+                    "Instances": {
+                        "type": "list",
+                        "member": {}
+                    },
+                    "SapInstanceNumber": {},
+                    "Sid": {},
+                    "Tags": {
+                        "shape": "Ss"
+                    },
+                    "Credentials": {
+                        "shape": "S18"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Application": {
+                        "shape": "Sm"
+                    },
+                    "OperationId": {}
+                }
+            },
+            "download_location": [
+                "https://c.d.cdn.console.awsstatic.com/a/v1/TOYQGGJ64Y36NNYTRPIH7P42AZKMUSJ5HPJKGL7NQNTB7RRK6VCQ/vendor-sdk.js"
+            ]
+        },
+        "RestoreDatabase": {
+            "http": {
+                "requestUri": "/restore-database",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "TargetDatabaseArn",
+                    "SourceDatabaseArn",
+                    "ControllerJobId",
+                    "StorageJobId",
+                    "FullDataBackupHANABackupId",
+                    "CatalogRestoreOption",
+                    "RecoveryType"
+                ],
+                "members": {
+                    "TargetDatabaseArn": {},
+                    "SourceDatabaseArn": {},
+                    "ControllerJobId": {},
+                    "StorageJobId": {},
+                    "FullDataBackupHANABackupId": {},
+                    "FullBackupNamePrefix": {},
+                    "LastBackupEndTime": {},
+                    "CatalogRestoreOption": {},
+                    "LocalCatalogPath": {},
+                    "LogBackupRestoreOption": {},
+                    "LocalLogBackupPaths": {
+                        "type": "list",
+                        "member": {}
+                    },
+                    "RecoveryType": {},
+                    "DatabaseInformation": {
+                        "type": "structure",
+                        "required": [
+                            "SystemDatabaseSID",
+                            "DatabaseName"
+                        ],
+                        "members": {
+                            "SystemDatabaseSID": {},
+                            "DatabaseName": {}
+                        }
+                    },
+                    "InitializeLogArea": {
+                        "type": "boolean"
+                    },
+                    "UseDeltaBackups": {
+                        "type": "boolean"
+                    },
+                    "RestoreTimestamp": {},
+                    "LogPosition": {
+                        "type": "structure",
+                        "required": [
+                            "Position",
+                            "Volume"
+                        ],
+                        "members": {
+                            "Position": {},
+                            "Volume": {}
+                        }
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "OperationId": {}
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://c.d.cdn.console.awsstatic.com/a/v1/TOYQGGJ64Y36NNYTRPIH7P42AZKMUSJ5HPJKGL7NQNTB7RRK6VCQ/vendor-sdk.js"
+            ]
+        },
+        "StartApplication": {
+            "http": {
+                "requestUri": "/start-application",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ApplicationId"
+                ],
+                "members": {
+                    "ApplicationId": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Application": {
+                        "shape": "Sm"
+                    },
+                    "OperationId": {}
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://c.d.cdn.console.awsstatic.com/a/v1/TOYQGGJ64Y36NNYTRPIH7P42AZKMUSJ5HPJKGL7NQNTB7RRK6VCQ/vendor-sdk.js"
+            ]
+        },
+        "StopApplication": {
+            "http": {
+                "requestUri": "/stop-application",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ApplicationId"
+                ],
+                "members": {
+                    "ApplicationId": {},
+                    "StopEc2Instances": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Application": {
+                        "shape": "Sm"
+                    },
+                    "OperationId": {}
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://c.d.cdn.console.awsstatic.com/a/v1/TOYQGGJ64Y36NNYTRPIH7P42AZKMUSJ5HPJKGL7NQNTB7RRK6VCQ/vendor-sdk.js"
+            ]
+        },
+        "TagResource": {
+            "http": {
+                "requestUri": "/tags/{resourceArn}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "resourceArn",
+                    "tags"
+                ],
+                "members": {
+                    "resourceArn": {
+                        "location": "uri",
+                        "locationName": "resourceArn"
+                    },
+                    "tags": {
+                        "shape": "Ss"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://c.d.cdn.console.awsstatic.com/a/v1/TOYQGGJ64Y36NNYTRPIH7P42AZKMUSJ5HPJKGL7NQNTB7RRK6VCQ/vendor-sdk.js"
+            ]
+        },
+        "UnlockServiceLinkedRole": {
+            "http": {
+                "requestUri": "/slr-deletion/unlock",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "RoleArn"
+                ],
+                "members": {
+                    "RoleArn": {},
+                    "DeletionStatus": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://c.d.cdn.console.awsstatic.com/a/v1/TOYQGGJ64Y36NNYTRPIH7P42AZKMUSJ5HPJKGL7NQNTB7RRK6VCQ/vendor-sdk.js"
+            ]
+        },
+        "UntagResource": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/tags/{resourceArn}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "resourceArn",
+                    "tagKeys"
+                ],
+                "members": {
+                    "resourceArn": {
+                        "location": "uri",
+                        "locationName": "resourceArn"
+                    },
+                    "tagKeys": {
+                        "location": "querystring",
+                        "locationName": "tagKeys",
+                        "type": "list",
+                        "member": {}
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://c.d.cdn.console.awsstatic.com/a/v1/TOYQGGJ64Y36NNYTRPIH7P42AZKMUSJ5HPJKGL7NQNTB7RRK6VCQ/vendor-sdk.js"
+            ]
+        },
+        "UpdateApplicationSettings": {
+            "http": {
+                "requestUri": "/update-application-settings",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ApplicationId"
+                ],
+                "members": {
+                    "ApplicationId": {},
+                    "CredentialsToAddOrUpdate": {
+                        "shape": "S18"
+                    },
+                    "CredentialsToRemove": {
+                        "shape": "S18"
+                    },
+                    "DataProvider": {
+                        "internalonly": true
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Message": {},
+                    "OperationIds": {
+                        "type": "list",
+                        "member": {}
+                    }
+                }
+            },
+            "download_location": [
+                "https://c.d.cdn.console.awsstatic.com/a/v1/TOYQGGJ64Y36NNYTRPIH7P42AZKMUSJ5HPJKGL7NQNTB7RRK6VCQ/vendor-sdk.js"
+            ]
+        },
+        "UpdateHANABackupSettings": {
+            "http": {
+                "requestUri": "/update-hana-backup-settings",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "DatabaseArn",
+                    "HANABackupSettings"
+                ],
+                "members": {
+                    "DatabaseArn": {},
+                    "HANABackupSettings": {
+                        "type": "structure",
+                        "members": {
+                            "EnableAutomaticLogBackups": {
+                                "type": "boolean"
+                            }
+                        }
+                    },
+                    "ControllerJobId": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "OperationId": {}
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://c.d.cdn.console.awsstatic.com/a/v1/TOYQGGJ64Y36NNYTRPIH7P42AZKMUSJ5HPJKGL7NQNTB7RRK6VCQ/vendor-sdk.js"
+            ]
+        }
+    },
+    "shapes": {
+        "Sm": {
+            "type": "structure",
+            "members": {
+                "Id": {},
+                "Type": {},
+                "Arn": {},
+                "AppRegistryArn": {},
+                "Status": {},
+                "Components": {
+                    "type": "list",
+                    "member": {}
+                },
+                "LastUpdated": {
+                    "type": "timestamp"
+                },
+                "StatusMessage": {}
+            }
+        },
+        "Ss": {
+            "type": "map",
+            "key": {},
+            "value": {}
+        },
+        "S18": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "DatabaseName",
+                    "CredentialType",
+                    "SecretId"
+                ],
+                "members": {
+                    "DatabaseName": {},
+                    "CredentialType": {},
+                    "SecretId": {
+                        "type": "string",
+                        "sensitive": true
+                    }
+                }
+            }
+        },
+        "S1i": {
+            "type": "structure",
+            "members": {
+                "Id": {},
+                "Type": {},
+                "Status": {},
+                "StatusMessage": {},
+                "Properties": {
+                    "type": "map",
+                    "key": {},
+                    "value": {}
+                },
+                "ResourceType": {},
+                "ResourceId": {},
+                "ResourceArn": {},
+                "StartTime": {
+                    "type": "timestamp"
+                },
+                "EndTime": {
+                    "type": "timestamp"
+                },
+                "LastUpdatedTime": {
+                    "type": "timestamp"
+                }
+            }
+        }
+    }
+}

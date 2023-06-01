@@ -1,0 +1,2052 @@
+{
+    "version": "2.0",
+    "metadata": {
+        "apiVersion": "2020-04-14",
+        "endpointPrefix": "ivs",
+        "jsonVersion": "1.1",
+        "protocol": "rest-json",
+        "serviceAbbreviation": "ivs",
+        "serviceFullName": "Amazon Interactive Video Service",
+        "serviceId": "ivs",
+        "signatureVersion": "v4",
+        "signingName": "ivs",
+        "uid": "ivs-2020-04-14",
+        "download_location": [
+            "https://a.b.cdn.console.awsstatic.com/a/v1/AYOBP4PFQH5VR32XMSES2T2E5NFJNBGQFU3P7AK64JYZ3NHAPQFQ/vendor.js"
+        ]
+    },
+    "operations": {
+        "BatchGetChannel": {
+            "http": {
+                "requestUri": "/BatchGetChannel",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "arns"
+                ],
+                "members": {
+                    "arns": {
+                        "type": "list",
+                        "member": {}
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "channels": {
+                        "type": "list",
+                        "member": {
+                            "shape": "S6"
+                        }
+                    },
+                    "errors": {
+                        "shape": "Sk"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/AYOBP4PFQH5VR32XMSES2T2E5NFJNBGQFU3P7AK64JYZ3NHAPQFQ/vendor.js"
+            ]
+        },
+        "BatchGetStreamKey": {
+            "http": {
+                "requestUri": "/BatchGetStreamKey",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "arns"
+                ],
+                "members": {
+                    "arns": {
+                        "type": "list",
+                        "member": {}
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "errors": {
+                        "shape": "Sk"
+                    },
+                    "streamKeys": {
+                        "type": "list",
+                        "member": {
+                            "shape": "Su"
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/AYOBP4PFQH5VR32XMSES2T2E5NFJNBGQFU3P7AK64JYZ3NHAPQFQ/vendor.js"
+            ]
+        },
+        "BatchRevokeSession": {
+            "http": {
+                "requestUri": "/BatchRevokeSession",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "sessions"
+                ],
+                "members": {
+                    "sessions": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "arn",
+                                "authSessionId"
+                            ],
+                            "members": {
+                                "arn": {},
+                                "authSessionId": {
+                                    "shape": "Sz"
+                                },
+                                "authSessionVersionLessThanOrEqualTo": {
+                                    "shape": "S10"
+                                }
+                            },
+                            "internalonly": true
+                        }
+                    }
+                },
+                "internalonly": true
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "errors": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "arn",
+                                "authSessionId"
+                            ],
+                            "members": {
+                                "arn": {},
+                                "authSessionId": {
+                                    "shape": "Sz"
+                                },
+                                "code": {},
+                                "message": {}
+                            },
+                            "internalonly": true
+                        }
+                    }
+                },
+                "internalonly": true
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/AYOBP4PFQH5VR32XMSES2T2E5NFJNBGQFU3P7AK64JYZ3NHAPQFQ/vendor.js"
+            ]
+        },
+        "CreateChannel": {
+            "http": {
+                "requestUri": "/CreateChannel",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "authorized": {
+                        "type": "boolean"
+                    },
+                    "createStreamKey": {
+                        "internalonly": true,
+                        "type": "boolean"
+                    },
+                    "insecureIngest": {
+                        "type": "boolean"
+                    },
+                    "latencyMode": {},
+                    "name": {},
+                    "preset": {
+                        "shape": "Sd",
+                        "internalonly": true
+                    },
+                    "recordingConfigurationArn": {},
+                    "recordingS3BucketName": {
+                        "shape": "Sf",
+                        "internalonly": true
+                    },
+                    "tags": {
+                        "shape": "Sg"
+                    },
+                    "type": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "channel": {
+                        "shape": "S6"
+                    },
+                    "streamKey": {
+                        "shape": "Su"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/AYOBP4PFQH5VR32XMSES2T2E5NFJNBGQFU3P7AK64JYZ3NHAPQFQ/vendor.js"
+            ]
+        },
+        "CreateParticipantToken": {
+            "http": {
+                "requestUri": "/CreateParticipantToken",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "stageArn"
+                ],
+                "members": {
+                    "attributes": {
+                        "shape": "S18"
+                    },
+                    "capabilities": {
+                        "shape": "S1a"
+                    },
+                    "duration": {
+                        "type": "integer"
+                    },
+                    "stageArn": {},
+                    "userId": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "participantToken": {
+                        "shape": "S1g"
+                    }
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/AYOBP4PFQH5VR32XMSES2T2E5NFJNBGQFU3P7AK64JYZ3NHAPQFQ/vendor.js"
+            ]
+        },
+        "CreateRecordingConfiguration": {
+            "http": {
+                "requestUri": "/CreateRecordingConfiguration",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "destinationConfiguration"
+                ],
+                "members": {
+                    "destinationConfiguration": {
+                        "shape": "S1l"
+                    },
+                    "name": {},
+                    "recordingReconnectWindowSeconds": {
+                        "type": "integer"
+                    },
+                    "renditionConfiguration": {
+                        "shape": "S1q",
+                        "internalonly": true
+                    },
+                    "tags": {
+                        "shape": "Sg"
+                    },
+                    "thumbnailConfiguration": {
+                        "shape": "S1u"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "recordingConfiguration": {
+                        "shape": "S21"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/AYOBP4PFQH5VR32XMSES2T2E5NFJNBGQFU3P7AK64JYZ3NHAPQFQ/vendor.js"
+            ]
+        },
+        "CreateStage": {
+            "http": {
+                "requestUri": "/CreateStage",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "name": {},
+                    "participants": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "attributes": {
+                                    "shape": "S18"
+                                },
+                                "capabilities": {
+                                    "shape": "S1a"
+                                },
+                                "duration": {
+                                    "type": "integer"
+                                },
+                                "userId": {}
+                            }
+                        }
+                    },
+                    "tags": {
+                        "shape": "Sg"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "participantTokens": {
+                        "shape": "S29"
+                    },
+                    "stage": {
+                        "shape": "S2a"
+                    }
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/AYOBP4PFQH5VR32XMSES2T2E5NFJNBGQFU3P7AK64JYZ3NHAPQFQ/vendor.js"
+            ]
+        },
+        "CreateStreamKey": {
+            "http": {
+                "requestUri": "/CreateStreamKey",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "channelArn"
+                ],
+                "members": {
+                    "channelArn": {},
+                    "tags": {
+                        "shape": "Sg"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "streamKey": {
+                        "shape": "Su"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/AYOBP4PFQH5VR32XMSES2T2E5NFJNBGQFU3P7AK64JYZ3NHAPQFQ/vendor.js"
+            ]
+        },
+        "DeleteChannel": {
+            "http": {
+                "requestUri": "/DeleteChannel",
+                "responseCode": 204
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "arn"
+                ],
+                "members": {
+                    "arn": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/AYOBP4PFQH5VR32XMSES2T2E5NFJNBGQFU3P7AK64JYZ3NHAPQFQ/vendor.js"
+            ]
+        },
+        "DeletePlaybackKeyPair": {
+            "http": {
+                "requestUri": "/DeletePlaybackKeyPair",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "arn"
+                ],
+                "members": {
+                    "arn": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/AYOBP4PFQH5VR32XMSES2T2E5NFJNBGQFU3P7AK64JYZ3NHAPQFQ/vendor.js"
+            ]
+        },
+        "DeleteRecordingConfiguration": {
+            "http": {
+                "requestUri": "/DeleteRecordingConfiguration",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "arn"
+                ],
+                "members": {
+                    "arn": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/AYOBP4PFQH5VR32XMSES2T2E5NFJNBGQFU3P7AK64JYZ3NHAPQFQ/vendor.js"
+            ]
+        },
+        "DeleteStage": {
+            "http": {
+                "requestUri": "/DeleteStage",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "arn"
+                ],
+                "members": {
+                    "arn": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/AYOBP4PFQH5VR32XMSES2T2E5NFJNBGQFU3P7AK64JYZ3NHAPQFQ/vendor.js"
+            ]
+        },
+        "DeleteStreamKey": {
+            "http": {
+                "requestUri": "/DeleteStreamKey",
+                "responseCode": 204
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "arn"
+                ],
+                "members": {
+                    "arn": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/AYOBP4PFQH5VR32XMSES2T2E5NFJNBGQFU3P7AK64JYZ3NHAPQFQ/vendor.js"
+            ]
+        },
+        "DisconnectParticipant": {
+            "http": {
+                "requestUri": "/DisconnectParticipant",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "participantId",
+                    "stageArn"
+                ],
+                "members": {
+                    "participantId": {},
+                    "reason": {},
+                    "stageArn": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/AYOBP4PFQH5VR32XMSES2T2E5NFJNBGQFU3P7AK64JYZ3NHAPQFQ/vendor.js"
+            ]
+        },
+        "GetChannel": {
+            "http": {
+                "requestUri": "/GetChannel",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "arn"
+                ],
+                "members": {
+                    "arn": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "channel": {
+                        "shape": "S6"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/AYOBP4PFQH5VR32XMSES2T2E5NFJNBGQFU3P7AK64JYZ3NHAPQFQ/vendor.js"
+            ]
+        },
+        "GetEgress": {
+            "http": {
+                "requestUri": "/GetEgress",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "arn"
+                ],
+                "members": {
+                    "arn": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "egress": {
+                        "shape": "S2u"
+                    }
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/AYOBP4PFQH5VR32XMSES2T2E5NFJNBGQFU3P7AK64JYZ3NHAPQFQ/vendor.js"
+            ]
+        },
+        "GetPlaybackKeyPair": {
+            "http": {
+                "requestUri": "/GetPlaybackKeyPair",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "arn"
+                ],
+                "members": {
+                    "arn": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "keyPair": {
+                        "shape": "S39"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/AYOBP4PFQH5VR32XMSES2T2E5NFJNBGQFU3P7AK64JYZ3NHAPQFQ/vendor.js"
+            ]
+        },
+        "GetRecordingConfiguration": {
+            "http": {
+                "requestUri": "/GetRecordingConfiguration",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "arn"
+                ],
+                "members": {
+                    "arn": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "recordingConfiguration": {
+                        "shape": "S21"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/AYOBP4PFQH5VR32XMSES2T2E5NFJNBGQFU3P7AK64JYZ3NHAPQFQ/vendor.js"
+            ]
+        },
+        "GetStage": {
+            "http": {
+                "requestUri": "/GetStage",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "arn"
+                ],
+                "members": {
+                    "arn": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "stage": {
+                        "shape": "S2a"
+                    }
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/AYOBP4PFQH5VR32XMSES2T2E5NFJNBGQFU3P7AK64JYZ3NHAPQFQ/vendor.js"
+            ]
+        },
+        "GetStream": {
+            "http": {
+                "requestUri": "/GetStream",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "channelArn"
+                ],
+                "members": {
+                    "channelArn": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "stream": {
+                        "type": "structure",
+                        "members": {
+                            "channelArn": {},
+                            "health": {},
+                            "playbackUrl": {},
+                            "startTime": {
+                                "shape": "S3k"
+                            },
+                            "state": {},
+                            "streamId": {},
+                            "viewerCount": {
+                                "type": "long"
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/AYOBP4PFQH5VR32XMSES2T2E5NFJNBGQFU3P7AK64JYZ3NHAPQFQ/vendor.js"
+            ]
+        },
+        "GetStreamKey": {
+            "http": {
+                "requestUri": "/GetStreamKey",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "arn"
+                ],
+                "members": {
+                    "arn": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "streamKey": {
+                        "shape": "Su"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/AYOBP4PFQH5VR32XMSES2T2E5NFJNBGQFU3P7AK64JYZ3NHAPQFQ/vendor.js"
+            ]
+        },
+        "GetStreamSession": {
+            "http": {
+                "requestUri": "/GetStreamSession",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "channelArn"
+                ],
+                "members": {
+                    "channelArn": {},
+                    "streamId": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "streamSession": {
+                        "type": "structure",
+                        "members": {
+                            "channel": {
+                                "shape": "S6"
+                            },
+                            "endTime": {
+                                "shape": "S34"
+                            },
+                            "ingestConfiguration": {
+                                "type": "structure",
+                                "members": {
+                                    "audio": {
+                                        "type": "structure",
+                                        "members": {
+                                            "channels": {
+                                                "type": "long"
+                                            },
+                                            "codec": {},
+                                            "sampleRate": {
+                                                "type": "long"
+                                            },
+                                            "targetBitrate": {
+                                                "type": "long"
+                                            }
+                                        }
+                                    },
+                                    "video": {
+                                        "type": "structure",
+                                        "members": {
+                                            "avcLevel": {},
+                                            "avcProfile": {},
+                                            "codec": {},
+                                            "encoder": {},
+                                            "targetBitrate": {
+                                                "type": "long"
+                                            },
+                                            "targetFramerate": {
+                                                "type": "long"
+                                            },
+                                            "videoHeight": {
+                                                "type": "long"
+                                            },
+                                            "videoWidth": {
+                                                "type": "long"
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            "recordingConfiguration": {
+                                "shape": "S21"
+                            },
+                            "startTime": {
+                                "shape": "S34"
+                            },
+                            "streamId": {},
+                            "truncatedEvents": {
+                                "type": "list",
+                                "member": {
+                                    "type": "structure",
+                                    "members": {
+                                        "eventTime": {
+                                            "shape": "S34"
+                                        },
+                                        "name": {},
+                                        "type": {}
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/AYOBP4PFQH5VR32XMSES2T2E5NFJNBGQFU3P7AK64JYZ3NHAPQFQ/vendor.js"
+            ]
+        },
+        "GetStreamSessionMetrics": {
+            "http": {
+                "requestUri": "/GetStreamSessionMetrics",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "channelArn",
+                    "streamId"
+                ],
+                "members": {
+                    "channelArn": {},
+                    "streamId": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "streamSessionMetrics"
+                ],
+                "members": {
+                    "streamSessionMetrics": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "data",
+                                "interval",
+                                "name",
+                                "startTime",
+                                "statistics"
+                            ],
+                            "members": {
+                                "data": {
+                                    "type": "list",
+                                    "member": {
+                                        "type": "structure",
+                                        "required": [
+                                            "statistic",
+                                            "values"
+                                        ],
+                                        "members": {
+                                            "statistic": {},
+                                            "values": {
+                                                "type": "list",
+                                                "member": {
+                                                    "type": "double"
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "interval": {
+                                    "type": "long"
+                                },
+                                "name": {},
+                                "startTime": {
+                                    "shape": "S34"
+                                },
+                                "statistics": {
+                                    "type": "structure",
+                                    "required": [
+                                        "average",
+                                        "maximum",
+                                        "minimum"
+                                    ],
+                                    "members": {
+                                        "average": {
+                                            "type": "double"
+                                        },
+                                        "maximum": {
+                                            "type": "double"
+                                        },
+                                        "minimum": {
+                                            "type": "double"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/AYOBP4PFQH5VR32XMSES2T2E5NFJNBGQFU3P7AK64JYZ3NHAPQFQ/vendor.js"
+            ]
+        },
+        "ImportPlaybackKeyPair": {
+            "http": {
+                "requestUri": "/ImportPlaybackKeyPair",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "publicKeyMaterial"
+                ],
+                "members": {
+                    "name": {},
+                    "publicKeyMaterial": {},
+                    "tags": {
+                        "shape": "Sg"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "keyPair": {
+                        "shape": "S39"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/AYOBP4PFQH5VR32XMSES2T2E5NFJNBGQFU3P7AK64JYZ3NHAPQFQ/vendor.js"
+            ]
+        },
+        "ListChannels": {
+            "http": {
+                "requestUri": "/ListChannels",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "filterByName": {},
+                    "filterByRecordingConfigurationArn": {},
+                    "maxResults": {
+                        "type": "integer"
+                    },
+                    "nextToken": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "channels"
+                ],
+                "members": {
+                    "channels": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "arn": {},
+                                "authorized": {
+                                    "type": "boolean"
+                                },
+                                "insecureIngest": {
+                                    "type": "boolean"
+                                },
+                                "latencyMode": {},
+                                "name": {},
+                                "preset": {
+                                    "shape": "Sd",
+                                    "internalonly": true
+                                },
+                                "recordingConfigurationArn": {},
+                                "tags": {
+                                    "shape": "Sg"
+                                },
+                                "type": {
+                                    "internalonly": true
+                                }
+                            }
+                        }
+                    },
+                    "nextToken": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/AYOBP4PFQH5VR32XMSES2T2E5NFJNBGQFU3P7AK64JYZ3NHAPQFQ/vendor.js"
+            ]
+        },
+        "ListEgresses": {
+            "http": {
+                "requestUri": "/ListEgresses",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "filterByStageArn": {},
+                    "maxResults": {
+                        "type": "integer"
+                    },
+                    "nextToken": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "egresses": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "arn",
+                                "stageArn"
+                            ],
+                            "members": {
+                                "arn": {},
+                                "stageArn": {},
+                                "state": {}
+                            }
+                        }
+                    },
+                    "nextToken": {}
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/AYOBP4PFQH5VR32XMSES2T2E5NFJNBGQFU3P7AK64JYZ3NHAPQFQ/vendor.js"
+            ]
+        },
+        "ListPlaybackKeyPairs": {
+            "http": {
+                "requestUri": "/ListPlaybackKeyPairs",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "maxResults": {
+                        "type": "integer"
+                    },
+                    "nextToken": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "keyPairs"
+                ],
+                "members": {
+                    "keyPairs": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "arn": {},
+                                "name": {},
+                                "tags": {
+                                    "shape": "Sg"
+                                }
+                            }
+                        }
+                    },
+                    "nextToken": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/AYOBP4PFQH5VR32XMSES2T2E5NFJNBGQFU3P7AK64JYZ3NHAPQFQ/vendor.js"
+            ]
+        },
+        "ListRecordingConfigurations": {
+            "http": {
+                "requestUri": "/ListRecordingConfigurations",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "maxResults": {
+                        "type": "integer"
+                    },
+                    "nextToken": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "recordingConfigurations"
+                ],
+                "members": {
+                    "nextToken": {},
+                    "recordingConfigurations": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "arn",
+                                "destinationConfiguration",
+                                "state"
+                            ],
+                            "members": {
+                                "arn": {},
+                                "destinationConfiguration": {
+                                    "shape": "S1l"
+                                },
+                                "name": {},
+                                "state": {},
+                                "tags": {
+                                    "shape": "Sg"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/AYOBP4PFQH5VR32XMSES2T2E5NFJNBGQFU3P7AK64JYZ3NHAPQFQ/vendor.js"
+            ]
+        },
+        "ListStages": {
+            "http": {
+                "requestUri": "/ListStages",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "maxResults": {
+                        "type": "integer"
+                    },
+                    "nextToken": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "nextToken": {},
+                    "stages": {
+                        "type": "list",
+                        "member": {
+                            "shape": "S2a"
+                        }
+                    }
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/AYOBP4PFQH5VR32XMSES2T2E5NFJNBGQFU3P7AK64JYZ3NHAPQFQ/vendor.js"
+            ]
+        },
+        "ListStreamKeys": {
+            "http": {
+                "requestUri": "/ListStreamKeys",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "channelArn"
+                ],
+                "members": {
+                    "channelArn": {},
+                    "maxResults": {
+                        "type": "integer"
+                    },
+                    "nextToken": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "streamKeys"
+                ],
+                "members": {
+                    "nextToken": {},
+                    "streamKeys": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "arn": {},
+                                "channelArn": {},
+                                "tags": {
+                                    "shape": "Sg"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/AYOBP4PFQH5VR32XMSES2T2E5NFJNBGQFU3P7AK64JYZ3NHAPQFQ/vendor.js"
+            ]
+        },
+        "ListStreamSessions": {
+            "http": {
+                "requestUri": "/ListStreamSessions",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "channelArn"
+                ],
+                "members": {
+                    "channelArn": {},
+                    "maxResults": {
+                        "type": "integer"
+                    },
+                    "nextToken": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "streamSessions"
+                ],
+                "members": {
+                    "nextToken": {},
+                    "streamSessions": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "endTime": {
+                                    "shape": "S34"
+                                },
+                                "hasErrorEvent": {
+                                    "type": "boolean"
+                                },
+                                "startTime": {
+                                    "shape": "S34"
+                                },
+                                "streamId": {}
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/AYOBP4PFQH5VR32XMSES2T2E5NFJNBGQFU3P7AK64JYZ3NHAPQFQ/vendor.js"
+            ]
+        },
+        "ListStreams": {
+            "http": {
+                "requestUri": "/ListStreams",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "filterBy": {
+                        "type": "structure",
+                        "members": {
+                            "health": {}
+                        }
+                    },
+                    "maxResults": {
+                        "type": "integer"
+                    },
+                    "nextToken": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "streams"
+                ],
+                "members": {
+                    "nextToken": {},
+                    "streams": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "channelArn": {},
+                                "health": {},
+                                "startTime": {
+                                    "shape": "S3k"
+                                },
+                                "state": {},
+                                "streamId": {},
+                                "viewerCount": {
+                                    "type": "long"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/AYOBP4PFQH5VR32XMSES2T2E5NFJNBGQFU3P7AK64JYZ3NHAPQFQ/vendor.js"
+            ]
+        },
+        "ListTagsForResource": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/tags/{resourceArn}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "resourceArn"
+                ],
+                "members": {
+                    "resourceArn": {
+                        "location": "uri",
+                        "locationName": "resourceArn"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "tags"
+                ],
+                "members": {
+                    "tags": {
+                        "shape": "Sg"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/AYOBP4PFQH5VR32XMSES2T2E5NFJNBGQFU3P7AK64JYZ3NHAPQFQ/vendor.js"
+            ]
+        },
+        "LockServiceLinkedRole": {
+            "http": {
+                "requestUri": "/slr-deletion/lock",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "RoleArn",
+                    "Timeout"
+                ],
+                "members": {
+                    "RoleArn": {},
+                    "Timeout": {
+                        "type": "long"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "CanBeDeleted"
+                ],
+                "members": {
+                    "CanBeDeleted": {
+                        "type": "boolean"
+                    },
+                    "ReasonOfFailure": {},
+                    "RelatedResources": {
+                        "type": "list",
+                        "member": {}
+                    }
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/AYOBP4PFQH5VR32XMSES2T2E5NFJNBGQFU3P7AK64JYZ3NHAPQFQ/vendor.js"
+            ]
+        },
+        "PutMetadata": {
+            "http": {
+                "requestUri": "/PutMetadata",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "channelArn",
+                    "metadata"
+                ],
+                "members": {
+                    "channelArn": {},
+                    "metadata": {
+                        "type": "string",
+                        "sensitive": true
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/AYOBP4PFQH5VR32XMSES2T2E5NFJNBGQFU3P7AK64JYZ3NHAPQFQ/vendor.js"
+            ]
+        },
+        "ResetStreamKey": {
+            "http": {
+                "requestUri": "/ResetStreamKey",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "arn"
+                ],
+                "members": {
+                    "arn": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "streamKey": {
+                        "shape": "Su"
+                    }
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/AYOBP4PFQH5VR32XMSES2T2E5NFJNBGQFU3P7AK64JYZ3NHAPQFQ/vendor.js"
+            ]
+        },
+        "RevokeSession": {
+            "http": {
+                "requestUri": "/RevokeSession",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "arn",
+                    "authSessionId"
+                ],
+                "members": {
+                    "arn": {},
+                    "authSessionId": {
+                        "shape": "Sz"
+                    },
+                    "authSessionVersionLessThanOrEqualTo": {
+                        "shape": "S10"
+                    }
+                },
+                "internalonly": true
+            },
+            "output": {
+                "type": "structure",
+                "members": {},
+                "internalonly": true
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/AYOBP4PFQH5VR32XMSES2T2E5NFJNBGQFU3P7AK64JYZ3NHAPQFQ/vendor.js"
+            ]
+        },
+        "StartEgress": {
+            "http": {
+                "requestUri": "/StartEgress",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "outputs",
+                    "stageArn"
+                ],
+                "members": {
+                    "clientToken": {
+                        "idempotencyToken": true
+                    },
+                    "compositionConfiguration": {
+                        "shape": "S2v"
+                    },
+                    "outputs": {
+                        "type": "list",
+                        "member": {
+                            "shape": "S31"
+                        }
+                    },
+                    "stageArn": {},
+                    "tags": {
+                        "shape": "Sg"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "egress": {
+                        "shape": "S2u"
+                    }
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/AYOBP4PFQH5VR32XMSES2T2E5NFJNBGQFU3P7AK64JYZ3NHAPQFQ/vendor.js"
+            ]
+        },
+        "StopEgress": {
+            "http": {
+                "requestUri": "/StopEgress",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "arn"
+                ],
+                "members": {
+                    "arn": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/AYOBP4PFQH5VR32XMSES2T2E5NFJNBGQFU3P7AK64JYZ3NHAPQFQ/vendor.js"
+            ]
+        },
+        "StopStream": {
+            "http": {
+                "requestUri": "/StopStream",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "channelArn"
+                ],
+                "members": {
+                    "channelArn": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/AYOBP4PFQH5VR32XMSES2T2E5NFJNBGQFU3P7AK64JYZ3NHAPQFQ/vendor.js"
+            ]
+        },
+        "TagResource": {
+            "http": {
+                "requestUri": "/tags/{resourceArn}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "resourceArn",
+                    "tags"
+                ],
+                "members": {
+                    "resourceArn": {
+                        "location": "uri",
+                        "locationName": "resourceArn"
+                    },
+                    "tags": {
+                        "shape": "Sg"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/AYOBP4PFQH5VR32XMSES2T2E5NFJNBGQFU3P7AK64JYZ3NHAPQFQ/vendor.js"
+            ]
+        },
+        "UnlockServiceLinkedRole": {
+            "http": {
+                "requestUri": "/slr-deletion/unlock",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "RoleArn"
+                ],
+                "members": {
+                    "DeletionStatus": {},
+                    "RoleArn": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/AYOBP4PFQH5VR32XMSES2T2E5NFJNBGQFU3P7AK64JYZ3NHAPQFQ/vendor.js"
+            ]
+        },
+        "UntagResource": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/tags/{resourceArn}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "resourceArn",
+                    "tagKeys"
+                ],
+                "members": {
+                    "resourceArn": {
+                        "location": "uri",
+                        "locationName": "resourceArn"
+                    },
+                    "tagKeys": {
+                        "location": "querystring",
+                        "locationName": "tagKeys",
+                        "type": "list",
+                        "member": {}
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/AYOBP4PFQH5VR32XMSES2T2E5NFJNBGQFU3P7AK64JYZ3NHAPQFQ/vendor.js"
+            ]
+        },
+        "UpdateChannel": {
+            "http": {
+                "requestUri": "/UpdateChannel",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "arn"
+                ],
+                "members": {
+                    "arn": {},
+                    "authorized": {
+                        "type": "boolean"
+                    },
+                    "insecureIngest": {
+                        "type": "boolean"
+                    },
+                    "latencyMode": {},
+                    "name": {},
+                    "preset": {
+                        "shape": "Sd",
+                        "internalonly": true
+                    },
+                    "recordingConfigurationArn": {},
+                    "recordingS3BucketName": {
+                        "shape": "Sf",
+                        "internalonly": true
+                    },
+                    "type": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "channel": {
+                        "shape": "S6"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/AYOBP4PFQH5VR32XMSES2T2E5NFJNBGQFU3P7AK64JYZ3NHAPQFQ/vendor.js"
+            ]
+        },
+        "UpdateStage": {
+            "http": {
+                "requestUri": "/UpdateStage",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "arn"
+                ],
+                "members": {
+                    "arn": {},
+                    "name": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "stage": {
+                        "shape": "S2a"
+                    }
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/AYOBP4PFQH5VR32XMSES2T2E5NFJNBGQFU3P7AK64JYZ3NHAPQFQ/vendor.js"
+            ]
+        }
+    },
+    "shapes": {
+        "S6": {
+            "type": "structure",
+            "members": {
+                "arn": {},
+                "authorized": {
+                    "type": "boolean"
+                },
+                "ingestEndpoint": {},
+                "insecureIngest": {
+                    "type": "boolean"
+                },
+                "latencyMode": {},
+                "name": {},
+                "playbackUrl": {},
+                "preset": {
+                    "shape": "Sd",
+                    "internalonly": true
+                },
+                "recordingConfigurationArn": {},
+                "recordingS3BucketName": {
+                    "shape": "Sf",
+                    "internalonly": true
+                },
+                "tags": {
+                    "shape": "Sg"
+                },
+                "type": {}
+            }
+        },
+        "Sd": {
+            "type": "string",
+            "internalonly": true
+        },
+        "Sf": {
+            "type": "string",
+            "internalonly": true
+        },
+        "Sg": {
+            "type": "map",
+            "key": {},
+            "value": {}
+        },
+        "Sk": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "arn": {},
+                    "code": {},
+                    "message": {}
+                }
+            }
+        },
+        "Su": {
+            "type": "structure",
+            "members": {
+                "arn": {},
+                "channelArn": {},
+                "tags": {
+                    "shape": "Sg"
+                },
+                "value": {
+                    "type": "string",
+                    "sensitive": true
+                }
+            }
+        },
+        "Sz": {
+            "type": "string",
+            "internalonly": true
+        },
+        "S10": {
+            "type": "integer",
+            "internalonly": true
+        },
+        "S18": {
+            "type": "map",
+            "key": {},
+            "value": {}
+        },
+        "S1a": {
+            "type": "list",
+            "member": {}
+        },
+        "S1g": {
+            "type": "structure",
+            "members": {
+                "attributes": {
+                    "shape": "S18"
+                },
+                "capabilities": {
+                    "shape": "S1a"
+                },
+                "duration": {
+                    "type": "integer"
+                },
+                "expirationTime": {
+                    "type": "timestamp"
+                },
+                "participantId": {},
+                "token": {},
+                "userId": {}
+            }
+        },
+        "S1l": {
+            "type": "structure",
+            "members": {
+                "s3": {
+                    "type": "structure",
+                    "required": [
+                        "bucketName"
+                    ],
+                    "members": {
+                        "bucketName": {}
+                    }
+                }
+            }
+        },
+        "S1q": {
+            "type": "structure",
+            "required": [
+                "renditionSelection"
+            ],
+            "members": {
+                "renditionSelection": {},
+                "renditions": {
+                    "type": "list",
+                    "member": {}
+                }
+            }
+        },
+        "S1u": {
+            "type": "structure",
+            "members": {
+                "recordingMode": {},
+                "resolution": {
+                    "internalonly": true
+                },
+                "storage": {
+                    "internalonly": true,
+                    "type": "list",
+                    "member": {}
+                },
+                "targetIntervalSeconds": {
+                    "type": "long"
+                }
+            }
+        },
+        "S21": {
+            "type": "structure",
+            "required": [
+                "arn",
+                "destinationConfiguration",
+                "state"
+            ],
+            "members": {
+                "arn": {},
+                "destinationConfiguration": {
+                    "shape": "S1l"
+                },
+                "name": {},
+                "recordingReconnectWindowSeconds": {
+                    "type": "integer"
+                },
+                "renditionConfiguration": {
+                    "shape": "S1q",
+                    "internalonly": true
+                },
+                "state": {},
+                "tags": {
+                    "shape": "Sg"
+                },
+                "thumbnailConfiguration": {
+                    "shape": "S1u"
+                }
+            }
+        },
+        "S29": {
+            "type": "list",
+            "member": {
+                "shape": "S1g"
+            }
+        },
+        "S2a": {
+            "type": "structure",
+            "required": [
+                "activeParticipants"
+            ],
+            "members": {
+                "activeParticipants": {
+                    "shape": "S29"
+                },
+                "activeSessionId": {
+                    "internalonly": true
+                },
+                "arn": {},
+                "name": {},
+                "tags": {
+                    "shape": "Sg"
+                }
+            }
+        },
+        "S2u": {
+            "type": "structure",
+            "required": [
+                "arn",
+                "outputs",
+                "stageArn"
+            ],
+            "members": {
+                "arn": {},
+                "compositionConfiguration": {
+                    "shape": "S2v"
+                },
+                "outputs": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "required": [
+                            "id",
+                            "outputConfiguration"
+                        ],
+                        "members": {
+                            "id": {},
+                            "outputConfiguration": {
+                                "shape": "S31"
+                            },
+                            "startTime": {
+                                "shape": "S34"
+                            },
+                            "state": {}
+                        }
+                    }
+                },
+                "stageArn": {},
+                "state": {}
+            }
+        },
+        "S2v": {
+            "type": "structure",
+            "members": {
+                "videoCompositionConfiguration": {
+                    "type": "structure",
+                    "members": {
+                        "videoHeight": {
+                            "type": "integer"
+                        },
+                        "videoWidth": {
+                            "type": "integer"
+                        }
+                    }
+                }
+            }
+        },
+        "S31": {
+            "type": "structure",
+            "required": [
+                "channel"
+            ],
+            "members": {
+                "channel": {
+                    "type": "structure",
+                    "required": [
+                        "channelArn"
+                    ],
+                    "members": {
+                        "channelArn": {},
+                        "name": {}
+                    }
+                }
+            }
+        },
+        "S34": {
+            "type": "timestamp",
+            "timestampFormat": "iso8601"
+        },
+        "S39": {
+            "type": "structure",
+            "members": {
+                "arn": {},
+                "fingerprint": {},
+                "name": {},
+                "tags": {
+                    "shape": "Sg"
+                }
+            }
+        },
+        "S3k": {
+            "type": "timestamp",
+            "timestampFormat": "iso8601"
+        },
+        "Sa": {
+            "type": "string",
+            "internalonly": true
+        },
+        "Sc": {
+            "type": "string",
+            "internalonly": true
+        },
+        "S1b": {
+            "type": "map",
+            "key": {},
+            "value": {}
+        },
+        "S1d": {
+            "type": "list",
+            "member": {}
+        },
+        "S1m": {
+            "type": "structure",
+            "members": {
+                "s3": {
+                    "type": "structure",
+                    "required": [
+                        "bucketName"
+                    ],
+                    "members": {
+                        "bucketName": {}
+                    }
+                }
+            }
+        },
+        "S1p": {
+            "type": "structure",
+            "members": {
+                "recordingMode": {},
+                "targetIntervalSeconds": {
+                    "type": "long"
+                },
+                "resolution": {
+                    "internalonly": true
+                },
+                "storage": {
+                    "internalonly": true,
+                    "type": "list",
+                    "member": {}
+                }
+            }
+        },
+        "S1w": {
+            "type": "structure",
+            "required": [
+                "renditionSelection"
+            ],
+            "members": {
+                "renditionSelection": {},
+                "renditions": {
+                    "type": "list",
+                    "member": {}
+                }
+            }
+        },
+        "S2z": {
+            "type": "timestamp",
+            "timestampFormat": "iso8601"
+        },
+        "S30": {
+            "type": "structure",
+            "required": [
+                "channel"
+            ],
+            "members": {
+                "channel": {
+                    "type": "structure",
+                    "required": [
+                        "channelArn"
+                    ],
+                    "members": {
+                        "name": {},
+                        "channelArn": {}
+                    }
+                }
+            }
+        },
+        "S33": {
+            "type": "structure",
+            "members": {
+                "videoCompositionConfiguration": {
+                    "type": "structure",
+                    "members": {
+                        "videoWidth": {
+                            "type": "integer"
+                        },
+                        "videoHeight": {
+                            "type": "integer"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

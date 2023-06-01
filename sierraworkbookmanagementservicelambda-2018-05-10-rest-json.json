@@ -1,0 +1,777 @@
+{
+    "version": "2.0",
+    "metadata": {
+        "apiVersion": "2018-05-10",
+        "endpointPrefix": "sierraworkbookmanagementservicelambda",
+        "jsonVersion": "1.1",
+        "protocol": "rest-json",
+        "ripServiceName": "scn",
+        "serviceFullName": "WorkbookManagementService",
+        "serviceId": "SierraWorkbookManagementServiceLambda",
+        "signatureVersion": "v4",
+        "signingName": "scn",
+        "uid": "sierraworkbookmanagementservicelambda-2018-05-10",
+        "download_location": [
+            "https://a.b.cdn.console.awsstatic.com/a/v1/TKHP6TGZH23RVCUZZP2OJ2PJJUFTMSQ666SII2V522LCUK4NBNXQ/vendors~4134d62c.js"
+        ]
+    },
+    "operations": {
+        "AssociateDatasetWithWorkbook": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/workbooks/{workbookId}/associateDataset",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "datasetId",
+                    "instanceId",
+                    "workbookId"
+                ],
+                "members": {
+                    "clientToken": {
+                        "idempotencyToken": true
+                    },
+                    "datasetId": {},
+                    "instanceId": {},
+                    "workbookId": {
+                        "location": "uri",
+                        "locationName": "workbookId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/TKHP6TGZH23RVCUZZP2OJ2PJJUFTMSQ666SII2V522LCUK4NBNXQ/vendors~4134d62c.js"
+            ]
+        },
+        "AssociatePlanningCycle": {
+            "http": {
+                "requestUri": "/workbooks/{workbookId}/planningCycles",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "config",
+                    "instanceId",
+                    "workbookId"
+                ],
+                "members": {
+                    "config": {
+                        "type": "structure",
+                        "required": [
+                            "associatingResource",
+                            "planningEndTime",
+                            "planningStartTime"
+                        ],
+                        "members": {
+                            "associatingResource": {
+                                "shape": "S7"
+                            },
+                            "planningEndTime": {
+                                "shape": "Sa"
+                            },
+                            "planningStartTime": {
+                                "shape": "Sa"
+                            },
+                            "status": {}
+                        }
+                    },
+                    "instanceId": {},
+                    "workbookId": {
+                        "location": "uri",
+                        "locationName": "workbookId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "planningCycle": {
+                        "shape": "Sd"
+                    }
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/TKHP6TGZH23RVCUZZP2OJ2PJJUFTMSQ666SII2V522LCUK4NBNXQ/vendors~4134d62c.js"
+            ]
+        },
+        "CreateWorkbook": {
+            "http": {
+                "requestUri": "/workbooks",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "instanceId",
+                    "workbookConfig"
+                ],
+                "members": {
+                    "instanceId": {},
+                    "workbookConfig": {
+                        "type": "structure",
+                        "required": [
+                            "name"
+                        ],
+                        "members": {
+                            "detail": {
+                                "shape": "Sh",
+                                "deprecated": true,
+                                "deprecatedMessage": "This input parameter is no longer used. Please use workbookDescription parameter to provide a description."
+                            },
+                            "name": {},
+                            "workbookDescription": {}
+                        }
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "workbook": {
+                        "shape": "Sl"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/TKHP6TGZH23RVCUZZP2OJ2PJJUFTMSQ666SII2V522LCUK4NBNXQ/vendors~4134d62c.js"
+            ]
+        },
+        "DeleteWorkbook": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/workbooks/{workbookId}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "instanceId",
+                    "workbookId"
+                ],
+                "members": {
+                    "instanceId": {
+                        "location": "querystring",
+                        "locationName": "instanceId"
+                    },
+                    "workbookId": {
+                        "location": "uri",
+                        "locationName": "workbookId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "workbookArn": {}
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/TKHP6TGZH23RVCUZZP2OJ2PJJUFTMSQ666SII2V522LCUK4NBNXQ/vendors~4134d62c.js"
+            ]
+        },
+        "DescribePlanningCycle": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/workbooks/{workbookId}/planningCycles/{planningCycleId}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "instanceId",
+                    "planningCycleId",
+                    "workbookId"
+                ],
+                "members": {
+                    "instanceId": {
+                        "location": "querystring",
+                        "locationName": "instanceId"
+                    },
+                    "planningCycleId": {
+                        "location": "uri",
+                        "locationName": "planningCycleId"
+                    },
+                    "workbookId": {
+                        "location": "uri",
+                        "locationName": "workbookId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "planningCycle": {
+                        "shape": "Sd"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/TKHP6TGZH23RVCUZZP2OJ2PJJUFTMSQ666SII2V522LCUK4NBNXQ/vendors~4134d62c.js"
+            ]
+        },
+        "DescribeWorkbook": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/workbooks/{workbookId}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "instanceId",
+                    "workbookId"
+                ],
+                "members": {
+                    "instanceId": {
+                        "location": "querystring",
+                        "locationName": "instanceId"
+                    },
+                    "workbookId": {
+                        "location": "uri",
+                        "locationName": "workbookId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "workbook": {
+                        "shape": "Sl"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/TKHP6TGZH23RVCUZZP2OJ2PJJUFTMSQ666SII2V522LCUK4NBNXQ/vendors~4134d62c.js"
+            ]
+        },
+        "DisassociatePlanningCycle": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/workbooks/{workbookId}/planningCycles/{planningCycleId}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "instanceId",
+                    "planningCycleId",
+                    "workbookId"
+                ],
+                "members": {
+                    "instanceId": {
+                        "location": "querystring",
+                        "locationName": "instanceId"
+                    },
+                    "planningCycleId": {
+                        "location": "uri",
+                        "locationName": "planningCycleId"
+                    },
+                    "workbookId": {
+                        "location": "uri",
+                        "locationName": "workbookId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "planningCycleArn": {}
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/TKHP6TGZH23RVCUZZP2OJ2PJJUFTMSQ666SII2V522LCUK4NBNXQ/vendors~4134d62c.js"
+            ]
+        },
+        "GetWorkbookAuthorizationPolicy": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/workbooks/{workbookId}/authorization-policy",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "instanceId",
+                    "workbookId"
+                ],
+                "members": {
+                    "instanceId": {
+                        "location": "querystring",
+                        "locationName": "instanceId"
+                    },
+                    "workbookId": {
+                        "location": "uri",
+                        "locationName": "workbookId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "workbookPolicy": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/TKHP6TGZH23RVCUZZP2OJ2PJJUFTMSQ666SII2V522LCUK4NBNXQ/vendors~4134d62c.js"
+            ]
+        },
+        "ListPlanningCycles": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/workbooks/{workbookId}/planningCycles",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "instanceId",
+                    "workbookId"
+                ],
+                "members": {
+                    "instanceId": {
+                        "location": "querystring",
+                        "locationName": "instanceId"
+                    },
+                    "maxResults": {
+                        "location": "querystring",
+                        "locationName": "maxResults",
+                        "type": "integer"
+                    },
+                    "nextToken": {
+                        "location": "querystring",
+                        "locationName": "nextToken"
+                    },
+                    "sort": {
+                        "location": "querystring",
+                        "locationName": "sort"
+                    },
+                    "status": {
+                        "location": "querystring",
+                        "locationName": "status"
+                    },
+                    "type": {
+                        "location": "querystring",
+                        "locationName": "type"
+                    },
+                    "workbookId": {
+                        "location": "uri",
+                        "locationName": "workbookId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "maxResults": {
+                        "type": "integer"
+                    },
+                    "nextToken": {},
+                    "planningCycles": {
+                        "type": "list",
+                        "member": {
+                            "shape": "Sd"
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/TKHP6TGZH23RVCUZZP2OJ2PJJUFTMSQ666SII2V522LCUK4NBNXQ/vendors~4134d62c.js"
+            ]
+        },
+        "ListWorkbookPermissions": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/workbooks/{workbookId}/permissions",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "instanceId",
+                    "workbookId"
+                ],
+                "members": {
+                    "instanceId": {
+                        "location": "querystring",
+                        "locationName": "instanceId"
+                    },
+                    "workbookId": {
+                        "location": "uri",
+                        "locationName": "workbookId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "permissions": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "principal",
+                                "principalName",
+                                "role"
+                            ],
+                            "members": {
+                                "principal": {
+                                    "shape": "S16"
+                                },
+                                "principalEmail": {},
+                                "principalName": {},
+                                "role": {}
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/TKHP6TGZH23RVCUZZP2OJ2PJJUFTMSQ666SII2V522LCUK4NBNXQ/vendors~4134d62c.js"
+            ]
+        },
+        "ListWorkbooks": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/workbooks",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "instanceId"
+                ],
+                "members": {
+                    "instanceId": {
+                        "location": "querystring",
+                        "locationName": "instanceId"
+                    },
+                    "maxResults": {
+                        "location": "querystring",
+                        "locationName": "maxResults",
+                        "type": "integer"
+                    },
+                    "name": {
+                        "location": "querystring",
+                        "locationName": "name"
+                    },
+                    "nextToken": {
+                        "location": "querystring",
+                        "locationName": "nextToken"
+                    },
+                    "sort": {
+                        "location": "querystring",
+                        "locationName": "sort"
+                    },
+                    "userId": {
+                        "location": "querystring",
+                        "locationName": "userId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "maxResults": {
+                        "type": "integer"
+                    },
+                    "nextToken": {},
+                    "workbooks": {
+                        "type": "list",
+                        "member": {
+                            "shape": "Sl"
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/TKHP6TGZH23RVCUZZP2OJ2PJJUFTMSQ666SII2V522LCUK4NBNXQ/vendors~4134d62c.js"
+            ]
+        },
+        "RevokeAccessFromWorkbook": {
+            "http": {
+                "requestUri": "/workbooks/{workbookId}/revoke-access",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "instanceId",
+                    "principal",
+                    "workbookId"
+                ],
+                "members": {
+                    "instanceId": {},
+                    "principal": {
+                        "shape": "S16"
+                    },
+                    "workbookId": {
+                        "location": "uri",
+                        "locationName": "workbookId"
+                    }
+                }
+            },
+            "output": {
+                "shape": "S1d"
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/TKHP6TGZH23RVCUZZP2OJ2PJJUFTMSQ666SII2V522LCUK4NBNXQ/vendors~4134d62c.js"
+            ]
+        },
+        "ShareWorkbook": {
+            "http": {
+                "requestUri": "/workbooks/{workbookId}/share",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "instanceId",
+                    "principal",
+                    "role",
+                    "workbookId"
+                ],
+                "members": {
+                    "instanceId": {},
+                    "principal": {
+                        "shape": "S16"
+                    },
+                    "role": {},
+                    "workbookId": {
+                        "location": "uri",
+                        "locationName": "workbookId"
+                    }
+                }
+            },
+            "output": {
+                "shape": "S1d"
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/TKHP6TGZH23RVCUZZP2OJ2PJJUFTMSQ666SII2V522LCUK4NBNXQ/vendors~4134d62c.js"
+            ]
+        },
+        "UpdatePlanningCycle": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/workbooks/{workbookId}/planningCycles/{planningCycleId}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "config",
+                    "instanceId",
+                    "planningCycleId",
+                    "workbookId"
+                ],
+                "members": {
+                    "config": {
+                        "type": "structure",
+                        "required": [
+                            "status"
+                        ],
+                        "members": {
+                            "publishedBy": {},
+                            "status": {},
+                            "updatedBy": {}
+                        }
+                    },
+                    "instanceId": {},
+                    "planningCycleId": {
+                        "location": "uri",
+                        "locationName": "planningCycleId"
+                    },
+                    "workbookId": {
+                        "location": "uri",
+                        "locationName": "workbookId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "planningCycle": {
+                        "shape": "Sd"
+                    }
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/TKHP6TGZH23RVCUZZP2OJ2PJJUFTMSQ666SII2V522LCUK4NBNXQ/vendors~4134d62c.js"
+            ]
+        },
+        "UpdateWorkbook": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/workbooks/{workbookId}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "instanceId",
+                    "workbookConfig",
+                    "workbookId"
+                ],
+                "members": {
+                    "instanceId": {},
+                    "workbookConfig": {
+                        "type": "structure",
+                        "members": {
+                            "detail": {
+                                "shape": "Sh",
+                                "deprecated": true,
+                                "deprecatedMessage": "This input parameter is no longer used. Please use workbookDescription parameter to provide a description."
+                            },
+                            "name": {},
+                            "workbookDescription": {}
+                        }
+                    },
+                    "workbookId": {
+                        "location": "uri",
+                        "locationName": "workbookId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "workbook": {
+                        "shape": "Sl"
+                    }
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/TKHP6TGZH23RVCUZZP2OJ2PJJUFTMSQ666SII2V522LCUK4NBNXQ/vendors~4134d62c.js"
+            ]
+        }
+    },
+    "shapes": {
+        "S7": {
+            "type": "structure",
+            "required": [
+                "id",
+                "type"
+            ],
+            "members": {
+                "id": {},
+                "type": {}
+            }
+        },
+        "Sa": {
+            "type": "timestamp",
+            "timestampFormat": "iso8601"
+        },
+        "Sd": {
+            "type": "structure",
+            "required": [
+                "arn",
+                "associatedResource",
+                "createdTime",
+                "id",
+                "instanceId",
+                "planningEndTime",
+                "planningStartTime",
+                "status",
+                "updatedTime",
+                "workbookId"
+            ],
+            "members": {
+                "arn": {},
+                "associatedResource": {
+                    "shape": "S7"
+                },
+                "createdTime": {
+                    "shape": "Sa"
+                },
+                "id": {},
+                "instanceId": {},
+                "planningEndTime": {
+                    "shape": "Sa"
+                },
+                "planningStartTime": {
+                    "shape": "Sa"
+                },
+                "publishedBy": {},
+                "publishedTime": {
+                    "shape": "Sa"
+                },
+                "status": {},
+                "updatedTime": {
+                    "shape": "Sa"
+                },
+                "workbookId": {}
+            }
+        },
+        "Sh": {
+            "type": "structure",
+            "members": {
+                "workbookCreator": {},
+                "workbookDescription": {}
+            }
+        },
+        "Sl": {
+            "type": "structure",
+            "required": [
+                "arn",
+                "createdTime",
+                "id",
+                "instanceId",
+                "name",
+                "updatedTime"
+            ],
+            "members": {
+                "arn": {},
+                "createdTime": {
+                    "shape": "Sa"
+                },
+                "datasets": {
+                    "type": "list",
+                    "member": {}
+                },
+                "detail": {
+                    "shape": "Sh"
+                },
+                "id": {},
+                "instanceId": {},
+                "name": {},
+                "updatedTime": {
+                    "shape": "Sa"
+                },
+                "userId": {}
+            }
+        },
+        "S16": {
+            "type": "structure",
+            "required": [
+                "isGroup",
+                "principalId"
+            ],
+            "members": {
+                "isGroup": {
+                    "type": "boolean"
+                },
+                "principalId": {}
+            }
+        },
+        "S1d": {
+            "type": "structure",
+            "members": {
+                "workbookArn": {}
+            }
+        }
+    }
+}

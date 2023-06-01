@@ -1,0 +1,959 @@
+{
+    "version": "2.0",
+    "metadata": {
+        "apiVersion": "2017-10-30",
+        "endpointPrefix": "4rp001tarh.execute-api",
+        "jsonVersion": "1.1",
+        "protocol": "rest-json",
+        "serviceFullName": "Amazon Overbridge",
+        "serviceId": "Overbridge",
+        "signatureVersion": "v4",
+        "signingName": "securityhub",
+        "uid": "overbridgebeta-2017-10-30",
+        "download_location": [
+            "https://a.b.cdn.console.awsstatic.com/a/v1/P6NW5VBMXGKZRXTIQR2256IDXY5EEXRCYQ3EDSDBCRDUN5FURIYQ/vendor.js"
+        ]
+    },
+    "operations": {
+        "BatchGetControlEvaluations": {
+            "http": {
+                "requestUri": "/controls/summaries/batchGet"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "SecurityControlIds"
+                ],
+                "members": {
+                    "StandardsArn": {},
+                    "Accounts": {},
+                    "Regions": {},
+                    "SecurityControlIds": {
+                        "type": "list",
+                        "member": {}
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ControlEvaluations": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "ControlId": {},
+                                "SecurityControlId": {},
+                                "ControlStatus": {},
+                                "ComplianceStatus": {},
+                                "FailedActiveFindingsCount": {
+                                    "type": "integer"
+                                },
+                                "WarningActiveFindingsCount": {
+                                    "type": "integer"
+                                },
+                                "NotAvailableFindingsCount": {
+                                    "type": "integer"
+                                },
+                                "ActiveFindingsCount": {
+                                    "type": "integer"
+                                }
+                            }
+                        }
+                    },
+                    "LastEvaluationTimestamp": {
+                        "type": "timestamp"
+                    },
+                    "StandardsArn": {},
+                    "UnprocessedSecurityControlIds": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "SecurityControlId": {},
+                                "ErrorCode": {},
+                                "ErrorReason": {}
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/P6NW5VBMXGKZRXTIQR2256IDXY5EEXRCYQ3EDSDBCRDUN5FURIYQ/vendor.js"
+            ]
+        },
+        "GetAdhocInsightResults": {
+            "http": {
+                "requestUri": "/insights/adhoc"
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "Aggregations": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "AggregationField": {},
+                                "Filters": {
+                                    "shape": "Sk"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Aggregations": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "AggregationField": {},
+                                "AggregationValues": {
+                                    "shape": "S18"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/P6NW5VBMXGKZRXTIQR2256IDXY5EEXRCYQ3EDSDBCRDUN5FURIYQ/vendor.js"
+            ]
+        },
+        "GetControlFindingSummary": {
+            "http": {
+                "requestUri": "/controls/summary"
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "Accounts": {},
+                    "Regions": {},
+                    "StandardsArn": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Summary": {
+                        "type": "structure",
+                        "members": {
+                            "LastEvaluationTimestamp": {
+                                "type": "timestamp"
+                            },
+                            "StandardsArn": {},
+                            "SecurityScore": {
+                                "type": "integer"
+                            },
+                            "ActiveFindingsCount": {
+                                "type": "integer"
+                            },
+                            "FailedActiveFindingsCount": {
+                                "type": "integer"
+                            },
+                            "ControlSummary": {
+                                "type": "structure",
+                                "members": {
+                                    "EnabledCount": {
+                                        "type": "integer"
+                                    },
+                                    "FailedCount": {
+                                        "type": "integer"
+                                    },
+                                    "UnknownCount": {
+                                        "type": "integer"
+                                    },
+                                    "PassedCount": {
+                                        "type": "integer"
+                                    },
+                                    "NoDataCount": {
+                                        "type": "integer"
+                                    },
+                                    "DisabledCount": {
+                                        "type": "integer"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/P6NW5VBMXGKZRXTIQR2256IDXY5EEXRCYQ3EDSDBCRDUN5FURIYQ/vendor.js"
+            ]
+        },
+        "GetFreeTrialEndDate": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/freetrial/end"
+            },
+            "input": {
+                "type": "structure",
+                "members": {}
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "EndDate"
+                ],
+                "members": {
+                    "EndDate": {
+                        "shape": "S1g"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/P6NW5VBMXGKZRXTIQR2256IDXY5EEXRCYQ3EDSDBCRDUN5FURIYQ/vendor.js"
+            ]
+        },
+        "GetFreeTrialUsage": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/freetrial/usage"
+            },
+            "input": {
+                "type": "structure",
+                "members": {}
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "MeteredResources"
+                ],
+                "members": {
+                    "MeteredResources": {
+                        "shape": "S1j"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/P6NW5VBMXGKZRXTIQR2256IDXY5EEXRCYQ3EDSDBCRDUN5FURIYQ/vendor.js"
+            ]
+        },
+        "GetInsightFindingTrend": {
+            "http": {
+                "requestUri": "/insights/trend"
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "InsightArns": {
+                        "type": "list",
+                        "member": {}
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "InsightsStatistics": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "InsightArn": {},
+                                "ResultCount": {
+                                    "type": "integer"
+                                },
+                                "HistoricalCounts": {
+                                    "shape": "S18"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/P6NW5VBMXGKZRXTIQR2256IDXY5EEXRCYQ3EDSDBCRDUN5FURIYQ/vendor.js"
+            ]
+        },
+        "GetProduct": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/products/{ProductArn+}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ProductArn"
+                ],
+                "members": {
+                    "ProductArn": {
+                        "location": "uri",
+                        "locationName": "ProductArn"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ProductArn": {},
+                    "Name": {},
+                    "CompanyName": {},
+                    "Description": {},
+                    "Categories": {
+                        "type": "list",
+                        "member": {}
+                    },
+                    "FindingTypes": {
+                        "type": "list",
+                        "member": {}
+                    },
+                    "InsightGroupArn": {},
+                    "MarketplaceUrl": {},
+                    "ActivationUrl": {},
+                    "RequiredPermissions": {
+                        "type": "list",
+                        "member": {}
+                    },
+                    "InsightCount": {
+                        "type": "integer"
+                    },
+                    "RunsIn": {},
+                    "ProductSubscriptionResourcePolicy": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/P6NW5VBMXGKZRXTIQR2256IDXY5EEXRCYQ3EDSDBCRDUN5FURIYQ/vendor.js"
+            ]
+        },
+        "GetProductSubscription": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/productSubscriptions/{ProductSubscriptionArn+}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ProductSubscriptionArn"
+                ],
+                "members": {
+                    "ProductSubscriptionArn": {
+                        "location": "uri",
+                        "locationName": "ProductSubscriptionArn"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ProductSubscriptionArn": {},
+                    "ProductArn": {},
+                    "ResourcePolicy": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/P6NW5VBMXGKZRXTIQR2256IDXY5EEXRCYQ3EDSDBCRDUN5FURIYQ/vendor.js"
+            ]
+        },
+        "GetSecurityHubStatus": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/status"
+            },
+            "input": {
+                "type": "structure",
+                "members": {}
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "SubscriptionStatus": {
+                        "type": "structure",
+                        "members": {
+                            "AccountId": {},
+                            "IsSubscribed": {
+                                "type": "boolean"
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/P6NW5VBMXGKZRXTIQR2256IDXY5EEXRCYQ3EDSDBCRDUN5FURIYQ/vendor.js"
+            ]
+        },
+        "GetUsage": {
+            "http": {
+                "requestUri": "/usage"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "DateRange"
+                ],
+                "members": {
+                    "DateRange": {
+                        "type": "structure",
+                        "members": {
+                            "Start": {
+                                "shape": "S1g"
+                            },
+                            "End": {
+                                "shape": "S1g"
+                            }
+                        }
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "MeteredResources"
+                ],
+                "members": {
+                    "MeteredResources": {
+                        "shape": "S1j"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/P6NW5VBMXGKZRXTIQR2256IDXY5EEXRCYQ3EDSDBCRDUN5FURIYQ/vendor.js"
+            ]
+        },
+        "ListControlEvaluationSummaries": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/controls/summaries"
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "StandardsArn": {
+                        "location": "querystring",
+                        "locationName": "StandardsArn"
+                    },
+                    "Accounts": {
+                        "location": "querystring",
+                        "locationName": "Accounts"
+                    },
+                    "Regions": {
+                        "location": "querystring",
+                        "locationName": "Regions"
+                    },
+                    "NextToken": {
+                        "location": "querystring",
+                        "locationName": "NextToken"
+                    },
+                    "MaxResults": {
+                        "location": "querystring",
+                        "locationName": "MaxResults",
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ControlEvaluationSummaries": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "ControlId": {},
+                                "SecurityControlId": {},
+                                "ControlStatus": {},
+                                "ComplianceStatus": {},
+                                "FailedActiveFindingsCount": {
+                                    "type": "integer"
+                                },
+                                "WarningActiveFindingsCount": {
+                                    "type": "integer"
+                                },
+                                "NotAvailableFindingsCount": {
+                                    "type": "integer"
+                                },
+                                "ActiveFindingsCount": {
+                                    "type": "integer"
+                                }
+                            }
+                        }
+                    },
+                    "LastEvaluationTimestamp": {
+                        "type": "timestamp"
+                    },
+                    "NextToken": {},
+                    "StandardsArn": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/P6NW5VBMXGKZRXTIQR2256IDXY5EEXRCYQ3EDSDBCRDUN5FURIYQ/vendor.js"
+            ]
+        },
+        "SendFindingEvents": {
+            "http": {
+                "requestUri": "/events/findings"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "Filters",
+                    "ActionArn"
+                ],
+                "members": {
+                    "Filters": {
+                        "shape": "Sk"
+                    },
+                    "ActionArn": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/P6NW5VBMXGKZRXTIQR2256IDXY5EEXRCYQ3EDSDBCRDUN5FURIYQ/vendor.js"
+            ]
+        },
+        "SendInsightEvents": {
+            "http": {
+                "requestUri": "/events/insight"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "InsightArn",
+                    "ActionArn"
+                ],
+                "members": {
+                    "InsightArn": {},
+                    "ActionArn": {},
+                    "Filters": {
+                        "shape": "Sk"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/P6NW5VBMXGKZRXTIQR2256IDXY5EEXRCYQ3EDSDBCRDUN5FURIYQ/vendor.js"
+            ]
+        }
+    },
+    "shapes": {
+        "Sk": {
+            "type": "structure",
+            "members": {
+                "ProductArn": {
+                    "shape": "Sl"
+                },
+                "AwsAccountId": {
+                    "shape": "Sl"
+                },
+                "Id": {
+                    "shape": "Sl"
+                },
+                "GeneratorId": {
+                    "shape": "Sl"
+                },
+                "Type": {
+                    "shape": "Sl"
+                },
+                "FirstObservedAt": {
+                    "shape": "So"
+                },
+                "LastObservedAt": {
+                    "shape": "So"
+                },
+                "CreatedAt": {
+                    "shape": "So"
+                },
+                "UpdatedAt": {
+                    "shape": "So"
+                },
+                "SeverityProduct": {
+                    "shape": "Ss"
+                },
+                "SeverityNormalized": {
+                    "shape": "Ss"
+                },
+                "SeverityLabel": {
+                    "shape": "Sl"
+                },
+                "Confidence": {
+                    "shape": "Ss"
+                },
+                "Criticality": {
+                    "shape": "Ss"
+                },
+                "Title": {
+                    "shape": "Sl"
+                },
+                "Description": {
+                    "shape": "Sl"
+                },
+                "RecommendationText": {
+                    "shape": "Sl"
+                },
+                "SourceUrl": {
+                    "shape": "Sl"
+                },
+                "ProductFields": {
+                    "shape": "Sv"
+                },
+                "ProductName": {
+                    "shape": "Sl"
+                },
+                "CompanyName": {
+                    "shape": "Sl"
+                },
+                "UserDefinedFields": {
+                    "shape": "Sv"
+                },
+                "MalwareName": {
+                    "shape": "Sl"
+                },
+                "MalwareType": {
+                    "shape": "Sl"
+                },
+                "MalwarePath": {
+                    "shape": "Sl"
+                },
+                "MalwareState": {
+                    "shape": "Sl"
+                },
+                "NetworkDirection": {
+                    "shape": "Sl"
+                },
+                "NetworkProtocol": {
+                    "shape": "Sl"
+                },
+                "NetworkSourceIpV4": {
+                    "shape": "Sy"
+                },
+                "NetworkSourceIpV6": {
+                    "shape": "Sy"
+                },
+                "NetworkSourcePort": {
+                    "shape": "Ss"
+                },
+                "NetworkSourceDomain": {
+                    "shape": "Sl"
+                },
+                "NetworkSourceMac": {
+                    "shape": "Sl"
+                },
+                "NetworkDestinationIpV4": {
+                    "shape": "Sy"
+                },
+                "NetworkDestinationIpV6": {
+                    "shape": "Sy"
+                },
+                "NetworkDestinationPort": {
+                    "shape": "Ss"
+                },
+                "NetworkDestinationDomain": {
+                    "shape": "Sl"
+                },
+                "ProcessName": {
+                    "shape": "Sl"
+                },
+                "ProcessPath": {
+                    "shape": "Sl"
+                },
+                "ProcessPid": {
+                    "shape": "Ss"
+                },
+                "ProcessParentPid": {
+                    "shape": "Ss"
+                },
+                "ProcessLaunchedAt": {
+                    "shape": "So"
+                },
+                "ProcessTerminatedAt": {
+                    "shape": "So"
+                },
+                "Sample": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "members": {
+                            "Value": {
+                                "type": "boolean"
+                            }
+                        }
+                    }
+                },
+                "ThreatName": {
+                    "shape": "Sl"
+                },
+                "ThreatIntelIndicatorType": {
+                    "shape": "Sl"
+                },
+                "ThreatIntelIndicatorValue": {
+                    "shape": "Sl"
+                },
+                "ThreatIntelIndicatorCategory": {
+                    "shape": "Sl"
+                },
+                "ThreatIntelIndicatorLastObservedAt": {
+                    "shape": "So"
+                },
+                "ThreatIntelIndicatorSource": {
+                    "shape": "Sl"
+                },
+                "ThreatIntelIndicatorSourceUrl": {
+                    "shape": "Sl"
+                },
+                "Region": {
+                    "shape": "Sl"
+                },
+                "ResourceType": {
+                    "shape": "Sl"
+                },
+                "ResourceId": {
+                    "shape": "Sl"
+                },
+                "ResourcePartition": {
+                    "shape": "Sl"
+                },
+                "ResourceRegion": {
+                    "shape": "Sl"
+                },
+                "ResourceTags": {
+                    "shape": "Sv"
+                },
+                "ResourceAwsEc2InstanceType": {
+                    "shape": "Sl"
+                },
+                "ResourceAwsEc2InstanceImageId": {
+                    "shape": "Sl"
+                },
+                "ResourceAwsEc2InstanceIpV4Addresses": {
+                    "shape": "Sy"
+                },
+                "ResourceAwsEc2InstanceIpV6Addresses": {
+                    "shape": "Sy"
+                },
+                "ResourceAwsEc2InstanceKeyName": {
+                    "shape": "Sl"
+                },
+                "ResourceAwsEc2InstanceIamInstanceProfileArn": {
+                    "shape": "Sl"
+                },
+                "ResourceAwsEc2InstanceVpcId": {
+                    "shape": "Sl"
+                },
+                "ResourceAwsEc2InstanceSubnetId": {
+                    "shape": "Sl"
+                },
+                "ResourceAwsEc2InstanceLaunchedAt": {
+                    "shape": "So"
+                },
+                "ResourceAwsS3BucketOwnerId": {
+                    "shape": "Sl"
+                },
+                "ResourceAwsS3BucketOwnerName": {
+                    "shape": "Sl"
+                },
+                "ResourceAwsIamAccessKeyUserName": {
+                    "shape": "Sl"
+                },
+                "ResourceAwsIamAccessKeyPrincipalName": {
+                    "shape": "Sl"
+                },
+                "ResourceAwsIamAccessKeyStatus": {
+                    "shape": "Sl"
+                },
+                "ResourceAwsIamAccessKeyCreatedAt": {
+                    "shape": "So"
+                },
+                "ResourceAwsIamUserUserName": {
+                    "shape": "Sl"
+                },
+                "ResourceContainerName": {
+                    "shape": "Sl"
+                },
+                "ResourceContainerImageId": {
+                    "shape": "Sl"
+                },
+                "ResourceContainerImageName": {
+                    "shape": "Sl"
+                },
+                "ResourceContainerLaunchedAt": {
+                    "shape": "So"
+                },
+                "ResourceDetailsOther": {
+                    "shape": "Sv"
+                },
+                "ComplianceStatus": {
+                    "shape": "Sl"
+                },
+                "ComplianceSecurityControlId": {
+                    "shape": "Sl"
+                },
+                "ComplianceAssociatedStandardsId": {
+                    "shape": "Sl"
+                },
+                "VerificationState": {
+                    "shape": "Sl"
+                },
+                "WorkflowState": {
+                    "shape": "Sl"
+                },
+                "WorkflowStatus": {
+                    "shape": "Sl"
+                },
+                "RecordState": {
+                    "shape": "Sl"
+                },
+                "RelatedFindingsProductArn": {
+                    "shape": "Sl"
+                },
+                "RelatedFindingsId": {
+                    "shape": "Sl"
+                },
+                "NoteText": {
+                    "shape": "Sl"
+                },
+                "NoteUpdatedAt": {
+                    "shape": "So"
+                },
+                "NoteUpdatedBy": {
+                    "shape": "Sl"
+                },
+                "Keyword": {
+                    "deprecated": true,
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "members": {
+                            "Value": {}
+                        }
+                    }
+                },
+                "FindingProviderFieldsConfidence": {
+                    "shape": "Ss"
+                },
+                "FindingProviderFieldsCriticality": {
+                    "shape": "Ss"
+                },
+                "FindingProviderFieldsRelatedFindingsId": {
+                    "shape": "Sl"
+                },
+                "FindingProviderFieldsRelatedFindingsProductArn": {
+                    "shape": "Sl"
+                },
+                "FindingProviderFieldsSeverityLabel": {
+                    "shape": "Sl"
+                },
+                "FindingProviderFieldsSeverityOriginal": {
+                    "shape": "Sl"
+                },
+                "FindingProviderFieldsTypes": {
+                    "shape": "Sl"
+                }
+            }
+        },
+        "Sl": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "Value": {},
+                    "Comparison": {}
+                }
+            }
+        },
+        "So": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "Start": {},
+                    "End": {},
+                    "DateRange": {
+                        "type": "structure",
+                        "members": {
+                            "Value": {
+                                "type": "integer"
+                            },
+                            "Unit": {}
+                        }
+                    }
+                }
+            }
+        },
+        "Ss": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "Gte": {
+                        "type": "double"
+                    },
+                    "Lte": {
+                        "type": "double"
+                    },
+                    "Gt": {
+                        "type": "double"
+                    },
+                    "Lt": {
+                        "type": "double"
+                    },
+                    "Eq": {
+                        "type": "double"
+                    }
+                }
+            }
+        },
+        "Sv": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "Key": {},
+                    "Value": {},
+                    "Comparison": {}
+                }
+            }
+        },
+        "Sy": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "Cidr": {}
+                }
+            }
+        },
+        "S18": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "Bucket": {},
+                    "Count": {
+                        "type": "integer"
+                    }
+                }
+            }
+        },
+        "S1g": {
+            "type": "timestamp",
+            "timestampFormat": "iso8601"
+        },
+        "S1j": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "Arn",
+                    "Count"
+                ],
+                "members": {
+                    "Arn": {},
+                    "Count": {
+                        "type": "integer"
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,2517 @@
+{
+    "version": "2.0",
+    "metadata": {
+        "apiVersion": "2020-08-15",
+        "endpointPrefix": "profile",
+        "jsonVersion": "1.1",
+        "protocol": "rest-json",
+        "serviceAbbreviation": "Customer Profiles",
+        "serviceFullName": "Amazon Connect Customer Profiles",
+        "serviceId": "Customer Profiles",
+        "signatureVersion": "v4",
+        "signingName": "profile",
+        "uid": "locke-2020-08-15",
+        "download_location": [
+            "https://c.d.cdn.console.awsstatic.com/a/v1/ZAWFNVUCQB4JEXKWL6F6FFT4P7AKYYGWM37WX2KLWL77FLPV6YAQ/main.min.js"
+        ]
+    },
+    "operations": {
+        "AddProfileKey": {
+            "http": {
+                "requestUri": "/domains/{DomainName}/profiles/keys"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ProfileId",
+                    "KeyName",
+                    "Values",
+                    "DomainName"
+                ],
+                "members": {
+                    "ProfileId": {},
+                    "KeyName": {},
+                    "Values": {
+                        "shape": "S4"
+                    },
+                    "DomainName": {
+                        "location": "uri",
+                        "locationName": "DomainName"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "KeyName": {},
+                    "Values": {
+                        "shape": "S4"
+                    }
+                }
+            },
+            "download_location": [
+                "https://c.d.cdn.console.awsstatic.com/a/v1/ZAWFNVUCQB4JEXKWL6F6FFT4P7AKYYGWM37WX2KLWL77FLPV6YAQ/main.min.js"
+            ]
+        },
+        "CreateDomain": {
+            "http": {
+                "requestUri": "/domains/{DomainName}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "DomainName",
+                    "DefaultExpirationDays"
+                ],
+                "members": {
+                    "DomainName": {
+                        "location": "uri",
+                        "locationName": "DomainName"
+                    },
+                    "DefaultExpirationDays": {
+                        "type": "integer"
+                    },
+                    "DefaultEncryptionKey": {},
+                    "DeadLetterQueueUrl": {},
+                    "Matching": {
+                        "shape": "Sb"
+                    },
+                    "RuleBasedMatching": {
+                        "shape": "Sr"
+                    },
+                    "Tags": {
+                        "shape": "S12"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "DomainName",
+                    "DefaultExpirationDays",
+                    "CreatedAt",
+                    "LastUpdatedAt"
+                ],
+                "members": {
+                    "DomainName": {},
+                    "DefaultExpirationDays": {
+                        "type": "integer"
+                    },
+                    "DefaultEncryptionKey": {},
+                    "DeadLetterQueueUrl": {},
+                    "Matching": {
+                        "shape": "S16"
+                    },
+                    "RuleBasedMatching": {
+                        "shape": "S17"
+                    },
+                    "CreatedAt": {
+                        "type": "timestamp"
+                    },
+                    "LastUpdatedAt": {
+                        "type": "timestamp"
+                    },
+                    "Tags": {
+                        "shape": "S12"
+                    }
+                }
+            },
+            "download_location": [
+                "https://c.d.cdn.console.awsstatic.com/a/v1/ZAWFNVUCQB4JEXKWL6F6FFT4P7AKYYGWM37WX2KLWL77FLPV6YAQ/main.min.js"
+            ]
+        },
+        "CreateIntegrationWorkflow": {
+            "http": {
+                "requestUri": "/domains/{DomainName}/workflows/integrations"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "DomainName",
+                    "WorkflowType",
+                    "IntegrationConfig",
+                    "ObjectTypeName",
+                    "RoleArn"
+                ],
+                "members": {
+                    "DomainName": {
+                        "location": "uri",
+                        "locationName": "DomainName"
+                    },
+                    "WorkflowType": {},
+                    "IntegrationConfig": {
+                        "type": "structure",
+                        "members": {
+                            "AppflowIntegration": {
+                                "type": "structure",
+                                "required": [
+                                    "FlowDefinition"
+                                ],
+                                "members": {
+                                    "FlowDefinition": {
+                                        "shape": "S1e"
+                                    },
+                                    "Batches": {
+                                        "type": "list",
+                                        "member": {
+                                            "type": "structure",
+                                            "required": [
+                                                "StartTime",
+                                                "EndTime"
+                                            ],
+                                            "members": {
+                                                "StartTime": {
+                                                    "type": "timestamp"
+                                                },
+                                                "EndTime": {
+                                                    "type": "timestamp"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "ObjectTypeName": {},
+                    "RoleArn": {},
+                    "Tags": {
+                        "shape": "S12"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "WorkflowId",
+                    "Message"
+                ],
+                "members": {
+                    "WorkflowId": {},
+                    "Message": {}
+                }
+            },
+            "download_location": [
+                "https://c.d.cdn.console.awsstatic.com/a/v1/ZAWFNVUCQB4JEXKWL6F6FFT4P7AKYYGWM37WX2KLWL77FLPV6YAQ/main.min.js"
+            ]
+        },
+        "CreateProfile": {
+            "http": {
+                "requestUri": "/domains/{DomainName}/profiles"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "DomainName"
+                ],
+                "members": {
+                    "DomainName": {
+                        "location": "uri",
+                        "locationName": "DomainName"
+                    },
+                    "AccountNumber": {},
+                    "AdditionalInformation": {},
+                    "PartyType": {},
+                    "BusinessName": {},
+                    "FirstName": {},
+                    "MiddleName": {},
+                    "LastName": {},
+                    "BirthDate": {},
+                    "Gender": {},
+                    "PhoneNumber": {},
+                    "MobilePhoneNumber": {},
+                    "HomePhoneNumber": {},
+                    "BusinessPhoneNumber": {},
+                    "EmailAddress": {},
+                    "PersonalEmailAddress": {},
+                    "BusinessEmailAddress": {},
+                    "Address": {
+                        "shape": "S2u"
+                    },
+                    "ShippingAddress": {
+                        "shape": "S2u"
+                    },
+                    "MailingAddress": {
+                        "shape": "S2u"
+                    },
+                    "BillingAddress": {
+                        "shape": "S2u"
+                    },
+                    "Attributes": {
+                        "shape": "S2v"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "ProfileId"
+                ],
+                "members": {
+                    "ProfileId": {}
+                }
+            },
+            "download_location": [
+                "https://c.d.cdn.console.awsstatic.com/a/v1/ZAWFNVUCQB4JEXKWL6F6FFT4P7AKYYGWM37WX2KLWL77FLPV6YAQ/main.min.js"
+            ]
+        },
+        "DeleteDomain": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/domains/{DomainName}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "DomainName"
+                ],
+                "members": {
+                    "DomainName": {
+                        "location": "uri",
+                        "locationName": "DomainName"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "Message"
+                ],
+                "members": {
+                    "Message": {}
+                }
+            },
+            "download_location": [
+                "https://c.d.cdn.console.awsstatic.com/a/v1/ZAWFNVUCQB4JEXKWL6F6FFT4P7AKYYGWM37WX2KLWL77FLPV6YAQ/main.min.js"
+            ]
+        },
+        "DeleteIntegration": {
+            "http": {
+                "requestUri": "/domains/{DomainName}/integrations/delete"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "DomainName",
+                    "Uri"
+                ],
+                "members": {
+                    "DomainName": {
+                        "location": "uri",
+                        "locationName": "DomainName"
+                    },
+                    "Uri": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "Message"
+                ],
+                "members": {
+                    "Message": {}
+                }
+            },
+            "download_location": [
+                "https://c.d.cdn.console.awsstatic.com/a/v1/ZAWFNVUCQB4JEXKWL6F6FFT4P7AKYYGWM37WX2KLWL77FLPV6YAQ/main.min.js"
+            ]
+        },
+        "DeleteProfile": {
+            "http": {
+                "requestUri": "/domains/{DomainName}/profiles/delete"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ProfileId",
+                    "DomainName"
+                ],
+                "members": {
+                    "ProfileId": {},
+                    "DomainName": {
+                        "location": "uri",
+                        "locationName": "DomainName"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Message": {}
+                }
+            },
+            "download_location": [
+                "https://c.d.cdn.console.awsstatic.com/a/v1/ZAWFNVUCQB4JEXKWL6F6FFT4P7AKYYGWM37WX2KLWL77FLPV6YAQ/main.min.js"
+            ]
+        },
+        "DeleteProfileKey": {
+            "http": {
+                "requestUri": "/domains/{DomainName}/profiles/keys/delete"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ProfileId",
+                    "KeyName",
+                    "Values",
+                    "DomainName"
+                ],
+                "members": {
+                    "ProfileId": {},
+                    "KeyName": {},
+                    "Values": {
+                        "shape": "S4"
+                    },
+                    "DomainName": {
+                        "location": "uri",
+                        "locationName": "DomainName"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Message": {}
+                }
+            },
+            "download_location": [
+                "https://c.d.cdn.console.awsstatic.com/a/v1/ZAWFNVUCQB4JEXKWL6F6FFT4P7AKYYGWM37WX2KLWL77FLPV6YAQ/main.min.js"
+            ]
+        },
+        "DeleteProfileObject": {
+            "http": {
+                "requestUri": "/domains/{DomainName}/profiles/objects/delete"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ProfileId",
+                    "ProfileObjectUniqueKey",
+                    "ObjectTypeName",
+                    "DomainName"
+                ],
+                "members": {
+                    "ProfileId": {},
+                    "ProfileObjectUniqueKey": {},
+                    "ObjectTypeName": {},
+                    "DomainName": {
+                        "location": "uri",
+                        "locationName": "DomainName"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Message": {}
+                }
+            },
+            "download_location": [
+                "https://c.d.cdn.console.awsstatic.com/a/v1/ZAWFNVUCQB4JEXKWL6F6FFT4P7AKYYGWM37WX2KLWL77FLPV6YAQ/main.min.js"
+            ]
+        },
+        "DeleteProfileObjectType": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/domains/{DomainName}/object-types/{ObjectTypeName}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "DomainName",
+                    "ObjectTypeName"
+                ],
+                "members": {
+                    "DomainName": {
+                        "location": "uri",
+                        "locationName": "DomainName"
+                    },
+                    "ObjectTypeName": {
+                        "location": "uri",
+                        "locationName": "ObjectTypeName"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "Message"
+                ],
+                "members": {
+                    "Message": {}
+                }
+            },
+            "download_location": [
+                "https://c.d.cdn.console.awsstatic.com/a/v1/ZAWFNVUCQB4JEXKWL6F6FFT4P7AKYYGWM37WX2KLWL77FLPV6YAQ/main.min.js"
+            ]
+        },
+        "DeleteWorkflow": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/domains/{DomainName}/workflows/{WorkflowId}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "DomainName",
+                    "WorkflowId"
+                ],
+                "members": {
+                    "DomainName": {
+                        "location": "uri",
+                        "locationName": "DomainName"
+                    },
+                    "WorkflowId": {
+                        "location": "uri",
+                        "locationName": "WorkflowId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://c.d.cdn.console.awsstatic.com/a/v1/ZAWFNVUCQB4JEXKWL6F6FFT4P7AKYYGWM37WX2KLWL77FLPV6YAQ/main.min.js"
+            ]
+        },
+        "GetAutoMergingPreview": {
+            "http": {
+                "requestUri": "/domains/{DomainName}/identity-resolution-jobs/auto-merging-preview"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "DomainName",
+                    "Consolidation",
+                    "ConflictResolution"
+                ],
+                "members": {
+                    "DomainName": {
+                        "location": "uri",
+                        "locationName": "DomainName"
+                    },
+                    "Consolidation": {
+                        "shape": "Sh"
+                    },
+                    "ConflictResolution": {
+                        "shape": "Sk"
+                    },
+                    "MinAllowedConfidenceScoreForMerging": {
+                        "type": "double"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "DomainName"
+                ],
+                "members": {
+                    "DomainName": {},
+                    "NumberOfMatchesInSample": {
+                        "type": "long"
+                    },
+                    "NumberOfProfilesInSample": {
+                        "type": "long"
+                    },
+                    "NumberOfProfilesWillBeMerged": {
+                        "type": "long"
+                    }
+                }
+            },
+            "download_location": [
+                "https://c.d.cdn.console.awsstatic.com/a/v1/ZAWFNVUCQB4JEXKWL6F6FFT4P7AKYYGWM37WX2KLWL77FLPV6YAQ/main.min.js"
+            ]
+        },
+        "GetDomain": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/domains/{DomainName}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "DomainName"
+                ],
+                "members": {
+                    "DomainName": {
+                        "location": "uri",
+                        "locationName": "DomainName"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "DomainName",
+                    "CreatedAt",
+                    "LastUpdatedAt"
+                ],
+                "members": {
+                    "DomainName": {},
+                    "DefaultExpirationDays": {
+                        "type": "integer"
+                    },
+                    "DefaultEncryptionKey": {},
+                    "DeadLetterQueueUrl": {},
+                    "Stats": {
+                        "type": "structure",
+                        "members": {
+                            "ProfileCount": {
+                                "type": "long"
+                            },
+                            "MeteringProfileCount": {
+                                "type": "long"
+                            },
+                            "ObjectCount": {
+                                "type": "long"
+                            },
+                            "TotalSize": {
+                                "type": "long"
+                            }
+                        }
+                    },
+                    "Matching": {
+                        "shape": "S16"
+                    },
+                    "RuleBasedMatching": {
+                        "shape": "S17"
+                    },
+                    "CreatedAt": {
+                        "type": "timestamp"
+                    },
+                    "LastUpdatedAt": {
+                        "type": "timestamp"
+                    },
+                    "Tags": {
+                        "shape": "S12"
+                    }
+                }
+            },
+            "download_location": [
+                "https://c.d.cdn.console.awsstatic.com/a/v1/ZAWFNVUCQB4JEXKWL6F6FFT4P7AKYYGWM37WX2KLWL77FLPV6YAQ/main.min.js"
+            ]
+        },
+        "GetIdentityResolutionJob": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/domains/{DomainName}/identity-resolution-jobs/{JobId}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "DomainName",
+                    "JobId"
+                ],
+                "members": {
+                    "DomainName": {
+                        "location": "uri",
+                        "locationName": "DomainName"
+                    },
+                    "JobId": {
+                        "location": "uri",
+                        "locationName": "JobId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "DomainName",
+                    "JobId"
+                ],
+                "members": {
+                    "DomainName": {},
+                    "JobId": {},
+                    "Status": {},
+                    "Message": {},
+                    "JobStartTime": {
+                        "type": "timestamp"
+                    },
+                    "JobEndTime": {
+                        "type": "timestamp"
+                    },
+                    "LastUpdatedAt": {
+                        "type": "timestamp"
+                    },
+                    "JobExpirationTime": {
+                        "type": "timestamp"
+                    },
+                    "AutoMerging": {
+                        "shape": "Sg"
+                    },
+                    "ExportingLocation": {
+                        "shape": "S3l"
+                    },
+                    "JobStats": {
+                        "shape": "S3o"
+                    }
+                }
+            },
+            "download_location": [
+                "https://c.d.cdn.console.awsstatic.com/a/v1/ZAWFNVUCQB4JEXKWL6F6FFT4P7AKYYGWM37WX2KLWL77FLPV6YAQ/main.min.js"
+            ]
+        },
+        "GetIntegration": {
+            "http": {
+                "requestUri": "/domains/{DomainName}/integrations"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "DomainName",
+                    "Uri"
+                ],
+                "members": {
+                    "DomainName": {
+                        "location": "uri",
+                        "locationName": "DomainName"
+                    },
+                    "Uri": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "DomainName",
+                    "Uri",
+                    "CreatedAt",
+                    "LastUpdatedAt"
+                ],
+                "members": {
+                    "DomainName": {},
+                    "Uri": {},
+                    "ObjectTypeName": {},
+                    "CreatedAt": {
+                        "type": "timestamp"
+                    },
+                    "LastUpdatedAt": {
+                        "type": "timestamp"
+                    },
+                    "Tags": {
+                        "shape": "S12"
+                    },
+                    "ObjectTypeNames": {
+                        "shape": "S3r"
+                    },
+                    "WorkflowId": {},
+                    "IsUnstructured": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "download_location": [
+                "https://c.d.cdn.console.awsstatic.com/a/v1/ZAWFNVUCQB4JEXKWL6F6FFT4P7AKYYGWM37WX2KLWL77FLPV6YAQ/main.min.js"
+            ]
+        },
+        "GetMatches": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/domains/{DomainName}/matches"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "DomainName"
+                ],
+                "members": {
+                    "NextToken": {
+                        "location": "querystring",
+                        "locationName": "next-token"
+                    },
+                    "MaxResults": {
+                        "location": "querystring",
+                        "locationName": "max-results",
+                        "type": "integer"
+                    },
+                    "DomainName": {
+                        "location": "uri",
+                        "locationName": "DomainName"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "NextToken": {},
+                    "MatchGenerationDate": {
+                        "type": "timestamp"
+                    },
+                    "PotentialMatches": {
+                        "type": "integer"
+                    },
+                    "Matches": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "MatchId": {},
+                                "ProfileIds": {
+                                    "type": "list",
+                                    "member": {}
+                                },
+                                "ConfidenceScore": {
+                                    "type": "double"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://c.d.cdn.console.awsstatic.com/a/v1/ZAWFNVUCQB4JEXKWL6F6FFT4P7AKYYGWM37WX2KLWL77FLPV6YAQ/main.min.js"
+            ]
+        },
+        "GetProfileObjectType": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/domains/{DomainName}/object-types/{ObjectTypeName}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "DomainName",
+                    "ObjectTypeName"
+                ],
+                "members": {
+                    "DomainName": {
+                        "location": "uri",
+                        "locationName": "DomainName"
+                    },
+                    "ObjectTypeName": {
+                        "location": "uri",
+                        "locationName": "ObjectTypeName"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "ObjectTypeName",
+                    "Description"
+                ],
+                "members": {
+                    "ObjectTypeName": {},
+                    "Description": {},
+                    "TemplateId": {},
+                    "ExpirationDays": {
+                        "type": "integer"
+                    },
+                    "EncryptionKey": {},
+                    "AllowProfileCreation": {
+                        "type": "boolean"
+                    },
+                    "SourceLastUpdatedTimestampFormat": {},
+                    "Fields": {
+                        "shape": "S44"
+                    },
+                    "Keys": {
+                        "shape": "S47"
+                    },
+                    "CreatedAt": {
+                        "type": "timestamp"
+                    },
+                    "LastUpdatedAt": {
+                        "type": "timestamp"
+                    },
+                    "Tags": {
+                        "shape": "S12"
+                    }
+                }
+            },
+            "download_location": [
+                "https://c.d.cdn.console.awsstatic.com/a/v1/ZAWFNVUCQB4JEXKWL6F6FFT4P7AKYYGWM37WX2KLWL77FLPV6YAQ/main.min.js"
+            ]
+        },
+        "GetProfileObjectTypeTemplate": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/templates/{TemplateId}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "TemplateId"
+                ],
+                "members": {
+                    "TemplateId": {
+                        "location": "uri",
+                        "locationName": "TemplateId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "TemplateId": {},
+                    "SourceName": {},
+                    "SourceObject": {},
+                    "AllowProfileCreation": {
+                        "type": "boolean"
+                    },
+                    "SourceLastUpdatedTimestampFormat": {},
+                    "Fields": {
+                        "shape": "S44"
+                    },
+                    "Keys": {
+                        "shape": "S47"
+                    }
+                }
+            },
+            "download_location": [
+                "https://c.d.cdn.console.awsstatic.com/a/v1/ZAWFNVUCQB4JEXKWL6F6FFT4P7AKYYGWM37WX2KLWL77FLPV6YAQ/main.min.js"
+            ]
+        },
+        "GetWorkflow": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/domains/{DomainName}/workflows/{WorkflowId}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "DomainName",
+                    "WorkflowId"
+                ],
+                "members": {
+                    "DomainName": {
+                        "location": "uri",
+                        "locationName": "DomainName"
+                    },
+                    "WorkflowId": {
+                        "location": "uri",
+                        "locationName": "WorkflowId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "WorkflowId": {},
+                    "WorkflowType": {},
+                    "Status": {},
+                    "ErrorDescription": {},
+                    "StartDate": {
+                        "type": "timestamp"
+                    },
+                    "LastUpdatedAt": {
+                        "type": "timestamp"
+                    },
+                    "Attributes": {
+                        "type": "structure",
+                        "members": {
+                            "AppflowIntegration": {
+                                "type": "structure",
+                                "required": [
+                                    "SourceConnectorType",
+                                    "ConnectorProfileName"
+                                ],
+                                "members": {
+                                    "SourceConnectorType": {},
+                                    "ConnectorProfileName": {},
+                                    "RoleArn": {}
+                                }
+                            }
+                        }
+                    },
+                    "Metrics": {
+                        "type": "structure",
+                        "members": {
+                            "AppflowIntegration": {
+                                "type": "structure",
+                                "required": [
+                                    "RecordsProcessed",
+                                    "StepsCompleted",
+                                    "TotalSteps"
+                                ],
+                                "members": {
+                                    "RecordsProcessed": {
+                                        "type": "long"
+                                    },
+                                    "StepsCompleted": {
+                                        "type": "long"
+                                    },
+                                    "TotalSteps": {
+                                        "type": "long"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://c.d.cdn.console.awsstatic.com/a/v1/ZAWFNVUCQB4JEXKWL6F6FFT4P7AKYYGWM37WX2KLWL77FLPV6YAQ/main.min.js"
+            ]
+        },
+        "GetWorkflowSteps": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/domains/{DomainName}/workflows/{WorkflowId}/steps"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "DomainName",
+                    "WorkflowId"
+                ],
+                "members": {
+                    "DomainName": {
+                        "location": "uri",
+                        "locationName": "DomainName"
+                    },
+                    "WorkflowId": {
+                        "location": "uri",
+                        "locationName": "WorkflowId"
+                    },
+                    "NextToken": {
+                        "location": "querystring",
+                        "locationName": "next-token"
+                    },
+                    "MaxResults": {
+                        "location": "querystring",
+                        "locationName": "max-results",
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "WorkflowId": {},
+                    "WorkflowType": {},
+                    "Items": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "AppflowIntegration": {
+                                    "type": "structure",
+                                    "required": [
+                                        "FlowName",
+                                        "Status",
+                                        "ExecutionMessage",
+                                        "RecordsProcessed",
+                                        "BatchRecordsStartTime",
+                                        "BatchRecordsEndTime",
+                                        "CreatedAt",
+                                        "LastUpdatedAt"
+                                    ],
+                                    "members": {
+                                        "FlowName": {},
+                                        "Status": {},
+                                        "ExecutionMessage": {},
+                                        "RecordsProcessed": {
+                                            "type": "long"
+                                        },
+                                        "BatchRecordsStartTime": {},
+                                        "BatchRecordsEndTime": {},
+                                        "CreatedAt": {
+                                            "type": "timestamp"
+                                        },
+                                        "LastUpdatedAt": {
+                                            "type": "timestamp"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "download_location": [
+                "https://c.d.cdn.console.awsstatic.com/a/v1/ZAWFNVUCQB4JEXKWL6F6FFT4P7AKYYGWM37WX2KLWL77FLPV6YAQ/main.min.js"
+            ]
+        },
+        "ListAccountIntegrations": {
+            "http": {
+                "requestUri": "/integrations"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "Uri"
+                ],
+                "members": {
+                    "Uri": {},
+                    "NextToken": {
+                        "location": "querystring",
+                        "locationName": "next-token"
+                    },
+                    "MaxResults": {
+                        "location": "querystring",
+                        "locationName": "max-results",
+                        "type": "integer"
+                    },
+                    "IncludeHidden": {
+                        "location": "querystring",
+                        "locationName": "include-hidden",
+                        "type": "boolean"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Items": {
+                        "shape": "S4t"
+                    },
+                    "NextToken": {}
+                }
+            },
+            "download_location": [
+                "https://c.d.cdn.console.awsstatic.com/a/v1/ZAWFNVUCQB4JEXKWL6F6FFT4P7AKYYGWM37WX2KLWL77FLPV6YAQ/main.min.js"
+            ]
+        },
+        "ListDomains": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/domains"
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "NextToken": {
+                        "location": "querystring",
+                        "locationName": "next-token"
+                    },
+                    "MaxResults": {
+                        "location": "querystring",
+                        "locationName": "max-results",
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Items": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "DomainName",
+                                "CreatedAt",
+                                "LastUpdatedAt"
+                            ],
+                            "members": {
+                                "DomainName": {},
+                                "CreatedAt": {
+                                    "type": "timestamp"
+                                },
+                                "LastUpdatedAt": {
+                                    "type": "timestamp"
+                                },
+                                "Tags": {
+                                    "shape": "S12"
+                                }
+                            }
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "download_location": [
+                "https://c.d.cdn.console.awsstatic.com/a/v1/ZAWFNVUCQB4JEXKWL6F6FFT4P7AKYYGWM37WX2KLWL77FLPV6YAQ/main.min.js"
+            ]
+        },
+        "ListIdentityResolutionJobs": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/domains/{DomainName}/identity-resolution-jobs"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "DomainName"
+                ],
+                "members": {
+                    "DomainName": {
+                        "location": "uri",
+                        "locationName": "DomainName"
+                    },
+                    "NextToken": {
+                        "location": "querystring",
+                        "locationName": "next-token"
+                    },
+                    "MaxResults": {
+                        "location": "querystring",
+                        "locationName": "max-results",
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "IdentityResolutionJobsList": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "DomainName": {},
+                                "JobId": {},
+                                "Status": {},
+                                "JobStartTime": {
+                                    "type": "timestamp"
+                                },
+                                "JobEndTime": {
+                                    "type": "timestamp"
+                                },
+                                "JobStats": {
+                                    "shape": "S3o"
+                                },
+                                "ExportingLocation": {
+                                    "shape": "S3l"
+                                },
+                                "Message": {}
+                            }
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "download_location": [
+                "https://c.d.cdn.console.awsstatic.com/a/v1/ZAWFNVUCQB4JEXKWL6F6FFT4P7AKYYGWM37WX2KLWL77FLPV6YAQ/main.min.js"
+            ]
+        },
+        "ListIntegrations": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/domains/{DomainName}/integrations"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "DomainName"
+                ],
+                "members": {
+                    "DomainName": {
+                        "location": "uri",
+                        "locationName": "DomainName"
+                    },
+                    "NextToken": {
+                        "location": "querystring",
+                        "locationName": "next-token"
+                    },
+                    "MaxResults": {
+                        "location": "querystring",
+                        "locationName": "max-results",
+                        "type": "integer"
+                    },
+                    "IncludeHidden": {
+                        "location": "querystring",
+                        "locationName": "include-hidden",
+                        "type": "boolean"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Items": {
+                        "shape": "S4t"
+                    },
+                    "NextToken": {}
+                }
+            },
+            "download_location": [
+                "https://c.d.cdn.console.awsstatic.com/a/v1/ZAWFNVUCQB4JEXKWL6F6FFT4P7AKYYGWM37WX2KLWL77FLPV6YAQ/main.min.js"
+            ]
+        },
+        "ListProfileObjectTypeTemplates": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/templates"
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "NextToken": {
+                        "location": "querystring",
+                        "locationName": "next-token"
+                    },
+                    "MaxResults": {
+                        "location": "querystring",
+                        "locationName": "max-results",
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Items": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "TemplateId": {},
+                                "SourceName": {},
+                                "SourceObject": {}
+                            }
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "download_location": [
+                "https://c.d.cdn.console.awsstatic.com/a/v1/ZAWFNVUCQB4JEXKWL6F6FFT4P7AKYYGWM37WX2KLWL77FLPV6YAQ/main.min.js"
+            ]
+        },
+        "ListProfileObjectTypes": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/domains/{DomainName}/object-types"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "DomainName"
+                ],
+                "members": {
+                    "DomainName": {
+                        "location": "uri",
+                        "locationName": "DomainName"
+                    },
+                    "NextToken": {
+                        "location": "querystring",
+                        "locationName": "next-token"
+                    },
+                    "MaxResults": {
+                        "location": "querystring",
+                        "locationName": "max-results",
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Items": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "ObjectTypeName",
+                                "Description"
+                            ],
+                            "members": {
+                                "ObjectTypeName": {},
+                                "Description": {},
+                                "CreatedAt": {
+                                    "type": "timestamp"
+                                },
+                                "LastUpdatedAt": {
+                                    "type": "timestamp"
+                                },
+                                "Tags": {
+                                    "shape": "S12"
+                                }
+                            }
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "download_location": [
+                "https://c.d.cdn.console.awsstatic.com/a/v1/ZAWFNVUCQB4JEXKWL6F6FFT4P7AKYYGWM37WX2KLWL77FLPV6YAQ/main.min.js"
+            ]
+        },
+        "ListProfileObjects": {
+            "http": {
+                "requestUri": "/domains/{DomainName}/profiles/objects"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "DomainName",
+                    "ObjectTypeName",
+                    "ProfileId"
+                ],
+                "members": {
+                    "NextToken": {
+                        "location": "querystring",
+                        "locationName": "next-token"
+                    },
+                    "MaxResults": {
+                        "location": "querystring",
+                        "locationName": "max-results",
+                        "type": "integer"
+                    },
+                    "DomainName": {
+                        "location": "uri",
+                        "locationName": "DomainName"
+                    },
+                    "ObjectTypeName": {},
+                    "ProfileId": {},
+                    "ObjectFilter": {
+                        "type": "structure",
+                        "required": [
+                            "KeyName",
+                            "Values"
+                        ],
+                        "members": {
+                            "KeyName": {},
+                            "Values": {
+                                "shape": "S4"
+                            }
+                        }
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Items": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "ObjectTypeName": {},
+                                "ProfileObjectUniqueKey": {},
+                                "Object": {}
+                            }
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "download_location": [
+                "https://c.d.cdn.console.awsstatic.com/a/v1/ZAWFNVUCQB4JEXKWL6F6FFT4P7AKYYGWM37WX2KLWL77FLPV6YAQ/main.min.js"
+            ]
+        },
+        "ListTagsForResource": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/tags/{resourceArn}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "resourceArn"
+                ],
+                "members": {
+                    "resourceArn": {
+                        "location": "uri",
+                        "locationName": "resourceArn"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "tags": {
+                        "shape": "S12"
+                    }
+                }
+            },
+            "download_location": [
+                "https://c.d.cdn.console.awsstatic.com/a/v1/ZAWFNVUCQB4JEXKWL6F6FFT4P7AKYYGWM37WX2KLWL77FLPV6YAQ/main.min.js"
+            ]
+        },
+        "ListWorkflows": {
+            "http": {
+                "requestUri": "/domains/{DomainName}/workflows"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "DomainName"
+                ],
+                "members": {
+                    "DomainName": {
+                        "location": "uri",
+                        "locationName": "DomainName"
+                    },
+                    "WorkflowType": {},
+                    "Status": {},
+                    "QueryStartDate": {
+                        "type": "timestamp"
+                    },
+                    "QueryEndDate": {
+                        "type": "timestamp"
+                    },
+                    "NextToken": {
+                        "location": "querystring",
+                        "locationName": "next-token"
+                    },
+                    "MaxResults": {
+                        "location": "querystring",
+                        "locationName": "max-results",
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Items": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "WorkflowType",
+                                "WorkflowId",
+                                "Status",
+                                "StatusDescription",
+                                "CreatedAt",
+                                "LastUpdatedAt"
+                            ],
+                            "members": {
+                                "WorkflowType": {},
+                                "WorkflowId": {},
+                                "Status": {},
+                                "StatusDescription": {},
+                                "CreatedAt": {
+                                    "type": "timestamp"
+                                },
+                                "LastUpdatedAt": {
+                                    "type": "timestamp"
+                                }
+                            }
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "download_location": [
+                "https://c.d.cdn.console.awsstatic.com/a/v1/ZAWFNVUCQB4JEXKWL6F6FFT4P7AKYYGWM37WX2KLWL77FLPV6YAQ/main.min.js"
+            ]
+        },
+        "MergeProfiles": {
+            "http": {
+                "requestUri": "/domains/{DomainName}/profiles/objects/merge"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "DomainName",
+                    "MainProfileId",
+                    "ProfileIdsToBeMerged"
+                ],
+                "members": {
+                    "DomainName": {
+                        "location": "uri",
+                        "locationName": "DomainName"
+                    },
+                    "MainProfileId": {},
+                    "ProfileIdsToBeMerged": {
+                        "type": "list",
+                        "member": {}
+                    },
+                    "FieldSourceProfileIds": {
+                        "type": "structure",
+                        "members": {
+                            "AccountNumber": {},
+                            "AdditionalInformation": {},
+                            "PartyType": {},
+                            "BusinessName": {},
+                            "FirstName": {},
+                            "MiddleName": {},
+                            "LastName": {},
+                            "BirthDate": {},
+                            "Gender": {},
+                            "PhoneNumber": {},
+                            "MobilePhoneNumber": {},
+                            "HomePhoneNumber": {},
+                            "BusinessPhoneNumber": {},
+                            "EmailAddress": {},
+                            "PersonalEmailAddress": {},
+                            "BusinessEmailAddress": {},
+                            "Address": {},
+                            "ShippingAddress": {},
+                            "MailingAddress": {},
+                            "BillingAddress": {},
+                            "Attributes": {
+                                "type": "map",
+                                "key": {},
+                                "value": {}
+                            }
+                        }
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Message": {}
+                }
+            },
+            "download_location": [
+                "https://c.d.cdn.console.awsstatic.com/a/v1/ZAWFNVUCQB4JEXKWL6F6FFT4P7AKYYGWM37WX2KLWL77FLPV6YAQ/main.min.js"
+            ]
+        },
+        "PutIntegration": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/domains/{DomainName}/integrations"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "DomainName"
+                ],
+                "members": {
+                    "DomainName": {
+                        "location": "uri",
+                        "locationName": "DomainName"
+                    },
+                    "Uri": {},
+                    "ObjectTypeName": {},
+                    "ObjectTypeNames": {
+                        "shape": "S3r"
+                    },
+                    "Tags": {
+                        "shape": "S12"
+                    },
+                    "FlowDefinition": {
+                        "shape": "S1e"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "DomainName",
+                    "Uri",
+                    "CreatedAt",
+                    "LastUpdatedAt"
+                ],
+                "members": {
+                    "DomainName": {},
+                    "Uri": {},
+                    "ObjectTypeName": {},
+                    "CreatedAt": {
+                        "type": "timestamp"
+                    },
+                    "LastUpdatedAt": {
+                        "type": "timestamp"
+                    },
+                    "Tags": {
+                        "shape": "S12"
+                    },
+                    "ObjectTypeNames": {
+                        "shape": "S3r"
+                    },
+                    "WorkflowId": {},
+                    "IsUnstructured": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "download_location": [
+                "https://c.d.cdn.console.awsstatic.com/a/v1/ZAWFNVUCQB4JEXKWL6F6FFT4P7AKYYGWM37WX2KLWL77FLPV6YAQ/main.min.js"
+            ]
+        },
+        "PutProfileObject": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/domains/{DomainName}/profiles/objects"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ObjectTypeName",
+                    "Object",
+                    "DomainName"
+                ],
+                "members": {
+                    "ObjectTypeName": {},
+                    "Object": {},
+                    "DomainName": {
+                        "location": "uri",
+                        "locationName": "DomainName"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ProfileObjectUniqueKey": {}
+                }
+            },
+            "download_location": [
+                "https://c.d.cdn.console.awsstatic.com/a/v1/ZAWFNVUCQB4JEXKWL6F6FFT4P7AKYYGWM37WX2KLWL77FLPV6YAQ/main.min.js"
+            ]
+        },
+        "PutProfileObjectType": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/domains/{DomainName}/object-types/{ObjectTypeName}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "DomainName",
+                    "ObjectTypeName",
+                    "Description"
+                ],
+                "members": {
+                    "DomainName": {
+                        "location": "uri",
+                        "locationName": "DomainName"
+                    },
+                    "ObjectTypeName": {
+                        "location": "uri",
+                        "locationName": "ObjectTypeName"
+                    },
+                    "Description": {},
+                    "TemplateId": {},
+                    "ExpirationDays": {
+                        "type": "integer"
+                    },
+                    "EncryptionKey": {},
+                    "AllowProfileCreation": {
+                        "type": "boolean"
+                    },
+                    "SourceLastUpdatedTimestampFormat": {},
+                    "Fields": {
+                        "shape": "S44"
+                    },
+                    "Keys": {
+                        "shape": "S47"
+                    },
+                    "Tags": {
+                        "shape": "S12"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "ObjectTypeName",
+                    "Description"
+                ],
+                "members": {
+                    "ObjectTypeName": {},
+                    "Description": {},
+                    "TemplateId": {},
+                    "ExpirationDays": {
+                        "type": "integer"
+                    },
+                    "EncryptionKey": {},
+                    "AllowProfileCreation": {
+                        "type": "boolean"
+                    },
+                    "SourceLastUpdatedTimestampFormat": {},
+                    "Fields": {
+                        "shape": "S44"
+                    },
+                    "Keys": {
+                        "shape": "S47"
+                    },
+                    "CreatedAt": {
+                        "type": "timestamp"
+                    },
+                    "LastUpdatedAt": {
+                        "type": "timestamp"
+                    },
+                    "Tags": {
+                        "shape": "S12"
+                    }
+                }
+            },
+            "download_location": [
+                "https://c.d.cdn.console.awsstatic.com/a/v1/ZAWFNVUCQB4JEXKWL6F6FFT4P7AKYYGWM37WX2KLWL77FLPV6YAQ/main.min.js"
+            ]
+        },
+        "SearchProfiles": {
+            "http": {
+                "requestUri": "/domains/{DomainName}/profiles/search"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "DomainName",
+                    "KeyName",
+                    "Values"
+                ],
+                "members": {
+                    "NextToken": {
+                        "location": "querystring",
+                        "locationName": "next-token"
+                    },
+                    "MaxResults": {
+                        "location": "querystring",
+                        "locationName": "max-results",
+                        "type": "integer"
+                    },
+                    "DomainName": {
+                        "location": "uri",
+                        "locationName": "DomainName"
+                    },
+                    "KeyName": {},
+                    "Values": {
+                        "shape": "S4"
+                    },
+                    "AdditionalSearchKeys": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "KeyName": {},
+                                "Values": {
+                                    "shape": "S4"
+                                }
+                            }
+                        }
+                    },
+                    "LogicalOperator": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Items": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "ProfileId": {},
+                                "AccountNumber": {},
+                                "AdditionalInformation": {},
+                                "PartyType": {},
+                                "BusinessName": {},
+                                "FirstName": {},
+                                "MiddleName": {},
+                                "LastName": {},
+                                "BirthDate": {},
+                                "Gender": {},
+                                "PhoneNumber": {},
+                                "MobilePhoneNumber": {},
+                                "HomePhoneNumber": {},
+                                "BusinessPhoneNumber": {},
+                                "EmailAddress": {},
+                                "PersonalEmailAddress": {},
+                                "BusinessEmailAddress": {},
+                                "Address": {
+                                    "shape": "S2u"
+                                },
+                                "ShippingAddress": {
+                                    "shape": "S2u"
+                                },
+                                "MailingAddress": {
+                                    "shape": "S2u"
+                                },
+                                "BillingAddress": {
+                                    "shape": "S2u"
+                                },
+                                "Attributes": {
+                                    "shape": "S2v"
+                                },
+                                "FoundBy": {
+                                    "type": "list",
+                                    "member": {
+                                        "type": "structure",
+                                        "members": {
+                                            "KeyName": {},
+                                            "Values": {
+                                                "shape": "S4"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "download_location": [
+                "https://c.d.cdn.console.awsstatic.com/a/v1/ZAWFNVUCQB4JEXKWL6F6FFT4P7AKYYGWM37WX2KLWL77FLPV6YAQ/main.min.js"
+            ]
+        },
+        "TagResource": {
+            "http": {
+                "requestUri": "/tags/{resourceArn}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "resourceArn",
+                    "tags"
+                ],
+                "members": {
+                    "resourceArn": {
+                        "location": "uri",
+                        "locationName": "resourceArn"
+                    },
+                    "tags": {
+                        "shape": "S12"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://c.d.cdn.console.awsstatic.com/a/v1/ZAWFNVUCQB4JEXKWL6F6FFT4P7AKYYGWM37WX2KLWL77FLPV6YAQ/main.min.js"
+            ]
+        },
+        "UntagResource": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/tags/{resourceArn}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "resourceArn",
+                    "tagKeys"
+                ],
+                "members": {
+                    "resourceArn": {
+                        "location": "uri",
+                        "locationName": "resourceArn"
+                    },
+                    "tagKeys": {
+                        "location": "querystring",
+                        "locationName": "tagKeys",
+                        "type": "list",
+                        "member": {}
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://c.d.cdn.console.awsstatic.com/a/v1/ZAWFNVUCQB4JEXKWL6F6FFT4P7AKYYGWM37WX2KLWL77FLPV6YAQ/main.min.js"
+            ]
+        },
+        "UpdateDomain": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/domains/{DomainName}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "DomainName"
+                ],
+                "members": {
+                    "DomainName": {
+                        "location": "uri",
+                        "locationName": "DomainName"
+                    },
+                    "DefaultExpirationDays": {
+                        "type": "integer"
+                    },
+                    "DefaultEncryptionKey": {},
+                    "DeadLetterQueueUrl": {},
+                    "Matching": {
+                        "shape": "Sb"
+                    },
+                    "RuleBasedMatching": {
+                        "shape": "Sr"
+                    },
+                    "Tags": {
+                        "shape": "S12"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "DomainName",
+                    "CreatedAt",
+                    "LastUpdatedAt"
+                ],
+                "members": {
+                    "DomainName": {},
+                    "DefaultExpirationDays": {
+                        "type": "integer"
+                    },
+                    "DefaultEncryptionKey": {},
+                    "DeadLetterQueueUrl": {},
+                    "Matching": {
+                        "shape": "S16"
+                    },
+                    "RuleBasedMatching": {
+                        "shape": "S17"
+                    },
+                    "CreatedAt": {
+                        "type": "timestamp"
+                    },
+                    "LastUpdatedAt": {
+                        "type": "timestamp"
+                    },
+                    "Tags": {
+                        "shape": "S12"
+                    }
+                }
+            },
+            "download_location": [
+                "https://c.d.cdn.console.awsstatic.com/a/v1/ZAWFNVUCQB4JEXKWL6F6FFT4P7AKYYGWM37WX2KLWL77FLPV6YAQ/main.min.js"
+            ]
+        },
+        "UpdateProfile": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/domains/{DomainName}/profiles"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "DomainName",
+                    "ProfileId"
+                ],
+                "members": {
+                    "DomainName": {
+                        "location": "uri",
+                        "locationName": "DomainName"
+                    },
+                    "ProfileId": {},
+                    "AdditionalInformation": {},
+                    "AccountNumber": {},
+                    "PartyType": {},
+                    "BusinessName": {},
+                    "FirstName": {},
+                    "MiddleName": {},
+                    "LastName": {},
+                    "BirthDate": {},
+                    "Gender": {},
+                    "PhoneNumber": {},
+                    "MobilePhoneNumber": {},
+                    "HomePhoneNumber": {},
+                    "BusinessPhoneNumber": {},
+                    "EmailAddress": {},
+                    "PersonalEmailAddress": {},
+                    "BusinessEmailAddress": {},
+                    "Address": {
+                        "shape": "S6k"
+                    },
+                    "ShippingAddress": {
+                        "shape": "S6k"
+                    },
+                    "MailingAddress": {
+                        "shape": "S6k"
+                    },
+                    "BillingAddress": {
+                        "shape": "S6k"
+                    },
+                    "Attributes": {
+                        "type": "map",
+                        "key": {},
+                        "value": {}
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "ProfileId"
+                ],
+                "members": {
+                    "ProfileId": {}
+                }
+            },
+            "download_location": [
+                "https://c.d.cdn.console.awsstatic.com/a/v1/ZAWFNVUCQB4JEXKWL6F6FFT4P7AKYYGWM37WX2KLWL77FLPV6YAQ/main.min.js"
+            ]
+        }
+    },
+    "shapes": {
+        "S4": {
+            "type": "list",
+            "member": {}
+        },
+        "Sb": {
+            "type": "structure",
+            "required": [
+                "Enabled"
+            ],
+            "members": {
+                "Enabled": {
+                    "type": "boolean"
+                },
+                "JobSchedule": {
+                    "shape": "Sd"
+                },
+                "AutoMerging": {
+                    "shape": "Sg"
+                },
+                "ExportingConfig": {
+                    "shape": "Sn"
+                }
+            }
+        },
+        "Sd": {
+            "type": "structure",
+            "required": [
+                "DayOfTheWeek",
+                "Time"
+            ],
+            "members": {
+                "DayOfTheWeek": {},
+                "Time": {}
+            }
+        },
+        "Sg": {
+            "type": "structure",
+            "required": [
+                "Enabled"
+            ],
+            "members": {
+                "Enabled": {
+                    "type": "boolean"
+                },
+                "Consolidation": {
+                    "shape": "Sh"
+                },
+                "ConflictResolution": {
+                    "shape": "Sk"
+                },
+                "MinAllowedConfidenceScoreForMerging": {
+                    "type": "double"
+                }
+            }
+        },
+        "Sh": {
+            "type": "structure",
+            "required": [
+                "MatchingAttributesList"
+            ],
+            "members": {
+                "MatchingAttributesList": {
+                    "type": "list",
+                    "member": {
+                        "type": "list",
+                        "member": {}
+                    }
+                }
+            }
+        },
+        "Sk": {
+            "type": "structure",
+            "required": [
+                "ConflictResolvingModel"
+            ],
+            "members": {
+                "ConflictResolvingModel": {},
+                "SourceName": {}
+            }
+        },
+        "Sn": {
+            "type": "structure",
+            "members": {
+                "S3Exporting": {
+                    "type": "structure",
+                    "required": [
+                        "S3BucketName"
+                    ],
+                    "members": {
+                        "S3BucketName": {},
+                        "S3KeyName": {}
+                    }
+                }
+            }
+        },
+        "Sr": {
+            "type": "structure",
+            "required": [
+                "Enabled"
+            ],
+            "members": {
+                "Enabled": {
+                    "type": "boolean"
+                },
+                "MatchingRules": {
+                    "shape": "Ss"
+                },
+                "MaxAllowedRuleLevelForMerging": {
+                    "type": "integer"
+                },
+                "MaxAllowedRuleLevelForMatching": {
+                    "type": "integer"
+                },
+                "AttributeTypesSelector": {
+                    "shape": "Sx"
+                },
+                "ConflictResolution": {
+                    "shape": "Sk"
+                },
+                "ExportingConfig": {
+                    "shape": "Sn"
+                }
+            }
+        },
+        "Ss": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "Rule": {
+                        "type": "list",
+                        "member": {}
+                    }
+                }
+            }
+        },
+        "Sx": {
+            "type": "structure",
+            "required": [
+                "AttributeMatchingModel"
+            ],
+            "members": {
+                "AttributeMatchingModel": {},
+                "Address": {
+                    "type": "list",
+                    "member": {}
+                },
+                "PhoneNumber": {
+                    "type": "list",
+                    "member": {}
+                },
+                "Email": {
+                    "type": "list",
+                    "member": {}
+                }
+            }
+        },
+        "S12": {
+            "type": "map",
+            "key": {},
+            "value": {}
+        },
+        "S16": {
+            "type": "structure",
+            "members": {
+                "Enabled": {
+                    "type": "boolean"
+                },
+                "JobSchedule": {
+                    "shape": "Sd"
+                },
+                "AutoMerging": {
+                    "shape": "Sg"
+                },
+                "ExportingConfig": {
+                    "shape": "Sn"
+                }
+            }
+        },
+        "S17": {
+            "type": "structure",
+            "members": {
+                "Enabled": {
+                    "type": "boolean"
+                },
+                "MatchingRules": {
+                    "shape": "Ss"
+                },
+                "Status": {},
+                "MaxAllowedRuleLevelForMerging": {
+                    "type": "integer"
+                },
+                "MaxAllowedRuleLevelForMatching": {
+                    "type": "integer"
+                },
+                "AttributeTypesSelector": {
+                    "shape": "Sx"
+                },
+                "ConflictResolution": {
+                    "shape": "Sk"
+                },
+                "ExportingConfig": {
+                    "shape": "Sn"
+                }
+            }
+        },
+        "S1e": {
+            "type": "structure",
+            "required": [
+                "FlowName",
+                "KmsArn",
+                "SourceFlowConfig",
+                "Tasks",
+                "TriggerConfig"
+            ],
+            "members": {
+                "Description": {},
+                "FlowName": {},
+                "KmsArn": {},
+                "SourceFlowConfig": {
+                    "type": "structure",
+                    "required": [
+                        "ConnectorType",
+                        "SourceConnectorProperties"
+                    ],
+                    "members": {
+                        "ConnectorProfileName": {},
+                        "ConnectorType": {},
+                        "IncrementalPullConfig": {
+                            "type": "structure",
+                            "members": {
+                                "DatetimeTypeFieldName": {}
+                            }
+                        },
+                        "SourceConnectorProperties": {
+                            "type": "structure",
+                            "members": {
+                                "Marketo": {
+                                    "type": "structure",
+                                    "required": [
+                                        "Object"
+                                    ],
+                                    "members": {
+                                        "Object": {}
+                                    }
+                                },
+                                "S3": {
+                                    "type": "structure",
+                                    "required": [
+                                        "BucketName"
+                                    ],
+                                    "members": {
+                                        "BucketName": {},
+                                        "BucketPrefix": {}
+                                    }
+                                },
+                                "Salesforce": {
+                                    "type": "structure",
+                                    "required": [
+                                        "Object"
+                                    ],
+                                    "members": {
+                                        "Object": {},
+                                        "EnableDynamicFieldUpdate": {
+                                            "type": "boolean"
+                                        },
+                                        "IncludeDeletedRecords": {
+                                            "type": "boolean"
+                                        }
+                                    }
+                                },
+                                "ServiceNow": {
+                                    "type": "structure",
+                                    "required": [
+                                        "Object"
+                                    ],
+                                    "members": {
+                                        "Object": {}
+                                    }
+                                },
+                                "Zendesk": {
+                                    "type": "structure",
+                                    "required": [
+                                        "Object"
+                                    ],
+                                    "members": {
+                                        "Object": {}
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "Tasks": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "required": [
+                            "SourceFields",
+                            "TaskType"
+                        ],
+                        "members": {
+                            "ConnectorOperator": {
+                                "type": "structure",
+                                "members": {
+                                    "Marketo": {},
+                                    "S3": {},
+                                    "Salesforce": {},
+                                    "ServiceNow": {},
+                                    "Zendesk": {}
+                                }
+                            },
+                            "DestinationField": {},
+                            "SourceFields": {
+                                "type": "list",
+                                "member": {}
+                            },
+                            "TaskProperties": {
+                                "type": "map",
+                                "key": {},
+                                "value": {}
+                            },
+                            "TaskType": {}
+                        }
+                    }
+                },
+                "TriggerConfig": {
+                    "type": "structure",
+                    "required": [
+                        "TriggerType"
+                    ],
+                    "members": {
+                        "TriggerType": {},
+                        "TriggerProperties": {
+                            "type": "structure",
+                            "members": {
+                                "Scheduled": {
+                                    "type": "structure",
+                                    "required": [
+                                        "ScheduleExpression"
+                                    ],
+                                    "members": {
+                                        "ScheduleExpression": {},
+                                        "DataPullMode": {},
+                                        "ScheduleStartTime": {
+                                            "type": "timestamp"
+                                        },
+                                        "ScheduleEndTime": {
+                                            "type": "timestamp"
+                                        },
+                                        "Timezone": {},
+                                        "ScheduleOffset": {
+                                            "type": "long"
+                                        },
+                                        "FirstExecutionFrom": {
+                                            "type": "timestamp"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "S2u": {
+            "type": "structure",
+            "members": {
+                "Address1": {},
+                "Address2": {},
+                "Address3": {},
+                "Address4": {},
+                "City": {},
+                "County": {},
+                "State": {},
+                "Province": {},
+                "Country": {},
+                "PostalCode": {}
+            }
+        },
+        "S2v": {
+            "type": "map",
+            "key": {},
+            "value": {}
+        },
+        "S3l": {
+            "type": "structure",
+            "members": {
+                "S3Exporting": {
+                    "type": "structure",
+                    "members": {
+                        "S3BucketName": {},
+                        "S3KeyName": {}
+                    }
+                }
+            }
+        },
+        "S3o": {
+            "type": "structure",
+            "members": {
+                "NumberOfProfilesReviewed": {
+                    "type": "long"
+                },
+                "NumberOfMatchesFound": {
+                    "type": "long"
+                },
+                "NumberOfMergesDone": {
+                    "type": "long"
+                }
+            }
+        },
+        "S3r": {
+            "type": "map",
+            "key": {},
+            "value": {}
+        },
+        "S44": {
+            "type": "map",
+            "key": {},
+            "value": {
+                "type": "structure",
+                "members": {
+                    "Source": {},
+                    "Target": {},
+                    "ContentType": {}
+                }
+            }
+        },
+        "S47": {
+            "type": "map",
+            "key": {},
+            "value": {
+                "type": "list",
+                "member": {
+                    "type": "structure",
+                    "members": {
+                        "StandardIdentifiers": {
+                            "type": "list",
+                            "member": {}
+                        },
+                        "FieldNames": {
+                            "type": "list",
+                            "member": {}
+                        }
+                    }
+                }
+            }
+        },
+        "S4t": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "DomainName",
+                    "Uri",
+                    "CreatedAt",
+                    "LastUpdatedAt"
+                ],
+                "members": {
+                    "DomainName": {},
+                    "Uri": {},
+                    "ObjectTypeName": {},
+                    "CreatedAt": {
+                        "type": "timestamp"
+                    },
+                    "LastUpdatedAt": {
+                        "type": "timestamp"
+                    },
+                    "Tags": {
+                        "shape": "S12"
+                    },
+                    "ObjectTypeNames": {
+                        "shape": "S3r"
+                    },
+                    "WorkflowId": {},
+                    "IsUnstructured": {
+                        "type": "boolean"
+                    }
+                }
+            }
+        },
+        "S6k": {
+            "type": "structure",
+            "members": {
+                "Address1": {},
+                "Address2": {},
+                "Address3": {},
+                "Address4": {},
+                "City": {},
+                "County": {},
+                "State": {},
+                "Province": {},
+                "Country": {},
+                "PostalCode": {}
+            }
+        }
+    }
+}

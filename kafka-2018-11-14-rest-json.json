@@ -1,0 +1,5189 @@
+{
+    "metadata": {
+        "apiVersion": "2018-11-14",
+        "endpointPrefix": "kafka",
+        "signingName": "kafka",
+        "serviceFullName": "Managed Streaming for Kafka",
+        "serviceAbbreviation": "Kafka",
+        "serviceId": "Kafka",
+        "protocol": "rest-json",
+        "jsonVersion": "1.1",
+        "uid": "kafka-2018-11-14",
+        "signatureVersion": "v4",
+        "download_location": [
+            "https://a.b.cdn.console.awsstatic.com/a/v1/IWXO7RUN7VQKNMMMKADXKVN2KRR2T2WNSZYEVCIV2Z4LSFTAEXZQ/vendor.js"
+        ]
+    },
+    "operations": {
+        "BatchAssociateScramSecret": {
+            "http": {
+                "requestUri": "/v1/clusters/{clusterArn}/scram-secrets",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "ClusterArn": {
+                        "location": "uri",
+                        "locationName": "clusterArn"
+                    },
+                    "SecretArnList": {
+                        "shape": "S3",
+                        "locationName": "secretArnList"
+                    }
+                },
+                "required": [
+                    "ClusterArn",
+                    "SecretArnList"
+                ]
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ClusterArn": {
+                        "locationName": "clusterArn"
+                    },
+                    "UnprocessedScramSecrets": {
+                        "shape": "S5",
+                        "locationName": "unprocessedScramSecrets"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/IWXO7RUN7VQKNMMMKADXKVN2KRR2T2WNSZYEVCIV2Z4LSFTAEXZQ/vendor.js"
+            ]
+        },
+        "CreateCluster": {
+            "http": {
+                "requestUri": "/v1/clusters",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "BrokerNodeGroupInfo": {
+                        "shape": "S8",
+                        "locationName": "brokerNodeGroupInfo"
+                    },
+                    "ClientAuthentication": {
+                        "shape": "Sj",
+                        "locationName": "clientAuthentication"
+                    },
+                    "ClusterName": {
+                        "locationName": "clusterName"
+                    },
+                    "ConfigurationInfo": {
+                        "shape": "Sq",
+                        "locationName": "configurationInfo"
+                    },
+                    "EncryptionInfo": {
+                        "shape": "Ss",
+                        "locationName": "encryptionInfo"
+                    },
+                    "EnhancedMonitoring": {
+                        "locationName": "enhancedMonitoring"
+                    },
+                    "OpenMonitoring": {
+                        "shape": "Sx",
+                        "locationName": "openMonitoring"
+                    },
+                    "KafkaVersion": {
+                        "locationName": "kafkaVersion"
+                    },
+                    "LoggingInfo": {
+                        "shape": "S12",
+                        "locationName": "loggingInfo"
+                    },
+                    "NumberOfBrokerNodes": {
+                        "locationName": "numberOfBrokerNodes",
+                        "type": "integer"
+                    },
+                    "Tags": {
+                        "shape": "S18",
+                        "locationName": "tags"
+                    }
+                },
+                "required": [
+                    "BrokerNodeGroupInfo",
+                    "KafkaVersion",
+                    "NumberOfBrokerNodes",
+                    "ClusterName"
+                ]
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ClusterArn": {
+                        "locationName": "clusterArn"
+                    },
+                    "ClusterName": {
+                        "locationName": "clusterName"
+                    },
+                    "State": {
+                        "locationName": "state"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/IWXO7RUN7VQKNMMMKADXKVN2KRR2T2WNSZYEVCIV2Z4LSFTAEXZQ/vendor.js"
+            ]
+        },
+        "CreateClusterV2": {
+            "http": {
+                "requestUri": "/api/v2/clusters",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "ClusterName": {
+                        "locationName": "clusterName"
+                    },
+                    "Tags": {
+                        "shape": "S18",
+                        "locationName": "tags"
+                    },
+                    "Provisioned": {
+                        "locationName": "provisioned",
+                        "type": "structure",
+                        "members": {
+                            "BrokerNodeGroupInfo": {
+                                "shape": "S8",
+                                "locationName": "brokerNodeGroupInfo"
+                            },
+                            "ClientAuthentication": {
+                                "shape": "Sj",
+                                "locationName": "clientAuthentication"
+                            },
+                            "ConfigurationInfo": {
+                                "shape": "Sq",
+                                "locationName": "configurationInfo"
+                            },
+                            "EncryptionInfo": {
+                                "shape": "Ss",
+                                "locationName": "encryptionInfo"
+                            },
+                            "EnhancedMonitoring": {
+                                "locationName": "enhancedMonitoring"
+                            },
+                            "OpenMonitoring": {
+                                "shape": "Sx",
+                                "locationName": "openMonitoring"
+                            },
+                            "KafkaVersion": {
+                                "locationName": "kafkaVersion"
+                            },
+                            "LoggingInfo": {
+                                "shape": "S12",
+                                "locationName": "loggingInfo"
+                            },
+                            "NumberOfBrokerNodes": {
+                                "locationName": "numberOfBrokerNodes",
+                                "type": "integer"
+                            }
+                        },
+                        "required": [
+                            "BrokerNodeGroupInfo",
+                            "KafkaVersion",
+                            "NumberOfBrokerNodes"
+                        ]
+                    },
+                    "Serverless": {
+                        "locationName": "serverless",
+                        "type": "structure",
+                        "members": {
+                            "VpcConfigs": {
+                                "shape": "S1e",
+                                "locationName": "vpcConfigs"
+                            },
+                            "ClientAuthentication": {
+                                "shape": "S1g",
+                                "locationName": "clientAuthentication"
+                            }
+                        },
+                        "required": [
+                            "VpcConfigs"
+                        ]
+                    }
+                },
+                "required": [
+                    "ClusterName"
+                ]
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ClusterArn": {
+                        "locationName": "clusterArn"
+                    },
+                    "ClusterName": {
+                        "locationName": "clusterName"
+                    },
+                    "State": {
+                        "locationName": "state"
+                    },
+                    "ClusterType": {
+                        "locationName": "clusterType"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/IWXO7RUN7VQKNMMMKADXKVN2KRR2T2WNSZYEVCIV2Z4LSFTAEXZQ/vendor.js"
+            ]
+        },
+        "CreateConfiguration": {
+            "http": {
+                "requestUri": "/v1/configurations",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "Description": {
+                        "locationName": "description"
+                    },
+                    "KafkaVersions": {
+                        "shape": "S3",
+                        "locationName": "kafkaVersions"
+                    },
+                    "Name": {
+                        "locationName": "name"
+                    },
+                    "ServerProperties": {
+                        "locationName": "serverProperties",
+                        "type": "blob"
+                    }
+                },
+                "required": [
+                    "ServerProperties",
+                    "Name"
+                ]
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Arn": {
+                        "locationName": "arn"
+                    },
+                    "CreationTime": {
+                        "shape": "S1n",
+                        "locationName": "creationTime"
+                    },
+                    "LatestRevision": {
+                        "shape": "S1o",
+                        "locationName": "latestRevision"
+                    },
+                    "Name": {
+                        "locationName": "name"
+                    },
+                    "State": {
+                        "locationName": "state"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/IWXO7RUN7VQKNMMMKADXKVN2KRR2T2WNSZYEVCIV2Z4LSFTAEXZQ/vendor.js"
+            ]
+        },
+        "DeleteCluster": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/v1/clusters/{clusterArn}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "ClusterArn": {
+                        "location": "uri",
+                        "locationName": "clusterArn"
+                    },
+                    "CurrentVersion": {
+                        "location": "querystring",
+                        "locationName": "currentVersion"
+                    }
+                },
+                "required": [
+                    "ClusterArn"
+                ]
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ClusterArn": {
+                        "locationName": "clusterArn"
+                    },
+                    "State": {
+                        "locationName": "state"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/IWXO7RUN7VQKNMMMKADXKVN2KRR2T2WNSZYEVCIV2Z4LSFTAEXZQ/vendor.js"
+            ]
+        },
+        "DeleteConfiguration": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/v1/configurations/{arn}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "Arn": {
+                        "location": "uri",
+                        "locationName": "arn"
+                    }
+                },
+                "required": [
+                    "Arn"
+                ]
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Arn": {
+                        "locationName": "arn"
+                    },
+                    "State": {
+                        "locationName": "state"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/IWXO7RUN7VQKNMMMKADXKVN2KRR2T2WNSZYEVCIV2Z4LSFTAEXZQ/vendor.js"
+            ]
+        },
+        "DescribeCluster": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/v1/clusters/{clusterArn}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "ClusterArn": {
+                        "location": "uri",
+                        "locationName": "clusterArn"
+                    }
+                },
+                "required": [
+                    "ClusterArn"
+                ]
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ClusterInfo": {
+                        "shape": "S1w",
+                        "locationName": "clusterInfo"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/IWXO7RUN7VQKNMMMKADXKVN2KRR2T2WNSZYEVCIV2Z4LSFTAEXZQ/vendor.js"
+            ]
+        },
+        "DescribeClusterV2": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/api/v2/clusters/{clusterArn}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "ClusterArn": {
+                        "location": "uri",
+                        "locationName": "clusterArn"
+                    }
+                },
+                "required": [
+                    "ClusterArn"
+                ]
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ClusterInfo": {
+                        "shape": "S25",
+                        "locationName": "clusterInfo"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/IWXO7RUN7VQKNMMMKADXKVN2KRR2T2WNSZYEVCIV2Z4LSFTAEXZQ/vendor.js"
+            ]
+        },
+        "DescribeClusterOperation": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/v1/operations/{clusterOperationArn}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "ClusterOperationArn": {
+                        "location": "uri",
+                        "locationName": "clusterOperationArn"
+                    }
+                },
+                "required": [
+                    "ClusterOperationArn"
+                ]
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ClusterOperationInfo": {
+                        "shape": "S2a",
+                        "locationName": "clusterOperationInfo"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/IWXO7RUN7VQKNMMMKADXKVN2KRR2T2WNSZYEVCIV2Z4LSFTAEXZQ/vendor.js"
+            ]
+        },
+        "DescribeConfiguration": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/v1/configurations/{arn}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "Arn": {
+                        "location": "uri",
+                        "locationName": "arn"
+                    }
+                },
+                "required": [
+                    "Arn"
+                ]
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Arn": {
+                        "locationName": "arn"
+                    },
+                    "CreationTime": {
+                        "shape": "S1n",
+                        "locationName": "creationTime"
+                    },
+                    "Description": {
+                        "locationName": "description"
+                    },
+                    "KafkaVersions": {
+                        "shape": "S3",
+                        "locationName": "kafkaVersions"
+                    },
+                    "LatestRevision": {
+                        "shape": "S1o",
+                        "locationName": "latestRevision"
+                    },
+                    "Name": {
+                        "locationName": "name"
+                    },
+                    "State": {
+                        "locationName": "state"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/IWXO7RUN7VQKNMMMKADXKVN2KRR2T2WNSZYEVCIV2Z4LSFTAEXZQ/vendor.js"
+            ]
+        },
+        "DescribeConfigurationRevision": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/v1/configurations/{arn}/revisions/{revision}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "Arn": {
+                        "location": "uri",
+                        "locationName": "arn"
+                    },
+                    "Revision": {
+                        "location": "uri",
+                        "locationName": "revision",
+                        "type": "long"
+                    }
+                },
+                "required": [
+                    "Revision",
+                    "Arn"
+                ]
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Arn": {
+                        "locationName": "arn"
+                    },
+                    "CreationTime": {
+                        "shape": "S1n",
+                        "locationName": "creationTime"
+                    },
+                    "Description": {
+                        "locationName": "description"
+                    },
+                    "Revision": {
+                        "locationName": "revision",
+                        "type": "long"
+                    },
+                    "ServerProperties": {
+                        "locationName": "serverProperties",
+                        "type": "blob"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/IWXO7RUN7VQKNMMMKADXKVN2KRR2T2WNSZYEVCIV2Z4LSFTAEXZQ/vendor.js"
+            ]
+        },
+        "BatchDisassociateScramSecret": {
+            "http": {
+                "method": "PATCH",
+                "requestUri": "/v1/clusters/{clusterArn}/scram-secrets",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "ClusterArn": {
+                        "location": "uri",
+                        "locationName": "clusterArn"
+                    },
+                    "SecretArnList": {
+                        "shape": "S3",
+                        "locationName": "secretArnList"
+                    }
+                },
+                "required": [
+                    "ClusterArn",
+                    "SecretArnList"
+                ]
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ClusterArn": {
+                        "locationName": "clusterArn"
+                    },
+                    "UnprocessedScramSecrets": {
+                        "shape": "S5",
+                        "locationName": "unprocessedScramSecrets"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/IWXO7RUN7VQKNMMMKADXKVN2KRR2T2WNSZYEVCIV2Z4LSFTAEXZQ/vendor.js"
+            ]
+        },
+        "GetBootstrapBrokers": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/v1/clusters/{clusterArn}/bootstrap-brokers",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "ClusterArn": {
+                        "location": "uri",
+                        "locationName": "clusterArn"
+                    }
+                },
+                "required": [
+                    "ClusterArn"
+                ]
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "BootstrapBrokerString": {
+                        "locationName": "bootstrapBrokerString"
+                    },
+                    "BootstrapBrokerStringTls": {
+                        "locationName": "bootstrapBrokerStringTls"
+                    },
+                    "BootstrapBrokerStringSaslScram": {
+                        "locationName": "bootstrapBrokerStringSaslScram"
+                    },
+                    "BootstrapBrokerStringSaslIam": {
+                        "locationName": "bootstrapBrokerStringSaslIam"
+                    },
+                    "BootstrapBrokerStringPublicTls": {
+                        "locationName": "bootstrapBrokerStringPublicTls"
+                    },
+                    "BootstrapBrokerStringPublicSaslScram": {
+                        "locationName": "bootstrapBrokerStringPublicSaslScram"
+                    },
+                    "BootstrapBrokerStringPublicSaslIam": {
+                        "locationName": "bootstrapBrokerStringPublicSaslIam"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/IWXO7RUN7VQKNMMMKADXKVN2KRR2T2WNSZYEVCIV2Z4LSFTAEXZQ/vendor.js"
+            ]
+        },
+        "GetCompatibleKafkaVersions": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/v1/compatible-kafka-versions",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "ClusterArn": {
+                        "location": "querystring",
+                        "locationName": "clusterArn"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "CompatibleKafkaVersions": {
+                        "locationName": "compatibleKafkaVersions",
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "SourceVersion": {
+                                    "locationName": "sourceVersion"
+                                },
+                                "TargetVersions": {
+                                    "shape": "S3",
+                                    "locationName": "targetVersions"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/IWXO7RUN7VQKNMMMKADXKVN2KRR2T2WNSZYEVCIV2Z4LSFTAEXZQ/vendor.js"
+            ]
+        },
+        "ListClusterOperations": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/v1/clusters/{clusterArn}/operations",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "ClusterArn": {
+                        "location": "uri",
+                        "locationName": "clusterArn"
+                    },
+                    "MaxResults": {
+                        "location": "querystring",
+                        "locationName": "maxResults",
+                        "type": "integer"
+                    },
+                    "NextToken": {
+                        "location": "querystring",
+                        "locationName": "nextToken"
+                    }
+                },
+                "required": [
+                    "ClusterArn"
+                ]
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ClusterOperationInfoList": {
+                        "locationName": "clusterOperationInfoList",
+                        "type": "list",
+                        "member": {
+                            "shape": "S2a"
+                        }
+                    },
+                    "NextToken": {
+                        "locationName": "nextToken"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/IWXO7RUN7VQKNMMMKADXKVN2KRR2T2WNSZYEVCIV2Z4LSFTAEXZQ/vendor.js"
+            ]
+        },
+        "ListClusters": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/v1/clusters",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "ClusterNameFilter": {
+                        "location": "querystring",
+                        "locationName": "clusterNameFilter"
+                    },
+                    "MaxResults": {
+                        "location": "querystring",
+                        "locationName": "maxResults",
+                        "type": "integer"
+                    },
+                    "NextToken": {
+                        "location": "querystring",
+                        "locationName": "nextToken"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ClusterInfoList": {
+                        "locationName": "clusterInfoList",
+                        "type": "list",
+                        "member": {
+                            "shape": "S1w"
+                        }
+                    },
+                    "NextToken": {
+                        "locationName": "nextToken"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/IWXO7RUN7VQKNMMMKADXKVN2KRR2T2WNSZYEVCIV2Z4LSFTAEXZQ/vendor.js"
+            ]
+        },
+        "ListClustersV2": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/api/v2/clusters",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "ClusterNameFilter": {
+                        "location": "querystring",
+                        "locationName": "clusterNameFilter"
+                    },
+                    "ClusterTypeFilter": {
+                        "location": "querystring",
+                        "locationName": "clusterTypeFilter"
+                    },
+                    "MaxResults": {
+                        "location": "querystring",
+                        "locationName": "maxResults",
+                        "type": "integer"
+                    },
+                    "NextToken": {
+                        "location": "querystring",
+                        "locationName": "nextToken"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ClusterInfoList": {
+                        "locationName": "clusterInfoList",
+                        "type": "list",
+                        "member": {
+                            "shape": "S25"
+                        }
+                    },
+                    "NextToken": {
+                        "locationName": "nextToken"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/IWXO7RUN7VQKNMMMKADXKVN2KRR2T2WNSZYEVCIV2Z4LSFTAEXZQ/vendor.js"
+            ]
+        },
+        "ListConfigurationRevisions": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/v1/configurations/{arn}/revisions",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "Arn": {
+                        "location": "uri",
+                        "locationName": "arn"
+                    },
+                    "MaxResults": {
+                        "location": "querystring",
+                        "locationName": "maxResults",
+                        "type": "integer"
+                    },
+                    "NextToken": {
+                        "location": "querystring",
+                        "locationName": "nextToken"
+                    }
+                },
+                "required": [
+                    "Arn"
+                ]
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "NextToken": {
+                        "locationName": "nextToken"
+                    },
+                    "Revisions": {
+                        "locationName": "revisions",
+                        "type": "list",
+                        "member": {
+                            "shape": "S1o"
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/IWXO7RUN7VQKNMMMKADXKVN2KRR2T2WNSZYEVCIV2Z4LSFTAEXZQ/vendor.js"
+            ]
+        },
+        "ListConfigurations": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/v1/configurations",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "MaxResults": {
+                        "location": "querystring",
+                        "locationName": "maxResults",
+                        "type": "integer"
+                    },
+                    "NextToken": {
+                        "location": "querystring",
+                        "locationName": "nextToken"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Configurations": {
+                        "locationName": "configurations",
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "Arn": {
+                                    "locationName": "arn"
+                                },
+                                "CreationTime": {
+                                    "shape": "S1n",
+                                    "locationName": "creationTime"
+                                },
+                                "Description": {
+                                    "locationName": "description"
+                                },
+                                "KafkaVersions": {
+                                    "shape": "S3",
+                                    "locationName": "kafkaVersions"
+                                },
+                                "LatestRevision": {
+                                    "shape": "S1o",
+                                    "locationName": "latestRevision"
+                                },
+                                "Name": {
+                                    "locationName": "name"
+                                },
+                                "State": {
+                                    "locationName": "state"
+                                }
+                            },
+                            "required": [
+                                "Description",
+                                "LatestRevision",
+                                "CreationTime",
+                                "KafkaVersions",
+                                "Arn",
+                                "Name",
+                                "State"
+                            ]
+                        }
+                    },
+                    "NextToken": {
+                        "locationName": "nextToken"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/IWXO7RUN7VQKNMMMKADXKVN2KRR2T2WNSZYEVCIV2Z4LSFTAEXZQ/vendor.js"
+            ]
+        },
+        "ListKafkaVersions": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/v1/kafka-versions",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "MaxResults": {
+                        "location": "querystring",
+                        "locationName": "maxResults",
+                        "type": "integer"
+                    },
+                    "NextToken": {
+                        "location": "querystring",
+                        "locationName": "nextToken"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "KafkaVersions": {
+                        "locationName": "kafkaVersions",
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "Version": {
+                                    "locationName": "version"
+                                },
+                                "Status": {
+                                    "locationName": "status"
+                                }
+                            }
+                        }
+                    },
+                    "NextToken": {
+                        "locationName": "nextToken"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/IWXO7RUN7VQKNMMMKADXKVN2KRR2T2WNSZYEVCIV2Z4LSFTAEXZQ/vendor.js"
+            ]
+        },
+        "ListNodes": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/v1/clusters/{clusterArn}/nodes",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "ClusterArn": {
+                        "location": "uri",
+                        "locationName": "clusterArn"
+                    },
+                    "MaxResults": {
+                        "location": "querystring",
+                        "locationName": "maxResults",
+                        "type": "integer"
+                    },
+                    "NextToken": {
+                        "location": "querystring",
+                        "locationName": "nextToken"
+                    }
+                },
+                "required": [
+                    "ClusterArn"
+                ]
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "NextToken": {
+                        "locationName": "nextToken"
+                    },
+                    "NodeInfoList": {
+                        "locationName": "nodeInfoList",
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "AddedToClusterTime": {
+                                    "locationName": "addedToClusterTime"
+                                },
+                                "BrokerNodeInfo": {
+                                    "locationName": "brokerNodeInfo",
+                                    "type": "structure",
+                                    "members": {
+                                        "AttachedENIId": {
+                                            "locationName": "attachedENIId"
+                                        },
+                                        "BrokerId": {
+                                            "locationName": "brokerId",
+                                            "type": "double"
+                                        },
+                                        "ClientSubnet": {
+                                            "locationName": "clientSubnet"
+                                        },
+                                        "ClientVpcIpAddress": {
+                                            "locationName": "clientVpcIpAddress"
+                                        },
+                                        "CurrentBrokerSoftwareInfo": {
+                                            "shape": "S1x",
+                                            "locationName": "currentBrokerSoftwareInfo"
+                                        },
+                                        "Endpoints": {
+                                            "shape": "S3",
+                                            "locationName": "endpoints"
+                                        }
+                                    }
+                                },
+                                "InstanceType": {
+                                    "locationName": "instanceType"
+                                },
+                                "NodeARN": {
+                                    "locationName": "nodeARN"
+                                },
+                                "NodeType": {
+                                    "locationName": "nodeType"
+                                },
+                                "ZookeeperNodeInfo": {
+                                    "locationName": "zookeeperNodeInfo",
+                                    "type": "structure",
+                                    "members": {
+                                        "AttachedENIId": {
+                                            "locationName": "attachedENIId"
+                                        },
+                                        "ClientVpcIpAddress": {
+                                            "locationName": "clientVpcIpAddress"
+                                        },
+                                        "Endpoints": {
+                                            "shape": "S3",
+                                            "locationName": "endpoints"
+                                        },
+                                        "ZookeeperId": {
+                                            "locationName": "zookeeperId",
+                                            "type": "double"
+                                        },
+                                        "ZookeeperVersion": {
+                                            "locationName": "zookeeperVersion"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/IWXO7RUN7VQKNMMMKADXKVN2KRR2T2WNSZYEVCIV2Z4LSFTAEXZQ/vendor.js"
+            ]
+        },
+        "ListScramSecrets": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/v1/clusters/{clusterArn}/scram-secrets",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "ClusterArn": {
+                        "location": "uri",
+                        "locationName": "clusterArn"
+                    },
+                    "MaxResults": {
+                        "location": "querystring",
+                        "locationName": "maxResults",
+                        "type": "integer"
+                    },
+                    "NextToken": {
+                        "location": "querystring",
+                        "locationName": "nextToken"
+                    }
+                },
+                "required": [
+                    "ClusterArn"
+                ]
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "NextToken": {
+                        "locationName": "nextToken"
+                    },
+                    "SecretArnList": {
+                        "shape": "S3",
+                        "locationName": "secretArnList"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/IWXO7RUN7VQKNMMMKADXKVN2KRR2T2WNSZYEVCIV2Z4LSFTAEXZQ/vendor.js"
+            ]
+        },
+        "ListTagsForResource": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/v1/tags/{resourceArn}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "ResourceArn": {
+                        "location": "uri",
+                        "locationName": "resourceArn"
+                    }
+                },
+                "required": [
+                    "ResourceArn"
+                ]
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Tags": {
+                        "shape": "S18",
+                        "locationName": "tags"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/IWXO7RUN7VQKNMMMKADXKVN2KRR2T2WNSZYEVCIV2Z4LSFTAEXZQ/vendor.js"
+            ]
+        },
+        "RebootBroker": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/v1/clusters/{clusterArn}/reboot-broker",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "BrokerIds": {
+                        "shape": "S3",
+                        "locationName": "brokerIds"
+                    },
+                    "ClusterArn": {
+                        "location": "uri",
+                        "locationName": "clusterArn"
+                    }
+                },
+                "required": [
+                    "ClusterArn",
+                    "BrokerIds"
+                ]
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ClusterArn": {
+                        "locationName": "clusterArn"
+                    },
+                    "ClusterOperationArn": {
+                        "locationName": "clusterOperationArn"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/IWXO7RUN7VQKNMMMKADXKVN2KRR2T2WNSZYEVCIV2Z4LSFTAEXZQ/vendor.js"
+            ]
+        },
+        "TagResource": {
+            "http": {
+                "requestUri": "/v1/tags/{resourceArn}",
+                "responseCode": 204
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "ResourceArn": {
+                        "location": "uri",
+                        "locationName": "resourceArn"
+                    },
+                    "Tags": {
+                        "shape": "S18",
+                        "locationName": "tags"
+                    }
+                },
+                "required": [
+                    "ResourceArn",
+                    "Tags"
+                ]
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/IWXO7RUN7VQKNMMMKADXKVN2KRR2T2WNSZYEVCIV2Z4LSFTAEXZQ/vendor.js"
+            ]
+        },
+        "UntagResource": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/v1/tags/{resourceArn}",
+                "responseCode": 204
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "ResourceArn": {
+                        "location": "uri",
+                        "locationName": "resourceArn"
+                    },
+                    "TagKeys": {
+                        "shape": "S3",
+                        "location": "querystring",
+                        "locationName": "tagKeys"
+                    }
+                },
+                "required": [
+                    "TagKeys",
+                    "ResourceArn"
+                ]
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/IWXO7RUN7VQKNMMMKADXKVN2KRR2T2WNSZYEVCIV2Z4LSFTAEXZQ/vendor.js"
+            ]
+        },
+        "UpdateBrokerCount": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/v1/clusters/{clusterArn}/nodes/count",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "ClusterArn": {
+                        "location": "uri",
+                        "locationName": "clusterArn"
+                    },
+                    "CurrentVersion": {
+                        "locationName": "currentVersion"
+                    },
+                    "TargetNumberOfBrokerNodes": {
+                        "locationName": "targetNumberOfBrokerNodes",
+                        "type": "integer"
+                    }
+                },
+                "required": [
+                    "ClusterArn",
+                    "CurrentVersion",
+                    "TargetNumberOfBrokerNodes"
+                ]
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ClusterArn": {
+                        "locationName": "clusterArn"
+                    },
+                    "ClusterOperationArn": {
+                        "locationName": "clusterOperationArn"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/IWXO7RUN7VQKNMMMKADXKVN2KRR2T2WNSZYEVCIV2Z4LSFTAEXZQ/vendor.js"
+            ]
+        },
+        "UpdateBrokerType": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/v1/clusters/{clusterArn}/nodes/type",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "ClusterArn": {
+                        "location": "uri",
+                        "locationName": "clusterArn"
+                    },
+                    "CurrentVersion": {
+                        "locationName": "currentVersion"
+                    },
+                    "TargetInstanceType": {
+                        "locationName": "targetInstanceType"
+                    }
+                },
+                "required": [
+                    "ClusterArn",
+                    "CurrentVersion",
+                    "TargetInstanceType"
+                ]
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ClusterArn": {
+                        "locationName": "clusterArn"
+                    },
+                    "ClusterOperationArn": {
+                        "locationName": "clusterOperationArn"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/IWXO7RUN7VQKNMMMKADXKVN2KRR2T2WNSZYEVCIV2Z4LSFTAEXZQ/vendor.js"
+            ]
+        },
+        "UpdateBrokerStorage": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/v1/clusters/{clusterArn}/nodes/storage",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "ClusterArn": {
+                        "location": "uri",
+                        "locationName": "clusterArn"
+                    },
+                    "CurrentVersion": {
+                        "locationName": "currentVersion"
+                    },
+                    "TargetBrokerEBSVolumeInfo": {
+                        "shape": "S2g",
+                        "locationName": "targetBrokerEBSVolumeInfo"
+                    }
+                },
+                "required": [
+                    "ClusterArn",
+                    "TargetBrokerEBSVolumeInfo",
+                    "CurrentVersion"
+                ]
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ClusterArn": {
+                        "locationName": "clusterArn"
+                    },
+                    "ClusterOperationArn": {
+                        "locationName": "clusterOperationArn"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/IWXO7RUN7VQKNMMMKADXKVN2KRR2T2WNSZYEVCIV2Z4LSFTAEXZQ/vendor.js"
+            ]
+        },
+        "UpdateConfiguration": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/v1/configurations/{arn}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "Arn": {
+                        "location": "uri",
+                        "locationName": "arn"
+                    },
+                    "Description": {
+                        "locationName": "description"
+                    },
+                    "ServerProperties": {
+                        "locationName": "serverProperties",
+                        "type": "blob"
+                    }
+                },
+                "required": [
+                    "Arn",
+                    "ServerProperties"
+                ]
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Arn": {
+                        "locationName": "arn"
+                    },
+                    "LatestRevision": {
+                        "shape": "S1o",
+                        "locationName": "latestRevision"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/IWXO7RUN7VQKNMMMKADXKVN2KRR2T2WNSZYEVCIV2Z4LSFTAEXZQ/vendor.js"
+            ]
+        },
+        "UpdateConnectivity": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/v1/clusters/{clusterArn}/connectivity",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "ClusterArn": {
+                        "location": "uri",
+                        "locationName": "clusterArn"
+                    },
+                    "ConnectivityInfo": {
+                        "shape": "Sh",
+                        "locationName": "connectivityInfo"
+                    },
+                    "CurrentVersion": {
+                        "locationName": "currentVersion"
+                    }
+                },
+                "required": [
+                    "ClusterArn",
+                    "ConnectivityInfo",
+                    "CurrentVersion"
+                ]
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ClusterArn": {
+                        "locationName": "clusterArn"
+                    },
+                    "ClusterOperationArn": {
+                        "locationName": "clusterOperationArn"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/IWXO7RUN7VQKNMMMKADXKVN2KRR2T2WNSZYEVCIV2Z4LSFTAEXZQ/vendor.js"
+            ]
+        },
+        "UpdateClusterConfiguration": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/v1/clusters/{clusterArn}/configuration",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "ClusterArn": {
+                        "location": "uri",
+                        "locationName": "clusterArn"
+                    },
+                    "ConfigurationInfo": {
+                        "shape": "Sq",
+                        "locationName": "configurationInfo"
+                    },
+                    "CurrentVersion": {
+                        "locationName": "currentVersion"
+                    }
+                },
+                "required": [
+                    "ClusterArn",
+                    "CurrentVersion",
+                    "ConfigurationInfo"
+                ]
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ClusterArn": {
+                        "locationName": "clusterArn"
+                    },
+                    "ClusterOperationArn": {
+                        "locationName": "clusterOperationArn"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/IWXO7RUN7VQKNMMMKADXKVN2KRR2T2WNSZYEVCIV2Z4LSFTAEXZQ/vendor.js"
+            ]
+        },
+        "UpdateClusterKafkaVersion": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/v1/clusters/{clusterArn}/version",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "ClusterArn": {
+                        "location": "uri",
+                        "locationName": "clusterArn"
+                    },
+                    "ConfigurationInfo": {
+                        "shape": "Sq",
+                        "locationName": "configurationInfo"
+                    },
+                    "CurrentVersion": {
+                        "locationName": "currentVersion"
+                    },
+                    "TargetKafkaVersion": {
+                        "locationName": "targetKafkaVersion"
+                    }
+                },
+                "required": [
+                    "ClusterArn",
+                    "TargetKafkaVersion",
+                    "CurrentVersion"
+                ]
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ClusterArn": {
+                        "locationName": "clusterArn"
+                    },
+                    "ClusterOperationArn": {
+                        "locationName": "clusterOperationArn"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/IWXO7RUN7VQKNMMMKADXKVN2KRR2T2WNSZYEVCIV2Z4LSFTAEXZQ/vendor.js"
+            ]
+        },
+        "UpdateMonitoring": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/v1/clusters/{clusterArn}/monitoring",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "ClusterArn": {
+                        "location": "uri",
+                        "locationName": "clusterArn"
+                    },
+                    "CurrentVersion": {
+                        "locationName": "currentVersion"
+                    },
+                    "EnhancedMonitoring": {
+                        "locationName": "enhancedMonitoring"
+                    },
+                    "OpenMonitoring": {
+                        "shape": "Sx",
+                        "locationName": "openMonitoring"
+                    },
+                    "LoggingInfo": {
+                        "shape": "S12",
+                        "locationName": "loggingInfo"
+                    }
+                },
+                "required": [
+                    "ClusterArn",
+                    "CurrentVersion"
+                ]
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ClusterArn": {
+                        "locationName": "clusterArn"
+                    },
+                    "ClusterOperationArn": {
+                        "locationName": "clusterOperationArn"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/IWXO7RUN7VQKNMMMKADXKVN2KRR2T2WNSZYEVCIV2Z4LSFTAEXZQ/vendor.js"
+            ]
+        },
+        "UpdateSecurity": {
+            "http": {
+                "method": "PATCH",
+                "requestUri": "/v1/clusters/{clusterArn}/security",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "ClientAuthentication": {
+                        "shape": "Sj",
+                        "locationName": "clientAuthentication"
+                    },
+                    "ClusterArn": {
+                        "location": "uri",
+                        "locationName": "clusterArn"
+                    },
+                    "CurrentVersion": {
+                        "locationName": "currentVersion"
+                    },
+                    "EncryptionInfo": {
+                        "shape": "Ss",
+                        "locationName": "encryptionInfo"
+                    }
+                },
+                "required": [
+                    "ClusterArn",
+                    "CurrentVersion"
+                ]
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ClusterArn": {
+                        "locationName": "clusterArn"
+                    },
+                    "ClusterOperationArn": {
+                        "locationName": "clusterOperationArn"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/IWXO7RUN7VQKNMMMKADXKVN2KRR2T2WNSZYEVCIV2Z4LSFTAEXZQ/vendor.js"
+            ]
+        },
+        "UpdateStorage": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/v1/clusters/{clusterArn}/storage",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "ClusterArn": {
+                        "location": "uri",
+                        "locationName": "clusterArn"
+                    },
+                    "CurrentVersion": {
+                        "locationName": "currentVersion"
+                    },
+                    "ProvisionedThroughput": {
+                        "shape": "Sd",
+                        "locationName": "provisionedThroughput"
+                    },
+                    "StorageMode": {
+                        "locationName": "storageMode"
+                    },
+                    "VolumeSizeGB": {
+                        "locationName": "volumeSizeGB",
+                        "type": "integer"
+                    }
+                },
+                "required": [
+                    "ClusterArn",
+                    "CurrentVersion"
+                ]
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ClusterArn": {
+                        "locationName": "clusterArn"
+                    },
+                    "ClusterOperationArn": {
+                        "locationName": "clusterOperationArn"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "CreateReplicator": {
+            "http": {
+                "requestUri": "/replication/v1/replicators",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "Description": {
+                        "locationName": "description"
+                    },
+                    "KafkaClusters": {
+                        "shape": "S1z",
+                        "locationName": "kafkaClusters"
+                    },
+                    "ReplicationInfoList": {
+                        "shape": "S23",
+                        "locationName": "replicationInfoList"
+                    },
+                    "ReplicatorName": {
+                        "locationName": "replicatorName"
+                    },
+                    "ServiceExecutionRoleArn": {
+                        "locationName": "serviceExecutionRoleArn"
+                    },
+                    "Tags": {
+                        "shape": "S1e",
+                        "locationName": "tags"
+                    }
+                },
+                "required": [
+                    "ServiceExecutionRoleArn",
+                    "ReplicatorName",
+                    "ReplicationInfoList",
+                    "KafkaClusters"
+                ]
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ReplicatorArn": {
+                        "locationName": "replicatorArn"
+                    },
+                    "ReplicatorName": {
+                        "locationName": "replicatorName"
+                    },
+                    "ReplicatorState": {
+                        "locationName": "replicatorState"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/U6QOD3AJL7WJWCKH5OL7KZXIZKGTVHDNR2BMAVQQWLMPJDGVWYVA/vendor.js"
+            ]
+        },
+        "CreateVpcConnection": {
+            "http": {
+                "requestUri": "/v1/vpc-connection",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "TargetClusterArn": {
+                        "locationName": "targetClusterArn"
+                    },
+                    "Authentication": {
+                        "locationName": "authentication"
+                    },
+                    "VpcId": {
+                        "locationName": "vpcId"
+                    },
+                    "ClientSubnets": {
+                        "shape": "S3",
+                        "locationName": "clientSubnets"
+                    },
+                    "SecurityGroups": {
+                        "shape": "S3",
+                        "locationName": "securityGroups"
+                    },
+                    "Tags": {
+                        "shape": "S1e",
+                        "locationName": "tags"
+                    }
+                },
+                "required": [
+                    "TargetClusterArn",
+                    "Authentication",
+                    "VpcId",
+                    "ClientSubnets",
+                    "SecurityGroups"
+                ]
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "VpcConnectionArn": {
+                        "locationName": "vpcConnectionArn"
+                    },
+                    "State": {
+                        "locationName": "state"
+                    },
+                    "Authentication": {
+                        "locationName": "authentication"
+                    },
+                    "VpcId": {
+                        "locationName": "vpcId"
+                    },
+                    "ClientSubnets": {
+                        "shape": "S3",
+                        "locationName": "clientSubnets"
+                    },
+                    "SecurityGroups": {
+                        "shape": "S3",
+                        "locationName": "securityGroups"
+                    },
+                    "CreationTime": {
+                        "locationName": "creationTime"
+                    },
+                    "Tags": {
+                        "shape": "S1e",
+                        "locationName": "tags"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/U6QOD3AJL7WJWCKH5OL7KZXIZKGTVHDNR2BMAVQQWLMPJDGVWYVA/vendor.js"
+            ]
+        },
+        "DeleteClusterPolicy": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/v1/clusters/{clusterArn}/policy",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "ClusterArn": {
+                        "location": "uri",
+                        "locationName": "clusterArn"
+                    }
+                },
+                "required": [
+                    "ClusterArn"
+                ]
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/U6QOD3AJL7WJWCKH5OL7KZXIZKGTVHDNR2BMAVQQWLMPJDGVWYVA/vendor.js"
+            ]
+        },
+        "DeleteVpcConnection": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/v1/vpc-connection/{arn}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "Arn": {
+                        "location": "uri",
+                        "locationName": "arn"
+                    }
+                },
+                "required": [
+                    "Arn"
+                ]
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "VpcConnectionArn": {
+                        "locationName": "vpcConnectionArn"
+                    },
+                    "State": {
+                        "locationName": "state"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/U6QOD3AJL7WJWCKH5OL7KZXIZKGTVHDNR2BMAVQQWLMPJDGVWYVA/vendor.js"
+            ]
+        },
+        "DeleteReplicator": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/replication/v1/replicators/{replicatorArn}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "CurrentVersion": {
+                        "location": "querystring",
+                        "locationName": "currentVersion"
+                    },
+                    "ReplicatorArn": {
+                        "location": "uri",
+                        "locationName": "replicatorArn"
+                    }
+                },
+                "required": [
+                    "ReplicatorArn"
+                ]
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ReplicatorArn": {
+                        "locationName": "replicatorArn"
+                    },
+                    "ReplicatorState": {
+                        "locationName": "replicatorState"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/U6QOD3AJL7WJWCKH5OL7KZXIZKGTVHDNR2BMAVQQWLMPJDGVWYVA/vendor.js"
+            ]
+        },
+        "ListReplicators": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/replication/v1/replicators",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "MaxResults": {
+                        "location": "querystring",
+                        "locationName": "maxResults"
+                    },
+                    "NextToken": {
+                        "location": "querystring",
+                        "locationName": "nextToken"
+                    },
+                    "ReplicatorNameFilter": {
+                        "location": "querystring",
+                        "locationName": "replicatorNameFilter"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "NextToken": {
+                        "locationName": "nextToken"
+                    },
+                    "Replicators": {
+                        "locationName": "replicators",
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "CreationTime": {
+                                    "locationName": "creationTime"
+                                },
+                                "CurrentVersion": {
+                                    "locationName": "currentVersion"
+                                },
+                                "KafkaClusters": {
+                                    "shape": "S1z",
+                                    "locationName": "kafkaClusters"
+                                },
+                                "ReplicationInfoSummaryList": {
+                                    "locationName": "replicationInfoSummaryList",
+                                    "type": "list",
+                                    "member": {
+                                        "type": "structure",
+                                        "members": {
+                                            "SourceKafkaClusterAlias": {
+                                                "locationName": "sourceKafkaClusterAlias"
+                                            },
+                                            "TargetKafkaClusterAlias": {
+                                                "locationName": "targetKafkaClusterAlias"
+                                            }
+                                        }
+                                    }
+                                },
+                                "ReplicatorArn": {
+                                    "locationName": "replicatorArn"
+                                },
+                                "ReplicatorName": {
+                                    "locationName": "replicatorName"
+                                },
+                                "ReplicatorState": {
+                                    "locationName": "replicatorState"
+                                },
+                                "ServiceExecutionRoleArn": {
+                                    "locationName": "serviceExecutionRoleArn"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/U6QOD3AJL7WJWCKH5OL7KZXIZKGTVHDNR2BMAVQQWLMPJDGVWYVA/vendor.js"
+            ]
+        },
+        "UpdateReplicationInfo": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/replication/v1/replicators/{replicatorArn}/replication-info",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "ConsumerGroupReplication": {
+                        "locationName": "consumerGroupReplication",
+                        "type": "structure",
+                        "members": {
+                            "ConsumerGroupsToExclude": {
+                                "shape": "S3n",
+                                "locationName": "consumerGroupsToExclude"
+                            },
+                            "ConsumerGroupsToReplicate": {
+                                "shape": "S3n",
+                                "locationName": "consumerGroupsToReplicate"
+                            },
+                            "DetectAndCopyNewConsumerGroups": {
+                                "locationName": "detectAndCopyNewConsumerGroups",
+                                "type": "boolean"
+                            },
+                            "SynchroniseConsumerGroupOffsets": {
+                                "locationName": "synchroniseConsumerGroupOffsets",
+                                "type": "boolean"
+                            }
+                        }
+                    },
+                    "CurrentVersion": {
+                        "locationName": "currentVersion"
+                    },
+                    "ReplicatorArn": {
+                        "location": "uri",
+                        "locationName": "replicatorArn"
+                    },
+                    "SourceKafkaClusterAlias": {
+                        "locationName": "sourceKafkaClusterAlias"
+                    },
+                    "TargetKafkaClusterAlias": {
+                        "locationName": "targetKafkaClusterAlias"
+                    },
+                    "TopicReplication": {
+                        "locationName": "topicReplication",
+                        "type": "structure",
+                        "members": {
+                            "CopyAccessControlListsForTopics": {
+                                "locationName": "copyAccessControlListsForTopics",
+                                "type": "boolean"
+                            },
+                            "CopyTopicConfigurations": {
+                                "locationName": "copyTopicConfigurations",
+                                "type": "boolean"
+                            },
+                            "DetectAndCopyNewTopics": {
+                                "locationName": "detectAndCopyNewTopics",
+                                "type": "boolean"
+                            },
+                            "TopicsToExclude": {
+                                "shape": "S3q",
+                                "locationName": "topicsToExclude"
+                            },
+                            "TopicsToReplicate": {
+                                "shape": "S3q",
+                                "locationName": "topicsToReplicate"
+                            }
+                        }
+                    }
+                },
+                "required": [
+                    "ReplicatorArn",
+                    "CurrentVersion",
+                    "TargetKafkaClusterAlias",
+                    "SourceKafkaClusterAlias"
+                ]
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ReplicatorArn": {
+                        "locationName": "replicatorArn"
+                    },
+                    "ReplicatorState": {
+                        "locationName": "replicatorState"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/U6QOD3AJL7WJWCKH5OL7KZXIZKGTVHDNR2BMAVQQWLMPJDGVWYVA/vendor.js"
+            ]
+        },
+        "DescribeReplicator": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/replication/v1/replicators/{replicatorArn}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "ReplicatorArn": {
+                        "location": "uri",
+                        "locationName": "replicatorArn"
+                    }
+                },
+                "required": [
+                    "ReplicatorArn"
+                ]
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "CreationTime": {
+                        "locationName": "creationTime"
+                    },
+                    "CurrentVersion": {
+                        "locationName": "currentVersion"
+                    },
+                    "KafkaClusters": {
+                        "shape": "S1z",
+                        "locationName": "kafkaClusters"
+                    },
+                    "ReplicationInfoList": {
+                        "shape": "S23",
+                        "locationName": "replicationInfoList"
+                    },
+                    "ReplicatorArn": {
+                        "locationName": "replicatorArn"
+                    },
+                    "ReplicatorDescription": {
+                        "locationName": "replicatorDescription"
+                    },
+                    "ReplicatorName": {
+                        "locationName": "replicatorName"
+                    },
+                    "ReplicatorState": {
+                        "locationName": "replicatorState"
+                    },
+                    "ServiceExecutionRoleArn": {
+                        "locationName": "serviceExecutionRoleArn"
+                    },
+                    "StateInfo": {
+                        "shape": "S2t",
+                        "locationName": "stateInfo"
+                    },
+                    "Tags": {
+                        "shape": "S1e",
+                        "locationName": "tags"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/U6QOD3AJL7WJWCKH5OL7KZXIZKGTVHDNR2BMAVQQWLMPJDGVWYVA/vendor.js"
+            ]
+        },
+        "DescribeVpcConnection": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/v1/vpc-connection/{arn}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "Arn": {
+                        "location": "uri",
+                        "locationName": "arn"
+                    }
+                },
+                "required": [
+                    "Arn"
+                ]
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "VpcConnectionArn": {
+                        "locationName": "vpcConnectionArn"
+                    },
+                    "TargetClusterArn": {
+                        "locationName": "targetClusterArn"
+                    },
+                    "State": {
+                        "locationName": "state"
+                    },
+                    "Authentication": {
+                        "locationName": "authentication"
+                    },
+                    "VpcId": {
+                        "locationName": "vpcId"
+                    },
+                    "subnets": {
+                        "shape": "S3",
+                        "locationName": "subnets"
+                    },
+                    "SecurityGroups": {
+                        "shape": "S3",
+                        "locationName": "securityGroups"
+                    },
+                    "CreationTime": {
+                        "locationName": "creationTime"
+                    },
+                    "Tags": {
+                        "shape": "S1e",
+                        "locationName": "tags"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/U6QOD3AJL7WJWCKH5OL7KZXIZKGTVHDNR2BMAVQQWLMPJDGVWYVA/vendor.js"
+            ]
+        },
+        "GetClusterPolicy": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/v1/clusters/{clusterArn}/policy",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "ClusterArn": {
+                        "location": "uri",
+                        "locationName": "clusterArn"
+                    }
+                },
+                "required": [
+                    "ClusterArn"
+                ]
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "CurrentVersion": {
+                        "locationName": "currentVersion"
+                    },
+                    "Policy": {
+                        "locationName": "policy"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/U6QOD3AJL7WJWCKH5OL7KZXIZKGTVHDNR2BMAVQQWLMPJDGVWYVA/vendor.js"
+            ]
+        },
+        "ListClientVpcConnections": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/v1/clusters/{clusterArn}/client-vpc-connections",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "ClusterArn": {
+                        "location": "uri",
+                        "locationName": "clusterArn"
+                    },
+                    "MaxResults": {
+                        "location": "querystring",
+                        "locationName": "maxResults",
+                        "type": "integer"
+                    },
+                    "NextToken": {
+                        "location": "querystring",
+                        "locationName": "nextToken"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ClientVpcConnections": {
+                        "locationName": "clientVpcConnections",
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "Authentication": {
+                                    "locationName": "authentication"
+                                },
+                                "CreationTime": {
+                                    "locationName": "creationTime"
+                                },
+                                "State": {
+                                    "locationName": "state"
+                                },
+                                "VpcConnectionArn": {
+                                    "locationName": "vpcConnectionArn"
+                                },
+                                "Owner": {
+                                    "locationName": "owner"
+                                }
+                            },
+                            "required": [
+                                "VpcConnectionArn"
+                            ]
+                        }
+                    },
+                    "NextToken": {
+                        "locationName": "nextToken"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/U6QOD3AJL7WJWCKH5OL7KZXIZKGTVHDNR2BMAVQQWLMPJDGVWYVA/vendor.js"
+            ]
+        },
+        "ListVpcConnections": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/v1/vpc-connections",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "MaxResults": {
+                        "location": "querystring",
+                        "locationName": "maxResults",
+                        "type": "integer"
+                    },
+                    "NextToken": {
+                        "location": "querystring",
+                        "locationName": "nextToken"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "VpcConnections": {
+                        "locationName": "vpcConnections",
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "VpcConnectionArn": {
+                                    "locationName": "vpcConnectionArn"
+                                },
+                                "TargetClusterArn": {
+                                    "locationName": "targetClusterArn"
+                                },
+                                "CreationTime": {
+                                    "locationName": "creationTime"
+                                },
+                                "Authentication": {
+                                    "locationName": "authentication"
+                                },
+                                "VpcId": {
+                                    "locationName": "vpcId"
+                                },
+                                "State": {
+                                    "locationName": "state"
+                                },
+                                "Tags": {
+                                    "shape": "S1e",
+                                    "locationName": "tags"
+                                }
+                            },
+                            "required": [
+                                "VpcConnectionArn",
+                                "TargetClusterArn"
+                            ]
+                        }
+                    },
+                    "NextToken": {
+                        "locationName": "nextToken"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/U6QOD3AJL7WJWCKH5OL7KZXIZKGTVHDNR2BMAVQQWLMPJDGVWYVA/vendor.js"
+            ]
+        },
+        "RejectClientVpcConnection": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/v1/clusters/{clusterArn}/client-vpc-connection",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "ClusterArn": {
+                        "location": "uri",
+                        "locationName": "clusterArn"
+                    },
+                    "VpcConnectionArn": {
+                        "locationName": "vpcConnectionArn"
+                    }
+                },
+                "required": [
+                    "VpcConnectionArn"
+                ]
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/U6QOD3AJL7WJWCKH5OL7KZXIZKGTVHDNR2BMAVQQWLMPJDGVWYVA/vendor.js"
+            ]
+        },
+        "PutClusterPolicy": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/v1/clusters/{clusterArn}/policy",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "ClusterArn": {
+                        "location": "uri",
+                        "locationName": "clusterArn"
+                    },
+                    "CurrentVersion": {
+                        "locationName": "currentVersion"
+                    },
+                    "Policy": {
+                        "locationName": "policy"
+                    }
+                },
+                "required": [
+                    "ClusterArn",
+                    "Policy"
+                ]
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "CurrentVersion": {
+                        "locationName": "currentVersion"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/U6QOD3AJL7WJWCKH5OL7KZXIZKGTVHDNR2BMAVQQWLMPJDGVWYVA/vendor.js"
+            ]
+        }
+    },
+    "shapes": {
+        "S3": {
+            "type": "list",
+            "member": {}
+        },
+        "S5": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "ErrorCode": {
+                        "locationName": "errorCode"
+                    },
+                    "ErrorMessage": {
+                        "locationName": "errorMessage"
+                    },
+                    "SecretArn": {
+                        "locationName": "secretArn"
+                    }
+                }
+            }
+        },
+        "S8": {
+            "type": "structure",
+            "members": {
+                "BrokerAZDistribution": {
+                    "locationName": "brokerAZDistribution"
+                },
+                "ClientSubnets": {
+                    "shape": "S3",
+                    "locationName": "clientSubnets"
+                },
+                "InstanceType": {
+                    "locationName": "instanceType"
+                },
+                "SecurityGroups": {
+                    "shape": "S3",
+                    "locationName": "securityGroups"
+                },
+                "StorageInfo": {
+                    "locationName": "storageInfo",
+                    "type": "structure",
+                    "members": {
+                        "EbsStorageInfo": {
+                            "locationName": "ebsStorageInfo",
+                            "type": "structure",
+                            "members": {
+                                "ProvisionedThroughput": {
+                                    "shape": "Sd",
+                                    "locationName": "provisionedThroughput"
+                                },
+                                "VolumeSize": {
+                                    "locationName": "volumeSize",
+                                    "type": "integer"
+                                }
+                            }
+                        }
+                    }
+                },
+                "ConnectivityInfo": {
+                    "shape": "Sh",
+                    "locationName": "connectivityInfo"
+                }
+            },
+            "required": [
+                "ClientSubnets",
+                "InstanceType"
+            ]
+        },
+        "Sd": {
+            "type": "structure",
+            "members": {
+                "Enabled": {
+                    "locationName": "enabled",
+                    "type": "boolean"
+                },
+                "VolumeThroughput": {
+                    "locationName": "volumeThroughput",
+                    "type": "integer"
+                }
+            }
+        },
+        "Sh": {
+            "type": "structure",
+            "members": {
+                "PublicAccess": {
+                    "locationName": "publicAccess",
+                    "type": "structure",
+                    "members": {
+                        "Type": {
+                            "locationName": "type"
+                        }
+                    }
+                }
+            }
+        },
+        "Sj": {
+            "type": "structure",
+            "members": {
+                "Sasl": {
+                    "locationName": "sasl",
+                    "type": "structure",
+                    "members": {
+                        "Scram": {
+                            "locationName": "scram",
+                            "type": "structure",
+                            "members": {
+                                "Enabled": {
+                                    "locationName": "enabled",
+                                    "type": "boolean"
+                                }
+                            }
+                        },
+                        "Iam": {
+                            "shape": "Sm",
+                            "locationName": "iam"
+                        }
+                    }
+                },
+                "Tls": {
+                    "locationName": "tls",
+                    "type": "structure",
+                    "members": {
+                        "CertificateAuthorityArnList": {
+                            "shape": "S3",
+                            "locationName": "certificateAuthorityArnList"
+                        },
+                        "Enabled": {
+                            "locationName": "enabled",
+                            "type": "boolean"
+                        }
+                    }
+                },
+                "Unauthenticated": {
+                    "locationName": "unauthenticated",
+                    "type": "structure",
+                    "members": {
+                        "Enabled": {
+                            "locationName": "enabled",
+                            "type": "boolean"
+                        }
+                    }
+                }
+            }
+        },
+        "Sm": {
+            "type": "structure",
+            "members": {
+                "Enabled": {
+                    "locationName": "enabled",
+                    "type": "boolean"
+                }
+            }
+        },
+        "Sq": {
+            "type": "structure",
+            "members": {
+                "Arn": {
+                    "locationName": "arn"
+                },
+                "Revision": {
+                    "locationName": "revision",
+                    "type": "long"
+                }
+            },
+            "required": [
+                "Revision",
+                "Arn"
+            ]
+        },
+        "Ss": {
+            "type": "structure",
+            "members": {
+                "EncryptionAtRest": {
+                    "locationName": "encryptionAtRest",
+                    "type": "structure",
+                    "members": {
+                        "DataVolumeKMSKeyId": {
+                            "locationName": "dataVolumeKMSKeyId"
+                        }
+                    },
+                    "required": [
+                        "DataVolumeKMSKeyId"
+                    ]
+                },
+                "EncryptionInTransit": {
+                    "locationName": "encryptionInTransit",
+                    "type": "structure",
+                    "members": {
+                        "ClientBroker": {
+                            "locationName": "clientBroker"
+                        },
+                        "InCluster": {
+                            "locationName": "inCluster",
+                            "type": "boolean"
+                        }
+                    }
+                }
+            }
+        },
+        "Sx": {
+            "type": "structure",
+            "members": {
+                "Prometheus": {
+                    "locationName": "prometheus",
+                    "type": "structure",
+                    "members": {
+                        "JmxExporter": {
+                            "locationName": "jmxExporter",
+                            "type": "structure",
+                            "members": {
+                                "EnabledInBroker": {
+                                    "locationName": "enabledInBroker",
+                                    "type": "boolean"
+                                }
+                            },
+                            "required": [
+                                "EnabledInBroker"
+                            ]
+                        },
+                        "NodeExporter": {
+                            "locationName": "nodeExporter",
+                            "type": "structure",
+                            "members": {
+                                "EnabledInBroker": {
+                                    "locationName": "enabledInBroker",
+                                    "type": "boolean"
+                                }
+                            },
+                            "required": [
+                                "EnabledInBroker"
+                            ]
+                        }
+                    }
+                }
+            },
+            "required": [
+                "Prometheus"
+            ]
+        },
+        "S12": {
+            "type": "structure",
+            "members": {
+                "BrokerLogs": {
+                    "locationName": "brokerLogs",
+                    "type": "structure",
+                    "members": {
+                        "CloudWatchLogs": {
+                            "locationName": "cloudWatchLogs",
+                            "type": "structure",
+                            "members": {
+                                "Enabled": {
+                                    "locationName": "enabled",
+                                    "type": "boolean"
+                                },
+                                "LogGroup": {
+                                    "locationName": "logGroup"
+                                }
+                            },
+                            "required": [
+                                "Enabled"
+                            ]
+                        },
+                        "Firehose": {
+                            "locationName": "firehose",
+                            "type": "structure",
+                            "members": {
+                                "DeliveryStream": {
+                                    "locationName": "deliveryStream"
+                                },
+                                "Enabled": {
+                                    "locationName": "enabled",
+                                    "type": "boolean"
+                                }
+                            },
+                            "required": [
+                                "Enabled"
+                            ]
+                        },
+                        "S3": {
+                            "locationName": "s3",
+                            "type": "structure",
+                            "members": {
+                                "Bucket": {
+                                    "locationName": "bucket"
+                                },
+                                "Enabled": {
+                                    "locationName": "enabled",
+                                    "type": "boolean"
+                                },
+                                "Prefix": {
+                                    "locationName": "prefix"
+                                }
+                            },
+                            "required": [
+                                "Enabled"
+                            ]
+                        }
+                    }
+                }
+            },
+            "required": [
+                "BrokerLogs"
+            ]
+        },
+        "S18": {
+            "type": "map",
+            "key": {},
+            "value": {}
+        },
+        "S1e": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "SubnetIds": {
+                        "shape": "S3",
+                        "locationName": "subnetIds"
+                    },
+                    "SecurityGroupIds": {
+                        "shape": "S3",
+                        "locationName": "securityGroupIds"
+                    }
+                },
+                "required": [
+                    "SubnetIds"
+                ]
+            }
+        },
+        "S1g": {
+            "type": "structure",
+            "members": {
+                "Sasl": {
+                    "locationName": "sasl",
+                    "type": "structure",
+                    "members": {
+                        "Iam": {
+                            "shape": "Sm",
+                            "locationName": "iam"
+                        }
+                    }
+                }
+            }
+        },
+        "S1n": {
+            "type": "timestamp",
+            "timestampFormat": "iso8601"
+        },
+        "S1o": {
+            "type": "structure",
+            "members": {
+                "CreationTime": {
+                    "shape": "S1n",
+                    "locationName": "creationTime"
+                },
+                "Description": {
+                    "locationName": "description"
+                },
+                "Revision": {
+                    "locationName": "revision",
+                    "type": "long"
+                }
+            },
+            "required": [
+                "Revision",
+                "CreationTime"
+            ]
+        },
+        "S1w": {
+            "type": "structure",
+            "members": {
+                "ActiveOperationArn": {
+                    "locationName": "activeOperationArn"
+                },
+                "BrokerNodeGroupInfo": {
+                    "shape": "S8",
+                    "locationName": "brokerNodeGroupInfo"
+                },
+                "ClientAuthentication": {
+                    "shape": "Sj",
+                    "locationName": "clientAuthentication"
+                },
+                "ClusterArn": {
+                    "locationName": "clusterArn"
+                },
+                "ClusterName": {
+                    "locationName": "clusterName"
+                },
+                "CreationTime": {
+                    "shape": "S1n",
+                    "locationName": "creationTime"
+                },
+                "CurrentBrokerSoftwareInfo": {
+                    "shape": "S1x",
+                    "locationName": "currentBrokerSoftwareInfo"
+                },
+                "CurrentVersion": {
+                    "locationName": "currentVersion"
+                },
+                "EncryptionInfo": {
+                    "shape": "Ss",
+                    "locationName": "encryptionInfo"
+                },
+                "EnhancedMonitoring": {
+                    "locationName": "enhancedMonitoring"
+                },
+                "OpenMonitoring": {
+                    "shape": "S1y",
+                    "locationName": "openMonitoring"
+                },
+                "LoggingInfo": {
+                    "shape": "S12",
+                    "locationName": "loggingInfo"
+                },
+                "NumberOfBrokerNodes": {
+                    "locationName": "numberOfBrokerNodes",
+                    "type": "integer"
+                },
+                "State": {
+                    "locationName": "state"
+                },
+                "StateInfo": {
+                    "shape": "S22",
+                    "locationName": "stateInfo"
+                },
+                "Tags": {
+                    "shape": "S18",
+                    "locationName": "tags"
+                },
+                "ZookeeperConnectString": {
+                    "locationName": "zookeeperConnectString"
+                },
+                "ZookeeperConnectStringTls": {
+                    "locationName": "zookeeperConnectStringTls"
+                }
+            }
+        },
+        "S1x": {
+            "type": "structure",
+            "members": {
+                "ConfigurationArn": {
+                    "locationName": "configurationArn"
+                },
+                "ConfigurationRevision": {
+                    "locationName": "configurationRevision",
+                    "type": "long"
+                },
+                "KafkaVersion": {
+                    "locationName": "kafkaVersion"
+                }
+            }
+        },
+        "S1y": {
+            "type": "structure",
+            "members": {
+                "Prometheus": {
+                    "locationName": "prometheus",
+                    "type": "structure",
+                    "members": {
+                        "JmxExporter": {
+                            "locationName": "jmxExporter",
+                            "type": "structure",
+                            "members": {
+                                "EnabledInBroker": {
+                                    "locationName": "enabledInBroker",
+                                    "type": "boolean"
+                                }
+                            },
+                            "required": [
+                                "EnabledInBroker"
+                            ]
+                        },
+                        "NodeExporter": {
+                            "locationName": "nodeExporter",
+                            "type": "structure",
+                            "members": {
+                                "EnabledInBroker": {
+                                    "locationName": "enabledInBroker",
+                                    "type": "boolean"
+                                }
+                            },
+                            "required": [
+                                "EnabledInBroker"
+                            ]
+                        }
+                    }
+                }
+            },
+            "required": [
+                "Prometheus"
+            ]
+        },
+        "S22": {
+            "type": "structure",
+            "members": {
+                "Code": {
+                    "locationName": "code"
+                },
+                "Message": {
+                    "locationName": "message"
+                }
+            }
+        },
+        "S25": {
+            "type": "structure",
+            "members": {
+                "ActiveOperationArn": {
+                    "locationName": "activeOperationArn"
+                },
+                "ClusterType": {
+                    "locationName": "clusterType"
+                },
+                "ClusterArn": {
+                    "locationName": "clusterArn"
+                },
+                "ClusterName": {
+                    "locationName": "clusterName"
+                },
+                "CreationTime": {
+                    "shape": "S1n",
+                    "locationName": "creationTime"
+                },
+                "CurrentVersion": {
+                    "locationName": "currentVersion"
+                },
+                "State": {
+                    "locationName": "state"
+                },
+                "StateInfo": {
+                    "shape": "S22",
+                    "locationName": "stateInfo"
+                },
+                "Tags": {
+                    "shape": "S18",
+                    "locationName": "tags"
+                },
+                "Provisioned": {
+                    "locationName": "provisioned",
+                    "type": "structure",
+                    "members": {
+                        "BrokerNodeGroupInfo": {
+                            "shape": "S8",
+                            "locationName": "brokerNodeGroupInfo"
+                        },
+                        "CurrentBrokerSoftwareInfo": {
+                            "shape": "S1x",
+                            "locationName": "currentBrokerSoftwareInfo"
+                        },
+                        "ClientAuthentication": {
+                            "shape": "Sj",
+                            "locationName": "clientAuthentication"
+                        },
+                        "EncryptionInfo": {
+                            "shape": "Ss",
+                            "locationName": "encryptionInfo"
+                        },
+                        "EnhancedMonitoring": {
+                            "locationName": "enhancedMonitoring"
+                        },
+                        "OpenMonitoring": {
+                            "shape": "Sx",
+                            "locationName": "openMonitoring"
+                        },
+                        "LoggingInfo": {
+                            "shape": "S12",
+                            "locationName": "loggingInfo"
+                        },
+                        "NumberOfBrokerNodes": {
+                            "locationName": "numberOfBrokerNodes",
+                            "type": "integer"
+                        },
+                        "ZookeeperConnectString": {
+                            "locationName": "zookeeperConnectString"
+                        },
+                        "ZookeeperConnectStringTls": {
+                            "locationName": "zookeeperConnectStringTls"
+                        }
+                    },
+                    "required": [
+                        "BrokerNodeGroupInfo",
+                        "NumberOfBrokerNodes"
+                    ]
+                },
+                "Serverless": {
+                    "locationName": "serverless",
+                    "type": "structure",
+                    "members": {
+                        "VpcConfigs": {
+                            "shape": "S1e",
+                            "locationName": "vpcConfigs"
+                        },
+                        "ClientAuthentication": {
+                            "shape": "S1g",
+                            "locationName": "clientAuthentication"
+                        }
+                    },
+                    "required": [
+                        "VpcConfigs"
+                    ]
+                }
+            }
+        },
+        "S2a": {
+            "type": "structure",
+            "members": {
+                "ClientRequestId": {
+                    "locationName": "clientRequestId"
+                },
+                "ClusterArn": {
+                    "locationName": "clusterArn"
+                },
+                "CreationTime": {
+                    "shape": "S1n",
+                    "locationName": "creationTime"
+                },
+                "EndTime": {
+                    "shape": "S1n",
+                    "locationName": "endTime"
+                },
+                "ErrorInfo": {
+                    "locationName": "errorInfo",
+                    "type": "structure",
+                    "members": {
+                        "ErrorCode": {
+                            "locationName": "errorCode"
+                        },
+                        "ErrorString": {
+                            "locationName": "errorString"
+                        }
+                    }
+                },
+                "OperationArn": {
+                    "locationName": "operationArn"
+                },
+                "OperationState": {
+                    "locationName": "operationState"
+                },
+                "OperationSteps": {
+                    "locationName": "operationSteps",
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "members": {
+                            "StepInfo": {
+                                "locationName": "stepInfo",
+                                "type": "structure",
+                                "members": {
+                                    "StepStatus": {
+                                        "locationName": "stepStatus"
+                                    }
+                                }
+                            },
+                            "StepName": {
+                                "locationName": "stepName"
+                            }
+                        }
+                    }
+                },
+                "OperationType": {
+                    "locationName": "operationType"
+                },
+                "SourceClusterInfo": {
+                    "shape": "S2f",
+                    "locationName": "sourceClusterInfo"
+                },
+                "TargetClusterInfo": {
+                    "shape": "S2f",
+                    "locationName": "targetClusterInfo"
+                }
+            }
+        },
+        "S2f": {
+            "type": "structure",
+            "members": {
+                "BrokerEBSVolumeInfo": {
+                    "shape": "S2g",
+                    "locationName": "brokerEBSVolumeInfo"
+                },
+                "ConfigurationInfo": {
+                    "shape": "Sq",
+                    "locationName": "configurationInfo"
+                },
+                "NumberOfBrokerNodes": {
+                    "locationName": "numberOfBrokerNodes",
+                    "type": "integer"
+                },
+                "EnhancedMonitoring": {
+                    "locationName": "enhancedMonitoring"
+                },
+                "OpenMonitoring": {
+                    "shape": "S1y",
+                    "locationName": "openMonitoring"
+                },
+                "KafkaVersion": {
+                    "locationName": "kafkaVersion"
+                },
+                "LoggingInfo": {
+                    "shape": "S12",
+                    "locationName": "loggingInfo"
+                },
+                "InstanceType": {
+                    "locationName": "instanceType"
+                },
+                "ClientAuthentication": {
+                    "shape": "Sj",
+                    "locationName": "clientAuthentication"
+                },
+                "EncryptionInfo": {
+                    "shape": "Ss",
+                    "locationName": "encryptionInfo"
+                },
+                "ConnectivityInfo": {
+                    "shape": "Sh",
+                    "locationName": "connectivityInfo"
+                }
+            }
+        },
+        "S2g": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "KafkaBrokerNodeId": {
+                        "locationName": "kafkaBrokerNodeId"
+                    },
+                    "ProvisionedThroughput": {
+                        "shape": "Sd",
+                        "locationName": "provisionedThroughput"
+                    },
+                    "VolumeSizeGB": {
+                        "locationName": "volumeSizeGB",
+                        "type": "integer"
+                    }
+                },
+                "required": [
+                    "KafkaBrokerNodeId"
+                ]
+            }
+        },
+        "S1f": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "SubnetIds": {
+                        "shape": "S3",
+                        "locationName": "subnetIds"
+                    },
+                    "SecurityGroupIds": {
+                        "shape": "S3",
+                        "locationName": "securityGroupIds"
+                    }
+                },
+                "required": [
+                    "SubnetIds"
+                ]
+            }
+        },
+        "S1h": {
+            "type": "structure",
+            "members": {
+                "Sasl": {
+                    "locationName": "sasl",
+                    "type": "structure",
+                    "members": {
+                        "Iam": {
+                            "shape": "Sm",
+                            "locationName": "iam"
+                        }
+                    }
+                }
+            }
+        },
+        "S1p": {
+            "type": "structure",
+            "members": {
+                "CreationTime": {
+                    "shape": "S1o",
+                    "locationName": "creationTime"
+                },
+                "Description": {
+                    "locationName": "description"
+                },
+                "Revision": {
+                    "locationName": "revision",
+                    "type": "long"
+                }
+            },
+            "required": [
+                "Revision",
+                "CreationTime"
+            ]
+        },
+        "S1z": {
+            "type": "structure",
+            "members": {
+                "Prometheus": {
+                    "locationName": "prometheus",
+                    "type": "structure",
+                    "members": {
+                        "JmxExporter": {
+                            "locationName": "jmxExporter",
+                            "type": "structure",
+                            "members": {
+                                "EnabledInBroker": {
+                                    "locationName": "enabledInBroker",
+                                    "type": "boolean"
+                                }
+                            },
+                            "required": [
+                                "EnabledInBroker"
+                            ]
+                        },
+                        "NodeExporter": {
+                            "locationName": "nodeExporter",
+                            "type": "structure",
+                            "members": {
+                                "EnabledInBroker": {
+                                    "locationName": "enabledInBroker",
+                                    "type": "boolean"
+                                }
+                            },
+                            "required": [
+                                "EnabledInBroker"
+                            ]
+                        }
+                    }
+                }
+            },
+            "required": [
+                "Prometheus"
+            ]
+        },
+        "S23": {
+            "type": "structure",
+            "members": {
+                "Code": {
+                    "locationName": "code"
+                },
+                "Message": {
+                    "locationName": "message"
+                }
+            }
+        },
+        "S26": {
+            "type": "structure",
+            "members": {
+                "ActiveOperationArn": {
+                    "locationName": "activeOperationArn"
+                },
+                "ClusterType": {
+                    "locationName": "clusterType"
+                },
+                "ClusterArn": {
+                    "locationName": "clusterArn"
+                },
+                "ClusterName": {
+                    "locationName": "clusterName"
+                },
+                "CreationTime": {
+                    "shape": "S1o",
+                    "locationName": "creationTime"
+                },
+                "CurrentVersion": {
+                    "locationName": "currentVersion"
+                },
+                "State": {
+                    "locationName": "state"
+                },
+                "StateInfo": {
+                    "shape": "S23",
+                    "locationName": "stateInfo"
+                },
+                "Tags": {
+                    "shape": "S18",
+                    "locationName": "tags"
+                },
+                "Provisioned": {
+                    "locationName": "provisioned",
+                    "type": "structure",
+                    "members": {
+                        "BrokerNodeGroupInfo": {
+                            "shape": "S8",
+                            "locationName": "brokerNodeGroupInfo"
+                        },
+                        "CurrentBrokerSoftwareInfo": {
+                            "shape": "S1y",
+                            "locationName": "currentBrokerSoftwareInfo"
+                        },
+                        "ClientAuthentication": {
+                            "shape": "Sj",
+                            "locationName": "clientAuthentication"
+                        },
+                        "EncryptionInfo": {
+                            "shape": "Ss",
+                            "locationName": "encryptionInfo"
+                        },
+                        "EnhancedMonitoring": {
+                            "locationName": "enhancedMonitoring"
+                        },
+                        "OpenMonitoring": {
+                            "shape": "Sx",
+                            "locationName": "openMonitoring"
+                        },
+                        "LoggingInfo": {
+                            "shape": "S12",
+                            "locationName": "loggingInfo"
+                        },
+                        "NumberOfBrokerNodes": {
+                            "locationName": "numberOfBrokerNodes",
+                            "type": "integer"
+                        },
+                        "ZookeeperConnectString": {
+                            "locationName": "zookeeperConnectString"
+                        },
+                        "ZookeeperConnectStringTls": {
+                            "locationName": "zookeeperConnectStringTls"
+                        },
+                        "StorageMode": {
+                            "locationName": "storageMode"
+                        }
+                    },
+                    "required": [
+                        "BrokerNodeGroupInfo",
+                        "NumberOfBrokerNodes"
+                    ]
+                },
+                "Serverless": {
+                    "locationName": "serverless",
+                    "type": "structure",
+                    "members": {
+                        "VpcConfigs": {
+                            "shape": "S1f",
+                            "locationName": "vpcConfigs"
+                        },
+                        "ClientAuthentication": {
+                            "shape": "S1h",
+                            "locationName": "clientAuthentication"
+                        }
+                    },
+                    "required": [
+                        "VpcConfigs"
+                    ]
+                }
+            }
+        },
+        "S2b": {
+            "type": "structure",
+            "members": {
+                "ClientRequestId": {
+                    "locationName": "clientRequestId"
+                },
+                "ClusterArn": {
+                    "locationName": "clusterArn"
+                },
+                "CreationTime": {
+                    "shape": "S1o",
+                    "locationName": "creationTime"
+                },
+                "EndTime": {
+                    "shape": "S1o",
+                    "locationName": "endTime"
+                },
+                "ErrorInfo": {
+                    "locationName": "errorInfo",
+                    "type": "structure",
+                    "members": {
+                        "ErrorCode": {
+                            "locationName": "errorCode"
+                        },
+                        "ErrorString": {
+                            "locationName": "errorString"
+                        }
+                    }
+                },
+                "OperationArn": {
+                    "locationName": "operationArn"
+                },
+                "OperationState": {
+                    "locationName": "operationState"
+                },
+                "OperationSteps": {
+                    "locationName": "operationSteps",
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "members": {
+                            "StepInfo": {
+                                "locationName": "stepInfo",
+                                "type": "structure",
+                                "members": {
+                                    "StepStatus": {
+                                        "locationName": "stepStatus"
+                                    }
+                                }
+                            },
+                            "StepName": {
+                                "locationName": "stepName"
+                            }
+                        }
+                    }
+                },
+                "OperationType": {
+                    "locationName": "operationType"
+                },
+                "SourceClusterInfo": {
+                    "shape": "S2g",
+                    "locationName": "sourceClusterInfo"
+                },
+                "TargetClusterInfo": {
+                    "shape": "S2g",
+                    "locationName": "targetClusterInfo"
+                }
+            }
+        },
+        "S2h": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "KafkaBrokerNodeId": {
+                        "locationName": "kafkaBrokerNodeId"
+                    },
+                    "ProvisionedThroughput": {
+                        "shape": "Sd",
+                        "locationName": "provisionedThroughput"
+                    },
+                    "VolumeSizeGB": {
+                        "locationName": "volumeSizeGB",
+                        "type": "integer"
+                    }
+                },
+                "required": [
+                    "KafkaBrokerNodeId"
+                ]
+            }
+        },
+        "Sp": {
+            "type": "structure",
+            "members": {
+                "Sasl": {
+                    "locationName": "sasl",
+                    "type": "structure",
+                    "members": {
+                        "Scram": {
+                            "locationName": "scram",
+                            "type": "structure",
+                            "members": {
+                                "Enabled": {
+                                    "locationName": "enabled",
+                                    "type": "boolean"
+                                }
+                            }
+                        },
+                        "Iam": {
+                            "shape": "Ss",
+                            "locationName": "iam"
+                        }
+                    }
+                },
+                "Tls": {
+                    "locationName": "tls",
+                    "type": "structure",
+                    "members": {
+                        "CertificateAuthorityArnList": {
+                            "shape": "S3",
+                            "locationName": "certificateAuthorityArnList"
+                        },
+                        "Enabled": {
+                            "locationName": "enabled",
+                            "type": "boolean"
+                        }
+                    }
+                },
+                "Unauthenticated": {
+                    "locationName": "unauthenticated",
+                    "type": "structure",
+                    "members": {
+                        "Enabled": {
+                            "locationName": "enabled",
+                            "type": "boolean"
+                        }
+                    }
+                }
+            }
+        },
+        "Sw": {
+            "type": "structure",
+            "members": {
+                "Arn": {
+                    "locationName": "arn"
+                },
+                "Revision": {
+                    "locationName": "revision",
+                    "type": "long"
+                }
+            },
+            "required": [
+                "Revision",
+                "Arn"
+            ]
+        },
+        "Sy": {
+            "type": "structure",
+            "members": {
+                "EncryptionAtRest": {
+                    "locationName": "encryptionAtRest",
+                    "type": "structure",
+                    "members": {
+                        "DataVolumeKMSKeyId": {
+                            "locationName": "dataVolumeKMSKeyId"
+                        }
+                    },
+                    "required": [
+                        "DataVolumeKMSKeyId"
+                    ]
+                },
+                "EncryptionInTransit": {
+                    "locationName": "encryptionInTransit",
+                    "type": "structure",
+                    "members": {
+                        "ClientBroker": {
+                            "locationName": "clientBroker"
+                        },
+                        "InCluster": {
+                            "locationName": "inCluster",
+                            "type": "boolean"
+                        }
+                    }
+                }
+            }
+        },
+        "S13": {
+            "type": "structure",
+            "members": {
+                "Prometheus": {
+                    "locationName": "prometheus",
+                    "type": "structure",
+                    "members": {
+                        "JmxExporter": {
+                            "locationName": "jmxExporter",
+                            "type": "structure",
+                            "members": {
+                                "EnabledInBroker": {
+                                    "locationName": "enabledInBroker",
+                                    "type": "boolean"
+                                }
+                            },
+                            "required": [
+                                "EnabledInBroker"
+                            ]
+                        },
+                        "NodeExporter": {
+                            "locationName": "nodeExporter",
+                            "type": "structure",
+                            "members": {
+                                "EnabledInBroker": {
+                                    "locationName": "enabledInBroker",
+                                    "type": "boolean"
+                                }
+                            },
+                            "required": [
+                                "EnabledInBroker"
+                            ]
+                        }
+                    }
+                }
+            },
+            "required": [
+                "Prometheus"
+            ]
+        },
+        "S1l": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "SubnetIds": {
+                        "shape": "S3",
+                        "locationName": "subnetIds"
+                    },
+                    "SecurityGroupIds": {
+                        "shape": "S3",
+                        "locationName": "securityGroupIds"
+                    }
+                },
+                "required": [
+                    "SubnetIds"
+                ]
+            }
+        },
+        "S1u": {
+            "type": "timestamp",
+            "timestampFormat": "iso8601"
+        },
+        "S1v": {
+            "type": "structure",
+            "members": {
+                "CreationTime": {
+                    "shape": "S1u",
+                    "locationName": "creationTime"
+                },
+                "Description": {
+                    "locationName": "description"
+                },
+                "Revision": {
+                    "locationName": "revision",
+                    "type": "long"
+                }
+            },
+            "required": [
+                "Revision",
+                "CreationTime"
+            ]
+        },
+        "S2n": {
+            "type": "structure",
+            "members": {
+                "ActiveOperationArn": {
+                    "locationName": "activeOperationArn"
+                },
+                "BrokerNodeGroupInfo": {
+                    "shape": "S8",
+                    "locationName": "brokerNodeGroupInfo"
+                },
+                "ClientAuthentication": {
+                    "shape": "Sp",
+                    "locationName": "clientAuthentication"
+                },
+                "ClusterArn": {
+                    "locationName": "clusterArn"
+                },
+                "ClusterName": {
+                    "locationName": "clusterName"
+                },
+                "CreationTime": {
+                    "shape": "S1u",
+                    "locationName": "creationTime"
+                },
+                "CurrentBrokerSoftwareInfo": {
+                    "shape": "S2o",
+                    "locationName": "currentBrokerSoftwareInfo"
+                },
+                "CurrentVersion": {
+                    "locationName": "currentVersion"
+                },
+                "EncryptionInfo": {
+                    "shape": "Sy",
+                    "locationName": "encryptionInfo"
+                },
+                "EnhancedMonitoring": {
+                    "locationName": "enhancedMonitoring"
+                },
+                "OpenMonitoring": {
+                    "shape": "S2p",
+                    "locationName": "openMonitoring"
+                },
+                "LoggingInfo": {
+                    "shape": "S18",
+                    "locationName": "loggingInfo"
+                },
+                "NumberOfBrokerNodes": {
+                    "locationName": "numberOfBrokerNodes",
+                    "type": "integer"
+                },
+                "State": {
+                    "locationName": "state"
+                },
+                "StateInfo": {
+                    "shape": "S2t",
+                    "locationName": "stateInfo"
+                },
+                "Tags": {
+                    "shape": "S1e",
+                    "locationName": "tags"
+                },
+                "ZookeeperConnectString": {
+                    "locationName": "zookeeperConnectString"
+                },
+                "ZookeeperConnectStringTls": {
+                    "locationName": "zookeeperConnectStringTls"
+                },
+                "StorageMode": {
+                    "locationName": "storageMode"
+                }
+            }
+        },
+        "S2o": {
+            "type": "structure",
+            "members": {
+                "ConfigurationArn": {
+                    "locationName": "configurationArn"
+                },
+                "ConfigurationRevision": {
+                    "locationName": "configurationRevision",
+                    "type": "long"
+                },
+                "KafkaVersion": {
+                    "locationName": "kafkaVersion"
+                }
+            }
+        },
+        "S2p": {
+            "type": "structure",
+            "members": {
+                "Prometheus": {
+                    "locationName": "prometheus",
+                    "type": "structure",
+                    "members": {
+                        "JmxExporter": {
+                            "locationName": "jmxExporter",
+                            "type": "structure",
+                            "members": {
+                                "EnabledInBroker": {
+                                    "locationName": "enabledInBroker",
+                                    "type": "boolean"
+                                }
+                            },
+                            "required": [
+                                "EnabledInBroker"
+                            ]
+                        },
+                        "NodeExporter": {
+                            "locationName": "nodeExporter",
+                            "type": "structure",
+                            "members": {
+                                "EnabledInBroker": {
+                                    "locationName": "enabledInBroker",
+                                    "type": "boolean"
+                                }
+                            },
+                            "required": [
+                                "EnabledInBroker"
+                            ]
+                        }
+                    }
+                }
+            },
+            "required": [
+                "Prometheus"
+            ]
+        },
+        "S2t": {
+            "type": "structure",
+            "members": {
+                "Code": {
+                    "locationName": "code"
+                },
+                "Message": {
+                    "locationName": "message"
+                }
+            }
+        },
+        "S2w": {
+            "type": "structure",
+            "members": {
+                "ActiveOperationArn": {
+                    "locationName": "activeOperationArn"
+                },
+                "ClusterType": {
+                    "locationName": "clusterType"
+                },
+                "ClusterArn": {
+                    "locationName": "clusterArn"
+                },
+                "ClusterName": {
+                    "locationName": "clusterName"
+                },
+                "CreationTime": {
+                    "shape": "S1u",
+                    "locationName": "creationTime"
+                },
+                "CurrentVersion": {
+                    "locationName": "currentVersion"
+                },
+                "State": {
+                    "locationName": "state"
+                },
+                "StateInfo": {
+                    "shape": "S2t",
+                    "locationName": "stateInfo"
+                },
+                "Tags": {
+                    "shape": "S1e",
+                    "locationName": "tags"
+                },
+                "Provisioned": {
+                    "locationName": "provisioned",
+                    "type": "structure",
+                    "members": {
+                        "BrokerNodeGroupInfo": {
+                            "shape": "S8",
+                            "locationName": "brokerNodeGroupInfo"
+                        },
+                        "CurrentBrokerSoftwareInfo": {
+                            "shape": "S2o",
+                            "locationName": "currentBrokerSoftwareInfo"
+                        },
+                        "ClientAuthentication": {
+                            "shape": "Sp",
+                            "locationName": "clientAuthentication"
+                        },
+                        "EncryptionInfo": {
+                            "shape": "Sy",
+                            "locationName": "encryptionInfo"
+                        },
+                        "EnhancedMonitoring": {
+                            "locationName": "enhancedMonitoring"
+                        },
+                        "OpenMonitoring": {
+                            "shape": "S13",
+                            "locationName": "openMonitoring"
+                        },
+                        "LoggingInfo": {
+                            "shape": "S18",
+                            "locationName": "loggingInfo"
+                        },
+                        "NumberOfBrokerNodes": {
+                            "locationName": "numberOfBrokerNodes",
+                            "type": "integer"
+                        },
+                        "ZookeeperConnectString": {
+                            "locationName": "zookeeperConnectString"
+                        },
+                        "ZookeeperConnectStringTls": {
+                            "locationName": "zookeeperConnectStringTls"
+                        },
+                        "StorageMode": {
+                            "locationName": "storageMode"
+                        }
+                    },
+                    "required": [
+                        "BrokerNodeGroupInfo",
+                        "NumberOfBrokerNodes"
+                    ]
+                },
+                "Serverless": {
+                    "locationName": "serverless",
+                    "type": "structure",
+                    "members": {
+                        "VpcConfigs": {
+                            "shape": "S1l",
+                            "locationName": "vpcConfigs"
+                        },
+                        "ClientAuthentication": {
+                            "shape": "S1n",
+                            "locationName": "clientAuthentication"
+                        }
+                    },
+                    "required": [
+                        "VpcConfigs"
+                    ]
+                }
+            }
+        },
+        "S31": {
+            "type": "structure",
+            "members": {
+                "ClientRequestId": {
+                    "locationName": "clientRequestId"
+                },
+                "ClusterArn": {
+                    "locationName": "clusterArn"
+                },
+                "CreationTime": {
+                    "shape": "S1u",
+                    "locationName": "creationTime"
+                },
+                "EndTime": {
+                    "shape": "S1u",
+                    "locationName": "endTime"
+                },
+                "ErrorInfo": {
+                    "locationName": "errorInfo",
+                    "type": "structure",
+                    "members": {
+                        "ErrorCode": {
+                            "locationName": "errorCode"
+                        },
+                        "ErrorString": {
+                            "locationName": "errorString"
+                        }
+                    }
+                },
+                "OperationArn": {
+                    "locationName": "operationArn"
+                },
+                "OperationState": {
+                    "locationName": "operationState"
+                },
+                "OperationSteps": {
+                    "locationName": "operationSteps",
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "members": {
+                            "StepInfo": {
+                                "locationName": "stepInfo",
+                                "type": "structure",
+                                "members": {
+                                    "StepStatus": {
+                                        "locationName": "stepStatus"
+                                    }
+                                }
+                            },
+                            "StepName": {
+                                "locationName": "stepName"
+                            }
+                        }
+                    }
+                },
+                "OperationType": {
+                    "locationName": "operationType"
+                },
+                "SourceClusterInfo": {
+                    "shape": "S36",
+                    "locationName": "sourceClusterInfo"
+                },
+                "TargetClusterInfo": {
+                    "shape": "S36",
+                    "locationName": "targetClusterInfo"
+                }
+            }
+        },
+        "S36": {
+            "type": "structure",
+            "members": {
+                "BrokerEBSVolumeInfo": {
+                    "shape": "S37",
+                    "locationName": "brokerEBSVolumeInfo"
+                },
+                "ConfigurationInfo": {
+                    "shape": "Sw",
+                    "locationName": "configurationInfo"
+                },
+                "NumberOfBrokerNodes": {
+                    "locationName": "numberOfBrokerNodes",
+                    "type": "integer"
+                },
+                "EnhancedMonitoring": {
+                    "locationName": "enhancedMonitoring"
+                },
+                "OpenMonitoring": {
+                    "shape": "S2p",
+                    "locationName": "openMonitoring"
+                },
+                "KafkaVersion": {
+                    "locationName": "kafkaVersion"
+                },
+                "LoggingInfo": {
+                    "shape": "S18",
+                    "locationName": "loggingInfo"
+                },
+                "InstanceType": {
+                    "locationName": "instanceType"
+                },
+                "ClientAuthentication": {
+                    "shape": "Sp",
+                    "locationName": "clientAuthentication"
+                },
+                "EncryptionInfo": {
+                    "shape": "Sy",
+                    "locationName": "encryptionInfo"
+                },
+                "ConnectivityInfo": {
+                    "shape": "Sh",
+                    "locationName": "connectivityInfo"
+                },
+                "StorageMode": {
+                    "locationName": "storageMode"
+                }
+            }
+        },
+        "S37": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "KafkaBrokerNodeId": {
+                        "locationName": "kafkaBrokerNodeId"
+                    },
+                    "ProvisionedThroughput": {
+                        "shape": "Sd",
+                        "locationName": "provisionedThroughput"
+                    },
+                    "VolumeSizeGB": {
+                        "locationName": "volumeSizeGB",
+                        "type": "integer"
+                    }
+                },
+                "required": [
+                    "KafkaBrokerNodeId"
+                ]
+            }
+        },
+        "S3n": {
+            "type": "list",
+            "member": {}
+        },
+        "S3q": {
+            "type": "list",
+            "member": {}
+        },
+        "S21": {
+            "type": "structure",
+            "members": {
+                "MskClusterArn": {
+                    "locationName": "mskClusterArn"
+                }
+            },
+            "required": [
+                "MskClusterArn"
+            ]
+        },
+        "S29": {
+            "type": "structure",
+            "members": {
+                "CopyAccessControlListsForTopics": {
+                    "locationName": "copyAccessControlListsForTopics",
+                    "type": "boolean"
+                },
+                "CopyTopicConfigurations": {
+                    "locationName": "copyTopicConfigurations",
+                    "type": "boolean"
+                },
+                "DetectAndCopyNewTopics": {
+                    "locationName": "detectAndCopyNewTopics",
+                    "type": "boolean"
+                },
+                "TopicsToExclude": {
+                    "shape": "S2a",
+                    "locationName": "topicsToExclude"
+                },
+                "TopicsToReplicate": {
+                    "shape": "S2a",
+                    "locationName": "topicsToReplicate"
+                }
+            },
+            "required": [
+                "TopicsToReplicate"
+            ]
+        },
+        "S2u": {
+            "type": "structure",
+            "members": {
+                "ActiveOperationArn": {
+                    "locationName": "activeOperationArn"
+                },
+                "BrokerNodeGroupInfo": {
+                    "shape": "S8",
+                    "locationName": "brokerNodeGroupInfo"
+                },
+                "ClientAuthentication": {
+                    "shape": "Sp",
+                    "locationName": "clientAuthentication"
+                },
+                "ClusterArn": {
+                    "locationName": "clusterArn"
+                },
+                "ClusterName": {
+                    "locationName": "clusterName"
+                },
+                "CreationTime": {
+                    "shape": "S1u",
+                    "locationName": "creationTime"
+                },
+                "CurrentBrokerSoftwareInfo": {
+                    "shape": "S2v",
+                    "locationName": "currentBrokerSoftwareInfo"
+                },
+                "CurrentVersion": {
+                    "locationName": "currentVersion"
+                },
+                "EncryptionInfo": {
+                    "shape": "Sy",
+                    "locationName": "encryptionInfo"
+                },
+                "EnhancedMonitoring": {
+                    "locationName": "enhancedMonitoring"
+                },
+                "OpenMonitoring": {
+                    "shape": "S2w",
+                    "locationName": "openMonitoring"
+                },
+                "LoggingInfo": {
+                    "shape": "S18",
+                    "locationName": "loggingInfo"
+                },
+                "NumberOfBrokerNodes": {
+                    "locationName": "numberOfBrokerNodes",
+                    "type": "integer"
+                },
+                "State": {
+                    "locationName": "state"
+                },
+                "StateInfo": {
+                    "shape": "S30",
+                    "locationName": "stateInfo"
+                },
+                "Tags": {
+                    "shape": "S1e",
+                    "locationName": "tags"
+                },
+                "ZookeeperConnectString": {
+                    "locationName": "zookeeperConnectString"
+                },
+                "ZookeeperConnectStringTls": {
+                    "locationName": "zookeeperConnectStringTls"
+                },
+                "StorageMode": {
+                    "locationName": "storageMode"
+                }
+            }
+        },
+        "S2v": {
+            "type": "structure",
+            "members": {
+                "ConfigurationArn": {
+                    "locationName": "configurationArn"
+                },
+                "ConfigurationRevision": {
+                    "locationName": "configurationRevision",
+                    "type": "long"
+                },
+                "KafkaVersion": {
+                    "locationName": "kafkaVersion"
+                }
+            }
+        },
+        "S30": {
+            "type": "structure",
+            "members": {
+                "Code": {
+                    "locationName": "code"
+                },
+                "Message": {
+                    "locationName": "message"
+                }
+            }
+        },
+        "S33": {
+            "type": "structure",
+            "members": {
+                "ActiveOperationArn": {
+                    "locationName": "activeOperationArn"
+                },
+                "ClusterType": {
+                    "locationName": "clusterType"
+                },
+                "ClusterArn": {
+                    "locationName": "clusterArn"
+                },
+                "ClusterName": {
+                    "locationName": "clusterName"
+                },
+                "CreationTime": {
+                    "shape": "S1u",
+                    "locationName": "creationTime"
+                },
+                "CurrentVersion": {
+                    "locationName": "currentVersion"
+                },
+                "State": {
+                    "locationName": "state"
+                },
+                "StateInfo": {
+                    "shape": "S30",
+                    "locationName": "stateInfo"
+                },
+                "Tags": {
+                    "shape": "S1e",
+                    "locationName": "tags"
+                },
+                "Provisioned": {
+                    "locationName": "provisioned",
+                    "type": "structure",
+                    "members": {
+                        "BrokerNodeGroupInfo": {
+                            "shape": "S8",
+                            "locationName": "brokerNodeGroupInfo"
+                        },
+                        "CurrentBrokerSoftwareInfo": {
+                            "shape": "S2v",
+                            "locationName": "currentBrokerSoftwareInfo"
+                        },
+                        "ClientAuthentication": {
+                            "shape": "Sp",
+                            "locationName": "clientAuthentication"
+                        },
+                        "EncryptionInfo": {
+                            "shape": "Sy",
+                            "locationName": "encryptionInfo"
+                        },
+                        "EnhancedMonitoring": {
+                            "locationName": "enhancedMonitoring"
+                        },
+                        "OpenMonitoring": {
+                            "shape": "S13",
+                            "locationName": "openMonitoring"
+                        },
+                        "LoggingInfo": {
+                            "shape": "S18",
+                            "locationName": "loggingInfo"
+                        },
+                        "NumberOfBrokerNodes": {
+                            "locationName": "numberOfBrokerNodes",
+                            "type": "integer"
+                        },
+                        "ZookeeperConnectString": {
+                            "locationName": "zookeeperConnectString"
+                        },
+                        "ZookeeperConnectStringTls": {
+                            "locationName": "zookeeperConnectStringTls"
+                        },
+                        "StorageMode": {
+                            "locationName": "storageMode"
+                        }
+                    },
+                    "required": [
+                        "BrokerNodeGroupInfo",
+                        "NumberOfBrokerNodes"
+                    ]
+                },
+                "Serverless": {
+                    "locationName": "serverless",
+                    "type": "structure",
+                    "members": {
+                        "VpcConfigs": {
+                            "shape": "S1l",
+                            "locationName": "vpcConfigs"
+                        },
+                        "ClientAuthentication": {
+                            "shape": "S1n",
+                            "locationName": "clientAuthentication"
+                        }
+                    },
+                    "required": [
+                        "VpcConfigs"
+                    ]
+                }
+            }
+        },
+        "S38": {
+            "type": "structure",
+            "members": {
+                "ClientRequestId": {
+                    "locationName": "clientRequestId"
+                },
+                "ClusterArn": {
+                    "locationName": "clusterArn"
+                },
+                "CreationTime": {
+                    "shape": "S1u",
+                    "locationName": "creationTime"
+                },
+                "EndTime": {
+                    "shape": "S1u",
+                    "locationName": "endTime"
+                },
+                "ErrorInfo": {
+                    "locationName": "errorInfo",
+                    "type": "structure",
+                    "members": {
+                        "ErrorCode": {
+                            "locationName": "errorCode"
+                        },
+                        "ErrorString": {
+                            "locationName": "errorString"
+                        }
+                    }
+                },
+                "OperationArn": {
+                    "locationName": "operationArn"
+                },
+                "OperationState": {
+                    "locationName": "operationState"
+                },
+                "OperationSteps": {
+                    "locationName": "operationSteps",
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "members": {
+                            "StepInfo": {
+                                "locationName": "stepInfo",
+                                "type": "structure",
+                                "members": {
+                                    "StepStatus": {
+                                        "locationName": "stepStatus"
+                                    }
+                                }
+                            },
+                            "StepName": {
+                                "locationName": "stepName"
+                            }
+                        }
+                    }
+                },
+                "OperationType": {
+                    "locationName": "operationType"
+                },
+                "SourceClusterInfo": {
+                    "shape": "S3d",
+                    "locationName": "sourceClusterInfo"
+                },
+                "TargetClusterInfo": {
+                    "shape": "S3d",
+                    "locationName": "targetClusterInfo"
+                },
+                "VpcConnectionInfo": {
+                    "locationName": "vpcConnectionInfo",
+                    "type": "structure",
+                    "members": {
+                        "VpcConnectionArn": {
+                            "locationName": "vpcConnectionArn"
+                        },
+                        "Owner": {
+                            "locationName": "owner"
+                        },
+                        "UserIdentity": {
+                            "locationName": "userIdentity",
+                            "type": "structure",
+                            "members": {
+                                "Type": {
+                                    "locationName": "type"
+                                },
+                                "PrincipalId": {
+                                    "locationName": "principalId"
+                                }
+                            }
+                        },
+                        "CreationTime": {
+                            "locationName": "creationTime"
+                        }
+                    }
+                }
+            }
+        },
+        "S3d": {
+            "type": "structure",
+            "members": {
+                "BrokerEBSVolumeInfo": {
+                    "shape": "S3e",
+                    "locationName": "brokerEBSVolumeInfo"
+                },
+                "ConfigurationInfo": {
+                    "shape": "Sw",
+                    "locationName": "configurationInfo"
+                },
+                "NumberOfBrokerNodes": {
+                    "locationName": "numberOfBrokerNodes",
+                    "type": "integer"
+                },
+                "EnhancedMonitoring": {
+                    "locationName": "enhancedMonitoring"
+                },
+                "OpenMonitoring": {
+                    "shape": "S2w",
+                    "locationName": "openMonitoring"
+                },
+                "KafkaVersion": {
+                    "locationName": "kafkaVersion"
+                },
+                "LoggingInfo": {
+                    "shape": "S18",
+                    "locationName": "loggingInfo"
+                },
+                "InstanceType": {
+                    "locationName": "instanceType"
+                },
+                "ClientAuthentication": {
+                    "shape": "Sp",
+                    "locationName": "clientAuthentication"
+                },
+                "EncryptionInfo": {
+                    "shape": "Sy",
+                    "locationName": "encryptionInfo"
+                },
+                "ConnectivityInfo": {
+                    "shape": "Sh",
+                    "locationName": "connectivityInfo"
+                },
+                "StorageMode": {
+                    "locationName": "storageMode"
+                }
+            }
+        },
+        "S3e": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "KafkaBrokerNodeId": {
+                        "locationName": "kafkaBrokerNodeId"
+                    },
+                    "ProvisionedThroughput": {
+                        "shape": "Sd",
+                        "locationName": "provisionedThroughput"
+                    },
+                    "VolumeSizeGB": {
+                        "locationName": "volumeSizeGB",
+                        "type": "integer"
+                    }
+                },
+                "required": [
+                    "KafkaBrokerNodeId"
+                ]
+            }
+        },
+        "Se": {
+            "type": "structure",
+            "members": {
+                "Sasl": {
+                    "locationName": "sasl",
+                    "type": "structure",
+                    "members": {
+                        "Scram": {
+                            "locationName": "scram",
+                            "type": "structure",
+                            "members": {
+                                "Enabled": {
+                                    "locationName": "enabled",
+                                    "type": "boolean"
+                                }
+                            }
+                        }
+                    }
+                },
+                "Tls": {
+                    "locationName": "tls",
+                    "type": "structure",
+                    "members": {
+                        "CertificateAuthorityArnList": {
+                            "shape": "S3",
+                            "locationName": "certificateAuthorityArnList"
+                        }
+                    }
+                }
+            }
+        },
+        "Sk": {
+            "type": "structure",
+            "members": {
+                "Arn": {
+                    "locationName": "arn"
+                },
+                "Revision": {
+                    "locationName": "revision",
+                    "type": "long"
+                }
+            },
+            "required": [
+                "Revision",
+                "Arn"
+            ]
+        },
+        "Sr": {
+            "type": "structure",
+            "members": {
+                "Prometheus": {
+                    "locationName": "prometheus",
+                    "type": "structure",
+                    "members": {
+                        "JmxExporter": {
+                            "locationName": "jmxExporter",
+                            "type": "structure",
+                            "members": {
+                                "EnabledInBroker": {
+                                    "locationName": "enabledInBroker",
+                                    "type": "boolean"
+                                }
+                            },
+                            "required": [
+                                "EnabledInBroker"
+                            ]
+                        },
+                        "NodeExporter": {
+                            "locationName": "nodeExporter",
+                            "type": "structure",
+                            "members": {
+                                "EnabledInBroker": {
+                                    "locationName": "enabledInBroker",
+                                    "type": "boolean"
+                                }
+                            },
+                            "required": [
+                                "EnabledInBroker"
+                            ]
+                        }
+                    }
+                }
+            },
+            "required": [
+                "Prometheus"
+            ]
+        },
+        "S19": {
+            "type": "structure",
+            "members": {
+                "CreationTime": {
+                    "shape": "S18",
+                    "locationName": "creationTime"
+                },
+                "Description": {
+                    "locationName": "description"
+                },
+                "Revision": {
+                    "locationName": "revision",
+                    "type": "long"
+                }
+            },
+            "required": [
+                "Revision",
+                "CreationTime"
+            ]
+        },
+        "S1i": {
+            "type": "structure",
+            "members": {
+                "ConfigurationArn": {
+                    "locationName": "configurationArn"
+                },
+                "ConfigurationRevision": {
+                    "locationName": "configurationRevision",
+                    "type": "long"
+                },
+                "KafkaVersion": {
+                    "locationName": "kafkaVersion"
+                }
+            }
+        },
+        "S1j": {
+            "type": "structure",
+            "members": {
+                "Prometheus": {
+                    "locationName": "prometheus",
+                    "type": "structure",
+                    "members": {
+                        "JmxExporter": {
+                            "locationName": "jmxExporter",
+                            "type": "structure",
+                            "members": {
+                                "EnabledInBroker": {
+                                    "locationName": "enabledInBroker",
+                                    "type": "boolean"
+                                }
+                            },
+                            "required": [
+                                "EnabledInBroker"
+                            ]
+                        },
+                        "NodeExporter": {
+                            "locationName": "nodeExporter",
+                            "type": "structure",
+                            "members": {
+                                "EnabledInBroker": {
+                                    "locationName": "enabledInBroker",
+                                    "type": "boolean"
+                                }
+                            },
+                            "required": [
+                                "EnabledInBroker"
+                            ]
+                        }
+                    }
+                }
+            },
+            "required": [
+                "Prometheus"
+            ]
+        },
+        "S1r": {
+            "type": "structure",
+            "members": {
+                "ClientRequestId": {
+                    "locationName": "clientRequestId"
+                },
+                "ClusterArn": {
+                    "locationName": "clusterArn"
+                },
+                "CreationTime": {
+                    "shape": "S18",
+                    "locationName": "creationTime"
+                },
+                "EndTime": {
+                    "shape": "S18",
+                    "locationName": "endTime"
+                },
+                "ErrorInfo": {
+                    "locationName": "errorInfo",
+                    "type": "structure",
+                    "members": {
+                        "ErrorCode": {
+                            "locationName": "errorCode"
+                        },
+                        "ErrorString": {
+                            "locationName": "errorString"
+                        }
+                    }
+                },
+                "OperationArn": {
+                    "locationName": "operationArn"
+                },
+                "OperationState": {
+                    "locationName": "operationState"
+                },
+                "OperationSteps": {
+                    "locationName": "operationSteps",
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "members": {
+                            "StepInfo": {
+                                "locationName": "stepInfo",
+                                "type": "structure",
+                                "members": {
+                                    "StepStatus": {
+                                        "locationName": "stepStatus"
+                                    }
+                                }
+                            },
+                            "StepName": {
+                                "locationName": "stepName"
+                            }
+                        }
+                    }
+                },
+                "OperationType": {
+                    "locationName": "operationType"
+                },
+                "SourceClusterInfo": {
+                    "shape": "S1w",
+                    "locationName": "sourceClusterInfo"
+                },
+                "TargetClusterInfo": {
+                    "shape": "S1w",
+                    "locationName": "targetClusterInfo"
+                }
+            }
+        },
+        "S2c": {
+            "type": "structure",
+            "members": {
+                "Prometheus": {
+                    "locationName": "prometheus",
+                    "type": "structure",
+                    "members": {
+                        "JmxExporter": {
+                            "locationName": "jmxExporter",
+                            "type": "structure",
+                            "members": {
+                                "EnabledInBroker": {
+                                    "locationName": "enabledInBroker",
+                                    "type": "boolean"
+                                }
+                            },
+                            "required": [
+                                "EnabledInBroker"
+                            ]
+                        },
+                        "NodeExporter": {
+                            "locationName": "nodeExporter",
+                            "type": "structure",
+                            "members": {
+                                "EnabledInBroker": {
+                                    "locationName": "enabledInBroker",
+                                    "type": "boolean"
+                                }
+                            },
+                            "required": [
+                                "EnabledInBroker"
+                            ]
+                        }
+                    }
+                }
+            },
+            "required": [
+                "Prometheus"
+            ]
+        },
+        "S2j": {
+            "type": "structure",
+            "members": {
+                "ActiveOperationArn": {
+                    "locationName": "activeOperationArn"
+                },
+                "ClusterType": {
+                    "locationName": "clusterType"
+                },
+                "ClusterArn": {
+                    "locationName": "clusterArn"
+                },
+                "ClusterName": {
+                    "locationName": "clusterName"
+                },
+                "CreationTime": {
+                    "shape": "S1u",
+                    "locationName": "creationTime"
+                },
+                "CurrentVersion": {
+                    "locationName": "currentVersion"
+                },
+                "State": {
+                    "locationName": "state"
+                },
+                "StateInfo": {
+                    "shape": "S2g",
+                    "locationName": "stateInfo"
+                },
+                "Tags": {
+                    "shape": "S1e",
+                    "locationName": "tags"
+                },
+                "Provisioned": {
+                    "locationName": "provisioned",
+                    "type": "structure",
+                    "members": {
+                        "BrokerNodeGroupInfo": {
+                            "shape": "S8",
+                            "locationName": "brokerNodeGroupInfo"
+                        },
+                        "CurrentBrokerSoftwareInfo": {
+                            "shape": "S2b",
+                            "locationName": "currentBrokerSoftwareInfo"
+                        },
+                        "ClientAuthentication": {
+                            "shape": "Sp",
+                            "locationName": "clientAuthentication"
+                        },
+                        "EncryptionInfo": {
+                            "shape": "Sy",
+                            "locationName": "encryptionInfo"
+                        },
+                        "EnhancedMonitoring": {
+                            "locationName": "enhancedMonitoring"
+                        },
+                        "OpenMonitoring": {
+                            "shape": "S13",
+                            "locationName": "openMonitoring"
+                        },
+                        "LoggingInfo": {
+                            "shape": "S18",
+                            "locationName": "loggingInfo"
+                        },
+                        "NumberOfBrokerNodes": {
+                            "locationName": "numberOfBrokerNodes",
+                            "type": "integer"
+                        },
+                        "ZookeeperConnectString": {
+                            "locationName": "zookeeperConnectString"
+                        },
+                        "ZookeeperConnectStringTls": {
+                            "locationName": "zookeeperConnectStringTls"
+                        },
+                        "StorageMode": {
+                            "locationName": "storageMode"
+                        }
+                    },
+                    "required": [
+                        "BrokerNodeGroupInfo",
+                        "NumberOfBrokerNodes"
+                    ]
+                },
+                "Serverless": {
+                    "locationName": "serverless",
+                    "type": "structure",
+                    "members": {
+                        "VpcConfigs": {
+                            "shape": "S1l",
+                            "locationName": "vpcConfigs"
+                        },
+                        "ClientAuthentication": {
+                            "shape": "S1n",
+                            "locationName": "clientAuthentication"
+                        }
+                    },
+                    "required": [
+                        "VpcConfigs"
+                    ]
+                }
+            }
+        },
+        "S2": {
+            "type": "structure",
+            "members": {
+                "BrokerAZDistribution": {
+                    "locationName": "brokerAZDistribution"
+                },
+                "ClientSubnets": {
+                    "shape": "S4",
+                    "locationName": "clientSubnets"
+                },
+                "InstanceType": {
+                    "locationName": "instanceType"
+                },
+                "SecurityGroups": {
+                    "shape": "S4",
+                    "locationName": "securityGroups"
+                },
+                "StorageInfo": {
+                    "locationName": "storageInfo",
+                    "type": "structure",
+                    "members": {
+                        "EbsStorageInfo": {
+                            "locationName": "ebsStorageInfo",
+                            "type": "structure",
+                            "members": {
+                                "VolumeSize": {
+                                    "locationName": "volumeSize",
+                                    "type": "integer"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "required": [
+                "ClientSubnets",
+                "InstanceType"
+            ]
+        },
+        "S4": {
+            "type": "list",
+            "member": {}
+        },
+        "Sa": {
+            "type": "structure",
+            "members": {
+                "Tls": {
+                    "locationName": "tls",
+                    "type": "structure",
+                    "members": {
+                        "CertificateAuthorityArnList": {
+                            "shape": "S4",
+                            "locationName": "certificateAuthorityArnList"
+                        }
+                    }
+                }
+            }
+        },
+        "Sf": {
+            "type": "structure",
+            "members": {
+                "EncryptionAtRest": {
+                    "locationName": "encryptionAtRest",
+                    "type": "structure",
+                    "members": {
+                        "DataVolumeKMSKeyId": {
+                            "locationName": "dataVolumeKMSKeyId"
+                        }
+                    },
+                    "required": [
+                        "DataVolumeKMSKeyId"
+                    ]
+                },
+                "EncryptionInTransit": {
+                    "locationName": "encryptionInTransit",
+                    "type": "structure",
+                    "members": {
+                        "ClientBroker": {
+                            "locationName": "clientBroker"
+                        },
+                        "InCluster": {
+                            "locationName": "inCluster",
+                            "type": "boolean"
+                        }
+                    }
+                }
+            }
+        },
+        "Sl": {
+            "type": "structure",
+            "members": {
+                "Prometheus": {
+                    "locationName": "prometheus",
+                    "type": "structure",
+                    "members": {
+                        "JmxExporter": {
+                            "locationName": "jmxExporter",
+                            "type": "structure",
+                            "members": {
+                                "EnabledInBroker": {
+                                    "locationName": "enabledInBroker",
+                                    "type": "boolean"
+                                }
+                            },
+                            "required": [
+                                "EnabledInBroker"
+                            ]
+                        },
+                        "NodeExporter": {
+                            "locationName": "nodeExporter",
+                            "type": "structure",
+                            "members": {
+                                "EnabledInBroker": {
+                                    "locationName": "enabledInBroker",
+                                    "type": "boolean"
+                                }
+                            },
+                            "required": [
+                                "EnabledInBroker"
+                            ]
+                        }
+                    }
+                }
+            },
+            "required": [
+                "Prometheus"
+            ]
+        },
+        "S1a": {
+            "type": "structure",
+            "members": {
+                "Prometheus": {
+                    "locationName": "prometheus",
+                    "type": "structure",
+                    "members": {
+                        "JmxExporter": {
+                            "locationName": "jmxExporter",
+                            "type": "structure",
+                            "members": {
+                                "EnabledInBroker": {
+                                    "locationName": "enabledInBroker",
+                                    "type": "boolean"
+                                }
+                            },
+                            "required": [
+                                "EnabledInBroker"
+                            ]
+                        },
+                        "NodeExporter": {
+                            "locationName": "nodeExporter",
+                            "type": "structure",
+                            "members": {
+                                "EnabledInBroker": {
+                                    "locationName": "enabledInBroker",
+                                    "type": "boolean"
+                                }
+                            },
+                            "required": [
+                                "EnabledInBroker"
+                            ]
+                        }
+                    }
+                }
+            },
+            "required": [
+                "Prometheus"
+            ]
+        },
+        "S1k": {
+            "type": "structure",
+            "members": {
+                "BrokerEBSVolumeInfo": {
+                    "shape": "S1l",
+                    "locationName": "brokerEBSVolumeInfo"
+                },
+                "ConfigurationInfo": {
+                    "shape": "Sd",
+                    "locationName": "configurationInfo"
+                },
+                "NumberOfBrokerNodes": {
+                    "locationName": "numberOfBrokerNodes",
+                    "type": "integer"
+                },
+                "EnhancedMonitoring": {
+                    "locationName": "enhancedMonitoring"
+                },
+                "OpenMonitoring": {
+                    "shape": "S1a",
+                    "locationName": "openMonitoring"
+                },
+                "LoggingInfo": {
+                    "shape": "Sq",
+                    "locationName": "loggingInfo"
+                }
+            }
+        },
+        "So": {
+            "type": "structure",
+            "members": {
+                "EncryptionAtRest": {
+                    "locationName": "encryptionAtRest",
+                    "type": "structure",
+                    "members": {
+                        "DataVolumeKMSKeyId": {
+                            "locationName": "dataVolumeKMSKeyId"
+                        }
+                    },
+                    "required": [
+                        "DataVolumeKMSKeyId"
+                    ]
+                },
+                "EncryptionInTransit": {
+                    "locationName": "encryptionInTransit",
+                    "type": "structure",
+                    "members": {
+                        "ClientBroker": {
+                            "locationName": "clientBroker"
+                        },
+                        "InCluster": {
+                            "locationName": "inCluster",
+                            "type": "boolean"
+                        }
+                    }
+                }
+            }
+        },
+        "St": {
+            "type": "structure",
+            "members": {
+                "Prometheus": {
+                    "locationName": "prometheus",
+                    "type": "structure",
+                    "members": {
+                        "JmxExporter": {
+                            "locationName": "jmxExporter",
+                            "type": "structure",
+                            "members": {
+                                "EnabledInBroker": {
+                                    "locationName": "enabledInBroker",
+                                    "type": "boolean"
+                                }
+                            },
+                            "required": [
+                                "EnabledInBroker"
+                            ]
+                        },
+                        "NodeExporter": {
+                            "locationName": "nodeExporter",
+                            "type": "structure",
+                            "members": {
+                                "EnabledInBroker": {
+                                    "locationName": "enabledInBroker",
+                                    "type": "boolean"
+                                }
+                            },
+                            "required": [
+                                "EnabledInBroker"
+                            ]
+                        }
+                    }
+                }
+            },
+            "required": [
+                "Prometheus"
+            ]
+        },
+        "S14": {
+            "type": "map",
+            "key": {},
+            "value": {}
+        },
+        "S1b": {
+            "type": "structure",
+            "members": {
+                "CreationTime": {
+                    "shape": "S1a",
+                    "locationName": "creationTime"
+                },
+                "Description": {
+                    "locationName": "description"
+                },
+                "Revision": {
+                    "locationName": "revision",
+                    "type": "long"
+                }
+            },
+            "required": [
+                "Revision",
+                "CreationTime"
+            ]
+        },
+        "S1t": {
+            "type": "structure",
+            "members": {
+                "ClientRequestId": {
+                    "locationName": "clientRequestId"
+                },
+                "ClusterArn": {
+                    "locationName": "clusterArn"
+                },
+                "CreationTime": {
+                    "shape": "S1a",
+                    "locationName": "creationTime"
+                },
+                "EndTime": {
+                    "shape": "S1a",
+                    "locationName": "endTime"
+                },
+                "ErrorInfo": {
+                    "locationName": "errorInfo",
+                    "type": "structure",
+                    "members": {
+                        "ErrorCode": {
+                            "locationName": "errorCode"
+                        },
+                        "ErrorString": {
+                            "locationName": "errorString"
+                        }
+                    }
+                },
+                "OperationArn": {
+                    "locationName": "operationArn"
+                },
+                "OperationState": {
+                    "locationName": "operationState"
+                },
+                "OperationSteps": {
+                    "locationName": "operationSteps",
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "members": {
+                            "StepInfo": {
+                                "locationName": "stepInfo",
+                                "type": "structure",
+                                "members": {
+                                    "StepStatus": {
+                                        "locationName": "stepStatus"
+                                    }
+                                }
+                            },
+                            "StepName": {
+                                "locationName": "stepName"
+                            }
+                        }
+                    }
+                },
+                "OperationType": {
+                    "locationName": "operationType"
+                },
+                "SourceClusterInfo": {
+                    "shape": "S1y",
+                    "locationName": "sourceClusterInfo"
+                },
+                "TargetClusterInfo": {
+                    "shape": "S1y",
+                    "locationName": "targetClusterInfo"
+                }
+            }
+        }
+    }
+}

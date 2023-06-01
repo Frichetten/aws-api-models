@@ -1,0 +1,754 @@
+{
+    "version": "2.0",
+    "metadata": {
+        "apiVersion": "2018-05-10",
+        "endpointPrefix": "license-manager-user-subscriptions",
+        "jsonVersion": "1.1",
+        "protocol": "rest-json",
+        "serviceFullName": "AWS License Manager User Subscriptions",
+        "serviceId": "License Manager User Subscriptions",
+        "signatureVersion": "v4",
+        "signingName": "license-manager-user-subscriptions",
+        "uid": "license-manager-user-subscriptions-2018-05-10",
+        "download_location": [
+            "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+        ]
+    },
+    "operations": {
+        "AssociateUser": {
+            "http": {
+                "requestUri": "/user/AssociateUser",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "IdentityProvider",
+                    "InstanceId",
+                    "Username"
+                ],
+                "members": {
+                    "Domain": {},
+                    "IdentityProvider": {
+                        "shape": "S3"
+                    },
+                    "InstanceId": {},
+                    "Username": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "InstanceUserSummary"
+                ],
+                "members": {
+                    "InstanceUserSummary": {
+                        "shape": "S6"
+                    }
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "DeregisterIdentityProvider": {
+            "http": {
+                "requestUri": "/identity-provider/DeregisterIdentityProvider",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "IdentityProvider",
+                    "Product"
+                ],
+                "members": {
+                    "IdentityProvider": {
+                        "shape": "S3"
+                    },
+                    "Product": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "IdentityProviderSummary"
+                ],
+                "members": {
+                    "IdentityProviderSummary": {
+                        "shape": "S9"
+                    }
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "DisassociateUser": {
+            "http": {
+                "requestUri": "/user/DisassociateUser",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "IdentityProvider",
+                    "InstanceId",
+                    "Username"
+                ],
+                "members": {
+                    "Domain": {},
+                    "IdentityProvider": {
+                        "shape": "S3"
+                    },
+                    "InstanceId": {},
+                    "Username": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "InstanceUserSummary"
+                ],
+                "members": {
+                    "InstanceUserSummary": {
+                        "shape": "S6"
+                    }
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "ListIdentityProviders": {
+            "http": {
+                "requestUri": "/identity-provider/ListIdentityProviders",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "MaxResults": {
+                        "type": "integer"
+                    },
+                    "NextToken": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "IdentityProviderSummaries"
+                ],
+                "members": {
+                    "IdentityProviderSummaries": {
+                        "type": "list",
+                        "member": {
+                            "shape": "S9"
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "ListInstances": {
+            "http": {
+                "requestUri": "/instance/ListInstances",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "Filters": {
+                        "shape": "Sl"
+                    },
+                    "MaxResults": {
+                        "type": "integer"
+                    },
+                    "NextToken": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "InstanceSummaries": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "InstanceId",
+                                "Products",
+                                "Status"
+                            ],
+                            "members": {
+                                "InstanceId": {},
+                                "LastStatusCheckDate": {},
+                                "Products": {
+                                    "type": "list",
+                                    "member": {}
+                                },
+                                "Status": {},
+                                "StatusMessage": {}
+                            }
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "ListProductSubscriptions": {
+            "http": {
+                "requestUri": "/user/ListProductSubscriptions",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "IdentityProvider",
+                    "Product"
+                ],
+                "members": {
+                    "Filters": {
+                        "shape": "Sl"
+                    },
+                    "IdentityProvider": {
+                        "shape": "S3"
+                    },
+                    "MaxResults": {
+                        "type": "integer"
+                    },
+                    "NextToken": {},
+                    "Product": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "NextToken": {},
+                    "ProductUserSummaries": {
+                        "type": "list",
+                        "member": {
+                            "shape": "Su"
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "ListUserAssociations": {
+            "http": {
+                "requestUri": "/user/ListUserAssociations",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "IdentityProvider",
+                    "InstanceId"
+                ],
+                "members": {
+                    "Filters": {
+                        "shape": "Sl"
+                    },
+                    "IdentityProvider": {
+                        "shape": "S3"
+                    },
+                    "InstanceId": {},
+                    "MaxResults": {
+                        "type": "integer"
+                    },
+                    "NextToken": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "InstanceUserSummaries": {
+                        "type": "list",
+                        "member": {
+                            "shape": "S6"
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "RegisterIdentityProvider": {
+            "http": {
+                "requestUri": "/identity-provider/RegisterIdentityProvider",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "IdentityProvider",
+                    "Product"
+                ],
+                "members": {
+                    "IdentityProvider": {
+                        "shape": "S3"
+                    },
+                    "Product": {},
+                    "Settings": {
+                        "shape": "Sa"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "IdentityProviderSummary"
+                ],
+                "members": {
+                    "IdentityProviderSummary": {
+                        "shape": "S9"
+                    }
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "StartProductSubscription": {
+            "http": {
+                "requestUri": "/user/StartProductSubscription",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "IdentityProvider",
+                    "Product",
+                    "Username"
+                ],
+                "members": {
+                    "Domain": {},
+                    "IdentityProvider": {
+                        "shape": "S3"
+                    },
+                    "Product": {},
+                    "Username": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "ProductUserSummary"
+                ],
+                "members": {
+                    "ProductUserSummary": {
+                        "shape": "Su"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "StopProductSubscription": {
+            "http": {
+                "requestUri": "/user/StopProductSubscription",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "IdentityProvider",
+                    "Product",
+                    "Username"
+                ],
+                "members": {
+                    "Domain": {},
+                    "IdentityProvider": {
+                        "shape": "S3"
+                    },
+                    "Product": {},
+                    "Username": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "ProductUserSummary"
+                ],
+                "members": {
+                    "ProductUserSummary": {
+                        "shape": "Su"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "UpdateIdentityProviderSettings": {
+            "http": {
+                "requestUri": "/identity-provider/UpdateIdentityProviderSettings",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "IdentityProvider",
+                    "Product",
+                    "UpdateSettings"
+                ],
+                "members": {
+                    "IdentityProvider": {
+                        "shape": "S3"
+                    },
+                    "Product": {},
+                    "UpdateSettings": {
+                        "type": "structure",
+                        "required": [
+                            "AddSubnets",
+                            "RemoveSubnets"
+                        ],
+                        "members": {
+                            "AddSubnets": {
+                                "shape": "S16"
+                            },
+                            "RemoveSubnets": {
+                                "shape": "S16"
+                            },
+                            "SecurityGroupId": {}
+                        }
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "IdentityProviderSummary"
+                ],
+                "members": {
+                    "IdentityProviderSummary": {
+                        "shape": "S9"
+                    }
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "CreateServiceLinkedRoleInternal": {
+            "http": {
+                "requestUri": "/CreateServiceLinkedRoleInternal",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {}
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "arn": {}
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/YN4IGP6YMDXEPIRMO7XKCARJ3JUA4WBTVEE3CWXY3ZLV5CFWGTCQ/vendors.js"
+            ]
+        },
+        "LockServiceLinkedRole": {
+            "http": {
+                "requestUri": "/slr-deletion/lock",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "RoleArn",
+                    "Timeout"
+                ],
+                "members": {
+                    "RoleArn": {},
+                    "Timeout": {
+                        "type": "long"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "CanBeDeleted"
+                ],
+                "members": {
+                    "CanBeDeleted": {
+                        "type": "boolean"
+                    },
+                    "ReasonOfFailure": {},
+                    "RelatedResources": {
+                        "type": "list",
+                        "member": {}
+                    }
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/YN4IGP6YMDXEPIRMO7XKCARJ3JUA4WBTVEE3CWXY3ZLV5CFWGTCQ/vendors.js"
+            ]
+        },
+        "UnlockServiceLinkedRole": {
+            "http": {
+                "requestUri": "/slr-deletion/unlock",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "RoleArn"
+                ],
+                "members": {
+                    "RoleArn": {},
+                    "DeletionStatus": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/YN4IGP6YMDXEPIRMO7XKCARJ3JUA4WBTVEE3CWXY3ZLV5CFWGTCQ/vendors.js"
+            ]
+        },
+        "ValidateServiceLinkedRoleInternal": {
+            "http": {
+                "requestUri": "/ValidateServiceLinkedRoleInternal",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "CustomerAccountId": {},
+                    "Action": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Valid": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/YN4IGP6YMDXEPIRMO7XKCARJ3JUA4WBTVEE3CWXY3ZLV5CFWGTCQ/vendors.js"
+            ]
+        }
+    },
+    "shapes": {
+        "S3": {
+            "type": "structure",
+            "members": {
+                "ActiveDirectoryIdentityProvider": {
+                    "type": "structure",
+                    "members": {
+                        "DirectoryId": {}
+                    }
+                }
+            },
+            "union": true
+        },
+        "S6": {
+            "type": "structure",
+            "required": [
+                "IdentityProvider",
+                "InstanceId",
+                "Status",
+                "Username"
+            ],
+            "members": {
+                "AssociationDate": {},
+                "DisassociationDate": {},
+                "Domain": {},
+                "IdentityProvider": {
+                    "shape": "S3"
+                },
+                "InstanceId": {},
+                "Status": {},
+                "StatusMessage": {},
+                "Username": {}
+            }
+        },
+        "S9": {
+            "type": "structure",
+            "required": [
+                "IdentityProvider",
+                "Product",
+                "Settings",
+                "Status"
+            ],
+            "members": {
+                "FailureMessage": {},
+                "IdentityProvider": {
+                    "shape": "S3"
+                },
+                "Product": {},
+                "Settings": {
+                    "shape": "Sa"
+                },
+                "Status": {}
+            }
+        },
+        "Sa": {
+            "type": "structure",
+            "required": [
+                "SecurityGroupId",
+                "Subnets"
+            ],
+            "members": {
+                "SecurityGroupId": {},
+                "Subnets": {
+                    "type": "list",
+                    "member": {}
+                }
+            }
+        },
+        "Sl": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "Attribute": {},
+                    "Operation": {},
+                    "Value": {}
+                }
+            }
+        },
+        "Su": {
+            "type": "structure",
+            "required": [
+                "IdentityProvider",
+                "Product",
+                "Status",
+                "Username"
+            ],
+            "members": {
+                "Domain": {},
+                "IdentityProvider": {
+                    "shape": "S3"
+                },
+                "Product": {},
+                "Status": {},
+                "StatusMessage": {},
+                "SubscriptionEndDate": {},
+                "SubscriptionStartDate": {},
+                "Username": {}
+            }
+        },
+        "S16": {
+            "type": "list",
+            "member": {}
+        },
+        "S7": {
+            "type": "structure",
+            "required": [
+                "Username",
+                "InstanceId",
+                "IdentityProvider",
+                "Status"
+            ],
+            "members": {
+                "Username": {},
+                "InstanceId": {},
+                "IdentityProvider": {
+                    "shape": "S3"
+                },
+                "Status": {},
+                "StatusMessage": {},
+                "Domain": {},
+                "AssociationDate": {},
+                "DisassociationDate": {}
+            }
+        },
+        "Sc": {
+            "type": "structure",
+            "required": [
+                "IdentityProvider",
+                "Settings",
+                "Product",
+                "Status"
+            ],
+            "members": {
+                "IdentityProvider": {
+                    "shape": "S3"
+                },
+                "Settings": {
+                    "shape": "Sd"
+                },
+                "Product": {},
+                "Status": {},
+                "FailureMessage": {}
+            }
+        },
+        "Sd": {
+            "type": "structure",
+            "required": [
+                "Subnets",
+                "SecurityGroupId"
+            ],
+            "members": {
+                "Subnets": {
+                    "type": "list",
+                    "member": {}
+                },
+                "SecurityGroupId": {}
+            }
+        },
+        "So": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "Attribute": {},
+                    "Operation": {},
+                    "Value": {}
+                }
+            }
+        },
+        "Sx": {
+            "type": "structure",
+            "required": [
+                "Username",
+                "Product",
+                "IdentityProvider",
+                "Status"
+            ],
+            "members": {
+                "Username": {},
+                "Product": {},
+                "IdentityProvider": {
+                    "shape": "S3"
+                },
+                "Status": {},
+                "StatusMessage": {},
+                "Domain": {},
+                "SubscriptionStartDate": {},
+                "SubscriptionEndDate": {}
+            }
+        },
+        "S1j": {
+            "type": "list",
+            "member": {}
+        }
+    }
+}

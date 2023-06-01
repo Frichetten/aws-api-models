@@ -1,0 +1,644 @@
+{
+    "version": "2.0",
+    "metadata": {
+        "apiVersion": "2017-07-25",
+        "endpointPrefix": "SamuraiDatasetConsoleControlPlaneLambda",
+        "jsonVersion": "1.1",
+        "protocol": "rest-json",
+        "serviceAbbreviation": "SamuraiDatasetConsoleControlPlaneLambda",
+        "serviceFullName": "A beautiful and amazing Lyra-Samurai-C2J",
+        "serviceId": "LYRASDSSAMURAICONSOLE",
+        "signatureVersion": "v4",
+        "signingName": "groundtruthlabeling",
+        "uid": "groundtruth-2017-07-25",
+        "download_location": [
+            "https://a.b.cdn.console.awsstatic.com/a/v1/EKFJYLDXN57WR7Z47T2LUALV3JMMBGDC6U67DEUQIPQXSGVMPA4A/vendors.js"
+        ]
+    },
+    "operations": {
+        "AssociatePatchToManifestJob": {
+            "http": {
+                "requestUri": "/AssociatePatchToManifestJob"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "requestId",
+                    "inputConfig"
+                ],
+                "members": {
+                    "requestId": {},
+                    "inputConfig": {
+                        "type": "structure",
+                        "required": [
+                            "dataSource"
+                        ],
+                        "members": {
+                            "dataSource": {
+                                "type": "structure",
+                                "required": [
+                                    "s3DataSource",
+                                    "etag"
+                                ],
+                                "members": {
+                                    "s3DataSource": {
+                                        "shape": "S5"
+                                    },
+                                    "version": {},
+                                    "etag": {}
+                                }
+                            },
+                            "patchSource": {
+                                "shape": "S5"
+                            },
+                            "sourcesSorted": {
+                                "type": "boolean"
+                            },
+                            "datasetObjectIdAttributeName": {}
+                        }
+                    },
+                    "classesToDeleteLabelsFor": {
+                        "type": "list",
+                        "member": {}
+                    },
+                    "classesToRenameMap": {
+                        "type": "map",
+                        "key": {},
+                        "value": {}
+                    },
+                    "operation": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "jobId": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/EKFJYLDXN57WR7Z47T2LUALV3JMMBGDC6U67DEUQIPQXSGVMPA4A/vendors.js"
+            ]
+        },
+        "DescribeConsoleJob": {
+            "http": {
+                "requestUri": "/DescribeConsoleJob"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "jobId",
+                    "requestId"
+                ],
+                "members": {
+                    "jobId": {},
+                    "requestId": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "jobStatus": {},
+                    "processedObjectCount": {
+                        "type": "long"
+                    },
+                    "errorCode": {
+                        "type": "integer"
+                    },
+                    "errorMessage": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/EKFJYLDXN57WR7Z47T2LUALV3JMMBGDC6U67DEUQIPQXSGVMPA4A/vendors.js"
+            ]
+        },
+        "GenerateLIDARPreviewTaskConfigJob": {
+            "http": {
+                "requestUri": "/GenerateLIDARPreviewTaskConfigJob"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "requestId",
+                    "roleArn",
+                    "outputTaskConfigS3UriPrefix",
+                    "frameType",
+                    "manifestLine",
+                    "modality"
+                ],
+                "members": {
+                    "requestId": {},
+                    "roleArn": {},
+                    "outputTaskConfigS3UriPrefix": {},
+                    "kmsKeyId": {},
+                    "frameType": {},
+                    "manifestLine": {},
+                    "modality": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "jobId": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/EKFJYLDXN57WR7Z47T2LUALV3JMMBGDC6U67DEUQIPQXSGVMPA4A/vendors.js"
+            ]
+        },
+        "ListDatasetObjects": {
+            "http": {
+                "requestUri": "/ListDatasetObjects"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "requestId",
+                    "inputConfig"
+                ],
+                "members": {
+                    "requestId": {},
+                    "labelAttributeName": {},
+                    "inputConfig": {
+                        "type": "structure",
+                        "members": {
+                            "dataSource": {
+                                "shape": "St"
+                            },
+                            "pageSize": {
+                                "type": "integer"
+                            }
+                        }
+                    },
+                    "roleArn": {},
+                    "continuationToken": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "requestId": {},
+                    "datasetObjectsList": {
+                        "type": "list",
+                        "member": {}
+                    },
+                    "datasetObjectsCount": {
+                        "type": "integer"
+                    },
+                    "truncated": {
+                        "type": "boolean"
+                    },
+                    "continuationToken": {},
+                    "errorCode": {
+                        "type": "integer"
+                    },
+                    "errorMessage": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/EKFJYLDXN57WR7Z47T2LUALV3JMMBGDC6U67DEUQIPQXSGVMPA4A/vendors.js"
+            ]
+        },
+        "ListLabelAttributeNames": {
+            "http": {
+                "requestUri": "/ListLabelAttributeNames"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "requestId",
+                    "inputConfig"
+                ],
+                "members": {
+                    "requestId": {},
+                    "inputConfig": {
+                        "type": "structure",
+                        "members": {
+                            "dataSource": {
+                                "shape": "St"
+                            }
+                        }
+                    },
+                    "roleArn": {},
+                    "jobType": {},
+                    "jobName": {},
+                    "pageSize": {
+                        "type": "integer"
+                    },
+                    "continuationToken": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "requestId": {},
+                    "resultList": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "labelAttributeName": {},
+                                "jobName": {},
+                                "jobType": {},
+                                "semSegWithHexColor": {
+                                    "type": "boolean"
+                                }
+                            }
+                        }
+                    },
+                    "pageObjectCount": {
+                        "type": "integer"
+                    },
+                    "continuationToken": {},
+                    "errorCode": {
+                        "type": "integer"
+                    },
+                    "errorMessage": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/EKFJYLDXN57WR7Z47T2LUALV3JMMBGDC6U67DEUQIPQXSGVMPA4A/vendors.js"
+            ]
+        },
+        "RunFilterOrSampleDatasetJob": {
+            "http": {
+                "requestUri": "/RunFilterOrSampleDatasetJob"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "requestId",
+                    "inputConfig",
+                    "outputConfig"
+                ],
+                "members": {
+                    "requestId": {},
+                    "inputConfig": {
+                        "type": "structure",
+                        "members": {
+                            "dataSource": {
+                                "shape": "S17"
+                            },
+                            "strategy": {},
+                            "percentageOfInputDatasetSize": {
+                                "type": "integer"
+                            },
+                            "filterExpression": {},
+                            "compressionType": {}
+                        }
+                    },
+                    "outputConfig": {
+                        "type": "structure",
+                        "members": {
+                            "dataSource": {
+                                "shape": "S17"
+                            },
+                            "kmsKeyId": {}
+                        }
+                    },
+                    "roleArn": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "jobId": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/EKFJYLDXN57WR7Z47T2LUALV3JMMBGDC6U67DEUQIPQXSGVMPA4A/vendors.js"
+            ]
+        },
+        "RunGenerateManifestByCrawlingJob": {
+            "http": {
+                "requestUri": "/RunGenerateManifestByCrawlingJob"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "requestId",
+                    "inputConfig",
+                    "outputConfig"
+                ],
+                "members": {
+                    "requestId": {},
+                    "inputConfig": {
+                        "type": "structure",
+                        "members": {
+                            "dataSource": {
+                                "type": "structure",
+                                "members": {
+                                    "crawlingS3DataSource": {
+                                        "type": "structure",
+                                        "members": {
+                                            "s3Prefix": {},
+                                            "fileSuffixes": {
+                                                "type": "list",
+                                                "member": {}
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            "autoLabellingStrategy": {},
+                            "crawlStrategy": {}
+                        }
+                    },
+                    "outputConfig": {
+                        "type": "structure",
+                        "members": {
+                            "dataSource": {
+                                "shape": "S17"
+                            },
+                            "kmsKeyId": {}
+                        }
+                    },
+                    "roleArn": {},
+                    "frameExtractInterval": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "jobId": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/EKFJYLDXN57WR7Z47T2LUALV3JMMBGDC6U67DEUQIPQXSGVMPA4A/vendors.js"
+            ]
+        },
+        "RunGenerateManifestMetricsJob": {
+            "http": {
+                "requestUri": "/RunGenerateManifestMetricsJob"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "requestId",
+                    "inputConfig",
+                    "outputConfig"
+                ],
+                "members": {
+                    "requestId": {},
+                    "inputConfig": {
+                        "type": "structure",
+                        "required": [
+                            "dataSource",
+                            "metricsToGet"
+                        ],
+                        "members": {
+                            "dataSource": {
+                                "type": "structure",
+                                "required": [
+                                    "s3DataSource"
+                                ],
+                                "members": {
+                                    "s3DataSource": {
+                                        "shape": "S5"
+                                    },
+                                    "etag": {},
+                                    "versionId": {}
+                                }
+                            },
+                            "metricsToGet": {
+                                "type": "list",
+                                "member": {}
+                            }
+                        }
+                    },
+                    "outputConfig": {
+                        "type": "structure",
+                        "required": [
+                            "s3Uri"
+                        ],
+                        "members": {
+                            "s3Uri": {}
+                        }
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "jobId": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/EKFJYLDXN57WR7Z47T2LUALV3JMMBGDC6U67DEUQIPQXSGVMPA4A/vendors.js"
+            ]
+        },
+        "CreateIntakeForm": {
+            "http": {
+                "requestUri": "/CreateIntakeForm"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "customerAccountId",
+                    "intakeForm",
+                    "intakeFormName"
+                ],
+                "members": {
+                    "customerAccountId": {},
+                    "intakeForm": {},
+                    "intakeFormName": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/WJCY2ALEG7NUUSDCY43K43Y4CN7YMYGTOI4UJIVEAG5SPPO7CX5A/groundtruth.js"
+            ]
+        },
+        "CreateProject": {
+            "http": {
+                "requestUri": "/CreateProject"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "projectName",
+                    "dataType",
+                    "roleArn",
+                    "modality"
+                ],
+                "members": {
+                    "projectName": {},
+                    "dataType": {},
+                    "kmsKeyId": {},
+                    "roleArn": {},
+                    "modality": {},
+                    "projectDescription": {},
+                    "customerContactInfo": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "projectArn": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/WJCY2ALEG7NUUSDCY43K43Y4CN7YMYGTOI4UJIVEAG5SPPO7CX5A/groundtruth.js"
+            ]
+        },
+        "GetIntakeFormStatus": {
+            "http": {
+                "requestUri": "/GetIntakeFormStatus"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "customerAccountId",
+                    "intakeFormName"
+                ],
+                "members": {
+                    "customerAccountId": {},
+                    "intakeFormName": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "intakeFormStatus"
+                ],
+                "members": {
+                    "intakeFormStatus": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/WJCY2ALEG7NUUSDCY43K43Y4CN7YMYGTOI4UJIVEAG5SPPO7CX5A/groundtruth.js"
+            ]
+        },
+        "ListProjects": {
+            "http": {
+                "requestUri": "/ListProjects"
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "maxResults": {
+                        "type": "integer"
+                    },
+                    "nextToken": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "projectSummaries": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "kmsKeyId": {},
+                                "batchCounts": {
+                                    "type": "structure",
+                                    "members": {
+                                        "statusCounts": {
+                                            "shape": "S1r"
+                                        },
+                                        "total": {
+                                            "type": "long"
+                                        }
+                                    }
+                                },
+                                "beaconProjectAccountId": {},
+                                "billableUnit": {},
+                                "creationTime": {
+                                    "type": "timestamp"
+                                },
+                                "customerAccountId": {},
+                                "customerCodeName": {},
+                                "dataType": {},
+                                "datasetObjectCounts": {
+                                    "type": "structure",
+                                    "members": {
+                                        "statusCounts": {
+                                            "shape": "S1r"
+                                        },
+                                        "total": {
+                                            "type": "long"
+                                        }
+                                    }
+                                },
+                                "lastModifiedTime": {
+                                    "type": "timestamp"
+                                },
+                                "modality": {},
+                                "projectArn": {},
+                                "projectName": {},
+                                "projectStatus": {},
+                                "projectType": {},
+                                "metadata": {},
+                                "roleArn": {},
+                                "projectDescription": {}
+                            }
+                        }
+                    },
+                    "nextToken": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/WJCY2ALEG7NUUSDCY43K43Y4CN7YMYGTOI4UJIVEAG5SPPO7CX5A/groundtruth.js"
+            ]
+        }
+    },
+    "shapes": {
+        "S5": {
+            "type": "structure",
+            "members": {
+                "manifestS3Uri": {},
+                "labelChannelS3Prefix": {}
+            }
+        },
+        "St": {
+            "type": "structure",
+            "members": {
+                "listS3DataSource": {
+                    "type": "structure",
+                    "members": {
+                        "manifestS3Uri": {}
+                    }
+                }
+            }
+        },
+        "S17": {
+            "type": "structure",
+            "members": {
+                "s3DataSource": {
+                    "shape": "S5"
+                }
+            }
+        },
+        "S18": {
+            "type": "structure",
+            "members": {
+                "listS3DataSource": {
+                    "type": "structure",
+                    "members": {
+                        "manifestS3Uri": {}
+                    }
+                }
+            }
+        },
+        "S1r": {
+            "type": "map",
+            "key": {},
+            "value": {
+                "type": "long"
+            }
+        },
+        "S21": {
+            "type": "structure",
+            "members": {
+                "s3DataSource": {
+                    "shape": "S5"
+                }
+            }
+        }
+    }
+}

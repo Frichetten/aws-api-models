@@ -1,0 +1,3181 @@
+{
+    "version": "2.0",
+    "metadata": {
+        "apiVersion": "2017-09-23",
+        "endpointPrefix": "cloud9",
+        "jsonVersion": "1.1",
+        "protocol": "json",
+        "serviceFullName": "AWS Cloud9",
+        "serviceId": "Cloud9",
+        "signatureVersion": "v4",
+        "targetPrefix": "AWSCloud9WorkspaceManagementService",
+        "uid": "cloud9-2017-09-23",
+        "download_location": [
+            "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+        ]
+    },
+    "operations": {
+        "CreateEnvironmentEC2": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "name",
+                    "instanceType"
+                ],
+                "members": {
+                    "name": {},
+                    "description": {
+                        "shape": "S3"
+                    },
+                    "clientRequestToken": {},
+                    "instanceType": {},
+                    "subnetId": {},
+                    "imageId": {},
+                    "automaticStopTimeMinutes": {
+                        "type": "integer"
+                    },
+                    "ownerArn": {},
+                    "tags": {
+                        "shape": "Sa"
+                    },
+                    "connectionType": {},
+                    "dryRun": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "environmentId": {}
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "CreateEnvironmentMembership": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "environmentId",
+                    "userArn",
+                    "permissions"
+                ],
+                "members": {
+                    "environmentId": {},
+                    "userArn": {},
+                    "permissions": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "membership"
+                ],
+                "members": {
+                    "membership": {
+                        "shape": "Sl"
+                    }
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "DeleteEnvironment": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "environmentId"
+                ],
+                "members": {
+                    "environmentId": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "DeleteEnvironmentMembership": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "environmentId",
+                    "userArn"
+                ],
+                "members": {
+                    "environmentId": {},
+                    "userArn": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "DescribeEnvironmentMemberships": {
+            "input": {
+                "type": "structure",
+                "members": {
+                    "userArn": {},
+                    "environmentId": {},
+                    "permissions": {
+                        "type": "list",
+                        "member": {}
+                    },
+                    "nextToken": {},
+                    "maxResults": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "memberships": {
+                        "type": "list",
+                        "member": {
+                            "shape": "Sl"
+                        }
+                    },
+                    "nextToken": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "DescribeEnvironmentStatus": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "environmentId"
+                ],
+                "members": {
+                    "environmentId": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "status",
+                    "message"
+                ],
+                "members": {
+                    "status": {},
+                    "message": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "DescribeEnvironments": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "environmentIds"
+                ],
+                "members": {
+                    "environmentIds": {
+                        "type": "list",
+                        "member": {}
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "environments": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "type",
+                                "arn",
+                                "ownerArn"
+                            ],
+                            "members": {
+                                "id": {},
+                                "name": {},
+                                "description": {
+                                    "shape": "S3"
+                                },
+                                "type": {},
+                                "connectionType": {},
+                                "arn": {},
+                                "ownerArn": {},
+                                "lifecycle": {
+                                    "type": "structure",
+                                    "members": {
+                                        "status": {},
+                                        "reason": {},
+                                        "failureResource": {}
+                                    }
+                                },
+                                "managedCredentialsStatus": {}
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "ListEnvironments": {
+            "input": {
+                "type": "structure",
+                "members": {
+                    "nextToken": {},
+                    "maxResults": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "nextToken": {},
+                    "environmentIds": {
+                        "type": "list",
+                        "member": {}
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "ListTagsForResource": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ResourceARN"
+                ],
+                "members": {
+                    "ResourceARN": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Tags": {
+                        "shape": "Sa"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "TagResource": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ResourceARN",
+                    "Tags"
+                ],
+                "members": {
+                    "ResourceARN": {},
+                    "Tags": {
+                        "shape": "Sa"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "UntagResource": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ResourceARN",
+                    "TagKeys"
+                ],
+                "members": {
+                    "ResourceARN": {},
+                    "TagKeys": {
+                        "type": "list",
+                        "member": {
+                            "shape": "Sc"
+                        },
+                        "sensitive": true
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "UpdateEnvironment": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "environmentId"
+                ],
+                "members": {
+                    "environmentId": {},
+                    "name": {},
+                    "description": {
+                        "shape": "S3"
+                    },
+                    "managedCredentialsAction": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "UpdateEnvironmentMembership": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "environmentId",
+                    "userArn",
+                    "permissions"
+                ],
+                "members": {
+                    "environmentId": {},
+                    "userArn": {},
+                    "permissions": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "membership": {
+                        "shape": "Sl"
+                    }
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "ActivateEC2Remote": {
+            "name": "ActivateEC2Remote",
+            "http": {
+                "method": "POST",
+                "requestUri": "/"
+            },
+            "input": {
+                "shape": "ActivateEC2RemoteRequest"
+            },
+            "output": {
+                "shape": "ActivateEC2RemoteResult"
+            },
+            "errors": [
+                {
+                    "shape": "BadRequestException"
+                },
+                {
+                    "shape": "ConflictException"
+                },
+                {
+                    "shape": "NotFoundException"
+                },
+                {
+                    "shape": "ForbiddenException"
+                },
+                {
+                    "shape": "TooManyRequestsException"
+                },
+                {
+                    "shape": "LimitExceededException"
+                },
+                {
+                    "shape": "InternalServerErrorException"
+                }
+            ],
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/TIKCHAZUMX4K34NOILCVMKG7GUMK27WRKH2LCKFP67D5PCFSTEUQ/main.js"
+            ]
+        },
+        "CreateEnvironment": {
+            "name": "CreateEnvironment",
+            "http": {
+                "method": "POST",
+                "requestUri": "/"
+            },
+            "input": {
+                "shape": "CreateEnvironmentRequest"
+            },
+            "output": {
+                "shape": "CreateEnvironmentResult"
+            },
+            "errors": [
+                {
+                    "shape": "BadRequestException"
+                },
+                {
+                    "shape": "ConflictException"
+                },
+                {
+                    "shape": "NotFoundException"
+                },
+                {
+                    "shape": "ForbiddenException"
+                },
+                {
+                    "shape": "TooManyRequestsException"
+                },
+                {
+                    "shape": "LimitExceededException"
+                },
+                {
+                    "shape": "InternalServerErrorException"
+                }
+            ],
+            "idempotent": true,
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/TIKCHAZUMX4K34NOILCVMKG7GUMK27WRKH2LCKFP67D5PCFSTEUQ/main.js"
+            ]
+        },
+        "CreateEnvironmentHost": {
+            "name": "CreateEnvironmentHost",
+            "http": {
+                "method": "POST",
+                "requestUri": "/"
+            },
+            "input": {
+                "shape": "CreateEnvironmentHostRequest"
+            },
+            "output": {
+                "shape": "CreateEnvironmentHostResult"
+            },
+            "errors": [
+                {
+                    "shape": "BadRequestException"
+                },
+                {
+                    "shape": "ConflictException"
+                },
+                {
+                    "shape": "NotFoundException"
+                },
+                {
+                    "shape": "ForbiddenException"
+                },
+                {
+                    "shape": "TooManyRequestsException"
+                },
+                {
+                    "shape": "LimitExceededException"
+                },
+                {
+                    "shape": "InternalServerErrorException"
+                }
+            ],
+            "idempotent": true,
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/TIKCHAZUMX4K34NOILCVMKG7GUMK27WRKH2LCKFP67D5PCFSTEUQ/main.js"
+            ]
+        },
+        "CreateEnvironmentSSH": {
+            "name": "CreateEnvironmentSSH",
+            "http": {
+                "method": "POST",
+                "requestUri": "/"
+            },
+            "input": {
+                "shape": "CreateEnvironmentSSHRequest"
+            },
+            "output": {
+                "shape": "CreateEnvironmentSSHResult"
+            },
+            "errors": [
+                {
+                    "shape": "BadRequestException"
+                },
+                {
+                    "shape": "ConflictException"
+                },
+                {
+                    "shape": "NotFoundException"
+                },
+                {
+                    "shape": "ForbiddenException"
+                },
+                {
+                    "shape": "TooManyRequestsException"
+                },
+                {
+                    "shape": "LimitExceededException"
+                },
+                {
+                    "shape": "InternalServerErrorException"
+                }
+            ],
+            "idempotent": true,
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/TIKCHAZUMX4K34NOILCVMKG7GUMK27WRKH2LCKFP67D5PCFSTEUQ/main.js"
+            ]
+        },
+        "CreateEnvironmentSSM": {
+            "name": "CreateEnvironmentSSM",
+            "http": {
+                "method": "POST",
+                "requestUri": "/"
+            },
+            "input": {
+                "shape": "CreateEnvironmentSSMRequest"
+            },
+            "output": {
+                "shape": "CreateEnvironmentSSMResult"
+            },
+            "errors": [
+                {
+                    "shape": "BadRequestException"
+                },
+                {
+                    "shape": "ConflictException"
+                },
+                {
+                    "shape": "NotFoundException"
+                },
+                {
+                    "shape": "ForbiddenException"
+                },
+                {
+                    "shape": "TooManyRequestsException"
+                },
+                {
+                    "shape": "LimitExceededException"
+                },
+                {
+                    "shape": "InternalServerErrorException"
+                }
+            ],
+            "idempotent": true,
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/TIKCHAZUMX4K34NOILCVMKG7GUMK27WRKH2LCKFP67D5PCFSTEUQ/main.js"
+            ]
+        },
+        "CreateEnvironmentToken": {
+            "name": "CreateEnvironmentToken",
+            "http": {
+                "method": "POST",
+                "requestUri": "/"
+            },
+            "input": {
+                "shape": "CreateEnvironmentTokenRequest"
+            },
+            "output": {
+                "shape": "CreateEnvironmentTokenResult"
+            },
+            "errors": [
+                {
+                    "shape": "BadRequestException"
+                },
+                {
+                    "shape": "ConflictException"
+                },
+                {
+                    "shape": "NotFoundException"
+                },
+                {
+                    "shape": "ForbiddenException"
+                },
+                {
+                    "shape": "TooManyRequestsException"
+                },
+                {
+                    "shape": "LimitExceededException"
+                },
+                {
+                    "shape": "InternalServerErrorException"
+                }
+            ],
+            "idempotent": true,
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/TIKCHAZUMX4K34NOILCVMKG7GUMK27WRKH2LCKFP67D5PCFSTEUQ/main.js"
+            ]
+        },
+        "DeleteEnvironmentHost": {
+            "name": "DeleteEnvironmentHost",
+            "http": {
+                "method": "POST",
+                "requestUri": "/"
+            },
+            "input": {
+                "shape": "DeleteEnvironmentHostRequest"
+            },
+            "output": {
+                "shape": "DeleteEnvironmentHostResult"
+            },
+            "errors": [
+                {
+                    "shape": "BadRequestException"
+                },
+                {
+                    "shape": "ConflictException"
+                },
+                {
+                    "shape": "NotFoundException"
+                },
+                {
+                    "shape": "ForbiddenException"
+                },
+                {
+                    "shape": "TooManyRequestsException"
+                },
+                {
+                    "shape": "LimitExceededException"
+                },
+                {
+                    "shape": "InternalServerErrorException"
+                }
+            ],
+            "idempotent": true,
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/TIKCHAZUMX4K34NOILCVMKG7GUMK27WRKH2LCKFP67D5PCFSTEUQ/main.js"
+            ]
+        },
+        "DescribeEC2Remote": {
+            "name": "DescribeEC2Remote",
+            "http": {
+                "method": "POST",
+                "requestUri": "/"
+            },
+            "input": {
+                "shape": "DescribeEC2RemoteRequest"
+            },
+            "output": {
+                "shape": "DescribeEC2RemoteResult"
+            },
+            "errors": [
+                {
+                    "shape": "BadRequestException"
+                },
+                {
+                    "shape": "ConflictException"
+                },
+                {
+                    "shape": "NotFoundException"
+                },
+                {
+                    "shape": "ForbiddenException"
+                },
+                {
+                    "shape": "TooManyRequestsException"
+                },
+                {
+                    "shape": "LimitExceededException"
+                },
+                {
+                    "shape": "InternalServerErrorException"
+                }
+            ],
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/TIKCHAZUMX4K34NOILCVMKG7GUMK27WRKH2LCKFP67D5PCFSTEUQ/main.js"
+            ]
+        },
+        "DescribeEnvironmentHosts": {
+            "name": "DescribeEnvironmentHosts",
+            "http": {
+                "method": "POST",
+                "requestUri": "/"
+            },
+            "input": {
+                "shape": "DescribeEnvironmentHostsRequest"
+            },
+            "output": {
+                "shape": "DescribeEnvironmentHostsResult"
+            },
+            "errors": [
+                {
+                    "shape": "BadRequestException"
+                },
+                {
+                    "shape": "ConflictException"
+                },
+                {
+                    "shape": "NotFoundException"
+                },
+                {
+                    "shape": "ForbiddenException"
+                },
+                {
+                    "shape": "TooManyRequestsException"
+                },
+                {
+                    "shape": "LimitExceededException"
+                },
+                {
+                    "shape": "InternalServerErrorException"
+                }
+            ],
+            "idempotent": true,
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/TIKCHAZUMX4K34NOILCVMKG7GUMK27WRKH2LCKFP67D5PCFSTEUQ/main.js"
+            ]
+        },
+        "DescribeSSHRemote": {
+            "name": "DescribeSSHRemote",
+            "http": {
+                "method": "POST",
+                "requestUri": "/"
+            },
+            "input": {
+                "shape": "DescribeSSHRemoteRequest"
+            },
+            "output": {
+                "shape": "DescribeSSHRemoteResult"
+            },
+            "errors": [
+                {
+                    "shape": "BadRequestException"
+                },
+                {
+                    "shape": "ConflictException"
+                },
+                {
+                    "shape": "NotFoundException"
+                },
+                {
+                    "shape": "ForbiddenException"
+                },
+                {
+                    "shape": "TooManyRequestsException"
+                },
+                {
+                    "shape": "LimitExceededException"
+                },
+                {
+                    "shape": "InternalServerErrorException"
+                }
+            ],
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/TIKCHAZUMX4K34NOILCVMKG7GUMK27WRKH2LCKFP67D5PCFSTEUQ/main.js"
+            ]
+        },
+        "GetEnvironmentConfig": {
+            "name": "GetEnvironmentConfig",
+            "http": {
+                "method": "POST",
+                "requestUri": "/"
+            },
+            "input": {
+                "shape": "GetEnvironmentConfigRequest"
+            },
+            "output": {
+                "shape": "GetEnvironmentConfigResult"
+            },
+            "errors": [
+                {
+                    "shape": "BadRequestException"
+                },
+                {
+                    "shape": "ConflictException"
+                },
+                {
+                    "shape": "NotFoundException"
+                },
+                {
+                    "shape": "ForbiddenException"
+                },
+                {
+                    "shape": "TooManyRequestsException"
+                },
+                {
+                    "shape": "LimitExceededException"
+                },
+                {
+                    "shape": "InternalServerErrorException"
+                }
+            ],
+            "idempotent": true,
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/TIKCHAZUMX4K34NOILCVMKG7GUMK27WRKH2LCKFP67D5PCFSTEUQ/main.js"
+            ]
+        },
+        "GetEnvironmentSettings": {
+            "name": "GetEnvironmentSettings",
+            "http": {
+                "method": "POST",
+                "requestUri": "/"
+            },
+            "input": {
+                "shape": "GetEnvironmentSettingsRequest"
+            },
+            "output": {
+                "shape": "GetEnvironmentSettingsResult"
+            },
+            "errors": [
+                {
+                    "shape": "BadRequestException"
+                },
+                {
+                    "shape": "ConflictException"
+                },
+                {
+                    "shape": "NotFoundException"
+                },
+                {
+                    "shape": "ForbiddenException"
+                },
+                {
+                    "shape": "TooManyRequestsException"
+                },
+                {
+                    "shape": "LimitExceededException"
+                },
+                {
+                    "shape": "InternalServerErrorException"
+                }
+            ],
+            "idempotent": true,
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/TIKCHAZUMX4K34NOILCVMKG7GUMK27WRKH2LCKFP67D5PCFSTEUQ/main.js"
+            ]
+        },
+        "GetMembershipSettings": {
+            "name": "GetMembershipSettings",
+            "http": {
+                "method": "POST",
+                "requestUri": "/"
+            },
+            "input": {
+                "shape": "GetMembershipSettingsRequest"
+            },
+            "output": {
+                "shape": "GetMembershipSettingsResult"
+            },
+            "errors": [
+                {
+                    "shape": "BadRequestException"
+                },
+                {
+                    "shape": "ConflictException"
+                },
+                {
+                    "shape": "NotFoundException"
+                },
+                {
+                    "shape": "ForbiddenException"
+                },
+                {
+                    "shape": "TooManyRequestsException"
+                },
+                {
+                    "shape": "LimitExceededException"
+                },
+                {
+                    "shape": "InternalServerErrorException"
+                }
+            ],
+            "idempotent": true,
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/TIKCHAZUMX4K34NOILCVMKG7GUMK27WRKH2LCKFP67D5PCFSTEUQ/main.js"
+            ]
+        },
+        "GetMigrationExperiences": {
+            "name": "GetMigrationExperiences",
+            "http": {
+                "method": "POST",
+                "requestUri": "/"
+            },
+            "input": {
+                "shape": "GetMigrationExperiencesRequest"
+            },
+            "output": {
+                "shape": "GetMigrationExperiencesResult"
+            },
+            "errors": [
+                {
+                    "shape": "BadRequestException"
+                },
+                {
+                    "shape": "ConflictException"
+                },
+                {
+                    "shape": "NotFoundException"
+                },
+                {
+                    "shape": "ForbiddenException"
+                },
+                {
+                    "shape": "TooManyRequestsException"
+                },
+                {
+                    "shape": "LimitExceededException"
+                },
+                {
+                    "shape": "InternalServerErrorException"
+                }
+            ],
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/TIKCHAZUMX4K34NOILCVMKG7GUMK27WRKH2LCKFP67D5PCFSTEUQ/main.js"
+            ]
+        },
+        "GetUserPublicKey": {
+            "name": "GetUserPublicKey",
+            "http": {
+                "method": "POST",
+                "requestUri": "/"
+            },
+            "input": {
+                "shape": "GetUserPublicKeyRequest"
+            },
+            "output": {
+                "shape": "GetUserPublicKeyResult"
+            },
+            "errors": [
+                {
+                    "shape": "BadRequestException"
+                },
+                {
+                    "shape": "ConflictException"
+                },
+                {
+                    "shape": "NotFoundException"
+                },
+                {
+                    "shape": "ForbiddenException"
+                },
+                {
+                    "shape": "TooManyRequestsException"
+                },
+                {
+                    "shape": "LimitExceededException"
+                },
+                {
+                    "shape": "InternalServerErrorException"
+                }
+            ],
+            "idempotent": true,
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/TIKCHAZUMX4K34NOILCVMKG7GUMK27WRKH2LCKFP67D5PCFSTEUQ/main.js"
+            ]
+        },
+        "GetUserSettings": {
+            "name": "GetUserSettings",
+            "http": {
+                "method": "POST",
+                "requestUri": "/"
+            },
+            "input": {
+                "shape": "GetUserSettingsRequest"
+            },
+            "output": {
+                "shape": "GetUserSettingsResult"
+            },
+            "errors": [
+                {
+                    "shape": "BadRequestException"
+                },
+                {
+                    "shape": "ConflictException"
+                },
+                {
+                    "shape": "NotFoundException"
+                },
+                {
+                    "shape": "ForbiddenException"
+                },
+                {
+                    "shape": "TooManyRequestsException"
+                },
+                {
+                    "shape": "LimitExceededException"
+                },
+                {
+                    "shape": "InternalServerErrorException"
+                }
+            ],
+            "idempotent": true,
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/TIKCHAZUMX4K34NOILCVMKG7GUMK27WRKH2LCKFP67D5PCFSTEUQ/main.js"
+            ]
+        },
+        "LockServiceLinkedRole": {
+            "name": "LockServiceLinkedRole",
+            "http": {
+                "method": "POST",
+                "requestUri": "/"
+            },
+            "input": {
+                "shape": "LockServiceLinkedRoleRequest"
+            },
+            "output": {
+                "shape": "LockServiceLinkedRoleResponse"
+            },
+            "errors": [
+                {
+                    "shape": "ServiceLinkedRoleLockServiceException"
+                },
+                {
+                    "shape": "ServiceLinkedRoleLockClientException"
+                }
+            ],
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/TIKCHAZUMX4K34NOILCVMKG7GUMK27WRKH2LCKFP67D5PCFSTEUQ/main.js"
+            ]
+        },
+        "ModifyTemporaryCredentialsOnEnvironmentEC2": {
+            "name": "ModifyTemporaryCredentialsOnEnvironmentEC2",
+            "http": {
+                "method": "POST",
+                "requestUri": "/"
+            },
+            "input": {
+                "shape": "ModifyTemporaryCredentialsOnEnvironmentEC2Request"
+            },
+            "output": {
+                "shape": "ModifyTemporaryCredentialsOnEnvironmentEC2Result"
+            },
+            "errors": [
+                {
+                    "shape": "BadRequestException"
+                },
+                {
+                    "shape": "ConflictException"
+                },
+                {
+                    "shape": "NotFoundException"
+                },
+                {
+                    "shape": "ForbiddenException"
+                },
+                {
+                    "shape": "TooManyRequestsException"
+                },
+                {
+                    "shape": "LimitExceededException"
+                },
+                {
+                    "shape": "InternalServerErrorException"
+                },
+                {
+                    "shape": "ForbiddenManagedCredentialsStatusException"
+                }
+            ],
+            "idempotent": true,
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/TIKCHAZUMX4K34NOILCVMKG7GUMK27WRKH2LCKFP67D5PCFSTEUQ/main.js"
+            ]
+        },
+        "UnlockServiceLinkedRole": {
+            "name": "UnlockServiceLinkedRole",
+            "http": {
+                "method": "POST",
+                "requestUri": "/"
+            },
+            "input": {
+                "shape": "UnlockServiceLinkedRoleRequest"
+            },
+            "output": {
+                "shape": "UnlockServiceLinkedRoleResponse"
+            },
+            "errors": [
+                {
+                    "shape": "ServiceLinkedRoleLockServiceException"
+                },
+                {
+                    "shape": "ServiceLinkedRoleLockClientException"
+                }
+            ],
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/TIKCHAZUMX4K34NOILCVMKG7GUMK27WRKH2LCKFP67D5PCFSTEUQ/main.js"
+            ]
+        },
+        "UpdateEnvironmentSettings": {
+            "name": "UpdateEnvironmentSettings",
+            "http": {
+                "method": "POST",
+                "requestUri": "/"
+            },
+            "input": {
+                "shape": "UpdateEnvironmentSettingsRequest"
+            },
+            "output": {
+                "shape": "UpdateEnvironmentSettingsResult"
+            },
+            "errors": [
+                {
+                    "shape": "BadRequestException"
+                },
+                {
+                    "shape": "ConflictException"
+                },
+                {
+                    "shape": "NotFoundException"
+                },
+                {
+                    "shape": "ForbiddenException"
+                },
+                {
+                    "shape": "TooManyRequestsException"
+                },
+                {
+                    "shape": "LimitExceededException"
+                },
+                {
+                    "shape": "InternalServerErrorException"
+                }
+            ],
+            "idempotent": true,
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/TIKCHAZUMX4K34NOILCVMKG7GUMK27WRKH2LCKFP67D5PCFSTEUQ/main.js"
+            ]
+        },
+        "UpdateMembershipSettings": {
+            "name": "UpdateMembershipSettings",
+            "http": {
+                "method": "POST",
+                "requestUri": "/"
+            },
+            "input": {
+                "shape": "UpdateMembershipSettingsRequest"
+            },
+            "output": {
+                "shape": "UpdateMembershipSettingsResult"
+            },
+            "errors": [
+                {
+                    "shape": "BadRequestException"
+                },
+                {
+                    "shape": "ConflictException"
+                },
+                {
+                    "shape": "NotFoundException"
+                },
+                {
+                    "shape": "ForbiddenException"
+                },
+                {
+                    "shape": "TooManyRequestsException"
+                },
+                {
+                    "shape": "LimitExceededException"
+                },
+                {
+                    "shape": "InternalServerErrorException"
+                }
+            ],
+            "idempotent": true,
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/TIKCHAZUMX4K34NOILCVMKG7GUMK27WRKH2LCKFP67D5PCFSTEUQ/main.js"
+            ]
+        },
+        "UpdateSSHRemote": {
+            "name": "UpdateSSHRemote",
+            "http": {
+                "method": "POST",
+                "requestUri": "/"
+            },
+            "input": {
+                "shape": "UpdateSSHRemoteRequest"
+            },
+            "output": {
+                "shape": "UpdateSSHRemoteResult"
+            },
+            "errors": [
+                {
+                    "shape": "BadRequestException"
+                },
+                {
+                    "shape": "ConflictException"
+                },
+                {
+                    "shape": "NotFoundException"
+                },
+                {
+                    "shape": "ForbiddenException"
+                },
+                {
+                    "shape": "TooManyRequestsException"
+                },
+                {
+                    "shape": "LimitExceededException"
+                },
+                {
+                    "shape": "InternalServerErrorException"
+                }
+            ],
+            "idempotent": true,
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/TIKCHAZUMX4K34NOILCVMKG7GUMK27WRKH2LCKFP67D5PCFSTEUQ/main.js"
+            ]
+        },
+        "UpdateUserSettings": {
+            "name": "UpdateUserSettings",
+            "http": {
+                "method": "POST",
+                "requestUri": "/"
+            },
+            "input": {
+                "shape": "UpdateUserSettingsRequest"
+            },
+            "output": {
+                "shape": "UpdateUserSettingsResult"
+            },
+            "errors": [
+                {
+                    "shape": "BadRequestException"
+                },
+                {
+                    "shape": "ConflictException"
+                },
+                {
+                    "shape": "NotFoundException"
+                },
+                {
+                    "shape": "ForbiddenException"
+                },
+                {
+                    "shape": "TooManyRequestsException"
+                },
+                {
+                    "shape": "LimitExceededException"
+                },
+                {
+                    "shape": "InternalServerErrorException"
+                }
+            ],
+            "idempotent": true,
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/TIKCHAZUMX4K34NOILCVMKG7GUMK27WRKH2LCKFP67D5PCFSTEUQ/main.js"
+            ]
+        },
+        "ValidateEnvironmentName": {
+            "name": "ValidateEnvironmentName",
+            "http": {
+                "method": "POST",
+                "requestUri": "/"
+            },
+            "input": {
+                "shape": "ValidateEnvironmentNameRequest"
+            },
+            "output": {
+                "shape": "ValidateEnvironmentNameResult"
+            },
+            "errors": [
+                {
+                    "shape": "BadRequestException"
+                },
+                {
+                    "shape": "ConflictException"
+                },
+                {
+                    "shape": "NotFoundException"
+                },
+                {
+                    "shape": "ForbiddenException"
+                },
+                {
+                    "shape": "TooManyRequestsException"
+                },
+                {
+                    "shape": "LimitExceededException"
+                },
+                {
+                    "shape": "InternalServerErrorException"
+                }
+            ],
+            "idempotent": true,
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/TIKCHAZUMX4K34NOILCVMKG7GUMK27WRKH2LCKFP67D5PCFSTEUQ/main.js"
+            ]
+        },
+        "VerifyResourcesExistForTagris": {
+            "name": "VerifyResourcesExistForTagris",
+            "http": {
+                "method": "POST",
+                "requestUri": "/"
+            },
+            "input": {
+                "shape": "TagrisVerifyResourcesExistInput"
+            },
+            "output": {
+                "shape": "TagrisVerifyResourcesExistOutput"
+            },
+            "errors": [
+                {
+                    "shape": "TagrisAccessDeniedException"
+                },
+                {
+                    "shape": "TagrisInternalServiceException"
+                },
+                {
+                    "shape": "TagrisInvalidArnException"
+                },
+                {
+                    "shape": "TagrisInvalidParameterException"
+                },
+                {
+                    "shape": "TagrisPartialResourcesExistResultsException"
+                },
+                {
+                    "shape": "TagrisThrottledException"
+                }
+            ],
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/TIKCHAZUMX4K34NOILCVMKG7GUMK27WRKH2LCKFP67D5PCFSTEUQ/main.js"
+            ]
+        }
+    },
+    "shapes": {
+        "S3": {
+            "type": "string",
+            "sensitive": true
+        },
+        "Sa": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "Key",
+                    "Value"
+                ],
+                "members": {
+                    "Key": {
+                        "shape": "Sc"
+                    },
+                    "Value": {
+                        "type": "string",
+                        "sensitive": true
+                    }
+                },
+                "sensitive": true
+            },
+            "sensitive": true
+        },
+        "Sc": {
+            "type": "string",
+            "sensitive": true
+        },
+        "Sl": {
+            "type": "structure",
+            "required": [
+                "permissions",
+                "userId",
+                "userArn",
+                "environmentId"
+            ],
+            "members": {
+                "permissions": {},
+                "userId": {},
+                "userArn": {},
+                "environmentId": {},
+                "lastAccess": {
+                    "type": "timestamp"
+                }
+            }
+        },
+        "ActivateEC2RemoteRequest": {
+            "type": "structure",
+            "required": [
+                "environmentId"
+            ],
+            "members": {
+                "environmentId": {
+                    "shape": "EnvironmentId"
+                }
+            }
+        },
+        "ActivateEC2RemoteResult": {
+            "type": "structure",
+            "members": {}
+        },
+        "AutomaticStopTimeMinutes": {
+            "type": "integer",
+            "box": true,
+            "max": 20160,
+            "min": 0
+        },
+        "BadRequestException": {
+            "type": "structure",
+            "members": {},
+            "exception": true
+        },
+        "BastionHost": {
+            "type": "string",
+            "max": 255,
+            "pattern": "^([w.-]+@)?([a-zA-Z0-9][a-zA-Z0-9-.-]*)?(:d+)?$"
+        },
+        "Boolean": {
+            "type": "boolean"
+        },
+        "BoundedEnvironmentIdList": {
+            "type": "list",
+            "member": {
+                "shape": "EnvironmentId"
+            },
+            "max": 25,
+            "min": 1
+        },
+        "ChildDeletionPolicy": {
+            "type": "string",
+            "enum": [
+                "FAIL_ON_CHILD_ENVIRONMENT",
+                "DELETE_CHILD_ENVIRONMENTS"
+            ]
+        },
+        "ClientRequestToken": {
+            "type": "string",
+            "pattern": "[x20-x7E]{10,128}"
+        },
+        "ConcurrentAccessException": {
+            "type": "structure",
+            "members": {},
+            "exception": true
+        },
+        "ConflictException": {
+            "type": "structure",
+            "members": {},
+            "exception": true
+        },
+        "ConnectionType": {
+            "type": "string",
+            "enum": [
+                "CONNECT_SSH",
+                "CONNECT_SSM"
+            ]
+        },
+        "CreateEnvironmentEC2Request": {
+            "type": "structure",
+            "required": [
+                "name",
+                "instanceType"
+            ],
+            "members": {
+                "name": {
+                    "shape": "EnvironmentName"
+                },
+                "description": {
+                    "shape": "EnvironmentDescription"
+                },
+                "clientRequestToken": {
+                    "shape": "ClientRequestToken"
+                },
+                "instanceType": {
+                    "shape": "InstanceType"
+                },
+                "subnetId": {
+                    "shape": "SubnetId"
+                },
+                "imageId": {
+                    "shape": "ImageId"
+                },
+                "automaticStopTimeMinutes": {
+                    "shape": "AutomaticStopTimeMinutes"
+                },
+                "ownerArn": {
+                    "shape": "UserArn"
+                },
+                "repositories": {
+                    "shape": "RespositoryMap",
+                    "internalonly": true
+                },
+                "ideTemplateId": {
+                    "shape": "IdeTemplateId",
+                    "internalonly": true
+                },
+                "tags": {
+                    "shape": "TagList"
+                },
+                "connectionType": {
+                    "shape": "ConnectionType"
+                },
+                "launchTemplate": {
+                    "shape": "LaunchTemplateSpecification",
+                    "internalonly": true
+                },
+                "dryRun": {
+                    "shape": "NullableBoolean"
+                }
+            }
+        },
+        "CreateEnvironmentEC2Result": {
+            "type": "structure",
+            "members": {
+                "environmentId": {
+                    "shape": "EnvironmentId"
+                }
+            }
+        },
+        "CreateEnvironmentHostRequest": {
+            "type": "structure",
+            "required": [
+                "managedInstanceId"
+            ],
+            "members": {
+                "managedInstanceId": {
+                    "shape": "ManagedInstanceId"
+                },
+                "name": {
+                    "shape": "EnvironmentHostName"
+                }
+            }
+        },
+        "CreateEnvironmentHostResult": {
+            "type": "structure",
+            "members": {
+                "environmentHostId": {
+                    "shape": "EnvironmentHostId"
+                }
+            }
+        },
+        "CreateEnvironmentMembershipRequest": {
+            "type": "structure",
+            "required": [
+                "environmentId",
+                "userArn",
+                "permissions"
+            ],
+            "members": {
+                "environmentId": {
+                    "shape": "EnvironmentId"
+                },
+                "userArn": {
+                    "shape": "UserArn"
+                },
+                "permissions": {
+                    "shape": "MemberPermissions"
+                }
+            }
+        },
+        "CreateEnvironmentMembershipResult": {
+            "type": "structure",
+            "required": [
+                "membership"
+            ],
+            "members": {
+                "membership": {
+                    "shape": "EnvironmentMember"
+                }
+            }
+        },
+        "CreateEnvironmentRequest": {
+            "type": "structure",
+            "required": [
+                "name"
+            ],
+            "members": {
+                "name": {
+                    "shape": "EnvironmentName"
+                },
+                "description": {
+                    "shape": "EnvironmentDescription"
+                },
+                "environmentHostId": {
+                    "shape": "EnvironmentHostId"
+                },
+                "clientRequestToken": {
+                    "shape": "ClientRequestToken"
+                }
+            }
+        },
+        "CreateEnvironmentResult": {
+            "type": "structure",
+            "members": {
+                "environmentId": {
+                    "shape": "EnvironmentId"
+                }
+            }
+        },
+        "CreateEnvironmentSSHRequest": {
+            "type": "structure",
+            "required": [
+                "name",
+                "host",
+                "loginName"
+            ],
+            "members": {
+                "name": {
+                    "shape": "EnvironmentName"
+                },
+                "description": {
+                    "shape": "EnvironmentDescription"
+                },
+                "dryRun": {
+                    "shape": "NullableBoolean"
+                },
+                "clientRequestToken": {
+                    "shape": "ClientRequestToken"
+                },
+                "environmentPath": {
+                    "shape": "EnvironmentPath"
+                },
+                "nodePath": {
+                    "shape": "NodePath"
+                },
+                "host": {
+                    "shape": "Hostname"
+                },
+                "port": {
+                    "shape": "TcpPort"
+                },
+                "loginName": {
+                    "shape": "SshLoginName"
+                },
+                "bastionHost": {
+                    "shape": "BastionHost"
+                },
+                "ownerArn": {
+                    "shape": "UserArn"
+                },
+                "ideTemplateId": {
+                    "shape": "IdeTemplateId",
+                    "internalonly": true
+                },
+                "tags": {
+                    "shape": "TagList"
+                }
+            }
+        },
+        "CreateEnvironmentSSHResult": {
+            "type": "structure",
+            "members": {
+                "environmentId": {
+                    "shape": "EnvironmentId"
+                }
+            }
+        },
+        "CreateEnvironmentSSMRequest": {
+            "type": "structure",
+            "required": [
+                "name",
+                "environmentPath",
+                "nodePath",
+                "instanceId",
+                "loginName"
+            ],
+            "members": {
+                "name": {
+                    "shape": "EnvironmentName"
+                },
+                "description": {
+                    "shape": "EnvironmentDescription"
+                },
+                "dryRun": {
+                    "shape": "NullableBoolean"
+                },
+                "clientRequestToken": {
+                    "shape": "ClientRequestToken"
+                },
+                "environmentPath": {
+                    "shape": "EnvironmentPath"
+                },
+                "port": {
+                    "shape": "TcpPort"
+                },
+                "nodePath": {
+                    "shape": "NodePath"
+                },
+                "instanceId": {
+                    "shape": "String"
+                },
+                "loginName": {
+                    "shape": "SshLoginName"
+                },
+                "ownerArn": {
+                    "shape": "UserArn"
+                },
+                "ideTemplateId": {
+                    "shape": "IdeTemplateId",
+                    "internalonly": true
+                },
+                "tags": {
+                    "shape": "TagList"
+                }
+            }
+        },
+        "CreateEnvironmentSSMResult": {
+            "type": "structure",
+            "members": {
+                "environmentId": {
+                    "shape": "EnvironmentId"
+                }
+            }
+        },
+        "CreateEnvironmentTokenRequest": {
+            "type": "structure",
+            "required": [
+                "environmentId"
+            ],
+            "members": {
+                "environmentId": {
+                    "shape": "EnvironmentId"
+                },
+                "refresh": {
+                    "shape": "Boolean"
+                },
+                "remoteAddress": {
+                    "shape": "Integer"
+                }
+            }
+        },
+        "CreateEnvironmentTokenResult": {
+            "type": "structure",
+            "members": {
+                "payload": {
+                    "shape": "EnvironmentTokenPayload"
+                },
+                "key": {
+                    "shape": "EnvironmentTokenKey"
+                },
+                "authenticationTag": {
+                    "shape": "EnvironmentTokenAuthenticationTag"
+                },
+                "initializationVector": {
+                    "shape": "EnvironmentTokenInitializationVector"
+                }
+            }
+        },
+        "DeleteEnvironmentHostRequest": {
+            "type": "structure",
+            "required": [
+                "environmentHostId"
+            ],
+            "members": {
+                "environmentHostId": {
+                    "shape": "EnvironmentHostId"
+                },
+                "childPolicy": {
+                    "shape": "ChildDeletionPolicy"
+                }
+            }
+        },
+        "DeleteEnvironmentHostResult": {
+            "type": "structure",
+            "members": {}
+        },
+        "DeleteEnvironmentMembershipRequest": {
+            "type": "structure",
+            "required": [
+                "environmentId",
+                "userArn"
+            ],
+            "members": {
+                "environmentId": {
+                    "shape": "EnvironmentId"
+                },
+                "userArn": {
+                    "shape": "UserArn"
+                }
+            }
+        },
+        "DeleteEnvironmentMembershipResult": {
+            "type": "structure",
+            "members": {}
+        },
+        "DeleteEnvironmentRequest": {
+            "type": "structure",
+            "required": [
+                "environmentId"
+            ],
+            "members": {
+                "environmentId": {
+                    "shape": "EnvironmentId"
+                }
+            }
+        },
+        "DeleteEnvironmentResult": {
+            "type": "structure",
+            "members": {}
+        },
+        "DescribeEC2RemoteRequest": {
+            "type": "structure",
+            "required": [
+                "environmentId"
+            ],
+            "members": {
+                "environmentId": {
+                    "shape": "EnvironmentId"
+                }
+            }
+        },
+        "DescribeEC2RemoteResult": {
+            "type": "structure",
+            "members": {
+                "remote": {
+                    "shape": "RemoteEC2"
+                }
+            }
+        },
+        "DescribeEnvironmentHostsRequest": {
+            "type": "structure",
+            "members": {
+                "environmentHostIds": {
+                    "shape": "EnvironmentHostIdList"
+                },
+                "maxResults": {
+                    "shape": "MaxResults"
+                },
+                "nextToken": {
+                    "shape": "String"
+                }
+            }
+        },
+        "DescribeEnvironmentHostsResult": {
+            "type": "structure",
+            "members": {
+                "environmentHosts": {
+                    "shape": "EnvironmentHostList"
+                },
+                "nextToken": {
+                    "shape": "String"
+                }
+            }
+        },
+        "DescribeEnvironmentMembershipsRequest": {
+            "type": "structure",
+            "members": {
+                "userArn": {
+                    "shape": "UserArn"
+                },
+                "environmentId": {
+                    "shape": "EnvironmentId"
+                },
+                "permissions": {
+                    "shape": "PermissionsList"
+                },
+                "nextToken": {
+                    "shape": "String"
+                },
+                "maxResults": {
+                    "shape": "MaxResults"
+                }
+            }
+        },
+        "DescribeEnvironmentMembershipsResult": {
+            "type": "structure",
+            "members": {
+                "memberships": {
+                    "shape": "EnvironmentMembersList"
+                },
+                "nextToken": {
+                    "shape": "String"
+                }
+            }
+        },
+        "DescribeEnvironmentStatusRequest": {
+            "type": "structure",
+            "required": [
+                "environmentId"
+            ],
+            "members": {
+                "environmentId": {
+                    "shape": "EnvironmentId"
+                }
+            }
+        },
+        "DescribeEnvironmentStatusResult": {
+            "type": "structure",
+            "required": [
+                "status",
+                "message"
+            ],
+            "members": {
+                "status": {
+                    "shape": "EnvironmentStatus"
+                },
+                "message": {
+                    "shape": "String"
+                }
+            }
+        },
+        "DescribeEnvironmentsRequest": {
+            "type": "structure",
+            "required": [
+                "environmentIds"
+            ],
+            "members": {
+                "environmentIds": {
+                    "shape": "BoundedEnvironmentIdList"
+                }
+            }
+        },
+        "DescribeEnvironmentsResult": {
+            "type": "structure",
+            "members": {
+                "environments": {
+                    "shape": "EnvironmentList"
+                }
+            }
+        },
+        "DescribeSSHRemoteRequest": {
+            "type": "structure",
+            "required": [
+                "environmentId"
+            ],
+            "members": {
+                "environmentId": {
+                    "shape": "EnvironmentId"
+                }
+            }
+        },
+        "DescribeSSHRemoteResult": {
+            "type": "structure",
+            "members": {
+                "remote": {
+                    "shape": "RemoteSSH"
+                }
+            }
+        },
+        "Ec2SecurityGroup": {
+            "type": "string"
+        },
+        "Ec2SecurityGroupList": {
+            "type": "list",
+            "member": {
+                "shape": "Ec2SecurityGroup"
+            }
+        },
+        "Environment": {
+            "type": "structure",
+            "required": [
+                "type",
+                "arn",
+                "ownerArn"
+            ],
+            "members": {
+                "id": {
+                    "shape": "EnvironmentId"
+                },
+                "name": {
+                    "shape": "EnvironmentName"
+                },
+                "description": {
+                    "shape": "EnvironmentDescription"
+                },
+                "type": {
+                    "shape": "EnvironmentType"
+                },
+                "connectionType": {
+                    "shape": "ConnectionType"
+                },
+                "arn": {
+                    "shape": "String"
+                },
+                "ownerArn": {
+                    "shape": "String"
+                },
+                "lifecycle": {
+                    "shape": "EnvironmentLifecycle"
+                },
+                "ideTemplateId": {
+                    "shape": "IdeTemplateId",
+                    "internalonly": true
+                },
+                "inputImageId": {
+                    "shape": "InputImageId",
+                    "internalonly": true
+                },
+                "managedCredentialsStatus": {
+                    "shape": "ManagedCredentialsStatus"
+                }
+            }
+        },
+        "EnvironmentArn": {
+            "type": "string",
+            "pattern": "arn:(aws|aws-cn|aws-us-gov|aws-iso|aws-iso-b):cloud9:([a-z]{2}-[a-z]+-d{1}):[0-9]{12}:environment:[a-zA-Z0-9]{8,32}"
+        },
+        "EnvironmentDescription": {
+            "type": "string",
+            "max": 200,
+            "sensitive": true
+        },
+        "EnvironmentHost": {
+            "type": "structure",
+            "members": {
+                "id": {
+                    "shape": "EnvironmentHostId"
+                },
+                "managedInstanceId": {
+                    "shape": "ManagedInstanceId"
+                },
+                "name": {
+                    "shape": "EnvironmentHostName"
+                },
+                "arn": {
+                    "shape": "String"
+                },
+                "status": {
+                    "shape": "EnvironmentHostStatus"
+                }
+            }
+        },
+        "EnvironmentHostId": {
+            "type": "string",
+            "max": 20,
+            "min": 1
+        },
+        "EnvironmentHostIdList": {
+            "type": "list",
+            "member": {
+                "shape": "EnvironmentHostId"
+            },
+            "max": 25,
+            "min": 1
+        },
+        "EnvironmentHostList": {
+            "type": "list",
+            "member": {
+                "shape": "EnvironmentHost"
+            }
+        },
+        "EnvironmentHostName": {
+            "type": "string",
+            "max": 256,
+            "min": 1
+        },
+        "EnvironmentHostStatus": {
+            "type": "string",
+            "enum": [
+                "ONLINE",
+                "OFFLINE",
+                "INSTANCE_NOT_FOUND",
+                "DELETED"
+            ]
+        },
+        "EnvironmentId": {
+            "type": "string",
+            "pattern": "^[a-zA-Z0-9]{8,32}$"
+        },
+        "EnvironmentIdList": {
+            "type": "list",
+            "member": {
+                "shape": "EnvironmentId"
+            }
+        },
+        "EnvironmentLifecycle": {
+            "type": "structure",
+            "members": {
+                "status": {
+                    "shape": "EnvironmentLifecycleStatus"
+                },
+                "reason": {
+                    "shape": "String"
+                },
+                "failureResource": {
+                    "shape": "String"
+                },
+                "reasonCode": {
+                    "shape": "String",
+                    "internalonly": true
+                }
+            }
+        },
+        "EnvironmentLifecycleStatus": {
+            "type": "string",
+            "enum": [
+                "CREATING",
+                "CREATED",
+                "CREATE_FAILED",
+                "DELETING",
+                "DELETE_FAILED"
+            ]
+        },
+        "EnvironmentList": {
+            "type": "list",
+            "member": {
+                "shape": "Environment"
+            }
+        },
+        "EnvironmentMember": {
+            "type": "structure",
+            "required": [
+                "permissions",
+                "userId",
+                "userArn",
+                "environmentId"
+            ],
+            "members": {
+                "permissions": {
+                    "shape": "Permissions"
+                },
+                "userId": {
+                    "shape": "String"
+                },
+                "userArn": {
+                    "shape": "UserArn"
+                },
+                "environmentId": {
+                    "shape": "EnvironmentId"
+                },
+                "lastAccess": {
+                    "shape": "Timestamp"
+                }
+            }
+        },
+        "EnvironmentMembersList": {
+            "type": "list",
+            "member": {
+                "shape": "EnvironmentMember"
+            }
+        },
+        "EnvironmentName": {
+            "type": "string",
+            "max": 60,
+            "min": 1
+        },
+        "EnvironmentPath": {
+            "type": "string",
+            "max": 1000
+        },
+        "EnvironmentStatus": {
+            "type": "string",
+            "enum": [
+                "error",
+                "creating",
+                "connecting",
+                "ready",
+                "stopping",
+                "stopped",
+                "deleting"
+            ]
+        },
+        "EnvironmentTokenAuthenticationTag": {
+            "type": "string"
+        },
+        "EnvironmentTokenInitializationVector": {
+            "type": "string"
+        },
+        "EnvironmentTokenKey": {
+            "type": "string"
+        },
+        "EnvironmentTokenPayload": {
+            "type": "string"
+        },
+        "EnvironmentType": {
+            "type": "string",
+            "enum": [
+                "ssh",
+                "ec2"
+            ]
+        },
+        "ForbiddenException": {
+            "type": "structure",
+            "members": {},
+            "exception": true
+        },
+        "ForbiddenManagedCredentialsStatusException": {
+            "type": "structure",
+            "members": {
+                "managedCredentialsStatus": {
+                    "shape": "ManagedCredentialsStatus"
+                }
+            },
+            "exception": true,
+            "internalonly": true
+        },
+        "GetEnvironmentConfigRequest": {
+            "type": "structure",
+            "required": [
+                "environmentId"
+            ],
+            "members": {
+                "environmentId": {
+                    "shape": "EnvironmentId"
+                },
+                "bundleConfigId": {
+                    "shape": "String"
+                }
+            }
+        },
+        "GetEnvironmentConfigResult": {
+            "type": "structure",
+            "members": {
+                "config": {
+                    "shape": "String"
+                }
+            }
+        },
+        "GetEnvironmentSettingsRequest": {
+            "type": "structure",
+            "required": [
+                "environmentId"
+            ],
+            "members": {
+                "environmentId": {
+                    "shape": "EnvironmentId"
+                }
+            }
+        },
+        "GetEnvironmentSettingsResult": {
+            "type": "structure",
+            "members": {
+                "settings": {
+                    "shape": "Settings"
+                }
+            }
+        },
+        "GetMembershipSettingsRequest": {
+            "type": "structure",
+            "required": [
+                "environmentId"
+            ],
+            "members": {
+                "environmentId": {
+                    "shape": "EnvironmentId"
+                }
+            }
+        },
+        "GetMembershipSettingsResult": {
+            "type": "structure",
+            "members": {
+                "settings": {
+                    "shape": "Settings"
+                }
+            }
+        },
+        "GetMigrationExperiencesRequest": {
+            "type": "structure",
+            "required": [
+                "migrationDestination"
+            ],
+            "members": {
+                "migrationDestination": {
+                    "shape": "MigrationDestination"
+                }
+            }
+        },
+        "GetMigrationExperiencesResult": {
+            "type": "structure",
+            "members": {
+                "migrationExperiences": {
+                    "shape": "MigrationExperienceList"
+                }
+            }
+        },
+        "GetUserPublicKeyRequest": {
+            "type": "structure",
+            "members": {
+                "userArn": {
+                    "shape": "UserArn"
+                }
+            }
+        },
+        "GetUserPublicKeyResult": {
+            "type": "structure",
+            "members": {
+                "publicKey": {
+                    "shape": "String"
+                }
+            }
+        },
+        "GetUserSettingsRequest": {
+            "type": "structure",
+            "members": {}
+        },
+        "GetUserSettingsResult": {
+            "type": "structure",
+            "members": {
+                "settings": {
+                    "shape": "Settings"
+                }
+            }
+        },
+        "Hostname": {
+            "type": "string",
+            "max": 255,
+            "pattern": "^[a-zA-Z0-9][a-zA-Z0-9-.]+$"
+        },
+        "IdeTemplateId": {
+            "type": "string",
+            "internalonly": true,
+            "pattern": "^[a-zA-Z0-9]{8,32}$"
+        },
+        "ImageId": {
+            "type": "string",
+            "max": 512
+        },
+        "InputImageId": {
+            "type": "string",
+            "max": 512
+        },
+        "InstanceType": {
+            "type": "string",
+            "max": 20,
+            "min": 5,
+            "pattern": "^[a-z]+[1-9][.][a-z0-9]+$"
+        },
+        "Integer": {
+            "type": "integer"
+        },
+        "InternalServerErrorException": {
+            "type": "structure",
+            "members": {},
+            "exception": true,
+            "fault": true
+        },
+        "LaunchTemplateId": {
+            "type": "string",
+            "max": 255,
+            "min": 1
+        },
+        "LaunchTemplateName": {
+            "type": "string",
+            "max": 128,
+            "min": 1
+        },
+        "LaunchTemplateSpecification": {
+            "type": "structure",
+            "members": {
+                "LaunchTemplateId": {
+                    "shape": "LaunchTemplateId"
+                },
+                "LaunchTemplateName": {
+                    "shape": "LaunchTemplateName"
+                },
+                "Version": {
+                    "shape": "String"
+                }
+            }
+        },
+        "LimitExceededException": {
+            "type": "structure",
+            "members": {},
+            "exception": true
+        },
+        "ListEnvironmentsRequest": {
+            "type": "structure",
+            "members": {
+                "nextToken": {
+                    "shape": "String"
+                },
+                "maxResults": {
+                    "shape": "MaxResults"
+                }
+            }
+        },
+        "ListEnvironmentsResult": {
+            "type": "structure",
+            "members": {
+                "nextToken": {
+                    "shape": "String"
+                },
+                "environmentIds": {
+                    "shape": "EnvironmentIdList"
+                }
+            }
+        },
+        "ListTagsForResourceRequest": {
+            "type": "structure",
+            "required": [
+                "ResourceARN"
+            ],
+            "members": {
+                "ResourceARN": {
+                    "shape": "EnvironmentArn"
+                }
+            }
+        },
+        "ListTagsForResourceResponse": {
+            "type": "structure",
+            "members": {
+                "Tags": {
+                    "shape": "TagList"
+                }
+            }
+        },
+        "LockServiceLinkedRoleRequest": {
+            "type": "structure",
+            "required": [
+                "RoleArn",
+                "Timeout"
+            ],
+            "members": {
+                "RoleArn": {
+                    "shape": "arnType"
+                },
+                "Timeout": {
+                    "shape": "longType"
+                }
+            }
+        },
+        "LockServiceLinkedRoleResponse": {
+            "type": "structure",
+            "required": [
+                "CanBeDeleted"
+            ],
+            "members": {
+                "CanBeDeleted": {
+                    "shape": "booleanType"
+                },
+                "ReasonOfFailure": {
+                    "shape": "stringType"
+                },
+                "RelatedResources": {
+                    "shape": "stringListType"
+                }
+            }
+        },
+        "ManagedCredentialsAction": {
+            "type": "string",
+            "enum": [
+                "ENABLE",
+                "DISABLE"
+            ]
+        },
+        "ManagedCredentialsStatus": {
+            "type": "string",
+            "enum": [
+                "ENABLED_ON_CREATE",
+                "ENABLED_BY_OWNER",
+                "DISABLED_BY_DEFAULT",
+                "DISABLED_BY_OWNER",
+                "DISABLED_BY_COLLABORATOR",
+                "PENDING_REMOVAL_BY_COLLABORATOR",
+                "PENDING_START_REMOVAL_BY_COLLABORATOR",
+                "PENDING_REMOVAL_BY_OWNER",
+                "PENDING_START_REMOVAL_BY_OWNER",
+                "FAILED_REMOVAL_BY_COLLABORATOR",
+                "FAILED_REMOVAL_BY_OWNER"
+            ]
+        },
+        "ManagedInstanceId": {
+            "type": "string",
+            "max": 20,
+            "min": 1
+        },
+        "MaxResults": {
+            "type": "integer",
+            "box": true,
+            "max": 25,
+            "min": 0
+        },
+        "MemberPermissions": {
+            "type": "string",
+            "enum": [
+                "read-write",
+                "read-only"
+            ]
+        },
+        "MigrationDestination": {
+            "type": "string",
+            "enum": [
+                "CODECATALYST"
+            ]
+        },
+        "MigrationExperience": {
+            "type": "string",
+            "enum": [
+                "CONSOLE_BANNER"
+            ]
+        },
+        "MigrationExperienceList": {
+            "type": "list",
+            "member": {
+                "shape": "MigrationExperience"
+            }
+        },
+        "ModifyTemporaryCredentialsOnEnvironmentEC2Request": {
+            "type": "structure",
+            "required": [
+                "environmentId"
+            ],
+            "members": {
+                "environmentId": {
+                    "shape": "EnvironmentId"
+                },
+                "remove": {
+                    "shape": "Boolean"
+                },
+                "forceRemove": {
+                    "shape": "Boolean"
+                }
+            }
+        },
+        "ModifyTemporaryCredentialsOnEnvironmentEC2Result": {
+            "type": "structure",
+            "members": {
+                "environmentId": {
+                    "shape": "EnvironmentId"
+                }
+            }
+        },
+        "NodePath": {
+            "type": "string",
+            "max": 1000
+        },
+        "NotFoundException": {
+            "type": "structure",
+            "members": {},
+            "exception": true
+        },
+        "NullableBoolean": {
+            "type": "boolean"
+        },
+        "PathComponent": {
+            "type": "string",
+            "max": 1000,
+            "min": 1
+        },
+        "Permissions": {
+            "type": "string",
+            "enum": [
+                "owner",
+                "read-write",
+                "read-only"
+            ]
+        },
+        "PermissionsList": {
+            "type": "list",
+            "member": {
+                "shape": "Permissions"
+            }
+        },
+        "RemoteEC2": {
+            "type": "structure",
+            "members": {
+                "host": {
+                    "shape": "Hostname"
+                },
+                "port": {
+                    "shape": "TcpPort"
+                },
+                "loginName": {
+                    "shape": "SshLoginName"
+                },
+                "nodePath": {
+                    "shape": "NodePath"
+                },
+                "environmentPath": {
+                    "shape": "EnvironmentPath"
+                },
+                "instanceType": {
+                    "shape": "InstanceType"
+                },
+                "stackName": {
+                    "shape": "String"
+                },
+                "publicDns": {
+                    "shape": "Hostname"
+                },
+                "vpc": {
+                    "shape": "String"
+                },
+                "subnet": {
+                    "shape": "String"
+                },
+                "securityGroups": {
+                    "shape": "Ec2SecurityGroupList"
+                }
+            },
+            "internalonly": true
+        },
+        "RemoteSSH": {
+            "type": "structure",
+            "members": {
+                "host": {
+                    "shape": "Hostname"
+                },
+                "port": {
+                    "shape": "TcpPort"
+                },
+                "loginName": {
+                    "shape": "SshLoginName"
+                },
+                "nodePath": {
+                    "shape": "NodePath"
+                },
+                "environmentPath": {
+                    "shape": "EnvironmentPath"
+                },
+                "bastionHost": {
+                    "shape": "BastionHost"
+                }
+            }
+        },
+        "RepositoryUrl": {
+            "type": "string",
+            "max": 1000,
+            "pattern": "(?:git|ssh|https?|git@[-w.]+):(//)?([w.@:/-~]+)(.git)?(/?|#[-dw._]+?)$"
+        },
+        "RespositoryMap": {
+            "type": "map",
+            "key": {
+                "shape": "PathComponent"
+            },
+            "value": {
+                "shape": "RepositoryUrl"
+            }
+        },
+        "ServiceLinkedRoleLockClientException": {
+            "type": "structure",
+            "members": {
+                "message": {
+                    "shape": "errorMessage"
+                }
+            },
+            "exception": true
+        },
+        "ServiceLinkedRoleLockServiceException": {
+            "type": "structure",
+            "members": {
+                "message": {
+                    "shape": "errorMessage"
+                }
+            },
+            "exception": true
+        },
+        "Settings": {
+            "type": "string",
+            "max": 290000,
+            "sensitive": true
+        },
+        "SshLoginName": {
+            "type": "string",
+            "max": 255,
+            "min": 1
+        },
+        "String": {
+            "type": "string"
+        },
+        "SubnetId": {
+            "type": "string",
+            "max": 24,
+            "min": 15,
+            "pattern": "^(subnet-[0-9a-f]{8}|subnet-[0-9a-f]{17})$"
+        },
+        "Tag": {
+            "type": "structure",
+            "required": [
+                "Key",
+                "Value"
+            ],
+            "members": {
+                "Key": {
+                    "shape": "TagKey"
+                },
+                "Value": {
+                    "shape": "TagValue"
+                }
+            },
+            "sensitive": true
+        },
+        "TagKey": {
+            "type": "string",
+            "max": 128,
+            "min": 1,
+            "sensitive": true
+        },
+        "TagKeyList": {
+            "type": "list",
+            "member": {
+                "shape": "TagKey"
+            },
+            "max": 200,
+            "min": 0,
+            "sensitive": true
+        },
+        "TagList": {
+            "type": "list",
+            "member": {
+                "shape": "Tag"
+            },
+            "max": 200,
+            "min": 0,
+            "sensitive": true
+        },
+        "TagResourceRequest": {
+            "type": "structure",
+            "required": [
+                "ResourceARN",
+                "Tags"
+            ],
+            "members": {
+                "ResourceARN": {
+                    "shape": "EnvironmentArn"
+                },
+                "Tags": {
+                    "shape": "TagList"
+                }
+            }
+        },
+        "TagResourceResponse": {
+            "type": "structure",
+            "members": {}
+        },
+        "TagValue": {
+            "type": "string",
+            "max": 256,
+            "min": 0,
+            "sensitive": true
+        },
+        "TagrisAccessDeniedException": {
+            "type": "structure",
+            "members": {
+                "message": {
+                    "shape": "TagrisExceptionMessage"
+                }
+            },
+            "exception": true
+        },
+        "TagrisAccountId": {
+            "type": "string",
+            "max": 12,
+            "min": 12
+        },
+        "TagrisAmazonResourceName": {
+            "type": "string",
+            "max": 1011,
+            "min": 1
+        },
+        "TagrisExceptionMessage": {
+            "type": "string",
+            "max": 2048,
+            "min": 0
+        },
+        "TagrisInternalId": {
+            "type": "string",
+            "max": 64,
+            "min": 0
+        },
+        "TagrisInternalServiceException": {
+            "type": "structure",
+            "members": {
+                "message": {
+                    "shape": "TagrisExceptionMessage"
+                }
+            },
+            "exception": true,
+            "fault": true
+        },
+        "TagrisInvalidArnException": {
+            "type": "structure",
+            "members": {
+                "message": {
+                    "shape": "TagrisExceptionMessage"
+                },
+                "sweepListItem": {
+                    "shape": "TagrisSweepListItem"
+                }
+            },
+            "exception": true
+        },
+        "TagrisInvalidParameterException": {
+            "type": "structure",
+            "members": {
+                "message": {
+                    "shape": "TagrisExceptionMessage"
+                }
+            },
+            "exception": true
+        },
+        "TagrisPartialResourcesExistResultsException": {
+            "type": "structure",
+            "members": {
+                "message": {
+                    "shape": "TagrisExceptionMessage"
+                },
+                "resourceExistenceInformation": {
+                    "shape": "TagrisSweepListResult"
+                }
+            },
+            "exception": true
+        },
+        "TagrisStatus": {
+            "type": "string",
+            "enum": [
+                "ACTIVE",
+                "NOT_ACTIVE"
+            ]
+        },
+        "TagrisSweepList": {
+            "type": "list",
+            "member": {
+                "shape": "TagrisSweepListItem"
+            }
+        },
+        "TagrisSweepListItem": {
+            "type": "structure",
+            "members": {
+                "TagrisAccountId": {
+                    "shape": "TagrisAccountId"
+                },
+                "TagrisAmazonResourceName": {
+                    "shape": "TagrisAmazonResourceName"
+                },
+                "TagrisInternalId": {
+                    "shape": "TagrisInternalId"
+                },
+                "TagrisVersion": {
+                    "shape": "TagrisVersion"
+                }
+            }
+        },
+        "TagrisSweepListResult": {
+            "type": "map",
+            "key": {
+                "shape": "TagrisAmazonResourceName"
+            },
+            "value": {
+                "shape": "TagrisStatus"
+            }
+        },
+        "TagrisThrottledException": {
+            "type": "structure",
+            "members": {
+                "message": {
+                    "shape": "TagrisExceptionMessage"
+                }
+            },
+            "exception": true
+        },
+        "TagrisVerifyResourcesExistInput": {
+            "type": "structure",
+            "required": [
+                "TagrisSweepList"
+            ],
+            "members": {
+                "TagrisSweepList": {
+                    "shape": "TagrisSweepList"
+                }
+            }
+        },
+        "TagrisVerifyResourcesExistOutput": {
+            "type": "structure",
+            "required": [
+                "TagrisSweepListResult"
+            ],
+            "members": {
+                "TagrisSweepListResult": {
+                    "shape": "TagrisSweepListResult"
+                }
+            }
+        },
+        "TagrisVersion": {
+            "type": "long"
+        },
+        "TcpPort": {
+            "type": "integer",
+            "max": 65535
+        },
+        "Timestamp": {
+            "type": "timestamp"
+        },
+        "TooManyRequestsException": {
+            "type": "structure",
+            "members": {},
+            "exception": true
+        },
+        "UnlockServiceLinkedRoleRequest": {
+            "type": "structure",
+            "required": [
+                "RoleArn"
+            ],
+            "members": {
+                "RoleArn": {
+                    "shape": "arnType"
+                },
+                "DeletionStatus": {
+                    "shape": "deletionStatus"
+                }
+            }
+        },
+        "UnlockServiceLinkedRoleResponse": {
+            "type": "structure",
+            "members": {}
+        },
+        "UntagResourceRequest": {
+            "type": "structure",
+            "required": [
+                "ResourceARN",
+                "TagKeys"
+            ],
+            "members": {
+                "ResourceARN": {
+                    "shape": "EnvironmentArn"
+                },
+                "TagKeys": {
+                    "shape": "TagKeyList"
+                }
+            }
+        },
+        "UntagResourceResponse": {
+            "type": "structure",
+            "members": {}
+        },
+        "UpdateEnvironmentMembershipRequest": {
+            "type": "structure",
+            "required": [
+                "environmentId",
+                "userArn",
+                "permissions"
+            ],
+            "members": {
+                "environmentId": {
+                    "shape": "EnvironmentId"
+                },
+                "userArn": {
+                    "shape": "UserArn"
+                },
+                "permissions": {
+                    "shape": "MemberPermissions"
+                }
+            }
+        },
+        "UpdateEnvironmentMembershipResult": {
+            "type": "structure",
+            "members": {
+                "membership": {
+                    "shape": "EnvironmentMember"
+                }
+            }
+        },
+        "UpdateEnvironmentRequest": {
+            "type": "structure",
+            "required": [
+                "environmentId"
+            ],
+            "members": {
+                "environmentId": {
+                    "shape": "EnvironmentId"
+                },
+                "name": {
+                    "shape": "EnvironmentName"
+                },
+                "description": {
+                    "shape": "EnvironmentDescription"
+                },
+                "managedCredentialsAction": {
+                    "shape": "ManagedCredentialsAction"
+                }
+            }
+        },
+        "UpdateEnvironmentResult": {
+            "type": "structure",
+            "members": {}
+        },
+        "UpdateEnvironmentSettingsRequest": {
+            "type": "structure",
+            "required": [
+                "environmentId",
+                "settings"
+            ],
+            "members": {
+                "environmentId": {
+                    "shape": "EnvironmentId"
+                },
+                "settings": {
+                    "shape": "Settings"
+                }
+            }
+        },
+        "UpdateEnvironmentSettingsResult": {
+            "type": "structure",
+            "members": {}
+        },
+        "UpdateMembershipSettingsRequest": {
+            "type": "structure",
+            "required": [
+                "environmentId",
+                "settings"
+            ],
+            "members": {
+                "environmentId": {
+                    "shape": "EnvironmentId"
+                },
+                "settings": {
+                    "shape": "Settings"
+                }
+            }
+        },
+        "UpdateMembershipSettingsResult": {
+            "type": "structure",
+            "members": {}
+        },
+        "UpdateSSHRemoteRequest": {
+            "type": "structure",
+            "required": [
+                "environmentId"
+            ],
+            "members": {
+                "environmentId": {
+                    "shape": "EnvironmentId"
+                },
+                "host": {
+                    "shape": "Hostname"
+                },
+                "port": {
+                    "shape": "TcpPort"
+                },
+                "loginName": {
+                    "shape": "SshLoginName"
+                },
+                "environmentPath": {
+                    "shape": "EnvironmentPath"
+                },
+                "bastionHost": {
+                    "shape": "BastionHost"
+                },
+                "nodePath": {
+                    "shape": "NodePath"
+                }
+            }
+        },
+        "UpdateSSHRemoteResult": {
+            "type": "structure",
+            "members": {
+                "environmentId": {
+                    "shape": "EnvironmentId"
+                }
+            }
+        },
+        "UpdateUserSettingsRequest": {
+            "type": "structure",
+            "required": [
+                "settings"
+            ],
+            "members": {
+                "settings": {
+                    "shape": "Settings"
+                }
+            }
+        },
+        "UpdateUserSettingsResult": {
+            "type": "structure",
+            "members": {}
+        },
+        "UserArn": {
+            "type": "string",
+            "pattern": "^arn:(aws|aws-cn|aws-us-gov|aws-iso|aws-iso-b):(iam|sts)::d+:(root|(user/[w+=/:,.@-]{1,64}|federated-user/[w+=/:,.@-]{2,32}|assumed-role/[w+=:,.@-]{1,64}/[w+=,.@-]{1,64}))$"
+        },
+        "ValidateEnvironmentNameRequest": {
+            "type": "structure",
+            "required": [
+                "name"
+            ],
+            "members": {
+                "name": {
+                    "shape": "EnvironmentName"
+                }
+            }
+        },
+        "ValidateEnvironmentNameResult": {
+            "type": "structure",
+            "members": {
+                "valid": {
+                    "shape": "Boolean"
+                }
+            }
+        },
+        "arnType": {
+            "type": "string",
+            "max": 2048,
+            "min": 20
+        },
+        "booleanType": {
+            "type": "boolean"
+        },
+        "deletionStatus": {
+            "type": "string",
+            "enum": [
+                "SUCCEEDED",
+                "FAILED"
+            ]
+        },
+        "errorMessage": {
+            "type": "string"
+        },
+        "longType": {
+            "type": "long"
+        },
+        "stringListType": {
+            "type": "list",
+            "member": {
+                "shape": "stringType"
+            }
+        },
+        "stringType": {
+            "type": "string"
+        },
+        "S9": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "Key",
+                    "Value"
+                ],
+                "members": {
+                    "Key": {},
+                    "Value": {}
+                }
+            }
+        },
+        "Sj": {
+            "type": "structure",
+            "members": {
+                "permissions": {},
+                "userId": {},
+                "userArn": {},
+                "environmentId": {},
+                "lastAccess": {
+                    "type": "timestamp"
+                }
+            }
+        },
+        "Si": {
+            "type": "structure",
+            "members": {
+                "permissions": {},
+                "userId": {},
+                "userArn": {},
+                "environmentId": {},
+                "lastAccess": {
+                    "type": "timestamp"
+                }
+            }
+        }
+    }
+}

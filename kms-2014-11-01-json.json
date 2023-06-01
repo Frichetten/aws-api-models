@@ -1,0 +1,3215 @@
+{
+    "version": "2.0",
+    "metadata": {
+        "apiVersion": "2014-11-01",
+        "endpointPrefix": "kms",
+        "jsonVersion": "1.1",
+        "protocol": "json",
+        "serviceAbbreviation": "KMS",
+        "serviceFullName": "AWS Key Management Service",
+        "signatureVersion": "v4",
+        "targetPrefix": "TrentService",
+        "uid": "kms-2014-11-01",
+        "download_location": [
+            "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+        ]
+    },
+    "operations": {
+        "CancelKeyDeletion": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "KeyId"
+                ],
+                "members": {
+                    "KeyId": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "KeyId": {}
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "ConnectCustomKeyStore": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "CustomKeyStoreId"
+                ],
+                "members": {
+                    "CustomKeyStoreId": {},
+                    "IntegrationTestRequest": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "CreateAlias": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "AliasName",
+                    "TargetKeyId"
+                ],
+                "members": {
+                    "AliasName": {},
+                    "TargetKeyId": {}
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "CreateCustomKeyStore": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "CustomKeyStoreName"
+                ],
+                "members": {
+                    "CustomKeyStoreName": {},
+                    "CloudHsmClusterId": {},
+                    "TrustAnchorCertificate": {},
+                    "KeyStorePassword": {
+                        "shape": "Se"
+                    },
+                    "CustomKeyStoreType": {},
+                    "XksProxyUriEndpoint": {},
+                    "XksProxyUriPath": {},
+                    "XksProxyVpcEndpointServiceName": {},
+                    "XksProxyAuthenticationCredential": {
+                        "shape": "Sj"
+                    },
+                    "XksProxyConnectivity": {},
+                    "IntegrationTestRequest": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "CustomKeyStoreId": {}
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "CreateGrant": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "KeyId",
+                    "GranteePrincipal"
+                ],
+                "members": {
+                    "KeyId": {},
+                    "GranteePrincipal": {},
+                    "RetiringPrincipal": {},
+                    "Operations": {
+                        "shape": "Sq"
+                    },
+                    "Constraints": {
+                        "shape": "Ss"
+                    },
+                    "GrantTokens": {
+                        "shape": "S12"
+                    },
+                    "Name": {},
+                    "DryRun": {
+                        "type": "boolean"
+                    },
+                    "Operation": {},
+                    "RequestPayer": {},
+                    "ThrottleHint": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "GrantToken": {},
+                    "GrantId": {},
+                    "KeyOrigin": {}
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "CreateKey": {
+            "input": {
+                "type": "structure",
+                "members": {
+                    "Policy": {},
+                    "Description": {},
+                    "KeyUsage": {},
+                    "CustomerMasterKeySpec": {
+                        "shape": "S1f",
+                        "deprecated": true,
+                        "deprecatedMessage": "This parameter has been deprecated. Instead, use the KeySpec parameter."
+                    },
+                    "KeySpec": {},
+                    "Origin": {},
+                    "CustomKeyStoreId": {},
+                    "BypassPolicyLockoutSafetyCheck": {
+                        "type": "boolean"
+                    },
+                    "Tags": {
+                        "shape": "S1h"
+                    },
+                    "MultiRegion": {
+                        "type": "boolean"
+                    },
+                    "XksKeyId": {},
+                    "MultiRegionConfiguration": {
+                        "shape": "S1m"
+                    },
+                    "InternalDryRun": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "KeyMetadata": {
+                        "shape": "S1w"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "Decrypt": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "CiphertextBlob"
+                ],
+                "members": {
+                    "CiphertextBlob": {
+                        "type": "blob"
+                    },
+                    "EncryptionContext": {
+                        "shape": "Su"
+                    },
+                    "GrantTokens": {
+                        "shape": "S12"
+                    },
+                    "KeyId": {},
+                    "EncryptionAlgorithm": {},
+                    "Recipient": {
+                        "shape": "S2b"
+                    },
+                    "DryRun": {
+                        "type": "boolean"
+                    },
+                    "AAD": {
+                        "shape": "S2g"
+                    },
+                    "RecipientInfo": {
+                        "shape": "S2b",
+                        "deprecated": true,
+                        "internalonly": true
+                    },
+                    "RequestPayer": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "KeyId": {},
+                    "Plaintext": {
+                        "shape": "S2e"
+                    },
+                    "EncryptionAlgorithm": {},
+                    "CiphertextForRecipient": {
+                        "type": "blob"
+                    },
+                    "KeyOrigin": {},
+                    "DataIntegrityAlg": {},
+                    "Pdiv": {
+                        "shape": "S2j"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "DeleteAlias": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "AliasName"
+                ],
+                "members": {
+                    "AliasName": {}
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "DeleteCustomKeyStore": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "CustomKeyStoreId"
+                ],
+                "members": {
+                    "CustomKeyStoreId": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "DeleteImportedKeyMaterial": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "KeyId"
+                ],
+                "members": {
+                    "KeyId": {}
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "DeleteKey": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "KeyId"
+                ],
+                "members": {
+                    "KeyId": {}
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "DescribeCustomKeyStores": {
+            "input": {
+                "type": "structure",
+                "members": {
+                    "CustomKeyStoreId": {},
+                    "CustomKeyStoreName": {},
+                    "Limit": {
+                        "type": "integer"
+                    },
+                    "Marker": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "CustomKeyStores": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "CustomKeyStoreId": {},
+                                "CustomKeyStoreName": {},
+                                "CloudHsmClusterId": {},
+                                "TrustAnchorCertificate": {},
+                                "ConnectionState": {},
+                                "ConnectionErrorCode": {},
+                                "CreationDate": {
+                                    "type": "timestamp"
+                                },
+                                "CustomKeyStoreType": {},
+                                "XksProxyConfiguration": {
+                                    "type": "structure",
+                                    "members": {
+                                        "Connectivity": {},
+                                        "AccessKeyId": {
+                                            "shape": "Sk"
+                                        },
+                                        "UriEndpoint": {},
+                                        "UriPath": {},
+                                        "VpcEndpointServiceName": {}
+                                    }
+                                },
+                                "IsDataReplicated": {
+                                    "type": "boolean"
+                                }
+                            }
+                        }
+                    },
+                    "NextMarker": {},
+                    "Truncated": {
+                        "type": "boolean"
+                    },
+                    "AllowlistedForXksBeta": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "DescribeKey": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "KeyId"
+                ],
+                "members": {
+                    "KeyId": {},
+                    "GrantTokens": {
+                        "shape": "S12"
+                    },
+                    "RequestPayer": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "KeyMetadata": {
+                        "shape": "S1w"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "DescribeMultiRegionKeyInternal": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "KeyId",
+                    "SourceRegion",
+                    "SourceStage"
+                ],
+                "members": {
+                    "KeyId": {},
+                    "ConsistentRead": {
+                        "type": "boolean"
+                    },
+                    "SourceRegion": {},
+                    "SourceStage": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "KeyVersions": {
+                        "shape": "S32"
+                    },
+                    "RotationDate": {
+                        "type": "timestamp"
+                    },
+                    "RotationScheduleInDays": {
+                        "type": "integer"
+                    },
+                    "MultiRegionConfiguration": {
+                        "shape": "S1m"
+                    },
+                    "CurrentBackingKeyId": {}
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "DisableKey": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "KeyId"
+                ],
+                "members": {
+                    "KeyId": {}
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "DisableKeyRotation": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "KeyId"
+                ],
+                "members": {
+                    "KeyId": {}
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "DisconnectCustomKeyStore": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "CustomKeyStoreId"
+                ],
+                "members": {
+                    "CustomKeyStoreId": {},
+                    "IntegrationTestRequest": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "EnableKey": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "KeyId"
+                ],
+                "members": {
+                    "KeyId": {}
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "EnableKeyRotation": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "KeyId"
+                ],
+                "members": {
+                    "KeyId": {},
+                    "RotationScheduleInDays": {
+                        "type": "integer"
+                    },
+                    "EnableKeyRotationNow": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "Encrypt": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "KeyId",
+                    "Plaintext"
+                ],
+                "members": {
+                    "KeyId": {},
+                    "Plaintext": {
+                        "shape": "S2e"
+                    },
+                    "EncryptionContext": {
+                        "shape": "Su"
+                    },
+                    "GrantTokens": {
+                        "shape": "S12"
+                    },
+                    "EncryptionAlgorithm": {},
+                    "AAD": {
+                        "shape": "S2g"
+                    },
+                    "ReturnCanonicalizedEncryptionContext": {
+                        "type": "boolean"
+                    },
+                    "DataIntegrityAlg": {},
+                    "Pdiv": {
+                        "shape": "S2j"
+                    },
+                    "CiphertextDataIntegrityAlgorithm": {},
+                    "RequestPayer": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "CiphertextBlob": {
+                        "type": "blob"
+                    },
+                    "KeyId": {},
+                    "EncryptionAlgorithm": {},
+                    "KeyOrigin": {},
+                    "CanonicalizedEncryptionContext": {
+                        "shape": "S2g"
+                    },
+                    "CiphertextDataIntegrityAlgorithm": {},
+                    "CiphertextDataIntegrityValue": {
+                        "type": "blob"
+                    },
+                    "EncryptionContext": {
+                        "shape": "Su"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "GenerateDataKey": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "KeyId"
+                ],
+                "members": {
+                    "KeyId": {},
+                    "EncryptionContext": {
+                        "shape": "Su"
+                    },
+                    "NumberOfBytes": {
+                        "type": "integer"
+                    },
+                    "KeySpec": {},
+                    "GrantTokens": {
+                        "shape": "S12"
+                    },
+                    "Recipient": {
+                        "shape": "S2b"
+                    },
+                    "DryRun": {
+                        "type": "boolean"
+                    },
+                    "CiphertextDataIntegrityAlgorithm": {},
+                    "DataIntegrityAlg": {},
+                    "RecipientInfo": {
+                        "shape": "S2b",
+                        "deprecated": true,
+                        "internalonly": true
+                    },
+                    "RequestPayer": {},
+                    "AAD": {
+                        "shape": "S2g"
+                    },
+                    "ReturnCanonicalizedEncryptionContext": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "CiphertextBlob": {
+                        "type": "blob"
+                    },
+                    "Plaintext": {
+                        "shape": "S2e"
+                    },
+                    "KeyId": {},
+                    "CiphertextForRecipient": {
+                        "type": "blob"
+                    },
+                    "KeyOrigin": {},
+                    "CanonicalizedEncryptionContext": {
+                        "shape": "S2g"
+                    },
+                    "DataIntegrityAlg": {},
+                    "Pdiv": {
+                        "shape": "S2j"
+                    },
+                    "CiphertextDataIntegrityAlgorithm": {},
+                    "CiphertextDataIntegrityValue": {
+                        "type": "blob"
+                    },
+                    "EncryptionContext": {
+                        "shape": "Su"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "GenerateDataKeyPair": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "KeyId",
+                    "KeyPairSpec"
+                ],
+                "members": {
+                    "EncryptionContext": {
+                        "shape": "Su"
+                    },
+                    "KeyId": {},
+                    "KeyPairSpec": {},
+                    "GrantTokens": {
+                        "shape": "S12"
+                    },
+                    "Recipient": {
+                        "shape": "S2b"
+                    },
+                    "AAD": {
+                        "shape": "S2g"
+                    },
+                    "RecipientInfo": {
+                        "shape": "S2b"
+                    },
+                    "RequestPayer": {},
+                    "CiphertextDataIntegrityAlgorithm": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "PrivateKeyCiphertextBlob": {
+                        "type": "blob"
+                    },
+                    "PrivateKeyPlaintext": {
+                        "shape": "S2e"
+                    },
+                    "PublicKey": {
+                        "type": "blob"
+                    },
+                    "KeyId": {},
+                    "KeyPairSpec": {},
+                    "CiphertextForRecipient": {
+                        "type": "blob"
+                    },
+                    "KeyOrigin": {},
+                    "CiphertextDataIntegrityAlgorithm": {},
+                    "CiphertextDataIntegrityValue": {
+                        "type": "blob"
+                    },
+                    "EncryptionContext": {
+                        "shape": "Su"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "GenerateDataKeyPairWithoutPlaintext": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "KeyId",
+                    "KeyPairSpec"
+                ],
+                "members": {
+                    "EncryptionContext": {
+                        "shape": "Su"
+                    },
+                    "KeyId": {},
+                    "KeyPairSpec": {},
+                    "GrantTokens": {
+                        "shape": "S12"
+                    },
+                    "AAD": {
+                        "shape": "S2g"
+                    },
+                    "RequestPayer": {},
+                    "CiphertextDataIntegrityAlgorithm": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "PrivateKeyCiphertextBlob": {
+                        "type": "blob"
+                    },
+                    "PublicKey": {
+                        "type": "blob"
+                    },
+                    "KeyId": {},
+                    "KeyPairSpec": {},
+                    "KeyOrigin": {},
+                    "CiphertextDataIntegrityAlgorithm": {},
+                    "CiphertextDataIntegrityValue": {
+                        "type": "blob"
+                    },
+                    "EncryptionContext": {
+                        "shape": "Su"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "GenerateDataKeyWithoutPlaintext": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "KeyId"
+                ],
+                "members": {
+                    "KeyId": {},
+                    "EncryptionContext": {
+                        "shape": "Su"
+                    },
+                    "KeySpec": {},
+                    "NumberOfBytes": {
+                        "type": "integer"
+                    },
+                    "GrantTokens": {
+                        "shape": "S12"
+                    },
+                    "DryRun": {
+                        "type": "boolean"
+                    },
+                    "DataIntegrityAlg": {},
+                    "CiphertextDataIntegrityAlgorithm": {},
+                    "RequestPayer": {},
+                    "AAD": {
+                        "shape": "S2g"
+                    },
+                    "ReturnCanonicalizedEncryptionContext": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "CiphertextBlob": {
+                        "type": "blob"
+                    },
+                    "KeyId": {},
+                    "KeyOrigin": {},
+                    "CanonicalizedEncryptionContext": {
+                        "shape": "S2g"
+                    },
+                    "CiphertextDataIntegrityAlgorithm": {},
+                    "CiphertextDataIntegrityValue": {
+                        "type": "blob"
+                    },
+                    "EncryptionContext": {
+                        "shape": "Su"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "GenerateMac": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "Message",
+                    "KeyId",
+                    "MacAlgorithm"
+                ],
+                "members": {
+                    "Message": {
+                        "shape": "S2e"
+                    },
+                    "KeyId": {},
+                    "MacAlgorithm": {},
+                    "GrantTokens": {
+                        "shape": "S12"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Mac": {
+                        "type": "blob"
+                    },
+                    "MacAlgorithm": {},
+                    "KeyId": {},
+                    "KeyOrigin": {}
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "GenerateRandom": {
+            "input": {
+                "type": "structure",
+                "members": {
+                    "NumberOfBytes": {
+                        "type": "integer"
+                    },
+                    "CustomKeyStoreId": {},
+                    "Recipient": {
+                        "shape": "S2b"
+                    },
+                    "KeySpec": {},
+                    "RecipientInfo": {
+                        "shape": "S2b",
+                        "deprecated": true,
+                        "internalonly": true
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Plaintext": {
+                        "shape": "S2e"
+                    },
+                    "CiphertextForRecipient": {
+                        "type": "blob"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "GetKeyOrigin": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "KeyId",
+                    "AuthorizingPermission"
+                ],
+                "members": {
+                    "KeyId": {},
+                    "AuthorizingPermission": {},
+                    "EncryptionContext": {
+                        "shape": "Su"
+                    },
+                    "GrantTokens": {
+                        "shape": "S12"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "KeyOrigin": {},
+                    "KeyArn": {}
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "GetKeyPolicy": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "KeyId",
+                    "PolicyName"
+                ],
+                "members": {
+                    "KeyId": {},
+                    "PolicyName": {},
+                    "RequestPayer": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Policy": {}
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "GetKeyRotationStatus": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "KeyId"
+                ],
+                "members": {
+                    "KeyId": {},
+                    "RequestPayer": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "KeyRotationEnabled": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "GetParametersForImport": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "KeyId",
+                    "WrappingAlgorithm",
+                    "WrappingKeySpec"
+                ],
+                "members": {
+                    "KeyId": {},
+                    "WrappingAlgorithm": {},
+                    "WrappingKeySpec": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "KeyId": {},
+                    "ImportToken": {
+                        "type": "blob"
+                    },
+                    "PublicKey": {
+                        "shape": "S2e"
+                    },
+                    "ParametersValidTo": {
+                        "type": "timestamp"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "GetPublicKey": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "KeyId"
+                ],
+                "members": {
+                    "KeyId": {},
+                    "GrantTokens": {
+                        "shape": "S12"
+                    },
+                    "RequestPayer": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "KeyId": {},
+                    "PublicKey": {
+                        "type": "blob"
+                    },
+                    "CustomerMasterKeySpec": {
+                        "shape": "S1f",
+                        "deprecated": true,
+                        "deprecatedMessage": "This field has been deprecated. Instead, use the KeySpec field."
+                    },
+                    "KeySpec": {},
+                    "KeyUsage": {},
+                    "EncryptionAlgorithms": {
+                        "shape": "S21"
+                    },
+                    "SigningAlgorithms": {
+                        "shape": "S23"
+                    },
+                    "KeyOrigin": {}
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "ImportKeyMaterial": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "KeyId",
+                    "ImportToken",
+                    "EncryptedKeyMaterial"
+                ],
+                "members": {
+                    "KeyId": {},
+                    "ImportToken": {
+                        "type": "blob"
+                    },
+                    "EncryptedKeyMaterial": {
+                        "type": "blob"
+                    },
+                    "ValidTo": {
+                        "type": "timestamp"
+                    },
+                    "ExpirationModel": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "ListAliases": {
+            "input": {
+                "type": "structure",
+                "members": {
+                    "KeyId": {},
+                    "Limit": {
+                        "type": "integer"
+                    },
+                    "Marker": {},
+                    "Prefix": {},
+                    "RequestPayer": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Aliases": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "AliasName": {},
+                                "AliasArn": {},
+                                "TargetKeyId": {},
+                                "CreationDate": {
+                                    "type": "timestamp"
+                                },
+                                "LastUpdatedDate": {
+                                    "type": "timestamp"
+                                }
+                            }
+                        }
+                    },
+                    "NextMarker": {},
+                    "Truncated": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "ListGrants": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "KeyId"
+                ],
+                "members": {
+                    "Limit": {
+                        "type": "integer"
+                    },
+                    "Marker": {},
+                    "KeyId": {},
+                    "GrantId": {},
+                    "GranteePrincipal": {},
+                    "RequestPayer": {}
+                }
+            },
+            "output": {
+                "shape": "S4g"
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "ListKeyPolicies": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "KeyId"
+                ],
+                "members": {
+                    "KeyId": {},
+                    "Limit": {
+                        "type": "integer"
+                    },
+                    "Marker": {},
+                    "RequestPayer": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "PolicyNames": {
+                        "type": "list",
+                        "member": {}
+                    },
+                    "NextMarker": {},
+                    "Truncated": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "ListKeyRotationHistory": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "KeyId"
+                ],
+                "members": {
+                    "KeyId": {},
+                    "Limit": {
+                        "type": "integer"
+                    },
+                    "Marker": {},
+                    "RequestPayer": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "KeyVersions": {
+                        "shape": "S32"
+                    },
+                    "NextMarker": {},
+                    "Truncated": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "ListKeys": {
+            "input": {
+                "type": "structure",
+                "members": {
+                    "Limit": {
+                        "type": "integer"
+                    },
+                    "Marker": {},
+                    "RequestPayer": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Keys": {
+                        "shape": "S4q"
+                    },
+                    "NextMarker": {},
+                    "Truncated": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "ListKeysForService": {
+            "input": {
+                "type": "structure",
+                "members": {
+                    "Service": {},
+                    "Resource": {},
+                    "EncryptionContext": {
+                        "shape": "Su"
+                    },
+                    "GrantTokens": {
+                        "shape": "S12"
+                    },
+                    "Limit": {
+                        "type": "integer"
+                    },
+                    "Marker": {},
+                    "RequestPayer": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Keys": {
+                        "shape": "S4q"
+                    },
+                    "NextMarker": {},
+                    "Truncated": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "ListResourceTags": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "KeyId"
+                ],
+                "members": {
+                    "KeyId": {},
+                    "Limit": {
+                        "type": "integer"
+                    },
+                    "Marker": {},
+                    "RequestPayer": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Tags": {
+                        "shape": "S1h"
+                    },
+                    "NextMarker": {},
+                    "Truncated": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "ListRetirableGrants": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "RetiringPrincipal"
+                ],
+                "members": {
+                    "Limit": {
+                        "type": "integer"
+                    },
+                    "Marker": {},
+                    "RetiringPrincipal": {},
+                    "RequestPayer": {}
+                }
+            },
+            "output": {
+                "shape": "S4g"
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "LockServiceLinkedRole": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "RoleArn",
+                    "Timeout"
+                ],
+                "members": {
+                    "RoleArn": {},
+                    "Timeout": {
+                        "type": "long"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "CanBeDeleted"
+                ],
+                "members": {
+                    "CanBeDeleted": {
+                        "type": "boolean"
+                    },
+                    "ReasonOfFailure": {},
+                    "RelatedResources": {
+                        "type": "list",
+                        "member": {}
+                    }
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "NotifyMultiRegionKeyInternal": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "KeyId",
+                    "SourceRegion",
+                    "SourceStage"
+                ],
+                "members": {
+                    "KeyId": {},
+                    "ConsistentRead": {
+                        "type": "boolean"
+                    },
+                    "NotificationCreationDate": {
+                        "type": "timestamp"
+                    },
+                    "SourceRegion": {},
+                    "SourceStage": {}
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "PutKeyPolicy": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "KeyId",
+                    "PolicyName",
+                    "Policy"
+                ],
+                "members": {
+                    "KeyId": {},
+                    "PolicyName": {},
+                    "Policy": {},
+                    "BypassPolicyLockoutSafetyCheck": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "ReEncrypt": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "CiphertextBlob",
+                    "DestinationKeyId"
+                ],
+                "members": {
+                    "CiphertextBlob": {
+                        "type": "blob"
+                    },
+                    "SourceEncryptionContext": {
+                        "shape": "Su"
+                    },
+                    "SourceKeyId": {},
+                    "DestinationKeyId": {},
+                    "DestinationEncryptionContext": {
+                        "shape": "Su"
+                    },
+                    "SourceEncryptionAlgorithm": {},
+                    "DestinationEncryptionAlgorithm": {},
+                    "GrantTokens": {
+                        "shape": "S12"
+                    },
+                    "DryRun": {
+                        "type": "boolean"
+                    },
+                    "CiphertextDataIntegrityAlgorithm": {},
+                    "SourceAAD": {
+                        "shape": "S2g"
+                    },
+                    "ReturnDestinationCanonicalizedEncryptionContext": {
+                        "type": "boolean"
+                    },
+                    "DestinationAAD": {
+                        "shape": "S2g"
+                    },
+                    "RequestPayer": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "CiphertextBlob": {
+                        "type": "blob"
+                    },
+                    "SourceKeyId": {},
+                    "KeyId": {},
+                    "SourceEncryptionAlgorithm": {},
+                    "DestinationEncryptionAlgorithm": {},
+                    "SourceKeyOrigin": {},
+                    "DestinationKeyOrigin": {},
+                    "CanonicalizedEncryptionContext": {
+                        "shape": "S2g"
+                    },
+                    "CiphertextDataIntegrityAlgorithm": {},
+                    "CiphertextDataIntegrityValue": {
+                        "type": "blob"
+                    },
+                    "DestinationEncryptionContext": {
+                        "shape": "Su"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "ReplicateKey": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "KeyId",
+                    "ReplicaRegion"
+                ],
+                "members": {
+                    "KeyId": {},
+                    "ReplicaRegion": {},
+                    "Policy": {},
+                    "BypassPolicyLockoutSafetyCheck": {
+                        "type": "boolean"
+                    },
+                    "Description": {},
+                    "Tags": {
+                        "shape": "S1h"
+                    },
+                    "ReplicaStage": {},
+                    "ReplicaKeyId": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ReplicaKeyMetadata": {
+                        "shape": "S1w"
+                    },
+                    "ReplicaPolicy": {},
+                    "ReplicaTags": {
+                        "shape": "S1h"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "RetireGrant": {
+            "input": {
+                "type": "structure",
+                "members": {
+                    "GrantToken": {},
+                    "KeyId": {},
+                    "GrantId": {},
+                    "RequestPayer": {}
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "RevokeGrant": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "KeyId",
+                    "GrantId"
+                ],
+                "members": {
+                    "KeyId": {},
+                    "GrantId": {},
+                    "RequestPayer": {}
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "RotateKey": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "KeyId"
+                ],
+                "members": {
+                    "KeyId": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "KeyVersion": {
+                        "shape": "S33"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "ScheduleKeyDeletion": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "KeyId"
+                ],
+                "members": {
+                    "KeyId": {},
+                    "PendingWindowInDays": {
+                        "type": "integer"
+                    },
+                    "OverridePendingWindowCheck": {
+                        "type": "boolean"
+                    },
+                    "ScheduleKeyDeletionNow": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "KeyId": {},
+                    "DeletionDate": {
+                        "type": "timestamp"
+                    },
+                    "KeyState": {},
+                    "PendingWindowInDays": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "Sign": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "KeyId",
+                    "Message",
+                    "SigningAlgorithm"
+                ],
+                "members": {
+                    "KeyId": {},
+                    "Message": {
+                        "shape": "S2e"
+                    },
+                    "MessageType": {},
+                    "GrantTokens": {
+                        "shape": "S12"
+                    },
+                    "SigningAlgorithm": {},
+                    "RequestPayer": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "KeyId": {},
+                    "Signature": {
+                        "type": "blob"
+                    },
+                    "SigningAlgorithm": {},
+                    "KeyOrigin": {}
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "TagResource": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "KeyId",
+                    "Tags"
+                ],
+                "members": {
+                    "KeyId": {},
+                    "Tags": {
+                        "shape": "S1h"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "UnlockServiceLinkedRole": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "RoleArn"
+                ],
+                "members": {
+                    "RoleArn": {},
+                    "DeletionStatus": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "UntagResource": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "KeyId",
+                    "TagKeys"
+                ],
+                "members": {
+                    "KeyId": {},
+                    "TagKeys": {
+                        "type": "list",
+                        "member": {}
+                    }
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "UpdateAlias": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "AliasName",
+                    "TargetKeyId"
+                ],
+                "members": {
+                    "AliasName": {},
+                    "TargetKeyId": {}
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "UpdateCustomKeyStore": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "CustomKeyStoreId"
+                ],
+                "members": {
+                    "CustomKeyStoreId": {},
+                    "NewCustomKeyStoreName": {},
+                    "KeyStorePassword": {
+                        "shape": "Se"
+                    },
+                    "CloudHsmClusterId": {},
+                    "IntegrationTestRequest": {
+                        "type": "boolean"
+                    },
+                    "XksProxyUriEndpoint": {},
+                    "XksProxyUriPath": {},
+                    "XksProxyVpcEndpointServiceName": {},
+                    "XksProxyAuthenticationCredential": {
+                        "shape": "Sj"
+                    },
+                    "XksProxyConnectivity": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "UpdateKeyDescription": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "KeyId",
+                    "Description"
+                ],
+                "members": {
+                    "KeyId": {},
+                    "Description": {}
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "UpdatePrimaryRegion": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "KeyId",
+                    "PrimaryRegion"
+                ],
+                "members": {
+                    "KeyId": {},
+                    "PrimaryRegion": {},
+                    "PrimaryStage": {},
+                    "ReplicaKeyId": {}
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "UpdatePrimaryRegionInternal": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "KeyId",
+                    "SourceRegion",
+                    "SourceStage"
+                ],
+                "members": {
+                    "KeyId": {},
+                    "SourceRegion": {},
+                    "SourceStage": {}
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "Verify": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "KeyId",
+                    "Message",
+                    "Signature",
+                    "SigningAlgorithm"
+                ],
+                "members": {
+                    "KeyId": {},
+                    "Message": {
+                        "shape": "S2e"
+                    },
+                    "MessageType": {},
+                    "Signature": {
+                        "type": "blob"
+                    },
+                    "SigningAlgorithm": {},
+                    "GrantTokens": {
+                        "shape": "S12"
+                    },
+                    "RequestPayer": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "KeyId": {},
+                    "SignatureValid": {
+                        "type": "boolean"
+                    },
+                    "SigningAlgorithm": {},
+                    "KeyOrigin": {}
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "VerifyMac": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "Message",
+                    "KeyId",
+                    "MacAlgorithm",
+                    "Mac"
+                ],
+                "members": {
+                    "Message": {
+                        "shape": "S2e"
+                    },
+                    "KeyId": {},
+                    "MacAlgorithm": {},
+                    "Mac": {
+                        "type": "blob"
+                    },
+                    "GrantTokens": {
+                        "shape": "S12"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "KeyId": {},
+                    "MacValid": {
+                        "type": "boolean"
+                    },
+                    "MacAlgorithm": {},
+                    "KeyOrigin": {}
+                }
+            },
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "WrapKeyForReplicationInternal": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "KeyId",
+                    "ReplicationParametersToken",
+                    "SourceRegion",
+                    "SourceStage"
+                ],
+                "members": {
+                    "KeyId": {},
+                    "BackingKeyId": {},
+                    "ReplicationParametersToken": {
+                        "type": "blob"
+                    },
+                    "SourceRegion": {},
+                    "SourceStage": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ReplicationResponseToken": {
+                        "type": "blob"
+                    }
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://d29sfhxsuc7nqn.cloudfront.net/content/a5ce4010-ee9e-42b8-a325-b75a486680e5/vendorv3.js"
+            ]
+        },
+        "DeleteKeyPolicy": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "KeyId",
+                    "PolicyName"
+                ],
+                "members": {
+                    "KeyId": {},
+                    "PolicyName": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "DescribeAccountUsage": {
+            "input": {
+                "type": "structure",
+                "members": {}
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "AWSAccountId": {},
+                    "ResourceUsage": {
+                        "type": "structure",
+                        "members": {
+                            "AliasLimit": {
+                                "type": "long"
+                            },
+                            "AliasCount": {
+                                "type": "long"
+                            },
+                            "KeyLimit": {
+                                "type": "long"
+                            },
+                            "KeyCount": {
+                                "type": "long"
+                            },
+                            "GrantsPerKeyLimit": {
+                                "type": "long"
+                            },
+                            "GrantsPerGranteePrincipalLimit": {
+                                "type": "long"
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "GetCiphertextMetadata": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "CiphertextBlob"
+                ],
+                "members": {
+                    "CiphertextBlob": {
+                        "type": "blob"
+                    },
+                    "EncryptionContext": {
+                        "shape": "Sm"
+                    },
+                    "AAD": {
+                        "shape": "S21"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "KeyId": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/ISZAG7MWIVV3M33LIA23OJ6ZCVBALCEBU2ULXIJLNA3EQJ53XT6A/app.js"
+            ]
+        }
+    },
+    "shapes": {
+        "Se": {
+            "type": "string",
+            "sensitive": true
+        },
+        "Sj": {
+            "type": "structure",
+            "required": [
+                "AccessKeyId",
+                "RawSecretAccessKey"
+            ],
+            "members": {
+                "AccessKeyId": {
+                    "shape": "Sk"
+                },
+                "RawSecretAccessKey": {
+                    "type": "string",
+                    "sensitive": true
+                }
+            }
+        },
+        "Sk": {
+            "type": "string",
+            "sensitive": true
+        },
+        "Sq": {
+            "type": "list",
+            "member": {}
+        },
+        "Ss": {
+            "type": "structure",
+            "members": {
+                "AADEquals": {
+                    "type": "blob",
+                    "deprecated": true
+                },
+                "EncryptionContextSubset": {
+                    "shape": "Su"
+                },
+                "EncryptionContextEquals": {
+                    "shape": "Su"
+                },
+                "RecipientAttestation": {
+                    "type": "structure",
+                    "members": {
+                        "Pcrs": {
+                            "type": "map",
+                            "key": {},
+                            "value": {}
+                        },
+                        "ImageSha256": {}
+                    }
+                }
+            }
+        },
+        "Su": {
+            "type": "map",
+            "key": {},
+            "value": {}
+        },
+        "S12": {
+            "type": "list",
+            "member": {}
+        },
+        "S1f": {
+            "type": "string",
+            "deprecated": true,
+            "deprecatedMessage": "This enum has been deprecated. Instead, use the KeySpec enum."
+        },
+        "S1h": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "TagKey",
+                    "TagValue"
+                ],
+                "members": {
+                    "TagKey": {},
+                    "TagValue": {}
+                }
+            }
+        },
+        "S1m": {
+            "type": "structure",
+            "members": {
+                "MultiRegionKeyType": {},
+                "PrimaryKey": {
+                    "shape": "S1o"
+                },
+                "ReplicaKeys": {
+                    "type": "list",
+                    "member": {
+                        "shape": "S1o"
+                    }
+                },
+                "OriginalPrimaryKeyId": {}
+            }
+        },
+        "S1o": {
+            "type": "structure",
+            "members": {
+                "Arn": {},
+                "Region": {},
+                "Stage": {},
+                "KnownGeneration": {
+                    "type": "integer"
+                },
+                "CreationDate": {
+                    "type": "timestamp"
+                }
+            }
+        },
+        "S1w": {
+            "type": "structure",
+            "required": [
+                "KeyId"
+            ],
+            "members": {
+                "AWSAccountId": {},
+                "KeyId": {},
+                "Arn": {},
+                "CreationDate": {
+                    "type": "timestamp"
+                },
+                "Enabled": {
+                    "type": "boolean"
+                },
+                "Description": {},
+                "KeyUsage": {},
+                "KeyState": {},
+                "DeletionDate": {
+                    "type": "timestamp"
+                },
+                "ValidTo": {
+                    "type": "timestamp"
+                },
+                "Origin": {},
+                "CustomKeyStoreId": {},
+                "CloudHsmClusterId": {},
+                "ExpirationModel": {},
+                "KeyManager": {},
+                "CustomerMasterKeySpec": {
+                    "shape": "S1f",
+                    "deprecated": true,
+                    "deprecatedMessage": "This field has been deprecated. Instead, use the KeySpec field."
+                },
+                "KeySpec": {},
+                "EncryptionAlgorithms": {
+                    "shape": "S21"
+                },
+                "SigningAlgorithms": {
+                    "shape": "S23"
+                },
+                "MultiRegion": {
+                    "type": "boolean"
+                },
+                "MultiRegionConfiguration": {
+                    "shape": "S1m"
+                },
+                "PendingDeletionWindowInDays": {
+                    "type": "integer"
+                },
+                "MacAlgorithms": {
+                    "type": "list",
+                    "member": {}
+                },
+                "XksKeyConfiguration": {
+                    "type": "structure",
+                    "members": {
+                        "Id": {}
+                    }
+                }
+            }
+        },
+        "S21": {
+            "type": "list",
+            "member": {}
+        },
+        "S23": {
+            "type": "list",
+            "member": {}
+        },
+        "S2b": {
+            "type": "structure",
+            "members": {
+                "KeyEncryptionAlgorithm": {},
+                "AttestationDocument": {
+                    "type": "blob"
+                },
+                "PublicKey": {
+                    "shape": "S2e"
+                },
+                "CustomTrustAnchor": {
+                    "type": "blob"
+                }
+            }
+        },
+        "S2e": {
+            "type": "blob",
+            "sensitive": true
+        },
+        "S2g": {
+            "type": "blob",
+            "deprecated": true
+        },
+        "S2j": {
+            "type": "blob",
+            "sensitive": true
+        },
+        "S32": {
+            "type": "list",
+            "member": {
+                "shape": "S33"
+            }
+        },
+        "S33": {
+            "type": "structure",
+            "members": {
+                "KeyId": {},
+                "BackingKeyId": {},
+                "PreviousBackingKeyId": {},
+                "CreationDate": {
+                    "type": "timestamp"
+                }
+            }
+        },
+        "S4g": {
+            "type": "structure",
+            "members": {
+                "Grants": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "members": {
+                            "KeyId": {},
+                            "GrantId": {},
+                            "Name": {},
+                            "CreationDate": {
+                                "type": "timestamp"
+                            },
+                            "GranteePrincipal": {},
+                            "RetiringPrincipal": {},
+                            "IssuingAccount": {},
+                            "Operations": {
+                                "shape": "Sq"
+                            },
+                            "Constraints": {
+                                "shape": "Ss"
+                            }
+                        }
+                    }
+                },
+                "NextMarker": {},
+                "Truncated": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "S4q": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "KeyId": {},
+                    "KeyArn": {},
+                    "AliasList": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "Alias": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "S4h": {
+            "type": "structure",
+            "members": {
+                "Grants": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "members": {
+                            "KeyId": {},
+                            "GrantId": {},
+                            "Name": {},
+                            "CreationDate": {
+                                "type": "timestamp"
+                            },
+                            "GranteePrincipal": {},
+                            "RetiringPrincipal": {},
+                            "IssuingAccount": {},
+                            "Operations": {
+                                "shape": "Sq"
+                            },
+                            "Constraints": {
+                                "shape": "Ss"
+                            }
+                        }
+                    }
+                },
+                "NextMarker": {},
+                "Truncated": {
+                    "type": "boolean"
+                },
+                "GrantCount": {
+                    "type": "long"
+                }
+            }
+        },
+        "S4r": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "KeyId": {},
+                    "KeyArn": {},
+                    "AliasList": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "Alias": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "Sd": {
+            "type": "string",
+            "sensitive": true
+        },
+        "Sh": {
+            "type": "list",
+            "member": {}
+        },
+        "Sn": {
+            "type": "list",
+            "member": {}
+        },
+        "Sw": {
+            "type": "string",
+            "deprecated": true,
+            "deprecatedMessage": "This enum has been deprecated. Instead, use the KeySpec enum."
+        },
+        "S10": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "TagKey",
+                    "TagValue"
+                ],
+                "members": {
+                    "TagKey": {},
+                    "TagValue": {}
+                }
+            }
+        },
+        "S16": {
+            "type": "structure",
+            "required": [
+                "KeyId"
+            ],
+            "members": {
+                "AWSAccountId": {},
+                "KeyId": {},
+                "Arn": {},
+                "CreationDate": {
+                    "type": "timestamp"
+                },
+                "Enabled": {
+                    "type": "boolean"
+                },
+                "Description": {},
+                "KeyUsage": {},
+                "KeyState": {},
+                "DeletionDate": {
+                    "type": "timestamp"
+                },
+                "ValidTo": {
+                    "type": "timestamp"
+                },
+                "Origin": {},
+                "CustomKeyStoreId": {},
+                "CloudHsmClusterId": {},
+                "ExpirationModel": {},
+                "KeyManager": {},
+                "CustomerMasterKeySpec": {
+                    "shape": "Sw",
+                    "deprecated": true,
+                    "deprecatedMessage": "This field has been deprecated. Instead, use the KeySpec field."
+                },
+                "KeySpec": {},
+                "EncryptionAlgorithms": {
+                    "shape": "S1d"
+                },
+                "SigningAlgorithms": {
+                    "shape": "S1f"
+                },
+                "MultiRegion": {
+                    "type": "boolean"
+                },
+                "MultiRegionConfiguration": {
+                    "type": "structure",
+                    "members": {
+                        "MultiRegionKeyType": {},
+                        "PrimaryKey": {
+                            "shape": "S1j"
+                        },
+                        "ReplicaKeys": {
+                            "type": "list",
+                            "member": {
+                                "shape": "S1j"
+                            }
+                        }
+                    }
+                },
+                "PendingDeletionWindowInDays": {
+                    "type": "integer"
+                },
+                "MacAlgorithms": {
+                    "type": "list",
+                    "member": {}
+                }
+            }
+        },
+        "S1d": {
+            "type": "list",
+            "member": {}
+        },
+        "S1j": {
+            "type": "structure",
+            "members": {
+                "Arn": {},
+                "Region": {}
+            }
+        },
+        "S1s": {
+            "type": "blob",
+            "sensitive": true
+        },
+        "S3d": {
+            "type": "structure",
+            "members": {
+                "Grants": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "members": {
+                            "KeyId": {},
+                            "GrantId": {},
+                            "Name": {},
+                            "CreationDate": {
+                                "type": "timestamp"
+                            },
+                            "GranteePrincipal": {},
+                            "RetiringPrincipal": {},
+                            "IssuingAccount": {},
+                            "Operations": {
+                                "shape": "Sh"
+                            },
+                            "Constraints": {
+                                "shape": "Sj"
+                            }
+                        }
+                    }
+                },
+                "NextMarker": {},
+                "Truncated": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "Sz": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "TagKey",
+                    "TagValue"
+                ],
+                "members": {
+                    "TagKey": {},
+                    "TagValue": {}
+                }
+            }
+        },
+        "S15": {
+            "type": "structure",
+            "required": [
+                "KeyId"
+            ],
+            "members": {
+                "AWSAccountId": {},
+                "KeyId": {},
+                "Arn": {},
+                "CreationDate": {
+                    "type": "timestamp"
+                },
+                "Enabled": {
+                    "type": "boolean"
+                },
+                "Description": {},
+                "KeyUsage": {},
+                "KeyState": {},
+                "DeletionDate": {
+                    "type": "timestamp"
+                },
+                "ValidTo": {
+                    "type": "timestamp"
+                },
+                "Origin": {},
+                "CustomKeyStoreId": {},
+                "CloudHsmClusterId": {},
+                "ExpirationModel": {},
+                "KeyManager": {},
+                "CustomerMasterKeySpec": {},
+                "EncryptionAlgorithms": {
+                    "shape": "S1c"
+                },
+                "SigningAlgorithms": {
+                    "shape": "S1e"
+                },
+                "MultiRegion": {
+                    "type": "boolean"
+                },
+                "MultiRegionConfiguration": {
+                    "type": "structure",
+                    "members": {
+                        "MultiRegionKeyType": {},
+                        "PrimaryKey": {
+                            "shape": "S1i"
+                        },
+                        "ReplicaKeys": {
+                            "type": "list",
+                            "member": {
+                                "shape": "S1i"
+                            }
+                        }
+                    }
+                },
+                "PendingDeletionWindowInDays": {
+                    "type": "integer"
+                }
+            }
+        },
+        "S1c": {
+            "type": "list",
+            "member": {}
+        },
+        "S1e": {
+            "type": "list",
+            "member": {}
+        },
+        "S1i": {
+            "type": "structure",
+            "members": {
+                "Arn": {},
+                "Region": {}
+            }
+        },
+        "S1p": {
+            "type": "blob",
+            "sensitive": true
+        },
+        "S38": {
+            "type": "structure",
+            "members": {
+                "Grants": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "members": {
+                            "KeyId": {},
+                            "GrantId": {},
+                            "Name": {},
+                            "CreationDate": {
+                                "type": "timestamp"
+                            },
+                            "GranteePrincipal": {},
+                            "RetiringPrincipal": {},
+                            "IssuingAccount": {},
+                            "Operations": {
+                                "shape": "Sh"
+                            },
+                            "Constraints": {
+                                "shape": "Sj"
+                            }
+                        }
+                    }
+                },
+                "NextMarker": {},
+                "Truncated": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "S14": {
+            "type": "structure",
+            "required": [
+                "KeyId"
+            ],
+            "members": {
+                "AWSAccountId": {},
+                "KeyId": {},
+                "Arn": {},
+                "CreationDate": {
+                    "type": "timestamp"
+                },
+                "Enabled": {
+                    "type": "boolean"
+                },
+                "Description": {},
+                "KeyUsage": {},
+                "KeyState": {},
+                "DeletionDate": {
+                    "type": "timestamp"
+                },
+                "ValidTo": {
+                    "type": "timestamp"
+                },
+                "Origin": {},
+                "CustomKeyStoreId": {},
+                "CloudHsmClusterId": {},
+                "ExpirationModel": {},
+                "KeyManager": {},
+                "CustomerMasterKeySpec": {},
+                "EncryptionAlgorithms": {
+                    "shape": "S1b"
+                },
+                "SigningAlgorithms": {
+                    "shape": "S1d"
+                }
+            }
+        },
+        "S1b": {
+            "type": "list",
+            "member": {}
+        },
+        "S31": {
+            "type": "structure",
+            "members": {
+                "Grants": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "members": {
+                            "KeyId": {},
+                            "GrantId": {},
+                            "Name": {},
+                            "CreationDate": {
+                                "type": "timestamp"
+                            },
+                            "GranteePrincipal": {},
+                            "RetiringPrincipal": {},
+                            "IssuingAccount": {},
+                            "Operations": {
+                                "shape": "Sh"
+                            },
+                            "Constraints": {
+                                "shape": "Sj"
+                            }
+                        }
+                    }
+                },
+                "NextMarker": {},
+                "Truncated": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "Sm": {
+            "type": "map",
+            "key": {},
+            "value": {}
+        },
+        "S19": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "TagKey",
+                    "TagValue"
+                ],
+                "members": {
+                    "TagKey": {},
+                    "TagValue": {}
+                }
+            }
+        },
+        "S1n": {
+            "type": "structure",
+            "required": [
+                "KeyId"
+            ],
+            "members": {
+                "AWSAccountId": {},
+                "KeyId": {},
+                "Arn": {},
+                "CreationDate": {
+                    "type": "timestamp"
+                },
+                "Enabled": {
+                    "type": "boolean"
+                },
+                "Description": {},
+                "KeyUsage": {},
+                "KeyState": {},
+                "DeletionDate": {
+                    "type": "timestamp"
+                },
+                "ValidTo": {
+                    "type": "timestamp"
+                },
+                "Origin": {},
+                "CustomKeyStoreId": {},
+                "CloudHsmClusterId": {},
+                "ExpirationModel": {},
+                "KeyManager": {},
+                "CustomerMasterKeySpec": {
+                    "shape": "S16",
+                    "deprecated": true
+                },
+                "KeySpec": {},
+                "EncryptionAlgorithms": {
+                    "shape": "S1s"
+                },
+                "SigningAlgorithms": {
+                    "shape": "S1u"
+                },
+                "MultiRegion": {
+                    "type": "boolean"
+                },
+                "MultiRegionConfiguration": {
+                    "shape": "S1d"
+                },
+                "PendingDeletionWindowInDays": {
+                    "type": "integer"
+                }
+            }
+        },
+        "S1u": {
+            "type": "list",
+            "member": {}
+        },
+        "S1z": {
+            "type": "blob",
+            "deprecated": true
+        },
+        "S20": {
+            "type": "structure",
+            "members": {
+                "PublicKey": {
+                    "shape": "S21"
+                },
+                "KeyEncryptionAlgorithm": {},
+                "AttestationDocument": {
+                    "type": "blob"
+                },
+                "CustomTrustAnchor": {
+                    "type": "blob"
+                }
+            }
+        },
+        "S27": {
+            "type": "blob",
+            "sensitive": true
+        },
+        "S2w": {
+            "type": "list",
+            "member": {
+                "shape": "S2x"
+            }
+        },
+        "S2x": {
+            "type": "structure",
+            "members": {
+                "KeyId": {},
+                "BackingKeyId": {},
+                "PreviousBackingKeyId": {},
+                "CreationDate": {
+                    "type": "timestamp"
+                }
+            }
+        },
+        "S44": {
+            "type": "structure",
+            "members": {
+                "GrantCount": {
+                    "type": "long"
+                },
+                "Grants": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "members": {
+                            "KeyId": {},
+                            "GrantId": {},
+                            "Name": {},
+                            "CreationDate": {
+                                "type": "timestamp"
+                            },
+                            "GranteePrincipal": {},
+                            "RetiringPrincipal": {},
+                            "IssuingAccount": {},
+                            "Operations": {
+                                "shape": "Sj"
+                            },
+                            "Constraints": {
+                                "shape": "Sk"
+                            }
+                        }
+                    }
+                },
+                "NextMarker": {},
+                "Truncated": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "S4e": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "KeyId": {},
+                    "KeyArn": {},
+                    "AliasList": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "Alias": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "Si": {
+            "type": "structure",
+            "required": [
+                "AccessKeyId",
+                "RawSecretAccessKey"
+            ],
+            "members": {
+                "AccessKeyId": {
+                    "shape": "Sj"
+                },
+                "RawSecretAccessKey": {
+                    "type": "string",
+                    "sensitive": true
+                }
+            }
+        },
+        "Sp": {
+            "type": "list",
+            "member": {}
+        },
+        "Sr": {
+            "type": "structure",
+            "members": {
+                "EncryptionContextSubset": {
+                    "shape": "Ss"
+                },
+                "EncryptionContextEquals": {
+                    "shape": "Ss"
+                }
+            }
+        },
+        "Sv": {
+            "type": "list",
+            "member": {}
+        },
+        "S18": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "TagKey",
+                    "TagValue"
+                ],
+                "members": {
+                    "TagKey": {},
+                    "TagValue": {}
+                }
+            }
+        },
+        "S22": {
+            "type": "blob",
+            "sensitive": true
+        },
+        "S3o": {
+            "type": "structure",
+            "members": {
+                "Grants": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "members": {
+                            "KeyId": {},
+                            "GrantId": {},
+                            "Name": {},
+                            "CreationDate": {
+                                "type": "timestamp"
+                            },
+                            "GranteePrincipal": {},
+                            "RetiringPrincipal": {},
+                            "IssuingAccount": {},
+                            "Operations": {
+                                "shape": "Sp"
+                            },
+                            "Constraints": {
+                                "shape": "Sr"
+                            }
+                        }
+                    }
+                },
+                "NextMarker": {},
+                "Truncated": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "S4c": {
+            "type": "structure",
+            "members": {
+                "Grants": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "members": {
+                            "KeyId": {},
+                            "GrantId": {},
+                            "Name": {},
+                            "CreationDate": {
+                                "type": "timestamp"
+                            },
+                            "GranteePrincipal": {},
+                            "RetiringPrincipal": {},
+                            "IssuingAccount": {},
+                            "Operations": {
+                                "shape": "Sq"
+                            },
+                            "Constraints": {
+                                "shape": "Ss"
+                            }
+                        }
+                    }
+                },
+                "NextMarker": {},
+                "Truncated": {
+                    "type": "boolean"
+                },
+                "GrantCount": {
+                    "type": "long"
+                }
+            }
+        },
+        "S4l": {
+            "type": "structure",
+            "members": {
+                "KeyId": {},
+                "BackingKeyId": {},
+                "PreviousBackingKeyId": {},
+                "CreationDate": {
+                    "type": "timestamp"
+                }
+            }
+        },
+        "S4p": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "KeyId": {},
+                    "KeyArn": {},
+                    "AliasList": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "Alias": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "S4b": {
+            "type": "structure",
+            "members": {
+                "Grants": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "members": {
+                            "KeyId": {},
+                            "GrantId": {},
+                            "Name": {},
+                            "CreationDate": {
+                                "type": "timestamp"
+                            },
+                            "GranteePrincipal": {},
+                            "RetiringPrincipal": {},
+                            "IssuingAccount": {},
+                            "Operations": {
+                                "shape": "Sq"
+                            },
+                            "Constraints": {
+                                "shape": "Ss"
+                            }
+                        }
+                    }
+                },
+                "NextMarker": {},
+                "Truncated": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "S4k": {
+            "type": "structure",
+            "members": {
+                "KeyId": {},
+                "BackingKeyId": {},
+                "PreviousBackingKeyId": {},
+                "CreationDate": {
+                    "type": "timestamp"
+                }
+            }
+        },
+        "S4o": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "KeyId": {},
+                    "KeyArn": {},
+                    "AliasList": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "Alias": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "S1q": {
+            "type": "blob",
+            "sensitive": true
+        },
+        "S39": {
+            "type": "structure",
+            "members": {
+                "Grants": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "members": {
+                            "KeyId": {},
+                            "GrantId": {},
+                            "Name": {},
+                            "CreationDate": {
+                                "type": "timestamp"
+                            },
+                            "GranteePrincipal": {},
+                            "RetiringPrincipal": {},
+                            "IssuingAccount": {},
+                            "Operations": {
+                                "shape": "Sh"
+                            },
+                            "Constraints": {
+                                "shape": "Sj"
+                            }
+                        }
+                    }
+                },
+                "NextMarker": {},
+                "Truncated": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "S29": {
+            "type": "blob",
+            "sensitive": true
+        },
+        "S45": {
+            "type": "structure",
+            "members": {
+                "GrantCount": {
+                    "type": "long"
+                },
+                "Grants": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "members": {
+                            "KeyId": {},
+                            "GrantId": {},
+                            "Name": {},
+                            "CreationDate": {
+                                "type": "timestamp"
+                            },
+                            "GranteePrincipal": {},
+                            "RetiringPrincipal": {},
+                            "IssuingAccount": {},
+                            "Operations": {
+                                "shape": "Sj"
+                            },
+                            "Constraints": {
+                                "shape": "Sk"
+                            }
+                        }
+                    }
+                },
+                "NextMarker": {},
+                "Truncated": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "S4i": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "KeyId": {},
+                    "KeyArn": {},
+                    "AliasList": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "Alias": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "S2y": {
+            "type": "list",
+            "member": {
+                "shape": "S2z"
+            }
+        },
+        "S2z": {
+            "type": "structure",
+            "members": {
+                "KeyId": {},
+                "BackingKeyId": {},
+                "PreviousBackingKeyId": {},
+                "CreationDate": {
+                    "type": "timestamp"
+                }
+            }
+        },
+        "S4a": {
+            "type": "structure",
+            "members": {
+                "GrantCount": {
+                    "type": "long"
+                },
+                "Grants": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "members": {
+                            "KeyId": {},
+                            "GrantId": {},
+                            "Name": {},
+                            "CreationDate": {
+                                "type": "timestamp"
+                            },
+                            "GranteePrincipal": {},
+                            "RetiringPrincipal": {},
+                            "IssuingAccount": {},
+                            "Operations": {
+                                "shape": "Sj"
+                            },
+                            "Constraints": {
+                                "shape": "Sk"
+                            }
+                        }
+                    }
+                },
+                "NextMarker": {},
+                "Truncated": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "S25": {
+            "type": "blob",
+            "sensitive": true
+        },
+        "S3r": {
+            "type": "structure",
+            "members": {
+                "Grants": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "members": {
+                            "KeyId": {},
+                            "GrantId": {},
+                            "Name": {},
+                            "CreationDate": {
+                                "type": "timestamp"
+                            },
+                            "GranteePrincipal": {},
+                            "RetiringPrincipal": {},
+                            "IssuingAccount": {},
+                            "Operations": {
+                                "shape": "Sp"
+                            },
+                            "Constraints": {
+                                "shape": "Sr"
+                            }
+                        }
+                    }
+                },
+                "NextMarker": {},
+                "Truncated": {
+                    "type": "boolean"
+                }
+            }
+        }
+    }
+}

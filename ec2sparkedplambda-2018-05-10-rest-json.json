@@ -1,0 +1,139 @@
+{
+    "version": "2.0",
+    "metadata": {
+        "apiVersion": "2018-05-10",
+        "endpointPrefix": "ec2sparkedplambda",
+        "jsonVersion": "1.1",
+        "protocol": "rest-json",
+        "serviceFullName": "A beautiful and amazing EC2SparkEDPLambda",
+        "serviceId": "EC2SparkEDPLambda",
+        "signatureVersion": "v4",
+        "signingName": "execute-api",
+        "uid": "ec2sparkedplambda-2018-05-10",
+        "download_location": [
+            "https://a.b.cdn.console.awsstatic.com/760b4aa65f03c2c28942ffdbec8cc50751a89e3f53d2f7db2b6dd741f14daef0/main.js"
+        ]
+    },
+    "operations": {
+        "describeAccountUsage": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/describeAccountUsage/{accountId}/SPLAFilter/{filter}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "accountId",
+                    "filter"
+                ],
+                "members": {
+                    "accountId": {
+                        "location": "uri",
+                        "locationName": "accountId"
+                    },
+                    "filter": {
+                        "location": "uri",
+                        "locationName": "filter"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "accountResult": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/760b4aa65f03c2c28942ffdbec8cc50751a89e3f53d2f7db2b6dd741f14daef0/main.js"
+            ]
+        },
+        "describeTeamUsage": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/describeTeamUsage/{accountId}/billingProduct/{billingProduct}/start/{startUsageTime}/end/{endUsageTime}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "accountId",
+                    "billingProduct",
+                    "endUsageTime",
+                    "startUsageTime"
+                ],
+                "members": {
+                    "accountId": {
+                        "location": "uri",
+                        "locationName": "accountId"
+                    },
+                    "amzSSOToken": {
+                        "location": "header",
+                        "locationName": "X-FORWARDED-MIDWAY-TOKEN"
+                    },
+                    "billingProduct": {
+                        "location": "uri",
+                        "locationName": "billingProduct"
+                    },
+                    "endUsageTime": {
+                        "location": "uri",
+                        "locationName": "endUsageTime",
+                        "type": "long"
+                    },
+                    "limit": {
+                        "location": "querystring",
+                        "locationName": "limit",
+                        "type": "integer"
+                    },
+                    "nextToken": {
+                        "location": "querystring",
+                        "locationName": "NextToken"
+                    },
+                    "startUsageTime": {
+                        "location": "uri",
+                        "locationName": "startUsageTime",
+                        "type": "long"
+                    },
+                    "userAlias": {
+                        "location": "header",
+                        "locationName": "X-FORWARDED-USER"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "nextToken": {},
+                    "teamUsage": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "accountCostCenter": {},
+                                "accountDescription": {},
+                                "accountId": {},
+                                "accountOwnerManager": {},
+                                "accountOwnerSupervisorChain": {},
+                                "accountPaidStatus": {},
+                                "classification": {},
+                                "fleet": {},
+                                "licensingCost": {
+                                    "type": "double"
+                                },
+                                "parentFleet": {},
+                                "parentFleetOwner": {},
+                                "primaryAccountOwner": {},
+                                "tagAttribute": {},
+                                "usage": {}
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/760b4aa65f03c2c28942ffdbec8cc50751a89e3f53d2f7db2b6dd741f14daef0/main.js"
+            ]
+        }
+    },
+    "shapes": {}
+}

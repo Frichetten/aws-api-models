@@ -1,0 +1,1812 @@
+{
+    "version": "2.0",
+    "metadata": {
+        "apiVersion": "2021-08-28",
+        "endpointPrefix": "migrationhub-orchestrator",
+        "jsonVersion": "1.1",
+        "protocol": "rest-json",
+        "serviceFullName": "AWS Migration Hub Orchestrator",
+        "serviceId": "MigrationHubOrchestrator",
+        "signatureVersion": "v4",
+        "signingName": "migrationhub-orchestrator",
+        "uid": "migrationhuborchestrator-2021-08-28",
+        "download_location": [
+            "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+        ]
+    },
+    "operations": {
+        "CreateWorkflow": {
+            "http": {
+                "requestUri": "/migrationworkflow/",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "name",
+                    "templateId",
+                    "applicationConfigurationId",
+                    "inputParameters"
+                ],
+                "members": {
+                    "name": {},
+                    "description": {},
+                    "templateId": {},
+                    "applicationConfigurationId": {},
+                    "inputParameters": {
+                        "shape": "S6"
+                    },
+                    "stepTargets": {
+                        "shape": "Sb"
+                    },
+                    "tags": {
+                        "shape": "Sd"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "id": {},
+                    "arn": {},
+                    "name": {},
+                    "description": {},
+                    "templateId": {},
+                    "adsApplicationConfigurationId": {},
+                    "workflowInputs": {
+                        "shape": "S6"
+                    },
+                    "stepTargets": {
+                        "shape": "Sb"
+                    },
+                    "status": {},
+                    "creationTime": {
+                        "type": "timestamp"
+                    },
+                    "tags": {
+                        "shape": "Sd"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "CreateWorkflowStep": {
+            "http": {
+                "requestUri": "/workflowstep",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "name",
+                    "stepGroupId",
+                    "workflowId",
+                    "stepActionType"
+                ],
+                "members": {
+                    "name": {},
+                    "stepGroupId": {},
+                    "workflowId": {},
+                    "stepActionType": {},
+                    "description": {},
+                    "workflowStepAutomationConfiguration": {
+                        "shape": "Sq"
+                    },
+                    "stepTarget": {
+                        "shape": "Sb"
+                    },
+                    "outputs": {
+                        "shape": "Sx"
+                    },
+                    "previous": {
+                        "shape": "Sb"
+                    },
+                    "next": {
+                        "shape": "Sb"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "id": {},
+                    "stepGroupId": {},
+                    "workflowId": {},
+                    "name": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "CreateWorkflowStepGroup": {
+            "http": {
+                "requestUri": "/workflowstepgroups",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "workflowId",
+                    "name"
+                ],
+                "members": {
+                    "workflowId": {},
+                    "name": {},
+                    "description": {},
+                    "next": {
+                        "shape": "Sb"
+                    },
+                    "previous": {
+                        "shape": "Sb"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "workflowId": {},
+                    "name": {},
+                    "id": {},
+                    "description": {},
+                    "tools": {
+                        "shape": "S18"
+                    },
+                    "next": {
+                        "shape": "Sb"
+                    },
+                    "previous": {
+                        "shape": "Sb"
+                    },
+                    "creationTime": {
+                        "type": "timestamp"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "DeleteWorkflow": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/migrationworkflow/{id}",
+                "responseCode": 202
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "id"
+                ],
+                "members": {
+                    "id": {
+                        "location": "uri",
+                        "locationName": "id"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "id": {},
+                    "arn": {},
+                    "status": {}
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "DeleteWorkflowStep": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/workflowstep/{id}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "id",
+                    "stepGroupId",
+                    "workflowId"
+                ],
+                "members": {
+                    "id": {
+                        "location": "uri",
+                        "locationName": "id"
+                    },
+                    "stepGroupId": {
+                        "location": "querystring",
+                        "locationName": "stepGroupId"
+                    },
+                    "workflowId": {
+                        "location": "querystring",
+                        "locationName": "workflowId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "DeleteWorkflowStepGroup": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/workflowstepgroup/{id}",
+                "responseCode": 202
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "workflowId",
+                    "id"
+                ],
+                "members": {
+                    "workflowId": {
+                        "location": "querystring",
+                        "locationName": "workflowId"
+                    },
+                    "id": {
+                        "location": "uri",
+                        "locationName": "id"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "GetTemplate": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/migrationworkflowtemplate/{id}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "id"
+                ],
+                "members": {
+                    "id": {
+                        "location": "uri",
+                        "locationName": "id"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "id": {},
+                    "name": {},
+                    "description": {},
+                    "inputs": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "inputName": {},
+                                "dataType": {},
+                                "required": {
+                                    "type": "boolean"
+                                }
+                            }
+                        }
+                    },
+                    "tools": {
+                        "shape": "S18"
+                    },
+                    "status": {},
+                    "creationTime": {
+                        "type": "timestamp"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "GetTemplateStep": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/templatestep/{id}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "id",
+                    "templateId",
+                    "stepGroupId"
+                ],
+                "members": {
+                    "id": {
+                        "location": "uri",
+                        "locationName": "id"
+                    },
+                    "templateId": {
+                        "location": "querystring",
+                        "locationName": "templateId"
+                    },
+                    "stepGroupId": {
+                        "location": "querystring",
+                        "locationName": "stepGroupId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "id": {},
+                    "stepGroupId": {},
+                    "templateId": {},
+                    "name": {},
+                    "description": {},
+                    "stepActionType": {},
+                    "creationTime": {},
+                    "previous": {
+                        "shape": "Sb"
+                    },
+                    "next": {
+                        "shape": "Sb"
+                    },
+                    "outputs": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "name": {},
+                                "dataType": {},
+                                "required": {
+                                    "type": "boolean"
+                                }
+                            }
+                        }
+                    },
+                    "stepAutomationConfiguration": {
+                        "type": "structure",
+                        "members": {
+                            "scriptLocationS3Bucket": {},
+                            "scriptLocationS3Key": {
+                                "shape": "Ss"
+                            },
+                            "command": {
+                                "shape": "Su"
+                            },
+                            "runEnvironment": {},
+                            "targetType": {}
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "GetTemplateStepGroup": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/templates/{templateId}/stepgroups/{id}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "templateId",
+                    "id"
+                ],
+                "members": {
+                    "templateId": {
+                        "location": "uri",
+                        "locationName": "templateId"
+                    },
+                    "id": {
+                        "location": "uri",
+                        "locationName": "id"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "templateId": {},
+                    "id": {},
+                    "name": {},
+                    "description": {},
+                    "status": {},
+                    "creationTime": {
+                        "type": "timestamp"
+                    },
+                    "lastModifiedTime": {
+                        "type": "timestamp"
+                    },
+                    "tools": {
+                        "shape": "S18"
+                    },
+                    "previous": {
+                        "shape": "Sb"
+                    },
+                    "next": {
+                        "shape": "Sb"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "GetWorkflow": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/migrationworkflow/{id}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "id"
+                ],
+                "members": {
+                    "id": {
+                        "location": "uri",
+                        "locationName": "id"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "id": {},
+                    "arn": {},
+                    "name": {},
+                    "description": {},
+                    "templateId": {},
+                    "adsApplicationConfigurationId": {},
+                    "adsApplicationName": {},
+                    "status": {},
+                    "statusMessage": {},
+                    "creationTime": {
+                        "type": "timestamp"
+                    },
+                    "lastStartTime": {
+                        "type": "timestamp"
+                    },
+                    "lastStopTime": {
+                        "type": "timestamp"
+                    },
+                    "lastModifiedTime": {
+                        "type": "timestamp"
+                    },
+                    "endTime": {
+                        "type": "timestamp"
+                    },
+                    "tools": {
+                        "shape": "S18"
+                    },
+                    "totalSteps": {
+                        "type": "integer"
+                    },
+                    "completedSteps": {
+                        "type": "integer"
+                    },
+                    "workflowInputs": {
+                        "shape": "S6"
+                    },
+                    "tags": {
+                        "shape": "Sd"
+                    },
+                    "workflowBucket": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "GetWorkflowStep": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/workflowstep/{id}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "workflowId",
+                    "stepGroupId",
+                    "id"
+                ],
+                "members": {
+                    "workflowId": {
+                        "location": "querystring",
+                        "locationName": "workflowId"
+                    },
+                    "stepGroupId": {
+                        "location": "querystring",
+                        "locationName": "stepGroupId"
+                    },
+                    "id": {
+                        "location": "uri",
+                        "locationName": "id"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "name": {},
+                    "stepGroupId": {},
+                    "workflowId": {},
+                    "stepId": {},
+                    "description": {},
+                    "stepActionType": {},
+                    "owner": {},
+                    "workflowStepAutomationConfiguration": {
+                        "shape": "Sq"
+                    },
+                    "stepTarget": {
+                        "shape": "Sb"
+                    },
+                    "outputs": {
+                        "type": "list",
+                        "member": {
+                            "shape": "Sy"
+                        }
+                    },
+                    "previous": {
+                        "shape": "Sb"
+                    },
+                    "next": {
+                        "shape": "Sb"
+                    },
+                    "status": {},
+                    "statusMessage": {},
+                    "scriptOutputLocation": {},
+                    "creationTime": {
+                        "type": "timestamp"
+                    },
+                    "lastStartTime": {
+                        "type": "timestamp"
+                    },
+                    "endTime": {
+                        "type": "timestamp"
+                    },
+                    "noOfSrvCompleted": {
+                        "type": "integer"
+                    },
+                    "noOfSrvFailed": {
+                        "type": "integer"
+                    },
+                    "totalNoOfSrv": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "GetWorkflowStepGroup": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/workflowstepgroup/{id}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "id",
+                    "workflowId"
+                ],
+                "members": {
+                    "id": {
+                        "location": "uri",
+                        "locationName": "id"
+                    },
+                    "workflowId": {
+                        "location": "querystring",
+                        "locationName": "workflowId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "id": {},
+                    "workflowId": {},
+                    "name": {},
+                    "description": {},
+                    "status": {},
+                    "owner": {},
+                    "creationTime": {
+                        "type": "timestamp"
+                    },
+                    "lastModifiedTime": {
+                        "type": "timestamp"
+                    },
+                    "endTime": {
+                        "type": "timestamp"
+                    },
+                    "tools": {
+                        "shape": "S18"
+                    },
+                    "previous": {
+                        "shape": "Sb"
+                    },
+                    "next": {
+                        "shape": "Sb"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "ListPlugins": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/plugins",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "maxResults": {
+                        "location": "querystring",
+                        "locationName": "maxResults",
+                        "type": "integer"
+                    },
+                    "nextToken": {
+                        "location": "querystring",
+                        "locationName": "nextToken"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "nextToken": {},
+                    "plugins": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "pluginId": {},
+                                "hostname": {},
+                                "status": {},
+                                "ipAddress": {},
+                                "version": {},
+                                "registeredTime": {}
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "ListTagsForResource": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/tags/{resourceArn}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "resourceArn"
+                ],
+                "members": {
+                    "resourceArn": {
+                        "location": "uri",
+                        "locationName": "resourceArn"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "tags": {
+                        "shape": "S2i"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "ListTemplateStepGroups": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/templatestepgroups/{templateId}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "templateId"
+                ],
+                "members": {
+                    "maxResults": {
+                        "location": "querystring",
+                        "locationName": "maxResults",
+                        "type": "integer"
+                    },
+                    "nextToken": {
+                        "location": "querystring",
+                        "locationName": "nextToken"
+                    },
+                    "templateId": {
+                        "location": "uri",
+                        "locationName": "templateId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "templateStepGroupSummary"
+                ],
+                "members": {
+                    "nextToken": {},
+                    "templateStepGroupSummary": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "id": {},
+                                "name": {},
+                                "previous": {
+                                    "shape": "Sb"
+                                },
+                                "next": {
+                                    "shape": "Sb"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "ListTemplateSteps": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/templatesteps",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "templateId",
+                    "stepGroupId"
+                ],
+                "members": {
+                    "maxResults": {
+                        "location": "querystring",
+                        "locationName": "maxResults",
+                        "type": "integer"
+                    },
+                    "nextToken": {
+                        "location": "querystring",
+                        "locationName": "nextToken"
+                    },
+                    "templateId": {
+                        "location": "querystring",
+                        "locationName": "templateId"
+                    },
+                    "stepGroupId": {
+                        "location": "querystring",
+                        "locationName": "stepGroupId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "nextToken": {},
+                    "templateStepSummaryList": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "id": {},
+                                "stepGroupId": {},
+                                "templateId": {},
+                                "name": {},
+                                "stepActionType": {},
+                                "targetType": {},
+                                "owner": {},
+                                "previous": {
+                                    "shape": "Sb"
+                                },
+                                "next": {
+                                    "shape": "Sb"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "ListTemplates": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/migrationworkflowtemplates",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "maxResults": {
+                        "location": "querystring",
+                        "locationName": "maxResults",
+                        "type": "integer"
+                    },
+                    "nextToken": {
+                        "location": "querystring",
+                        "locationName": "nextToken"
+                    },
+                    "name": {
+                        "location": "querystring",
+                        "locationName": "name"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "templateSummary"
+                ],
+                "members": {
+                    "nextToken": {},
+                    "templateSummary": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "id": {},
+                                "name": {},
+                                "arn": {},
+                                "description": {}
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "ListWorkflowStepGroups": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/workflowstepgroups",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "workflowId"
+                ],
+                "members": {
+                    "nextToken": {
+                        "location": "querystring",
+                        "locationName": "nextToken"
+                    },
+                    "maxResults": {
+                        "location": "querystring",
+                        "locationName": "maxResults",
+                        "type": "integer"
+                    },
+                    "workflowId": {
+                        "location": "querystring",
+                        "locationName": "workflowId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "workflowStepGroupsSummary"
+                ],
+                "members": {
+                    "nextToken": {},
+                    "workflowStepGroupsSummary": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "id": {},
+                                "name": {},
+                                "owner": {},
+                                "status": {},
+                                "previous": {
+                                    "shape": "Sb"
+                                },
+                                "next": {
+                                    "shape": "Sb"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "ListWorkflowSteps": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/workflow/{workflowId}/workflowstepgroups/{stepGroupId}/workflowsteps",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "workflowId",
+                    "stepGroupId"
+                ],
+                "members": {
+                    "nextToken": {
+                        "location": "querystring",
+                        "locationName": "nextToken"
+                    },
+                    "maxResults": {
+                        "location": "querystring",
+                        "locationName": "maxResults",
+                        "type": "integer"
+                    },
+                    "workflowId": {
+                        "location": "uri",
+                        "locationName": "workflowId"
+                    },
+                    "stepGroupId": {
+                        "location": "uri",
+                        "locationName": "stepGroupId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "workflowStepsSummary"
+                ],
+                "members": {
+                    "nextToken": {},
+                    "workflowStepsSummary": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "stepId": {},
+                                "name": {},
+                                "stepActionType": {},
+                                "owner": {},
+                                "previous": {
+                                    "shape": "Sb"
+                                },
+                                "next": {
+                                    "shape": "Sb"
+                                },
+                                "status": {},
+                                "statusMessage": {},
+                                "noOfSrvCompleted": {
+                                    "type": "integer"
+                                },
+                                "noOfSrvFailed": {
+                                    "type": "integer"
+                                },
+                                "totalNoOfSrv": {
+                                    "type": "integer"
+                                },
+                                "description": {},
+                                "scriptLocation": {}
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "ListWorkflows": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/migrationworkflows",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "maxResults": {
+                        "location": "querystring",
+                        "locationName": "maxResults",
+                        "type": "integer"
+                    },
+                    "nextToken": {
+                        "location": "querystring",
+                        "locationName": "nextToken"
+                    },
+                    "templateId": {
+                        "location": "querystring",
+                        "locationName": "templateId"
+                    },
+                    "adsApplicationConfigurationName": {
+                        "location": "querystring",
+                        "locationName": "adsApplicationConfigurationName"
+                    },
+                    "status": {
+                        "location": "querystring",
+                        "locationName": "status"
+                    },
+                    "name": {
+                        "location": "querystring",
+                        "locationName": "name"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "migrationWorkflowSummary"
+                ],
+                "members": {
+                    "nextToken": {},
+                    "migrationWorkflowSummary": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "id": {},
+                                "name": {},
+                                "templateId": {},
+                                "adsApplicationConfigurationName": {},
+                                "status": {},
+                                "creationTime": {
+                                    "type": "timestamp"
+                                },
+                                "endTime": {
+                                    "type": "timestamp"
+                                },
+                                "statusMessage": {},
+                                "completedSteps": {
+                                    "type": "integer"
+                                },
+                                "totalSteps": {
+                                    "type": "integer"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "RetryWorkflowStep": {
+            "http": {
+                "requestUri": "/retryworkflowstep/{id}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "workflowId",
+                    "stepGroupId",
+                    "id"
+                ],
+                "members": {
+                    "workflowId": {
+                        "location": "querystring",
+                        "locationName": "workflowId"
+                    },
+                    "stepGroupId": {
+                        "location": "querystring",
+                        "locationName": "stepGroupId"
+                    },
+                    "id": {
+                        "location": "uri",
+                        "locationName": "id"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "stepGroupId": {},
+                    "workflowId": {},
+                    "id": {},
+                    "status": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "StartWorkflow": {
+            "http": {
+                "requestUri": "/migrationworkflow/{id}/start",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "id"
+                ],
+                "members": {
+                    "id": {
+                        "location": "uri",
+                        "locationName": "id"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "id": {},
+                    "arn": {},
+                    "status": {},
+                    "statusMessage": {},
+                    "lastStartTime": {
+                        "type": "timestamp"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "StopWorkflow": {
+            "http": {
+                "requestUri": "/migrationworkflow/{id}/stop",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "id"
+                ],
+                "members": {
+                    "id": {
+                        "location": "uri",
+                        "locationName": "id"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "id": {},
+                    "arn": {},
+                    "status": {},
+                    "statusMessage": {},
+                    "lastStopTime": {
+                        "type": "timestamp"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "TagResource": {
+            "http": {
+                "requestUri": "/tags/{resourceArn}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "resourceArn",
+                    "tags"
+                ],
+                "members": {
+                    "resourceArn": {
+                        "location": "uri",
+                        "locationName": "resourceArn"
+                    },
+                    "tags": {
+                        "shape": "S2i"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "UntagResource": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/tags/{resourceArn}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "resourceArn",
+                    "tagKeys"
+                ],
+                "members": {
+                    "resourceArn": {
+                        "location": "uri",
+                        "locationName": "resourceArn"
+                    },
+                    "tagKeys": {
+                        "location": "querystring",
+                        "locationName": "tagKeys",
+                        "type": "list",
+                        "member": {}
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "UpdateWorkflow": {
+            "http": {
+                "requestUri": "/migrationworkflow/{id}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "id"
+                ],
+                "members": {
+                    "id": {
+                        "location": "uri",
+                        "locationName": "id"
+                    },
+                    "name": {},
+                    "description": {},
+                    "inputParameters": {
+                        "shape": "S6"
+                    },
+                    "stepTargets": {
+                        "shape": "Sb"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "id": {},
+                    "arn": {},
+                    "name": {},
+                    "description": {},
+                    "templateId": {},
+                    "adsApplicationConfigurationId": {},
+                    "workflowInputs": {
+                        "shape": "S6"
+                    },
+                    "stepTargets": {
+                        "shape": "Sb"
+                    },
+                    "status": {},
+                    "creationTime": {
+                        "type": "timestamp"
+                    },
+                    "lastModifiedTime": {
+                        "type": "timestamp"
+                    },
+                    "tags": {
+                        "shape": "Sd"
+                    }
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "UpdateWorkflowStep": {
+            "http": {
+                "requestUri": "/workflowstep/{id}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "id",
+                    "stepGroupId",
+                    "workflowId"
+                ],
+                "members": {
+                    "id": {
+                        "location": "uri",
+                        "locationName": "id"
+                    },
+                    "stepGroupId": {},
+                    "workflowId": {},
+                    "name": {},
+                    "description": {},
+                    "stepActionType": {},
+                    "workflowStepAutomationConfiguration": {
+                        "shape": "Sq"
+                    },
+                    "stepTarget": {
+                        "shape": "Sb"
+                    },
+                    "outputs": {
+                        "shape": "Sx"
+                    },
+                    "previous": {
+                        "shape": "Sb"
+                    },
+                    "next": {
+                        "shape": "Sb"
+                    },
+                    "status": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "id": {},
+                    "stepGroupId": {},
+                    "workflowId": {},
+                    "name": {}
+                }
+            },
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "UpdateWorkflowStepGroup": {
+            "http": {
+                "requestUri": "/workflowstepgroup/{id}",
+                "responseCode": 202
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "workflowId",
+                    "id"
+                ],
+                "members": {
+                    "workflowId": {
+                        "location": "querystring",
+                        "locationName": "workflowId"
+                    },
+                    "id": {
+                        "location": "uri",
+                        "locationName": "id"
+                    },
+                    "name": {},
+                    "description": {},
+                    "next": {
+                        "shape": "Sb"
+                    },
+                    "previous": {
+                        "shape": "Sb"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "workflowId": {},
+                    "name": {},
+                    "id": {},
+                    "description": {},
+                    "tools": {
+                        "shape": "S18"
+                    },
+                    "next": {
+                        "shape": "Sb"
+                    },
+                    "previous": {
+                        "shape": "Sb"
+                    },
+                    "lastModifiedTime": {
+                        "type": "timestamp"
+                    }
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://dj1z41g2qjql6.cloudfront.net/714b4ed217f18a803e4988c7f8dbfd696775025a/main.js"
+            ]
+        },
+        "GetMessage": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/get-message/{pluginId}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "pluginId"
+                ],
+                "members": {
+                    "pluginId": {
+                        "location": "uri",
+                        "locationName": "pluginId"
+                    },
+                    "taskId": {
+                        "location": "querystring",
+                        "locationName": "taskId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "taskInformation": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "taskId",
+                                "pluginId",
+                                "hostIP",
+                                "taskState",
+                                "taskType"
+                            ],
+                            "members": {
+                                "taskId": {},
+                                "pluginId": {},
+                                "hostIP": {},
+                                "taskState": {},
+                                "commandArtifacts": {
+                                    "type": "list",
+                                    "member": {
+                                        "type": "structure",
+                                        "required": [
+                                            "logOutputS3Object",
+                                            "owner"
+                                        ],
+                                        "members": {
+                                            "command": {
+                                                "shape": "Su"
+                                            },
+                                            "logOutputS3Object": {
+                                                "type": "structure",
+                                                "members": {
+                                                    "s3Bucket": {},
+                                                    "s3key": {}
+                                                }
+                                            },
+                                            "scriptLocation": {
+                                                "type": "structure",
+                                                "members": {
+                                                    "s3Bucket": {},
+                                                    "s3key": {
+                                                        "shape": "Ss"
+                                                    }
+                                                }
+                                            },
+                                            "checksum": {
+                                                "type": "structure",
+                                                "members": {
+                                                    "linux": {},
+                                                    "windows": {}
+                                                }
+                                            },
+                                            "owner": {}
+                                        }
+                                    }
+                                },
+                                "taskType": {},
+                                "stepGroupId": {},
+                                "workflowId": {},
+                                "stepId": {}
+                            }
+                        }
+                    }
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/DU5T56LHL6SR7GWPWHYSLLGIPLX2DVJ6QIXK6AEIQJFCIIBENVOQ/vendors.js"
+            ]
+        },
+        "LockServiceLinkedRole": {
+            "http": {
+                "requestUri": "/slr-deletion/lock",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "RoleArn",
+                    "Timeout"
+                ],
+                "members": {
+                    "RoleArn": {},
+                    "Timeout": {
+                        "type": "long"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "CanBeDeleted"
+                ],
+                "members": {
+                    "CanBeDeleted": {
+                        "type": "boolean"
+                    },
+                    "ReasonOfFailure": {},
+                    "RelatedResources": {
+                        "type": "list",
+                        "member": {}
+                    }
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/DU5T56LHL6SR7GWPWHYSLLGIPLX2DVJ6QIXK6AEIQJFCIIBENVOQ/vendors.js"
+            ]
+        },
+        "RegisterPlugin": {
+            "http": {
+                "requestUri": "/register-plugin",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "pluginVersion": {},
+                    "pluginType": {},
+                    "hostInfo": {
+                        "type": "structure",
+                        "required": [
+                            "hostName",
+                            "machineId",
+                            "virtualId",
+                            "networkInfoList"
+                        ],
+                        "members": {
+                            "hostName": {},
+                            "machineId": {},
+                            "virtualId": {},
+                            "smBiosId": {},
+                            "processorSerialNumber": {},
+                            "motherboardSerialNumber": {},
+                            "productSerialNumber": {},
+                            "osInfo": {
+                                "type": "structure",
+                                "members": {
+                                    "type": {},
+                                    "version": {}
+                                }
+                            },
+                            "kernelVersion": {},
+                            "networkInfoList": {
+                                "type": "list",
+                                "member": {
+                                    "type": "structure",
+                                    "required": [
+                                        "interfaceName",
+                                        "ipAddress",
+                                        "macAddress",
+                                        "netMask"
+                                    ],
+                                    "members": {
+                                        "interfaceName": {},
+                                        "ipAddress": {},
+                                        "macAddress": {},
+                                        "netMask": {}
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "pluginId": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "pluginId": {}
+                }
+            },
+            "idempotent": true,
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/DU5T56LHL6SR7GWPWHYSLLGIPLX2DVJ6QIXK6AEIQJFCIIBENVOQ/vendors.js"
+            ]
+        },
+        "SendMessage": {
+            "http": {
+                "requestUri": "/send-message/{pluginId}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "pluginId",
+                    "taskId",
+                    "taskState"
+                ],
+                "members": {
+                    "pluginId": {
+                        "location": "uri",
+                        "locationName": "pluginId"
+                    },
+                    "taskId": {},
+                    "taskState": {},
+                    "statusMessage": {},
+                    "errorCode": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "idempotent": true,
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/DU5T56LHL6SR7GWPWHYSLLGIPLX2DVJ6QIXK6AEIQJFCIIBENVOQ/vendors.js"
+            ]
+        },
+        "UnlockServiceLinkedRole": {
+            "http": {
+                "requestUri": "/slr-deletion/unlock",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "RoleArn"
+                ],
+                "members": {
+                    "RoleArn": {},
+                    "DeletionStatus": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/DU5T56LHL6SR7GWPWHYSLLGIPLX2DVJ6QIXK6AEIQJFCIIBENVOQ/vendors.js"
+            ]
+        }
+    },
+    "shapes": {
+        "S6": {
+            "type": "map",
+            "key": {},
+            "value": {
+                "type": "structure",
+                "members": {
+                    "integerValue": {
+                        "type": "integer"
+                    },
+                    "stringValue": {},
+                    "listOfStringsValue": {
+                        "shape": "Sb"
+                    },
+                    "mapOfStringValue": {
+                        "shape": "Sd"
+                    }
+                },
+                "union": true
+            },
+            "sensitive": true
+        },
+        "Sb": {
+            "type": "list",
+            "member": {}
+        },
+        "Sd": {
+            "type": "map",
+            "key": {},
+            "value": {}
+        },
+        "Sq": {
+            "type": "structure",
+            "members": {
+                "scriptLocationS3Bucket": {},
+                "scriptLocationS3Key": {
+                    "shape": "Ss"
+                },
+                "command": {
+                    "shape": "Su"
+                },
+                "runEnvironment": {},
+                "targetType": {}
+            }
+        },
+        "Ss": {
+            "type": "structure",
+            "members": {
+                "linux": {},
+                "windows": {}
+            }
+        },
+        "Su": {
+            "type": "structure",
+            "members": {
+                "linux": {},
+                "windows": {}
+            }
+        },
+        "Sx": {
+            "type": "list",
+            "member": {
+                "shape": "Sy"
+            }
+        },
+        "Sy": {
+            "type": "structure",
+            "members": {
+                "name": {},
+                "dataType": {},
+                "required": {
+                    "type": "boolean"
+                },
+                "value": {
+                    "type": "structure",
+                    "members": {
+                        "integerValue": {
+                            "type": "integer"
+                        },
+                        "stringValue": {},
+                        "listOfStringValue": {
+                            "shape": "Sb"
+                        }
+                    },
+                    "union": true
+                }
+            }
+        },
+        "S18": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "name": {},
+                    "url": {}
+                }
+            }
+        },
+        "S2i": {
+            "type": "map",
+            "key": {},
+            "value": {}
+        },
+        "S2t": {
+            "type": "map",
+            "key": {},
+            "value": {}
+        }
+    }
+}

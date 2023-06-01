@@ -1,0 +1,501 @@
+{
+    "version": "2.0",
+    "metadata": {
+        "apiVersion": "2018-05-10",
+        "endpointPrefix": "consoleapp",
+        "jsonVersion": "1.1",
+        "protocol": "rest-json",
+        "serviceFullName": "AWS Console Mobile App",
+        "serviceId": "ConsoleApp",
+        "signatureVersion": "v4",
+        "signingName": "consoleapp",
+        "uid": "consoleapp-2018-05-10",
+        "download_location": [
+            "https://a.b.cdn.console.awsstatic.com/a/v1/R6BNLC63TCWAWBTZTGNHC6Z7WJCWQP3NOKAHHBPRUEWUUR6WQMAA/vendors.js"
+        ]
+    },
+    "operations": {
+        "DescribeHealth": {
+            "name": "DescribeHealth",
+            "http": {
+                "method": "GET",
+                "requestUri": "/health",
+                "responseCode": 200
+            },
+            "output": {
+                "shape": "DescribeHealthResponse"
+            },
+            "errors": [
+                {
+                    "shape": "UnhealthyServiceException"
+                }
+            ],
+            "documentation": "<p>Check the health of a service. A 200 response indicates a healthy service.</p>",
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/R6BNLC63TCWAWBTZTGNHC6Z7WJCWQP3NOKAHHBPRUEWUUR6WQMAA/vendors.js"
+            ]
+        },
+        "GetDeviceIdentity": {
+            "name": "GetDeviceIdentity",
+            "http": {
+                "method": "GET",
+                "requestUri": "/device-identities/{arn}",
+                "responseCode": 200
+            },
+            "input": {
+                "shape": "GetDeviceIdentityRequest"
+            },
+            "output": {
+                "shape": "GetDeviceIdentityResponse"
+            },
+            "errors": [
+                {
+                    "shape": "AccessDeniedException"
+                },
+                {
+                    "shape": "ValidationException"
+                },
+                {
+                    "shape": "ThrottlingException"
+                },
+                {
+                    "shape": "ResourceNotFoundException"
+                },
+                {
+                    "shape": "InternalServerException"
+                }
+            ],
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/R6BNLC63TCWAWBTZTGNHC6Z7WJCWQP3NOKAHHBPRUEWUUR6WQMAA/vendors.js"
+            ]
+        },
+        "ListDeviceIdentities": {
+            "name": "ListDeviceIdentities",
+            "http": {
+                "method": "GET",
+                "requestUri": "/device-identities",
+                "responseCode": 200
+            },
+            "input": {
+                "shape": "ListDeviceIdentitiesRequest"
+            },
+            "output": {
+                "shape": "ListDeviceIdentitiesResponse"
+            },
+            "errors": [
+                {
+                    "shape": "AccessDeniedException"
+                },
+                {
+                    "shape": "ValidationException"
+                },
+                {
+                    "shape": "ThrottlingException"
+                },
+                {
+                    "shape": "InternalServerException"
+                }
+            ],
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/R6BNLC63TCWAWBTZTGNHC6Z7WJCWQP3NOKAHHBPRUEWUUR6WQMAA/vendors.js"
+            ]
+        }
+    },
+    "shapes": {
+        "AccessDeniedException": {
+            "type": "structure",
+            "required": [
+                "message"
+            ],
+            "members": {
+                "message": {
+                    "shape": "ErrorMessage"
+                }
+            },
+            "error": {
+                "httpStatusCode": 403,
+                "senderFault": true
+            },
+            "exception": true
+        },
+        "CreatedTime": {
+            "type": "timestamp",
+            "documentation": "<p>Time that resource was created.</p>",
+            "timestampFormat": "iso8601"
+        },
+        "DescribeHealthResponse": {
+            "type": "structure",
+            "members": {
+                "message": {
+                    "shape": "String",
+                    "documentation": "<p>Contains message for health response</p>"
+                }
+            }
+        },
+        "DeviceIdString": {
+            "type": "string",
+            "documentation": "<p>A unique identifier for identifying a device</p>",
+            "max": 1024,
+            "min": 1
+        },
+        "DeviceIdentities": {
+            "type": "list",
+            "member": {
+                "shape": "DeviceIdentityData"
+            }
+        },
+        "DeviceIdentityArnString": {
+            "type": "string",
+            "documentation": "<p>A unique identifier for an identity on a device</p>",
+            "min": 1,
+            "pattern": "arn:aws:consoleapp::[0-9]{12}:device/{1}[w].*/{1}identity/{1}[w].*"
+        },
+        "DeviceIdentityData": {
+            "type": "structure",
+            "required": [
+                "deviceIdentityArn",
+                "identityArn",
+                "identityId",
+                "identityType",
+                "deviceId",
+                "deviceName",
+                "pushNotificationStatus",
+                "updatedTime",
+                "createdTime"
+            ],
+            "members": {
+                "deviceIdentityArn": {
+                    "shape": "DeviceIdentityArnString"
+                },
+                "identityArn": {
+                    "shape": "IdentityArnString"
+                },
+                "identityId": {
+                    "shape": "IdentityIdString"
+                },
+                "identityType": {
+                    "shape": "IdentityPrincipalType"
+                },
+                "deviceId": {
+                    "shape": "DeviceIdString"
+                },
+                "deviceName": {
+                    "shape": "DeviceNameString"
+                },
+                "pushNotificationStatus": {
+                    "shape": "PushStatusType"
+                },
+                "updatedTime": {
+                    "shape": "UpdatedTime"
+                },
+                "createdTime": {
+                    "shape": "CreatedTime"
+                }
+            }
+        },
+        "DeviceModelString": {
+            "type": "string",
+            "documentation": "<p>Device model</p>",
+            "min": 1
+        },
+        "DeviceNameString": {
+            "type": "string",
+            "documentation": "<p>A device name</p>",
+            "max": 1024,
+            "min": 1
+        },
+        "ErrorMessage": {
+            "type": "string"
+        },
+        "GetDeviceIdentityRequest": {
+            "type": "structure",
+            "required": [
+                "arn"
+            ],
+            "members": {
+                "arn": {
+                    "shape": "DeviceIdentityArnString",
+                    "location": "uri",
+                    "locationName": "arn"
+                }
+            }
+        },
+        "GetDeviceIdentityResponse": {
+            "type": "structure",
+            "required": [
+                "deviceIdentityArn",
+                "identityArn",
+                "identityId",
+                "identityType",
+                "deviceId",
+                "deviceName",
+                "deviceModel",
+                "platform",
+                "pushNotificationStatus",
+                "updatedTime",
+                "createdTime"
+            ],
+            "members": {
+                "deviceIdentityArn": {
+                    "shape": "DeviceIdentityArnString"
+                },
+                "identityArn": {
+                    "shape": "IdentityArnString"
+                },
+                "identityId": {
+                    "shape": "IdentityIdString"
+                },
+                "identityType": {
+                    "shape": "IdentityPrincipalType"
+                },
+                "deviceId": {
+                    "shape": "DeviceIdString"
+                },
+                "deviceName": {
+                    "shape": "DeviceNameString"
+                },
+                "deviceModel": {
+                    "shape": "DeviceModelString"
+                },
+                "platform": {
+                    "shape": "PlatformType"
+                },
+                "pushNotificationStatus": {
+                    "shape": "PushStatusType"
+                },
+                "updatedTime": {
+                    "shape": "UpdatedTime"
+                },
+                "createdTime": {
+                    "shape": "CreatedTime"
+                }
+            }
+        },
+        "IdentityArnString": {
+            "type": "string",
+            "documentation": "<p>User Identity Arn</p>",
+            "min": 1
+        },
+        "IdentityIdString": {
+            "type": "string",
+            "documentation": "<p>Identity Id</p>",
+            "min": 1
+        },
+        "IdentityPrincipalType": {
+            "type": "string",
+            "documentation": "<p>Identity Type</p>",
+            "enum": [
+                "ACCOUNT",
+                "USER",
+                "ASSUMED_ROLE"
+            ]
+        },
+        "Integer": {
+            "type": "integer",
+            "box": true
+        },
+        "InternalServerException": {
+            "type": "structure",
+            "required": [
+                "message"
+            ],
+            "members": {
+                "message": {
+                    "shape": "ErrorMessage"
+                }
+            },
+            "error": {
+                "httpStatusCode": 500
+            },
+            "exception": true,
+            "fault": true,
+            "retryable": {
+                "throttling": false
+            }
+        },
+        "ListDeviceIdentitiesRequest": {
+            "type": "structure",
+            "members": {
+                "maxResults": {
+                    "shape": "ListDeviceIdentitiesRequestMaxResultsInteger",
+                    "location": "querystring",
+                    "locationName": "maxResults"
+                },
+                "nextToken": {
+                    "shape": "NextToken",
+                    "location": "querystring",
+                    "locationName": "nextToken"
+                }
+            }
+        },
+        "ListDeviceIdentitiesRequestMaxResultsInteger": {
+            "type": "integer",
+            "box": true,
+            "max": 100,
+            "min": 1
+        },
+        "ListDeviceIdentitiesResponse": {
+            "type": "structure",
+            "required": [
+                "deviceIdentities"
+            ],
+            "members": {
+                "deviceIdentities": {
+                    "shape": "DeviceIdentities"
+                },
+                "nextToken": {
+                    "shape": "NextToken"
+                }
+            }
+        },
+        "NextToken": {
+            "type": "string",
+            "documentation": "<p>If the response does not contain the complete result set, additional results may be retrieved in subsequent requests using this pagination token.</p>"
+        },
+        "PlatformType": {
+            "type": "string",
+            "documentation": "<p>Platform is 'IOS' or 'ANDROID'</p>",
+            "enum": [
+                "IOS",
+                "ANDROID"
+            ]
+        },
+        "PushStatusType": {
+            "type": "string",
+            "documentation": "<p>Push status is 'NOT_ACTIVATED' or 'ACTIVE or 'INACTIVE'</p>",
+            "enum": [
+                "NOT_ACTIVATED",
+                "ACTIVE",
+                "INACTIVE"
+            ]
+        },
+        "ResourceId": {
+            "type": "string"
+        },
+        "ResourceNotFoundException": {
+            "type": "structure",
+            "required": [
+                "message",
+                "resourceId"
+            ],
+            "members": {
+                "message": {
+                    "shape": "ErrorMessage"
+                },
+                "resourceId": {
+                    "shape": "ResourceId"
+                }
+            },
+            "error": {
+                "httpStatusCode": 404,
+                "senderFault": true
+            },
+            "exception": true
+        },
+        "ServiceCode": {
+            "type": "string"
+        },
+        "String": {
+            "type": "string"
+        },
+        "ThrottlingException": {
+            "type": "structure",
+            "required": [
+                "message"
+            ],
+            "members": {
+                "message": {
+                    "shape": "ErrorMessage"
+                },
+                "serviceCode": {
+                    "shape": "ServiceCode"
+                },
+                "retryAfterSeconds": {
+                    "shape": "Integer",
+                    "location": "header",
+                    "locationName": "Retry-After"
+                }
+            },
+            "error": {
+                "httpStatusCode": 429,
+                "senderFault": true
+            },
+            "exception": true,
+            "retryable": {
+                "throttling": false
+            }
+        },
+        "UnhealthyServiceException": {
+            "type": "structure",
+            "required": [
+                "message"
+            ],
+            "members": {
+                "message": {
+                    "shape": "String"
+                }
+            },
+            "documentation": "<p>Service is currently unhealthy</p>",
+            "error": {
+                "httpStatusCode": 500
+            },
+            "exception": true,
+            "fault": true
+        },
+        "UpdatedTime": {
+            "type": "timestamp",
+            "documentation": "<p>Time that resource was updated.</p>",
+            "timestampFormat": "iso8601"
+        },
+        "ValidationException": {
+            "type": "structure",
+            "required": [
+                "message"
+            ],
+            "members": {
+                "reason": {
+                    "shape": "ValidationExceptionReason"
+                },
+                "message": {
+                    "shape": "ErrorMessage"
+                },
+                "fieldList": {
+                    "shape": "ValidationExceptionFieldList"
+                }
+            },
+            "error": {
+                "httpStatusCode": 400,
+                "senderFault": true
+            },
+            "exception": true
+        },
+        "ValidationExceptionField": {
+            "type": "structure",
+            "required": [
+                "name",
+                "message"
+            ],
+            "members": {
+                "name": {
+                    "shape": "String"
+                },
+                "message": {
+                    "shape": "String"
+                }
+            }
+        },
+        "ValidationExceptionFieldList": {
+            "type": "list",
+            "member": {
+                "shape": "ValidationExceptionField"
+            }
+        },
+        "ValidationExceptionReason": {
+            "type": "string",
+            "enum": [
+                "fieldValidationFailed",
+                "other"
+            ]
+        }
+    }
+}
