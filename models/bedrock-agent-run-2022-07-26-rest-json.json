@@ -1,0 +1,228 @@
+{
+    "version": "2.0",
+    "metadata": {
+        "apiVersion": "2022-07-26",
+        "endpointPrefix": "bedrock",
+        "jsonVersion": "1.1",
+        "protocol": "rest-json",
+        "serviceFullName": "Amazon Bedrock Agent Runtime Service",
+        "serviceId": "Bedrock Agent Run",
+        "signatureVersion": "v4",
+        "signingName": "bedrock",
+        "uid": "bedrock-agent-run-2022-07-26",
+        "download_location": [
+            "https://a.b.cdn.console.awsstatic.com/a/v1/HVFRKFZAZL3SVAYMSJI5EO2DYRIIUJAVLWZNPWBYD5JHSWJBCOUQ/vendors.js",
+            "https://a.b.cdn.console.awsstatic.com/a/v1/LXWGJRI67HGWI2HF27E4JSIH6GP274AI5COXNKLFIOBJXWRMYMYA/vendors.js",
+            "https://a.b.cdn.console.awsstatic.com/a/v1/KY3KQDI24RCQGRVCI4FLUEYWXSWREEPTNWMZDHYUNDGISF3MDQNQ/vendors.js",
+            "https://a.b.cdn.console.awsstatic.com/a/v1/YZHKCLJVZQJ563M7NWLKA5ZRGYWIOXKMQQX7RU6SBDWK73NZI3FQ/vendors.js",
+            "https://a.b.cdn.console.awsstatic.com/a/v1/2SC5ZHYKM4ITSXXW22URUYK32U5NODLCOBZLD554EB5IKAHYOWCQ/vendors.js",
+            "https://a.b.cdn.console.awsstatic.com/a/v1/4U6U5UOKJ5U6ZIEEGMRM3X5UWSQPNY27WKSN5BGCJ5UFBPD4NNRA/vendors.js",
+            "https://a.b.cdn.console.awsstatic.com/a/v1/UUPEZ2YPRBTRFDWHRDTWPFW7KLFOLVF5CG6ETBZHR5ZD323HJQRA/vendors.js",
+            "https://a.b.cdn.console.awsstatic.com/a/v1/SB5Y7NHJRGMLTAMKLU4OQSGKARHN6IUKQ7XGGGHKRSIVNXDPFH6Q/vendors.js",
+            "https://a.b.cdn.console.awsstatic.com/a/v1/ZUEQMGSMK2N7R4OQXEXEF5A5C2LZEJICEG7FRIPSR7OBK6M6RTBQ/vendors.js",
+            "https://a.b.cdn.console.awsstatic.com/a/v1/BDJUOUQTNVXIUXXTMSBZMU53IA4CQDYN6A5K33I4N7UPBCCT32GQ/vendors.js",
+            "https://a.b.cdn.console.awsstatic.com/a/v1/GCDZ5R53XPQWCHV6I2DNN7IHB2MM6BH67O2XNKYGNRMHIRSCCL3Q/vendors.js",
+            "https://a.b.cdn.console.awsstatic.com/a/v1/M5LVANTMEVBT4NROUMPGGWIU5POAAL7IUJEEBVLI5UXFJZ6A76MQ/vendors.js"
+        ]
+    },
+    "operations": {
+        "InvokeAgent": {
+            "http": {
+                "requestUri": "/agents/{agentId}/agentAliases/{agentAliasId}/sessions/{sessionId}/text",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "agentId",
+                    "agentAliasId",
+                    "sessionId",
+                    "inputText"
+                ],
+                "members": {
+                    "sessionState": {
+                        "type": "structure",
+                        "members": {
+                            "sessionAttributes": {
+                                "type": "map",
+                                "key": {},
+                                "value": {}
+                            }
+                        }
+                    },
+                    "agentId": {
+                        "location": "uri",
+                        "locationName": "agentId"
+                    },
+                    "agentAliasId": {
+                        "location": "uri",
+                        "locationName": "agentAliasId"
+                    },
+                    "sessionId": {
+                        "location": "uri",
+                        "locationName": "sessionId"
+                    },
+                    "endSession": {
+                        "type": "boolean"
+                    },
+                    "inputText": {
+                        "type": "string",
+                        "sensitive": true
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "completion",
+                    "contentType",
+                    "sessionId"
+                ],
+                "members": {
+                    "completion": {
+                        "type": "structure",
+                        "members": {
+                            "chunk": {
+                                "type": "structure",
+                                "members": {
+                                    "bytes": {
+                                        "type": "blob",
+                                        "sensitive": true
+                                    }
+                                },
+                                "event": true,
+                                "sensitive": true
+                            },
+                            "internalServerException": {
+                                "type": "structure",
+                                "members": {
+                                    "message": {}
+                                },
+                                "error": {
+                                    "httpStatusCode": 500
+                                },
+                                "exception": true,
+                                "fault": true
+                            },
+                            "validationException": {
+                                "type": "structure",
+                                "members": {
+                                    "message": {}
+                                },
+                                "error": {
+                                    "httpStatusCode": 400,
+                                    "senderFault": true
+                                },
+                                "exception": true
+                            },
+                            "resourceNotFoundException": {
+                                "type": "structure",
+                                "members": {
+                                    "message": {}
+                                },
+                                "error": {
+                                    "httpStatusCode": 404,
+                                    "senderFault": true
+                                },
+                                "exception": true
+                            },
+                            "serviceQuotaExceededException": {
+                                "type": "structure",
+                                "members": {
+                                    "message": {}
+                                },
+                                "error": {
+                                    "httpStatusCode": 400,
+                                    "senderFault": true
+                                },
+                                "exception": true
+                            },
+                            "throttlingException": {
+                                "type": "structure",
+                                "members": {
+                                    "message": {}
+                                },
+                                "error": {
+                                    "httpStatusCode": 429,
+                                    "senderFault": true
+                                },
+                                "exception": true
+                            },
+                            "accessDeniedException": {
+                                "type": "structure",
+                                "members": {
+                                    "message": {}
+                                },
+                                "error": {
+                                    "httpStatusCode": 403,
+                                    "senderFault": true
+                                },
+                                "exception": true
+                            },
+                            "conflictException": {
+                                "type": "structure",
+                                "members": {
+                                    "message": {}
+                                },
+                                "error": {
+                                    "httpStatusCode": 409,
+                                    "senderFault": true
+                                },
+                                "exception": true
+                            },
+                            "dependencyFailedException": {
+                                "type": "structure",
+                                "members": {
+                                    "message": {},
+                                    "resourceName": {}
+                                },
+                                "error": {
+                                    "httpStatusCode": 424,
+                                    "senderFault": true
+                                },
+                                "exception": true
+                            },
+                            "badGatewayException": {
+                                "type": "structure",
+                                "members": {
+                                    "message": {},
+                                    "resourceName": {}
+                                },
+                                "error": {
+                                    "httpStatusCode": 502
+                                },
+                                "exception": true,
+                                "fault": true
+                            }
+                        },
+                        "eventstream": true
+                    },
+                    "contentType": {
+                        "location": "header",
+                        "locationName": "x-amzn-bedrock-agent-content-type"
+                    },
+                    "sessionId": {
+                        "location": "header",
+                        "locationName": "x-amz-bedrock-agent-session-id"
+                    }
+                },
+                "payload": "completion"
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/HVFRKFZAZL3SVAYMSJI5EO2DYRIIUJAVLWZNPWBYD5JHSWJBCOUQ/vendors.js",
+                "https://a.b.cdn.console.awsstatic.com/a/v1/LXWGJRI67HGWI2HF27E4JSIH6GP274AI5COXNKLFIOBJXWRMYMYA/vendors.js",
+                "https://a.b.cdn.console.awsstatic.com/a/v1/KY3KQDI24RCQGRVCI4FLUEYWXSWREEPTNWMZDHYUNDGISF3MDQNQ/vendors.js",
+                "https://a.b.cdn.console.awsstatic.com/a/v1/YZHKCLJVZQJ563M7NWLKA5ZRGYWIOXKMQQX7RU6SBDWK73NZI3FQ/vendors.js",
+                "https://a.b.cdn.console.awsstatic.com/a/v1/2SC5ZHYKM4ITSXXW22URUYK32U5NODLCOBZLD554EB5IKAHYOWCQ/vendors.js",
+                "https://a.b.cdn.console.awsstatic.com/a/v1/4U6U5UOKJ5U6ZIEEGMRM3X5UWSQPNY27WKSN5BGCJ5UFBPD4NNRA/vendors.js",
+                "https://a.b.cdn.console.awsstatic.com/a/v1/UUPEZ2YPRBTRFDWHRDTWPFW7KLFOLVF5CG6ETBZHR5ZD323HJQRA/vendors.js",
+                "https://a.b.cdn.console.awsstatic.com/a/v1/SB5Y7NHJRGMLTAMKLU4OQSGKARHN6IUKQ7XGGGHKRSIVNXDPFH6Q/vendors.js",
+                "https://a.b.cdn.console.awsstatic.com/a/v1/ZUEQMGSMK2N7R4OQXEXEF5A5C2LZEJICEG7FRIPSR7OBK6M6RTBQ/vendors.js",
+                "https://a.b.cdn.console.awsstatic.com/a/v1/BDJUOUQTNVXIUXXTMSBZMU53IA4CQDYN6A5K33I4N7UPBCCT32GQ/vendors.js",
+                "https://a.b.cdn.console.awsstatic.com/a/v1/GCDZ5R53XPQWCHV6I2DNN7IHB2MM6BH67O2XNKYGNRMHIRSCCL3Q/vendors.js",
+                "https://a.b.cdn.console.awsstatic.com/a/v1/M5LVANTMEVBT4NROUMPGGWIU5POAAL7IUJEEBVLI5UXFJZ6A76MQ/vendors.js"
+            ]
+        }
+    },
+    "shapes": {}
+}

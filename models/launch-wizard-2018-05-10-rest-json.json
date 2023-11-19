@@ -1,0 +1,339 @@
+{
+    "version": "2.0",
+    "metadata": {
+        "apiVersion": "2018-05-10",
+        "endpointPrefix": "launchwizard",
+        "jsonVersion": "1.1",
+        "protocol": "rest-json",
+        "serviceFullName": "AWS Launch Wizard",
+        "serviceId": "Launch Wizard",
+        "signatureVersion": "v4",
+        "signingName": "launchwizard",
+        "uid": "launch-wizard-2018-05-10",
+        "download_location": [
+            "https://a.b.cdn.console.awsstatic.com/a/v1/MBHWQUZZ5JWRBBE7NEUVL6IINALQRKH3D4J3ORTFFCZP56AA3VLA/vendors.sdk.js"
+        ]
+    },
+    "operations": {
+        "CreateDeployment": {
+            "http": {
+                "requestUri": "/createDeployment",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "deploymentPatternName",
+                    "name",
+                    "specifications",
+                    "workloadName"
+                ],
+                "members": {
+                    "deploymentPatternName": {},
+                    "dryRun": {
+                        "type": "boolean"
+                    },
+                    "name": {},
+                    "specifications": {
+                        "shape": "S5"
+                    },
+                    "workloadName": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "deploymentId": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/MBHWQUZZ5JWRBBE7NEUVL6IINALQRKH3D4J3ORTFFCZP56AA3VLA/vendors.sdk.js"
+            ]
+        },
+        "DeleteDeployment": {
+            "http": {
+                "requestUri": "/deleteDeployment",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "deploymentId"
+                ],
+                "members": {
+                    "deploymentId": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "status": {},
+                    "statusReason": {}
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/MBHWQUZZ5JWRBBE7NEUVL6IINALQRKH3D4J3ORTFFCZP56AA3VLA/vendors.sdk.js"
+            ]
+        },
+        "GetDeployment": {
+            "http": {
+                "requestUri": "/getDeployment",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "deploymentId"
+                ],
+                "members": {
+                    "deploymentId": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "deployment": {
+                        "type": "structure",
+                        "members": {
+                            "createdAt": {
+                                "type": "timestamp"
+                            },
+                            "deletedAt": {
+                                "type": "timestamp"
+                            },
+                            "id": {},
+                            "name": {},
+                            "patternName": {},
+                            "resourceGroup": {},
+                            "specifications": {
+                                "shape": "S5"
+                            },
+                            "status": {},
+                            "workloadName": {}
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/MBHWQUZZ5JWRBBE7NEUVL6IINALQRKH3D4J3ORTFFCZP56AA3VLA/vendors.sdk.js"
+            ]
+        },
+        "GetWorkload": {
+            "http": {
+                "requestUri": "/getWorkload",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "workloadName"
+                ],
+                "members": {
+                    "workloadName": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "workload": {
+                        "type": "structure",
+                        "members": {
+                            "description": {},
+                            "displayName": {},
+                            "documentationUrl": {},
+                            "iconUrl": {},
+                            "status": {},
+                            "statusMessage": {},
+                            "workloadName": {}
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/MBHWQUZZ5JWRBBE7NEUVL6IINALQRKH3D4J3ORTFFCZP56AA3VLA/vendors.sdk.js"
+            ]
+        },
+        "ListDeploymentEvents": {
+            "http": {
+                "requestUri": "/listDeploymentEvents",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "deploymentId"
+                ],
+                "members": {
+                    "deploymentId": {},
+                    "maxResults": {
+                        "type": "integer"
+                    },
+                    "nextToken": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "deploymentEvents": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "description": {},
+                                "name": {},
+                                "status": {},
+                                "statusReason": {},
+                                "timestamp": {
+                                    "type": "timestamp"
+                                }
+                            }
+                        }
+                    },
+                    "nextToken": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/MBHWQUZZ5JWRBBE7NEUVL6IINALQRKH3D4J3ORTFFCZP56AA3VLA/vendors.sdk.js"
+            ]
+        },
+        "ListDeployments": {
+            "http": {
+                "requestUri": "/listDeployments",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "filters": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "name": {},
+                                "values": {
+                                    "type": "list",
+                                    "member": {}
+                                }
+                            }
+                        }
+                    },
+                    "maxResults": {
+                        "type": "integer"
+                    },
+                    "nextToken": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "deployments": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "createdAt": {
+                                    "type": "timestamp"
+                                },
+                                "id": {},
+                                "name": {},
+                                "patternName": {},
+                                "status": {},
+                                "workloadName": {}
+                            }
+                        }
+                    },
+                    "nextToken": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/MBHWQUZZ5JWRBBE7NEUVL6IINALQRKH3D4J3ORTFFCZP56AA3VLA/vendors.sdk.js"
+            ]
+        },
+        "ListWorkloadDeploymentPatterns": {
+            "http": {
+                "requestUri": "/listWorkloadDeploymentPatterns",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "workloadName"
+                ],
+                "members": {
+                    "maxResults": {
+                        "type": "integer"
+                    },
+                    "nextToken": {},
+                    "workloadName": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "nextToken": {},
+                    "workloadDeploymentPatterns": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "deploymentPatternName": {},
+                                "description": {},
+                                "displayName": {},
+                                "status": {},
+                                "statusMessage": {},
+                                "workloadName": {},
+                                "workloadVersionName": {}
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/MBHWQUZZ5JWRBBE7NEUVL6IINALQRKH3D4J3ORTFFCZP56AA3VLA/vendors.sdk.js"
+            ]
+        },
+        "ListWorkloads": {
+            "http": {
+                "requestUri": "/listWorkloads",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "maxResults": {
+                        "type": "integer"
+                    },
+                    "nextToken": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "nextToken": {},
+                    "workloads": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "displayName": {},
+                                "workloadName": {}
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/MBHWQUZZ5JWRBBE7NEUVL6IINALQRKH3D4J3ORTFFCZP56AA3VLA/vendors.sdk.js"
+            ]
+        }
+    },
+    "shapes": {
+        "S5": {
+            "type": "map",
+            "key": {},
+            "value": {},
+            "sensitive": true
+        }
+    }
+}

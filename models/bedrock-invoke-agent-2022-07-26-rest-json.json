@@ -1,0 +1,416 @@
+{
+    "version": "2.0",
+    "metadata": {
+        "apiVersion": "2022-07-26",
+        "endpointPrefix": "invoke-agent-bedrock",
+        "jsonVersion": "1.1",
+        "protocol": "rest-json",
+        "serviceFullName": "Amazon Bedrock Agent Runtime Service",
+        "serviceId": "Bedrock Invoke Agent",
+        "signatureVersion": "v4",
+        "signingName": "bedrock",
+        "uid": "bedrock-invoke-agent-2022-07-26",
+        "download_location": [
+            "https://a.b.cdn.console.awsstatic.com/a/v1/IRERBCBXIXNQN4LSFPRRWPGTAQ2AW6KKGFZF2AM3GHKMJU6O7PAA/vendors.js",
+            "https://a.b.cdn.console.awsstatic.com/a/v1/QJAYH4V7URRJY3QZSWGSVV57ELD6S3P7HJT4UW3XMFQBY32H2BMQ/vendors.js",
+            "https://a.b.cdn.console.awsstatic.com/a/v1/OHLA63RNYLP4QLECC5CJRTXPPTMD5LXWXRCHZHARZN73ZHFLRZHQ/vendors.js",
+            "https://a.b.cdn.console.awsstatic.com/a/v1/SZRJCI7XVNDU32G2NZZWQMEE6OABVULPYMF7PHA3GSIB72U67FPQ/vendors.js",
+            "https://a.b.cdn.console.awsstatic.com/a/v1/4ETI45J7WL3OBUMVBNB6VKJ2KEL3EC7C2M7VWXKM45BTTHR4KAMQ/vendors.js",
+            "https://a.b.cdn.console.awsstatic.com/a/v1/VKBJVVEI4TQCWNV4WMBWJDXG447JZGIKPJNROPSLBR75HPNSU6SA/vendors.js",
+            "https://a.b.cdn.console.awsstatic.com/a/v1/HNKABOTGTJD6ZMITDKC7NOIT43BSBGFUN4KAIXZ5E332WQ6Z6ACA/vendors.js",
+            "https://a.b.cdn.console.awsstatic.com/a/v1/KMXJH246RIIFZJYVF5MHTZXI5NZ7NNA6KN7ICCM7D2JSO4H2HKKQ/vendors.js",
+            "https://a.b.cdn.console.awsstatic.com/a/v1/QNWSHYG32OZXJVOXZCJYDYSMHSWSVY76ZBFOEL43ZXVQXUYAMXCQ/vendors.js",
+            "https://a.b.cdn.console.awsstatic.com/a/v1/4UMPBFXV5KBFVHHT7RAI4PD2TRQII3LG2XGTHZ6QB4XVUBAXE7ZQ/vendors.js",
+            "https://a.b.cdn.console.awsstatic.com/a/v1/PVJ5BJYYVSJFL2VPAD4TJA7XGDZSUX7BYSSA3NBFHXCBMPWDSSVQ/vendors.js",
+            "https://a.b.cdn.console.awsstatic.com/a/v1/34DXGDQNY6GLLISI4XR4RZ5APYSHH6YAPXTHGJWTVNYOH7MO4EGQ/vendors.js"
+        ]
+    },
+    "operations": {
+        "InvokeAgent": {
+            "http": {
+                "requestUri": "/agents/{agentId}/agentAliases/{agentAliasId}/sessions/{sessionId}/text",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "agentId",
+                    "agentAliasId",
+                    "sessionId",
+                    "inputText"
+                ],
+                "members": {
+                    "sessionState": {
+                        "type": "structure",
+                        "members": {
+                            "sessionAttributes": {
+                                "type": "map",
+                                "key": {},
+                                "value": {}
+                            }
+                        }
+                    },
+                    "agentId": {
+                        "location": "uri",
+                        "locationName": "agentId"
+                    },
+                    "agentAliasId": {
+                        "location": "uri",
+                        "locationName": "agentAliasId"
+                    },
+                    "sessionId": {
+                        "location": "uri",
+                        "locationName": "sessionId"
+                    },
+                    "endSession": {
+                        "type": "boolean"
+                    },
+                    "enableTrace": {
+                        "type": "boolean"
+                    },
+                    "inputText": {
+                        "type": "string",
+                        "sensitive": true
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "completion",
+                    "contentType",
+                    "sessionId"
+                ],
+                "members": {
+                    "completion": {
+                        "type": "structure",
+                        "members": {
+                            "chunk": {
+                                "type": "structure",
+                                "members": {
+                                    "bytes": {
+                                        "type": "blob",
+                                        "sensitive": true
+                                    },
+                                    "attribution": {
+                                        "type": "structure",
+                                        "members": {
+                                            "citations": {
+                                                "type": "list",
+                                                "member": {
+                                                    "type": "structure",
+                                                    "members": {
+                                                        "textCitation": {
+                                                            "type": "structure",
+                                                            "members": {
+                                                                "responseText": {},
+                                                                "textSourceReferences": {
+                                                                    "type": "list",
+                                                                    "member": {
+                                                                        "type": "structure",
+                                                                        "members": {
+                                                                            "sourceReference": {
+                                                                                "type": "structure",
+                                                                                "members": {
+                                                                                    "s3sourceReference": {
+                                                                                        "type": "structure",
+                                                                                        "members": {
+                                                                                            "s3Uri": {}
+                                                                                        }
+                                                                                    }
+                                                                                },
+                                                                                "union": true
+                                                                            },
+                                                                            "referenceText": {}
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    },
+                                                    "union": true
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "event": true,
+                                "sensitive": true
+                            },
+                            "trace": {
+                                "type": "structure",
+                                "members": {
+                                    "agentId": {},
+                                    "agentAliasId": {},
+                                    "sessionId": {},
+                                    "agentTraceResponse": {
+                                        "type": "structure",
+                                        "members": {
+                                            "invocationType": {},
+                                            "actionGroupInvocation": {
+                                                "type": "structure",
+                                                "members": {
+                                                    "reason": {
+                                                        "shape": "Ss"
+                                                    },
+                                                    "lambdaInvocationInput": {
+                                                        "type": "structure",
+                                                        "members": {
+                                                            "actionGroupName": {
+                                                                "type": "string",
+                                                                "sensitive": true
+                                                            },
+                                                            "apiName": {
+                                                                "type": "string",
+                                                                "sensitive": true
+                                                            },
+                                                            "verb": {
+                                                                "type": "string",
+                                                                "sensitive": true
+                                                            },
+                                                            "apiPath": {
+                                                                "type": "string",
+                                                                "sensitive": true
+                                                            },
+                                                            "paramaters": {
+                                                                "shape": "Sz"
+                                                            },
+                                                            "requestBody": {
+                                                                "type": "structure",
+                                                                "members": {
+                                                                    "content": {
+                                                                        "type": "map",
+                                                                        "key": {},
+                                                                        "value": {
+                                                                            "shape": "Sz"
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    },
+                                                    "lambdaInvocationOutput": {
+                                                        "type": "structure",
+                                                        "members": {
+                                                            "text": {
+                                                                "type": "string",
+                                                                "sensitive": true
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "knowledgeBaseInvocation": {
+                                                "type": "structure",
+                                                "members": {
+                                                    "reason": {
+                                                        "shape": "Ss"
+                                                    },
+                                                    "knowledgeBaseInvocationInput": {
+                                                        "type": "structure",
+                                                        "members": {
+                                                            "text": {
+                                                                "type": "string",
+                                                                "sensitive": true
+                                                            }
+                                                        }
+                                                    },
+                                                    "knowledgeBaseInvocationOutput": {
+                                                        "type": "structure",
+                                                        "members": {
+                                                            "text": {
+                                                                "type": "string",
+                                                                "sensitive": true
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "terminalInvocation": {
+                                                "type": "structure",
+                                                "members": {
+                                                    "reason": {
+                                                        "shape": "Ss"
+                                                    },
+                                                    "terminalOutput": {
+                                                        "type": "structure",
+                                                        "members": {
+                                                            "text": {
+                                                                "type": "string",
+                                                                "sensitive": true
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "traceStatus": {},
+                                            "failureReason": {
+                                                "type": "structure",
+                                                "members": {
+                                                    "text": {
+                                                        "type": "string",
+                                                        "sensitive": true
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "sensitive": true
+                                    }
+                                },
+                                "event": true,
+                                "sensitive": true
+                            },
+                            "internalServerException": {
+                                "type": "structure",
+                                "members": {
+                                    "message": {}
+                                },
+                                "error": {
+                                    "httpStatusCode": 500
+                                },
+                                "exception": true,
+                                "fault": true
+                            },
+                            "validationException": {
+                                "type": "structure",
+                                "members": {
+                                    "message": {}
+                                },
+                                "error": {
+                                    "httpStatusCode": 400,
+                                    "senderFault": true
+                                },
+                                "exception": true
+                            },
+                            "resourceNotFoundException": {
+                                "type": "structure",
+                                "members": {
+                                    "message": {}
+                                },
+                                "error": {
+                                    "httpStatusCode": 404,
+                                    "senderFault": true
+                                },
+                                "exception": true
+                            },
+                            "serviceQuotaExceededException": {
+                                "type": "structure",
+                                "members": {
+                                    "message": {}
+                                },
+                                "error": {
+                                    "httpStatusCode": 400,
+                                    "senderFault": true
+                                },
+                                "exception": true
+                            },
+                            "throttlingException": {
+                                "type": "structure",
+                                "members": {
+                                    "message": {}
+                                },
+                                "error": {
+                                    "httpStatusCode": 429,
+                                    "senderFault": true
+                                },
+                                "exception": true
+                            },
+                            "accessDeniedException": {
+                                "type": "structure",
+                                "members": {
+                                    "message": {}
+                                },
+                                "error": {
+                                    "httpStatusCode": 403,
+                                    "senderFault": true
+                                },
+                                "exception": true
+                            },
+                            "conflictException": {
+                                "type": "structure",
+                                "members": {
+                                    "message": {}
+                                },
+                                "error": {
+                                    "httpStatusCode": 409,
+                                    "senderFault": true
+                                },
+                                "exception": true
+                            },
+                            "dependencyFailedException": {
+                                "type": "structure",
+                                "members": {
+                                    "message": {},
+                                    "resourceName": {}
+                                },
+                                "error": {
+                                    "httpStatusCode": 424,
+                                    "senderFault": true
+                                },
+                                "exception": true
+                            },
+                            "badGatewayException": {
+                                "type": "structure",
+                                "members": {
+                                    "message": {},
+                                    "resourceName": {}
+                                },
+                                "error": {
+                                    "httpStatusCode": 502
+                                },
+                                "exception": true,
+                                "fault": true
+                            }
+                        },
+                        "eventstream": true
+                    },
+                    "contentType": {
+                        "location": "header",
+                        "locationName": "x-amzn-bedrock-agent-content-type"
+                    },
+                    "sessionId": {
+                        "location": "header",
+                        "locationName": "x-amz-bedrock-agent-session-id"
+                    }
+                },
+                "payload": "completion"
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/IRERBCBXIXNQN4LSFPRRWPGTAQ2AW6KKGFZF2AM3GHKMJU6O7PAA/vendors.js",
+                "https://a.b.cdn.console.awsstatic.com/a/v1/QJAYH4V7URRJY3QZSWGSVV57ELD6S3P7HJT4UW3XMFQBY32H2BMQ/vendors.js",
+                "https://a.b.cdn.console.awsstatic.com/a/v1/OHLA63RNYLP4QLECC5CJRTXPPTMD5LXWXRCHZHARZN73ZHFLRZHQ/vendors.js",
+                "https://a.b.cdn.console.awsstatic.com/a/v1/SZRJCI7XVNDU32G2NZZWQMEE6OABVULPYMF7PHA3GSIB72U67FPQ/vendors.js",
+                "https://a.b.cdn.console.awsstatic.com/a/v1/4ETI45J7WL3OBUMVBNB6VKJ2KEL3EC7C2M7VWXKM45BTTHR4KAMQ/vendors.js",
+                "https://a.b.cdn.console.awsstatic.com/a/v1/VKBJVVEI4TQCWNV4WMBWJDXG447JZGIKPJNROPSLBR75HPNSU6SA/vendors.js",
+                "https://a.b.cdn.console.awsstatic.com/a/v1/HNKABOTGTJD6ZMITDKC7NOIT43BSBGFUN4KAIXZ5E332WQ6Z6ACA/vendors.js",
+                "https://a.b.cdn.console.awsstatic.com/a/v1/KMXJH246RIIFZJYVF5MHTZXI5NZ7NNA6KN7ICCM7D2JSO4H2HKKQ/vendors.js",
+                "https://a.b.cdn.console.awsstatic.com/a/v1/QNWSHYG32OZXJVOXZCJYDYSMHSWSVY76ZBFOEL43ZXVQXUYAMXCQ/vendors.js",
+                "https://a.b.cdn.console.awsstatic.com/a/v1/4UMPBFXV5KBFVHHT7RAI4PD2TRQII3LG2XGTHZ6QB4XVUBAXE7ZQ/vendors.js",
+                "https://a.b.cdn.console.awsstatic.com/a/v1/PVJ5BJYYVSJFL2VPAD4TJA7XGDZSUX7BYSSA3NBFHXCBMPWDSSVQ/vendors.js",
+                "https://a.b.cdn.console.awsstatic.com/a/v1/34DXGDQNY6GLLISI4XR4RZ5APYSHH6YAPXTHGJWTVNYOH7MO4EGQ/vendors.js"
+            ]
+        }
+    },
+    "shapes": {
+        "Ss": {
+            "type": "structure",
+            "members": {
+                "text": {
+                    "type": "string",
+                    "sensitive": true
+                }
+            }
+        },
+        "Sz": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "name": {},
+                    "type": {},
+                    "value": {}
+                }
+            }
+        }
+    }
+}
