@@ -1,0 +1,819 @@
+{
+    "version": "2.0",
+    "metadata": {
+        "apiVersion": "2022-07-26",
+        "endpointPrefix": "galaxyforecastcollaborationservice",
+        "protocol": "rest-json",
+        "protocols": [
+            "rest-json"
+        ],
+        "ripServiceName": "scn",
+        "serviceFullName": "GalaxyForecastCollaborationService",
+        "serviceId": "GalaxyForecastCollaboration",
+        "signatureVersion": "v4",
+        "signingName": "scn",
+        "uid": "galaxyforecastcollaboration-2022-07-26",
+        "download_location": [
+            "https://a.b.cdn.console.awsstatic.com/a/v1/67N7E4KXTI4RH3F3EQYFYF22QQYSXNW3RL62PKCFHZ62IJRHSP4A/vendors~64216fa6.js"
+        ]
+    },
+    "operations": {
+        "ApproveForecastLineCollaboration": {
+            "http": {
+                "requestUri": "/instance/{InstanceId}/forecast-line-collaborations/{CollaborationId}/approve",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "InstanceId",
+                    "CollaborationId",
+                    "LatestCollaborationVersion"
+                ],
+                "members": {
+                    "InstanceId": {
+                        "location": "uri",
+                        "locationName": "InstanceId"
+                    },
+                    "CollaborationId": {
+                        "location": "uri",
+                        "locationName": "CollaborationId"
+                    },
+                    "LatestCollaborationVersion": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "CollaborationVersion"
+                ],
+                "members": {
+                    "CollaborationVersion": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/67N7E4KXTI4RH3F3EQYFYF22QQYSXNW3RL62PKCFHZ62IJRHSP4A/vendors~64216fa6.js"
+            ]
+        },
+        "BatchCreateForecastLineCollaborations": {
+            "http": {
+                "requestUri": "/instance/{InstanceId}/forecast-line-collaborations",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "InstanceId",
+                    "ForecastLineCollaborations"
+                ],
+                "members": {
+                    "InstanceId": {
+                        "location": "uri",
+                        "locationName": "InstanceId"
+                    },
+                    "ForecastLineCollaborations": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "ClientRequestToken",
+                                "PartnerId",
+                                "ForecastId",
+                                "ProductId",
+                                "RequestedComponentForecast"
+                            ],
+                            "members": {
+                                "ClientRequestToken": {},
+                                "PartnerId": {},
+                                "ForecastId": {},
+                                "ProductId": {},
+                                "ProductDescription": {},
+                                "SiteId": {
+                                    "shape": "Sd"
+                                },
+                                "SiteDescription": {},
+                                "RequestedComponentForecast": {
+                                    "shape": "Sf"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "createdForecastLineCollaborations",
+                    "errors"
+                ],
+                "members": {
+                    "createdForecastLineCollaborations": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "ClientRequestToken",
+                                "CollaborationId"
+                            ],
+                            "members": {
+                                "ClientRequestToken": {},
+                                "CollaborationId": {}
+                            }
+                        }
+                    },
+                    "errors": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "ClientRequestToken",
+                                "Code",
+                                "Message"
+                            ],
+                            "members": {
+                                "ClientRequestToken": {},
+                                "Code": {},
+                                "Message": {}
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/67N7E4KXTI4RH3F3EQYFYF22QQYSXNW3RL62PKCFHZ62IJRHSP4A/vendors~64216fa6.js"
+            ]
+        },
+        "CancelForecastLineCollaboration": {
+            "http": {
+                "requestUri": "/instance/{InstanceId}/forecast-line-collaborations/{CollaborationId}/cancel",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "InstanceId",
+                    "CollaborationId",
+                    "LatestCollaborationVersion",
+                    "Details"
+                ],
+                "members": {
+                    "InstanceId": {
+                        "location": "uri",
+                        "locationName": "InstanceId"
+                    },
+                    "CollaborationId": {
+                        "location": "uri",
+                        "locationName": "CollaborationId"
+                    },
+                    "LatestCollaborationVersion": {},
+                    "Details": {
+                        "shape": "Sq"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "CollaborationVersion"
+                ],
+                "members": {
+                    "CollaborationVersion": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/67N7E4KXTI4RH3F3EQYFYF22QQYSXNW3RL62PKCFHZ62IJRHSP4A/vendors~64216fa6.js"
+            ]
+        },
+        "DeclineForecastLineCollaboration": {
+            "http": {
+                "requestUri": "/instance/{InstanceId}/forecast-line-collaborations/{CollaborationId}/decline",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "InstanceId",
+                    "CollaborationId",
+                    "LatestCollaborationVersion",
+                    "Reason"
+                ],
+                "members": {
+                    "InstanceId": {
+                        "location": "uri",
+                        "locationName": "InstanceId"
+                    },
+                    "CollaborationId": {
+                        "location": "uri",
+                        "locationName": "CollaborationId"
+                    },
+                    "LatestCollaborationVersion": {},
+                    "Reason": {},
+                    "Details": {
+                        "shape": "Sq"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "CollaborationVersion"
+                ],
+                "members": {
+                    "CollaborationVersion": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/67N7E4KXTI4RH3F3EQYFYF22QQYSXNW3RL62PKCFHZ62IJRHSP4A/vendors~64216fa6.js"
+            ]
+        },
+        "DeclineForecastLineCollaborationInternal": {
+            "http": {
+                "requestUri": "/instance/{InstanceId}/forecast-line-collaborations/{CollaborationId}/decline-internal",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "InstanceId",
+                    "CollaborationId",
+                    "LatestCollaborationVersion",
+                    "Reason",
+                    "userId"
+                ],
+                "members": {
+                    "InstanceId": {
+                        "location": "uri",
+                        "locationName": "InstanceId"
+                    },
+                    "CollaborationId": {
+                        "location": "uri",
+                        "locationName": "CollaborationId"
+                    },
+                    "LatestCollaborationVersion": {},
+                    "Reason": {},
+                    "Details": {
+                        "shape": "Sq"
+                    },
+                    "userId": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "CollaborationVersion"
+                ],
+                "members": {
+                    "CollaborationVersion": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/67N7E4KXTI4RH3F3EQYFYF22QQYSXNW3RL62PKCFHZ62IJRHSP4A/vendors~64216fa6.js"
+            ]
+        },
+        "DeleteForecastLineCollaboration": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/instance/{InstanceId}/forecast-line-collaborations/{CollaborationId}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "InstanceId",
+                    "CollaborationId"
+                ],
+                "members": {
+                    "InstanceId": {
+                        "location": "uri",
+                        "locationName": "InstanceId"
+                    },
+                    "CollaborationId": {
+                        "location": "uri",
+                        "locationName": "CollaborationId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/67N7E4KXTI4RH3F3EQYFYF22QQYSXNW3RL62PKCFHZ62IJRHSP4A/vendors~64216fa6.js"
+            ]
+        },
+        "GetForecastLineCollaboration": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/instance/{InstanceId}/forecast-line-collaborations/{CollaborationId}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "InstanceId",
+                    "CollaborationId"
+                ],
+                "members": {
+                    "InstanceId": {
+                        "location": "uri",
+                        "locationName": "InstanceId"
+                    },
+                    "CollaborationId": {
+                        "location": "uri",
+                        "locationName": "CollaborationId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ForecastLineCollaboration": {
+                        "type": "structure",
+                        "required": [
+                            "CollaborationId",
+                            "ForecastId",
+                            "ProductId",
+                            "PartnerName",
+                            "RequestedDate",
+                            "Status",
+                            "CollaborationVersion",
+                            "Request"
+                        ],
+                        "members": {
+                            "CollaborationId": {},
+                            "ForecastId": {},
+                            "ProductId": {},
+                            "ProductDescription": {},
+                            "SiteId": {
+                                "shape": "Sd"
+                            },
+                            "SiteDescription": {},
+                            "ResponseDueDate": {
+                                "shape": "Sh"
+                            },
+                            "PartnerName": {
+                                "shape": "S13"
+                            },
+                            "PartnerId": {},
+                            "RequestedDate": {
+                                "shape": "Sh"
+                            },
+                            "Status": {},
+                            "CollaborationVersion": {},
+                            "Request": {
+                                "type": "structure",
+                                "required": [
+                                    "RequestedComponentForecast",
+                                    "RequestVersion"
+                                ],
+                                "members": {
+                                    "RequestedComponentForecast": {
+                                        "shape": "Sf"
+                                    },
+                                    "RequestVersion": {},
+                                    "Message": {
+                                        "type": "structure",
+                                        "members": {
+                                            "CancellationMessage": {
+                                                "type": "structure",
+                                                "members": {
+                                                    "SentDate": {
+                                                        "shape": "Sh"
+                                                    },
+                                                    "Details": {
+                                                        "shape": "Sq"
+                                                    }
+                                                }
+                                            },
+                                            "RejectionMessage": {
+                                                "type": "structure",
+                                                "members": {
+                                                    "SentDate": {
+                                                        "shape": "Sh"
+                                                    },
+                                                    "Details": {
+                                                        "shape": "Sq"
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "union": true
+                                    }
+                                }
+                            },
+                            "Response": {
+                                "type": "structure",
+                                "required": [
+                                    "ResponseVersion"
+                                ],
+                                "members": {
+                                    "CommittedComponentForecast": {
+                                        "type": "list",
+                                        "member": {
+                                            "type": "structure",
+                                            "required": [
+                                                "CommitmentDate",
+                                                "CommittedQuantity",
+                                                "DeviationPercent"
+                                            ],
+                                            "members": {
+                                                "CommitmentDate": {
+                                                    "shape": "Sh"
+                                                },
+                                                "CommittedQuantity": {
+                                                    "type": "double"
+                                                },
+                                                "DeviationPercent": {
+                                                    "type": "double"
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "ResponseVersion": {},
+                                    "Message": {
+                                        "type": "structure",
+                                        "members": {
+                                            "SubmissionMessage": {
+                                                "type": "structure",
+                                                "members": {
+                                                    "SentDate": {
+                                                        "shape": "Sh"
+                                                    },
+                                                    "Details": {
+                                                        "shape": "Sq"
+                                                    },
+                                                    "Reason": {}
+                                                }
+                                            },
+                                            "DeclineMessage": {
+                                                "type": "structure",
+                                                "members": {
+                                                    "SentDate": {
+                                                        "shape": "Sh"
+                                                    },
+                                                    "Details": {
+                                                        "shape": "Sq"
+                                                    },
+                                                    "Reason": {}
+                                                }
+                                            }
+                                        },
+                                        "union": true
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/67N7E4KXTI4RH3F3EQYFYF22QQYSXNW3RL62PKCFHZ62IJRHSP4A/vendors~64216fa6.js"
+            ]
+        },
+        "ListForecastLineCollaborations": {
+            "http": {
+                "requestUri": "/instance/{InstanceId}/list/forecast-line-collaborations/",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "InstanceId"
+                ],
+                "members": {
+                    "InstanceId": {
+                        "location": "uri",
+                        "locationName": "InstanceId"
+                    },
+                    "SiteId": {
+                        "shape": "Sd"
+                    },
+                    "ForecastCollaborationStatus": {},
+                    "PartnerInstanceId": {},
+                    "SortOrder": {},
+                    "NextToken": {},
+                    "MaxResults": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "ForecastLineCollaborations"
+                ],
+                "members": {
+                    "ForecastLineCollaborations": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "CollaborationId",
+                                "ForecastId",
+                                "ProductId",
+                                "PartnerName",
+                                "RequestedDate",
+                                "Status",
+                                "CollaborationVersion"
+                            ],
+                            "members": {
+                                "CollaborationId": {},
+                                "ForecastId": {},
+                                "ProductId": {},
+                                "ProductDescription": {},
+                                "SiteId": {
+                                    "shape": "Sd"
+                                },
+                                "SiteDescription": {},
+                                "ResponseDueDate": {
+                                    "shape": "Sh"
+                                },
+                                "PartnerName": {
+                                    "shape": "S13"
+                                },
+                                "PartnerId": {},
+                                "RequestedDate": {
+                                    "shape": "Sh"
+                                },
+                                "Status": {},
+                                "CollaborationVersion": {}
+                            }
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/67N7E4KXTI4RH3F3EQYFYF22QQYSXNW3RL62PKCFHZ62IJRHSP4A/vendors~64216fa6.js"
+            ]
+        },
+        "PutForecastLineCollaborationResponse": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/instance/{InstanceId}/forecast-line-collaborations/{CollaborationId}/response",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "InstanceId",
+                    "CollaborationId",
+                    "CommittedComponentForecast",
+                    "LatestResponseVersion"
+                ],
+                "members": {
+                    "InstanceId": {
+                        "location": "uri",
+                        "locationName": "InstanceId"
+                    },
+                    "CollaborationId": {
+                        "location": "uri",
+                        "locationName": "CollaborationId"
+                    },
+                    "CommittedComponentForecast": {
+                        "shape": "S1r"
+                    },
+                    "LatestResponseVersion": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "ResponseVersion"
+                ],
+                "members": {
+                    "ResponseVersion": {}
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/67N7E4KXTI4RH3F3EQYFYF22QQYSXNW3RL62PKCFHZ62IJRHSP4A/vendors~64216fa6.js"
+            ]
+        },
+        "RejectForecastLineCollaborationResponse": {
+            "http": {
+                "requestUri": "/instance/{InstanceId}/forecast-line-collaborations/{CollaborationId}/reject-response",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "InstanceId",
+                    "CollaborationId",
+                    "LatestCollaborationVersion",
+                    "Details"
+                ],
+                "members": {
+                    "InstanceId": {
+                        "location": "uri",
+                        "locationName": "InstanceId"
+                    },
+                    "CollaborationId": {
+                        "location": "uri",
+                        "locationName": "CollaborationId"
+                    },
+                    "LatestCollaborationVersion": {},
+                    "Details": {
+                        "shape": "Sq"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "CollaborationVersion"
+                ],
+                "members": {
+                    "CollaborationVersion": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/67N7E4KXTI4RH3F3EQYFYF22QQYSXNW3RL62PKCFHZ62IJRHSP4A/vendors~64216fa6.js"
+            ]
+        },
+        "SubmitForecastLineCollaborationRequest": {
+            "http": {
+                "requestUri": "/instance/{InstanceId}/forecast-line-collaborations/{CollaborationId}/submit-request",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "InstanceId",
+                    "CollaborationId"
+                ],
+                "members": {
+                    "InstanceId": {
+                        "location": "uri",
+                        "locationName": "InstanceId"
+                    },
+                    "CollaborationId": {
+                        "location": "uri",
+                        "locationName": "CollaborationId"
+                    },
+                    "RequestVersion": {
+                        "type": "long"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/67N7E4KXTI4RH3F3EQYFYF22QQYSXNW3RL62PKCFHZ62IJRHSP4A/vendors~64216fa6.js"
+            ]
+        },
+        "SubmitForecastLineCollaborationResponse": {
+            "http": {
+                "requestUri": "/instance/{InstanceId}/forecast-line-collaborations/{CollaborationId}/submit-response",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "InstanceId",
+                    "CollaborationId",
+                    "LatestCollaborationVersion",
+                    "CommittedComponentForecast"
+                ],
+                "members": {
+                    "InstanceId": {
+                        "location": "uri",
+                        "locationName": "InstanceId"
+                    },
+                    "CollaborationId": {
+                        "location": "uri",
+                        "locationName": "CollaborationId"
+                    },
+                    "LatestCollaborationVersion": {},
+                    "CommittedComponentForecast": {
+                        "shape": "S1r"
+                    },
+                    "Details": {
+                        "shape": "Sq"
+                    },
+                    "Reason": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "CollaborationVersion",
+                    "ResponseVersion"
+                ],
+                "members": {
+                    "CollaborationVersion": {},
+                    "ResponseVersion": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/67N7E4KXTI4RH3F3EQYFYF22QQYSXNW3RL62PKCFHZ62IJRHSP4A/vendors~64216fa6.js"
+            ]
+        },
+        "SubmitForecastLineCollaborationResponseInternal": {
+            "http": {
+                "requestUri": "/instance/{InstanceId}/forecast-line-collaborations/{CollaborationId}/submit-response-internal",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "InstanceId",
+                    "CollaborationId",
+                    "LatestCollaborationVersion",
+                    "CommittedComponentForecast",
+                    "userId"
+                ],
+                "members": {
+                    "InstanceId": {
+                        "location": "uri",
+                        "locationName": "InstanceId"
+                    },
+                    "CollaborationId": {
+                        "location": "uri",
+                        "locationName": "CollaborationId"
+                    },
+                    "LatestCollaborationVersion": {},
+                    "CommittedComponentForecast": {
+                        "shape": "S1r"
+                    },
+                    "Details": {
+                        "shape": "Sq"
+                    },
+                    "Reason": {},
+                    "userId": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "CollaborationVersion",
+                    "ResponseVersion"
+                ],
+                "members": {
+                    "CollaborationVersion": {},
+                    "ResponseVersion": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/67N7E4KXTI4RH3F3EQYFYF22QQYSXNW3RL62PKCFHZ62IJRHSP4A/vendors~64216fa6.js"
+            ]
+        }
+    },
+    "shapes": {
+        "Sd": {
+            "type": "string",
+            "sensitive": true
+        },
+        "Sf": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "CommitmentDate",
+                    "RequestedQuantity"
+                ],
+                "members": {
+                    "CommitmentDate": {
+                        "shape": "Sh"
+                    },
+                    "RequestedQuantity": {
+                        "type": "double"
+                    }
+                }
+            }
+        },
+        "Sh": {
+            "type": "timestamp",
+            "timestampFormat": "iso8601"
+        },
+        "Sq": {
+            "type": "string",
+            "sensitive": true
+        },
+        "S13": {
+            "type": "string",
+            "sensitive": true
+        },
+        "S1r": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "CommitmentDate",
+                    "CommittedQuantity"
+                ],
+                "members": {
+                    "CommitmentDate": {
+                        "shape": "Sh"
+                    },
+                    "CommittedQuantity": {
+                        "type": "double"
+                    }
+                }
+            }
+        }
+    }
+}

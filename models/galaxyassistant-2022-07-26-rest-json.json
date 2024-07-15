@@ -1,0 +1,394 @@
+{
+    "version": "2.0",
+    "metadata": {
+        "apiVersion": "2022-07-26",
+        "endpointPrefix": "gas",
+        "protocol": "rest-json",
+        "protocols": [
+            "rest-json"
+        ],
+        "ripServiceName": "scn",
+        "serviceFullName": "GalaxyAssistantService",
+        "serviceId": "GalaxyAssistant",
+        "signatureVersion": "v4",
+        "signingName": "scn",
+        "uid": "galaxyassistant-2022-07-26",
+        "download_location": [
+            "https://a.b.cdn.console.awsstatic.com/a/v1/67N7E4KXTI4RH3F3EQYFYF22QQYSXNW3RL62PKCFHZ62IJRHSP4A/vendors~64216fa6.js"
+        ]
+    },
+    "operations": {
+        "AssistantSearch": {
+            "http": {
+                "requestUri": "/search",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "searchQuery"
+                ],
+                "members": {
+                    "instanceId": {},
+                    "searchQuery": {
+                        "location": "querystring",
+                        "locationName": "query"
+                    },
+                    "module": {},
+                    "sqlPromptVersion": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "answerStatus": {},
+                    "result": {},
+                    "sqlQuery": {},
+                    "closeExampleFound": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/67N7E4KXTI4RH3F3EQYFYF22QQYSXNW3RL62PKCFHZ62IJRHSP4A/vendors~64216fa6.js"
+            ]
+        },
+        "GetMessage": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/api/q/instances/{InstanceId}/conversations/{ConversationId}/messages/{MessageId}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "InstanceId",
+                    "UserId",
+                    "ConversationId",
+                    "MessageId"
+                ],
+                "members": {
+                    "InstanceId": {
+                        "location": "uri",
+                        "locationName": "InstanceId"
+                    },
+                    "UserId": {
+                        "location": "querystring",
+                        "locationName": "UserId"
+                    },
+                    "ConversationId": {
+                        "location": "uri",
+                        "locationName": "ConversationId"
+                    },
+                    "MessageId": {
+                        "location": "uri",
+                        "locationName": "MessageId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "message"
+                ],
+                "members": {
+                    "message": {
+                        "shape": "Sb"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/67N7E4KXTI4RH3F3EQYFYF22QQYSXNW3RL62PKCFHZ62IJRHSP4A/vendors~64216fa6.js"
+            ]
+        },
+        "ListConversations": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/api/q/instances/{InstanceId}/conversations",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "InstanceId",
+                    "UserId"
+                ],
+                "members": {
+                    "InstanceId": {
+                        "location": "uri",
+                        "locationName": "InstanceId"
+                    },
+                    "UserId": {
+                        "location": "querystring",
+                        "locationName": "UserId"
+                    },
+                    "CreatedAfter": {
+                        "location": "querystring",
+                        "locationName": "CreatedAfter",
+                        "type": "timestamp"
+                    },
+                    "LastModifiedAfter": {
+                        "location": "querystring",
+                        "locationName": "LastModifiedAfter",
+                        "type": "timestamp"
+                    },
+                    "NextToken": {
+                        "location": "querystring",
+                        "locationName": "NextToken"
+                    },
+                    "MaxResults": {
+                        "location": "querystring",
+                        "locationName": "MaxResults",
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "Conversations"
+                ],
+                "members": {
+                    "Conversations": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "ConversationId",
+                                "CreatedTime",
+                                "LastModifiedTime"
+                            ],
+                            "members": {
+                                "ConversationId": {},
+                                "CreatedTime": {
+                                    "type": "timestamp"
+                                },
+                                "LastModifiedTime": {
+                                    "type": "timestamp"
+                                }
+                            }
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/67N7E4KXTI4RH3F3EQYFYF22QQYSXNW3RL62PKCFHZ62IJRHSP4A/vendors~64216fa6.js"
+            ]
+        },
+        "ListMessages": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/api/q/instances/{InstanceId}/conversations/{ConversationId}/messages",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "InstanceId",
+                    "UserId",
+                    "ConversationId"
+                ],
+                "members": {
+                    "InstanceId": {
+                        "location": "uri",
+                        "locationName": "InstanceId"
+                    },
+                    "UserId": {
+                        "location": "querystring",
+                        "locationName": "UserId"
+                    },
+                    "ConversationId": {
+                        "location": "uri",
+                        "locationName": "ConversationId"
+                    },
+                    "ConversationScope": {
+                        "location": "querystring",
+                        "locationName": "ConversationScope"
+                    },
+                    "Status": {
+                        "location": "querystring",
+                        "locationName": "ResponseStatus"
+                    },
+                    "MessageType": {
+                        "location": "querystring",
+                        "locationName": "MessageType"
+                    },
+                    "NextToken": {
+                        "location": "querystring",
+                        "locationName": "NextToken"
+                    },
+                    "MaxResults": {
+                        "location": "querystring",
+                        "locationName": "MaxResults",
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "Messages"
+                ],
+                "members": {
+                    "Messages": {
+                        "type": "list",
+                        "member": {
+                            "shape": "Sb"
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/67N7E4KXTI4RH3F3EQYFYF22QQYSXNW3RL62PKCFHZ62IJRHSP4A/vendors~64216fa6.js"
+            ]
+        },
+        "PutFeedback": {
+            "http": {
+                "requestUri": "/api/q/instances/{InstanceId}/conversations/{ConversationId}/messages/{MessageId}/feedback",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "InstanceId",
+                    "UserId",
+                    "ConversationId",
+                    "MessageId",
+                    "Feedback"
+                ],
+                "members": {
+                    "InstanceId": {
+                        "location": "uri",
+                        "locationName": "InstanceId"
+                    },
+                    "UserId": {
+                        "location": "querystring",
+                        "locationName": "UserId"
+                    },
+                    "ConversationId": {
+                        "location": "uri",
+                        "locationName": "ConversationId"
+                    },
+                    "MessageId": {
+                        "location": "uri",
+                        "locationName": "MessageId"
+                    },
+                    "Feedback": {
+                        "shape": "Sj"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/67N7E4KXTI4RH3F3EQYFYF22QQYSXNW3RL62PKCFHZ62IJRHSP4A/vendors~64216fa6.js"
+            ]
+        },
+        "SendMessage": {
+            "http": {
+                "requestUri": "/api/q/instances/{InstanceId}/conversations/{ConversationId}/messages",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "InstanceId",
+                    "UserId",
+                    "ConversationId",
+                    "Body",
+                    "ConversationScope"
+                ],
+                "members": {
+                    "InstanceId": {
+                        "location": "uri",
+                        "locationName": "InstanceId"
+                    },
+                    "UserId": {
+                        "location": "querystring",
+                        "locationName": "UserId"
+                    },
+                    "ConversationId": {
+                        "location": "uri",
+                        "locationName": "ConversationId"
+                    },
+                    "Body": {},
+                    "ConversationScope": {},
+                    "Context": {
+                        "shape": "Se"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "ConversationId",
+                    "MessageId"
+                ],
+                "members": {
+                    "ConversationId": {},
+                    "MessageId": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/67N7E4KXTI4RH3F3EQYFYF22QQYSXNW3RL62PKCFHZ62IJRHSP4A/vendors~64216fa6.js"
+            ]
+        }
+    },
+    "shapes": {
+        "Sb": {
+            "type": "structure",
+            "required": [
+                "ConversationId",
+                "MessageId",
+                "Body",
+                "ConversationScope",
+                "MessageType",
+                "CreatedTime",
+                "LastModifiedTime"
+            ],
+            "members": {
+                "ConversationId": {},
+                "MessageId": {},
+                "Body": {},
+                "ConversationScope": {},
+                "Context": {
+                    "shape": "Se"
+                },
+                "ResponseStatus": {},
+                "MessageType": {},
+                "CreatedTime": {
+                    "type": "timestamp"
+                },
+                "LastModifiedTime": {
+                    "type": "timestamp"
+                },
+                "Feedback": {
+                    "shape": "Sj"
+                }
+            }
+        },
+        "Se": {
+            "type": "structure",
+            "members": {
+                "AppModule": {},
+                "AppModuleInfo": {
+                    "type": "map",
+                    "key": {},
+                    "value": {}
+                }
+            }
+        },
+        "Sj": {
+            "type": "structure",
+            "required": [
+                "Usefulness"
+            ],
+            "members": {
+                "Usefulness": {},
+                "Comment": {}
+            }
+        }
+    }
+}

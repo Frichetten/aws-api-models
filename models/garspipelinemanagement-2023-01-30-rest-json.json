@@ -1,0 +1,812 @@
+{
+    "version": "2.0",
+    "metadata": {
+        "apiVersion": "2023-01-30",
+        "endpointPrefix": "spmgmt",
+        "protocol": "rest-json",
+        "protocols": [
+            "rest-json"
+        ],
+        "ripServiceName": "scn",
+        "serviceFullName": "GarsPipelineManagementService",
+        "serviceId": "GarsPipelineManagement",
+        "signatureVersion": "v4",
+        "signingName": "scn",
+        "uid": "garspipelinemanagement-2023-01-30",
+        "download_location": [
+            "https://a.b.cdn.console.awsstatic.com/a/v1/67N7E4KXTI4RH3F3EQYFYF22QQYSXNW3RL62PKCFHZ62IJRHSP4A/vendors~64216fa6.js"
+        ]
+    },
+    "operations": {
+        "CreateBacktest": {
+            "http": {
+                "requestUri": "/create-backtest",
+                "responseCode": 201
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "instanceId",
+                    "backtestName",
+                    "testAutoReplenishmentPipelines",
+                    "historicalDataDefinition"
+                ],
+                "members": {
+                    "instanceId": {},
+                    "backtestName": {},
+                    "testAutoReplenishmentPipelines": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "pipelineDefinition",
+                                "approvalCriteria",
+                                "replenishmentConfiguration"
+                            ],
+                            "members": {
+                                "pipelineId": {},
+                                "pipelineName": {},
+                                "pipelineDefinition": {
+                                    "type": "structure",
+                                    "required": [
+                                        "pipelineType",
+                                        "pipelineDefinition",
+                                        "pipelineSchedules",
+                                        "planningHorizon",
+                                        "forecastConfig",
+                                        "pipelineOutput"
+                                    ],
+                                    "members": {
+                                        "pipelineId": {},
+                                        "pipelineName": {},
+                                        "pipelineType": {},
+                                        "pipelineDefinition": {
+                                            "shape": "S9"
+                                        },
+                                        "pipelineSchedules": {
+                                            "shape": "Sf"
+                                        },
+                                        "planningHorizon": {
+                                            "shape": "Sn"
+                                        },
+                                        "forecastConfig": {
+                                            "shape": "Sp"
+                                        },
+                                        "pipelineOutput": {}
+                                    }
+                                },
+                                "approvalCriteria": {
+                                    "shape": "Sv"
+                                },
+                                "replenishmentConfiguration": {
+                                    "shape": "Sy"
+                                }
+                            }
+                        }
+                    },
+                    "historicalDataDefinition": {
+                        "type": "structure",
+                        "required": [
+                            "startTime",
+                            "endTime"
+                        ],
+                        "members": {
+                            "startTime": {},
+                            "endTime": {},
+                            "timeZoneOfStartTime": {}
+                        }
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "backtestId",
+                    "instanceId"
+                ],
+                "members": {
+                    "backtestId": {},
+                    "instanceId": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/67N7E4KXTI4RH3F3EQYFYF22QQYSXNW3RL62PKCFHZ62IJRHSP4A/vendors~64216fa6.js"
+            ]
+        },
+        "CreateReplenishmentPipeline": {
+            "http": {
+                "requestUri": "/create-replenishment-pipeline",
+                "responseCode": 201
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "instanceId",
+                    "pipelineName",
+                    "pipelineDefinition",
+                    "pipelineSchedules",
+                    "planningHorizon",
+                    "forecastConfig",
+                    "replenishmentConfig"
+                ],
+                "members": {
+                    "instanceId": {},
+                    "pipelineName": {},
+                    "pipelineDefinition": {
+                        "shape": "S9"
+                    },
+                    "pipelineSchedules": {
+                        "shape": "Sf"
+                    },
+                    "planningHorizon": {
+                        "shape": "Sn"
+                    },
+                    "forecastConfig": {
+                        "shape": "Sp"
+                    },
+                    "replenishmentConfig": {
+                        "shape": "Sy"
+                    },
+                    "autoApprovalCriteria": {
+                        "shape": "Sv"
+                    },
+                    "pipelineType": {},
+                    "inputSettings": {
+                        "shape": "S15"
+                    },
+                    "pipelineOutputs": {
+                        "shape": "S18"
+                    },
+                    "purchasePlanChangeThreshold": {
+                        "type": "float"
+                    },
+                    "subnetExecutionConfig": {
+                        "shape": "S19"
+                    },
+                    "poPastDueDays": {
+                        "type": "integer"
+                    },
+                    "historicalPeriodForDemand": {
+                        "type": "integer"
+                    },
+                    "invLevelLookBackDays": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "pipelineId",
+                    "instanceId"
+                ],
+                "members": {
+                    "pipelineId": {},
+                    "instanceId": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/67N7E4KXTI4RH3F3EQYFYF22QQYSXNW3RL62PKCFHZ62IJRHSP4A/vendors~64216fa6.js"
+            ]
+        },
+        "DeleteReplenishmentPipeline": {
+            "http": {
+                "requestUri": "/delete-replenishment-pipeline",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "pipelineId",
+                    "instanceId"
+                ],
+                "members": {
+                    "pipelineId": {},
+                    "instanceId": {}
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/67N7E4KXTI4RH3F3EQYFYF22QQYSXNW3RL62PKCFHZ62IJRHSP4A/vendors~64216fa6.js"
+            ]
+        },
+        "GetInstanceReplenishmentConfig": {
+            "http": {
+                "requestUri": "/get-instance-replenishment-config",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "instanceId"
+                ],
+                "members": {
+                    "instanceId": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "instanceReplenishmentConfig"
+                ],
+                "members": {
+                    "instanceReplenishmentConfig": {
+                        "shape": "Sy"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/67N7E4KXTI4RH3F3EQYFYF22QQYSXNW3RL62PKCFHZ62IJRHSP4A/vendors~64216fa6.js"
+            ]
+        },
+        "GetReplenishmentPipeline": {
+            "http": {
+                "requestUri": "/get-replenishment-pipeline",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "instanceId",
+                    "pipelineId"
+                ],
+                "members": {
+                    "instanceId": {},
+                    "pipelineId": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "replenishmentPipeline",
+                    "replenishmentConfig"
+                ],
+                "members": {
+                    "replenishmentPipeline": {
+                        "shape": "S1l"
+                    },
+                    "replenishmentConfig": {
+                        "shape": "Sy"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/67N7E4KXTI4RH3F3EQYFYF22QQYSXNW3RL62PKCFHZ62IJRHSP4A/vendors~64216fa6.js"
+            ]
+        },
+        "GetReplenishmentPipelineApprovalCriteria": {
+            "http": {
+                "requestUri": "/get-replenishment-pipeline-approval-criteria",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "instanceId",
+                    "pipelineId"
+                ],
+                "members": {
+                    "instanceId": {},
+                    "pipelineId": {},
+                    "nextToken": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "approvalCriteria"
+                ],
+                "members": {
+                    "approvalCriteria": {
+                        "shape": "Sv"
+                    },
+                    "nextToken": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/67N7E4KXTI4RH3F3EQYFYF22QQYSXNW3RL62PKCFHZ62IJRHSP4A/vendors~64216fa6.js"
+            ]
+        },
+        "ListReplenishmentPipelinesByInstance": {
+            "http": {
+                "requestUri": "/list-replenishment-pipelines-by-instance",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "instanceId"
+                ],
+                "members": {
+                    "instanceId": {},
+                    "maxResults": {
+                        "type": "integer"
+                    },
+                    "nextToken": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "pipelines",
+                    "replenishmentConfig"
+                ],
+                "members": {
+                    "pipelines": {
+                        "type": "list",
+                        "member": {
+                            "shape": "S1l"
+                        }
+                    },
+                    "replenishmentConfig": {
+                        "shape": "Sy"
+                    },
+                    "nextToken": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/67N7E4KXTI4RH3F3EQYFYF22QQYSXNW3RL62PKCFHZ62IJRHSP4A/vendors~64216fa6.js"
+            ]
+        },
+        "ResetReplenishmentPlan": {
+            "http": {
+                "requestUri": "/reset-replenishment-plan",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "instanceId"
+                ],
+                "members": {
+                    "instanceId": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "status"
+                ],
+                "members": {
+                    "status": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/67N7E4KXTI4RH3F3EQYFYF22QQYSXNW3RL62PKCFHZ62IJRHSP4A/vendors~64216fa6.js"
+            ]
+        },
+        "UpdatePipelineSettingDefaults": {
+            "http": {
+                "requestUri": "/update-pipeline-setting-defaults",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "instanceId",
+                    "pipelineId",
+                    "pipelineSettingDefaults"
+                ],
+                "members": {
+                    "instanceId": {},
+                    "pipelineId": {},
+                    "pipelineSettingDefaults": {
+                        "type": "structure",
+                        "members": {
+                            "useFlatTopology": {
+                                "type": "boolean"
+                            },
+                            "minQuantity": {
+                                "type": "float"
+                            },
+                            "lotSize": {
+                                "type": "float"
+                            },
+                            "sourcingScheduleDayOfWeek": {
+                                "type": "list",
+                                "member": {
+                                    "type": "integer"
+                                }
+                            },
+                            "sourcingScheduleWeekOfMonth": {
+                                "type": "list",
+                                "member": {
+                                    "type": "integer"
+                                }
+                            },
+                            "vendorLeadTime": {
+                                "type": "integer"
+                            },
+                            "transshipmentLeadTime": {
+                                "type": "integer"
+                            },
+                            "invPolicy": {},
+                            "targetServiceLevel": {
+                                "type": "float"
+                            },
+                            "targetDOC": {
+                                "type": "integer"
+                            },
+                            "maxDOC": {
+                                "type": "integer"
+                            },
+                            "targetInvLevel": {
+                                "type": "float"
+                            },
+                            "maxInvLevel": {
+                                "type": "float"
+                            }
+                        }
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "pipelineId",
+                    "instanceId"
+                ],
+                "members": {
+                    "pipelineId": {},
+                    "instanceId": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/67N7E4KXTI4RH3F3EQYFYF22QQYSXNW3RL62PKCFHZ62IJRHSP4A/vendors~64216fa6.js"
+            ]
+        },
+        "UpdateReplenishmentPipeline": {
+            "http": {
+                "requestUri": "/update-replenishment-pipeline",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "instanceId",
+                    "pipelineId",
+                    "pipelineName",
+                    "pipelineDefinition",
+                    "pipelineSchedules",
+                    "planningHorizon",
+                    "forecastConfig",
+                    "replenishmentConfig"
+                ],
+                "members": {
+                    "instanceId": {},
+                    "pipelineId": {},
+                    "pipelineName": {},
+                    "pipelineDefinition": {
+                        "shape": "S9"
+                    },
+                    "pipelineSchedules": {
+                        "shape": "Sf"
+                    },
+                    "planningHorizon": {
+                        "shape": "Sn"
+                    },
+                    "forecastConfig": {
+                        "shape": "Sp"
+                    },
+                    "replenishmentConfig": {
+                        "shape": "Sy"
+                    },
+                    "autoApprovalCriteria": {
+                        "shape": "Sv"
+                    },
+                    "inputSettings": {
+                        "shape": "S15"
+                    },
+                    "pipelineOutputs": {
+                        "shape": "S18"
+                    },
+                    "purchasePlanChangeThreshold": {
+                        "type": "float"
+                    },
+                    "subnetExecutionConfig": {
+                        "shape": "S19"
+                    },
+                    "poPastDueDays": {
+                        "type": "integer"
+                    },
+                    "historicalPeriodForDemand": {
+                        "type": "integer"
+                    },
+                    "invLevelLookBackDays": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "pipelineId",
+                    "instanceId"
+                ],
+                "members": {
+                    "pipelineId": {},
+                    "instanceId": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/67N7E4KXTI4RH3F3EQYFYF22QQYSXNW3RL62PKCFHZ62IJRHSP4A/vendors~64216fa6.js"
+            ]
+        },
+        "UpdateSubnetExecutionConfig": {
+            "http": {
+                "requestUri": "/update-subnet-execution-config",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "instanceId",
+                    "pipelineId",
+                    "subnetExecutionConfig"
+                ],
+                "members": {
+                    "instanceId": {},
+                    "pipelineId": {},
+                    "subnetExecutionConfig": {
+                        "shape": "S19"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "pipelineId",
+                    "instanceId"
+                ],
+                "members": {
+                    "pipelineId": {},
+                    "instanceId": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/67N7E4KXTI4RH3F3EQYFYF22QQYSXNW3RL62PKCFHZ62IJRHSP4A/vendors~64216fa6.js"
+            ]
+        }
+    },
+    "shapes": {
+        "S9": {
+            "type": "structure",
+            "required": [
+                "definitionTemplate"
+            ],
+            "members": {
+                "definitionTemplate": {},
+                "templateOverrides": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "required": [
+                            "AttributeName",
+                            "OverrideValue"
+                        ],
+                        "members": {
+                            "AttributeName": {},
+                            "OverrideValue": {
+                                "type": "structure",
+                                "members": {},
+                                "document": true
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "Sf": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "scheduleType",
+                    "frequency",
+                    "startTime"
+                ],
+                "members": {
+                    "scheduleType": {},
+                    "frequency": {},
+                    "startTime": {},
+                    "dayOfWeekForStartTime": {
+                        "type": "integer"
+                    },
+                    "dayOfMonthForStartTime": {
+                        "type": "integer"
+                    },
+                    "timeZoneOfStartTime": {},
+                    "releaseTime": {},
+                    "dayOfWeekForReleaseTime": {
+                        "type": "integer"
+                    },
+                    "dayOfMonthForReleaseTime": {
+                        "type": "integer"
+                    },
+                    "timeZoneOfReleaseTime": {},
+                    "releaseTimeNTier": {},
+                    "dayOfWeekForReleaseTimeNTier": {
+                        "type": "integer"
+                    },
+                    "dayOfMonthForReleaseTimeNTier": {
+                        "type": "integer"
+                    },
+                    "timeZoneOfReleaseTimeNTier": {}
+                }
+            }
+        },
+        "Sn": {
+            "type": "structure",
+            "required": [
+                "startDayOfWeek",
+                "timeBucketization",
+                "timeHorizonPeriods"
+            ],
+            "members": {
+                "startDayOfWeek": {
+                    "type": "integer"
+                },
+                "timeBucketization": {},
+                "timeHorizonPeriods": {
+                    "type": "integer"
+                }
+            }
+        },
+        "Sp": {
+            "type": "structure",
+            "required": [
+                "source",
+                "dimensions",
+                "timeBucket"
+            ],
+            "members": {
+                "source": {},
+                "dimensions": {
+                    "type": "list",
+                    "member": {}
+                },
+                "timeBucket": {},
+                "useVLT": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "Sv": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "autoApproveQuantity": {
+                        "type": "float"
+                    },
+                    "autoApproveValue": {
+                        "type": "float"
+                    },
+                    "autoApproveDeviation": {
+                        "type": "float"
+                    },
+                    "productId": {},
+                    "productGroupId": {},
+                    "siteId": {},
+                    "geoId": {},
+                    "companyId": {}
+                }
+            }
+        },
+        "Sy": {
+            "type": "structure",
+            "required": [
+                "reviewPeriod"
+            ],
+            "members": {
+                "reviewPeriod": {
+                    "type": "integer"
+                },
+                "releaseBufferTime": {
+                    "type": "integer"
+                },
+                "takePendingPOR": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "S15": {
+            "type": "structure",
+            "required": [
+                "pastDaysForBackOrders",
+                "defaultFrozenHorizonDays"
+            ],
+            "members": {
+                "pastDaysForBackOrders": {
+                    "type": "integer"
+                },
+                "defaultFrozenHorizonDays": {
+                    "type": "integer"
+                }
+            }
+        },
+        "S18": {
+            "type": "list",
+            "member": {}
+        },
+        "S19": {
+            "type": "structure",
+            "members": {
+                "productIds": {
+                    "shape": "S1a"
+                },
+                "productGroupIds": {
+                    "shape": "S1a"
+                },
+                "siteIds": {
+                    "shape": "S1a"
+                },
+                "regionIds": {
+                    "shape": "S1a"
+                }
+            }
+        },
+        "S1a": {
+            "type": "list",
+            "member": {}
+        },
+        "S1l": {
+            "type": "structure",
+            "required": [
+                "ownerAccountId",
+                "instanceId",
+                "pipelineId",
+                "pipelineName",
+                "pipelineType",
+                "subnetExecutionConfig",
+                "pipelineDefinition",
+                "pipelineSchedules",
+                "planningHorizon",
+                "forecastConfig",
+                "inputSettings",
+                "approvalCriteria",
+                "pipelineOutputs"
+            ],
+            "members": {
+                "ownerAccountId": {},
+                "instanceId": {},
+                "pipelineId": {},
+                "pipelineName": {},
+                "pipelineType": {},
+                "subnetExecutionConfig": {
+                    "shape": "S19"
+                },
+                "pipelineDefinition": {
+                    "shape": "S9"
+                },
+                "pipelineSchedules": {
+                    "shape": "Sf"
+                },
+                "planningHorizon": {
+                    "shape": "Sn"
+                },
+                "forecastConfig": {
+                    "shape": "Sp"
+                },
+                "inputSettings": {
+                    "shape": "S15"
+                },
+                "approvalCriteria": {
+                    "shape": "Sv"
+                },
+                "pipelineOutputs": {
+                    "shape": "S18"
+                },
+                "purchasePlanChangeThreshold": {
+                    "type": "float"
+                },
+                "poPastDueDays": {
+                    "type": "integer"
+                },
+                "historicalPeriodForDemand": {
+                    "type": "integer"
+                }
+            }
+        }
+    }
+}

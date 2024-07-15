@@ -1,0 +1,224 @@
+{
+    "version": "2.0",
+    "metadata": {
+        "apiVersion": "2020-11-16",
+        "endpointPrefix": "edigatewayservice",
+        "protocol": "rest-json",
+        "protocols": [
+            "rest-json"
+        ],
+        "ripServiceName": "scn",
+        "serviceFullName": "EDIGatewayService",
+        "serviceId": "EDIGateway",
+        "signatureVersion": "v4",
+        "signingName": "scn",
+        "uid": "edigateway-2020-11-16",
+        "download_location": [
+            "https://a.b.cdn.console.awsstatic.com/a/v1/67N7E4KXTI4RH3F3EQYFYF22QQYSXNW3RL62PKCFHZ62IJRHSP4A/vendors~64216fa6.js"
+        ]
+    },
+    "operations": {
+        "CreateParsingJob": {
+            "http": {
+                "requestUri": "/createParsingJob",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "instanceID",
+                    "connectionID",
+                    "connectionType",
+                    "customerFileId",
+                    "sourceFileLocation",
+                    "targetFileLocations"
+                ],
+                "members": {
+                    "instanceID": {},
+                    "connectionID": {},
+                    "connectionType": {},
+                    "customerFileId": {},
+                    "sourceFileLocation": {},
+                    "targetFileLocations": {
+                        "shape": "S7"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "jobId": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/67N7E4KXTI4RH3F3EQYFYF22QQYSXNW3RL62PKCFHZ62IJRHSP4A/vendors~64216fa6.js"
+            ]
+        },
+        "CreateSampleParsingJob": {
+            "http": {
+                "requestUri": "/createSampleParsingJob",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "instanceId",
+                    "sampleFileLocation",
+                    "eventType",
+                    "transactionset"
+                ],
+                "members": {
+                    "instanceId": {},
+                    "sampleFileLocation": {},
+                    "eventType": {},
+                    "transactionset": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "output": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "sourceField": {},
+                                "possibilities": {
+                                    "type": "list",
+                                    "member": {
+                                        "type": "structure",
+                                        "members": {
+                                            "entityName": {},
+                                            "confidence": {
+                                                "type": "bigdecimal"
+                                            }
+                                        }
+                                    }
+                                },
+                                "sampleValue": {}
+                            }
+                        }
+                    },
+                    "aaSessionId": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/67N7E4KXTI4RH3F3EQYFYF22QQYSXNW3RL62PKCFHZ62IJRHSP4A/vendors~64216fa6.js"
+            ]
+        },
+        "GetParsingJobStatus": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/getParsingJobStatus/{jobId}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "jobId"
+                ],
+                "members": {
+                    "jobId": {
+                        "location": "uri",
+                        "locationName": "jobId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "jobId": {},
+                    "instanceID": {},
+                    "connectionID": {},
+                    "customerFileId": {},
+                    "sourceFileLocation": {},
+                    "targetFileLocations": {
+                        "shape": "S7"
+                    },
+                    "status": {},
+                    "errorMessage": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/67N7E4KXTI4RH3F3EQYFYF22QQYSXNW3RL62PKCFHZ62IJRHSP4A/vendors~64216fa6.js"
+            ]
+        }
+    },
+    "shapes": {
+        "S7": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "dataFlowId",
+                    "dataFlowName",
+                    "sourceName",
+                    "targetDatasetId",
+                    "targetDatasetType",
+                    "uploadType",
+                    "s3BucketName",
+                    "s3Key"
+                ],
+                "members": {
+                    "dataFlowId": {},
+                    "dataFlowName": {},
+                    "sourceName": {},
+                    "targetDatasetId": {},
+                    "targetDatasetType": {},
+                    "uploadType": {},
+                    "s3BucketName": {},
+                    "s3Key": {},
+                    "recipe": {
+                        "type": "structure",
+                        "members": {
+                            "recipe": {
+                                "type": "list",
+                                "member": {
+                                    "type": "structure",
+                                    "required": [
+                                        "action"
+                                    ],
+                                    "members": {
+                                        "action": {
+                                            "type": "structure",
+                                            "required": [
+                                                "operation"
+                                            ],
+                                            "members": {
+                                                "operation": {},
+                                                "parameters": {
+                                                    "type": "map",
+                                                    "key": {},
+                                                    "value": {}
+                                                }
+                                            }
+                                        },
+                                        "conditionExpressions": {
+                                            "type": "list",
+                                            "member": {
+                                                "type": "structure",
+                                                "required": [
+                                                    "condition",
+                                                    "targetColumn"
+                                                ],
+                                                "members": {
+                                                    "condition": {},
+                                                    "targetColumn": {},
+                                                    "value": {}
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            "identifierFields": {
+                                "type": "list",
+                                "member": {}
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

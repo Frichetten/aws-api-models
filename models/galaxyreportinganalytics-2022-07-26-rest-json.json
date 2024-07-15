@@ -1,0 +1,815 @@
+{
+    "version": "2.0",
+    "metadata": {
+        "apiVersion": "2022-07-26",
+        "endpointPrefix": "gras",
+        "protocol": "rest-json",
+        "protocols": [
+            "rest-json"
+        ],
+        "ripServiceName": "scn",
+        "serviceFullName": "GalaxyReportingAnalyticsService",
+        "serviceId": "GalaxyReportingAnalytics",
+        "signatureVersion": "v4",
+        "signingName": "scn",
+        "uid": "galaxyreportinganalytics-2022-07-26",
+        "download_location": [
+            "https://a.b.cdn.console.awsstatic.com/a/v1/67N7E4KXTI4RH3F3EQYFYF22QQYSXNW3RL62PKCFHZ62IJRHSP4A/vendors~64216fa6.js"
+        ]
+    },
+    "operations": {
+        "GetAnalyticsQueryOutput": {
+            "http": {
+                "requestUri": "/get-analytics-query-output",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "queryName",
+                    "instanceId"
+                ],
+                "members": {
+                    "queryName": {},
+                    "instanceId": {},
+                    "userId": {
+                        "deprecated": true,
+                        "deprecatedMessage": "No longer used, will be removed when safe for BFF"
+                    },
+                    "executionSequenceId": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "records",
+                    "schema",
+                    "state"
+                ],
+                "members": {
+                    "records": {
+                        "type": "list",
+                        "member": {}
+                    },
+                    "schema": {},
+                    "state": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/67N7E4KXTI4RH3F3EQYFYF22QQYSXNW3RL62PKCFHZ62IJRHSP4A/vendors~64216fa6.js"
+            ]
+        },
+        "GetBomPlanRecordDetails": {
+            "http": {
+                "requestUri": "/get-bom-plan-record-details",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "instanceId",
+                    "productId",
+                    "siteId"
+                ],
+                "members": {
+                    "instanceId": {},
+                    "pipelineId": {},
+                    "executionSeqId": {},
+                    "productId": {},
+                    "siteId": {},
+                    "companyId": {},
+                    "pipelineType": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "product",
+                    "site",
+                    "inventoryPolicy",
+                    "leadTimeInDays",
+                    "orderSchedule",
+                    "geography",
+                    "minQuantity",
+                    "quantityMultiple"
+                ],
+                "members": {
+                    "product": {
+                        "shape": "Sf"
+                    },
+                    "site": {
+                        "shape": "Sh"
+                    },
+                    "inventoryPolicy": {
+                        "type": "structure",
+                        "required": [
+                            "inventoryPolicyType",
+                            "minInDays",
+                            "targetInDays",
+                            "maxIndays"
+                        ],
+                        "members": {
+                            "inventoryPolicyType": {},
+                            "minInDays": {
+                                "type": "float"
+                            },
+                            "targetInDays": {
+                                "type": "float"
+                            },
+                            "maxIndays": {
+                                "type": "float"
+                            }
+                        }
+                    },
+                    "leadTimeInDays": {
+                        "type": "integer"
+                    },
+                    "orderSchedule": {
+                        "type": "list",
+                        "member": {}
+                    },
+                    "geography": {
+                        "type": "structure",
+                        "required": [
+                            "id"
+                        ],
+                        "members": {
+                            "id": {}
+                        }
+                    },
+                    "minQuantity": {
+                        "type": "float"
+                    },
+                    "maxQuantity": {
+                        "type": "float"
+                    },
+                    "quantityMultiple": {
+                        "type": "float"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/67N7E4KXTI4RH3F3EQYFYF22QQYSXNW3RL62PKCFHZ62IJRHSP4A/vendors~64216fa6.js"
+            ]
+        },
+        "GetBomPlanSummaryAnalytics": {
+            "http": {
+                "requestUri": "/get-bom-plan-summary-analytics",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "instanceId",
+                    "pipelineId"
+                ],
+                "members": {
+                    "instanceId": {},
+                    "pipelineId": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "inventoryOnHand": {
+                        "type": "structure",
+                        "required": [
+                            "value",
+                            "count"
+                        ],
+                        "members": {
+                            "value": {
+                                "type": "float"
+                            },
+                            "count": {
+                                "type": "integer"
+                            },
+                            "valueDeltaPct": {
+                                "type": "float"
+                            },
+                            "countDeltaPct": {
+                                "type": "float"
+                            }
+                        }
+                    },
+                    "openPOs": {
+                        "shape": "Sq"
+                    },
+                    "suppliers": {
+                        "type": "structure",
+                        "required": [
+                            "numOfTotalSuppliers"
+                        ],
+                        "members": {
+                            "numOfTotalSuppliers": {
+                                "type": "integer"
+                            }
+                        }
+                    },
+                    "purchaseRequirement": {
+                        "shape": "Sq"
+                    },
+                    "planExceptions": {
+                        "type": "structure",
+                        "required": [
+                            "exceptionCount"
+                        ],
+                        "members": {
+                            "exceptionCount": {
+                                "type": "integer"
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/67N7E4KXTI4RH3F3EQYFYF22QQYSXNW3RL62PKCFHZ62IJRHSP4A/vendors~64216fa6.js"
+            ]
+        },
+        "GetDashboardAnalytics": {
+            "http": {
+                "requestUri": "/get-dashboard-analytics",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "instanceId"
+                ],
+                "members": {
+                    "instanceId": {},
+                    "userId": {
+                        "deprecated": true,
+                        "deprecatedMessage": "No longer used, will be removed when safe for BFF"
+                    },
+                    "executionSequenceId": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "supplyNetworkAnalytics": {
+                        "type": "structure",
+                        "required": [
+                            "productCount",
+                            "siteCount",
+                            "supplierCount"
+                        ],
+                        "members": {
+                            "productCount": {
+                                "type": "integer"
+                            },
+                            "siteCount": {
+                                "type": "integer"
+                            },
+                            "supplierCount": {
+                                "type": "integer"
+                            }
+                        }
+                    },
+                    "inventoryAndOrderAnalytics": {
+                        "type": "structure",
+                        "required": [
+                            "onHandValue",
+                            "onHandDaysOfCover",
+                            "onOrderValue",
+                            "onOrderDaysOfCover"
+                        ],
+                        "members": {
+                            "onHandValue": {
+                                "type": "float"
+                            },
+                            "onHandDaysOfCover": {
+                                "type": "integer"
+                            },
+                            "onOrderValue": {
+                                "type": "float"
+                            },
+                            "onOrderDaysOfCover": {
+                                "type": "integer"
+                            }
+                        }
+                    },
+                    "poAutomationAnalytics": {
+                        "type": "structure",
+                        "required": [
+                            "automatedApprovalPercentage",
+                            "manualApprovalPercentage"
+                        ],
+                        "members": {
+                            "automatedApprovalPercentage": {
+                                "type": "float"
+                            },
+                            "manualApprovalPercentage": {
+                                "type": "float"
+                            }
+                        }
+                    },
+                    "serviceLevelAnalytics": {
+                        "type": "structure",
+                        "required": [
+                            "targetServiceLevel",
+                            "planServiceLevel"
+                        ],
+                        "members": {
+                            "targetServiceLevel": {
+                                "type": "float"
+                            },
+                            "planServiceLevel": {
+                                "type": "float"
+                            },
+                            "segmentServiceLevels": {
+                                "type": "list",
+                                "member": {
+                                    "type": "structure",
+                                    "required": [
+                                        "segmentName",
+                                        "segmentServiceLevel",
+                                        "targetServiceLevel"
+                                    ],
+                                    "members": {
+                                        "segmentName": {},
+                                        "segmentServiceLevel": {
+                                            "type": "float"
+                                        },
+                                        "targetServiceLevel": {
+                                            "type": "float"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/67N7E4KXTI4RH3F3EQYFYF22QQYSXNW3RL62PKCFHZ62IJRHSP4A/vendors~64216fa6.js"
+            ]
+        },
+        "GetExplanationByLLM": {
+            "http": {
+                "requestUri": "/get-explanation-by-llm",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "instanceId",
+                    "prompt"
+                ],
+                "members": {
+                    "instanceId": {},
+                    "prompt": {},
+                    "context": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "anwser"
+                ],
+                "members": {
+                    "anwser": {},
+                    "context": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/67N7E4KXTI4RH3F3EQYFYF22QQYSXNW3RL62PKCFHZ62IJRHSP4A/vendors~64216fa6.js"
+            ]
+        },
+        "GetPurchaseOrderRequestExplanation": {
+            "http": {
+                "requestUri": "/get-purchase-order-request-explanation",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "instanceId",
+                    "purchaseOrderRequestId"
+                ],
+                "members": {
+                    "instanceId": {},
+                    "purchaseOrderRequestId": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "requiredReorderQuantity",
+                    "suggestedReorderQuantity",
+                    "minimumReorderQuantity",
+                    "daysOfCover",
+                    "vendorLeadTimeDays",
+                    "explanationHorizonStart",
+                    "explanationHorizonEnd",
+                    "onHandInventory",
+                    "onOrderInventory",
+                    "inventorySnapshotDate",
+                    "invPolicy",
+                    "plannedDemands"
+                ],
+                "members": {
+                    "requiredReorderQuantity": {
+                        "type": "float"
+                    },
+                    "suggestedReorderQuantity": {
+                        "type": "float"
+                    },
+                    "minimumReorderQuantity": {
+                        "type": "float"
+                    },
+                    "daysOfCover": {
+                        "type": "integer"
+                    },
+                    "vendorLeadTimeDays": {
+                        "type": "float"
+                    },
+                    "explanationHorizonStart": {},
+                    "explanationHorizonEnd": {},
+                    "onHandInventory": {
+                        "type": "float"
+                    },
+                    "onOrderInventory": {
+                        "type": "float"
+                    },
+                    "inventorySnapshotDate": {},
+                    "invPolicy": {},
+                    "projectedOnHandInventory": {
+                        "type": "float"
+                    },
+                    "targetInvLevel": {
+                        "type": "float"
+                    },
+                    "targetInvPolicyLevel": {
+                        "type": "float"
+                    },
+                    "targetDOC": {
+                        "type": "integer"
+                    },
+                    "targetServiceLevel": {
+                        "type": "float"
+                    },
+                    "quantityMultiple": {
+                        "type": "float"
+                    },
+                    "plannedDemands": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "siteId",
+                                "plannedDemandQuantity"
+                            ],
+                            "members": {
+                                "siteId": {},
+                                "plannedDemandQuantity": {
+                                    "type": "float"
+                                },
+                                "horizonStart": {},
+                                "horizonEnd": {}
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/67N7E4KXTI4RH3F3EQYFYF22QQYSXNW3RL62PKCFHZ62IJRHSP4A/vendors~64216fa6.js"
+            ]
+        },
+        "ListBomProductionOrders": {
+            "http": {
+                "requestUri": "/list-bom-production-orders",
+                "responseCode": 200
+            },
+            "input": {
+                "shape": "S19"
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "bomProductionOrders"
+                ],
+                "members": {
+                    "bomProductionOrders": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "orderId",
+                                "product",
+                                "site",
+                                "requiredQty",
+                                "requriedDate",
+                                "leadTimeInDays"
+                            ],
+                            "members": {
+                                "orderId": {},
+                                "status": {},
+                                "product": {
+                                    "shape": "Sf"
+                                },
+                                "site": {
+                                    "shape": "Sh"
+                                },
+                                "requiredQty": {
+                                    "type": "float"
+                                },
+                                "requriedDate": {},
+                                "leadTimeInDays": {
+                                    "type": "integer"
+                                },
+                                "value": {
+                                    "type": "float"
+                                },
+                                "creationDate": {}
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/67N7E4KXTI4RH3F3EQYFYF22QQYSXNW3RL62PKCFHZ62IJRHSP4A/vendors~64216fa6.js"
+            ]
+        },
+        "ListBomPurchaseOrders": {
+            "http": {
+                "requestUri": "/list-bom-purchase-orders",
+                "responseCode": 200
+            },
+            "input": {
+                "shape": "S19"
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "bomPurchaseOrders"
+                ],
+                "members": {
+                    "bomPurchaseOrders": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "orderId",
+                                "product",
+                                "site",
+                                "requiredQty",
+                                "requriedDate",
+                                "leadTimeInDays",
+                                "vendor"
+                            ],
+                            "members": {
+                                "orderId": {},
+                                "status": {},
+                                "product": {
+                                    "shape": "Sf"
+                                },
+                                "site": {
+                                    "shape": "Sh"
+                                },
+                                "requiredQty": {
+                                    "type": "float"
+                                },
+                                "requriedDate": {},
+                                "leadTimeInDays": {
+                                    "type": "integer"
+                                },
+                                "vendor": {
+                                    "type": "structure",
+                                    "required": [
+                                        "id",
+                                        "description"
+                                    ],
+                                    "members": {
+                                        "id": {},
+                                        "description": {}
+                                    }
+                                },
+                                "value": {
+                                    "type": "float"
+                                },
+                                "creationDate": {}
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/67N7E4KXTI4RH3F3EQYFYF22QQYSXNW3RL62PKCFHZ62IJRHSP4A/vendors~64216fa6.js"
+            ]
+        },
+        "ListBomSupplyPlan": {
+            "http": {
+                "requestUri": "/list-bom-supply-plan",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "instanceId",
+                    "productId",
+                    "siteId"
+                ],
+                "members": {
+                    "instanceId": {},
+                    "pipelineId": {},
+                    "executionSeqId": {},
+                    "productId": {},
+                    "siteId": {},
+                    "companyId": {},
+                    "pipelineType": {},
+                    "startDate": {},
+                    "endDate": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "leadTimeInDays",
+                    "supplyPlans"
+                ],
+                "members": {
+                    "leadTimeInDays": {
+                        "type": "integer"
+                    },
+                    "supplyPlans": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "date",
+                                "demand",
+                                "onHandInventory",
+                                "openOrders",
+                                "targetInventory",
+                                "plannedSupply",
+                                "totalSupply",
+                                "projectedEndingOnHandInventory",
+                                "scheduleFrequency"
+                            ],
+                            "members": {
+                                "date": {},
+                                "demand": {
+                                    "type": "float"
+                                },
+                                "onHandInventory": {
+                                    "type": "float"
+                                },
+                                "openOrders": {
+                                    "type": "float"
+                                },
+                                "targetInventory": {
+                                    "type": "float"
+                                },
+                                "plannedSupply": {
+                                    "type": "float"
+                                },
+                                "totalSupply": {
+                                    "type": "float"
+                                },
+                                "projectedEndingOnHandInventory": {
+                                    "type": "float"
+                                },
+                                "scheduleFrequency": {}
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/67N7E4KXTI4RH3F3EQYFYF22QQYSXNW3RL62PKCFHZ62IJRHSP4A/vendors~64216fa6.js"
+            ]
+        },
+        "ListBomTransferOrders": {
+            "http": {
+                "requestUri": "/list-bom-transfer-orders",
+                "responseCode": 200
+            },
+            "input": {
+                "shape": "S19"
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "bomTransferOrders"
+                ],
+                "members": {
+                    "bomTransferOrders": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "orderId",
+                                "product",
+                                "requiredQty",
+                                "requriedDate",
+                                "leadTimeInDays",
+                                "fromSite",
+                                "toSite"
+                            ],
+                            "members": {
+                                "orderId": {},
+                                "status": {},
+                                "product": {
+                                    "shape": "Sf"
+                                },
+                                "requiredQty": {
+                                    "type": "float"
+                                },
+                                "requriedDate": {},
+                                "leadTimeInDays": {
+                                    "type": "integer"
+                                },
+                                "fromSite": {
+                                    "shape": "Sh"
+                                },
+                                "toSite": {
+                                    "shape": "Sh"
+                                },
+                                "value": {
+                                    "type": "float"
+                                },
+                                "creationDate": {}
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/67N7E4KXTI4RH3F3EQYFYF22QQYSXNW3RL62PKCFHZ62IJRHSP4A/vendors~64216fa6.js"
+            ]
+        }
+    },
+    "shapes": {
+        "Sf": {
+            "type": "structure",
+            "required": [
+                "id"
+            ],
+            "members": {
+                "id": {},
+                "description": {},
+                "name": {},
+                "category": {},
+                "unitPrice": {
+                    "type": "float"
+                },
+                "unitCost": {
+                    "type": "float"
+                },
+                "baseUOM": {}
+            }
+        },
+        "Sh": {
+            "type": "structure",
+            "required": [
+                "id"
+            ],
+            "members": {
+                "id": {},
+                "name": {}
+            }
+        },
+        "Sq": {
+            "type": "structure",
+            "required": [
+                "value",
+                "count"
+            ],
+            "members": {
+                "value": {
+                    "type": "float"
+                },
+                "count": {
+                    "type": "integer"
+                },
+                "valueDeltaPct": {
+                    "type": "float"
+                },
+                "countDeltaPct": {
+                    "type": "float"
+                }
+            }
+        },
+        "S19": {
+            "type": "structure",
+            "required": [
+                "instanceId",
+                "productId",
+                "siteId"
+            ],
+            "members": {
+                "instanceId": {},
+                "pipelineId": {},
+                "executionSeqId": {},
+                "productId": {},
+                "siteId": {},
+                "companyId": {},
+                "pipelineType": {},
+                "startDate": {},
+                "endDate": {}
+            }
+        }
+    }
+}

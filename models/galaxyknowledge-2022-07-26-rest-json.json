@@ -1,0 +1,155 @@
+{
+    "version": "2.0",
+    "metadata": {
+        "apiVersion": "2022-07-26",
+        "endpointPrefix": "gks",
+        "protocol": "rest-json",
+        "protocols": [
+            "rest-json"
+        ],
+        "ripServiceName": "scn",
+        "serviceFullName": "GalaxyKnowledgeService",
+        "serviceId": "GalaxyKnowledge",
+        "signatureVersion": "v4",
+        "signingName": "scn",
+        "uid": "galaxyknowledge-2022-07-26",
+        "download_location": [
+            "https://a.b.cdn.console.awsstatic.com/a/v1/67N7E4KXTI4RH3F3EQYFYF22QQYSXNW3RL62PKCFHZ62IJRHSP4A/vendors~64216fa6.js"
+        ]
+    },
+    "operations": {
+        "EntitySearch": {
+            "http": {
+                "requestUri": "/search-entities",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "instanceId",
+                    "entityTypes"
+                ],
+                "members": {
+                    "instanceId": {},
+                    "entityTypes": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "entityType"
+                            ],
+                            "members": {
+                                "entityType": {},
+                                "filterMap": {
+                                    "type": "map",
+                                    "key": {},
+                                    "value": {}
+                                }
+                            }
+                        }
+                    },
+                    "searchText": {
+                        "type": "string",
+                        "sensitive": true
+                    },
+                    "maxResults": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "entityResultList": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "entityType",
+                                "searchResult"
+                            ],
+                            "members": {
+                                "entityType": {},
+                                "searchResult": {
+                                    "type": "list",
+                                    "member": {
+                                        "type": "map",
+                                        "key": {},
+                                        "value": {}
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/67N7E4KXTI4RH3F3EQYFYF22QQYSXNW3RL62PKCFHZ62IJRHSP4A/vendors~64216fa6.js"
+            ]
+        },
+        "KnowledgeSearch": {
+            "http": {
+                "requestUri": "/generate-answer",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "galaxyInstanceId",
+                    "query"
+                ],
+                "members": {
+                    "galaxyInstanceId": {},
+                    "query": {
+                        "location": "querystring",
+                        "locationName": "query",
+                        "type": "string",
+                        "sensitive": true
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "status": {},
+                    "result": {
+                        "type": "structure",
+                        "members": {
+                            "resultText": {
+                                "type": "string",
+                                "sensitive": true
+                            }
+                        }
+                    },
+                    "relatedContent": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "webContent": {
+                                    "type": "structure",
+                                    "members": {
+                                        "publicLink": {},
+                                        "title": {},
+                                        "webSourceType": {}
+                                    }
+                                },
+                                "videoContent": {
+                                    "type": "structure",
+                                    "members": {
+                                        "sourceId": {}
+                                    }
+                                }
+                            },
+                            "union": true
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/67N7E4KXTI4RH3F3EQYFYF22QQYSXNW3RL62PKCFHZ62IJRHSP4A/vendors~64216fa6.js"
+            ]
+        }
+    },
+    "shapes": {}
+}

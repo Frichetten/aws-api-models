@@ -1,0 +1,226 @@
+{
+    "version": "2.0",
+    "metadata": {
+        "apiVersion": "2022-04-18",
+        "endpointPrefix": "galaxysapconnectionservice",
+        "protocol": "rest-json",
+        "protocols": [
+            "rest-json"
+        ],
+        "ripServiceName": "scn",
+        "serviceFullName": "GalaxySapConnectionService",
+        "serviceId": "GalaxySapConnection",
+        "signatureVersion": "v4",
+        "signingName": "scn",
+        "uid": "galaxysapconnection-2022-04-18",
+        "download_location": [
+            "https://a.b.cdn.console.awsstatic.com/a/v1/67N7E4KXTI4RH3F3EQYFYF22QQYSXNW3RL62PKCFHZ62IJRHSP4A/vendors~64216fa6.js"
+        ]
+    },
+    "operations": {
+        "CreateExtractFlows": {
+            "http": {
+                "requestUri": "/CreateExtractFlows",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "galaxyInstanceId",
+                    "galaxyConnectionId",
+                    "galaxyConnectionName",
+                    "sapODataConnectionId",
+                    "sapODataConnectionName",
+                    "s3BucketName",
+                    "galaxyDataFlows"
+                ],
+                "members": {
+                    "galaxyInstanceId": {},
+                    "galaxyConnectionId": {},
+                    "galaxyConnectionName": {},
+                    "sapODataConnectionId": {},
+                    "sapODataConnectionName": {},
+                    "s3BucketName": {},
+                    "galaxyDataFlows": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "galaxyDataFlowId",
+                                "galaxyDataFlowName",
+                                "sapConfigs"
+                            ],
+                            "members": {
+                                "galaxyDataFlowId": {},
+                                "galaxyDataFlowName": {},
+                                "sapConfigs": {
+                                    "type": "list",
+                                    "member": {
+                                        "type": "structure",
+                                        "required": [
+                                            "sapTableName",
+                                            "sapTableColumns",
+                                            "dataflowPaths"
+                                        ],
+                                        "members": {
+                                            "sapTableName": {},
+                                            "sapTableColumns": {
+                                                "shape": "Sc"
+                                            },
+                                            "dataflowPaths": {
+                                                "type": "structure",
+                                                "members": {
+                                                    "incremental": {},
+                                                    "replace": {},
+                                                    "delete": {}
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "onDemand": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "createExtractFlowsRequestId"
+                ],
+                "members": {
+                    "createExtractFlowsRequestId": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/67N7E4KXTI4RH3F3EQYFYF22QQYSXNW3RL62PKCFHZ62IJRHSP4A/vendors~64216fa6.js"
+            ]
+        },
+        "CreateSapODataConnection": {
+            "http": {
+                "requestUri": "/CreateSapODataConnection",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "galaxyInstanceId",
+                    "galaxyConnectionId",
+                    "sapODataConnectionName",
+                    "sapApplicationHostUrl",
+                    "sapApplicationServicePath",
+                    "sapApplicationPortNumber",
+                    "sapClientNumber",
+                    "sapAuthType",
+                    "sapUsername",
+                    "sapPassword"
+                ],
+                "members": {
+                    "galaxyInstanceId": {},
+                    "galaxyConnectionId": {},
+                    "sapODataConnectionName": {},
+                    "sapApplicationHostUrl": {},
+                    "sapApplicationServicePath": {},
+                    "sapApplicationPortNumber": {
+                        "type": "integer"
+                    },
+                    "sapClientNumber": {},
+                    "sapAuthType": {},
+                    "sapUsername": {
+                        "type": "string",
+                        "sensitive": true
+                    },
+                    "sapPassword": {
+                        "type": "string",
+                        "sensitive": true
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "sapODataConnectionId"
+                ],
+                "members": {
+                    "sapODataConnectionId": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/67N7E4KXTI4RH3F3EQYFYF22QQYSXNW3RL62PKCFHZ62IJRHSP4A/vendors~64216fa6.js"
+            ]
+        },
+        "GetCreateExtractFlowsStatus": {
+            "http": {
+                "requestUri": "/GetCreateExtractFlowsStatus",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "galaxyInstanceId",
+                    "galaxyConnectionId",
+                    "sapODataConnectionId",
+                    "createExtractFlowsRequestId"
+                ],
+                "members": {
+                    "galaxyInstanceId": {},
+                    "galaxyConnectionId": {},
+                    "sapODataConnectionId": {},
+                    "createExtractFlowsRequestId": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "createExtractFlowsStatus"
+                ],
+                "members": {
+                    "createExtractFlowsStatus": {},
+                    "errorMessage": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/67N7E4KXTI4RH3F3EQYFYF22QQYSXNW3RL62PKCFHZ62IJRHSP4A/vendors~64216fa6.js"
+            ]
+        },
+        "UpdateExtractFlow": {
+            "http": {
+                "requestUri": "/UpdateExtractFlow",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "galaxyConnectionId",
+                    "sapODataConnectionId",
+                    "sapTableName",
+                    "sapTableColumns"
+                ],
+                "members": {
+                    "galaxyConnectionId": {},
+                    "sapODataConnectionId": {},
+                    "sapTableName": {},
+                    "sapTableColumns": {
+                        "shape": "Sc"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/67N7E4KXTI4RH3F3EQYFYF22QQYSXNW3RL62PKCFHZ62IJRHSP4A/vendors~64216fa6.js"
+            ]
+        }
+    },
+    "shapes": {
+        "Sc": {
+            "type": "list",
+            "member": {}
+        }
+    }
+}

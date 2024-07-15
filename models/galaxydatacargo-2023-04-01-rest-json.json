@@ -1,0 +1,626 @@
+{
+    "version": "2.0",
+    "metadata": {
+        "apiVersion": "2023-04-01",
+        "endpointPrefix": "scn",
+        "protocol": "rest-json",
+        "protocols": [
+            "rest-json"
+        ],
+        "serviceFullName": "AWS Supply Chain Flow Data Plane Service",
+        "serviceId": "GalaxyDataCargo",
+        "signatureVersion": "v4",
+        "signingName": "scn",
+        "uid": "galaxydatacargo-2023-04-01",
+        "download_location": [
+            "https://a.b.cdn.console.awsstatic.com/a/v1/67N7E4KXTI4RH3F3EQYFYF22QQYSXNW3RL62PKCFHZ62IJRHSP4A/vendors~64216fa6.js"
+        ]
+    },
+    "operations": {
+        "CreateDataIntegrationAutoAssociatedQuery": {
+            "http": {
+                "requestUri": "/api/data-integration/data/instances/{instanceId}/data-integration-auto-associated-queries",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "instanceId",
+                    "sources",
+                    "target"
+                ],
+                "members": {
+                    "instanceId": {
+                        "location": "uri",
+                        "locationName": "instanceId"
+                    },
+                    "sources": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "sourceType"
+                            ],
+                            "members": {
+                                "sourceType": {},
+                                "s3Source": {
+                                    "type": "structure",
+                                    "required": [
+                                        "bucketName",
+                                        "objectKey"
+                                    ],
+                                    "members": {
+                                        "bucketName": {},
+                                        "objectKey": {},
+                                        "options": {
+                                            "shape": "S9"
+                                        }
+                                    }
+                                },
+                                "datasetSource": {
+                                    "type": "structure",
+                                    "required": [
+                                        "namespace",
+                                        "datasetId"
+                                    ],
+                                    "members": {
+                                        "namespace": {},
+                                        "datasetId": {},
+                                        "options": {
+                                            "shape": "Sd"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "target": {
+                        "type": "structure",
+                        "required": [
+                            "targetType",
+                            "s3Target",
+                            "datasetTarget"
+                        ],
+                        "members": {
+                            "targetType": {},
+                            "s3Target": {
+                                "type": "structure",
+                                "required": [
+                                    "bucketName",
+                                    "objectKey"
+                                ],
+                                "members": {
+                                    "bucketName": {},
+                                    "objectKey": {},
+                                    "options": {
+                                        "shape": "S9"
+                                    }
+                                }
+                            },
+                            "datasetTarget": {
+                                "type": "structure",
+                                "required": [
+                                    "namespace",
+                                    "datasetId"
+                                ],
+                                "members": {
+                                    "namespace": {},
+                                    "datasetId": {},
+                                    "options": {
+                                        "shape": "Sd"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "queryType": {},
+                    "mapping": {
+                        "shape": "Sk"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "queryId",
+                    "query"
+                ],
+                "members": {
+                    "queryId": {},
+                    "query": {
+                        "type": "structure",
+                        "required": [
+                            "queryType",
+                            "queryData"
+                        ],
+                        "members": {
+                            "queryType": {},
+                            "queryData": {}
+                        }
+                    },
+                    "mapping": {
+                        "shape": "Sk"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/67N7E4KXTI4RH3F3EQYFYF22QQYSXNW3RL62PKCFHZ62IJRHSP4A/vendors~64216fa6.js"
+            ]
+        },
+        "CreateDataIntegrationMappingJob": {
+            "http": {
+                "requestUri": "/api/data-integration/data/instances/{instanceId}/data-integration-mapping-jobs",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "instanceId",
+                    "sources",
+                    "targets"
+                ],
+                "members": {
+                    "instanceId": {
+                        "location": "uri",
+                        "locationName": "instanceId"
+                    },
+                    "sources": {
+                        "shape": "Sq"
+                    },
+                    "targets": {
+                        "shape": "Sv"
+                    },
+                    "idempotencyToken": {
+                        "idempotencyToken": true
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "jobId"
+                ],
+                "members": {
+                    "jobId": {}
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/67N7E4KXTI4RH3F3EQYFYF22QQYSXNW3RL62PKCFHZ62IJRHSP4A/vendors~64216fa6.js"
+            ]
+        },
+        "GetDataIntegrationFlowExecution": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/api/data-integration/data/instances/{instanceId}/data-integration-flows/{flowName}/executions/{executionId}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "instanceId",
+                    "flowName",
+                    "executionId"
+                ],
+                "members": {
+                    "instanceId": {
+                        "location": "uri",
+                        "locationName": "instanceId"
+                    },
+                    "flowName": {
+                        "location": "uri",
+                        "locationName": "flowName"
+                    },
+                    "executionId": {
+                        "location": "uri",
+                        "locationName": "executionId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "flowExecution"
+                ],
+                "members": {
+                    "flowExecution": {
+                        "shape": "S13"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/67N7E4KXTI4RH3F3EQYFYF22QQYSXNW3RL62PKCFHZ62IJRHSP4A/vendors~64216fa6.js"
+            ]
+        },
+        "GetDataIntegrationMappingJob": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/api/data-integration/data/instances/{instanceId}/data-integration-mapping-jobs/{jobId}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "instanceId",
+                    "jobId"
+                ],
+                "members": {
+                    "instanceId": {
+                        "location": "uri",
+                        "locationName": "instanceId"
+                    },
+                    "jobId": {
+                        "location": "uri",
+                        "locationName": "jobId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "mappingJob"
+                ],
+                "members": {
+                    "mappingJob": {
+                        "type": "structure",
+                        "required": [
+                            "instanceId",
+                            "jobId"
+                        ],
+                        "members": {
+                            "instanceId": {},
+                            "jobId": {},
+                            "sources": {
+                                "shape": "Sq"
+                            },
+                            "targets": {
+                                "shape": "Sv"
+                            },
+                            "mappings": {
+                                "type": "list",
+                                "member": {
+                                    "type": "structure",
+                                    "required": [
+                                        "sourceNames",
+                                        "targetName",
+                                        "query"
+                                    ],
+                                    "members": {
+                                        "sourceNames": {
+                                            "type": "list",
+                                            "member": {}
+                                        },
+                                        "targetName": {},
+                                        "query": {}
+                                    }
+                                }
+                            },
+                            "status": {},
+                            "errorMessage": {},
+                            "startTime": {
+                                "type": "timestamp"
+                            },
+                            "endTime": {
+                                "type": "timestamp"
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/67N7E4KXTI4RH3F3EQYFYF22QQYSXNW3RL62PKCFHZ62IJRHSP4A/vendors~64216fa6.js"
+            ]
+        },
+        "InspectDataIntegrationData": {
+            "http": {
+                "requestUri": "/api/data-integration/data/instances/{instanceId}/data-integration-inspect",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "instanceId",
+                    "dataSource"
+                ],
+                "members": {
+                    "instanceId": {
+                        "location": "uri",
+                        "locationName": "instanceId"
+                    },
+                    "dataSource": {
+                        "type": "structure",
+                        "required": [
+                            "type"
+                        ],
+                        "members": {
+                            "type": {},
+                            "s3DataSource": {
+                                "type": "structure",
+                                "required": [
+                                    "bucketName",
+                                    "objectKey"
+                                ],
+                                "members": {
+                                    "bucketName": {},
+                                    "objectKey": {}
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "dataProperties"
+                ],
+                "members": {
+                    "dataProperties": {
+                        "type": "structure",
+                        "members": {
+                            "schema": {
+                                "type": "structure",
+                                "members": {
+                                    "avroSchema": {}
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/67N7E4KXTI4RH3F3EQYFYF22QQYSXNW3RL62PKCFHZ62IJRHSP4A/vendors~64216fa6.js"
+            ]
+        },
+        "ListDataIntegrationFlowExecutions": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/api/data-integration/data/instances/{instanceId}/data-integration-flows/{flowName}/executions",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "instanceId",
+                    "flowName"
+                ],
+                "members": {
+                    "instanceId": {
+                        "location": "uri",
+                        "locationName": "instanceId"
+                    },
+                    "flowName": {
+                        "location": "uri",
+                        "locationName": "flowName"
+                    },
+                    "nextToken": {
+                        "location": "querystring",
+                        "locationName": "nextToken"
+                    },
+                    "maxResults": {
+                        "location": "querystring",
+                        "locationName": "maxResults",
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "flowExecutions"
+                ],
+                "members": {
+                    "flowExecutions": {
+                        "type": "list",
+                        "member": {
+                            "shape": "S13"
+                        }
+                    },
+                    "nextToken": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/67N7E4KXTI4RH3F3EQYFYF22QQYSXNW3RL62PKCFHZ62IJRHSP4A/vendors~64216fa6.js"
+            ]
+        },
+        "SendDataIntegrationEvent": {
+            "http": {
+                "requestUri": "/api-data/data-integration/instance/{instanceId}/data-integration-events",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "instanceId",
+                    "eventType",
+                    "data",
+                    "eventGroupId"
+                ],
+                "members": {
+                    "instanceId": {
+                        "location": "uri",
+                        "locationName": "instanceId"
+                    },
+                    "eventType": {},
+                    "data": {
+                        "type": "string",
+                        "sensitive": true
+                    },
+                    "eventGroupId": {},
+                    "eventTimestamp": {
+                        "type": "timestamp",
+                        "timestampFormat": "unixTimestamp"
+                    },
+                    "clientToken": {
+                        "idempotencyToken": true
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "eventId"
+                ],
+                "members": {
+                    "eventId": {}
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/67N7E4KXTI4RH3F3EQYFYF22QQYSXNW3RL62PKCFHZ62IJRHSP4A/vendors~64216fa6.js"
+            ]
+        },
+        "StartDataIntegrationFlowExecution": {
+            "http": {
+                "requestUri": "/api/data-integration/data/instances/{instanceId}/data-integration-flows/{flowName}/executions",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "instanceId",
+                    "flowName"
+                ],
+                "members": {
+                    "instanceId": {
+                        "location": "uri",
+                        "locationName": "instanceId"
+                    },
+                    "flowName": {
+                        "location": "uri",
+                        "locationName": "flowName"
+                    },
+                    "arguments": {
+                        "shape": "S14"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "executionId"
+                ],
+                "members": {
+                    "executionId": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/67N7E4KXTI4RH3F3EQYFYF22QQYSXNW3RL62PKCFHZ62IJRHSP4A/vendors~64216fa6.js"
+            ]
+        }
+    },
+    "shapes": {
+        "S9": {
+            "type": "structure",
+            "members": {
+                "fileType": {}
+            }
+        },
+        "Sd": {
+            "type": "structure",
+            "members": {
+                "datasetVersion": {},
+                "loadType": {}
+            }
+        },
+        "Sk": {
+            "type": "structure",
+            "members": {
+                "columnMappings": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "members": {
+                            "sourceColumn": {},
+                            "targetColumn": {}
+                        }
+                    }
+                }
+            }
+        },
+        "Sq": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "sourceName",
+                    "sourceType"
+                ],
+                "members": {
+                    "sourceName": {},
+                    "sourceType": {},
+                    "s3Source": {
+                        "type": "structure",
+                        "required": [
+                            "bucketName",
+                            "key"
+                        ],
+                        "members": {
+                            "bucketName": {},
+                            "key": {}
+                        }
+                    }
+                }
+            }
+        },
+        "Sv": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "targetName",
+                    "entityName"
+                ],
+                "members": {
+                    "targetName": {},
+                    "entityName": {}
+                }
+            }
+        },
+        "S13": {
+            "type": "structure",
+            "required": [
+                "instanceId",
+                "flowName",
+                "executionId"
+            ],
+            "members": {
+                "instanceId": {},
+                "flowName": {},
+                "executionId": {},
+                "arguments": {
+                    "shape": "S14"
+                },
+                "status": {},
+                "message": {},
+                "startTime": {
+                    "type": "timestamp"
+                },
+                "endTime": {
+                    "type": "timestamp"
+                },
+                "outputMetadata": {
+                    "type": "structure",
+                    "members": {
+                        "diagnosticReportsRootS3URI": {}
+                    }
+                }
+            }
+        },
+        "S14": {
+            "type": "structure",
+            "members": {
+                "s3SourceLocations": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "members": {
+                            "sourceName": {},
+                            "s3Uri": {}
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
