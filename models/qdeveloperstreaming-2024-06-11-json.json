@@ -1,0 +1,729 @@
+{
+    "version": "2.0",
+    "metadata": {
+        "apiVersion": "2024-06-11",
+        "endpointPrefix": "q",
+        "jsonVersion": "1.0",
+        "protocol": "json",
+        "protocols": [
+            "json"
+        ],
+        "region": "us-east-1",
+        "serviceAbbreviation": "QDeveloperStreaming",
+        "serviceFullName": "Amazon Q Developer Streaming",
+        "serviceId": "QDeveloperStreaming",
+        "signatureVersion": "v4",
+        "signingName": "q",
+        "targetPrefix": "AmazonQDeveloperStreamingService",
+        "uid": "qdeveloperstreaming-2024-06-11",
+        "auth": [
+            "aws.auth#sigv4"
+        ],
+        "download_location": [
+            "https://a.b.cdn.console.awsstatic.com/a/v1/VBWYZTQDLDTDYWW4VHIUJNONPXEKM4MFIEFWOUOH56ZIUVVYBZKA/main.js",
+            "https://a.b.cdn.console.awsstatic.com/a/v1/2MGTZQMWJODY7I63PWJAAWMVBFJYEEZLDJRQPBNEGCUQWWJ5M4KA/main.js",
+            "https://a.b.cdn.console.awsstatic.com/a/v1/PWF467WXQZ7AADVUQL44YIQUSWWZEGMFBR2JZYBZQAEY5SG22MXA/main.js"
+        ]
+    },
+    "operations": {
+        "GenerateCodeFromCommands": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "outputFormat",
+                    "commands"
+                ],
+                "members": {
+                    "outputFormat": {},
+                    "commands": {
+                        "type": "structure",
+                        "members": {
+                            "commandsList": {
+                                "type": "list",
+                                "member": {
+                                    "type": "string",
+                                    "sensitive": true
+                                }
+                            }
+                        },
+                        "union": true
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "generatedCodeFromCommandsResponse"
+                ],
+                "members": {
+                    "generatedCodeFromCommandsResponse": {
+                        "type": "structure",
+                        "members": {
+                            "codeEvent": {
+                                "shape": "S8"
+                            },
+                            "error": {
+                                "shape": "Sa"
+                            }
+                        },
+                        "eventstream": true
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/VBWYZTQDLDTDYWW4VHIUJNONPXEKM4MFIEFWOUOH56ZIUVVYBZKA/main.js",
+                "https://a.b.cdn.console.awsstatic.com/a/v1/2MGTZQMWJODY7I63PWJAAWMVBFJYEEZLDJRQPBNEGCUQWWJ5M4KA/main.js",
+                "https://a.b.cdn.console.awsstatic.com/a/v1/PWF467WXQZ7AADVUQL44YIQUSWWZEGMFBR2JZYBZQAEY5SG22MXA/main.js"
+            ]
+        },
+        "SendMessage": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "conversationState"
+                ],
+                "members": {
+                    "conversationState": {
+                        "type": "structure",
+                        "required": [
+                            "currentMessage",
+                            "chatTriggerType"
+                        ],
+                        "members": {
+                            "conversationId": {},
+                            "history": {
+                                "type": "list",
+                                "member": {
+                                    "shape": "Sg"
+                                }
+                            },
+                            "currentMessage": {
+                                "shape": "Sg"
+                            },
+                            "chatTriggerType": {},
+                            "customizationArn": {}
+                        }
+                    },
+                    "profileArn": {},
+                    "source": {},
+                    "dryRun": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "sendMessageResponse"
+                ],
+                "members": {
+                    "sendMessageResponse": {
+                        "type": "structure",
+                        "members": {
+                            "messageMetadataEvent": {
+                                "type": "structure",
+                                "members": {
+                                    "conversationId": {},
+                                    "utteranceId": {}
+                                },
+                                "event": true
+                            },
+                            "assistantResponseEvent": {
+                                "type": "structure",
+                                "required": [
+                                    "content"
+                                ],
+                                "members": {
+                                    "content": {
+                                        "type": "string",
+                                        "sensitive": true
+                                    }
+                                },
+                                "event": true
+                            },
+                            "codeReferenceEvent": {
+                                "type": "structure",
+                                "members": {
+                                    "references": {
+                                        "shape": "S29"
+                                    }
+                                },
+                                "event": true
+                            },
+                            "supplementaryWebLinksEvent": {
+                                "type": "structure",
+                                "members": {
+                                    "supplementaryWebLinks": {
+                                        "shape": "S24"
+                                    }
+                                },
+                                "event": true
+                            },
+                            "followupPromptEvent": {
+                                "type": "structure",
+                                "members": {
+                                    "followupPrompt": {
+                                        "shape": "S2h"
+                                    }
+                                },
+                                "event": true
+                            },
+                            "codeEvent": {
+                                "shape": "S8"
+                            },
+                            "intentsEvent": {
+                                "type": "structure",
+                                "members": {
+                                    "intents": {
+                                        "type": "map",
+                                        "key": {},
+                                        "value": {
+                                            "type": "map",
+                                            "key": {},
+                                            "value": {
+                                                "type": "structure",
+                                                "members": {
+                                                    "string": {}
+                                                },
+                                                "union": true
+                                            },
+                                            "sensitive": true
+                                        }
+                                    }
+                                },
+                                "event": true
+                            },
+                            "invalidStateEvent": {
+                                "type": "structure",
+                                "required": [
+                                    "reason",
+                                    "message"
+                                ],
+                                "members": {
+                                    "reason": {},
+                                    "message": {}
+                                },
+                                "event": true
+                            },
+                            "error": {
+                                "shape": "Sa"
+                            }
+                        },
+                        "eventstream": true
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/VBWYZTQDLDTDYWW4VHIUJNONPXEKM4MFIEFWOUOH56ZIUVVYBZKA/main.js",
+                "https://a.b.cdn.console.awsstatic.com/a/v1/2MGTZQMWJODY7I63PWJAAWMVBFJYEEZLDJRQPBNEGCUQWWJ5M4KA/main.js",
+                "https://a.b.cdn.console.awsstatic.com/a/v1/PWF467WXQZ7AADVUQL44YIQUSWWZEGMFBR2JZYBZQAEY5SG22MXA/main.js"
+            ]
+        }
+    },
+    "shapes": {
+        "S8": {
+            "type": "structure",
+            "required": [
+                "content"
+            ],
+            "members": {
+                "content": {
+                    "type": "string",
+                    "sensitive": true
+                }
+            },
+            "event": true
+        },
+        "Sa": {
+            "type": "structure",
+            "required": [
+                "message"
+            ],
+            "members": {
+                "message": {}
+            },
+            "exception": true,
+            "fault": true,
+            "retryable": {
+                "throttling": false
+            }
+        },
+        "Sg": {
+            "type": "structure",
+            "members": {
+                "userInputMessage": {
+                    "type": "structure",
+                    "required": [
+                        "content"
+                    ],
+                    "members": {
+                        "content": {
+                            "type": "string",
+                            "sensitive": true
+                        },
+                        "userInputMessageContext": {
+                            "type": "structure",
+                            "members": {
+                                "editorState": {
+                                    "type": "structure",
+                                    "members": {
+                                        "document": {
+                                            "shape": "Sl"
+                                        },
+                                        "cursorState": {
+                                            "type": "structure",
+                                            "members": {
+                                                "position": {
+                                                    "shape": "Sw"
+                                                },
+                                                "range": {
+                                                    "shape": "Sy"
+                                                }
+                                            },
+                                            "union": true
+                                        },
+                                        "relevantDocuments": {
+                                            "type": "list",
+                                            "member": {
+                                                "type": "structure",
+                                                "required": [
+                                                    "relativeFilePath"
+                                                ],
+                                                "members": {
+                                                    "relativeFilePath": {
+                                                        "type": "string",
+                                                        "sensitive": true
+                                                    },
+                                                    "programmingLanguage": {
+                                                        "shape": "Sn"
+                                                    },
+                                                    "text": {
+                                                        "type": "string",
+                                                        "sensitive": true
+                                                    },
+                                                    "documentSymbols": {
+                                                        "shape": "Sq"
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "useRelevantDocuments": {
+                                            "type": "boolean"
+                                        }
+                                    }
+                                },
+                                "shellState": {
+                                    "type": "structure",
+                                    "required": [
+                                        "shellName"
+                                    ],
+                                    "members": {
+                                        "shellName": {},
+                                        "shellHistory": {
+                                            "type": "list",
+                                            "member": {
+                                                "type": "structure",
+                                                "required": [
+                                                    "command"
+                                                ],
+                                                "members": {
+                                                    "command": {
+                                                        "type": "string",
+                                                        "sensitive": true
+                                                    },
+                                                    "directory": {
+                                                        "type": "string",
+                                                        "sensitive": true
+                                                    },
+                                                    "exitCode": {
+                                                        "type": "integer"
+                                                    },
+                                                    "stdout": {
+                                                        "type": "string",
+                                                        "sensitive": true
+                                                    },
+                                                    "stderr": {
+                                                        "type": "string",
+                                                        "sensitive": true
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "gitState": {
+                                    "type": "structure",
+                                    "members": {
+                                        "status": {
+                                            "type": "string",
+                                            "sensitive": true
+                                        }
+                                    }
+                                },
+                                "envState": {
+                                    "type": "structure",
+                                    "members": {
+                                        "operatingSystem": {},
+                                        "currentWorkingDirectory": {
+                                            "type": "string",
+                                            "sensitive": true
+                                        },
+                                        "environmentVariables": {
+                                            "type": "list",
+                                            "member": {
+                                                "type": "structure",
+                                                "members": {
+                                                    "key": {
+                                                        "type": "string",
+                                                        "sensitive": true
+                                                    },
+                                                    "value": {
+                                                        "type": "string",
+                                                        "sensitive": true
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "appStudioContext": {
+                                    "type": "structure",
+                                    "required": [
+                                        "namespace",
+                                        "propertyName",
+                                        "propertyContext"
+                                    ],
+                                    "members": {
+                                        "namespace": {
+                                            "type": "string",
+                                            "sensitive": true
+                                        },
+                                        "propertyName": {
+                                            "type": "string",
+                                            "sensitive": true
+                                        },
+                                        "propertyValue": {
+                                            "type": "string",
+                                            "sensitive": true
+                                        },
+                                        "propertyContext": {
+                                            "type": "string",
+                                            "sensitive": true
+                                        }
+                                    }
+                                },
+                                "diagnostic": {
+                                    "type": "structure",
+                                    "members": {
+                                        "textDocumentDiagnostic": {
+                                            "type": "structure",
+                                            "required": [
+                                                "document",
+                                                "range",
+                                                "source",
+                                                "severity",
+                                                "message"
+                                            ],
+                                            "members": {
+                                                "document": {
+                                                    "shape": "Sl"
+                                                },
+                                                "range": {
+                                                    "shape": "Sy"
+                                                },
+                                                "source": {
+                                                    "type": "string",
+                                                    "sensitive": true
+                                                },
+                                                "severity": {},
+                                                "message": {
+                                                    "type": "string",
+                                                    "sensitive": true
+                                                }
+                                            }
+                                        },
+                                        "runtimeDiagnostic": {
+                                            "type": "structure",
+                                            "required": [
+                                                "source",
+                                                "severity",
+                                                "message"
+                                            ],
+                                            "members": {
+                                                "source": {
+                                                    "type": "string",
+                                                    "sensitive": true
+                                                },
+                                                "severity": {},
+                                                "message": {
+                                                    "type": "string",
+                                                    "sensitive": true
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "union": true
+                                },
+                                "consoleState": {
+                                    "type": "structure",
+                                    "members": {
+                                        "region": {}
+                                    }
+                                },
+                                "userSettings": {
+                                    "type": "structure",
+                                    "members": {
+                                        "hasConsentedToCrossRegionCalls": {
+                                            "type": "boolean"
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "userIntent": {}
+                    }
+                },
+                "assistantResponseMessage": {
+                    "type": "structure",
+                    "required": [
+                        "content"
+                    ],
+                    "members": {
+                        "messageId": {},
+                        "content": {
+                            "type": "string",
+                            "sensitive": true
+                        },
+                        "supplementaryWebLinks": {
+                            "shape": "S24"
+                        },
+                        "references": {
+                            "shape": "S29"
+                        },
+                        "followupPrompt": {
+                            "shape": "S2h"
+                        }
+                    }
+                }
+            },
+            "union": true
+        },
+        "Sl": {
+            "type": "structure",
+            "required": [
+                "relativeFilePath"
+            ],
+            "members": {
+                "relativeFilePath": {
+                    "type": "string",
+                    "sensitive": true
+                },
+                "programmingLanguage": {
+                    "shape": "Sn"
+                },
+                "text": {
+                    "type": "string",
+                    "sensitive": true
+                },
+                "documentSymbols": {
+                    "shape": "Sq"
+                }
+            }
+        },
+        "Sn": {
+            "type": "structure",
+            "required": [
+                "languageName"
+            ],
+            "members": {
+                "languageName": {}
+            }
+        },
+        "Sq": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "name",
+                    "type"
+                ],
+                "members": {
+                    "name": {},
+                    "type": {},
+                    "source": {}
+                }
+            }
+        },
+        "Sw": {
+            "type": "structure",
+            "required": [
+                "line",
+                "character"
+            ],
+            "members": {
+                "line": {
+                    "type": "integer"
+                },
+                "character": {
+                    "type": "integer"
+                }
+            }
+        },
+        "Sy": {
+            "type": "structure",
+            "required": [
+                "start",
+                "end"
+            ],
+            "members": {
+                "start": {
+                    "shape": "Sw"
+                },
+                "end": {
+                    "shape": "Sw"
+                }
+            }
+        },
+        "S24": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "url",
+                    "title"
+                ],
+                "members": {
+                    "url": {
+                        "type": "string",
+                        "sensitive": true
+                    },
+                    "title": {
+                        "type": "string",
+                        "sensitive": true
+                    },
+                    "snippet": {
+                        "type": "string",
+                        "sensitive": true
+                    }
+                }
+            }
+        },
+        "S29": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "licenseName": {},
+                    "repository": {},
+                    "url": {},
+                    "recommendationContentSpan": {
+                        "type": "structure",
+                        "members": {
+                            "start": {
+                                "type": "integer"
+                            },
+                            "end": {
+                                "type": "integer"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "S2h": {
+            "type": "structure",
+            "required": [
+                "content"
+            ],
+            "members": {
+                "content": {
+                    "type": "string",
+                    "sensitive": true
+                },
+                "userIntent": {}
+            }
+        },
+        "S37": {
+            "type": "structure",
+            "required": [
+                "content"
+            ],
+            "members": {
+                "content": {
+                    "type": "string",
+                    "sensitive": true
+                }
+            }
+        },
+        "S39": {
+            "type": "structure",
+            "members": {
+                "transition": {
+                    "type": "structure",
+                    "required": [
+                        "currentState",
+                        "nextState"
+                    ],
+                    "members": {
+                        "currentState": {
+                            "type": "string",
+                            "sensitive": true
+                        },
+                        "nextState": {
+                            "type": "string",
+                            "sensitive": true
+                        }
+                    }
+                }
+            },
+            "union": true
+        },
+        "S3d": {
+            "type": "structure",
+            "required": [
+                "steps"
+            ],
+            "members": {
+                "steps": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "required": [
+                            "id",
+                            "state",
+                            "label"
+                        ],
+                        "members": {
+                            "id": {
+                                "type": "integer"
+                            },
+                            "state": {},
+                            "label": {
+                                "type": "string",
+                                "sensitive": true
+                            },
+                            "content": {
+                                "type": "string",
+                                "sensitive": true
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "S3k": {
+            "type": "structure",
+            "required": [
+                "type",
+                "content"
+            ],
+            "members": {
+                "type": {},
+                "content": {
+                    "type": "string",
+                    "sensitive": true
+                }
+            }
+        }
+    }
+}
