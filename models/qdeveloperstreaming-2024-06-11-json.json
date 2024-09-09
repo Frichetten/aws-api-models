@@ -22,7 +22,8 @@
         "download_location": [
             "https://a.b.cdn.console.awsstatic.com/a/v1/VBWYZTQDLDTDYWW4VHIUJNONPXEKM4MFIEFWOUOH56ZIUVVYBZKA/main.js",
             "https://a.b.cdn.console.awsstatic.com/a/v1/2MGTZQMWJODY7I63PWJAAWMVBFJYEEZLDJRQPBNEGCUQWWJ5M4KA/main.js",
-            "https://a.b.cdn.console.awsstatic.com/a/v1/PWF467WXQZ7AADVUQL44YIQUSWWZEGMFBR2JZYBZQAEY5SG22MXA/main.js"
+            "https://a.b.cdn.console.awsstatic.com/a/v1/PWF467WXQZ7AADVUQL44YIQUSWWZEGMFBR2JZYBZQAEY5SG22MXA/main.js",
+            "https://a.b.cdn.console.awsstatic.com/a/v1/76HJFK4TAFYXXML3YAJUNL5DAO5SOBQ6JFMBNSDPF5XBRCIRYXHA/main.js"
         ]
     },
     "operations": {
@@ -73,7 +74,8 @@
             "download_location": [
                 "https://a.b.cdn.console.awsstatic.com/a/v1/VBWYZTQDLDTDYWW4VHIUJNONPXEKM4MFIEFWOUOH56ZIUVVYBZKA/main.js",
                 "https://a.b.cdn.console.awsstatic.com/a/v1/2MGTZQMWJODY7I63PWJAAWMVBFJYEEZLDJRQPBNEGCUQWWJ5M4KA/main.js",
-                "https://a.b.cdn.console.awsstatic.com/a/v1/PWF467WXQZ7AADVUQL44YIQUSWWZEGMFBR2JZYBZQAEY5SG22MXA/main.js"
+                "https://a.b.cdn.console.awsstatic.com/a/v1/PWF467WXQZ7AADVUQL44YIQUSWWZEGMFBR2JZYBZQAEY5SG22MXA/main.js",
+                "https://a.b.cdn.console.awsstatic.com/a/v1/76HJFK4TAFYXXML3YAJUNL5DAO5SOBQ6JFMBNSDPF5XBRCIRYXHA/main.js"
             ]
         },
         "SendMessage": {
@@ -216,7 +218,8 @@
             "download_location": [
                 "https://a.b.cdn.console.awsstatic.com/a/v1/VBWYZTQDLDTDYWW4VHIUJNONPXEKM4MFIEFWOUOH56ZIUVVYBZKA/main.js",
                 "https://a.b.cdn.console.awsstatic.com/a/v1/2MGTZQMWJODY7I63PWJAAWMVBFJYEEZLDJRQPBNEGCUQWWJ5M4KA/main.js",
-                "https://a.b.cdn.console.awsstatic.com/a/v1/PWF467WXQZ7AADVUQL44YIQUSWWZEGMFBR2JZYBZQAEY5SG22MXA/main.js"
+                "https://a.b.cdn.console.awsstatic.com/a/v1/PWF467WXQZ7AADVUQL44YIQUSWWZEGMFBR2JZYBZQAEY5SG22MXA/main.js",
+                "https://a.b.cdn.console.awsstatic.com/a/v1/76HJFK4TAFYXXML3YAJUNL5DAO5SOBQ6JFMBNSDPF5XBRCIRYXHA/main.js"
             ]
         }
     },
@@ -712,6 +715,485 @@
             }
         },
         "S3k": {
+            "type": "structure",
+            "required": [
+                "type",
+                "content"
+            ],
+            "members": {
+                "type": {},
+                "content": {
+                    "type": "string",
+                    "sensitive": true
+                }
+            }
+        },
+        "Sj": {
+            "type": "structure",
+            "members": {
+                "userInputMessage": {
+                    "type": "structure",
+                    "required": [
+                        "content"
+                    ],
+                    "members": {
+                        "content": {
+                            "type": "string",
+                            "sensitive": true
+                        },
+                        "userInputMessageContext": {
+                            "type": "structure",
+                            "members": {
+                                "editorState": {
+                                    "type": "structure",
+                                    "members": {
+                                        "document": {
+                                            "shape": "So"
+                                        },
+                                        "cursorState": {
+                                            "type": "structure",
+                                            "members": {
+                                                "position": {
+                                                    "shape": "Sz"
+                                                },
+                                                "range": {
+                                                    "shape": "S11"
+                                                }
+                                            },
+                                            "union": true
+                                        },
+                                        "relevantDocuments": {
+                                            "type": "list",
+                                            "member": {
+                                                "type": "structure",
+                                                "required": [
+                                                    "relativeFilePath"
+                                                ],
+                                                "members": {
+                                                    "relativeFilePath": {
+                                                        "type": "string",
+                                                        "sensitive": true
+                                                    },
+                                                    "programmingLanguage": {
+                                                        "shape": "Sq"
+                                                    },
+                                                    "text": {
+                                                        "type": "string",
+                                                        "sensitive": true
+                                                    },
+                                                    "documentSymbols": {
+                                                        "shape": "St"
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "useRelevantDocuments": {
+                                            "type": "boolean"
+                                        }
+                                    }
+                                },
+                                "shellState": {
+                                    "type": "structure",
+                                    "required": [
+                                        "shellName"
+                                    ],
+                                    "members": {
+                                        "shellName": {},
+                                        "shellHistory": {
+                                            "type": "list",
+                                            "member": {
+                                                "type": "structure",
+                                                "required": [
+                                                    "command"
+                                                ],
+                                                "members": {
+                                                    "command": {
+                                                        "type": "string",
+                                                        "sensitive": true
+                                                    },
+                                                    "directory": {
+                                                        "type": "string",
+                                                        "sensitive": true
+                                                    },
+                                                    "exitCode": {
+                                                        "type": "integer"
+                                                    },
+                                                    "stdout": {
+                                                        "type": "string",
+                                                        "sensitive": true
+                                                    },
+                                                    "stderr": {
+                                                        "type": "string",
+                                                        "sensitive": true
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "gitState": {
+                                    "type": "structure",
+                                    "members": {
+                                        "status": {
+                                            "type": "string",
+                                            "sensitive": true
+                                        }
+                                    }
+                                },
+                                "envState": {
+                                    "type": "structure",
+                                    "members": {
+                                        "operatingSystem": {},
+                                        "currentWorkingDirectory": {
+                                            "type": "string",
+                                            "sensitive": true
+                                        },
+                                        "environmentVariables": {
+                                            "type": "list",
+                                            "member": {
+                                                "type": "structure",
+                                                "members": {
+                                                    "key": {
+                                                        "type": "string",
+                                                        "sensitive": true
+                                                    },
+                                                    "value": {
+                                                        "type": "string",
+                                                        "sensitive": true
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "appStudioContext": {
+                                    "type": "structure",
+                                    "required": [
+                                        "namespace",
+                                        "propertyName",
+                                        "propertyContext"
+                                    ],
+                                    "members": {
+                                        "namespace": {
+                                            "type": "string",
+                                            "sensitive": true
+                                        },
+                                        "propertyName": {
+                                            "type": "string",
+                                            "sensitive": true
+                                        },
+                                        "propertyValue": {
+                                            "type": "string",
+                                            "sensitive": true
+                                        },
+                                        "propertyContext": {
+                                            "type": "string",
+                                            "sensitive": true
+                                        }
+                                    }
+                                },
+                                "diagnostic": {
+                                    "type": "structure",
+                                    "members": {
+                                        "textDocumentDiagnostic": {
+                                            "type": "structure",
+                                            "required": [
+                                                "document",
+                                                "range",
+                                                "source",
+                                                "severity",
+                                                "message"
+                                            ],
+                                            "members": {
+                                                "document": {
+                                                    "shape": "So"
+                                                },
+                                                "range": {
+                                                    "shape": "S11"
+                                                },
+                                                "source": {
+                                                    "shape": "S1v"
+                                                },
+                                                "severity": {},
+                                                "message": {
+                                                    "type": "string",
+                                                    "sensitive": true
+                                                }
+                                            }
+                                        },
+                                        "runtimeDiagnostic": {
+                                            "type": "structure",
+                                            "required": [
+                                                "source",
+                                                "severity",
+                                                "message"
+                                            ],
+                                            "members": {
+                                                "source": {
+                                                    "type": "string",
+                                                    "sensitive": true
+                                                },
+                                                "severity": {},
+                                                "message": {
+                                                    "type": "string",
+                                                    "sensitive": true
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "union": true
+                                },
+                                "consoleState": {
+                                    "type": "structure",
+                                    "members": {
+                                        "region": {},
+                                        "consoleUrl": {
+                                            "shape": "S1v"
+                                        },
+                                        "serviceId": {},
+                                        "serviceConsolePage": {},
+                                        "serviceSubconsolePage": {},
+                                        "taskName": {
+                                            "shape": "S1v"
+                                        }
+                                    }
+                                },
+                                "userSettings": {
+                                    "type": "structure",
+                                    "members": {
+                                        "hasConsentedToCrossRegionCalls": {
+                                            "type": "boolean"
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "userIntent": {}
+                    }
+                },
+                "assistantResponseMessage": {
+                    "type": "structure",
+                    "required": [
+                        "content"
+                    ],
+                    "members": {
+                        "messageId": {},
+                        "content": {
+                            "type": "string",
+                            "sensitive": true
+                        },
+                        "supplementaryWebLinks": {
+                            "shape": "S27"
+                        },
+                        "references": {
+                            "shape": "S2c"
+                        },
+                        "followupPrompt": {
+                            "shape": "S2k"
+                        }
+                    }
+                }
+            },
+            "union": true
+        },
+        "So": {
+            "type": "structure",
+            "required": [
+                "relativeFilePath"
+            ],
+            "members": {
+                "relativeFilePath": {
+                    "type": "string",
+                    "sensitive": true
+                },
+                "programmingLanguage": {
+                    "shape": "Sq"
+                },
+                "text": {
+                    "type": "string",
+                    "sensitive": true
+                },
+                "documentSymbols": {
+                    "shape": "St"
+                }
+            }
+        },
+        "St": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "name",
+                    "type"
+                ],
+                "members": {
+                    "name": {},
+                    "type": {},
+                    "source": {}
+                }
+            }
+        },
+        "Sz": {
+            "type": "structure",
+            "required": [
+                "line",
+                "character"
+            ],
+            "members": {
+                "line": {
+                    "type": "integer"
+                },
+                "character": {
+                    "type": "integer"
+                }
+            }
+        },
+        "S11": {
+            "type": "structure",
+            "required": [
+                "start",
+                "end"
+            ],
+            "members": {
+                "start": {
+                    "shape": "Sz"
+                },
+                "end": {
+                    "shape": "Sz"
+                }
+            }
+        },
+        "S1v": {
+            "type": "string",
+            "sensitive": true
+        },
+        "S27": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "url",
+                    "title"
+                ],
+                "members": {
+                    "url": {
+                        "type": "string",
+                        "sensitive": true
+                    },
+                    "title": {
+                        "type": "string",
+                        "sensitive": true
+                    },
+                    "snippet": {
+                        "type": "string",
+                        "sensitive": true
+                    }
+                }
+            }
+        },
+        "S2c": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "licenseName": {},
+                    "repository": {},
+                    "url": {},
+                    "recommendationContentSpan": {
+                        "type": "structure",
+                        "members": {
+                            "start": {
+                                "type": "integer"
+                            },
+                            "end": {
+                                "type": "integer"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "S2k": {
+            "type": "structure",
+            "required": [
+                "content"
+            ],
+            "members": {
+                "content": {
+                    "type": "string",
+                    "sensitive": true
+                },
+                "userIntent": {}
+            }
+        },
+        "S3a": {
+            "type": "structure",
+            "required": [
+                "content"
+            ],
+            "members": {
+                "content": {
+                    "type": "string",
+                    "sensitive": true
+                }
+            }
+        },
+        "S3c": {
+            "type": "structure",
+            "members": {
+                "transition": {
+                    "type": "structure",
+                    "required": [
+                        "currentState",
+                        "nextState"
+                    ],
+                    "members": {
+                        "currentState": {
+                            "type": "string",
+                            "sensitive": true
+                        },
+                        "nextState": {
+                            "type": "string",
+                            "sensitive": true
+                        }
+                    }
+                }
+            }
+        },
+        "S3g": {
+            "type": "structure",
+            "required": [
+                "steps"
+            ],
+            "members": {
+                "steps": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "required": [
+                            "id",
+                            "state",
+                            "label"
+                        ],
+                        "members": {
+                            "id": {
+                                "type": "integer"
+                            },
+                            "state": {},
+                            "label": {
+                                "type": "string",
+                                "sensitive": true
+                            },
+                            "content": {
+                                "type": "string",
+                                "sensitive": true
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "S3n": {
             "type": "structure",
             "required": [
                 "type",

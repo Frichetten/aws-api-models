@@ -1,0 +1,1589 @@
+{
+    "version": "2.0",
+    "metadata": {
+        "apiVersion": "2024-04-23",
+        "auth": [
+            "aws.auth#sigv4"
+        ],
+        "endpointPrefix": "connect-campaigns",
+        "jsonVersion": "1.1",
+        "protocol": "rest-json",
+        "protocols": [
+            "rest-json"
+        ],
+        "serviceFullName": "AmazonConnectCampaignServiceV2",
+        "serviceId": "ConnectCampaignsV2",
+        "signatureVersion": "v4",
+        "signingName": "connect-campaigns",
+        "uid": "connectcampaignsv2-2024-04-23",
+        "download_location": [
+            "https://a.b.cdn.console.awsstatic.com/a/v1/2KBVCSZWBI4RXHTJT67W236BKOPGK6SI652PKGOMKK2VCJU4N7ZA/main.min.js"
+        ]
+    },
+    "operations": {
+        "CreateCampaign": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/campaigns",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "name",
+                    "type",
+                    "connectInstanceId",
+                    "channelConfig"
+                ],
+                "members": {
+                    "name": {},
+                    "type": {},
+                    "connectInstanceId": {},
+                    "channelConfig": {
+                        "shape": "S5"
+                    },
+                    "source": {
+                        "shape": "Ss"
+                    },
+                    "connectCampaignFlowArn": {},
+                    "schedule": {
+                        "shape": "St"
+                    },
+                    "communicationTimeConfig": {
+                        "shape": "Sx"
+                    },
+                    "communicationLimitsOverride": {
+                        "shape": "S1d"
+                    },
+                    "tags": {
+                        "shape": "S1k"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "id": {},
+                    "arn": {},
+                    "tags": {
+                        "shape": "S1k"
+                    }
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/2KBVCSZWBI4RXHTJT67W236BKOPGK6SI652PKGOMKK2VCJU4N7ZA/main.min.js"
+            ]
+        },
+        "DeleteCampaign": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/campaigns/{id}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "id"
+                ],
+                "members": {
+                    "id": {
+                        "location": "uri",
+                        "locationName": "id"
+                    }
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/2KBVCSZWBI4RXHTJT67W236BKOPGK6SI652PKGOMKK2VCJU4N7ZA/main.min.js"
+            ]
+        },
+        "DeleteCampaignChannelConfig": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/campaigns/{id}/channel-config",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "id",
+                    "channel"
+                ],
+                "members": {
+                    "id": {
+                        "location": "uri",
+                        "locationName": "id"
+                    },
+                    "channel": {
+                        "location": "querystring",
+                        "locationName": "channel"
+                    }
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/2KBVCSZWBI4RXHTJT67W236BKOPGK6SI652PKGOMKK2VCJU4N7ZA/main.min.js"
+            ]
+        },
+        "DeleteCampaignCommunicationLimits": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/campaigns/{id}/communication-limits",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "id",
+                    "config"
+                ],
+                "members": {
+                    "id": {
+                        "location": "uri",
+                        "locationName": "id"
+                    },
+                    "config": {
+                        "location": "querystring",
+                        "locationName": "config"
+                    }
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/2KBVCSZWBI4RXHTJT67W236BKOPGK6SI652PKGOMKK2VCJU4N7ZA/main.min.js"
+            ]
+        },
+        "DeleteCampaignCommunicationTime": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/campaigns/{id}/communication-time",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "id",
+                    "config"
+                ],
+                "members": {
+                    "id": {
+                        "location": "uri",
+                        "locationName": "id"
+                    },
+                    "config": {
+                        "location": "querystring",
+                        "locationName": "config"
+                    }
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/2KBVCSZWBI4RXHTJT67W236BKOPGK6SI652PKGOMKK2VCJU4N7ZA/main.min.js"
+            ]
+        },
+        "DeleteConnectInstanceConfig": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/connect-instance/{connectInstanceId}/config",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "connectInstanceId"
+                ],
+                "members": {
+                    "connectInstanceId": {
+                        "location": "uri",
+                        "locationName": "connectInstanceId"
+                    },
+                    "campaignDeletionPolicy": {
+                        "location": "querystring",
+                        "locationName": "campaignDeletionPolicy"
+                    }
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/2KBVCSZWBI4RXHTJT67W236BKOPGK6SI652PKGOMKK2VCJU4N7ZA/main.min.js"
+            ]
+        },
+        "DeleteConnectInstanceIntegration": {
+            "http": {
+                "requestUri": "/connect-instance/{connectInstanceId}/integrations/delete",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "connectInstanceId",
+                    "integrationIdentifier"
+                ],
+                "members": {
+                    "connectInstanceId": {
+                        "location": "uri",
+                        "locationName": "connectInstanceId"
+                    },
+                    "integrationIdentifier": {
+                        "type": "structure",
+                        "members": {
+                            "customerProfiles": {
+                                "type": "structure",
+                                "required": [
+                                    "domainArn"
+                                ],
+                                "members": {
+                                    "domainArn": {}
+                                }
+                            },
+                            "qConnect": {
+                                "type": "structure",
+                                "required": [
+                                    "knowledgeBaseArn"
+                                ],
+                                "members": {
+                                    "knowledgeBaseArn": {}
+                                }
+                            }
+                        },
+                        "union": true
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/2KBVCSZWBI4RXHTJT67W236BKOPGK6SI652PKGOMKK2VCJU4N7ZA/main.min.js"
+            ]
+        },
+        "DeleteInstanceOnboardingJob": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/connect-instance/{connectInstanceId}/onboarding",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "connectInstanceId"
+                ],
+                "members": {
+                    "connectInstanceId": {
+                        "location": "uri",
+                        "locationName": "connectInstanceId"
+                    }
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/2KBVCSZWBI4RXHTJT67W236BKOPGK6SI652PKGOMKK2VCJU4N7ZA/main.min.js"
+            ]
+        },
+        "DescribeCampaign": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/campaigns/{id}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "id"
+                ],
+                "members": {
+                    "id": {
+                        "location": "uri",
+                        "locationName": "id"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "campaign": {
+                        "type": "structure",
+                        "required": [
+                            "id",
+                            "arn",
+                            "name",
+                            "type",
+                            "connectInstanceId",
+                            "channelConfig"
+                        ],
+                        "members": {
+                            "id": {},
+                            "arn": {},
+                            "name": {},
+                            "type": {},
+                            "connectInstanceId": {},
+                            "channelConfig": {
+                                "shape": "S5"
+                            },
+                            "source": {
+                                "shape": "Ss"
+                            },
+                            "connectCampaignFlowArn": {},
+                            "schedule": {
+                                "shape": "St"
+                            },
+                            "communicationTimeConfig": {
+                                "shape": "Sx"
+                            },
+                            "communicationLimitsOverride": {
+                                "shape": "S1d"
+                            },
+                            "tags": {
+                                "shape": "S1k"
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/2KBVCSZWBI4RXHTJT67W236BKOPGK6SI652PKGOMKK2VCJU4N7ZA/main.min.js"
+            ]
+        },
+        "GetCampaignState": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/campaigns/{id}/state",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "id"
+                ],
+                "members": {
+                    "id": {
+                        "location": "uri",
+                        "locationName": "id"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "state": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/2KBVCSZWBI4RXHTJT67W236BKOPGK6SI652PKGOMKK2VCJU4N7ZA/main.min.js"
+            ]
+        },
+        "GetCampaignStateBatch": {
+            "http": {
+                "requestUri": "/campaigns-state",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "campaignIds"
+                ],
+                "members": {
+                    "campaignIds": {
+                        "type": "list",
+                        "member": {}
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "successfulRequests": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "campaignId": {},
+                                "state": {}
+                            }
+                        }
+                    },
+                    "failedRequests": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "campaignId": {},
+                                "failureCode": {}
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/2KBVCSZWBI4RXHTJT67W236BKOPGK6SI652PKGOMKK2VCJU4N7ZA/main.min.js"
+            ]
+        },
+        "GetConnectInstanceConfig": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/connect-instance/{connectInstanceId}/config",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "connectInstanceId"
+                ],
+                "members": {
+                    "connectInstanceId": {
+                        "location": "uri",
+                        "locationName": "connectInstanceId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "connectInstanceConfig": {
+                        "type": "structure",
+                        "required": [
+                            "connectInstanceId",
+                            "serviceLinkedRoleArn",
+                            "encryptionConfig"
+                        ],
+                        "members": {
+                            "connectInstanceId": {},
+                            "serviceLinkedRoleArn": {},
+                            "encryptionConfig": {
+                                "shape": "S2m"
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/2KBVCSZWBI4RXHTJT67W236BKOPGK6SI652PKGOMKK2VCJU4N7ZA/main.min.js"
+            ]
+        },
+        "GetInstanceCommunicationLimits": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/connect-instance/{connectInstanceId}/communication-limits",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "connectInstanceId"
+                ],
+                "members": {
+                    "connectInstanceId": {
+                        "location": "uri",
+                        "locationName": "connectInstanceId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "communicationLimitsConfig": {
+                        "shape": "S1d"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/2KBVCSZWBI4RXHTJT67W236BKOPGK6SI652PKGOMKK2VCJU4N7ZA/main.min.js"
+            ]
+        },
+        "GetInstanceOnboardingJobStatus": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/connect-instance/{connectInstanceId}/onboarding",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "connectInstanceId"
+                ],
+                "members": {
+                    "connectInstanceId": {
+                        "location": "uri",
+                        "locationName": "connectInstanceId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "connectInstanceOnboardingJobStatus": {
+                        "shape": "S2u"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/2KBVCSZWBI4RXHTJT67W236BKOPGK6SI652PKGOMKK2VCJU4N7ZA/main.min.js"
+            ]
+        },
+        "ListCampaigns": {
+            "http": {
+                "requestUri": "/campaigns-summary",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "maxResults": {
+                        "type": "integer"
+                    },
+                    "nextToken": {},
+                    "filters": {
+                        "type": "structure",
+                        "members": {
+                            "instanceIdFilter": {
+                                "type": "structure",
+                                "required": [
+                                    "value",
+                                    "operator"
+                                ],
+                                "members": {
+                                    "value": {},
+                                    "operator": {}
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "nextToken": {},
+                    "campaignSummaryList": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "id",
+                                "arn",
+                                "name",
+                                "connectInstanceId",
+                                "type",
+                                "channels"
+                            ],
+                            "members": {
+                                "id": {},
+                                "arn": {},
+                                "name": {},
+                                "connectInstanceId": {},
+                                "type": {},
+                                "channels": {
+                                    "type": "list",
+                                    "member": {}
+                                },
+                                "schedule": {
+                                    "shape": "St"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/2KBVCSZWBI4RXHTJT67W236BKOPGK6SI652PKGOMKK2VCJU4N7ZA/main.min.js"
+            ]
+        },
+        "ListConnectInstanceIntegrations": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/connect-instance/{connectInstanceId}/integrations",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "connectInstanceId"
+                ],
+                "members": {
+                    "connectInstanceId": {
+                        "location": "uri",
+                        "locationName": "connectInstanceId"
+                    },
+                    "maxResults": {
+                        "location": "querystring",
+                        "locationName": "maxResults",
+                        "type": "integer"
+                    },
+                    "nextToken": {
+                        "location": "querystring",
+                        "locationName": "nextToken"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "nextToken": {},
+                    "integrationSummaryList": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "customerProfiles": {
+                                    "type": "structure",
+                                    "required": [
+                                        "domainArn",
+                                        "objectTypeNames"
+                                    ],
+                                    "members": {
+                                        "domainArn": {},
+                                        "objectTypeNames": {
+                                            "shape": "S3c"
+                                        }
+                                    }
+                                },
+                                "qConnect": {
+                                    "type": "structure",
+                                    "required": [
+                                        "knowledgeBaseArn"
+                                    ],
+                                    "members": {
+                                        "knowledgeBaseArn": {}
+                                    }
+                                }
+                            },
+                            "union": true
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/2KBVCSZWBI4RXHTJT67W236BKOPGK6SI652PKGOMKK2VCJU4N7ZA/main.min.js"
+            ]
+        },
+        "ListTagsForResource": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/tags/{arn}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "arn"
+                ],
+                "members": {
+                    "arn": {
+                        "location": "uri",
+                        "locationName": "arn"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "tags": {
+                        "shape": "S1k"
+                    }
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/2KBVCSZWBI4RXHTJT67W236BKOPGK6SI652PKGOMKK2VCJU4N7ZA/main.min.js"
+            ]
+        },
+        "PauseCampaign": {
+            "http": {
+                "requestUri": "/campaigns/{id}/pause",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "id"
+                ],
+                "members": {
+                    "id": {
+                        "location": "uri",
+                        "locationName": "id"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/2KBVCSZWBI4RXHTJT67W236BKOPGK6SI652PKGOMKK2VCJU4N7ZA/main.min.js"
+            ]
+        },
+        "PutConnectInstanceIntegration": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/connect-instance/{connectInstanceId}/integrations",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "connectInstanceId",
+                    "integrationConfig"
+                ],
+                "members": {
+                    "connectInstanceId": {
+                        "location": "uri",
+                        "locationName": "connectInstanceId"
+                    },
+                    "integrationConfig": {
+                        "type": "structure",
+                        "members": {
+                            "customerProfiles": {
+                                "type": "structure",
+                                "required": [
+                                    "domainArn",
+                                    "objectTypeNames"
+                                ],
+                                "members": {
+                                    "domainArn": {},
+                                    "objectTypeNames": {
+                                        "shape": "S3c"
+                                    }
+                                }
+                            },
+                            "qConnect": {
+                                "type": "structure",
+                                "required": [
+                                    "knowledgeBaseArn"
+                                ],
+                                "members": {
+                                    "knowledgeBaseArn": {}
+                                }
+                            }
+                        },
+                        "union": true
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/2KBVCSZWBI4RXHTJT67W236BKOPGK6SI652PKGOMKK2VCJU4N7ZA/main.min.js"
+            ]
+        },
+        "PutInstanceCommunicationLimits": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/connect-instance/{connectInstanceId}/communication-limits",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "connectInstanceId",
+                    "communicationLimitsConfig"
+                ],
+                "members": {
+                    "connectInstanceId": {
+                        "location": "uri",
+                        "locationName": "connectInstanceId"
+                    },
+                    "communicationLimitsConfig": {
+                        "shape": "S1d"
+                    }
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/2KBVCSZWBI4RXHTJT67W236BKOPGK6SI652PKGOMKK2VCJU4N7ZA/main.min.js"
+            ]
+        },
+        "PutOutboundRequestBatch": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/campaigns/{id}/outbound-requests",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "id",
+                    "outboundRequests"
+                ],
+                "members": {
+                    "id": {
+                        "location": "uri",
+                        "locationName": "id"
+                    },
+                    "outboundRequests": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "clientToken",
+                                "expirationTime",
+                                "channelParameters"
+                            ],
+                            "members": {
+                                "clientToken": {},
+                                "expirationTime": {
+                                    "shape": "Su"
+                                },
+                                "channelParameters": {
+                                    "type": "structure",
+                                    "members": {
+                                        "voiceChannelParameters": {
+                                            "type": "structure",
+                                            "required": [
+                                                "destinationPhoneNumber",
+                                                "attributes"
+                                            ],
+                                            "members": {
+                                                "destinationPhoneNumber": {
+                                                    "shape": "S3u"
+                                                },
+                                                "attributes": {
+                                                    "shape": "S3v"
+                                                },
+                                                "connectSourcePhoneNumber": {},
+                                                "answerMachineDetectionConfig": {
+                                                    "shape": "Sh"
+                                                }
+                                            }
+                                        },
+                                        "smsChannelParameters": {
+                                            "type": "structure",
+                                            "required": [
+                                                "destinationPhoneNumber",
+                                                "templateParameters"
+                                            ],
+                                            "members": {
+                                                "destinationPhoneNumber": {
+                                                    "shape": "S3u"
+                                                },
+                                                "connectSourcePhoneNumberArn": {},
+                                                "templateArn": {},
+                                                "templateParameters": {
+                                                    "shape": "S3v"
+                                                }
+                                            }
+                                        },
+                                        "emailChannelParameters": {
+                                            "type": "structure",
+                                            "required": [
+                                                "destinationEmailAddress",
+                                                "templateParameters"
+                                            ],
+                                            "members": {
+                                                "destinationEmailAddress": {
+                                                    "shape": "Sq"
+                                                },
+                                                "connectSourceEmailAddress": {
+                                                    "shape": "Sq"
+                                                },
+                                                "templateArn": {},
+                                                "templateParameters": {
+                                                    "shape": "S3v"
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "union": true
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "successfulRequests": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "clientToken": {},
+                                "id": {}
+                            }
+                        }
+                    },
+                    "failedRequests": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "clientToken": {},
+                                "id": {},
+                                "failureCode": {}
+                            }
+                        }
+                    }
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/2KBVCSZWBI4RXHTJT67W236BKOPGK6SI652PKGOMKK2VCJU4N7ZA/main.min.js"
+            ]
+        },
+        "ResumeCampaign": {
+            "http": {
+                "requestUri": "/campaigns/{id}/resume",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "id"
+                ],
+                "members": {
+                    "id": {
+                        "location": "uri",
+                        "locationName": "id"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/2KBVCSZWBI4RXHTJT67W236BKOPGK6SI652PKGOMKK2VCJU4N7ZA/main.min.js"
+            ]
+        },
+        "StartCampaign": {
+            "http": {
+                "requestUri": "/campaigns/{id}/start",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "id"
+                ],
+                "members": {
+                    "id": {
+                        "location": "uri",
+                        "locationName": "id"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/2KBVCSZWBI4RXHTJT67W236BKOPGK6SI652PKGOMKK2VCJU4N7ZA/main.min.js"
+            ]
+        },
+        "StartInstanceOnboardingJob": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/connect-instance/{connectInstanceId}/onboarding",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "connectInstanceId",
+                    "encryptionConfig"
+                ],
+                "members": {
+                    "connectInstanceId": {
+                        "location": "uri",
+                        "locationName": "connectInstanceId"
+                    },
+                    "encryptionConfig": {
+                        "shape": "S2m"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "connectInstanceOnboardingJobStatus": {
+                        "shape": "S2u"
+                    }
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/2KBVCSZWBI4RXHTJT67W236BKOPGK6SI652PKGOMKK2VCJU4N7ZA/main.min.js"
+            ]
+        },
+        "StopCampaign": {
+            "http": {
+                "requestUri": "/campaigns/{id}/stop",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "id"
+                ],
+                "members": {
+                    "id": {
+                        "location": "uri",
+                        "locationName": "id"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/2KBVCSZWBI4RXHTJT67W236BKOPGK6SI652PKGOMKK2VCJU4N7ZA/main.min.js"
+            ]
+        },
+        "TagResource": {
+            "http": {
+                "requestUri": "/tags/{arn}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "arn",
+                    "tags"
+                ],
+                "members": {
+                    "arn": {
+                        "location": "uri",
+                        "locationName": "arn"
+                    },
+                    "tags": {
+                        "shape": "S1k"
+                    }
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/2KBVCSZWBI4RXHTJT67W236BKOPGK6SI652PKGOMKK2VCJU4N7ZA/main.min.js"
+            ]
+        },
+        "UntagResource": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/tags/{arn}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "arn",
+                    "tagKeys"
+                ],
+                "members": {
+                    "arn": {
+                        "location": "uri",
+                        "locationName": "arn"
+                    },
+                    "tagKeys": {
+                        "location": "querystring",
+                        "locationName": "tagKeys",
+                        "type": "list",
+                        "member": {}
+                    }
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/2KBVCSZWBI4RXHTJT67W236BKOPGK6SI652PKGOMKK2VCJU4N7ZA/main.min.js"
+            ]
+        },
+        "UpdateCampaignChannelConfig": {
+            "http": {
+                "requestUri": "/campaigns/{id}/channel-config",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "id",
+                    "channelConfig"
+                ],
+                "members": {
+                    "id": {
+                        "location": "uri",
+                        "locationName": "id"
+                    },
+                    "channelConfig": {
+                        "shape": "S5"
+                    }
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/2KBVCSZWBI4RXHTJT67W236BKOPGK6SI652PKGOMKK2VCJU4N7ZA/main.min.js"
+            ]
+        },
+        "UpdateCampaignCommunicationLimits": {
+            "http": {
+                "requestUri": "/campaigns/{id}/communication-limits",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "id",
+                    "communicationLimitsOverride"
+                ],
+                "members": {
+                    "id": {
+                        "location": "uri",
+                        "locationName": "id"
+                    },
+                    "communicationLimitsOverride": {
+                        "shape": "S1d"
+                    }
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/2KBVCSZWBI4RXHTJT67W236BKOPGK6SI652PKGOMKK2VCJU4N7ZA/main.min.js"
+            ]
+        },
+        "UpdateCampaignCommunicationTime": {
+            "http": {
+                "requestUri": "/campaigns/{id}/communication-time",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "id",
+                    "communicationTimeConfig"
+                ],
+                "members": {
+                    "id": {
+                        "location": "uri",
+                        "locationName": "id"
+                    },
+                    "communicationTimeConfig": {
+                        "shape": "Sx"
+                    }
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/2KBVCSZWBI4RXHTJT67W236BKOPGK6SI652PKGOMKK2VCJU4N7ZA/main.min.js"
+            ]
+        },
+        "UpdateCampaignFlowAssociation": {
+            "http": {
+                "requestUri": "/campaigns/{id}/flow",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "id",
+                    "connectCampaignFlowArn"
+                ],
+                "members": {
+                    "id": {
+                        "location": "uri",
+                        "locationName": "id"
+                    },
+                    "connectCampaignFlowArn": {}
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/2KBVCSZWBI4RXHTJT67W236BKOPGK6SI652PKGOMKK2VCJU4N7ZA/main.min.js"
+            ]
+        },
+        "UpdateCampaignName": {
+            "http": {
+                "requestUri": "/campaigns/{id}/name",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "id",
+                    "name"
+                ],
+                "members": {
+                    "id": {
+                        "location": "uri",
+                        "locationName": "id"
+                    },
+                    "name": {}
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/2KBVCSZWBI4RXHTJT67W236BKOPGK6SI652PKGOMKK2VCJU4N7ZA/main.min.js"
+            ]
+        },
+        "UpdateCampaignSchedule": {
+            "http": {
+                "requestUri": "/campaigns/{id}/schedule",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "id",
+                    "schedule"
+                ],
+                "members": {
+                    "id": {
+                        "location": "uri",
+                        "locationName": "id"
+                    },
+                    "schedule": {
+                        "shape": "St"
+                    }
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/2KBVCSZWBI4RXHTJT67W236BKOPGK6SI652PKGOMKK2VCJU4N7ZA/main.min.js"
+            ]
+        },
+        "UpdateCampaignSource": {
+            "http": {
+                "requestUri": "/campaigns/{id}/source",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "id",
+                    "source"
+                ],
+                "members": {
+                    "id": {
+                        "location": "uri",
+                        "locationName": "id"
+                    },
+                    "source": {
+                        "shape": "Ss"
+                    }
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/2KBVCSZWBI4RXHTJT67W236BKOPGK6SI652PKGOMKK2VCJU4N7ZA/main.min.js"
+            ]
+        }
+    },
+    "shapes": {
+        "S5": {
+            "type": "structure",
+            "members": {
+                "voice": {
+                    "type": "structure",
+                    "required": [
+                        "outboundMode",
+                        "defaultOutboundConfig"
+                    ],
+                    "members": {
+                        "capacity": {
+                            "type": "double"
+                        },
+                        "connectQueueId": {},
+                        "outboundMode": {
+                            "type": "structure",
+                            "members": {
+                                "progressive": {
+                                    "type": "structure",
+                                    "required": [
+                                        "bandwidthAllocation"
+                                    ],
+                                    "members": {
+                                        "bandwidthAllocation": {
+                                            "type": "double"
+                                        }
+                                    }
+                                },
+                                "predictive": {
+                                    "type": "structure",
+                                    "required": [
+                                        "bandwidthAllocation"
+                                    ],
+                                    "members": {
+                                        "bandwidthAllocation": {
+                                            "type": "double"
+                                        }
+                                    }
+                                },
+                                "agentless": {
+                                    "shape": "Sd"
+                                }
+                            },
+                            "union": true
+                        },
+                        "defaultOutboundConfig": {
+                            "type": "structure",
+                            "required": [
+                                "connectContactFlowId"
+                            ],
+                            "members": {
+                                "connectContactFlowId": {},
+                                "connectSourcePhoneNumber": {},
+                                "answerMachineDetectionConfig": {
+                                    "shape": "Sh"
+                                }
+                            }
+                        }
+                    }
+                },
+                "sms": {
+                    "type": "structure",
+                    "required": [
+                        "outboundMode",
+                        "defaultOutboundConfig"
+                    ],
+                    "members": {
+                        "capacity": {
+                            "type": "double"
+                        },
+                        "outboundMode": {
+                            "type": "structure",
+                            "members": {
+                                "agentless": {
+                                    "shape": "Sd"
+                                }
+                            },
+                            "union": true
+                        },
+                        "defaultOutboundConfig": {
+                            "type": "structure",
+                            "required": [
+                                "connectSourcePhoneNumberArn",
+                                "wisdomTemplateArn"
+                            ],
+                            "members": {
+                                "connectSourcePhoneNumberArn": {},
+                                "wisdomTemplateArn": {}
+                            }
+                        }
+                    }
+                },
+                "email": {
+                    "type": "structure",
+                    "required": [
+                        "outboundMode",
+                        "defaultOutboundConfig"
+                    ],
+                    "members": {
+                        "capacity": {
+                            "type": "double"
+                        },
+                        "outboundMode": {
+                            "type": "structure",
+                            "members": {
+                                "agentless": {
+                                    "shape": "Sd"
+                                }
+                            },
+                            "union": true
+                        },
+                        "defaultOutboundConfig": {
+                            "type": "structure",
+                            "required": [
+                                "connectSourceEmailAddress",
+                                "wisdomTemplateArn"
+                            ],
+                            "members": {
+                                "connectSourceEmailAddress": {
+                                    "shape": "Sq"
+                                },
+                                "sourceEmailAddressDisplayName": {},
+                                "wisdomTemplateArn": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "Sd": {
+            "type": "structure",
+            "members": {}
+        },
+        "Sh": {
+            "type": "structure",
+            "required": [
+                "enableAnswerMachineDetection"
+            ],
+            "members": {
+                "enableAnswerMachineDetection": {
+                    "type": "boolean"
+                },
+                "awaitAnswerMachinePrompt": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "Sq": {
+            "type": "string",
+            "sensitive": true
+        },
+        "Ss": {
+            "type": "structure",
+            "members": {
+                "customerProfilesSegmentArn": {}
+            },
+            "union": true
+        },
+        "St": {
+            "type": "structure",
+            "required": [
+                "startTime",
+                "endTime",
+                "timeZone"
+            ],
+            "members": {
+                "startTime": {
+                    "shape": "Su"
+                },
+                "endTime": {
+                    "shape": "Su"
+                },
+                "timeZone": {},
+                "refreshFrequency": {}
+            }
+        },
+        "Su": {
+            "type": "timestamp",
+            "timestampFormat": "iso8601"
+        },
+        "Sx": {
+            "type": "structure",
+            "required": [
+                "localTimeZoneConfig"
+            ],
+            "members": {
+                "localTimeZoneConfig": {
+                    "type": "structure",
+                    "required": [
+                        "defaultTimeZone"
+                    ],
+                    "members": {
+                        "defaultTimeZone": {},
+                        "localTimeZoneDetection": {
+                            "type": "list",
+                            "member": {}
+                        }
+                    }
+                },
+                "voice": {
+                    "shape": "S11"
+                },
+                "sms": {
+                    "shape": "S11"
+                },
+                "email": {
+                    "shape": "S11"
+                }
+            }
+        },
+        "S11": {
+            "type": "structure",
+            "required": [
+                "openHours"
+            ],
+            "members": {
+                "openHours": {
+                    "type": "structure",
+                    "members": {
+                        "dailyHours": {
+                            "type": "map",
+                            "key": {},
+                            "value": {
+                                "type": "list",
+                                "member": {
+                                    "type": "structure",
+                                    "required": [
+                                        "startTime",
+                                        "endTime"
+                                    ],
+                                    "members": {
+                                        "startTime": {},
+                                        "endTime": {}
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "union": true
+                },
+                "restrictedPeriods": {
+                    "type": "structure",
+                    "members": {
+                        "restrictedPeriodList": {
+                            "type": "list",
+                            "member": {
+                                "type": "structure",
+                                "required": [
+                                    "startDate",
+                                    "endDate"
+                                ],
+                                "members": {
+                                    "name": {},
+                                    "startDate": {},
+                                    "endDate": {}
+                                }
+                            }
+                        }
+                    },
+                    "union": true
+                }
+            }
+        },
+        "S1d": {
+            "type": "structure",
+            "members": {
+                "allChannels": {
+                    "type": "structure",
+                    "members": {
+                        "communicationLimitsList": {
+                            "type": "list",
+                            "member": {
+                                "type": "structure",
+                                "required": [
+                                    "maxCountPerRecipient",
+                                    "frequency",
+                                    "unit"
+                                ],
+                                "members": {
+                                    "maxCountPerRecipient": {
+                                        "type": "integer"
+                                    },
+                                    "frequency": {
+                                        "type": "integer"
+                                    },
+                                    "unit": {}
+                                }
+                            }
+                        }
+                    },
+                    "union": true
+                }
+            }
+        },
+        "S1k": {
+            "type": "map",
+            "key": {},
+            "value": {}
+        },
+        "S2m": {
+            "type": "structure",
+            "required": [
+                "enabled"
+            ],
+            "members": {
+                "enabled": {
+                    "type": "boolean"
+                },
+                "encryptionType": {},
+                "keyArn": {}
+            }
+        },
+        "S2u": {
+            "type": "structure",
+            "required": [
+                "connectInstanceId",
+                "status"
+            ],
+            "members": {
+                "connectInstanceId": {},
+                "status": {},
+                "failureCode": {}
+            }
+        },
+        "S3c": {
+            "type": "map",
+            "key": {},
+            "value": {}
+        },
+        "S3u": {
+            "type": "string",
+            "sensitive": true
+        },
+        "S3v": {
+            "type": "map",
+            "key": {},
+            "value": {},
+            "sensitive": true
+        }
+    }
+}

@@ -1,0 +1,1259 @@
+{
+    "version": "2.0",
+    "metadata": {
+        "apiVersion": "2023-02-10",
+        "auth": [
+            "aws.auth#sigv4"
+        ],
+        "endpointPrefix": "pcs",
+        "jsonVersion": "1.0",
+        "protocol": "json",
+        "protocols": [
+            "json"
+        ],
+        "ripServiceName": "pcs",
+        "serviceAbbreviation": "PCS",
+        "serviceFullName": "AWS Parallel Computing Service",
+        "serviceId": "PCS",
+        "signatureVersion": "v4",
+        "signingName": "pcs",
+        "targetPrefix": "AWSParallelComputingService",
+        "uid": "pcs-2023-02-10",
+        "download_location": [
+            "https://a.b.cdn.console.awsstatic.com/a/v1/XJOFDG22JZY2JJMQLYKUYY6WPD3MQR6ISCJF3OH44WKQRFUSJKMQ/vendors.js"
+        ]
+    },
+    "operations": {
+        "AllowVendedLogDeliveryForResource": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "resourceArnBeingAuthorized",
+                    "deliverySourceArn"
+                ],
+                "members": {
+                    "resourceArnBeingAuthorized": {},
+                    "deliverySourceArn": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "message": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/XJOFDG22JZY2JJMQLYKUYY6WPD3MQR6ISCJF3OH44WKQRFUSJKMQ/vendors.js"
+            ]
+        },
+        "CreateCluster": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "clusterName",
+                    "scheduler",
+                    "size",
+                    "networking"
+                ],
+                "members": {
+                    "capiAwsAccountId": {
+                        "internalonly": true
+                    },
+                    "awsEc2InstanceArn": {
+                        "internalonly": true
+                    },
+                    "capiAwsPayerToken": {
+                        "internalonly": true
+                    },
+                    "capiEncryptedFasToken": {
+                        "shape": "S7",
+                        "internalonly": true
+                    },
+                    "capiEncryptedFasDataKey": {
+                        "shape": "S7",
+                        "internalonly": true
+                    },
+                    "resourceId": {
+                        "internalonly": true
+                    },
+                    "clusterName": {},
+                    "scheduler": {
+                        "type": "structure",
+                        "required": [
+                            "type",
+                            "version"
+                        ],
+                        "members": {
+                            "type": {},
+                            "version": {}
+                        }
+                    },
+                    "size": {},
+                    "networking": {
+                        "type": "structure",
+                        "members": {
+                            "subnetIds": {
+                                "shape": "Sd"
+                            },
+                            "securityGroupIds": {
+                                "shape": "Sf"
+                            }
+                        }
+                    },
+                    "slurmConfiguration": {
+                        "type": "structure",
+                        "members": {
+                            "scaleDownIdleTimeInSeconds": {
+                                "type": "integer"
+                            },
+                            "slurmCustomSettings": {
+                                "shape": "Sj"
+                            }
+                        }
+                    },
+                    "clientToken": {
+                        "idempotencyToken": true
+                    },
+                    "tags": {
+                        "shape": "Sm"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "cluster": {
+                        "shape": "Sq"
+                    }
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/XJOFDG22JZY2JJMQLYKUYY6WPD3MQR6ISCJF3OH44WKQRFUSJKMQ/vendors.js"
+            ]
+        },
+        "CreateComputeNodeGroup": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "clusterIdentifier",
+                    "computeNodeGroupName",
+                    "subnetIds",
+                    "customLaunchTemplate",
+                    "iamInstanceProfileArn",
+                    "scalingConfiguration",
+                    "instanceConfigs"
+                ],
+                "members": {
+                    "capiAwsAccountId": {
+                        "internalonly": true
+                    },
+                    "awsEc2InstanceArn": {
+                        "internalonly": true
+                    },
+                    "capiAwsPayerToken": {
+                        "internalonly": true
+                    },
+                    "capiEncryptedFasToken": {
+                        "shape": "S7",
+                        "internalonly": true
+                    },
+                    "capiEncryptedFasDataKey": {
+                        "shape": "S7",
+                        "internalonly": true
+                    },
+                    "resourceId": {
+                        "internalonly": true
+                    },
+                    "clusterIdentifier": {},
+                    "computeNodeGroupName": {},
+                    "amiId": {},
+                    "subnetIds": {
+                        "shape": "S17"
+                    },
+                    "purchaseOption": {},
+                    "customLaunchTemplate": {
+                        "shape": "S19"
+                    },
+                    "iamInstanceProfileArn": {},
+                    "scalingConfiguration": {
+                        "shape": "S1b"
+                    },
+                    "instanceConfigs": {
+                        "shape": "S1e"
+                    },
+                    "spotOptions": {
+                        "shape": "S1g"
+                    },
+                    "slurmConfiguration": {
+                        "type": "structure",
+                        "members": {
+                            "slurmCustomSettings": {
+                                "shape": "Sj"
+                            }
+                        }
+                    },
+                    "clientToken": {
+                        "idempotencyToken": true
+                    },
+                    "tags": {
+                        "shape": "Sm"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "computeNodeGroup": {
+                        "shape": "S1k"
+                    }
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/XJOFDG22JZY2JJMQLYKUYY6WPD3MQR6ISCJF3OH44WKQRFUSJKMQ/vendors.js"
+            ]
+        },
+        "CreateQueue": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "clusterIdentifier",
+                    "queueName"
+                ],
+                "members": {
+                    "capiAwsAccountId": {
+                        "internalonly": true
+                    },
+                    "awsEc2InstanceArn": {
+                        "internalonly": true
+                    },
+                    "capiAwsPayerToken": {
+                        "internalonly": true
+                    },
+                    "capiEncryptedFasToken": {
+                        "shape": "S7",
+                        "internalonly": true
+                    },
+                    "capiEncryptedFasDataKey": {
+                        "shape": "S7",
+                        "internalonly": true
+                    },
+                    "resourceId": {
+                        "internalonly": true
+                    },
+                    "clusterIdentifier": {},
+                    "queueName": {},
+                    "computeNodeGroupConfigurations": {
+                        "shape": "S1s"
+                    },
+                    "clientToken": {
+                        "idempotencyToken": true
+                    },
+                    "tags": {
+                        "shape": "Sm"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "queue": {
+                        "shape": "S1v"
+                    }
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/XJOFDG22JZY2JJMQLYKUYY6WPD3MQR6ISCJF3OH44WKQRFUSJKMQ/vendors.js"
+            ]
+        },
+        "DeleteCluster": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "clusterIdentifier"
+                ],
+                "members": {
+                    "capiAwsAccountId": {
+                        "internalonly": true
+                    },
+                    "awsEc2InstanceArn": {
+                        "internalonly": true
+                    },
+                    "capiAwsPayerToken": {
+                        "internalonly": true
+                    },
+                    "capiEncryptedFasToken": {
+                        "shape": "S7",
+                        "internalonly": true
+                    },
+                    "capiEncryptedFasDataKey": {
+                        "shape": "S7",
+                        "internalonly": true
+                    },
+                    "clusterIdentifier": {},
+                    "clientToken": {
+                        "idempotencyToken": true
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/XJOFDG22JZY2JJMQLYKUYY6WPD3MQR6ISCJF3OH44WKQRFUSJKMQ/vendors.js"
+            ]
+        },
+        "DeleteComputeNodeGroup": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "clusterIdentifier",
+                    "computeNodeGroupIdentifier"
+                ],
+                "members": {
+                    "capiAwsAccountId": {
+                        "internalonly": true
+                    },
+                    "awsEc2InstanceArn": {
+                        "internalonly": true
+                    },
+                    "capiAwsPayerToken": {
+                        "internalonly": true
+                    },
+                    "capiEncryptedFasToken": {
+                        "shape": "S7",
+                        "internalonly": true
+                    },
+                    "capiEncryptedFasDataKey": {
+                        "shape": "S7",
+                        "internalonly": true
+                    },
+                    "clusterIdentifier": {},
+                    "computeNodeGroupIdentifier": {},
+                    "clientToken": {
+                        "idempotencyToken": true
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/XJOFDG22JZY2JJMQLYKUYY6WPD3MQR6ISCJF3OH44WKQRFUSJKMQ/vendors.js"
+            ]
+        },
+        "DeleteQueue": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "clusterIdentifier",
+                    "queueIdentifier"
+                ],
+                "members": {
+                    "capiAwsAccountId": {
+                        "internalonly": true
+                    },
+                    "awsEc2InstanceArn": {
+                        "internalonly": true
+                    },
+                    "capiAwsPayerToken": {
+                        "internalonly": true
+                    },
+                    "capiEncryptedFasToken": {
+                        "shape": "S7",
+                        "internalonly": true
+                    },
+                    "capiEncryptedFasDataKey": {
+                        "shape": "S7",
+                        "internalonly": true
+                    },
+                    "clusterIdentifier": {},
+                    "queueIdentifier": {},
+                    "clientToken": {
+                        "idempotencyToken": true
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/XJOFDG22JZY2JJMQLYKUYY6WPD3MQR6ISCJF3OH44WKQRFUSJKMQ/vendors.js"
+            ]
+        },
+        "GetCluster": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "clusterIdentifier"
+                ],
+                "members": {
+                    "capiAwsAccountId": {
+                        "internalonly": true
+                    },
+                    "awsEc2InstanceArn": {
+                        "internalonly": true
+                    },
+                    "capiAwsPayerToken": {
+                        "internalonly": true
+                    },
+                    "clusterIdentifier": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "cluster": {
+                        "shape": "Sq"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/XJOFDG22JZY2JJMQLYKUYY6WPD3MQR6ISCJF3OH44WKQRFUSJKMQ/vendors.js"
+            ]
+        },
+        "GetComputeNodeGroup": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "clusterIdentifier",
+                    "computeNodeGroupIdentifier"
+                ],
+                "members": {
+                    "capiAwsAccountId": {
+                        "internalonly": true
+                    },
+                    "awsEc2InstanceArn": {
+                        "internalonly": true
+                    },
+                    "capiAwsPayerToken": {
+                        "internalonly": true
+                    },
+                    "clusterIdentifier": {},
+                    "computeNodeGroupIdentifier": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "computeNodeGroup": {
+                        "shape": "S1k"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/XJOFDG22JZY2JJMQLYKUYY6WPD3MQR6ISCJF3OH44WKQRFUSJKMQ/vendors.js"
+            ]
+        },
+        "GetQueue": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "clusterIdentifier",
+                    "queueIdentifier"
+                ],
+                "members": {
+                    "capiAwsAccountId": {
+                        "internalonly": true
+                    },
+                    "awsEc2InstanceArn": {
+                        "internalonly": true
+                    },
+                    "capiAwsPayerToken": {
+                        "internalonly": true
+                    },
+                    "clusterIdentifier": {},
+                    "queueIdentifier": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "queue": {
+                        "shape": "S1v"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/XJOFDG22JZY2JJMQLYKUYY6WPD3MQR6ISCJF3OH44WKQRFUSJKMQ/vendors.js"
+            ]
+        },
+        "ListClusters": {
+            "input": {
+                "type": "structure",
+                "members": {
+                    "capiAwsAccountId": {
+                        "internalonly": true
+                    },
+                    "awsEc2InstanceArn": {
+                        "internalonly": true
+                    },
+                    "capiAwsPayerToken": {
+                        "internalonly": true
+                    },
+                    "nextToken": {},
+                    "maxResults": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "clusters"
+                ],
+                "members": {
+                    "clusters": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "name",
+                                "id",
+                                "arn",
+                                "createdAt",
+                                "modifiedAt",
+                                "status"
+                            ],
+                            "members": {
+                                "name": {},
+                                "id": {},
+                                "arn": {},
+                                "createdAt": {
+                                    "shape": "Ss"
+                                },
+                                "modifiedAt": {
+                                    "shape": "Ss"
+                                },
+                                "status": {}
+                            }
+                        }
+                    },
+                    "nextToken": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/XJOFDG22JZY2JJMQLYKUYY6WPD3MQR6ISCJF3OH44WKQRFUSJKMQ/vendors.js"
+            ]
+        },
+        "ListComputeNodeGroups": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "clusterIdentifier"
+                ],
+                "members": {
+                    "capiAwsAccountId": {
+                        "internalonly": true
+                    },
+                    "awsEc2InstanceArn": {
+                        "internalonly": true
+                    },
+                    "capiAwsPayerToken": {
+                        "internalonly": true
+                    },
+                    "clusterIdentifier": {},
+                    "nextToken": {},
+                    "maxResults": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "computeNodeGroups"
+                ],
+                "members": {
+                    "computeNodeGroups": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "name",
+                                "id",
+                                "arn",
+                                "clusterId",
+                                "createdAt",
+                                "modifiedAt",
+                                "status"
+                            ],
+                            "members": {
+                                "name": {},
+                                "id": {},
+                                "arn": {},
+                                "clusterId": {},
+                                "createdAt": {
+                                    "shape": "Ss"
+                                },
+                                "modifiedAt": {
+                                    "shape": "Ss"
+                                },
+                                "status": {}
+                            }
+                        }
+                    },
+                    "nextToken": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/XJOFDG22JZY2JJMQLYKUYY6WPD3MQR6ISCJF3OH44WKQRFUSJKMQ/vendors.js"
+            ]
+        },
+        "ListQueues": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "clusterIdentifier"
+                ],
+                "members": {
+                    "capiAwsAccountId": {
+                        "internalonly": true
+                    },
+                    "awsEc2InstanceArn": {
+                        "internalonly": true
+                    },
+                    "capiAwsPayerToken": {
+                        "internalonly": true
+                    },
+                    "clusterIdentifier": {},
+                    "nextToken": {},
+                    "maxResults": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "queues"
+                ],
+                "members": {
+                    "queues": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "name",
+                                "id",
+                                "arn",
+                                "clusterId",
+                                "createdAt",
+                                "modifiedAt",
+                                "status"
+                            ],
+                            "members": {
+                                "name": {},
+                                "id": {},
+                                "arn": {},
+                                "clusterId": {},
+                                "createdAt": {
+                                    "shape": "Ss"
+                                },
+                                "modifiedAt": {
+                                    "shape": "Ss"
+                                },
+                                "status": {}
+                            }
+                        }
+                    },
+                    "nextToken": {}
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/XJOFDG22JZY2JJMQLYKUYY6WPD3MQR6ISCJF3OH44WKQRFUSJKMQ/vendors.js"
+            ]
+        },
+        "ListTagsForResource": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "resourceArn"
+                ],
+                "members": {
+                    "resourceArn": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "tags": {
+                        "type": "map",
+                        "key": {},
+                        "value": {}
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/XJOFDG22JZY2JJMQLYKUYY6WPD3MQR6ISCJF3OH44WKQRFUSJKMQ/vendors.js"
+            ]
+        },
+        "LockServiceLinkedRole": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "RoleArn",
+                    "Timeout"
+                ],
+                "members": {
+                    "RoleArn": {},
+                    "Timeout": {
+                        "type": "long"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "CanBeDeleted"
+                ],
+                "members": {
+                    "CanBeDeleted": {
+                        "type": "boolean"
+                    },
+                    "ReasonOfFailure": {},
+                    "RelatedResources": {
+                        "type": "list",
+                        "member": {}
+                    }
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/XJOFDG22JZY2JJMQLYKUYY6WPD3MQR6ISCJF3OH44WKQRFUSJKMQ/vendors.js"
+            ]
+        },
+        "RegisterComputeNodeGroupInstance": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "clusterIdentifier",
+                    "bootstrapId"
+                ],
+                "members": {
+                    "capiAwsAccountId": {
+                        "internalonly": true
+                    },
+                    "awsEc2InstanceArn": {
+                        "internalonly": true
+                    },
+                    "capiAwsPayerToken": {
+                        "internalonly": true
+                    },
+                    "capiEncryptedFasToken": {
+                        "shape": "S7",
+                        "internalonly": true
+                    },
+                    "capiEncryptedFasDataKey": {
+                        "shape": "S7",
+                        "internalonly": true
+                    },
+                    "clusterIdentifier": {},
+                    "bootstrapId": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "nodeID",
+                    "sharedSecret",
+                    "endpoints"
+                ],
+                "members": {
+                    "nodeID": {},
+                    "sharedSecret": {
+                        "type": "string",
+                        "sensitive": true
+                    },
+                    "endpoints": {
+                        "shape": "Sy"
+                    }
+                }
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/XJOFDG22JZY2JJMQLYKUYY6WPD3MQR6ISCJF3OH44WKQRFUSJKMQ/vendors.js"
+            ]
+        },
+        "TagResource": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "resourceArn",
+                    "tags"
+                ],
+                "members": {
+                    "resourceArn": {},
+                    "tags": {
+                        "shape": "Sm"
+                    }
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/XJOFDG22JZY2JJMQLYKUYY6WPD3MQR6ISCJF3OH44WKQRFUSJKMQ/vendors.js"
+            ]
+        },
+        "UnlockServiceLinkedRole": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "RoleArn"
+                ],
+                "members": {
+                    "RoleArn": {},
+                    "DeletionStatus": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/XJOFDG22JZY2JJMQLYKUYY6WPD3MQR6ISCJF3OH44WKQRFUSJKMQ/vendors.js"
+            ]
+        },
+        "UntagResource": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "resourceArn",
+                    "tagKeys"
+                ],
+                "members": {
+                    "resourceArn": {},
+                    "tagKeys": {
+                        "type": "list",
+                        "member": {}
+                    }
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/XJOFDG22JZY2JJMQLYKUYY6WPD3MQR6ISCJF3OH44WKQRFUSJKMQ/vendors.js"
+            ]
+        },
+        "UpdateComputeNodeGroup": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "clusterIdentifier",
+                    "computeNodeGroupIdentifier"
+                ],
+                "members": {
+                    "capiAwsAccountId": {
+                        "internalonly": true
+                    },
+                    "awsEc2InstanceArn": {
+                        "internalonly": true
+                    },
+                    "capiAwsPayerToken": {
+                        "internalonly": true
+                    },
+                    "capiEncryptedFasToken": {
+                        "shape": "S7",
+                        "internalonly": true
+                    },
+                    "capiEncryptedFasDataKey": {
+                        "shape": "S7",
+                        "internalonly": true
+                    },
+                    "clusterIdentifier": {},
+                    "computeNodeGroupIdentifier": {},
+                    "amiId": {},
+                    "subnetIds": {
+                        "shape": "S17"
+                    },
+                    "customLaunchTemplate": {
+                        "shape": "S19"
+                    },
+                    "purchaseOption": {},
+                    "spotOptions": {
+                        "shape": "S1g"
+                    },
+                    "scalingConfiguration": {
+                        "shape": "S1b"
+                    },
+                    "iamInstanceProfileArn": {},
+                    "slurmConfiguration": {
+                        "type": "structure",
+                        "members": {
+                            "slurmCustomSettings": {
+                                "shape": "Sj"
+                            }
+                        }
+                    },
+                    "clientToken": {
+                        "idempotencyToken": true
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "computeNodeGroup": {
+                        "shape": "S1k"
+                    }
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/XJOFDG22JZY2JJMQLYKUYY6WPD3MQR6ISCJF3OH44WKQRFUSJKMQ/vendors.js"
+            ]
+        },
+        "UpdateQueue": {
+            "input": {
+                "type": "structure",
+                "required": [
+                    "clusterIdentifier",
+                    "queueIdentifier"
+                ],
+                "members": {
+                    "capiAwsAccountId": {
+                        "internalonly": true
+                    },
+                    "awsEc2InstanceArn": {
+                        "internalonly": true
+                    },
+                    "capiAwsPayerToken": {
+                        "internalonly": true
+                    },
+                    "capiEncryptedFasToken": {
+                        "shape": "S7",
+                        "internalonly": true
+                    },
+                    "capiEncryptedFasDataKey": {
+                        "shape": "S7",
+                        "internalonly": true
+                    },
+                    "clusterIdentifier": {},
+                    "queueIdentifier": {},
+                    "computeNodeGroupConfigurations": {
+                        "shape": "S1s"
+                    },
+                    "clientToken": {
+                        "idempotencyToken": true
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "queue": {
+                        "shape": "S1v"
+                    }
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/XJOFDG22JZY2JJMQLYKUYY6WPD3MQR6ISCJF3OH44WKQRFUSJKMQ/vendors.js"
+            ]
+        }
+    },
+    "shapes": {
+        "S7": {
+            "type": "string",
+            "sensitive": true
+        },
+        "Sd": {
+            "type": "list",
+            "member": {}
+        },
+        "Sf": {
+            "type": "list",
+            "member": {}
+        },
+        "Sj": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "parameterName",
+                    "parameterValue"
+                ],
+                "members": {
+                    "parameterName": {},
+                    "parameterValue": {}
+                }
+            }
+        },
+        "Sm": {
+            "type": "map",
+            "key": {},
+            "value": {}
+        },
+        "Sq": {
+            "type": "structure",
+            "required": [
+                "name",
+                "id",
+                "arn",
+                "status",
+                "createdAt",
+                "modifiedAt",
+                "scheduler",
+                "size",
+                "networking"
+            ],
+            "members": {
+                "name": {},
+                "id": {},
+                "arn": {},
+                "status": {},
+                "createdAt": {
+                    "shape": "Ss"
+                },
+                "modifiedAt": {
+                    "shape": "Ss"
+                },
+                "scheduler": {
+                    "type": "structure",
+                    "required": [
+                        "type",
+                        "version"
+                    ],
+                    "members": {
+                        "type": {},
+                        "version": {}
+                    }
+                },
+                "size": {},
+                "slurmConfiguration": {
+                    "type": "structure",
+                    "members": {
+                        "scaleDownIdleTimeInSeconds": {
+                            "type": "integer"
+                        },
+                        "slurmCustomSettings": {
+                            "shape": "Sj"
+                        },
+                        "authKey": {
+                            "type": "structure",
+                            "required": [
+                                "secretArn",
+                                "secretVersion"
+                            ],
+                            "members": {
+                                "secretArn": {},
+                                "secretVersion": {}
+                            }
+                        }
+                    }
+                },
+                "networking": {
+                    "type": "structure",
+                    "members": {
+                        "subnetIds": {
+                            "shape": "Sd"
+                        },
+                        "securityGroupIds": {
+                            "shape": "Sf"
+                        }
+                    }
+                },
+                "endpoints": {
+                    "shape": "Sy"
+                },
+                "errorInfo": {
+                    "shape": "S11"
+                }
+            }
+        },
+        "Ss": {
+            "type": "timestamp",
+            "timestampFormat": "iso8601"
+        },
+        "Sy": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "type",
+                    "privateIpAddress",
+                    "port"
+                ],
+                "members": {
+                    "type": {},
+                    "privateIpAddress": {},
+                    "publicIpAddress": {},
+                    "port": {}
+                }
+            }
+        },
+        "S11": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "code": {},
+                    "message": {}
+                }
+            }
+        },
+        "S17": {
+            "type": "list",
+            "member": {}
+        },
+        "S19": {
+            "type": "structure",
+            "required": [
+                "id",
+                "version"
+            ],
+            "members": {
+                "id": {},
+                "version": {}
+            }
+        },
+        "S1b": {
+            "type": "structure",
+            "required": [
+                "minInstanceCount",
+                "maxInstanceCount"
+            ],
+            "members": {
+                "minInstanceCount": {
+                    "type": "integer"
+                },
+                "maxInstanceCount": {
+                    "type": "integer"
+                }
+            }
+        },
+        "S1e": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "instanceType": {}
+                }
+            }
+        },
+        "S1g": {
+            "type": "structure",
+            "members": {
+                "allocationStrategy": {}
+            }
+        },
+        "S1k": {
+            "type": "structure",
+            "required": [
+                "name",
+                "id",
+                "arn",
+                "clusterId",
+                "createdAt",
+                "modifiedAt",
+                "status",
+                "subnetIds",
+                "customLaunchTemplate",
+                "iamInstanceProfileArn",
+                "scalingConfiguration",
+                "instanceConfigs"
+            ],
+            "members": {
+                "name": {},
+                "id": {},
+                "arn": {},
+                "clusterId": {},
+                "createdAt": {
+                    "shape": "Ss"
+                },
+                "modifiedAt": {
+                    "shape": "Ss"
+                },
+                "status": {},
+                "amiId": {},
+                "subnetIds": {
+                    "shape": "Sd"
+                },
+                "purchaseOption": {},
+                "customLaunchTemplate": {
+                    "shape": "S19"
+                },
+                "iamInstanceProfileArn": {},
+                "scalingConfiguration": {
+                    "type": "structure",
+                    "required": [
+                        "minInstanceCount",
+                        "maxInstanceCount"
+                    ],
+                    "members": {
+                        "minInstanceCount": {
+                            "type": "integer"
+                        },
+                        "maxInstanceCount": {
+                            "type": "integer"
+                        }
+                    }
+                },
+                "instanceConfigs": {
+                    "shape": "S1e"
+                },
+                "spotOptions": {
+                    "shape": "S1g"
+                },
+                "slurmConfiguration": {
+                    "type": "structure",
+                    "members": {
+                        "slurmCustomSettings": {
+                            "shape": "Sj"
+                        }
+                    }
+                },
+                "errorInfo": {
+                    "shape": "S11"
+                }
+            }
+        },
+        "S1s": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "computeNodeGroupId": {}
+                }
+            }
+        },
+        "S1v": {
+            "type": "structure",
+            "required": [
+                "name",
+                "id",
+                "arn",
+                "clusterId",
+                "createdAt",
+                "modifiedAt",
+                "status",
+                "computeNodeGroupConfigurations"
+            ],
+            "members": {
+                "name": {},
+                "id": {},
+                "arn": {},
+                "clusterId": {},
+                "createdAt": {
+                    "shape": "Ss"
+                },
+                "modifiedAt": {
+                    "shape": "Ss"
+                },
+                "status": {},
+                "computeNodeGroupConfigurations": {
+                    "shape": "S1s"
+                },
+                "errorInfo": {
+                    "shape": "S11"
+                }
+            }
+        }
+    }
+}
