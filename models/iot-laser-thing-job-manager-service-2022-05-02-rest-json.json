@@ -1,0 +1,395 @@
+{
+    "version": "2.0",
+    "metadata": {
+        "apiVersion": "2022-05-02",
+        "endpointPrefix": "l2nwar6zcioqg9.jobs.iot",
+        "jsonVersion": "1.1",
+        "protocol": "rest-json",
+        "protocols": [
+            "rest-json"
+        ],
+        "serviceFullName": "AWS IoT Laser Thing Job Manager Service",
+        "serviceId": "IoT",
+        "signatureVersion": "v4",
+        "signingName": "IotLaserThingJobManagerService",
+        "uid": "iot-laser-thing-job-manager-service-2022-05-02",
+        "auth": [
+            "aws.auth#sigv4"
+        ],
+        "download_location": [
+            "https://devicemanagement.us-east-1.prod.console.iot.aws.dev/static/js/devicemanagement.js"
+        ]
+    },
+    "operations": {
+        "DescribeJobExecution": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/things/{thingName}/jobs/{jobId}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "jobId",
+                    "thingName"
+                ],
+                "members": {
+                    "jobId": {
+                        "location": "uri",
+                        "locationName": "jobId"
+                    },
+                    "thingName": {
+                        "location": "uri",
+                        "locationName": "thingName"
+                    },
+                    "includeJobDocument": {
+                        "location": "querystring",
+                        "locationName": "includeJobDocument",
+                        "type": "boolean"
+                    },
+                    "executionNumber": {
+                        "location": "querystring",
+                        "locationName": "executionNumber",
+                        "type": "long"
+                    },
+                    "namespaceId": {
+                        "location": "querystring",
+                        "locationName": "namespaceId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "execution": {
+                        "shape": "S8"
+                    }
+                }
+            },
+            "download_location": [
+                "https://devicemanagement.us-east-1.prod.console.iot.aws.dev/static/js/devicemanagement.js"
+            ]
+        },
+        "GetPendingJobExecutions": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/things/{thingName}/jobs"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "thingName"
+                ],
+                "members": {
+                    "thingName": {
+                        "location": "uri",
+                        "locationName": "thingName"
+                    },
+                    "namespaceId": {
+                        "location": "querystring",
+                        "locationName": "namespaceId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "inProgressJobs": {
+                        "shape": "Sm"
+                    },
+                    "queuedJobs": {
+                        "shape": "Sm"
+                    }
+                }
+            },
+            "download_location": [
+                "https://devicemanagement.us-east-1.prod.console.iot.aws.dev/static/js/devicemanagement.js"
+            ]
+        },
+        "StartCommandExecution": {
+            "http": {
+                "requestUri": "/command-executions"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "targetArn",
+                    "commandArn"
+                ],
+                "members": {
+                    "targetArn": {},
+                    "commandArn": {},
+                    "parameters": {
+                        "type": "map",
+                        "key": {},
+                        "value": {
+                            "type": "structure",
+                            "members": {
+                                "S": {},
+                                "B": {
+                                    "type": "boolean"
+                                },
+                                "I": {
+                                    "type": "integer"
+                                },
+                                "L": {
+                                    "type": "long"
+                                },
+                                "F": {
+                                    "type": "float"
+                                },
+                                "D": {
+                                    "type": "double"
+                                },
+                                "BIN": {
+                                    "type": "blob"
+                                },
+                                "UL": {}
+                            }
+                        }
+                    },
+                    "executionTimeoutSeconds": {
+                        "type": "long"
+                    },
+                    "clientToken": {
+                        "idempotencyToken": true
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "executionId": {}
+                }
+            },
+            "download_location": [
+                "https://devicemanagement.us-east-1.prod.console.iot.aws.dev/static/js/devicemanagement.js"
+            ]
+        },
+        "StartNextPendingJobExecution": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/things/{thingName}/jobs/$next"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "thingName"
+                ],
+                "members": {
+                    "thingName": {
+                        "location": "uri",
+                        "locationName": "thingName"
+                    },
+                    "statusDetails": {
+                        "shape": "Sb"
+                    },
+                    "stepTimeoutInMinutes": {
+                        "type": "long"
+                    },
+                    "namespaceId": {
+                        "location": "querystring",
+                        "locationName": "namespaceId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "execution": {
+                        "shape": "S8"
+                    }
+                }
+            },
+            "download_location": [
+                "https://devicemanagement.us-east-1.prod.console.iot.aws.dev/static/js/devicemanagement.js"
+            ]
+        },
+        "UpdateJobExecution": {
+            "http": {
+                "requestUri": "/things/{thingName}/jobs/{jobId}"
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "jobId",
+                    "thingName",
+                    "status"
+                ],
+                "members": {
+                    "jobId": {
+                        "location": "uri",
+                        "locationName": "jobId"
+                    },
+                    "thingName": {
+                        "location": "uri",
+                        "locationName": "thingName"
+                    },
+                    "status": {},
+                    "statusDetails": {
+                        "shape": "Sb"
+                    },
+                    "stepTimeoutInMinutes": {
+                        "type": "long"
+                    },
+                    "expectedVersion": {
+                        "type": "long"
+                    },
+                    "includeJobExecutionState": {
+                        "type": "boolean"
+                    },
+                    "includeJobDocument": {
+                        "type": "boolean"
+                    },
+                    "executionNumber": {
+                        "type": "long"
+                    },
+                    "namespaceId": {
+                        "location": "querystring",
+                        "locationName": "namespaceId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "executionState": {
+                        "type": "structure",
+                        "members": {
+                            "status": {},
+                            "statusDetails": {
+                                "shape": "Sb"
+                            },
+                            "versionNumber": {
+                                "type": "long"
+                            }
+                        }
+                    },
+                    "jobDocument": {}
+                }
+            },
+            "download_location": [
+                "https://devicemanagement.us-east-1.prod.console.iot.aws.dev/static/js/devicemanagement.js"
+            ]
+        }
+    },
+    "shapes": {
+        "S8": {
+            "type": "structure",
+            "members": {
+                "jobId": {},
+                "thingName": {},
+                "status": {},
+                "statusDetails": {
+                    "shape": "Sb"
+                },
+                "queuedAt": {
+                    "type": "long"
+                },
+                "startedAt": {
+                    "type": "long"
+                },
+                "lastUpdatedAt": {
+                    "type": "long"
+                },
+                "approximateSecondsBeforeTimedOut": {
+                    "type": "long"
+                },
+                "versionNumber": {
+                    "type": "long"
+                },
+                "executionNumber": {
+                    "type": "long"
+                },
+                "jobDocument": {}
+            }
+        },
+        "Sb": {
+            "type": "map",
+            "key": {},
+            "value": {}
+        },
+        "Sm": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "jobId": {},
+                    "queuedAt": {
+                        "type": "long"
+                    },
+                    "startedAt": {
+                        "type": "long"
+                    },
+                    "lastUpdatedAt": {
+                        "type": "long"
+                    },
+                    "versionNumber": {
+                        "type": "long"
+                    },
+                    "executionNumber": {
+                        "type": "long"
+                    }
+                }
+            }
+        },
+        "S7": {
+            "type": "structure",
+            "members": {
+                "jobId": {},
+                "thingName": {},
+                "status": {},
+                "statusDetails": {
+                    "shape": "Sa"
+                },
+                "queuedAt": {
+                    "type": "long"
+                },
+                "startedAt": {
+                    "type": "long"
+                },
+                "lastUpdatedAt": {
+                    "type": "long"
+                },
+                "approximateSecondsBeforeTimedOut": {
+                    "type": "long"
+                },
+                "versionNumber": {
+                    "type": "long"
+                },
+                "executionNumber": {
+                    "type": "long"
+                },
+                "jobDocument": {}
+            }
+        },
+        "Sa": {
+            "type": "map",
+            "key": {},
+            "value": {}
+        },
+        "Sl": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "jobId": {},
+                    "queuedAt": {
+                        "type": "long"
+                    },
+                    "startedAt": {
+                        "type": "long"
+                    },
+                    "lastUpdatedAt": {
+                        "type": "long"
+                    },
+                    "versionNumber": {
+                        "type": "long"
+                    },
+                    "executionNumber": {
+                        "type": "long"
+                    }
+                }
+            }
+        }
+    }
+}
