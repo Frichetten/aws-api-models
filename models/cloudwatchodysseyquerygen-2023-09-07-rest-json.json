@@ -1,0 +1,178 @@
+{
+    "version": "2.0",
+    "metadata": {
+        "apiVersion": "2023-09-07",
+        "auth": [
+            "aws.auth#sigv4"
+        ],
+        "endpointPrefix": "cloudwatch",
+        "protocol": "rest-json",
+        "protocols": [
+            "rest-json"
+        ],
+        "serviceFullName": "CloudWatch Odyssey Query Generation",
+        "serviceId": "CloudWatchOdysseyQueryGen",
+        "signatureVersion": "v4",
+        "signingName": "cloudwatch",
+        "uid": "cloudwatchodysseyquerygen-2023-09-07",
+        "download_location": [
+            "https://d3kld4ju0n55da.cloudfront.net/1450f048-8361-4e8c-9e42-386bf968a881/main.js",
+            "https://d3kld4ju0n55da.cloudfront.net/ad8e67fc-21b9-4b8c-8573-cf1366ccb9d1/main.js",
+            "https://d3kld4ju0n55da.cloudfront.net/f5490d09-c2d0-40f8-98a9-7a67b32170a3/main.js"
+        ]
+    },
+    "operations": {
+        "GenerateQuery": {
+            "http": {
+                "requestUri": "/generateQuery",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "query_ask",
+                    "query_type"
+                ],
+                "members": {
+                    "query_ask": {
+                        "type": "string",
+                        "sensitive": true
+                    },
+                    "query_type": {},
+                    "current_query": {
+                        "shape": "S4"
+                    },
+                    "logs_insights": {
+                        "type": "structure",
+                        "members": {
+                            "fields": {
+                                "type": "list",
+                                "member": {},
+                                "sensitive": true
+                            },
+                            "log_group_names": {
+                                "type": "list",
+                                "member": {}
+                            }
+                        }
+                    },
+                    "metrics_insights": {
+                        "type": "structure",
+                        "members": {
+                            "aws_namespaces": {
+                                "type": "list",
+                                "member": {}
+                            },
+                            "custom_namespaces": {
+                                "type": "list",
+                                "member": {
+                                    "type": "structure",
+                                    "members": {
+                                        "name": {},
+                                        "schemas": {
+                                            "type": "list",
+                                            "member": {
+                                                "type": "structure",
+                                                "members": {
+                                                    "name": {},
+                                                    "metrics": {
+                                                        "type": "list",
+                                                        "member": {}
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "include_description": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "query_string",
+                    "description",
+                    "request_id"
+                ],
+                "members": {
+                    "query_string": {},
+                    "description": {},
+                    "request_id": {},
+                    "query_time_range": {
+                        "type": "structure",
+                        "members": {
+                            "explicit_time_range": {
+                                "type": "structure",
+                                "members": {
+                                    "start_time": {
+                                        "type": "long"
+                                    },
+                                    "end_time": {
+                                        "type": "long"
+                                    }
+                                }
+                            },
+                            "relative_time_range": {
+                                "type": "structure",
+                                "members": {
+                                    "relative_time": {
+                                        "type": "long"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://d3kld4ju0n55da.cloudfront.net/1450f048-8361-4e8c-9e42-386bf968a881/main.js",
+                "https://d3kld4ju0n55da.cloudfront.net/ad8e67fc-21b9-4b8c-8573-cf1366ccb9d1/main.js",
+                "https://d3kld4ju0n55da.cloudfront.net/f5490d09-c2d0-40f8-98a9-7a67b32170a3/main.js"
+            ]
+        },
+        "GenerateQueryResultsSummary": {
+            "http": {
+                "requestUri": "/generateQueryResultsSummary",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "query_id"
+                ],
+                "members": {
+                    "query_id": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "summary_text",
+                    "summary_id"
+                ],
+                "members": {
+                    "summary_text": {
+                        "shape": "S4"
+                    },
+                    "summary_id": {}
+                }
+            },
+            "download_location": [
+                "https://d3kld4ju0n55da.cloudfront.net/1450f048-8361-4e8c-9e42-386bf968a881/main.js",
+                "https://d3kld4ju0n55da.cloudfront.net/ad8e67fc-21b9-4b8c-8573-cf1366ccb9d1/main.js",
+                "https://d3kld4ju0n55da.cloudfront.net/f5490d09-c2d0-40f8-98a9-7a67b32170a3/main.js"
+            ]
+        }
+    },
+    "shapes": {
+        "S4": {
+            "type": "string",
+            "sensitive": true
+        }
+    }
+}

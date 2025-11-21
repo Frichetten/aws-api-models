@@ -1,0 +1,2230 @@
+{
+    "version": "2.0",
+    "metadata": {
+        "apiVersion": "2023-03-03",
+        "endpointPrefix": "application-signals",
+        "protocol": "rest-json",
+        "protocols": [
+            "rest-json"
+        ],
+        "serviceFullName": "Amazon CloudWatch Application Signals",
+        "serviceId": "CloudWatchApplicationSignals",
+        "signatureVersion": "v4",
+        "signingName": "application-signals",
+        "uid": "pulse-2023-03-03",
+        "auth": [
+            "aws.auth#sigv4"
+        ],
+        "download_location": [
+            "https://d3kld4ju0n55da.cloudfront.net/1450f048-8361-4e8c-9e42-386bf968a881/main.js",
+            "https://d3kld4ju0n55da.cloudfront.net/ad8e67fc-21b9-4b8c-8573-cf1366ccb9d1/main.js",
+            "https://d3kld4ju0n55da.cloudfront.net/f5490d09-c2d0-40f8-98a9-7a67b32170a3/main.js"
+        ]
+    },
+    "operations": {
+        "BatchGetServiceLevelIndicatorReport": {
+            "http": {
+                "requestUri": "/sli-report",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "StartTime",
+                    "EndTime",
+                    "ReferenceIds"
+                ],
+                "members": {
+                    "StartTime": {
+                        "type": "timestamp"
+                    },
+                    "EndTime": {
+                        "type": "timestamp"
+                    },
+                    "ReferenceIds": {
+                        "shape": "S3"
+                    },
+                    "IncludeLinkedAccounts": {
+                        "location": "querystring",
+                        "locationName": "IncludeLinkedAccounts",
+                        "type": "boolean"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "Reports",
+                    "Errors"
+                ],
+                "members": {
+                    "Reports": {
+                        "type": "list",
+                        "member": {
+                            "shape": "Si"
+                        }
+                    },
+                    "UnprocessedReferenceIds": {
+                        "shape": "S3"
+                    },
+                    "Errors": {
+                        "type": "list",
+                        "member": {
+                            "shape": "So"
+                        }
+                    }
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://d3kld4ju0n55da.cloudfront.net/1450f048-8361-4e8c-9e42-386bf968a881/main.js",
+                "https://d3kld4ju0n55da.cloudfront.net/ad8e67fc-21b9-4b8c-8573-cf1366ccb9d1/main.js",
+                "https://d3kld4ju0n55da.cloudfront.net/f5490d09-c2d0-40f8-98a9-7a67b32170a3/main.js"
+            ]
+        },
+        "BatchGetServiceLevelObjectiveBudgetReport": {
+            "http": {
+                "requestUri": "/budget-report",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "Timestamp",
+                    "SloIds"
+                ],
+                "members": {
+                    "Timestamp": {
+                        "type": "timestamp"
+                    },
+                    "SloIds": {
+                        "shape": "Ss"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "Timestamp",
+                    "Reports",
+                    "Errors"
+                ],
+                "members": {
+                    "Timestamp": {
+                        "type": "timestamp"
+                    },
+                    "Reports": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "Arn",
+                                "Name",
+                                "BudgetStatus"
+                            ],
+                            "members": {
+                                "Arn": {},
+                                "Name": {},
+                                "EvaluationType": {},
+                                "BudgetStatus": {},
+                                "Attainment": {
+                                    "type": "double"
+                                },
+                                "TotalBudgetSeconds": {
+                                    "type": "integer"
+                                },
+                                "BudgetSecondsRemaining": {
+                                    "type": "integer"
+                                },
+                                "TotalBudgetRequests": {
+                                    "type": "integer"
+                                },
+                                "BudgetRequestsRemaining": {
+                                    "type": "integer"
+                                },
+                                "Sli": {
+                                    "shape": "S15"
+                                },
+                                "RequestBasedSli": {
+                                    "shape": "S1t"
+                                },
+                                "Goal": {
+                                    "shape": "S1w"
+                                }
+                            }
+                        }
+                    },
+                    "Errors": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "Name",
+                                "Arn",
+                                "ErrorCode",
+                                "ErrorMessage"
+                            ],
+                            "members": {
+                                "Name": {},
+                                "Arn": {},
+                                "ErrorCode": {},
+                                "ErrorMessage": {}
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://d3kld4ju0n55da.cloudfront.net/1450f048-8361-4e8c-9e42-386bf968a881/main.js",
+                "https://d3kld4ju0n55da.cloudfront.net/ad8e67fc-21b9-4b8c-8573-cf1366ccb9d1/main.js",
+                "https://d3kld4ju0n55da.cloudfront.net/f5490d09-c2d0-40f8-98a9-7a67b32170a3/main.js"
+            ]
+        },
+        "BatchUpdateExclusionWindows": {
+            "http": {
+                "method": "PATCH",
+                "requestUri": "/exclusion-windows",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "SloIds"
+                ],
+                "members": {
+                    "SloIds": {
+                        "shape": "Ss"
+                    },
+                    "AddExclusionWindows": {
+                        "shape": "S2a"
+                    },
+                    "RemoveExclusionWindows": {
+                        "shape": "S2a"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "SloIds",
+                    "Errors"
+                ],
+                "members": {
+                    "SloIds": {
+                        "shape": "Ss"
+                    },
+                    "Errors": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "SloId",
+                                "ErrorCode",
+                                "ErrorMessage"
+                            ],
+                            "members": {
+                                "SloId": {},
+                                "ErrorCode": {},
+                                "ErrorMessage": {}
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://d3kld4ju0n55da.cloudfront.net/1450f048-8361-4e8c-9e42-386bf968a881/main.js",
+                "https://d3kld4ju0n55da.cloudfront.net/ad8e67fc-21b9-4b8c-8573-cf1366ccb9d1/main.js",
+                "https://d3kld4ju0n55da.cloudfront.net/f5490d09-c2d0-40f8-98a9-7a67b32170a3/main.js"
+            ]
+        },
+        "CreateServiceLevelObjective": {
+            "http": {
+                "requestUri": "/slo",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "Name"
+                ],
+                "members": {
+                    "Name": {},
+                    "Description": {},
+                    "SliConfig": {
+                        "shape": "S2o"
+                    },
+                    "RequestBasedSliConfig": {
+                        "shape": "S2s"
+                    },
+                    "Goal": {
+                        "shape": "S1w"
+                    },
+                    "Tags": {
+                        "shape": "S2u"
+                    },
+                    "BurnRateConfigurations": {
+                        "shape": "S2y"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "Slo"
+                ],
+                "members": {
+                    "Slo": {
+                        "shape": "S32"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d3kld4ju0n55da.cloudfront.net/1450f048-8361-4e8c-9e42-386bf968a881/main.js",
+                "https://d3kld4ju0n55da.cloudfront.net/ad8e67fc-21b9-4b8c-8573-cf1366ccb9d1/main.js",
+                "https://d3kld4ju0n55da.cloudfront.net/f5490d09-c2d0-40f8-98a9-7a67b32170a3/main.js"
+            ]
+        },
+        "DeleteServiceLevelObjective": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/slo/{Id}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "Id"
+                ],
+                "members": {
+                    "Id": {
+                        "location": "uri",
+                        "locationName": "Id"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://d3kld4ju0n55da.cloudfront.net/1450f048-8361-4e8c-9e42-386bf968a881/main.js",
+                "https://d3kld4ju0n55da.cloudfront.net/ad8e67fc-21b9-4b8c-8573-cf1366ccb9d1/main.js",
+                "https://d3kld4ju0n55da.cloudfront.net/f5490d09-c2d0-40f8-98a9-7a67b32170a3/main.js"
+            ]
+        },
+        "GetDiscoveryStatus": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/discovery-status",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {}
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "DiscoveryStatus"
+                ],
+                "members": {
+                    "DiscoveryStatus": {}
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://d3kld4ju0n55da.cloudfront.net/1450f048-8361-4e8c-9e42-386bf968a881/main.js",
+                "https://d3kld4ju0n55da.cloudfront.net/ad8e67fc-21b9-4b8c-8573-cf1366ccb9d1/main.js",
+                "https://d3kld4ju0n55da.cloudfront.net/f5490d09-c2d0-40f8-98a9-7a67b32170a3/main.js"
+            ]
+        },
+        "GetService": {
+            "http": {
+                "requestUri": "/service",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "StartTime",
+                    "EndTime",
+                    "KeyAttributes"
+                ],
+                "members": {
+                    "StartTime": {
+                        "location": "querystring",
+                        "locationName": "StartTime",
+                        "type": "timestamp"
+                    },
+                    "EndTime": {
+                        "location": "querystring",
+                        "locationName": "EndTime",
+                        "type": "timestamp"
+                    },
+                    "KeyAttributes": {
+                        "shape": "S5"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "Service",
+                    "StartTime",
+                    "EndTime"
+                ],
+                "members": {
+                    "Service": {
+                        "type": "structure",
+                        "required": [
+                            "KeyAttributes",
+                            "MetricReferences"
+                        ],
+                        "members": {
+                            "KeyAttributes": {
+                                "shape": "S5"
+                            },
+                            "AttributeMaps": {
+                                "shape": "S3b"
+                            },
+                            "MetricReferences": {
+                                "shape": "S3d"
+                            },
+                            "LogGroupReferences": {
+                                "shape": "S3h"
+                            }
+                        }
+                    },
+                    "StartTime": {
+                        "type": "timestamp"
+                    },
+                    "EndTime": {
+                        "type": "timestamp"
+                    },
+                    "LogGroupReferences": {
+                        "shape": "S3h"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d3kld4ju0n55da.cloudfront.net/1450f048-8361-4e8c-9e42-386bf968a881/main.js",
+                "https://d3kld4ju0n55da.cloudfront.net/ad8e67fc-21b9-4b8c-8573-cf1366ccb9d1/main.js",
+                "https://d3kld4ju0n55da.cloudfront.net/f5490d09-c2d0-40f8-98a9-7a67b32170a3/main.js"
+            ]
+        },
+        "GetServiceData": {
+            "http": {
+                "requestUri": "/service-data",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "KeyAttributes",
+                    "DataSource",
+                    "StartTime",
+                    "EndTime"
+                ],
+                "members": {
+                    "KeyAttributes": {
+                        "shape": "S5"
+                    },
+                    "DataSource": {
+                        "location": "querystring",
+                        "locationName": "DataSource"
+                    },
+                    "IncludeLinkedAccounts": {
+                        "location": "querystring",
+                        "locationName": "IncludeLinkedAccounts",
+                        "type": "boolean"
+                    },
+                    "MaxResults": {
+                        "location": "querystring",
+                        "locationName": "MaxResults",
+                        "type": "integer"
+                    },
+                    "NextToken": {
+                        "location": "querystring",
+                        "locationName": "NextToken"
+                    },
+                    "StartTime": {
+                        "type": "timestamp"
+                    },
+                    "EndTime": {
+                        "type": "timestamp"
+                    },
+                    "DataGranularity": {
+                        "type": "list",
+                        "member": {}
+                    },
+                    "Filters": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "FilterName",
+                                "FilterOperation",
+                                "FilterValue"
+                            ],
+                            "members": {
+                                "FilterName": {},
+                                "FilterOperation": {},
+                                "FilterValue": {}
+                            }
+                        }
+                    },
+                    "FilterOperator": {},
+                    "Sort": {
+                        "type": "structure",
+                        "required": [
+                            "Field",
+                            "Order"
+                        ],
+                        "members": {
+                            "Field": {},
+                            "Order": {}
+                        }
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ServiceData": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "Attributes": {
+                                    "type": "map",
+                                    "key": {},
+                                    "value": {}
+                                },
+                                "MetricReferences": {
+                                    "shape": "S3d"
+                                },
+                                "SliReport": {
+                                    "shape": "Si"
+                                },
+                                "SliError": {
+                                    "shape": "So"
+                                },
+                                "Data": {
+                                    "type": "list",
+                                    "member": {
+                                        "type": "structure",
+                                        "members": {
+                                            "Id": {},
+                                            "Stat": {},
+                                            "Unit": {},
+                                            "Value": {
+                                                "type": "double"
+                                            },
+                                            "Error": {
+                                                "type": "structure",
+                                                "required": [
+                                                    "Name",
+                                                    "ErrorCode",
+                                                    "ErrorMessage"
+                                                ],
+                                                "members": {
+                                                    "Name": {},
+                                                    "ErrorCode": {},
+                                                    "ErrorMessage": {}
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "ServiceDataSummary": {
+                        "type": "structure",
+                        "members": {
+                            "HealthyServiceDatumCount": {
+                                "type": "integer"
+                            },
+                            "UnhealthyServiceDatumCount": {
+                                "type": "integer"
+                            },
+                            "InsufficientDataServiceDatumCount": {
+                                "type": "integer"
+                            },
+                            "NoSliServiceDatumCount": {
+                                "type": "integer"
+                            },
+                            "SliErrorServiceDatumCount": {
+                                "type": "integer"
+                            }
+                        }
+                    },
+                    "TotalCount": {
+                        "type": "integer"
+                    },
+                    "NextToken": {}
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://d3kld4ju0n55da.cloudfront.net/1450f048-8361-4e8c-9e42-386bf968a881/main.js",
+                "https://d3kld4ju0n55da.cloudfront.net/ad8e67fc-21b9-4b8c-8573-cf1366ccb9d1/main.js",
+                "https://d3kld4ju0n55da.cloudfront.net/f5490d09-c2d0-40f8-98a9-7a67b32170a3/main.js"
+            ]
+        },
+        "GetServiceLevelObjective": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/slo/{Id}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "Id"
+                ],
+                "members": {
+                    "Id": {
+                        "location": "uri",
+                        "locationName": "Id"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "Slo"
+                ],
+                "members": {
+                    "Slo": {
+                        "shape": "S32"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d3kld4ju0n55da.cloudfront.net/1450f048-8361-4e8c-9e42-386bf968a881/main.js",
+                "https://d3kld4ju0n55da.cloudfront.net/ad8e67fc-21b9-4b8c-8573-cf1366ccb9d1/main.js",
+                "https://d3kld4ju0n55da.cloudfront.net/f5490d09-c2d0-40f8-98a9-7a67b32170a3/main.js"
+            ]
+        },
+        "GetServiceMap": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/service-map",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "StartTime",
+                    "EndTime"
+                ],
+                "members": {
+                    "StartTime": {
+                        "location": "querystring",
+                        "locationName": "StartTime",
+                        "type": "timestamp"
+                    },
+                    "EndTime": {
+                        "location": "querystring",
+                        "locationName": "EndTime",
+                        "type": "timestamp"
+                    },
+                    "NextToken": {
+                        "location": "querystring",
+                        "locationName": "NextToken"
+                    },
+                    "AwsAccountId": {
+                        "location": "querystring",
+                        "locationName": "AwsAccountId"
+                    },
+                    "ViewBy": {
+                        "location": "querystring",
+                        "locationName": "ViewBy"
+                    },
+                    "ApplicationFilter": {
+                        "shape": "S5",
+                        "location": "querystring",
+                        "locationName": "FilterBy"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "StartTime",
+                    "EndTime",
+                    "Nodes"
+                ],
+                "members": {
+                    "StartTime": {
+                        "type": "timestamp"
+                    },
+                    "EndTime": {
+                        "type": "timestamp"
+                    },
+                    "Nodes": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "Name",
+                                "Type",
+                                "NodeId",
+                                "AttributeMaps",
+                                "StatisticReferences",
+                                "KeyAttributes"
+                            ],
+                            "members": {
+                                "Name": {},
+                                "Type": {},
+                                "NodeId": {},
+                                "Applications": {
+                                    "shape": "S3b"
+                                },
+                                "AttributeMaps": {
+                                    "shape": "S3b"
+                                },
+                                "StatisticReferences": {
+                                    "shape": "S4p"
+                                },
+                                "KeyAttributes": {
+                                    "shape": "S5"
+                                },
+                                "AggregatedNodeId": {}
+                            }
+                        }
+                    },
+                    "Edges": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "SourceNodeId",
+                                "DestinationNodeId",
+                                "EdgeId"
+                            ],
+                            "members": {
+                                "SourceNodeId": {},
+                                "DestinationNodeId": {},
+                                "EdgeId": {},
+                                "StatisticReferences": {
+                                    "shape": "S4p"
+                                }
+                            }
+                        }
+                    },
+                    "AggregatedNodes": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "Id",
+                                "StatisticReferences"
+                            ],
+                            "members": {
+                                "Id": {},
+                                "StatisticReferences": {
+                                    "shape": "S4p"
+                                }
+                            }
+                        }
+                    },
+                    "NextToken": {},
+                    "AwsAccountId": {}
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://d3kld4ju0n55da.cloudfront.net/1450f048-8361-4e8c-9e42-386bf968a881/main.js",
+                "https://d3kld4ju0n55da.cloudfront.net/ad8e67fc-21b9-4b8c-8573-cf1366ccb9d1/main.js",
+                "https://d3kld4ju0n55da.cloudfront.net/f5490d09-c2d0-40f8-98a9-7a67b32170a3/main.js"
+            ]
+        },
+        "ListEventsForServiceDependencies": {
+            "http": {
+                "requestUri": "/events/service",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "KeyAttributes",
+                    "StartTime",
+                    "EndTime"
+                ],
+                "members": {
+                    "KeyAttributes": {
+                        "shape": "S5"
+                    },
+                    "StartTime": {
+                        "location": "querystring",
+                        "locationName": "StartTime",
+                        "type": "timestamp"
+                    },
+                    "EndTime": {
+                        "location": "querystring",
+                        "locationName": "EndTime",
+                        "type": "timestamp"
+                    },
+                    "MaxResults": {
+                        "location": "querystring",
+                        "locationName": "MaxResults",
+                        "type": "integer"
+                    },
+                    "NextToken": {
+                        "location": "querystring",
+                        "locationName": "NextToken"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "ServiceDependenciesWithEvents"
+                ],
+                "members": {
+                    "ServiceDependenciesWithEvents": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "DependencyKeyAttributes",
+                                "Events"
+                            ],
+                            "members": {
+                                "OperationName": {},
+                                "DependencyKeyAttributes": {
+                                    "shape": "S5"
+                                },
+                                "DependencyOperationName": {},
+                                "Events": {
+                                    "type": "list",
+                                    "member": {
+                                        "type": "structure",
+                                        "required": [
+                                            "Category",
+                                            "ExternalId",
+                                            "Timestamp"
+                                        ],
+                                        "members": {
+                                            "Category": {},
+                                            "ExternalId": {},
+                                            "Timestamp": {
+                                                "type": "long"
+                                            },
+                                            "Attributes": {
+                                                "shape": "S5"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://d3kld4ju0n55da.cloudfront.net/1450f048-8361-4e8c-9e42-386bf968a881/main.js",
+                "https://d3kld4ju0n55da.cloudfront.net/ad8e67fc-21b9-4b8c-8573-cf1366ccb9d1/main.js",
+                "https://d3kld4ju0n55da.cloudfront.net/f5490d09-c2d0-40f8-98a9-7a67b32170a3/main.js"
+            ]
+        },
+        "ListObservedData": {
+            "http": {
+                "requestUri": "/observed-data",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "StartTime",
+                    "EndTime",
+                    "Path"
+                ],
+                "members": {
+                    "StartTime": {
+                        "type": "timestamp"
+                    },
+                    "EndTime": {
+                        "type": "timestamp"
+                    },
+                    "Path": {},
+                    "KeyAttributes": {
+                        "shape": "S5"
+                    },
+                    "IncludeMetricValues": {
+                        "type": "boolean"
+                    },
+                    "OrderDirection": {},
+                    "OrderBy": {},
+                    "MaxResults": {
+                        "type": "integer"
+                    },
+                    "NextToken": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "StartTime",
+                    "EndTime",
+                    "ObservedItems"
+                ],
+                "members": {
+                    "StartTime": {
+                        "type": "timestamp"
+                    },
+                    "EndTime": {
+                        "type": "timestamp"
+                    },
+                    "ObservedItems": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "FirstObservedTime",
+                                "LastObservedTime",
+                                "Path",
+                                "KeyAttributes",
+                                "EntityData",
+                                "ObservedItemError"
+                            ],
+                            "members": {
+                                "FirstObservedTime": {
+                                    "type": "timestamp"
+                                },
+                                "LastObservedTime": {
+                                    "type": "timestamp"
+                                },
+                                "Path": {},
+                                "KeyAttributes": {
+                                    "shape": "S5"
+                                },
+                                "EntityData": {
+                                    "type": "structure",
+                                    "required": [
+                                        "ServiceLevelIndicatorData",
+                                        "MetricValues",
+                                        "LogGroupReferences",
+                                        "MetricReferences",
+                                        "InvocationMetricReferences",
+                                        "RelatedEntityKeyAttributes",
+                                        "RelationshipType"
+                                    ],
+                                    "members": {
+                                        "ServiceLevelIndicatorData": {
+                                            "type": "structure",
+                                            "members": {
+                                                "Status": {}
+                                            }
+                                        },
+                                        "MetricValues": {
+                                            "type": "map",
+                                            "key": {},
+                                            "value": {
+                                                "type": "double"
+                                            }
+                                        },
+                                        "LogGroupReferences": {
+                                            "shape": "S3h"
+                                        },
+                                        "MetricReferences": {
+                                            "shape": "S3d"
+                                        },
+                                        "InvocationMetricReferences": {
+                                            "shape": "S3d"
+                                        },
+                                        "RelatedEntityKeyAttributes": {
+                                            "shape": "S5"
+                                        },
+                                        "RelationshipType": {}
+                                    }
+                                },
+                                "ObservedItemError": {
+                                    "type": "structure",
+                                    "required": [
+                                        "ErrorCode",
+                                        "ErrorOperation",
+                                        "ErrorMessage"
+                                    ],
+                                    "members": {
+                                        "ErrorCode": {},
+                                        "ErrorOperation": {},
+                                        "ErrorMessage": {}
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://d3kld4ju0n55da.cloudfront.net/1450f048-8361-4e8c-9e42-386bf968a881/main.js",
+                "https://d3kld4ju0n55da.cloudfront.net/ad8e67fc-21b9-4b8c-8573-cf1366ccb9d1/main.js",
+                "https://d3kld4ju0n55da.cloudfront.net/f5490d09-c2d0-40f8-98a9-7a67b32170a3/main.js"
+            ]
+        },
+        "ListServiceDependencies": {
+            "http": {
+                "requestUri": "/service-dependencies",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "StartTime",
+                    "EndTime",
+                    "KeyAttributes"
+                ],
+                "members": {
+                    "StartTime": {
+                        "location": "querystring",
+                        "locationName": "StartTime",
+                        "type": "timestamp"
+                    },
+                    "EndTime": {
+                        "location": "querystring",
+                        "locationName": "EndTime",
+                        "type": "timestamp"
+                    },
+                    "KeyAttributes": {
+                        "shape": "S5"
+                    },
+                    "MaxResults": {
+                        "location": "querystring",
+                        "locationName": "MaxResults",
+                        "type": "integer"
+                    },
+                    "NextToken": {
+                        "location": "querystring",
+                        "locationName": "NextToken"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "StartTime",
+                    "EndTime",
+                    "ServiceDependencies"
+                ],
+                "members": {
+                    "StartTime": {
+                        "type": "timestamp"
+                    },
+                    "EndTime": {
+                        "type": "timestamp"
+                    },
+                    "ServiceDependencies": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "OperationName",
+                                "DependencyKeyAttributes",
+                                "DependencyOperationName",
+                                "MetricReferences"
+                            ],
+                            "members": {
+                                "OperationName": {},
+                                "DependencyKeyAttributes": {
+                                    "shape": "S5"
+                                },
+                                "DependencyOperationName": {},
+                                "MetricReferences": {
+                                    "shape": "S3d"
+                                }
+                            }
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "download_location": [
+                "https://d3kld4ju0n55da.cloudfront.net/1450f048-8361-4e8c-9e42-386bf968a881/main.js",
+                "https://d3kld4ju0n55da.cloudfront.net/ad8e67fc-21b9-4b8c-8573-cf1366ccb9d1/main.js",
+                "https://d3kld4ju0n55da.cloudfront.net/f5490d09-c2d0-40f8-98a9-7a67b32170a3/main.js"
+            ]
+        },
+        "ListServiceDependents": {
+            "http": {
+                "requestUri": "/service-dependents",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "StartTime",
+                    "EndTime",
+                    "KeyAttributes"
+                ],
+                "members": {
+                    "StartTime": {
+                        "location": "querystring",
+                        "locationName": "StartTime",
+                        "type": "timestamp"
+                    },
+                    "EndTime": {
+                        "location": "querystring",
+                        "locationName": "EndTime",
+                        "type": "timestamp"
+                    },
+                    "KeyAttributes": {
+                        "shape": "S5"
+                    },
+                    "MaxResults": {
+                        "location": "querystring",
+                        "locationName": "MaxResults",
+                        "type": "integer"
+                    },
+                    "NextToken": {
+                        "location": "querystring",
+                        "locationName": "NextToken"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "StartTime",
+                    "EndTime",
+                    "ServiceDependents"
+                ],
+                "members": {
+                    "StartTime": {
+                        "type": "timestamp"
+                    },
+                    "EndTime": {
+                        "type": "timestamp"
+                    },
+                    "ServiceDependents": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "DependentKeyAttributes",
+                                "MetricReferences"
+                            ],
+                            "members": {
+                                "OperationName": {},
+                                "DependentKeyAttributes": {
+                                    "shape": "S5"
+                                },
+                                "DependentOperationName": {},
+                                "MetricReferences": {
+                                    "shape": "S3d"
+                                }
+                            }
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "download_location": [
+                "https://d3kld4ju0n55da.cloudfront.net/1450f048-8361-4e8c-9e42-386bf968a881/main.js",
+                "https://d3kld4ju0n55da.cloudfront.net/ad8e67fc-21b9-4b8c-8573-cf1366ccb9d1/main.js",
+                "https://d3kld4ju0n55da.cloudfront.net/f5490d09-c2d0-40f8-98a9-7a67b32170a3/main.js"
+            ]
+        },
+        "ListServiceLevelObjectiveExclusionWindows": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/slo/{Id}/exclusion-windows",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "Id"
+                ],
+                "members": {
+                    "Id": {
+                        "location": "uri",
+                        "locationName": "Id"
+                    },
+                    "MaxResults": {
+                        "location": "querystring",
+                        "locationName": "MaxResults",
+                        "type": "integer"
+                    },
+                    "NextToken": {
+                        "location": "querystring",
+                        "locationName": "NextToken"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "ExclusionWindows"
+                ],
+                "members": {
+                    "ExclusionWindows": {
+                        "shape": "S2a"
+                    },
+                    "NextToken": {}
+                }
+            },
+            "download_location": [
+                "https://d3kld4ju0n55da.cloudfront.net/1450f048-8361-4e8c-9e42-386bf968a881/main.js",
+                "https://d3kld4ju0n55da.cloudfront.net/ad8e67fc-21b9-4b8c-8573-cf1366ccb9d1/main.js",
+                "https://d3kld4ju0n55da.cloudfront.net/f5490d09-c2d0-40f8-98a9-7a67b32170a3/main.js"
+            ]
+        },
+        "ListServiceLevelObjectives": {
+            "http": {
+                "requestUri": "/slos",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "KeyAttributes": {
+                        "shape": "S5"
+                    },
+                    "OperationName": {
+                        "location": "querystring",
+                        "locationName": "OperationName"
+                    },
+                    "DependencyConfig": {
+                        "shape": "S1q"
+                    },
+                    "MaxResults": {
+                        "location": "querystring",
+                        "locationName": "MaxResults",
+                        "type": "integer"
+                    },
+                    "NextToken": {
+                        "location": "querystring",
+                        "locationName": "NextToken"
+                    },
+                    "IncludeLinkedAccounts": {
+                        "location": "querystring",
+                        "locationName": "IncludeLinkedAccounts",
+                        "type": "boolean"
+                    },
+                    "SloOwnerAwsAccountId": {
+                        "location": "querystring",
+                        "locationName": "SloOwnerAwsAccountId"
+                    },
+                    "MetricSourceTypes": {
+                        "shape": "Sd"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "SloSummaries": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "Arn",
+                                "Name"
+                            ],
+                            "members": {
+                                "Arn": {},
+                                "Name": {},
+                                "KeyAttributes": {
+                                    "shape": "S5"
+                                },
+                                "OperationName": {},
+                                "DependencyConfig": {
+                                    "shape": "S1q"
+                                },
+                                "CreatedTime": {
+                                    "type": "timestamp"
+                                },
+                                "EvaluationType": {},
+                                "MetricSourceType": {}
+                            }
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "download_location": [
+                "https://d3kld4ju0n55da.cloudfront.net/1450f048-8361-4e8c-9e42-386bf968a881/main.js",
+                "https://d3kld4ju0n55da.cloudfront.net/ad8e67fc-21b9-4b8c-8573-cf1366ccb9d1/main.js",
+                "https://d3kld4ju0n55da.cloudfront.net/f5490d09-c2d0-40f8-98a9-7a67b32170a3/main.js"
+            ]
+        },
+        "ListServiceOperations": {
+            "http": {
+                "requestUri": "/service-operations",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "StartTime",
+                    "EndTime",
+                    "KeyAttributes"
+                ],
+                "members": {
+                    "StartTime": {
+                        "location": "querystring",
+                        "locationName": "StartTime",
+                        "type": "timestamp"
+                    },
+                    "EndTime": {
+                        "location": "querystring",
+                        "locationName": "EndTime",
+                        "type": "timestamp"
+                    },
+                    "KeyAttributes": {
+                        "shape": "S5"
+                    },
+                    "MaxResults": {
+                        "location": "querystring",
+                        "locationName": "MaxResults",
+                        "type": "integer"
+                    },
+                    "NextToken": {
+                        "location": "querystring",
+                        "locationName": "NextToken"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "StartTime",
+                    "EndTime",
+                    "ServiceOperations"
+                ],
+                "members": {
+                    "StartTime": {
+                        "type": "timestamp"
+                    },
+                    "EndTime": {
+                        "type": "timestamp"
+                    },
+                    "ServiceOperations": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "Name",
+                                "MetricReferences"
+                            ],
+                            "members": {
+                                "Name": {},
+                                "MetricReferences": {
+                                    "shape": "S3d"
+                                }
+                            }
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "download_location": [
+                "https://d3kld4ju0n55da.cloudfront.net/1450f048-8361-4e8c-9e42-386bf968a881/main.js",
+                "https://d3kld4ju0n55da.cloudfront.net/ad8e67fc-21b9-4b8c-8573-cf1366ccb9d1/main.js",
+                "https://d3kld4ju0n55da.cloudfront.net/f5490d09-c2d0-40f8-98a9-7a67b32170a3/main.js"
+            ]
+        },
+        "ListServices": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/services",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "StartTime",
+                    "EndTime"
+                ],
+                "members": {
+                    "StartTime": {
+                        "location": "querystring",
+                        "locationName": "StartTime",
+                        "type": "timestamp"
+                    },
+                    "EndTime": {
+                        "location": "querystring",
+                        "locationName": "EndTime",
+                        "type": "timestamp"
+                    },
+                    "MaxResults": {
+                        "location": "querystring",
+                        "locationName": "MaxResults",
+                        "type": "integer"
+                    },
+                    "NextToken": {
+                        "location": "querystring",
+                        "locationName": "NextToken"
+                    },
+                    "IncludeLinkedAccounts": {
+                        "location": "querystring",
+                        "locationName": "IncludeLinkedAccounts",
+                        "type": "boolean"
+                    },
+                    "AwsAccountId": {
+                        "location": "querystring",
+                        "locationName": "AwsAccountId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "StartTime",
+                    "EndTime",
+                    "ServiceSummaries"
+                ],
+                "members": {
+                    "StartTime": {
+                        "type": "timestamp"
+                    },
+                    "EndTime": {
+                        "type": "timestamp"
+                    },
+                    "ServiceSummaries": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "KeyAttributes",
+                                "MetricReferences"
+                            ],
+                            "members": {
+                                "KeyAttributes": {
+                                    "shape": "S5"
+                                },
+                                "AttributeMaps": {
+                                    "shape": "S3b"
+                                },
+                                "MetricReferences": {
+                                    "shape": "S3d"
+                                }
+                            }
+                        }
+                    },
+                    "NextToken": {}
+                }
+            },
+            "download_location": [
+                "https://d3kld4ju0n55da.cloudfront.net/1450f048-8361-4e8c-9e42-386bf968a881/main.js",
+                "https://d3kld4ju0n55da.cloudfront.net/ad8e67fc-21b9-4b8c-8573-cf1366ccb9d1/main.js",
+                "https://d3kld4ju0n55da.cloudfront.net/f5490d09-c2d0-40f8-98a9-7a67b32170a3/main.js"
+            ]
+        },
+        "ListTagsForResource": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/tags",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ResourceArn"
+                ],
+                "members": {
+                    "ResourceArn": {
+                        "location": "querystring",
+                        "locationName": "ResourceArn"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "Tags": {
+                        "shape": "S2u"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d3kld4ju0n55da.cloudfront.net/1450f048-8361-4e8c-9e42-386bf968a881/main.js",
+                "https://d3kld4ju0n55da.cloudfront.net/ad8e67fc-21b9-4b8c-8573-cf1366ccb9d1/main.js",
+                "https://d3kld4ju0n55da.cloudfront.net/f5490d09-c2d0-40f8-98a9-7a67b32170a3/main.js"
+            ]
+        },
+        "LockServiceLinkedRole": {
+            "http": {
+                "requestUri": "/slr-deletion/lock",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "RoleArn",
+                    "Timeout"
+                ],
+                "members": {
+                    "RoleArn": {},
+                    "Timeout": {
+                        "type": "long"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "CanBeDeleted"
+                ],
+                "members": {
+                    "CanBeDeleted": {
+                        "type": "boolean"
+                    },
+                    "ReasonOfFailure": {},
+                    "RelatedResources": {
+                        "type": "list",
+                        "member": {}
+                    }
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://d3kld4ju0n55da.cloudfront.net/1450f048-8361-4e8c-9e42-386bf968a881/main.js",
+                "https://d3kld4ju0n55da.cloudfront.net/ad8e67fc-21b9-4b8c-8573-cf1366ccb9d1/main.js",
+                "https://d3kld4ju0n55da.cloudfront.net/f5490d09-c2d0-40f8-98a9-7a67b32170a3/main.js"
+            ]
+        },
+        "StartDiscovery": {
+            "http": {
+                "requestUri": "/start-discovery",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {}
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://d3kld4ju0n55da.cloudfront.net/1450f048-8361-4e8c-9e42-386bf968a881/main.js",
+                "https://d3kld4ju0n55da.cloudfront.net/ad8e67fc-21b9-4b8c-8573-cf1366ccb9d1/main.js",
+                "https://d3kld4ju0n55da.cloudfront.net/f5490d09-c2d0-40f8-98a9-7a67b32170a3/main.js"
+            ]
+        },
+        "TagResource": {
+            "http": {
+                "requestUri": "/tag-resource",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ResourceArn",
+                    "Tags"
+                ],
+                "members": {
+                    "ResourceArn": {},
+                    "Tags": {
+                        "shape": "S2u"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://d3kld4ju0n55da.cloudfront.net/1450f048-8361-4e8c-9e42-386bf968a881/main.js",
+                "https://d3kld4ju0n55da.cloudfront.net/ad8e67fc-21b9-4b8c-8573-cf1366ccb9d1/main.js",
+                "https://d3kld4ju0n55da.cloudfront.net/f5490d09-c2d0-40f8-98a9-7a67b32170a3/main.js"
+            ]
+        },
+        "UnlockServiceLinkedRole": {
+            "http": {
+                "requestUri": "/slr-deletion/unlock",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "RoleArn"
+                ],
+                "members": {
+                    "RoleArn": {},
+                    "DeletionStatus": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://d3kld4ju0n55da.cloudfront.net/1450f048-8361-4e8c-9e42-386bf968a881/main.js",
+                "https://d3kld4ju0n55da.cloudfront.net/ad8e67fc-21b9-4b8c-8573-cf1366ccb9d1/main.js",
+                "https://d3kld4ju0n55da.cloudfront.net/f5490d09-c2d0-40f8-98a9-7a67b32170a3/main.js"
+            ]
+        },
+        "UntagResource": {
+            "http": {
+                "requestUri": "/untag-resource",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ResourceArn",
+                    "TagKeys"
+                ],
+                "members": {
+                    "ResourceArn": {},
+                    "TagKeys": {
+                        "type": "list",
+                        "member": {}
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://d3kld4ju0n55da.cloudfront.net/1450f048-8361-4e8c-9e42-386bf968a881/main.js",
+                "https://d3kld4ju0n55da.cloudfront.net/ad8e67fc-21b9-4b8c-8573-cf1366ccb9d1/main.js",
+                "https://d3kld4ju0n55da.cloudfront.net/f5490d09-c2d0-40f8-98a9-7a67b32170a3/main.js"
+            ]
+        },
+        "UpdateServiceLevelObjective": {
+            "http": {
+                "method": "PATCH",
+                "requestUri": "/slo/{Id}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "Id"
+                ],
+                "members": {
+                    "Id": {
+                        "location": "uri",
+                        "locationName": "Id"
+                    },
+                    "Description": {},
+                    "SliConfig": {
+                        "shape": "S2o"
+                    },
+                    "RequestBasedSliConfig": {
+                        "shape": "S2s"
+                    },
+                    "Goal": {
+                        "shape": "S1w"
+                    },
+                    "BurnRateConfigurations": {
+                        "shape": "S2y"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "Slo"
+                ],
+                "members": {
+                    "Slo": {
+                        "shape": "S32"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d3kld4ju0n55da.cloudfront.net/1450f048-8361-4e8c-9e42-386bf968a881/main.js",
+                "https://d3kld4ju0n55da.cloudfront.net/ad8e67fc-21b9-4b8c-8573-cf1366ccb9d1/main.js",
+                "https://d3kld4ju0n55da.cloudfront.net/f5490d09-c2d0-40f8-98a9-7a67b32170a3/main.js"
+            ]
+        },
+        "VerifyResourcesExistForTagris": {
+            "http": {
+                "requestUri": "/sweeper-verify-resources",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "TagrisSweepList"
+                ],
+                "members": {
+                    "TagrisSweepList": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "TagrisAccountId": {},
+                                "TagrisAmazonResourceName": {},
+                                "TagrisInternalId": {},
+                                "TagrisVersion": {
+                                    "type": "long"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "TagrisSweepListResult"
+                ],
+                "members": {
+                    "TagrisSweepListResult": {
+                        "type": "map",
+                        "key": {},
+                        "value": {}
+                    }
+                }
+            },
+            "internalonly": true,
+            "download_location": [
+                "https://d3kld4ju0n55da.cloudfront.net/1450f048-8361-4e8c-9e42-386bf968a881/main.js",
+                "https://d3kld4ju0n55da.cloudfront.net/ad8e67fc-21b9-4b8c-8573-cf1366ccb9d1/main.js",
+                "https://d3kld4ju0n55da.cloudfront.net/f5490d09-c2d0-40f8-98a9-7a67b32170a3/main.js"
+            ]
+        }
+    },
+    "shapes": {
+        "S3": {
+            "type": "list",
+            "member": {
+                "shape": "S4"
+            }
+        },
+        "S4": {
+            "type": "structure",
+            "members": {
+                "KeyAttributes": {
+                    "shape": "S5"
+                },
+                "ServiceOperationId": {
+                    "type": "structure",
+                    "required": [
+                        "KeyAttributes",
+                        "OperationName"
+                    ],
+                    "members": {
+                        "KeyAttributes": {
+                            "shape": "S5"
+                        },
+                        "OperationName": {}
+                    }
+                },
+                "SloId": {},
+                "ServiceDependencyId": {
+                    "type": "structure",
+                    "required": [
+                        "ServiceKeyAttributes",
+                        "DependencyKeyAttributes"
+                    ],
+                    "members": {
+                        "ServiceKeyAttributes": {
+                            "shape": "S5"
+                        },
+                        "DependencyKeyAttributes": {
+                            "shape": "S5"
+                        }
+                    }
+                },
+                "KeyAttributesWithMetricSourceTypes": {
+                    "type": "structure",
+                    "required": [
+                        "KeyAttributes",
+                        "MetricSourceTypes"
+                    ],
+                    "members": {
+                        "KeyAttributes": {
+                            "shape": "S5"
+                        },
+                        "MetricSourceTypes": {
+                            "shape": "Sd"
+                        }
+                    }
+                }
+            },
+            "union": true
+        },
+        "S5": {
+            "type": "map",
+            "key": {},
+            "value": {}
+        },
+        "Sd": {
+            "type": "list",
+            "member": {}
+        },
+        "Si": {
+            "type": "structure",
+            "required": [
+                "ReferenceId",
+                "StartTime",
+                "EndTime",
+                "SliStatus",
+                "TotalSloCount",
+                "OkSloCount",
+                "BreachedSloCount",
+                "BreachedSloNames"
+            ],
+            "members": {
+                "ReferenceId": {
+                    "shape": "S4"
+                },
+                "StartTime": {
+                    "type": "timestamp"
+                },
+                "EndTime": {
+                    "type": "timestamp"
+                },
+                "SliStatus": {},
+                "TotalSloCount": {
+                    "type": "integer"
+                },
+                "OkSloCount": {
+                    "type": "integer"
+                },
+                "BreachedSloCount": {
+                    "type": "integer"
+                },
+                "BreachedSloNames": {
+                    "type": "list",
+                    "member": {}
+                }
+            }
+        },
+        "So": {
+            "type": "structure",
+            "required": [
+                "ReferenceId",
+                "ErrorCode",
+                "ErrorMessage"
+            ],
+            "members": {
+                "ReferenceId": {
+                    "shape": "S4"
+                },
+                "ErrorCode": {},
+                "ErrorMessage": {}
+            }
+        },
+        "Ss": {
+            "type": "list",
+            "member": {}
+        },
+        "S15": {
+            "type": "structure",
+            "required": [
+                "SliMetric",
+                "MetricThreshold",
+                "ComparisonOperator"
+            ],
+            "members": {
+                "SliMetric": {
+                    "type": "structure",
+                    "required": [
+                        "MetricDataQueries"
+                    ],
+                    "members": {
+                        "KeyAttributes": {
+                            "shape": "S5"
+                        },
+                        "OperationName": {},
+                        "MetricType": {},
+                        "MetricDataQueries": {
+                            "shape": "S18"
+                        },
+                        "DependencyConfig": {
+                            "shape": "S1q"
+                        }
+                    }
+                },
+                "MetricThreshold": {
+                    "type": "double"
+                },
+                "ComparisonOperator": {}
+            }
+        },
+        "S18": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "Id"
+                ],
+                "members": {
+                    "Id": {},
+                    "MetricStat": {
+                        "type": "structure",
+                        "required": [
+                            "Metric",
+                            "Period",
+                            "Stat"
+                        ],
+                        "members": {
+                            "Metric": {
+                                "type": "structure",
+                                "members": {
+                                    "Namespace": {},
+                                    "MetricName": {},
+                                    "Dimensions": {
+                                        "shape": "S1f"
+                                    }
+                                }
+                            },
+                            "Period": {
+                                "type": "integer"
+                            },
+                            "Stat": {},
+                            "Unit": {}
+                        }
+                    },
+                    "Expression": {},
+                    "Label": {},
+                    "ReturnData": {
+                        "type": "boolean"
+                    },
+                    "Period": {
+                        "type": "integer"
+                    },
+                    "AccountId": {}
+                }
+            }
+        },
+        "S1f": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "Name",
+                    "Value"
+                ],
+                "members": {
+                    "Name": {},
+                    "Value": {}
+                }
+            }
+        },
+        "S1q": {
+            "type": "structure",
+            "required": [
+                "DependencyKeyAttributes",
+                "DependencyOperationName"
+            ],
+            "members": {
+                "DependencyKeyAttributes": {
+                    "shape": "S5"
+                },
+                "DependencyOperationName": {}
+            }
+        },
+        "S1t": {
+            "type": "structure",
+            "required": [
+                "RequestBasedSliMetric"
+            ],
+            "members": {
+                "RequestBasedSliMetric": {
+                    "type": "structure",
+                    "required": [
+                        "TotalRequestCountMetric",
+                        "MonitoredRequestCountMetric"
+                    ],
+                    "members": {
+                        "KeyAttributes": {
+                            "shape": "S5"
+                        },
+                        "OperationName": {},
+                        "MetricType": {},
+                        "TotalRequestCountMetric": {
+                            "shape": "S18"
+                        },
+                        "MonitoredRequestCountMetric": {
+                            "shape": "S1v"
+                        },
+                        "DependencyConfig": {
+                            "shape": "S1q"
+                        }
+                    }
+                },
+                "MetricThreshold": {
+                    "type": "double"
+                },
+                "ComparisonOperator": {}
+            }
+        },
+        "S1v": {
+            "type": "structure",
+            "members": {
+                "GoodCountMetric": {
+                    "shape": "S18"
+                },
+                "BadCountMetric": {
+                    "shape": "S18"
+                }
+            },
+            "union": true
+        },
+        "S1w": {
+            "type": "structure",
+            "members": {
+                "Interval": {
+                    "type": "structure",
+                    "members": {
+                        "RollingInterval": {
+                            "type": "structure",
+                            "required": [
+                                "DurationUnit",
+                                "Duration"
+                            ],
+                            "members": {
+                                "DurationUnit": {},
+                                "Duration": {
+                                    "type": "integer"
+                                }
+                            }
+                        },
+                        "CalendarInterval": {
+                            "type": "structure",
+                            "required": [
+                                "StartTime",
+                                "DurationUnit",
+                                "Duration"
+                            ],
+                            "members": {
+                                "StartTime": {
+                                    "type": "timestamp"
+                                },
+                                "DurationUnit": {},
+                                "Duration": {
+                                    "type": "integer"
+                                }
+                            }
+                        }
+                    },
+                    "union": true
+                },
+                "AttainmentGoal": {
+                    "type": "double"
+                },
+                "WarningThreshold": {
+                    "type": "double"
+                }
+            }
+        },
+        "S2a": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "Window"
+                ],
+                "members": {
+                    "Window": {
+                        "type": "structure",
+                        "required": [
+                            "DurationUnit",
+                            "Duration"
+                        ],
+                        "members": {
+                            "DurationUnit": {},
+                            "Duration": {
+                                "type": "integer"
+                            }
+                        }
+                    },
+                    "StartTime": {
+                        "type": "timestamp"
+                    },
+                    "RecurrenceRule": {
+                        "type": "structure",
+                        "required": [
+                            "Expression"
+                        ],
+                        "members": {
+                            "Expression": {}
+                        }
+                    },
+                    "Reason": {}
+                }
+            }
+        },
+        "S2o": {
+            "type": "structure",
+            "required": [
+                "SliMetricConfig",
+                "MetricThreshold",
+                "ComparisonOperator"
+            ],
+            "members": {
+                "SliMetricConfig": {
+                    "type": "structure",
+                    "members": {
+                        "KeyAttributes": {
+                            "shape": "S5"
+                        },
+                        "OperationName": {},
+                        "MetricType": {},
+                        "Statistic": {},
+                        "PeriodSeconds": {
+                            "type": "integer"
+                        },
+                        "MetricDataQueries": {
+                            "shape": "S18"
+                        },
+                        "DependencyConfig": {
+                            "shape": "S1q"
+                        }
+                    }
+                },
+                "MetricThreshold": {
+                    "type": "double"
+                },
+                "ComparisonOperator": {}
+            }
+        },
+        "S2s": {
+            "type": "structure",
+            "required": [
+                "RequestBasedSliMetricConfig"
+            ],
+            "members": {
+                "RequestBasedSliMetricConfig": {
+                    "type": "structure",
+                    "members": {
+                        "KeyAttributes": {
+                            "shape": "S5"
+                        },
+                        "OperationName": {},
+                        "MetricType": {},
+                        "TotalRequestCountMetric": {
+                            "shape": "S18"
+                        },
+                        "MonitoredRequestCountMetric": {
+                            "shape": "S1v"
+                        },
+                        "DependencyConfig": {
+                            "shape": "S1q"
+                        }
+                    }
+                },
+                "MetricThreshold": {
+                    "type": "double"
+                },
+                "ComparisonOperator": {}
+            }
+        },
+        "S2u": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "Key",
+                    "Value"
+                ],
+                "members": {
+                    "Key": {},
+                    "Value": {}
+                }
+            }
+        },
+        "S2y": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "LookBackWindowMinutes"
+                ],
+                "members": {
+                    "LookBackWindowMinutes": {
+                        "type": "integer"
+                    }
+                }
+            }
+        },
+        "S32": {
+            "type": "structure",
+            "required": [
+                "Arn",
+                "Name",
+                "CreatedTime",
+                "LastUpdatedTime",
+                "Goal"
+            ],
+            "members": {
+                "Arn": {},
+                "Name": {},
+                "Description": {},
+                "CreatedTime": {
+                    "type": "timestamp"
+                },
+                "LastUpdatedTime": {
+                    "type": "timestamp"
+                },
+                "Sli": {
+                    "shape": "S15"
+                },
+                "RequestBasedSli": {
+                    "shape": "S1t"
+                },
+                "EvaluationType": {},
+                "Goal": {
+                    "shape": "S1w"
+                },
+                "BurnRateConfigurations": {
+                    "shape": "S2y"
+                },
+                "MetricSourceType": {}
+            }
+        },
+        "S3b": {
+            "type": "list",
+            "member": {
+                "type": "map",
+                "key": {},
+                "value": {}
+            }
+        },
+        "S3d": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "Namespace",
+                    "MetricType",
+                    "MetricName"
+                ],
+                "members": {
+                    "Namespace": {},
+                    "MetricType": {},
+                    "Dimensions": {
+                        "shape": "S1f"
+                    },
+                    "MetricName": {},
+                    "AccountId": {}
+                }
+            }
+        },
+        "S3h": {
+            "type": "list",
+            "member": {
+                "shape": "S5"
+            }
+        },
+        "S4p": {
+            "type": "structure",
+            "required": [
+                "MetricReferences"
+            ],
+            "members": {
+                "MetricReferences": {
+                    "shape": "S3d"
+                }
+            }
+        }
+    }
+}

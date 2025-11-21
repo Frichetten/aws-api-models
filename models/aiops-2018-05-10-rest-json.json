@@ -1,0 +1,5022 @@
+{
+    "version": "2.0",
+    "metadata": {
+        "apiVersion": "2018-05-10",
+        "auth": [
+            "aws.auth#sigv4"
+        ],
+        "endpointPrefix": "aiops",
+        "protocol": "rest-json",
+        "protocols": [
+            "rest-json"
+        ],
+        "serviceFullName": "AWS AI Ops",
+        "serviceId": "AIOps",
+        "signatureVersion": "v4",
+        "signingName": "aiops",
+        "uid": "aiops-2018-05-10",
+        "download_location": [
+            "https://d3kld4ju0n55da.cloudfront.net/1450f048-8361-4e8c-9e42-386bf968a881/main.js",
+            "https://d3kld4ju0n55da.cloudfront.net/ad8e67fc-21b9-4b8c-8573-cf1366ccb9d1/main.js",
+            "https://d3kld4ju0n55da.cloudfront.net/f5490d09-c2d0-40f8-98a9-7a67b32170a3/main.js"
+        ]
+    },
+    "operations": {
+        "CreateInvestigation": {
+            "http": {
+                "requestUri": "/investigationGroups/{identifier}/investigations",
+                "responseCode": 201
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "identifier",
+                    "name"
+                ],
+                "members": {
+                    "identifier": {
+                        "location": "uri",
+                        "locationName": "identifier"
+                    },
+                    "name": {},
+                    "investigationWindow": {
+                        "shape": "S4"
+                    },
+                    "investigationWindowAutoUpdate": {
+                        "type": "boolean"
+                    },
+                    "clientToken": {
+                        "idempotencyToken": true
+                    },
+                    "dryRun": {
+                        "type": "boolean"
+                    },
+                    "dryRunDetails": {
+                        "type": "structure",
+                        "members": {
+                            "eventBody": {
+                                "shape": "S8"
+                            },
+                            "eventType": {},
+                            "eventWindow": {
+                                "shape": "S3y"
+                            }
+                        }
+                    },
+                    "deduplicationToken": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "investigationId"
+                ],
+                "members": {
+                    "investigationId": {},
+                    "investigationGroupArn": {}
+                }
+            },
+            "download_location": [
+                "https://d3kld4ju0n55da.cloudfront.net/1450f048-8361-4e8c-9e42-386bf968a881/main.js",
+                "https://d3kld4ju0n55da.cloudfront.net/ad8e67fc-21b9-4b8c-8573-cf1366ccb9d1/main.js",
+                "https://d3kld4ju0n55da.cloudfront.net/f5490d09-c2d0-40f8-98a9-7a67b32170a3/main.js"
+            ]
+        },
+        "CreateInvestigationEvent": {
+            "http": {
+                "requestUri": "/investigationGroups/{identifier}/investigations/{investigationId}/events",
+                "responseCode": 201
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "body",
+                    "identifier",
+                    "investigationId"
+                ],
+                "members": {
+                    "type": {},
+                    "body": {
+                        "shape": "Sd"
+                    },
+                    "acceptance": {},
+                    "relatedEvents": {
+                        "shape": "S3k"
+                    },
+                    "comment": {
+                        "shape": "S2l"
+                    },
+                    "progressStatus": {},
+                    "investigationEventWindow": {
+                        "shape": "S3p"
+                    },
+                    "clientToken": {
+                        "idempotencyToken": true
+                    },
+                    "identifier": {
+                        "location": "uri",
+                        "locationName": "identifier"
+                    },
+                    "investigationId": {
+                        "location": "uri",
+                        "locationName": "investigationId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "investigationId",
+                    "investigationEventId"
+                ],
+                "members": {
+                    "investigationId": {},
+                    "investigationEventId": {},
+                    "investigationGroupArn": {}
+                }
+            },
+            "download_location": [
+                "https://d3kld4ju0n55da.cloudfront.net/1450f048-8361-4e8c-9e42-386bf968a881/main.js",
+                "https://d3kld4ju0n55da.cloudfront.net/ad8e67fc-21b9-4b8c-8573-cf1366ccb9d1/main.js",
+                "https://d3kld4ju0n55da.cloudfront.net/f5490d09-c2d0-40f8-98a9-7a67b32170a3/main.js"
+            ]
+        },
+        "CreateInvestigationGroup": {
+            "http": {
+                "requestUri": "/investigationGroups",
+                "responseCode": 201
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "name",
+                    "roleArn"
+                ],
+                "members": {
+                    "name": {},
+                    "roleArn": {},
+                    "encryptionConfiguration": {
+                        "shape": "S3t"
+                    },
+                    "identityCenterConfigurationInput": {
+                        "shape": "S3w"
+                    },
+                    "retentionInDays": {
+                        "type": "long"
+                    },
+                    "tags": {
+                        "shape": "S40"
+                    },
+                    "tagKeyBoundaries": {
+                        "shape": "S43"
+                    },
+                    "chatbotNotificationChannel": {
+                        "shape": "S44"
+                    },
+                    "isCloudTrailEventHistoryEnabled": {
+                        "type": "boolean"
+                    },
+                    "cloudTrailTrailArns": {
+                        "shape": "S48"
+                    },
+                    "crossAccountConfigurations": {
+                        "shape": "S4v"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "arn": {}
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://d3kld4ju0n55da.cloudfront.net/1450f048-8361-4e8c-9e42-386bf968a881/main.js",
+                "https://d3kld4ju0n55da.cloudfront.net/ad8e67fc-21b9-4b8c-8573-cf1366ccb9d1/main.js",
+                "https://d3kld4ju0n55da.cloudfront.net/f5490d09-c2d0-40f8-98a9-7a67b32170a3/main.js"
+            ]
+        },
+        "CreateInvestigationResource": {
+            "http": {
+                "requestUri": "/investigationGroups/{identifier}/investigations/{investigationId}/events/{investigationEventId}/resources",
+                "responseCode": 201
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "identifier",
+                    "investigationId",
+                    "investigationEventId",
+                    "investigationEventResourceConfiguration"
+                ],
+                "members": {
+                    "identifier": {
+                        "location": "uri",
+                        "locationName": "identifier"
+                    },
+                    "investigationId": {
+                        "location": "uri",
+                        "locationName": "investigationId"
+                    },
+                    "investigationEventId": {
+                        "location": "uri",
+                        "locationName": "investigationEventId"
+                    },
+                    "investigationEventResourceConfiguration": {
+                        "type": "structure",
+                        "members": {
+                            "logQueryResourceConfiguration": {
+                                "shape": "S20"
+                            },
+                            "compositeAlarmConfiguration": {
+                                "type": "structure",
+                                "members": {
+                                    "selectedWindow": {
+                                        "shape": "S1l"
+                                    },
+                                    "alarmName": {
+                                        "shape": "S2l"
+                                    },
+                                    "maxRecords": {
+                                        "type": "integer"
+                                    }
+                                }
+                            },
+                            "metricConfiguration": {
+                                "shape": "S1n"
+                            },
+                            "metricAlarmConfiguration": {
+                                "shape": "Sg"
+                            },
+                            "contributorInsightConfiguration": {
+                                "shape": "S31"
+                            },
+                            "blobConfiguration": {
+                                "type": "structure",
+                                "members": {
+                                    "content": {
+                                        "shape": "S4f"
+                                    },
+                                    "contentType": {
+                                        "shape": "S1p"
+                                    }
+                                }
+                            }
+                        },
+                        "sensitive": true,
+                        "union": true
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "identifier",
+                    "investigationId",
+                    "investigationEventId"
+                ],
+                "members": {
+                    "identifier": {},
+                    "investigationId": {},
+                    "investigationEventId": {},
+                    "investigationGroupArn": {},
+                    "resourceIds": {
+                        "type": "list",
+                        "member": {}
+                    }
+                }
+            },
+            "download_location": [
+                "https://d3kld4ju0n55da.cloudfront.net/1450f048-8361-4e8c-9e42-386bf968a881/main.js",
+                "https://d3kld4ju0n55da.cloudfront.net/ad8e67fc-21b9-4b8c-8573-cf1366ccb9d1/main.js",
+                "https://d3kld4ju0n55da.cloudfront.net/f5490d09-c2d0-40f8-98a9-7a67b32170a3/main.js"
+            ]
+        },
+        "DeleteInvestigation": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/investigationGroups/{identifier}/investigations/{investigationId}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "identifier",
+                    "investigationId"
+                ],
+                "members": {
+                    "identifier": {
+                        "location": "uri",
+                        "locationName": "identifier"
+                    },
+                    "investigationId": {
+                        "location": "uri",
+                        "locationName": "investigationId"
+                    }
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://d3kld4ju0n55da.cloudfront.net/1450f048-8361-4e8c-9e42-386bf968a881/main.js",
+                "https://d3kld4ju0n55da.cloudfront.net/ad8e67fc-21b9-4b8c-8573-cf1366ccb9d1/main.js",
+                "https://d3kld4ju0n55da.cloudfront.net/f5490d09-c2d0-40f8-98a9-7a67b32170a3/main.js"
+            ]
+        },
+        "DeleteInvestigationGroup": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/investigationGroups/{identifier}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "identifier"
+                ],
+                "members": {
+                    "identifier": {
+                        "location": "uri",
+                        "locationName": "identifier"
+                    }
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://d3kld4ju0n55da.cloudfront.net/1450f048-8361-4e8c-9e42-386bf968a881/main.js",
+                "https://d3kld4ju0n55da.cloudfront.net/ad8e67fc-21b9-4b8c-8573-cf1366ccb9d1/main.js",
+                "https://d3kld4ju0n55da.cloudfront.net/f5490d09-c2d0-40f8-98a9-7a67b32170a3/main.js"
+            ]
+        },
+        "DeleteInvestigationGroupPolicy": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/investigationGroups/{identifier}/policy",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "identifier"
+                ],
+                "members": {
+                    "identifier": {
+                        "location": "uri",
+                        "locationName": "identifier"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://d3kld4ju0n55da.cloudfront.net/1450f048-8361-4e8c-9e42-386bf968a881/main.js",
+                "https://d3kld4ju0n55da.cloudfront.net/ad8e67fc-21b9-4b8c-8573-cf1366ccb9d1/main.js",
+                "https://d3kld4ju0n55da.cloudfront.net/f5490d09-c2d0-40f8-98a9-7a67b32170a3/main.js"
+            ]
+        },
+        "DummyInvestigation": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/dummyInvestigation",
+                "responseCode": 200
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "modelOutput": {
+                        "type": "structure",
+                        "required": [
+                            "investigationId"
+                        ],
+                        "members": {
+                            "investigationId": {},
+                            "createdBy": {},
+                            "createdAt": {
+                                "type": "long"
+                            },
+                            "lastModifiedBy": {},
+                            "lastModifiedAt": {
+                                "type": "long"
+                            },
+                            "investigationGroupArn": {},
+                            "name": {},
+                            "associatedKmsKeyArn": {},
+                            "status": {},
+                            "statusReason": {
+                                "shape": "S2l"
+                            },
+                            "assistantStatus": {},
+                            "assistantStatusReason": {},
+                            "investigationWindow": {
+                                "shape": "S4"
+                            },
+                            "resolved": {
+                                "type": "boolean"
+                            },
+                            "createdByIDCUser": {},
+                            "lastModifiedByIDCUser": {},
+                            "investigationWindowAutoUpdate": {
+                                "type": "boolean"
+                            },
+                            "clientToken": {}
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://d3kld4ju0n55da.cloudfront.net/1450f048-8361-4e8c-9e42-386bf968a881/main.js",
+                "https://d3kld4ju0n55da.cloudfront.net/ad8e67fc-21b9-4b8c-8573-cf1366ccb9d1/main.js",
+                "https://d3kld4ju0n55da.cloudfront.net/f5490d09-c2d0-40f8-98a9-7a67b32170a3/main.js"
+            ]
+        },
+        "DummyInvestigationEvent": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/dummyInvestigationEvent",
+                "responseCode": 200
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "modelOutput": {
+                        "shape": "S4r"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d3kld4ju0n55da.cloudfront.net/1450f048-8361-4e8c-9e42-386bf968a881/main.js",
+                "https://d3kld4ju0n55da.cloudfront.net/ad8e67fc-21b9-4b8c-8573-cf1366ccb9d1/main.js",
+                "https://d3kld4ju0n55da.cloudfront.net/f5490d09-c2d0-40f8-98a9-7a67b32170a3/main.js"
+            ]
+        },
+        "GetInvestigation": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/investigationGroups/{identifier}/investigations/{investigationId}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "identifier",
+                    "investigationId"
+                ],
+                "members": {
+                    "identifier": {
+                        "location": "uri",
+                        "locationName": "identifier"
+                    },
+                    "investigationId": {
+                        "location": "uri",
+                        "locationName": "investigationId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "investigationId"
+                ],
+                "members": {
+                    "investigationId": {},
+                    "createdBy": {},
+                    "createdAt": {
+                        "type": "long"
+                    },
+                    "lastModifiedBy": {},
+                    "lastModifiedAt": {
+                        "type": "long"
+                    },
+                    "investigationGroupArn": {},
+                    "name": {},
+                    "associatedKmsKeyArn": {},
+                    "status": {},
+                    "statusReason": {
+                        "shape": "S2l"
+                    },
+                    "assistantStatus": {},
+                    "assistantStatusReason": {},
+                    "investigationWindow": {
+                        "shape": "S4"
+                    },
+                    "resolved": {
+                        "type": "boolean"
+                    },
+                    "createdByIDCUser": {},
+                    "lastModifiedByIDCUser": {},
+                    "investigationWindowAutoUpdate": {
+                        "type": "boolean"
+                    },
+                    "clientToken": {}
+                }
+            },
+            "download_location": [
+                "https://d3kld4ju0n55da.cloudfront.net/1450f048-8361-4e8c-9e42-386bf968a881/main.js",
+                "https://d3kld4ju0n55da.cloudfront.net/ad8e67fc-21b9-4b8c-8573-cf1366ccb9d1/main.js",
+                "https://d3kld4ju0n55da.cloudfront.net/f5490d09-c2d0-40f8-98a9-7a67b32170a3/main.js"
+            ]
+        },
+        "GetInvestigationEvent": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/investigationGroups/{identifier}/investigations/{investigationId}/events/{investigationEventId}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "investigationId",
+                    "investigationEventId",
+                    "identifier"
+                ],
+                "members": {
+                    "investigationId": {
+                        "location": "uri",
+                        "locationName": "investigationId"
+                    },
+                    "investigationEventId": {
+                        "location": "uri",
+                        "locationName": "investigationEventId"
+                    },
+                    "identifier": {
+                        "location": "uri",
+                        "locationName": "identifier"
+                    }
+                }
+            },
+            "output": {
+                "shape": "S4r"
+            },
+            "download_location": [
+                "https://d3kld4ju0n55da.cloudfront.net/1450f048-8361-4e8c-9e42-386bf968a881/main.js",
+                "https://d3kld4ju0n55da.cloudfront.net/ad8e67fc-21b9-4b8c-8573-cf1366ccb9d1/main.js",
+                "https://d3kld4ju0n55da.cloudfront.net/f5490d09-c2d0-40f8-98a9-7a67b32170a3/main.js"
+            ]
+        },
+        "GetInvestigationGroup": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/investigationGroups/{identifier}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "identifier"
+                ],
+                "members": {
+                    "identifier": {
+                        "location": "uri",
+                        "locationName": "identifier"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "createdBy": {},
+                    "createdAt": {
+                        "type": "long"
+                    },
+                    "lastModifiedBy": {},
+                    "lastModifiedAt": {
+                        "type": "long"
+                    },
+                    "name": {},
+                    "arn": {},
+                    "roleArn": {},
+                    "encryptionConfiguration": {
+                        "shape": "S3t"
+                    },
+                    "identityCenterConfiguration": {
+                        "type": "structure",
+                        "members": {
+                            "instanceArn": {},
+                            "instanceRegion": {},
+                            "applicationArn": {}
+                        }
+                    },
+                    "retentionInDays": {
+                        "type": "long"
+                    },
+                    "chatbotNotificationChannel": {
+                        "shape": "S44"
+                    },
+                    "tagKeyBoundaries": {
+                        "shape": "S43"
+                    },
+                    "isCloudTrailEventHistoryEnabled": {
+                        "type": "boolean"
+                    },
+                    "cloudTrailTrailArns": {
+                        "shape": "S48"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d3kld4ju0n55da.cloudfront.net/1450f048-8361-4e8c-9e42-386bf968a881/main.js",
+                "https://d3kld4ju0n55da.cloudfront.net/ad8e67fc-21b9-4b8c-8573-cf1366ccb9d1/main.js",
+                "https://d3kld4ju0n55da.cloudfront.net/f5490d09-c2d0-40f8-98a9-7a67b32170a3/main.js"
+            ]
+        },
+        "GetInvestigationGroupPolicy": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/investigationGroups/{identifier}/policy",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "identifier"
+                ],
+                "members": {
+                    "identifier": {
+                        "location": "uri",
+                        "locationName": "identifier"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "investigationGroupArn": {},
+                    "policy": {}
+                }
+            },
+            "download_location": [
+                "https://d3kld4ju0n55da.cloudfront.net/1450f048-8361-4e8c-9e42-386bf968a881/main.js",
+                "https://d3kld4ju0n55da.cloudfront.net/ad8e67fc-21b9-4b8c-8573-cf1366ccb9d1/main.js",
+                "https://d3kld4ju0n55da.cloudfront.net/f5490d09-c2d0-40f8-98a9-7a67b32170a3/main.js"
+            ]
+        },
+        "GetInvestigationResource": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/investigationGroups/{identifier}/investigations/{investigationId}/events/{investigationEventId}/resources/{resourceId}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "identifier",
+                    "investigationId",
+                    "investigationEventId",
+                    "resourceId"
+                ],
+                "members": {
+                    "identifier": {
+                        "location": "uri",
+                        "locationName": "identifier"
+                    },
+                    "investigationId": {
+                        "location": "uri",
+                        "locationName": "investigationId"
+                    },
+                    "investigationEventId": {
+                        "location": "uri",
+                        "locationName": "investigationEventId"
+                    },
+                    "resourceId": {
+                        "location": "uri",
+                        "locationName": "resourceId"
+                    },
+                    "nextToken": {
+                        "shape": "S2l",
+                        "location": "querystring",
+                        "locationName": "nextToken"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "investigationEventResourceResponse": {
+                        "type": "structure",
+                        "members": {
+                            "logQueryResourceMetadata": {
+                                "type": "structure",
+                                "members": {
+                                    "queryStatistics": {
+                                        "type": "structure",
+                                        "members": {
+                                            "bytesScanned": {
+                                                "type": "double"
+                                            },
+                                            "recordsMatched": {
+                                                "type": "double"
+                                            },
+                                            "recordsScanned": {
+                                                "type": "double"
+                                            }
+                                        }
+                                    },
+                                    "encryptionKey": {
+                                        "shape": "S1p"
+                                    }
+                                }
+                            },
+                            "logQueryResourceResultsData": {
+                                "type": "structure",
+                                "members": {
+                                    "results": {
+                                        "type": "list",
+                                        "member": {
+                                            "type": "list",
+                                            "member": {
+                                                "type": "structure",
+                                                "members": {
+                                                    "field": {
+                                                        "shape": "S2l"
+                                                    },
+                                                    "value": {
+                                                        "shape": "S2l"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            "compositeAlarmResourceData": {
+                                "type": "structure",
+                                "members": {
+                                    "alarmHistoryItems": {
+                                        "type": "list",
+                                        "member": {
+                                            "type": "structure",
+                                            "members": {
+                                                "AlarmName": {},
+                                                "AlarmType": {},
+                                                "Timestamp": {
+                                                    "type": "timestamp"
+                                                },
+                                                "HistoryItemType": {},
+                                                "HistorySummary": {},
+                                                "HistoryData": {}
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            "metricResourceData": {
+                                "type": "structure",
+                                "members": {
+                                    "metricDataResults": {
+                                        "type": "list",
+                                        "member": {
+                                            "type": "structure",
+                                            "members": {
+                                                "Id": {},
+                                                "Label": {},
+                                                "Timestamps": {
+                                                    "type": "list",
+                                                    "member": {
+                                                        "type": "timestamp"
+                                                    }
+                                                },
+                                                "Values": {
+                                                    "type": "list",
+                                                    "member": {
+                                                        "type": "double"
+                                                    }
+                                                },
+                                                "StatusCode": {},
+                                                "Messages": {
+                                                    "shape": "S5u"
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "nextToken": {
+                                        "shape": "S2l"
+                                    },
+                                    "messages": {
+                                        "shape": "S5u"
+                                    }
+                                }
+                            },
+                            "describeAlarmData": {
+                                "type": "structure",
+                                "members": {
+                                    "metricAlarm": {
+                                        "shape": "Sj"
+                                    }
+                                }
+                            },
+                            "contributorInsightData": {
+                                "type": "structure",
+                                "members": {
+                                    "aggregateValue": {
+                                        "type": "double"
+                                    },
+                                    "aggregationStatistic": {},
+                                    "approximateUniqueCount": {
+                                        "type": "integer"
+                                    },
+                                    "contributors": {
+                                        "type": "list",
+                                        "member": {
+                                            "type": "structure",
+                                            "members": {
+                                                "approximateAggregateValue": {
+                                                    "type": "double"
+                                                },
+                                                "datapoints": {
+                                                    "type": "list",
+                                                    "member": {
+                                                        "type": "structure",
+                                                        "members": {
+                                                            "approximateValue": {
+                                                                "type": "double"
+                                                            },
+                                                            "timestamp": {
+                                                                "type": "timestamp"
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                "keys": {
+                                                    "shape": "S64"
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "keyLabels": {
+                                        "shape": "S64"
+                                    },
+                                    "metricDatapoints": {
+                                        "type": "list",
+                                        "member": {
+                                            "type": "structure",
+                                            "members": {
+                                                "timestamp": {
+                                                    "type": "timestamp"
+                                                },
+                                                "average": {
+                                                    "type": "double"
+                                                },
+                                                "maxContributorValue": {
+                                                    "type": "double"
+                                                },
+                                                "maximum": {
+                                                    "type": "double"
+                                                },
+                                                "minimum": {
+                                                    "type": "double"
+                                                },
+                                                "sampleCount": {
+                                                    "type": "double"
+                                                },
+                                                "sum": {
+                                                    "type": "double"
+                                                },
+                                                "uniqueContributors": {
+                                                    "type": "double"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            "blobData": {
+                                "type": "structure",
+                                "members": {
+                                    "content": {
+                                        "shape": "S4f"
+                                    },
+                                    "contentType": {
+                                        "shape": "S1p"
+                                    }
+                                }
+                            }
+                        },
+                        "union": true
+                    },
+                    "nextToken": {
+                        "shape": "S2l"
+                    },
+                    "investigationGroupArn": {}
+                }
+            },
+            "download_location": [
+                "https://d3kld4ju0n55da.cloudfront.net/1450f048-8361-4e8c-9e42-386bf968a881/main.js",
+                "https://d3kld4ju0n55da.cloudfront.net/ad8e67fc-21b9-4b8c-8573-cf1366ccb9d1/main.js",
+                "https://d3kld4ju0n55da.cloudfront.net/f5490d09-c2d0-40f8-98a9-7a67b32170a3/main.js"
+            ]
+        },
+        "ListInvestigationEvents": {
+            "http": {
+                "requestUri": "/investigationGroups/{identifier}/investigations/{investigationId}/eventslist",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "identifier",
+                    "investigationId"
+                ],
+                "members": {
+                    "identifier": {
+                        "location": "uri",
+                        "locationName": "identifier"
+                    },
+                    "investigationId": {
+                        "location": "uri",
+                        "locationName": "investigationId"
+                    },
+                    "nextToken": {
+                        "shape": "S2l",
+                        "location": "querystring",
+                        "locationName": "nextToken"
+                    },
+                    "maxResults": {
+                        "location": "querystring",
+                        "locationName": "maxResults",
+                        "type": "integer"
+                    },
+                    "filterBy": {
+                        "type": "structure",
+                        "members": {
+                            "investigationEventCategory": {},
+                            "acceptance": {},
+                            "suggested": {
+                                "type": "boolean"
+                            },
+                            "type": {},
+                            "resourceIdentifier": {
+                                "shape": "S2l"
+                            },
+                            "analysisGroupVersion": {
+                                "shape": "S2l"
+                            }
+                        }
+                    },
+                    "groupBy": {},
+                    "relatedEvents": {
+                        "shape": "S3k"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "nextToken": {
+                        "shape": "S2l"
+                    },
+                    "investigationEvents": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "investigationId",
+                                "investigationEventId"
+                            ],
+                            "members": {
+                                "investigationId": {},
+                                "investigationEventId": {},
+                                "investigationGroupArn": {},
+                                "createdAt": {
+                                    "type": "long"
+                                },
+                                "lastModifiedAt": {
+                                    "type": "long"
+                                },
+                                "type": {},
+                                "pinned": {
+                                    "type": "boolean"
+                                },
+                                "investigationEventCategory": {},
+                                "resourceIdentifier": {
+                                    "shape": "S2l"
+                                },
+                                "analysisGroupVersion": {
+                                    "shape": "S2l"
+                                },
+                                "isRepresentative": {
+                                    "type": "boolean"
+                                },
+                                "investigationEventsCountForAnalysisEvent": {
+                                    "type": "integer"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://d3kld4ju0n55da.cloudfront.net/1450f048-8361-4e8c-9e42-386bf968a881/main.js",
+                "https://d3kld4ju0n55da.cloudfront.net/ad8e67fc-21b9-4b8c-8573-cf1366ccb9d1/main.js",
+                "https://d3kld4ju0n55da.cloudfront.net/f5490d09-c2d0-40f8-98a9-7a67b32170a3/main.js"
+            ]
+        },
+        "ListInvestigationGroups": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/investigationGroups",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "nextToken": {
+                        "shape": "S2l",
+                        "location": "querystring",
+                        "locationName": "nextToken"
+                    },
+                    "maxResults": {
+                        "location": "querystring",
+                        "locationName": "maxResults",
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "nextToken": {
+                        "shape": "S2l"
+                    },
+                    "investigationGroups": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "arn": {},
+                                "name": {}
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://d3kld4ju0n55da.cloudfront.net/1450f048-8361-4e8c-9e42-386bf968a881/main.js",
+                "https://d3kld4ju0n55da.cloudfront.net/ad8e67fc-21b9-4b8c-8573-cf1366ccb9d1/main.js",
+                "https://d3kld4ju0n55da.cloudfront.net/f5490d09-c2d0-40f8-98a9-7a67b32170a3/main.js"
+            ]
+        },
+        "ListInvestigations": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/investigationGroups/{identifier}/investigations",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "identifier"
+                ],
+                "members": {
+                    "identifier": {
+                        "location": "uri",
+                        "locationName": "identifier"
+                    },
+                    "nextToken": {
+                        "shape": "S2l",
+                        "location": "querystring",
+                        "locationName": "nextToken"
+                    },
+                    "maxResults": {
+                        "location": "querystring",
+                        "locationName": "maxResults",
+                        "type": "integer"
+                    },
+                    "status": {
+                        "location": "querystring",
+                        "locationName": "status"
+                    },
+                    "sortBy": {
+                        "location": "querystring",
+                        "locationName": "sortBy"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "nextToken": {
+                        "shape": "S2l"
+                    },
+                    "investigations": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "investigationId"
+                            ],
+                            "members": {
+                                "investigationId": {},
+                                "investigationGroupArn": {},
+                                "createdAt": {
+                                    "type": "long"
+                                },
+                                "lastModifiedAt": {
+                                    "type": "long"
+                                },
+                                "name": {},
+                                "status": {}
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://d3kld4ju0n55da.cloudfront.net/1450f048-8361-4e8c-9e42-386bf968a881/main.js",
+                "https://d3kld4ju0n55da.cloudfront.net/ad8e67fc-21b9-4b8c-8573-cf1366ccb9d1/main.js",
+                "https://d3kld4ju0n55da.cloudfront.net/f5490d09-c2d0-40f8-98a9-7a67b32170a3/main.js"
+            ]
+        },
+        "ListTagsForResource": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/tags/{resourceArn}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "resourceArn"
+                ],
+                "members": {
+                    "resourceArn": {
+                        "location": "uri",
+                        "locationName": "resourceArn"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "tags": {
+                        "shape": "S40"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d3kld4ju0n55da.cloudfront.net/1450f048-8361-4e8c-9e42-386bf968a881/main.js",
+                "https://d3kld4ju0n55da.cloudfront.net/ad8e67fc-21b9-4b8c-8573-cf1366ccb9d1/main.js",
+                "https://d3kld4ju0n55da.cloudfront.net/f5490d09-c2d0-40f8-98a9-7a67b32170a3/main.js"
+            ]
+        },
+        "PutInvestigationGroupPolicy": {
+            "http": {
+                "requestUri": "/investigationGroups/{identifier}/policy",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "identifier",
+                    "policy"
+                ],
+                "members": {
+                    "identifier": {
+                        "location": "uri",
+                        "locationName": "identifier"
+                    },
+                    "policy": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "investigationGroupArn": {}
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://d3kld4ju0n55da.cloudfront.net/1450f048-8361-4e8c-9e42-386bf968a881/main.js",
+                "https://d3kld4ju0n55da.cloudfront.net/ad8e67fc-21b9-4b8c-8573-cf1366ccb9d1/main.js",
+                "https://d3kld4ju0n55da.cloudfront.net/f5490d09-c2d0-40f8-98a9-7a67b32170a3/main.js"
+            ]
+        },
+        "TagResource": {
+            "http": {
+                "requestUri": "/tags/{resourceArn}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "resourceArn",
+                    "tags"
+                ],
+                "members": {
+                    "resourceArn": {
+                        "location": "uri",
+                        "locationName": "resourceArn"
+                    },
+                    "tags": {
+                        "shape": "S40"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://d3kld4ju0n55da.cloudfront.net/1450f048-8361-4e8c-9e42-386bf968a881/main.js",
+                "https://d3kld4ju0n55da.cloudfront.net/ad8e67fc-21b9-4b8c-8573-cf1366ccb9d1/main.js",
+                "https://d3kld4ju0n55da.cloudfront.net/f5490d09-c2d0-40f8-98a9-7a67b32170a3/main.js"
+            ]
+        },
+        "UntagResource": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/tags/{resourceArn}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "resourceArn",
+                    "tagKeys"
+                ],
+                "members": {
+                    "resourceArn": {
+                        "location": "uri",
+                        "locationName": "resourceArn"
+                    },
+                    "tagKeys": {
+                        "location": "querystring",
+                        "locationName": "tagKeys",
+                        "type": "list",
+                        "member": {}
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://d3kld4ju0n55da.cloudfront.net/1450f048-8361-4e8c-9e42-386bf968a881/main.js",
+                "https://d3kld4ju0n55da.cloudfront.net/ad8e67fc-21b9-4b8c-8573-cf1366ccb9d1/main.js",
+                "https://d3kld4ju0n55da.cloudfront.net/f5490d09-c2d0-40f8-98a9-7a67b32170a3/main.js"
+            ]
+        },
+        "UpdateInvestigation": {
+            "http": {
+                "method": "PATCH",
+                "requestUri": "/investigationGroups/{identifier}/investigations/{investigationId}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "investigationId",
+                    "identifier"
+                ],
+                "members": {
+                    "investigationId": {
+                        "location": "uri",
+                        "locationName": "investigationId"
+                    },
+                    "identifier": {
+                        "location": "uri",
+                        "locationName": "identifier"
+                    },
+                    "name": {},
+                    "status": {},
+                    "statusReason": {
+                        "shape": "S2l"
+                    },
+                    "investigationWindow": {
+                        "shape": "S4"
+                    },
+                    "resolved": {
+                        "type": "boolean"
+                    },
+                    "investigationWindowAutoUpdate": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://d3kld4ju0n55da.cloudfront.net/1450f048-8361-4e8c-9e42-386bf968a881/main.js",
+                "https://d3kld4ju0n55da.cloudfront.net/ad8e67fc-21b9-4b8c-8573-cf1366ccb9d1/main.js",
+                "https://d3kld4ju0n55da.cloudfront.net/f5490d09-c2d0-40f8-98a9-7a67b32170a3/main.js"
+            ]
+        },
+        "UpdateInvestigationEvent": {
+            "http": {
+                "method": "PATCH",
+                "requestUri": "/investigationGroups/{identifier}/investigations/{investigationId}/events/{investigationEventId}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "investigationId",
+                    "investigationEventId",
+                    "identifier"
+                ],
+                "members": {
+                    "investigationId": {
+                        "location": "uri",
+                        "locationName": "investigationId"
+                    },
+                    "investigationEventId": {
+                        "location": "uri",
+                        "locationName": "investigationEventId"
+                    },
+                    "identifier": {
+                        "location": "uri",
+                        "locationName": "identifier"
+                    },
+                    "visible": {
+                        "type": "boolean"
+                    },
+                    "acceptance": {},
+                    "pinned": {
+                        "type": "boolean"
+                    },
+                    "progressStatus": {},
+                    "relatedEvents": {
+                        "shape": "S3k"
+                    },
+                    "suggested": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://d3kld4ju0n55da.cloudfront.net/1450f048-8361-4e8c-9e42-386bf968a881/main.js",
+                "https://d3kld4ju0n55da.cloudfront.net/ad8e67fc-21b9-4b8c-8573-cf1366ccb9d1/main.js",
+                "https://d3kld4ju0n55da.cloudfront.net/f5490d09-c2d0-40f8-98a9-7a67b32170a3/main.js"
+            ]
+        },
+        "UpdateInvestigationGroup": {
+            "http": {
+                "method": "PATCH",
+                "requestUri": "/investigationGroups/{identifier}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "identifier"
+                ],
+                "members": {
+                    "identifier": {
+                        "location": "uri",
+                        "locationName": "identifier"
+                    },
+                    "roleArn": {},
+                    "encryptionConfiguration": {
+                        "shape": "S3t"
+                    },
+                    "identityCenterConfigurationInput": {
+                        "shape": "S3w"
+                    },
+                    "tagKeyBoundaries": {
+                        "shape": "S43"
+                    },
+                    "chatbotNotificationChannel": {
+                        "shape": "S44"
+                    },
+                    "isCloudTrailEventHistoryEnabled": {
+                        "type": "boolean"
+                    },
+                    "cloudTrailTrailArns": {
+                        "shape": "S48"
+                    },
+                    "crossAccountConfigurations": {
+                        "shape": "S4v"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "idempotent": true,
+            "download_location": [
+                "https://d3kld4ju0n55da.cloudfront.net/1450f048-8361-4e8c-9e42-386bf968a881/main.js",
+                "https://d3kld4ju0n55da.cloudfront.net/ad8e67fc-21b9-4b8c-8573-cf1366ccb9d1/main.js",
+                "https://d3kld4ju0n55da.cloudfront.net/f5490d09-c2d0-40f8-98a9-7a67b32170a3/main.js"
+            ]
+        },
+        "CreateReport": {
+            "http": {
+                "requestUri": "/investigationGroups/{identifier}/incidentReport",
+                "responseCode": 201
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "identifier",
+                    "investigationIds"
+                ],
+                "members": {
+                    "identifier": {
+                        "location": "uri",
+                        "locationName": "identifier"
+                    },
+                    "investigationIds": {
+                        "shape": "S56"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "incidentReportId"
+                ],
+                "members": {
+                    "incidentReportId": {}
+                }
+            },
+            "download_location": [
+                "https://d3kld4ju0n55da.cloudfront.net/ad8e67fc-21b9-4b8c-8573-cf1366ccb9d1/main.js",
+                "https://d3kld4ju0n55da.cloudfront.net/f5490d09-c2d0-40f8-98a9-7a67b32170a3/main.js"
+            ]
+        },
+        "DeleteEvidence": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/investigationGroups/{identifier}/incidentReport/{incidentReportId}/evidences/{evidenceId}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "identifier",
+                    "incidentReportId",
+                    "evidenceId"
+                ],
+                "members": {
+                    "identifier": {
+                        "location": "uri",
+                        "locationName": "identifier"
+                    },
+                    "incidentReportId": {
+                        "location": "uri",
+                        "locationName": "incidentReportId"
+                    },
+                    "evidenceId": {
+                        "location": "uri",
+                        "locationName": "evidenceId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://d3kld4ju0n55da.cloudfront.net/ad8e67fc-21b9-4b8c-8573-cf1366ccb9d1/main.js",
+                "https://d3kld4ju0n55da.cloudfront.net/f5490d09-c2d0-40f8-98a9-7a67b32170a3/main.js"
+            ]
+        },
+        "DeleteFact": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/investigationGroups/{identifier}/incidentReport/{incidentReportId}/facts/{factToken}/versions/{factVersion}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "identifier",
+                    "incidentReportId",
+                    "factToken",
+                    "factVersion"
+                ],
+                "members": {
+                    "identifier": {
+                        "location": "uri",
+                        "locationName": "identifier"
+                    },
+                    "incidentReportId": {
+                        "location": "uri",
+                        "locationName": "incidentReportId"
+                    },
+                    "factToken": {
+                        "location": "uri",
+                        "locationName": "factToken"
+                    },
+                    "factVersion": {
+                        "location": "uri",
+                        "locationName": "factVersion"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://d3kld4ju0n55da.cloudfront.net/ad8e67fc-21b9-4b8c-8573-cf1366ccb9d1/main.js",
+                "https://d3kld4ju0n55da.cloudfront.net/f5490d09-c2d0-40f8-98a9-7a67b32170a3/main.js"
+            ]
+        },
+        "DeleteReport": {
+            "http": {
+                "method": "DELETE",
+                "requestUri": "/investigationGroups/{identifier}/incidentReport/{incidentReportId}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "identifier",
+                    "incidentReportId"
+                ],
+                "members": {
+                    "identifier": {
+                        "location": "uri",
+                        "locationName": "identifier"
+                    },
+                    "incidentReportId": {
+                        "location": "uri",
+                        "locationName": "incidentReportId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {}
+            },
+            "download_location": [
+                "https://d3kld4ju0n55da.cloudfront.net/ad8e67fc-21b9-4b8c-8573-cf1366ccb9d1/main.js",
+                "https://d3kld4ju0n55da.cloudfront.net/f5490d09-c2d0-40f8-98a9-7a67b32170a3/main.js"
+            ]
+        },
+        "GenerateIncidentReportSection": {
+            "http": {
+                "requestUri": "/investigationGroups/{identifier}/incidentReport/generateIncidentReportSection",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "identifier",
+                    "targetSectionName"
+                ],
+                "members": {
+                    "identifier": {
+                        "location": "uri",
+                        "locationName": "identifier"
+                    },
+                    "templateContent": {
+                        "shape": "S66"
+                    },
+                    "targetSectionName": {
+                        "shape": "S2q"
+                    },
+                    "existingSections": {
+                        "type": "list",
+                        "member": {
+                            "shape": "S6b"
+                        }
+                    },
+                    "supportingInvestigationEvents": {
+                        "type": "list",
+                        "member": {
+                            "shape": "S5r"
+                        }
+                    },
+                    "supportingEvidences": {
+                        "shape": "S6c"
+                    },
+                    "supportingFacts": {
+                        "shape": "S6c"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "section"
+                ],
+                "members": {
+                    "section": {
+                        "shape": "S6b"
+                    }
+                }
+            },
+            "deprecated": true,
+            "download_location": [
+                "https://d3kld4ju0n55da.cloudfront.net/ad8e67fc-21b9-4b8c-8573-cf1366ccb9d1/main.js",
+                "https://d3kld4ju0n55da.cloudfront.net/f5490d09-c2d0-40f8-98a9-7a67b32170a3/main.js"
+            ]
+        },
+        "GenerateReport": {
+            "http": {
+                "requestUri": "/investigationGroups/{identifier}/incidentReport/{incidentReportId}/generateReport",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "identifier",
+                    "incidentReportId"
+                ],
+                "members": {
+                    "identifier": {
+                        "location": "uri",
+                        "locationName": "identifier"
+                    },
+                    "incidentReportId": {
+                        "location": "uri",
+                        "locationName": "incidentReportId"
+                    },
+                    "sections": {
+                        "shape": "S67"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "orderedSectionNames"
+                ],
+                "members": {
+                    "orderedSectionNames": {
+                        "shape": "S6h"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d3kld4ju0n55da.cloudfront.net/ad8e67fc-21b9-4b8c-8573-cf1366ccb9d1/main.js",
+                "https://d3kld4ju0n55da.cloudfront.net/f5490d09-c2d0-40f8-98a9-7a67b32170a3/main.js"
+            ]
+        },
+        "GetEphemeralInvestigationResults": {
+            "http": {
+                "requestUri": "/ephemeralInvestigation/{ephemeralInvestigationId}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "ephemeralInvestigationId"
+                ],
+                "members": {
+                    "ephemeralInvestigationId": {
+                        "location": "uri",
+                        "locationName": "ephemeralInvestigationId"
+                    },
+                    "filterBy": {
+                        "type": "structure",
+                        "members": {
+                            "investigationEventCategory": {},
+                            "suggested": {
+                                "type": "boolean"
+                            },
+                            "type": {},
+                            "resourceIdentifier": {
+                                "shape": "S2q"
+                            },
+                            "analysisGroupVersion": {
+                                "shape": "S2q"
+                            }
+                        }
+                    },
+                    "groupBy": {},
+                    "nextToken": {
+                        "shape": "S2q",
+                        "location": "querystring",
+                        "locationName": "nextToken"
+                    },
+                    "maxResults": {
+                        "location": "querystring",
+                        "locationName": "maxResults",
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ephemeralInvestigation": {
+                        "type": "structure",
+                        "members": {
+                            "ephemeralInvestigationId": {},
+                            "name": {},
+                            "assistantStatus": {},
+                            "assistantStatusReason": {},
+                            "investigationWindow": {
+                                "shape": "S4"
+                            },
+                            "createdAt": {
+                                "type": "long"
+                            }
+                        }
+                    },
+                    "ephemeralEvents": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "type": {},
+                                "visible": {
+                                    "type": "boolean"
+                                },
+                                "investigationEventDataMetadata": {
+                                    "type": "structure",
+                                    "members": {
+                                        "eventDataMetadataList": {
+                                            "shape": "S5y"
+                                        }
+                                    }
+                                },
+                                "body": {
+                                    "shape": "S8"
+                                },
+                                "summary": {
+                                    "shape": "S2q"
+                                },
+                                "resourceArns": {
+                                    "shape": "Sd"
+                                },
+                                "suggested": {
+                                    "type": "boolean"
+                                },
+                                "relatedEvents": {
+                                    "shape": "S46"
+                                },
+                                "comment": {
+                                    "shape": "S2q"
+                                },
+                                "progressStatus": {},
+                                "investigationEventWindow": {
+                                    "shape": "S3y"
+                                },
+                                "score": {
+                                    "type": "double"
+                                },
+                                "investigationEventCategory": {},
+                                "analysisGroupVersion": {
+                                    "shape": "S2q"
+                                },
+                                "isRepresentative": {
+                                    "type": "boolean"
+                                },
+                                "investigationEventsCountForAnalysisEvent": {
+                                    "type": "integer"
+                                },
+                                "createdAt": {
+                                    "type": "long"
+                                }
+                            }
+                        }
+                    },
+                    "nextToken": {
+                        "shape": "S2q"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d3kld4ju0n55da.cloudfront.net/ad8e67fc-21b9-4b8c-8573-cf1366ccb9d1/main.js",
+                "https://d3kld4ju0n55da.cloudfront.net/f5490d09-c2d0-40f8-98a9-7a67b32170a3/main.js"
+            ]
+        },
+        "GetEvidence": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/investigationGroups/{identifier}/incidentReport/{incidentReportId}/evidences/{evidenceId}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "identifier",
+                    "incidentReportId",
+                    "evidenceId"
+                ],
+                "members": {
+                    "identifier": {
+                        "location": "uri",
+                        "locationName": "identifier"
+                    },
+                    "incidentReportId": {
+                        "location": "uri",
+                        "locationName": "incidentReportId"
+                    },
+                    "evidenceId": {
+                        "location": "uri",
+                        "locationName": "evidenceId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "evidence"
+                ],
+                "members": {
+                    "evidence": {
+                        "shape": "S6t"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d3kld4ju0n55da.cloudfront.net/ad8e67fc-21b9-4b8c-8573-cf1366ccb9d1/main.js",
+                "https://d3kld4ju0n55da.cloudfront.net/f5490d09-c2d0-40f8-98a9-7a67b32170a3/main.js"
+            ]
+        },
+        "GetFact": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/investigationGroups/{identifier}/incidentReport/{incidentReportId}/facts/{factToken}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "identifier",
+                    "incidentReportId",
+                    "factToken"
+                ],
+                "members": {
+                    "identifier": {
+                        "location": "uri",
+                        "locationName": "identifier"
+                    },
+                    "incidentReportId": {
+                        "location": "uri",
+                        "locationName": "incidentReportId"
+                    },
+                    "factToken": {
+                        "location": "uri",
+                        "locationName": "factToken"
+                    },
+                    "factVersion": {
+                        "location": "querystring",
+                        "locationName": "factVersion"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "fact"
+                ],
+                "members": {
+                    "fact": {
+                        "shape": "S70"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d3kld4ju0n55da.cloudfront.net/ad8e67fc-21b9-4b8c-8573-cf1366ccb9d1/main.js",
+                "https://d3kld4ju0n55da.cloudfront.net/f5490d09-c2d0-40f8-98a9-7a67b32170a3/main.js"
+            ]
+        },
+        "GetFactVersions": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/investigationGroups/{identifier}/incidentReport/{incidentReportId}/facts/{factToken}/versions",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "identifier",
+                    "incidentReportId",
+                    "factToken"
+                ],
+                "members": {
+                    "identifier": {
+                        "location": "uri",
+                        "locationName": "identifier"
+                    },
+                    "incidentReportId": {
+                        "location": "uri",
+                        "locationName": "incidentReportId"
+                    },
+                    "factToken": {
+                        "shape": "S2q",
+                        "location": "uri",
+                        "locationName": "factToken"
+                    },
+                    "nextToken": {
+                        "shape": "S2q",
+                        "location": "querystring",
+                        "locationName": "nextToken"
+                    },
+                    "maxResults": {
+                        "location": "querystring",
+                        "locationName": "maxResults",
+                        "type": "integer"
+                    },
+                    "sortBy": {
+                        "shape": "S2q",
+                        "location": "querystring",
+                        "locationName": "sortBy"
+                    },
+                    "sortOrder": {
+                        "shape": "S2q",
+                        "location": "querystring",
+                        "locationName": "sortOrder"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "facts"
+                ],
+                "members": {
+                    "facts": {
+                        "shape": "S77"
+                    },
+                    "nextToken": {
+                        "shape": "S2q"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d3kld4ju0n55da.cloudfront.net/ad8e67fc-21b9-4b8c-8573-cf1366ccb9d1/main.js",
+                "https://d3kld4ju0n55da.cloudfront.net/f5490d09-c2d0-40f8-98a9-7a67b32170a3/main.js"
+            ]
+        },
+        "GetInvestigationEventData": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/investigationGroups/{identifier}/investigations/{investigationId}/events/{investigationEventId}/investigationEventData/{investigationEventDataId}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "identifier",
+                    "investigationId",
+                    "investigationEventId",
+                    "investigationEventDataId"
+                ],
+                "members": {
+                    "identifier": {
+                        "location": "uri",
+                        "locationName": "identifier"
+                    },
+                    "investigationId": {
+                        "location": "uri",
+                        "locationName": "investigationId"
+                    },
+                    "investigationEventId": {
+                        "location": "uri",
+                        "locationName": "investigationEventId"
+                    },
+                    "investigationEventDataId": {
+                        "location": "uri",
+                        "locationName": "investigationEventDataId"
+                    },
+                    "nextToken": {
+                        "shape": "S2q",
+                        "location": "querystring",
+                        "locationName": "nextToken"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "investigationEventDataResponse": {
+                        "type": "structure",
+                        "members": {
+                            "logQueryEventDataMetadata": {
+                                "type": "structure",
+                                "members": {
+                                    "queryStatistics": {
+                                        "shape": "S7f"
+                                    },
+                                    "encryptionKey": {
+                                        "shape": "S1n"
+                                    }
+                                }
+                            },
+                            "logQueryEventDataResults": {
+                                "type": "structure",
+                                "members": {
+                                    "results": {
+                                        "shape": "S7h"
+                                    }
+                                }
+                            },
+                            "compositeAlarmEventData": {
+                                "type": "structure",
+                                "members": {
+                                    "alarmHistoryItems": {
+                                        "shape": "S7l"
+                                    }
+                                }
+                            },
+                            "metricEventData": {
+                                "type": "structure",
+                                "members": {
+                                    "metricDataResults": {
+                                        "shape": "S7s"
+                                    },
+                                    "nextToken": {
+                                        "shape": "S2q"
+                                    },
+                                    "messages": {
+                                        "shape": "S7y"
+                                    }
+                                }
+                            },
+                            "describeAlarmEventData": {
+                                "type": "structure",
+                                "members": {
+                                    "metricAlarm": {
+                                        "shape": "Sg"
+                                    }
+                                }
+                            },
+                            "contributorInsightEventData": {
+                                "type": "structure",
+                                "members": {
+                                    "aggregateValue": {
+                                        "type": "double"
+                                    },
+                                    "aggregationStatistic": {},
+                                    "approximateUniqueCount": {
+                                        "type": "integer"
+                                    },
+                                    "contributors": {
+                                        "shape": "S84"
+                                    },
+                                    "keyLabels": {
+                                        "shape": "S88"
+                                    },
+                                    "metricDatapoints": {
+                                        "shape": "S89"
+                                    }
+                                }
+                            },
+                            "blobEventData": {
+                                "type": "structure",
+                                "members": {
+                                    "content": {
+                                        "shape": "S52"
+                                    },
+                                    "contentType": {
+                                        "shape": "S1n"
+                                    }
+                                }
+                            }
+                        },
+                        "union": true
+                    },
+                    "nextToken": {
+                        "shape": "S2q"
+                    },
+                    "investigationGroupArn": {}
+                }
+            },
+            "download_location": [
+                "https://d3kld4ju0n55da.cloudfront.net/ad8e67fc-21b9-4b8c-8573-cf1366ccb9d1/main.js",
+                "https://d3kld4ju0n55da.cloudfront.net/f5490d09-c2d0-40f8-98a9-7a67b32170a3/main.js"
+            ]
+        },
+        "GetReport": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/investigationGroups/{identifier}/incidentReport/{incidentReportId}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "identifier",
+                    "incidentReportId"
+                ],
+                "members": {
+                    "identifier": {
+                        "location": "uri",
+                        "locationName": "identifier"
+                    },
+                    "incidentReportId": {
+                        "location": "uri",
+                        "locationName": "incidentReportId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "incidentReport"
+                ],
+                "members": {
+                    "incidentReport": {
+                        "shape": "S8v"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d3kld4ju0n55da.cloudfront.net/ad8e67fc-21b9-4b8c-8573-cf1366ccb9d1/main.js",
+                "https://d3kld4ju0n55da.cloudfront.net/f5490d09-c2d0-40f8-98a9-7a67b32170a3/main.js"
+            ]
+        },
+        "ListEphemeralInvestigations": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/ephemeralInvestigation",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "nextToken": {
+                        "shape": "S2q",
+                        "location": "querystring",
+                        "locationName": "nextToken"
+                    },
+                    "maxResults": {
+                        "location": "querystring",
+                        "locationName": "maxResults",
+                        "type": "integer"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "ephemeralInvestigations": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "ephemeralInvestigationId": {},
+                                "name": {}
+                            }
+                        }
+                    },
+                    "nextToken": {
+                        "shape": "S2q"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d3kld4ju0n55da.cloudfront.net/ad8e67fc-21b9-4b8c-8573-cf1366ccb9d1/main.js",
+                "https://d3kld4ju0n55da.cloudfront.net/f5490d09-c2d0-40f8-98a9-7a67b32170a3/main.js"
+            ]
+        },
+        "ListEvidences": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/investigationGroups/{identifier}/incidentReport/{incidentReportId}/evidences",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "identifier",
+                    "incidentReportId"
+                ],
+                "members": {
+                    "identifier": {
+                        "location": "uri",
+                        "locationName": "identifier"
+                    },
+                    "incidentReportId": {
+                        "location": "uri",
+                        "locationName": "incidentReportId"
+                    },
+                    "nextToken": {
+                        "shape": "S2q",
+                        "location": "querystring",
+                        "locationName": "nextToken"
+                    },
+                    "maxResults": {
+                        "location": "querystring",
+                        "locationName": "maxResults",
+                        "type": "integer"
+                    },
+                    "sortBy": {
+                        "shape": "S2q",
+                        "location": "querystring",
+                        "locationName": "sortBy"
+                    },
+                    "sortOrder": {
+                        "shape": "S2q",
+                        "location": "querystring",
+                        "locationName": "sortOrder"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "evidences"
+                ],
+                "members": {
+                    "evidences": {
+                        "type": "list",
+                        "member": {
+                            "shape": "S6t"
+                        }
+                    },
+                    "nextToken": {
+                        "shape": "S2q"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d3kld4ju0n55da.cloudfront.net/ad8e67fc-21b9-4b8c-8573-cf1366ccb9d1/main.js",
+                "https://d3kld4ju0n55da.cloudfront.net/f5490d09-c2d0-40f8-98a9-7a67b32170a3/main.js"
+            ]
+        },
+        "ListFacts": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/investigationGroups/{identifier}/incidentReport/{incidentReportId}/facts",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "identifier",
+                    "incidentReportId"
+                ],
+                "members": {
+                    "identifier": {
+                        "location": "uri",
+                        "locationName": "identifier"
+                    },
+                    "incidentReportId": {
+                        "location": "uri",
+                        "locationName": "incidentReportId"
+                    },
+                    "factToken": {
+                        "shape": "S2q",
+                        "location": "querystring",
+                        "locationName": "factToken"
+                    },
+                    "nextToken": {
+                        "shape": "S2q",
+                        "location": "querystring",
+                        "locationName": "nextToken"
+                    },
+                    "maxResults": {
+                        "location": "querystring",
+                        "locationName": "maxResults",
+                        "type": "integer"
+                    },
+                    "sortBy": {
+                        "shape": "S2q",
+                        "location": "querystring",
+                        "locationName": "sortBy"
+                    },
+                    "sortOrder": {
+                        "shape": "S2q",
+                        "location": "querystring",
+                        "locationName": "sortOrder"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "facts"
+                ],
+                "members": {
+                    "facts": {
+                        "shape": "S77"
+                    },
+                    "nextToken": {
+                        "shape": "S2q"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d3kld4ju0n55da.cloudfront.net/ad8e67fc-21b9-4b8c-8573-cf1366ccb9d1/main.js",
+                "https://d3kld4ju0n55da.cloudfront.net/f5490d09-c2d0-40f8-98a9-7a67b32170a3/main.js"
+            ]
+        },
+        "ListReports": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/investigationGroups/{identifier}/incidentReport",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "identifier"
+                ],
+                "members": {
+                    "identifier": {
+                        "location": "uri",
+                        "locationName": "identifier"
+                    },
+                    "labels": {
+                        "shape": "S8y",
+                        "location": "header",
+                        "locationName": "labels"
+                    },
+                    "nextToken": {
+                        "shape": "S2q",
+                        "location": "header",
+                        "locationName": "nextToken"
+                    },
+                    "maxResults": {
+                        "location": "header",
+                        "locationName": "maxResults",
+                        "type": "integer"
+                    },
+                    "sortBy": {
+                        "location": "header",
+                        "locationName": "sortBy"
+                    },
+                    "sortOrder": {
+                        "shape": "S2q",
+                        "location": "header",
+                        "locationName": "sortOrder"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "incidentReports"
+                ],
+                "members": {
+                    "incidentReports": {
+                        "type": "list",
+                        "member": {
+                            "shape": "S8v"
+                        }
+                    },
+                    "nextToken": {
+                        "shape": "S2q"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d3kld4ju0n55da.cloudfront.net/ad8e67fc-21b9-4b8c-8573-cf1366ccb9d1/main.js",
+                "https://d3kld4ju0n55da.cloudfront.net/f5490d09-c2d0-40f8-98a9-7a67b32170a3/main.js"
+            ]
+        },
+        "PlanIncidentReportGeneration": {
+            "http": {
+                "requestUri": "/investigationGroups/{identifier}/incidentReport/planIncidentReportGeneration",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "identifier"
+                ],
+                "members": {
+                    "identifier": {
+                        "location": "uri",
+                        "locationName": "identifier"
+                    },
+                    "templateContent": {
+                        "shape": "S66"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "orderedSectionNames"
+                ],
+                "members": {
+                    "orderedSectionNames": {
+                        "shape": "S6h"
+                    }
+                }
+            },
+            "download_location": [
+                "https://d3kld4ju0n55da.cloudfront.net/ad8e67fc-21b9-4b8c-8573-cf1366ccb9d1/main.js",
+                "https://d3kld4ju0n55da.cloudfront.net/f5490d09-c2d0-40f8-98a9-7a67b32170a3/main.js"
+            ]
+        },
+        "PutEvidence": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/investigationGroups/{identifier}/incidentReport/{incidentReportId}/evidences",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "identifier",
+                    "incidentReportId"
+                ],
+                "members": {
+                    "identifier": {
+                        "location": "uri",
+                        "locationName": "identifier"
+                    },
+                    "incidentReportId": {
+                        "location": "uri",
+                        "locationName": "incidentReportId"
+                    },
+                    "evidence": {
+                        "shape": "S6t"
+                    },
+                    "id": {},
+                    "investigationGroupId": {},
+                    "investigationId": {},
+                    "name": {
+                        "shape": "S2q"
+                    },
+                    "ticket": {
+                        "shape": "S2q"
+                    },
+                    "textInput": {
+                        "shape": "S1n"
+                    },
+                    "llmResponse": {
+                        "shape": "S1n"
+                    },
+                    "evidenceSource": {
+                        "shape": "S2q"
+                    },
+                    "format": {
+                        "shape": "S2q"
+                    },
+                    "data": {
+                        "type": "blob"
+                    },
+                    "properties": {
+                        "shape": "S6v"
+                    },
+                    "createdAt": {
+                        "type": "timestamp"
+                    },
+                    "createdBy": {},
+                    "lastUpdatedAt": {
+                        "type": "timestamp"
+                    },
+                    "lastUpdatedBy": {}
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "evidenceId"
+                ],
+                "members": {
+                    "evidenceId": {}
+                }
+            },
+            "download_location": [
+                "https://d3kld4ju0n55da.cloudfront.net/ad8e67fc-21b9-4b8c-8573-cf1366ccb9d1/main.js",
+                "https://d3kld4ju0n55da.cloudfront.net/f5490d09-c2d0-40f8-98a9-7a67b32170a3/main.js"
+            ]
+        },
+        "PutFact": {
+            "http": {
+                "method": "PUT",
+                "requestUri": "/investigationGroups/{identifier}/incidentReport/{incidentReportId}/facts",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "identifier",
+                    "incidentReportId"
+                ],
+                "members": {
+                    "identifier": {
+                        "location": "uri",
+                        "locationName": "identifier"
+                    },
+                    "incidentReportId": {
+                        "location": "uri",
+                        "locationName": "incidentReportId"
+                    },
+                    "fact": {
+                        "shape": "S70"
+                    },
+                    "factToken": {
+                        "shape": "S2q"
+                    },
+                    "factVersion": {
+                        "shape": "S2q"
+                    },
+                    "factType": {
+                        "shape": "S2q"
+                    },
+                    "evidences": {
+                        "shape": "S71"
+                    },
+                    "summary": {
+                        "shape": "S73"
+                    },
+                    "verified": {
+                        "type": "boolean"
+                    },
+                    "constraints": {},
+                    "properties": {
+                        "shape": "S74"
+                    },
+                    "title": {},
+                    "category": {
+                        "shape": "S1n"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "factToken"
+                ],
+                "members": {
+                    "factToken": {}
+                }
+            },
+            "download_location": [
+                "https://d3kld4ju0n55da.cloudfront.net/ad8e67fc-21b9-4b8c-8573-cf1366ccb9d1/main.js",
+                "https://d3kld4ju0n55da.cloudfront.net/f5490d09-c2d0-40f8-98a9-7a67b32170a3/main.js"
+            ]
+        },
+        "StartEphemeralInvestigation": {
+            "http": {
+                "requestUri": "/ephemeralInvestigation",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "name": {},
+                    "investigationWindow": {
+                        "shape": "S4"
+                    },
+                    "ephemeralInvestigationEventData": {
+                        "type": "structure",
+                        "members": {
+                            "eventBody": {
+                                "shape": "S8"
+                            },
+                            "eventType": {},
+                            "eventWindow": {
+                                "shape": "S3y"
+                            }
+                        }
+                    },
+                    "dryRun": {
+                        "type": "boolean"
+                    },
+                    "clientToken": {
+                        "idempotencyToken": true
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "dryRunResponse": {
+                        "shape": "S43"
+                    },
+                    "ephemeralInvestigationId": {}
+                }
+            },
+            "download_location": [
+                "https://d3kld4ju0n55da.cloudfront.net/ad8e67fc-21b9-4b8c-8573-cf1366ccb9d1/main.js",
+                "https://d3kld4ju0n55da.cloudfront.net/f5490d09-c2d0-40f8-98a9-7a67b32170a3/main.js"
+            ]
+        },
+        "UpdateReport": {
+            "http": {
+                "method": "PATCH",
+                "requestUri": "/investigationGroups/{identifier}/incidentReport/{incidentReportId}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "identifier",
+                    "incidentReportId",
+                    "incidentReport"
+                ],
+                "members": {
+                    "identifier": {
+                        "location": "uri",
+                        "locationName": "identifier"
+                    },
+                    "incidentReportId": {
+                        "location": "uri",
+                        "locationName": "incidentReportId"
+                    },
+                    "incidentReport": {
+                        "shape": "S8v"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "incidentReportId"
+                ],
+                "members": {
+                    "incidentReportId": {}
+                }
+            },
+            "download_location": [
+                "https://d3kld4ju0n55da.cloudfront.net/ad8e67fc-21b9-4b8c-8573-cf1366ccb9d1/main.js",
+                "https://d3kld4ju0n55da.cloudfront.net/f5490d09-c2d0-40f8-98a9-7a67b32170a3/main.js"
+            ]
+        },
+        "ValidateInvestigationGroup": {
+            "http": {
+                "requestUri": "/investigationGroups/{identifier}/validateInvestigationGroup",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "identifier",
+                    "validationInformation"
+                ],
+                "members": {
+                    "identifier": {
+                        "location": "uri",
+                        "locationName": "identifier"
+                    },
+                    "validationInformation": {
+                        "type": "structure",
+                        "required": [
+                            "validationRule"
+                        ],
+                        "members": {
+                            "validationRule": {},
+                            "validationContext": {
+                                "type": "map",
+                                "key": {},
+                                "value": {
+                                    "type": "list",
+                                    "member": {}
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "validationResults": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "configurationId": {},
+                                "configurationType": {},
+                                "status": {},
+                                "error": {}
+                            }
+                        }
+                    }
+                }
+            },
+            "download_location": [
+                "https://d3kld4ju0n55da.cloudfront.net/ad8e67fc-21b9-4b8c-8573-cf1366ccb9d1/main.js",
+                "https://d3kld4ju0n55da.cloudfront.net/f5490d09-c2d0-40f8-98a9-7a67b32170a3/main.js"
+            ]
+        }
+    },
+    "shapes": {
+        "S4": {
+            "type": "structure",
+            "members": {
+                "start": {
+                    "type": "long"
+                },
+                "end": {
+                    "type": "long"
+                }
+            }
+        },
+        "Sd": {
+            "type": "structure",
+            "members": {
+                "dummy": {
+                    "type": "structure",
+                    "required": [
+                        "dummyContent"
+                    ],
+                    "members": {
+                        "dummyContent": {}
+                    }
+                },
+                "metricAlarmObservation": {
+                    "shape": "Sg"
+                },
+                "metricObservation": {
+                    "shape": "S1n"
+                },
+                "logQueryResult": {
+                    "shape": "S20"
+                },
+                "feedback": {
+                    "type": "structure",
+                    "required": [
+                        "feedback"
+                    ],
+                    "members": {
+                        "investigationEventId": {},
+                        "feedback": {}
+                    }
+                },
+                "assistantHypothesis": {
+                    "type": "structure",
+                    "members": {
+                        "resourceArn": {},
+                        "resourceArns": {
+                            "shape": "Si"
+                        },
+                        "resourceLink": {},
+                        "hypothesis": {
+                            "shape": "S1p"
+                        },
+                        "evidence": {
+                            "type": "list",
+                            "member": {
+                                "type": "structure",
+                                "members": {
+                                    "investigationEventId": {},
+                                    "justification": {
+                                        "shape": "S1p"
+                                    }
+                                }
+                            }
+                        },
+                        "reasoning": {
+                            "type": "list",
+                            "member": {
+                                "type": "structure",
+                                "members": {
+                                    "text": {
+                                        "shape": "S1p"
+                                    },
+                                    "investigationEventId": {}
+                                }
+                            }
+                        },
+                        "confidence": {
+                            "type": "double"
+                        },
+                        "pathway": {
+                            "type": "list",
+                            "member": {
+                                "shape": "S1p"
+                            }
+                        },
+                        "relevantActions": {
+                            "type": "list",
+                            "member": {
+                                "type": "structure",
+                                "members": {
+                                    "id": {},
+                                    "name": {
+                                        "shape": "S2l"
+                                    },
+                                    "type": {},
+                                    "uri": {},
+                                    "metadata": {
+                                        "type": "map",
+                                        "key": {},
+                                        "value": {
+                                            "shape": "S1p"
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "version": {},
+                        "rootCauseSummary": {
+                            "shape": "S1p"
+                        },
+                        "possibleNextSteps": {
+                            "type": "list",
+                            "member": {
+                                "type": "structure",
+                                "members": {
+                                    "text": {
+                                        "shape": "S1p"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "dashboardObservation": {
+                    "type": "structure",
+                    "required": [
+                        "dashboardName"
+                    ],
+                    "members": {
+                        "resourceArn": {},
+                        "resourceArns": {
+                            "shape": "Si"
+                        },
+                        "resourceLink": {},
+                        "dashboardName": {},
+                        "dashboardType": {},
+                        "dashboardUrl": {}
+                    }
+                },
+                "freeTextObservation": {
+                    "type": "structure",
+                    "members": {
+                        "text": {
+                            "shape": "S1p"
+                        }
+                    }
+                },
+                "healthEventObservation": {
+                    "type": "structure",
+                    "members": {
+                        "resourceArn": {},
+                        "resourceArns": {
+                            "shape": "Si"
+                        },
+                        "resourceLink": {},
+                        "eventArn": {},
+                        "eventSummary": {
+                            "shape": "S1p"
+                        },
+                        "eventDescription": {
+                            "shape": "S2l"
+                        },
+                        "dashboardLink": {}
+                    }
+                },
+                "deploymentObservation": {
+                    "type": "structure",
+                    "members": {
+                        "deploymentEvents": {
+                            "type": "list",
+                            "member": {
+                                "type": "structure",
+                                "members": {
+                                    "resourceArn": {},
+                                    "resourceArns": {
+                                        "shape": "Si"
+                                    },
+                                    "resourceLink": {},
+                                    "type": {},
+                                    "stackId": {},
+                                    "eventId": {},
+                                    "eventTime": {},
+                                    "eventSource": {},
+                                    "eventUsername": {},
+                                    "eventName": {},
+                                    "callerUserARN": {},
+                                    "status": {},
+                                    "statusReason": {
+                                        "shape": "S1p"
+                                    },
+                                    "startTime": {
+                                        "type": "long"
+                                    },
+                                    "endTime": {
+                                        "type": "long"
+                                    },
+                                    "targets": {
+                                        "type": "list",
+                                        "member": {
+                                            "type": "structure",
+                                            "members": {
+                                                "resourceId": {},
+                                                "resourceType": {},
+                                                "status": {},
+                                                "statusReason": {
+                                                    "shape": "S1p"
+                                                },
+                                                "startTime": {
+                                                    "type": "long"
+                                                },
+                                                "endTime": {
+                                                    "type": "long"
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "lastUpdateTime": {
+                                        "type": "long"
+                                    },
+                                    "linkURL": {},
+                                    "invokedBy": {}
+                                }
+                            }
+                        }
+                    }
+                },
+                "contributorInsightObservation": {
+                    "type": "structure",
+                    "members": {
+                        "resourceArn": {},
+                        "resourceArns": {
+                            "shape": "Si"
+                        },
+                        "resourceLink": {},
+                        "rules": {
+                            "type": "list",
+                            "member": {
+                                "shape": "S31"
+                            }
+                        }
+                    }
+                },
+                "compositeAlarmObservation": {
+                    "type": "structure",
+                    "members": {
+                        "resourceArn": {},
+                        "resourceArns": {
+                            "shape": "Si"
+                        },
+                        "resourceLink": {},
+                        "compositeAlarm": {
+                            "type": "structure",
+                            "members": {
+                                "ActionsEnabled": {
+                                    "type": "boolean"
+                                },
+                                "AlarmActions": {
+                                    "shape": "Sp"
+                                },
+                                "AlarmArn": {},
+                                "AlarmConfigurationUpdatedTimestamp": {
+                                    "type": "timestamp"
+                                },
+                                "AlarmDescription": {},
+                                "AlarmName": {},
+                                "AlarmRule": {},
+                                "InsufficientDataActions": {
+                                    "shape": "Sp"
+                                },
+                                "OKActions": {
+                                    "shape": "Sp"
+                                },
+                                "StateReason": {},
+                                "StateReasonData": {},
+                                "StateUpdatedTimestamp": {
+                                    "type": "timestamp"
+                                },
+                                "StateValue": {},
+                                "StateTransitionedTimestamp": {
+                                    "type": "timestamp"
+                                },
+                                "ActionsSuppressedBy": {},
+                                "ActionsSuppressedReason": {},
+                                "ActionsSuppressor": {},
+                                "ActionsSuppressorWaitPeriod": {
+                                    "type": "integer"
+                                },
+                                "ActionsSuppressorExtensionPeriod": {
+                                    "type": "integer"
+                                }
+                            }
+                        },
+                        "selectedWindow": {
+                            "shape": "S1l"
+                        },
+                        "dashboardName": {}
+                    }
+                },
+                "investigationSummary": {
+                    "type": "structure",
+                    "members": {
+                        "summary": {
+                            "shape": "S1p"
+                        }
+                    }
+                },
+                "assistantLogMessage": {
+                    "type": "structure",
+                    "members": {
+                        "text": {},
+                        "type": {}
+                    }
+                },
+                "actionExecution": {
+                    "type": "structure",
+                    "members": {
+                        "executionId": {},
+                        "actionId": {}
+                    }
+                },
+                "sloObservation": {
+                    "type": "structure",
+                    "members": {
+                        "resourceArn": {},
+                        "resourceArns": {
+                            "shape": "Si"
+                        },
+                        "resourceLink": {},
+                        "sloName": {},
+                        "service": {},
+                        "environment": {},
+                        "operation": {},
+                        "metricDataQuery": {
+                            "shape": "S1b"
+                        },
+                        "selectedWindow": {
+                            "shape": "S1l"
+                        }
+                    }
+                },
+                "traceObservation": {
+                    "type": "structure",
+                    "members": {
+                        "resourceArn": {},
+                        "resourceArns": {
+                            "shape": "Si"
+                        },
+                        "resourceLink": {},
+                        "traces": {
+                            "type": "list",
+                            "member": {
+                                "type": "structure",
+                                "members": {
+                                    "traceId": {},
+                                    "targetService": {
+                                        "shape": "S3g"
+                                    },
+                                    "targetOperationDuration": {
+                                        "type": "double"
+                                    },
+                                    "targetOperation": {},
+                                    "targetStatus": {},
+                                    "targetStartTime": {
+                                        "type": "timestamp"
+                                    },
+                                    "findings": {
+                                        "type": "list",
+                                        "member": {
+                                            "type": "structure",
+                                            "members": {
+                                                "status": {},
+                                                "source": {
+                                                    "shape": "S3g"
+                                                },
+                                                "sourceOperation": {},
+                                                "target": {
+                                                    "shape": "S3g"
+                                                },
+                                                "targetOperation": {},
+                                                "targetStartTime": {
+                                                    "type": "timestamp"
+                                                },
+                                                "exceptionMessage": {},
+                                                "exceptionType": {},
+                                                "targetDuration": {
+                                                    "type": "double"
+                                                },
+                                                "isHighLatency": {
+                                                    "type": "boolean"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "sensitive": true,
+            "union": true
+        },
+        "Sg": {
+            "type": "structure",
+            "members": {
+                "resourceArn": {},
+                "resourceArns": {
+                    "shape": "Si"
+                },
+                "resourceLink": {},
+                "metricAlarm": {
+                    "shape": "Sj"
+                },
+                "selectedWindow": {
+                    "shape": "S1l"
+                },
+                "dashboardName": {}
+            }
+        },
+        "Si": {
+            "type": "list",
+            "member": {}
+        },
+        "Sj": {
+            "type": "structure",
+            "members": {
+                "AlarmName": {},
+                "AlarmArn": {},
+                "AlarmDescription": {},
+                "AlarmConfigurationUpdatedTimestamp": {
+                    "type": "timestamp"
+                },
+                "ActionsEnabled": {
+                    "type": "boolean"
+                },
+                "OKActions": {
+                    "shape": "Sp"
+                },
+                "AlarmActions": {
+                    "shape": "Sp"
+                },
+                "InsufficientDataActions": {
+                    "shape": "Sp"
+                },
+                "StateValue": {},
+                "StateReason": {},
+                "StateReasonData": {},
+                "StateUpdatedTimestamp": {
+                    "type": "timestamp"
+                },
+                "MetricName": {},
+                "Namespace": {},
+                "Statistic": {},
+                "ExtendedStatistic": {},
+                "Dimensions": {
+                    "shape": "Sy"
+                },
+                "Period": {
+                    "type": "integer"
+                },
+                "Unit": {},
+                "EvaluationPeriods": {
+                    "type": "integer"
+                },
+                "DatapointsToAlarm": {
+                    "type": "integer"
+                },
+                "Threshold": {
+                    "type": "double"
+                },
+                "ComparisonOperator": {},
+                "TreatMissingData": {},
+                "EvaluateLowSampleCountPercentile": {},
+                "Metrics": {
+                    "shape": "S1a"
+                },
+                "ThresholdMetricId": {},
+                "EvaluationState": {},
+                "StateTransitionedTimestamp": {
+                    "type": "timestamp"
+                }
+            }
+        },
+        "Sp": {
+            "type": "list",
+            "member": {}
+        },
+        "Sy": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "Name",
+                    "Value"
+                ],
+                "members": {
+                    "Name": {},
+                    "Value": {}
+                }
+            }
+        },
+        "S1a": {
+            "type": "list",
+            "member": {
+                "shape": "S1b"
+            }
+        },
+        "S1b": {
+            "type": "structure",
+            "required": [
+                "Id"
+            ],
+            "members": {
+                "Id": {},
+                "MetricStat": {
+                    "type": "structure",
+                    "required": [
+                        "Metric",
+                        "Period",
+                        "Stat"
+                    ],
+                    "members": {
+                        "Metric": {
+                            "type": "structure",
+                            "members": {
+                                "Namespace": {},
+                                "MetricName": {},
+                                "Dimensions": {
+                                    "shape": "Sy"
+                                }
+                            }
+                        },
+                        "Period": {
+                            "type": "integer"
+                        },
+                        "Stat": {},
+                        "Unit": {}
+                    }
+                },
+                "Expression": {},
+                "Label": {},
+                "ReturnData": {
+                    "type": "boolean"
+                },
+                "Period": {
+                    "type": "integer"
+                },
+                "AccountId": {}
+            }
+        },
+        "S1l": {
+            "type": "structure",
+            "members": {
+                "start": {
+                    "type": "timestamp"
+                },
+                "end": {
+                    "type": "timestamp"
+                }
+            }
+        },
+        "S1n": {
+            "type": "structure",
+            "members": {
+                "resourceArn": {},
+                "resourceArns": {
+                    "shape": "Si"
+                },
+                "resourceLink": {},
+                "metrics": {
+                    "type": "list",
+                    "member": {
+                        "shape": "S1b"
+                    }
+                },
+                "metricWidget": {
+                    "shape": "S1p"
+                },
+                "metricImage": {
+                    "shape": "S1p"
+                },
+                "displayOptions": {
+                    "type": "structure",
+                    "members": {
+                        "title": {},
+                        "horizontalAnnotations": {
+                            "type": "list",
+                            "member": {
+                                "type": "structure",
+                                "members": {
+                                    "label": {},
+                                    "value": {
+                                        "type": "double"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "metricPValues": {
+                    "type": "list",
+                    "member": {
+                        "type": "double"
+                    }
+                },
+                "metricScores": {
+                    "type": "list",
+                    "member": {
+                        "type": "double"
+                    }
+                },
+                "selectedWindow": {
+                    "shape": "S1l"
+                },
+                "labelOptions": {
+                    "type": "structure",
+                    "members": {
+                        "timezone": {
+                            "type": "structure",
+                            "members": {
+                                "member": {}
+                            }
+                        }
+                    }
+                },
+                "scanBy": {},
+                "maxRecords": {
+                    "type": "integer"
+                },
+                "metricDataQueries": {
+                    "shape": "S1a"
+                },
+                "dashboardName": {}
+            }
+        },
+        "S1p": {
+            "type": "string",
+            "sensitive": true
+        },
+        "S20": {
+            "type": "structure",
+            "members": {
+                "resourceArn": {},
+                "resourceArns": {
+                    "shape": "Si"
+                },
+                "resourceLink": {},
+                "summary": {
+                    "shape": "S1p"
+                },
+                "queryId": {},
+                "logQuery": {
+                    "type": "structure",
+                    "members": {
+                        "logGroupIdentifiers": {
+                            "type": "list",
+                            "member": {
+                                "shape": "S1p"
+                            }
+                        },
+                        "startTime": {
+                            "type": "long"
+                        },
+                        "endTime": {
+                            "type": "long"
+                        },
+                        "query": {
+                            "shape": "S1p"
+                        },
+                        "anomalies": {
+                            "type": "list",
+                            "member": {
+                                "type": "structure",
+                                "members": {
+                                    "description": {
+                                        "shape": "S1p"
+                                    },
+                                    "priority": {},
+                                    "patternString": {
+                                        "shape": "S1p"
+                                    },
+                                    "firstSeenTime": {
+                                        "type": "long"
+                                    },
+                                    "lastSeenTime": {
+                                        "type": "long"
+                                    }
+                                }
+                            }
+                        },
+                        "patterns": {
+                            "type": "list",
+                            "member": {
+                                "type": "structure",
+                                "members": {
+                                    "pattern": {
+                                        "shape": "S1p"
+                                    },
+                                    "count": {
+                                        "type": "long"
+                                    }
+                                }
+                            }
+                        },
+                        "structuredLogAnomalies": {
+                            "type": "list",
+                            "member": {
+                                "type": "structure",
+                                "members": {
+                                    "fieldName": {
+                                        "shape": "S1p"
+                                    },
+                                    "mean": {
+                                        "shape": "S2a"
+                                    },
+                                    "anomalyMean": {
+                                        "shape": "S2a"
+                                    },
+                                    "anomalyScore": {
+                                        "type": "double"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "maxResults": {
+                    "type": "integer"
+                },
+                "dashboardName": {}
+            }
+        },
+        "S2a": {
+            "type": "structure",
+            "members": {
+                "stringMean": {
+                    "shape": "S1p"
+                },
+                "numericalMean": {
+                    "type": "double"
+                }
+            },
+            "union": true
+        },
+        "S2l": {
+            "type": "string",
+            "sensitive": true
+        },
+        "S31": {
+            "type": "structure",
+            "members": {
+                "ruleName": {},
+                "ruleSummary": {
+                    "shape": "S1p"
+                },
+                "anomalousTopContributorCount": {},
+                "reportStartTime": {
+                    "type": "long"
+                },
+                "reportEndTime": {
+                    "type": "long"
+                },
+                "reportPeriod": {
+                    "type": "integer"
+                },
+                "orderBy": {}
+            }
+        },
+        "S3g": {
+            "type": "structure",
+            "members": {
+                "type": {},
+                "resourceType": {},
+                "identifier": {},
+                "name": {},
+                "environment": {},
+                "awsAccountId": {}
+            }
+        },
+        "S3k": {
+            "type": "map",
+            "key": {},
+            "value": {
+                "type": "list",
+                "member": {}
+            }
+        },
+        "S3p": {
+            "type": "structure",
+            "required": [
+                "start"
+            ],
+            "members": {
+                "start": {
+                    "type": "long"
+                },
+                "end": {
+                    "type": "long"
+                }
+            }
+        },
+        "S3t": {
+            "type": "structure",
+            "members": {
+                "type": {},
+                "kmsKeyId": {}
+            }
+        },
+        "S3w": {
+            "type": "structure",
+            "members": {
+                "instanceArn": {},
+                "instanceRegion": {}
+            }
+        },
+        "S40": {
+            "type": "map",
+            "key": {},
+            "value": {}
+        },
+        "S43": {
+            "type": "list",
+            "member": {}
+        },
+        "S44": {
+            "type": "map",
+            "key": {},
+            "value": {
+                "type": "list",
+                "member": {}
+            }
+        },
+        "S48": {
+            "type": "list",
+            "member": {}
+        },
+        "S4f": {
+            "type": "blob",
+            "sensitive": true
+        },
+        "S4r": {
+            "type": "structure",
+            "required": [
+                "investigationId",
+                "investigationEventId"
+            ],
+            "members": {
+                "investigationId": {},
+                "investigationEventId": {},
+                "createdBy": {},
+                "createdAt": {
+                    "type": "long"
+                },
+                "lastModifiedBy": {},
+                "lastModifiedAt": {
+                    "type": "long"
+                },
+                "investigationGroupArn": {},
+                "visible": {
+                    "type": "boolean"
+                },
+                "type": {},
+                "body": {
+                    "shape": "Sd"
+                },
+                "acceptance": {},
+                "summary": {
+                    "shape": "S2l"
+                },
+                "resourceArns": {
+                    "shape": "Si"
+                },
+                "resourceMetadata": {
+                    "type": "structure",
+                    "members": {
+                        "createdBy": {},
+                        "createdAt": {
+                            "type": "long"
+                        },
+                        "lastModifiedBy": {},
+                        "lastModifiedAt": {
+                            "type": "long"
+                        },
+                        "resourceMetadataList": {
+                            "type": "list",
+                            "member": {
+                                "type": "structure",
+                                "required": [
+                                    "resourceId",
+                                    "pageCount",
+                                    "resourceType"
+                                ],
+                                "members": {
+                                    "resourceId": {},
+                                    "pageCount": {
+                                        "type": "integer"
+                                    },
+                                    "resourceType": {}
+                                }
+                            }
+                        }
+                    }
+                },
+                "relatedEvents": {
+                    "shape": "S3k"
+                },
+                "comment": {
+                    "shape": "S2l"
+                },
+                "suggested": {
+                    "type": "boolean"
+                },
+                "createdByIDCUser": {},
+                "pinned": {
+                    "type": "boolean"
+                },
+                "pinUpdatedBy": {},
+                "pinUpdatedByIDCUser": {},
+                "progressStatus": {},
+                "lastModifiedByIDCUser": {},
+                "investigationEventWindow": {
+                    "shape": "S3p"
+                },
+                "score": {
+                    "type": "double"
+                },
+                "investigationEventCategory": {},
+                "resourceIdentifier": {
+                    "shape": "S2l"
+                },
+                "analysisGroupVersion": {
+                    "shape": "S2l"
+                },
+                "isRepresentative": {
+                    "type": "boolean"
+                },
+                "investigationEventsCountForAnalysisEvent": {
+                    "type": "integer"
+                }
+            }
+        },
+        "S5u": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "Code": {},
+                    "Value": {}
+                }
+            }
+        },
+        "S64": {
+            "type": "list",
+            "member": {}
+        },
+        "S8": {
+            "type": "structure",
+            "members": {
+                "dummy": {
+                    "type": "structure",
+                    "required": [
+                        "dummyContent"
+                    ],
+                    "members": {
+                        "dummyContent": {}
+                    }
+                },
+                "metricAlarmObservation": {
+                    "shape": "Sb"
+                },
+                "metricObservation": {
+                    "shape": "S1l"
+                },
+                "logQueryResult": {
+                    "shape": "S1y"
+                },
+                "feedback": {
+                    "type": "structure",
+                    "required": [
+                        "feedback"
+                    ],
+                    "members": {
+                        "investigationEventId": {},
+                        "feedback": {}
+                    }
+                },
+                "assistantHypothesis": {
+                    "type": "structure",
+                    "members": {
+                        "resourceArn": {},
+                        "resourceArns": {
+                            "shape": "Sd"
+                        },
+                        "resourceLink": {},
+                        "sourceAccountId": {},
+                        "hypothesis": {
+                            "shape": "S1n"
+                        },
+                        "evidence": {
+                            "type": "list",
+                            "member": {
+                                "type": "structure",
+                                "members": {
+                                    "investigationEventId": {},
+                                    "justification": {
+                                        "shape": "S1n"
+                                    }
+                                }
+                            }
+                        },
+                        "reasoning": {
+                            "type": "list",
+                            "member": {
+                                "type": "structure",
+                                "members": {
+                                    "text": {
+                                        "shape": "S1n"
+                                    },
+                                    "investigationEventId": {}
+                                }
+                            }
+                        },
+                        "confidence": {
+                            "type": "double"
+                        },
+                        "pathway": {
+                            "type": "list",
+                            "member": {
+                                "shape": "S1n"
+                            }
+                        },
+                        "causalGraph": {
+                            "type": "structure",
+                            "members": {
+                                "entities": {
+                                    "type": "list",
+                                    "member": {
+                                        "type": "structure",
+                                        "required": [
+                                            "id",
+                                            "nodeType",
+                                            "entityType",
+                                            "name"
+                                        ],
+                                        "members": {
+                                            "id": {},
+                                            "nodeType": {},
+                                            "entityType": {},
+                                            "name": {
+                                                "shape": "S2q"
+                                            },
+                                            "resourceType": {},
+                                            "description": {
+                                                "shape": "S2q"
+                                            },
+                                            "arn": {},
+                                            "properties": {
+                                                "shape": "S2r"
+                                            },
+                                            "isLikelyRootCauseEntity": {
+                                                "type": "boolean"
+                                            }
+                                        }
+                                    }
+                                },
+                                "relations": {
+                                    "type": "list",
+                                    "member": {
+                                        "type": "structure",
+                                        "required": [
+                                            "relationId",
+                                            "sourceEntityId",
+                                            "targetEntityId",
+                                            "type"
+                                        ],
+                                        "members": {
+                                            "relationId": {},
+                                            "sourceEntityId": {},
+                                            "targetEntityId": {},
+                                            "type": {},
+                                            "description": {
+                                                "shape": "S2q"
+                                            },
+                                            "score": {
+                                                "type": "float"
+                                            },
+                                            "properties": {
+                                                "shape": "S2r"
+                                            }
+                                        }
+                                    }
+                                },
+                                "truncated": {
+                                    "type": "boolean"
+                                }
+                            }
+                        },
+                        "relevantActions": {
+                            "type": "list",
+                            "member": {
+                                "type": "structure",
+                                "members": {
+                                    "id": {},
+                                    "name": {
+                                        "shape": "S2q"
+                                    },
+                                    "type": {},
+                                    "uri": {},
+                                    "metadata": {
+                                        "type": "map",
+                                        "key": {},
+                                        "value": {
+                                            "shape": "S1n"
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "version": {},
+                        "rootCauseSummary": {
+                            "shape": "S1n"
+                        },
+                        "possibleNextSteps": {
+                            "type": "list",
+                            "member": {
+                                "type": "structure",
+                                "members": {
+                                    "text": {
+                                        "shape": "S1n"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "dashboardObservation": {
+                    "type": "structure",
+                    "required": [
+                        "dashboardName"
+                    ],
+                    "members": {
+                        "resourceArn": {},
+                        "resourceArns": {
+                            "shape": "Sd"
+                        },
+                        "resourceLink": {},
+                        "sourceAccountId": {},
+                        "dashboardName": {},
+                        "dashboardArn": {},
+                        "dashboardType": {},
+                        "dashboardUrl": {}
+                    }
+                },
+                "freeTextObservation": {
+                    "type": "structure",
+                    "members": {
+                        "text": {
+                            "shape": "S1n"
+                        }
+                    }
+                },
+                "healthEventObservation": {
+                    "type": "structure",
+                    "members": {
+                        "resourceArn": {},
+                        "resourceArns": {
+                            "shape": "Sd"
+                        },
+                        "resourceLink": {},
+                        "sourceAccountId": {},
+                        "eventArn": {},
+                        "eventSummary": {
+                            "shape": "S1n"
+                        },
+                        "eventDescription": {
+                            "shape": "S2q"
+                        },
+                        "dashboardLink": {}
+                    }
+                },
+                "deploymentObservation": {
+                    "type": "structure",
+                    "members": {
+                        "deploymentEvents": {
+                            "type": "list",
+                            "member": {
+                                "type": "structure",
+                                "members": {
+                                    "resourceArn": {},
+                                    "resourceArns": {
+                                        "shape": "Sd"
+                                    },
+                                    "resourceLink": {},
+                                    "sourceAccountId": {},
+                                    "type": {},
+                                    "stackId": {},
+                                    "eventId": {},
+                                    "eventTime": {},
+                                    "eventSource": {},
+                                    "eventUsername": {},
+                                    "eventName": {},
+                                    "callerUserARN": {},
+                                    "status": {},
+                                    "statusReason": {
+                                        "shape": "S1n"
+                                    },
+                                    "startTime": {
+                                        "type": "long"
+                                    },
+                                    "endTime": {
+                                        "type": "long"
+                                    },
+                                    "targets": {
+                                        "type": "list",
+                                        "member": {
+                                            "type": "structure",
+                                            "members": {
+                                                "resourceId": {},
+                                                "resourceType": {},
+                                                "status": {},
+                                                "statusReason": {
+                                                    "shape": "S1n"
+                                                },
+                                                "startTime": {
+                                                    "type": "long"
+                                                },
+                                                "endTime": {
+                                                    "type": "long"
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "lastUpdateTime": {
+                                        "type": "long"
+                                    },
+                                    "linkURL": {},
+                                    "invokedBy": {}
+                                }
+                            }
+                        }
+                    }
+                },
+                "contributorInsightObservation": {
+                    "type": "structure",
+                    "members": {
+                        "resourceArn": {},
+                        "resourceArns": {
+                            "shape": "Sd"
+                        },
+                        "resourceLink": {},
+                        "sourceAccountId": {},
+                        "rules": {
+                            "type": "list",
+                            "member": {
+                                "shape": "S3d"
+                            }
+                        }
+                    }
+                },
+                "compositeAlarmObservation": {
+                    "type": "structure",
+                    "members": {
+                        "resourceArn": {},
+                        "resourceArns": {
+                            "shape": "Sd"
+                        },
+                        "resourceLink": {},
+                        "sourceAccountId": {},
+                        "compositeAlarm": {
+                            "type": "structure",
+                            "members": {
+                                "ActionsEnabled": {
+                                    "type": "boolean"
+                                },
+                                "AlarmActions": {
+                                    "shape": "Sm"
+                                },
+                                "AlarmArn": {},
+                                "AlarmConfigurationUpdatedTimestamp": {
+                                    "type": "timestamp"
+                                },
+                                "AlarmDescription": {},
+                                "AlarmName": {},
+                                "AlarmRule": {},
+                                "InsufficientDataActions": {
+                                    "shape": "Sm"
+                                },
+                                "OKActions": {
+                                    "shape": "Sm"
+                                },
+                                "StateReason": {},
+                                "StateReasonData": {},
+                                "StateUpdatedTimestamp": {
+                                    "type": "timestamp"
+                                },
+                                "StateValue": {},
+                                "StateTransitionedTimestamp": {
+                                    "type": "timestamp"
+                                },
+                                "ActionsSuppressedBy": {},
+                                "ActionsSuppressedReason": {},
+                                "ActionsSuppressor": {},
+                                "ActionsSuppressorWaitPeriod": {
+                                    "type": "integer"
+                                },
+                                "ActionsSuppressorExtensionPeriod": {
+                                    "type": "integer"
+                                }
+                            }
+                        },
+                        "selectedWindow": {
+                            "shape": "S1i"
+                        },
+                        "dashboardName": {},
+                        "addedVia": {
+                            "shape": "S1k"
+                        }
+                    }
+                },
+                "investigationSummary": {
+                    "type": "structure",
+                    "members": {
+                        "summary": {
+                            "shape": "S1n"
+                        }
+                    }
+                },
+                "assistantLogMessage": {
+                    "type": "structure",
+                    "members": {
+                        "text": {},
+                        "type": {}
+                    }
+                },
+                "actionExecution": {
+                    "type": "structure",
+                    "members": {
+                        "executionId": {},
+                        "actionId": {}
+                    }
+                },
+                "sloObservation": {
+                    "type": "structure",
+                    "required": [
+                        "sloName"
+                    ],
+                    "members": {
+                        "resourceArn": {},
+                        "resourceArns": {
+                            "shape": "Sd"
+                        },
+                        "resourceLink": {},
+                        "sourceAccountId": {},
+                        "sloName": {},
+                        "service": {},
+                        "environment": {},
+                        "operation": {},
+                        "metricDataQuery": {
+                            "shape": "S18"
+                        },
+                        "selectedWindow": {
+                            "shape": "S1i"
+                        }
+                    }
+                },
+                "traceObservation": {
+                    "type": "structure",
+                    "members": {
+                        "resourceArn": {},
+                        "resourceArns": {
+                            "shape": "Sd"
+                        },
+                        "resourceLink": {},
+                        "sourceAccountId": {},
+                        "traces": {
+                            "type": "list",
+                            "member": {
+                                "type": "structure",
+                                "members": {
+                                    "traceId": {},
+                                    "targetService": {
+                                        "shape": "S3t"
+                                    },
+                                    "targetOperationDuration": {
+                                        "type": "double"
+                                    },
+                                    "targetOperation": {},
+                                    "targetStatus": {},
+                                    "targetStartTime": {
+                                        "type": "timestamp"
+                                    },
+                                    "findings": {
+                                        "type": "list",
+                                        "member": {
+                                            "type": "structure",
+                                            "members": {
+                                                "status": {},
+                                                "source": {
+                                                    "shape": "S3t"
+                                                },
+                                                "sourceOperation": {},
+                                                "target": {
+                                                    "shape": "S3t"
+                                                },
+                                                "targetOperation": {},
+                                                "targetStartTime": {
+                                                    "type": "timestamp"
+                                                },
+                                                "exceptionMessage": {},
+                                                "exceptionType": {},
+                                                "targetDuration": {
+                                                    "type": "double"
+                                                },
+                                                "isHighLatency": {
+                                                    "type": "boolean"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "agentTask": {
+                    "type": "structure",
+                    "members": {
+                        "title": {
+                            "shape": "S1n"
+                        },
+                        "type": {},
+                        "description": {
+                            "shape": "S1n"
+                        },
+                        "reasoning": {
+                            "shape": "S1n"
+                        },
+                        "initiatedBy": {}
+                    }
+                }
+            },
+            "sensitive": true,
+            "union": true
+        },
+        "Sb": {
+            "type": "structure",
+            "members": {
+                "resourceArn": {},
+                "resourceArns": {
+                    "shape": "Sd"
+                },
+                "resourceLink": {},
+                "sourceAccountId": {},
+                "metricAlarm": {
+                    "shape": "Sg"
+                },
+                "selectedWindow": {
+                    "shape": "S1i"
+                },
+                "dashboardName": {},
+                "addedVia": {
+                    "shape": "S1k"
+                }
+            }
+        },
+        "Sm": {
+            "type": "list",
+            "member": {}
+        },
+        "Sv": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "Name",
+                    "Value"
+                ],
+                "members": {
+                    "Name": {},
+                    "Value": {}
+                }
+            }
+        },
+        "S17": {
+            "type": "list",
+            "member": {
+                "shape": "S18"
+            }
+        },
+        "S18": {
+            "type": "structure",
+            "required": [
+                "Id"
+            ],
+            "members": {
+                "Id": {},
+                "MetricStat": {
+                    "type": "structure",
+                    "required": [
+                        "Metric",
+                        "Period",
+                        "Stat"
+                    ],
+                    "members": {
+                        "Metric": {
+                            "type": "structure",
+                            "members": {
+                                "Namespace": {},
+                                "MetricName": {},
+                                "Dimensions": {
+                                    "shape": "Sv"
+                                }
+                            }
+                        },
+                        "Period": {
+                            "type": "integer"
+                        },
+                        "Stat": {},
+                        "Unit": {}
+                    }
+                },
+                "Expression": {},
+                "Label": {},
+                "ReturnData": {
+                    "type": "boolean"
+                },
+                "Period": {
+                    "type": "integer"
+                },
+                "AccountId": {}
+            }
+        },
+        "S1i": {
+            "type": "structure",
+            "members": {
+                "start": {
+                    "type": "timestamp"
+                },
+                "end": {
+                    "type": "timestamp"
+                }
+            }
+        },
+        "S1k": {
+            "type": "structure",
+            "members": {
+                "dashboardArn": {}
+            }
+        },
+        "S1y": {
+            "type": "structure",
+            "members": {
+                "resourceArn": {},
+                "resourceArns": {
+                    "shape": "Sd"
+                },
+                "resourceLink": {},
+                "sourceAccountId": {},
+                "summary": {
+                    "shape": "S1n"
+                },
+                "queryId": {},
+                "logQuery": {
+                    "type": "structure",
+                    "members": {
+                        "logGroupIdentifiers": {
+                            "type": "list",
+                            "member": {
+                                "shape": "S1n"
+                            }
+                        },
+                        "startTime": {
+                            "type": "long"
+                        },
+                        "endTime": {
+                            "type": "long"
+                        },
+                        "query": {
+                            "shape": "S1n"
+                        },
+                        "anomalies": {
+                            "type": "list",
+                            "member": {
+                                "type": "structure",
+                                "members": {
+                                    "description": {
+                                        "shape": "S1n"
+                                    },
+                                    "priority": {},
+                                    "patternString": {
+                                        "shape": "S1n"
+                                    },
+                                    "firstSeenTime": {
+                                        "type": "long"
+                                    },
+                                    "lastSeenTime": {
+                                        "type": "long"
+                                    }
+                                }
+                            }
+                        },
+                        "patterns": {
+                            "type": "list",
+                            "member": {
+                                "type": "structure",
+                                "members": {
+                                    "pattern": {
+                                        "shape": "S1n"
+                                    },
+                                    "count": {
+                                        "type": "long"
+                                    }
+                                }
+                            }
+                        },
+                        "structuredLogAnomalies": {
+                            "type": "list",
+                            "member": {
+                                "type": "structure",
+                                "members": {
+                                    "fieldName": {
+                                        "shape": "S1n"
+                                    },
+                                    "mean": {
+                                        "shape": "S28"
+                                    },
+                                    "anomalyMean": {
+                                        "shape": "S28"
+                                    },
+                                    "anomalyScore": {
+                                        "type": "double"
+                                    }
+                                }
+                            }
+                        },
+                        "visualization": {
+                            "type": "structure",
+                            "members": {
+                                "binSize": {
+                                    "type": "long"
+                                },
+                                "data": {
+                                    "type": "list",
+                                    "member": {
+                                        "type": "structure",
+                                        "members": {
+                                            "timestamp": {
+                                                "type": "long"
+                                            },
+                                            "matches": {
+                                                "type": "long"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "maxResults": {
+                    "type": "integer"
+                },
+                "dashboardName": {},
+                "addedVia": {
+                    "shape": "S1k"
+                }
+            }
+        },
+        "S28": {
+            "type": "structure",
+            "members": {
+                "stringMean": {
+                    "shape": "S1n"
+                },
+                "numericalMean": {
+                    "type": "double"
+                }
+            },
+            "union": true
+        },
+        "S2q": {
+            "type": "string",
+            "sensitive": true
+        },
+        "S2r": {
+            "type": "map",
+            "key": {},
+            "value": {
+                "shape": "S1n"
+            }
+        },
+        "S3d": {
+            "type": "structure",
+            "members": {
+                "ruleName": {},
+                "ruleSummary": {
+                    "shape": "S1n"
+                },
+                "anomalousTopContributorCount": {},
+                "reportStartTime": {
+                    "type": "long"
+                },
+                "reportEndTime": {
+                    "type": "long"
+                },
+                "reportPeriod": {
+                    "type": "integer"
+                },
+                "orderBy": {}
+            }
+        },
+        "S3y": {
+            "type": "structure",
+            "required": [
+                "start"
+            ],
+            "members": {
+                "start": {
+                    "type": "long"
+                },
+                "end": {
+                    "type": "long"
+                }
+            }
+        },
+        "S46": {
+            "type": "map",
+            "key": {},
+            "value": {
+                "type": "list",
+                "member": {}
+            }
+        },
+        "S4e": {
+            "type": "structure",
+            "members": {
+                "type": {},
+                "kmsKeyId": {}
+            }
+        },
+        "S4h": {
+            "type": "structure",
+            "members": {
+                "instanceArn": {},
+                "instanceRegion": {}
+            }
+        },
+        "S4l": {
+            "type": "map",
+            "key": {},
+            "value": {}
+        },
+        "S4o": {
+            "type": "list",
+            "member": {}
+        },
+        "S4p": {
+            "type": "map",
+            "key": {},
+            "value": {
+                "type": "list",
+                "member": {}
+            }
+        },
+        "S4t": {
+            "type": "list",
+            "member": {}
+        },
+        "S4v": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "sourceRoleArn": {}
+                }
+            }
+        },
+        "S52": {
+            "type": "blob",
+            "sensitive": true
+        },
+        "S56": {
+            "type": "list",
+            "member": {}
+        },
+        "S5o": {
+            "type": "map",
+            "key": {},
+            "value": {
+                "type": "structure",
+                "members": {
+                    "scanned": {
+                        "type": "boolean"
+                    },
+                    "reason": {}
+                }
+            }
+        },
+        "S5r": {
+            "type": "structure",
+            "required": [
+                "investigationId",
+                "investigationEventId"
+            ],
+            "members": {
+                "investigationId": {},
+                "investigationEventId": {},
+                "createdBy": {},
+                "createdAt": {
+                    "type": "long"
+                },
+                "lastModifiedBy": {},
+                "lastModifiedAt": {
+                    "type": "long"
+                },
+                "investigationGroupArn": {},
+                "visible": {
+                    "type": "boolean"
+                },
+                "type": {},
+                "body": {
+                    "shape": "S8"
+                },
+                "acceptance": {},
+                "summary": {
+                    "shape": "S2q"
+                },
+                "resourceArns": {
+                    "shape": "Sd"
+                },
+                "resourceMetadata": {
+                    "type": "structure",
+                    "members": {
+                        "createdBy": {},
+                        "createdAt": {
+                            "type": "long"
+                        },
+                        "lastModifiedBy": {},
+                        "lastModifiedAt": {
+                            "type": "long"
+                        },
+                        "resourceMetadataList": {
+                            "type": "list",
+                            "member": {
+                                "type": "structure",
+                                "required": [
+                                    "resourceId",
+                                    "pageCount",
+                                    "resourceType"
+                                ],
+                                "members": {
+                                    "resourceId": {},
+                                    "pageCount": {
+                                        "type": "integer"
+                                    },
+                                    "resourceType": {},
+                                    "resourceStatus": {}
+                                }
+                            }
+                        }
+                    }
+                },
+                "investigationEventDataMetadata": {
+                    "type": "structure",
+                    "members": {
+                        "createdBy": {},
+                        "createdAt": {
+                            "type": "long"
+                        },
+                        "lastModifiedBy": {},
+                        "lastModifiedAt": {
+                            "type": "long"
+                        },
+                        "eventDataMetadataList": {
+                            "shape": "S5y"
+                        }
+                    }
+                },
+                "relatedEvents": {
+                    "shape": "S46"
+                },
+                "comment": {
+                    "shape": "S2q"
+                },
+                "suggested": {
+                    "type": "boolean"
+                },
+                "createdByIDCUser": {},
+                "pinned": {
+                    "type": "boolean"
+                },
+                "pinUpdatedBy": {},
+                "pinUpdatedByIDCUser": {},
+                "progressStatus": {},
+                "lastModifiedByIDCUser": {},
+                "investigationEventWindow": {
+                    "shape": "S3y"
+                },
+                "score": {
+                    "type": "double"
+                },
+                "investigationEventCategory": {},
+                "resourceIdentifier": {
+                    "shape": "S2q"
+                },
+                "analysisGroupVersion": {
+                    "shape": "S2q"
+                },
+                "isRepresentative": {
+                    "type": "boolean"
+                },
+                "investigationEventsCountForAnalysisEvent": {
+                    "type": "integer"
+                },
+                "relatedAccountsStatus": {
+                    "shape": "S63"
+                }
+            }
+        },
+        "S5y": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "investigationEventDataId",
+                    "investigationEventDataDataType",
+                    "investigationEventDataStatus"
+                ],
+                "members": {
+                    "investigationEventDataId": {},
+                    "investigationEventDataDataType": {},
+                    "investigationEventDataStatus": {}
+                }
+            }
+        },
+        "S63": {
+            "type": "map",
+            "key": {},
+            "value": {
+                "type": "structure",
+                "members": {
+                    "scanned": {
+                        "type": "boolean"
+                    }
+                }
+            }
+        },
+        "S66": {
+            "type": "structure",
+            "required": [
+                "sections"
+            ],
+            "members": {
+                "guideline": {
+                    "shape": "S2q"
+                },
+                "sections": {
+                    "shape": "S67"
+                }
+            }
+        },
+        "S67": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "required": [
+                    "name"
+                ],
+                "members": {
+                    "name": {
+                        "shape": "S2q"
+                    },
+                    "title": {
+                        "type": "boolean"
+                    },
+                    "guideline": {
+                        "shape": "S1n"
+                    }
+                }
+            }
+        },
+        "S6b": {
+            "type": "structure",
+            "required": [
+                "name"
+            ],
+            "members": {
+                "title": {
+                    "type": "boolean"
+                },
+                "name": {
+                    "shape": "S2q"
+                },
+                "content": {
+                    "shape": "S1n"
+                },
+                "evidences": {
+                    "shape": "S6c"
+                },
+                "reasoning": {
+                    "shape": "S1n"
+                }
+            }
+        },
+        "S6c": {
+            "type": "list",
+            "member": {}
+        },
+        "S6h": {
+            "type": "list",
+            "member": {
+                "shape": "S2q"
+            }
+        },
+        "S6t": {
+            "type": "structure",
+            "members": {
+                "identifier": {},
+                "id": {},
+                "investigationGroupId": {},
+                "investigationId": {},
+                "name": {
+                    "shape": "S2q"
+                },
+                "ticket": {
+                    "shape": "S2q"
+                },
+                "textInput": {
+                    "shape": "S1n"
+                },
+                "llmResponse": {
+                    "shape": "S1n"
+                },
+                "evidenceSource": {
+                    "shape": "S2q"
+                },
+                "format": {
+                    "shape": "S2q"
+                },
+                "data": {
+                    "type": "blob"
+                },
+                "properties": {
+                    "shape": "S6v"
+                },
+                "createdAt": {
+                    "type": "timestamp"
+                },
+                "createdBy": {},
+                "lastUpdatedAt": {
+                    "type": "timestamp"
+                },
+                "lastUpdatedBy": {}
+            }
+        },
+        "S6v": {
+            "type": "map",
+            "key": {},
+            "value": {}
+        },
+        "S70": {
+            "type": "structure",
+            "members": {
+                "createdBy": {},
+                "createdAt": {
+                    "type": "long"
+                },
+                "lastModifiedBy": {},
+                "lastModifiedAt": {
+                    "type": "long"
+                },
+                "identifier": {},
+                "investigationGroupId": {},
+                "reportId": {},
+                "factToken": {
+                    "shape": "S2q"
+                },
+                "factVersion": {
+                    "shape": "S2q"
+                },
+                "factType": {
+                    "shape": "S2q"
+                },
+                "evidences": {
+                    "shape": "S71"
+                },
+                "summary": {
+                    "shape": "S73"
+                },
+                "verified": {
+                    "type": "boolean"
+                },
+                "constraints": {},
+                "properties": {
+                    "shape": "S74"
+                },
+                "title": {},
+                "category": {
+                    "shape": "S1n"
+                }
+            }
+        },
+        "S71": {
+            "type": "list",
+            "member": {
+                "type": "string",
+                "sensitive": true
+            }
+        },
+        "S73": {
+            "type": "string",
+            "sensitive": true
+        },
+        "S74": {
+            "type": "map",
+            "key": {},
+            "value": {}
+        },
+        "S77": {
+            "type": "list",
+            "member": {
+                "shape": "S70"
+            }
+        },
+        "S7f": {
+            "type": "structure",
+            "members": {
+                "bytesScanned": {
+                    "type": "double"
+                },
+                "recordsMatched": {
+                    "type": "double"
+                },
+                "recordsScanned": {
+                    "type": "double"
+                }
+            }
+        },
+        "S7h": {
+            "type": "list",
+            "member": {
+                "type": "list",
+                "member": {
+                    "type": "structure",
+                    "members": {
+                        "field": {
+                            "shape": "S2q"
+                        },
+                        "value": {
+                            "shape": "S2q"
+                        }
+                    }
+                }
+            }
+        },
+        "S7l": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "AlarmName": {},
+                    "AlarmType": {},
+                    "Timestamp": {
+                        "type": "timestamp"
+                    },
+                    "HistoryItemType": {},
+                    "HistorySummary": {},
+                    "HistoryData": {}
+                }
+            }
+        },
+        "S7s": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "Id": {},
+                    "Label": {},
+                    "Timestamps": {
+                        "type": "list",
+                        "member": {
+                            "type": "timestamp"
+                        }
+                    },
+                    "Values": {
+                        "type": "list",
+                        "member": {
+                            "type": "double"
+                        }
+                    },
+                    "StatusCode": {},
+                    "Messages": {
+                        "shape": "S7y"
+                    }
+                }
+            }
+        },
+        "S7y": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "Code": {},
+                    "Value": {}
+                }
+            }
+        },
+        "S84": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "approximateAggregateValue": {
+                        "type": "double"
+                    },
+                    "datapoints": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "approximateValue": {
+                                    "type": "double"
+                                },
+                                "timestamp": {
+                                    "type": "timestamp"
+                                }
+                            }
+                        }
+                    },
+                    "keys": {
+                        "shape": "S88"
+                    }
+                }
+            }
+        },
+        "S88": {
+            "type": "list",
+            "member": {}
+        },
+        "S89": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "timestamp": {
+                        "type": "timestamp"
+                    },
+                    "average": {
+                        "type": "double"
+                    },
+                    "maxContributorValue": {
+                        "type": "double"
+                    },
+                    "maximum": {
+                        "type": "double"
+                    },
+                    "minimum": {
+                        "type": "double"
+                    },
+                    "sampleCount": {
+                        "type": "double"
+                    },
+                    "sum": {
+                        "type": "double"
+                    },
+                    "uniqueContributors": {
+                        "type": "double"
+                    }
+                }
+            }
+        },
+        "S8v": {
+            "type": "structure",
+            "required": [
+                "identifier",
+                "incidentReportId"
+            ],
+            "members": {
+                "identifier": {},
+                "incidentReportId": {},
+                "name": {
+                    "shape": "S2q"
+                },
+                "description": {
+                    "shape": "S2q"
+                },
+                "sections": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "members": {
+                            "title": {
+                                "type": "boolean"
+                            },
+                            "name": {
+                                "shape": "S2q"
+                            },
+                            "content": {
+                                "shape": "S1n"
+                            },
+                            "evidences": {
+                                "shape": "S6c"
+                            },
+                            "reasoning": {
+                                "shape": "S1n"
+                            }
+                        }
+                    }
+                },
+                "investigationIds": {
+                    "shape": "S56"
+                },
+                "templateId": {},
+                "labels": {
+                    "shape": "S8y"
+                },
+                "properties": {
+                    "type": "map",
+                    "key": {},
+                    "value": {}
+                },
+                "createdAt": {
+                    "type": "timestamp"
+                },
+                "createdBy": {},
+                "lastUpdatedAt": {
+                    "type": "timestamp"
+                },
+                "lastUpdatedBy": {}
+            }
+        },
+        "S8y": {
+            "type": "list",
+            "member": {}
+        }
+    }
+}

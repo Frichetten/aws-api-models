@@ -1,0 +1,449 @@
+{
+    "version": "2.0",
+    "metadata": {
+        "apiVersion": "2024-12-11",
+        "auth": [
+            "aws.auth#sigv4"
+        ],
+        "endpointPrefix": "support",
+        "protocol": "rest-json",
+        "protocols": [
+            "rest-json"
+        ],
+        "serviceFullName": "AWS Support API Service",
+        "serviceId": "Support",
+        "signatureVersion": "v4",
+        "signingName": "support",
+        "uid": "support-2024-12-11",
+        "download_location": [
+            "https://a.b.cdn.console.awsstatic.com/a/v1/2FLKSY3RVVFCURZCVHWCBDM4DGU3H4WUETN7QS5QOO2ZAQ4Y7SLA/caseDetails.js",
+            "https://a.b.cdn.console.awsstatic.com/a/v1/QGZBCNEMG6K5R5WYOH7JSKSPAQLN4U5C5ZYNDAGUULVBJPV62HLQ/caseDetails.js"
+        ]
+    },
+    "operations": {
+        "GetInteraction": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/interactions/{interactionId}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "interactionId"
+                ],
+                "members": {
+                    "interactionId": {
+                        "location": "uri",
+                        "locationName": "interactionId"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "interactionId"
+                ],
+                "members": {
+                    "interactionId": {},
+                    "status": {},
+                    "statusMessage": {
+                        "type": "list",
+                        "member": {}
+                    },
+                    "response": {
+                        "type": "structure",
+                        "members": {
+                            "messageId": {},
+                            "message": {},
+                            "metadata": {
+                                "shape": "S8"
+                            }
+                        }
+                    },
+                    "result": {
+                        "shape": "Sh"
+                    },
+                    "statusUpdates": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "name",
+                                "executionStatus"
+                            ],
+                            "members": {
+                                "name": {},
+                                "executionStatus": {},
+                                "interimUpdates": {
+                                    "type": "list",
+                                    "member": {
+                                        "shape": "Sq"
+                                    }
+                                },
+                                "finalResponse": {
+                                    "shape": "Sq"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "endpoint": {
+                "hostPrefix": "assistant."
+            },
+            "readonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/2FLKSY3RVVFCURZCVHWCBDM4DGU3H4WUETN7QS5QOO2ZAQ4Y7SLA/caseDetails.js",
+                "https://a.b.cdn.console.awsstatic.com/a/v1/QGZBCNEMG6K5R5WYOH7JSKSPAQLN4U5C5ZYNDAGUULVBJPV62HLQ/caseDetails.js"
+            ]
+        },
+        "ListInteractionEntries": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/interactions/{interactionId}/entries",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "interactionId"
+                ],
+                "members": {
+                    "interactionId": {
+                        "location": "uri",
+                        "locationName": "interactionId"
+                    },
+                    "nextToken": {
+                        "location": "querystring",
+                        "locationName": "nextToken"
+                    },
+                    "maxResults": {
+                        "location": "querystring",
+                        "locationName": "maxResults",
+                        "type": "integer"
+                    },
+                    "sortOrder": {
+                        "location": "querystring",
+                        "locationName": "sortOrder"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "interactionId"
+                ],
+                "members": {
+                    "interactionId": {},
+                    "status": {},
+                    "nextToken": {},
+                    "entries": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "required": [
+                                "messageId",
+                                "userMessage",
+                                "userMessageTimestamp"
+                            ],
+                            "members": {
+                                "messageId": {},
+                                "userMessage": {
+                                    "shape": "Sz"
+                                },
+                                "userMessageTimestamp": {
+                                    "shape": "Sr"
+                                },
+                                "assistantResponse": {
+                                    "shape": "Sh"
+                                },
+                                "assistantResponseTimestamp": {
+                                    "shape": "Sr"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "endpoint": {
+                "hostPrefix": "assistant."
+            },
+            "readonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/2FLKSY3RVVFCURZCVHWCBDM4DGU3H4WUETN7QS5QOO2ZAQ4Y7SLA/caseDetails.js",
+                "https://a.b.cdn.console.awsstatic.com/a/v1/QGZBCNEMG6K5R5WYOH7JSKSPAQLN4U5C5ZYNDAGUULVBJPV62HLQ/caseDetails.js"
+            ]
+        },
+        "ListInteractions": {
+            "http": {
+                "method": "GET",
+                "requestUri": "/interactions",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "members": {
+                    "nextToken": {
+                        "location": "querystring",
+                        "locationName": "nextToken"
+                    },
+                    "maxResults": {
+                        "location": "querystring",
+                        "locationName": "maxResults",
+                        "type": "integer"
+                    },
+                    "sortBy": {
+                        "location": "querystring",
+                        "locationName": "sortBy"
+                    },
+                    "sortOrder": {
+                        "location": "querystring",
+                        "locationName": "sortOrder"
+                    },
+                    "statusEquals": {
+                        "location": "querystring",
+                        "locationName": "statusEquals",
+                        "type": "list",
+                        "member": {}
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "nextToken": {},
+                    "interactions": {
+                        "type": "list",
+                        "member": {
+                            "type": "structure",
+                            "members": {
+                                "interactionId": {},
+                                "subject": {},
+                                "status": {},
+                                "updatedAt": {
+                                    "shape": "Sr"
+                                },
+                                "createdAt": {
+                                    "shape": "Sr"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "endpoint": {
+                "hostPrefix": "assistant."
+            },
+            "readonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/2FLKSY3RVVFCURZCVHWCBDM4DGU3H4WUETN7QS5QOO2ZAQ4Y7SLA/caseDetails.js",
+                "https://a.b.cdn.console.awsstatic.com/a/v1/QGZBCNEMG6K5R5WYOH7JSKSPAQLN4U5C5ZYNDAGUULVBJPV62HLQ/caseDetails.js"
+            ]
+        },
+        "ResolveInteraction": {
+            "http": {
+                "requestUri": "/interactions/{interactionId}/resolve",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "interactionId"
+                ],
+                "members": {
+                    "interactionId": {
+                        "location": "uri",
+                        "locationName": "interactionId"
+                    },
+                    "input": {
+                        "locationName": "_",
+                        "type": "structure",
+                        "members": {}
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "required": [
+                    "status"
+                ],
+                "members": {
+                    "status": {}
+                }
+            },
+            "endpoint": {
+                "hostPrefix": "assistant."
+            },
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/2FLKSY3RVVFCURZCVHWCBDM4DGU3H4WUETN7QS5QOO2ZAQ4Y7SLA/caseDetails.js",
+                "https://a.b.cdn.console.awsstatic.com/a/v1/QGZBCNEMG6K5R5WYOH7JSKSPAQLN4U5C5ZYNDAGUULVBJPV62HLQ/caseDetails.js"
+            ]
+        },
+        "StartInteraction": {
+            "http": {
+                "requestUri": "/interactions",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "message"
+                ],
+                "members": {
+                    "message": {
+                        "shape": "Sz"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "interactionId": {},
+                    "status": {},
+                    "subject": {}
+                }
+            },
+            "endpoint": {
+                "hostPrefix": "assistant."
+            },
+            "readonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/2FLKSY3RVVFCURZCVHWCBDM4DGU3H4WUETN7QS5QOO2ZAQ4Y7SLA/caseDetails.js",
+                "https://a.b.cdn.console.awsstatic.com/a/v1/QGZBCNEMG6K5R5WYOH7JSKSPAQLN4U5C5ZYNDAGUULVBJPV62HLQ/caseDetails.js"
+            ]
+        },
+        "UpdateInteraction": {
+            "http": {
+                "requestUri": "/interactions/{interactionId}",
+                "responseCode": 200
+            },
+            "input": {
+                "type": "structure",
+                "required": [
+                    "interactionId",
+                    "message"
+                ],
+                "members": {
+                    "interactionId": {
+                        "location": "uri",
+                        "locationName": "interactionId"
+                    },
+                    "message": {
+                        "shape": "Sz"
+                    }
+                }
+            },
+            "output": {
+                "type": "structure",
+                "members": {
+                    "interactionId": {},
+                    "status": {}
+                }
+            },
+            "endpoint": {
+                "hostPrefix": "assistant."
+            },
+            "readonly": true,
+            "download_location": [
+                "https://a.b.cdn.console.awsstatic.com/a/v1/2FLKSY3RVVFCURZCVHWCBDM4DGU3H4WUETN7QS5QOO2ZAQ4Y7SLA/caseDetails.js",
+                "https://a.b.cdn.console.awsstatic.com/a/v1/QGZBCNEMG6K5R5WYOH7JSKSPAQLN4U5C5ZYNDAGUULVBJPV62HLQ/caseDetails.js"
+            ]
+        }
+    },
+    "shapes": {
+        "S8": {
+            "type": "list",
+            "member": {
+                "type": "structure",
+                "members": {
+                    "similarCase": {
+                        "type": "structure",
+                        "members": {
+                            "startOffset": {
+                                "type": "integer"
+                            },
+                            "endOffset": {
+                                "type": "integer"
+                            },
+                            "caseId": {},
+                            "subject": {},
+                            "description": {},
+                            "createdAt": {
+                                "type": "timestamp"
+                            },
+                            "status": {},
+                            "url": {},
+                            "confidenceScore": {
+                                "type": "double"
+                            }
+                        }
+                    },
+                    "generalGuidance": {
+                        "type": "structure",
+                        "members": {
+                            "startOffset": {
+                                "type": "integer"
+                            },
+                            "endOffset": {
+                                "type": "integer"
+                            },
+                            "chunk": {},
+                            "sourceLink": {}
+                        }
+                    }
+                },
+                "union": true
+            }
+        },
+        "Sh": {
+            "type": "structure",
+            "members": {
+                "messageId": {},
+                "details": {
+                    "type": "list",
+                    "member": {
+                        "type": "structure",
+                        "required": [
+                            "assistantName",
+                            "category",
+                            "content"
+                        ],
+                        "members": {
+                            "assistantName": {},
+                            "category": {},
+                            "content": {},
+                            "metadata": {
+                                "shape": "S8"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "Sq": {
+            "type": "structure",
+            "required": [
+                "content",
+                "updatedAt"
+            ],
+            "members": {
+                "content": {},
+                "updatedAt": {
+                    "shape": "Sr"
+                },
+                "isGuardrailed": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "Sr": {
+            "type": "timestamp",
+            "timestampFormat": "iso8601"
+        },
+        "Sz": {
+            "type": "string",
+            "sensitive": true
+        }
+    }
+}
